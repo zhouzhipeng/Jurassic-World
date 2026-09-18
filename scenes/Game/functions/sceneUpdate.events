@@ -1155,6 +1155,12 @@ if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=10
 
 if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name="JurassicWorldDemo" group="Version"
+do SetNumberVariable variable="Riding" modification_sign="=" value=0
+do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X() + 240)
+do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y())
+
+if NumberVariable variable="Action" comparison_sign="=" value=10
 if GroupExists storage_name="JurassicWorldDemo" group="QuestVersion"
 do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="QuestStage" variable="QuestStage"
 do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="GatherBerries" variable="GatherBerries"
