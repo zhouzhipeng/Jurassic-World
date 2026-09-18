@@ -1,0 +1,50 @@
+{
+  "method": "Paused GDevelop preview, physical input and complete survival playthrough",
+  "checks": [
+    {
+      "test": "Initial inventory does not satisfy actual-harvest objective",
+      "pass": true
+    },
+    {
+      "test": "Gather berries and claim advances to stage 1 with reward",
+      "pass": true
+    },
+    {
+      "test": "Duplicate claim while next task incomplete gives no reward",
+      "pass": true
+    },
+    {
+      "test": "Actual wood stone and fiber harvesting completes materials objective",
+      "pass": true
+    },
+    {
+      "test": "Craft spear completes crafting objective and grants stamina",
+      "pass": true
+    },
+    {
+      "test": "Five feeds complete taming objective",
+      "pass": true
+    },
+    {
+      "test": "Build camp and claim unlocks repeatable supply contract",
+      "pass": true
+    },
+    {
+      "test": "Fresh preview loads claimed stage and rewards from auto-save",
+      "pass": true
+    },
+    {
+      "test": "Journal pauses harvesting and survival",
+      "pass": true
+    },
+    {
+      "test": "New gathering completes repeat contract; reward resets its progress",
+      "pass": true
+    },
+    {
+      "test": "Repeated claim does not duplicate repeat-contract rewards",
+      "pass": true
+    }
+  ],
+  "allPassed": true
+}

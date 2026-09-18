@@ -1561,3 +1561,15 @@ if NumberVariable variable="QuestToastTime" comparison_sign="<=" value=0
 do Hide object="QuestToastPanel"
 do Hide object="QuestToast"
 
+
+if NumberVariable variable="QuestStage" comparison_sign="<" value=5
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalHeading" behavior="Text" modification_sign="=" text="生存手册 / 建立你的海岛据点"
+
+if NumberVariable variable="QuestReady" comparison_sign="=" value=0
+do OpacityCapability::OpacityBehavior::SetValue object="ClaimQuest" behavior="Opacity" modification_sign="=" opacity_0_255=130
+
+if NumberVariable variable="QuestReady" comparison_sign="=" value=1
+do OpacityCapability::OpacityBehavior::SetValue object="ClaimQuest" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="Compass" behavior="Text" modification_sign="=" text="F3 返回实时 3D，继续任务"
