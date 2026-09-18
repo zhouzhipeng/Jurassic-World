@@ -252,6 +252,232 @@ if IsCursorOnObject object="Station" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=5
 
+@comment "Interactive hotbar: click or number keys, dispatch once" background=[90,150,180] text=[255,255,255]
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="HotSlot0" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=1
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Num1"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=1
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="HotSlot1" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=2
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=2
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Num2"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=2
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=2
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="HotSlot2" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=3
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=3
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Num3"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=3
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=3
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="HotSlot3" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=4
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=4
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Num4"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=4
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=4
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="HotSlot4" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=5
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=5
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Num5"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=5
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=5
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="HotSlot5" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=6
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=6
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Num6"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=6
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=6
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="HotSlot6" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=7
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=7
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Num7"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=7
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=7
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="HotSlot7" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=8
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=8
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Num8"
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=8
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=8
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=3
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=2
+do SetNumberVariable variable="Mode" modification_sign="=" value=1
+do SetNumberVariable variable="Recipe" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Spear: choose Craft to make one. Combat is not available in this demo."
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=3
+if NumberVariable variable="StationIndex" comparison_sign="=" value=0
+do SetNumberVariable variable="Action" modification_sign="=" value=1
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=3
+if NumberVariable variable="StationIndex" comparison_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Berries: travel to your dinosaur with Q, then feed it."
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=4
+do SetNumberVariable variable="Action" modification_sign="=" value=4
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=5
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Bandage: health is already full. No bandage consumed."
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=6
+if NumberVariable variable="StationIndex" comparison_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=4
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=6
+if NumberVariable variable="StationIndex" comparison_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Campfire: return to camp with Q to rest."
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=7
+if NumberVariable variable="StationIndex" comparison_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=1
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=7
+if NumberVariable variable="StationIndex" comparison_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Hammer: return to camp with Q to reinforce your shelter."
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=8
+do SetNumberVariable variable="Mode" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Backpack opened. Click an item to inspect it."
+
+
+if NumberVariable variable="HotbarRequest" comparison_sign=">" value=0
+do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=0
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+do ChangeColor object="HotSlot0" tint="255;255;255"
+
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=1
+do ChangeColor object="HotSlot0" tint="255;190;60"
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+do ChangeColor object="HotSlot1" tint="255;255;255"
+
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=2
+do ChangeColor object="HotSlot1" tint="255;190;60"
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+do ChangeColor object="HotSlot2" tint="255;255;255"
+
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=3
+do ChangeColor object="HotSlot2" tint="255;190;60"
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+do ChangeColor object="HotSlot3" tint="255;255;255"
+
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=4
+do ChangeColor object="HotSlot3" tint="255;190;60"
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+do ChangeColor object="HotSlot4" tint="255;255;255"
+
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=5
+do ChangeColor object="HotSlot4" tint="255;190;60"
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+do ChangeColor object="HotSlot5" tint="255;255;255"
+
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=6
+do ChangeColor object="HotSlot5" tint="255;190;60"
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+do ChangeColor object="HotSlot6" tint="255;255;255"
+
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=7
+do ChangeColor object="HotSlot6" tint="255;190;60"
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+do ChangeColor object="HotSlot7" tint="255;255;255"
+
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=8
+do ChangeColor object="HotSlot7" tint="255;190;60"
+
 if NumberVariable variable="Action" comparison_sign="=" value=1
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=0

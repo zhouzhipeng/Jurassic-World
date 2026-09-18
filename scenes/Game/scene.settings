@@ -210,6 +210,16 @@ name = "CameraMouseY"
 type = "number"
 value = 0
 
+[[variables]]
+name = "HotbarRequest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SelectedHotbar"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 background = "#72BBDD"
