@@ -1,0 +1,38 @@
+{
+  "berry-bush": {
+    "file": "berry-bush.glb",
+    "dimensions": [
+      2.243865728378296,
+      2.2324204444885254,
+      1.704596757888794
+    ],
+    "triangles": 2436
+  },
+  "fiber-fern": {
+    "file": "fiber-fern.glb",
+    "dimensions": [
+      2.0600013732910156,
+      2.091779947280884,
+      1.2299998998641968
+    ],
+    "triangles": 7532
+  },
+  "wood-sapling": {
+    "file": "wood-sapling.glb",
+    "dimensions": [
+      2.883110284805298,
+      2.931478977203369,
+      4.055087566375732
+    ],
+    "triangles": 568
+  },
+  "stone-node": {
+    "file": "stone-node.glb",
+    "dimensions": [
+      1.8627524375915527,
+      1.2985632419586182,
+      1.190000057220459
+    ],
+    "triangles": 120
+  }
+}

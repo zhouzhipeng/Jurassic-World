@@ -8,7 +8,7 @@ if BuiltinCommonInstructions::Once
 do HideLayer layer="World"
 do ShowLayer layer="World3D"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DemoLabel" behavior="Text" modification_sign="=" text="REAL-TIME 3D / F3 ART REFERENCE"
-do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD move   E interact   R forage   G gather   F rest   Q travel   TAB pack  ESC menu  RMB orbit  Wheel zoom  Home reset"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD move   Hold E gather / interact   F rest   Q travel   TAB pack  ESC menu  RMB orbit  Wheel zoom  Home reset"
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
@@ -207,8 +207,112 @@ if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Help" modification_sign="=" value=expr(1 - Help)
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@comment "Proximity harvesting: one nearest node, hold E, respawn and feedback" background=[90,150,180] text=[255,255,255]
+
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do SetNumberVariable variable="HarvestNear" modification_sign="=" value=0
+do SetNumberObjectVariable object="HarvestNodes" variable="Target" modification_sign="=" value=0
+do Hide object="HarvestPanel"
+do Hide object="HarvestHint"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign=">" value=0
+do SetNumberObjectVariable object="HarvestNodes" variable="Cooldown" modification_sign="-" value=expr(TimeDelta())
+
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+do Show object="HarvestNodes"
+
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign=">" value=0
+do Hide object="HarvestNodes"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if PickNearest object="HarvestNodes" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if Distance object="Player3D" object_2="HarvestNodes" distance=260
+do SetNumberVariable variable="HarvestNear" modification_sign="=" value=1
+do SetNumberObjectVariable object="HarvestNodes" variable="Target" modification_sign="=" value=1
+do Show object="HarvestPanel"
+do Show object="HarvestHint"
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("BERRY BUSH  /  Berries +3" + NewLine() + "HOLD E   " + ToString(round(HarvestNodes.Variable(Progress) / 0.8 * 100)) + "%")
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=2
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("FIBER FERN  /  Fiber +5" + NewLine() + "HOLD E   " + ToString(round(HarvestNodes.Variable(Progress) / 0.8 * 100)) + "%")
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=3
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("YOUNG TREE  /  Wood +4" + NewLine() + "HOLD E   " + ToString(round(HarvestNodes.Variable(Progress) / 0.8 * 100)) + "%")
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=4
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("MINERAL ROCK  /  Stone +3" + NewLine() + "HOLD E   " + ToString(round(HarvestNodes.Variable(Progress) / 0.8 * 100)) + "%")
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign=">" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("RESOURCE GATHERED" + NewLine() + "Regrows in " + ToString(ceil(HarvestNodes.Variable(Cooldown))) + "s")
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+if NumberVariable variable="Stamina" comparison_sign="<" value=3
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text="Too tired to gather. Rest with F."
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+if NumberVariable variable="Stamina" comparison_sign=">=" value=3
+if KeyFromTextPressed key_to_check="e"
+do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modification_sign="+" value=expr(TimeDelta())
+do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=expr(sin(HarvestNodes.Variable(Progress) * 35) * 7)
+
+if NumberObjectVariable object="HarvestNodes" variable="Progress" comparison_sign=">=" value=0.8
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+do SetNumberObjectVariable object="HarvestNodes" variable="Cooldown" modification_sign="=" value=30
+do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modification_sign="=" value=0
+do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=0
+do Hide object="HarvestNodes"
+do SetNumberVariable variable="Stamina" modification_sign="-" value=3
+do SetNumberVariable variable="HarvestCount" modification_sign="+" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=65 pitch_speed=1
+
+> if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=1
+> do SetNumberVariable variable="Berries" modification_sign="+" value=3
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="+3 Berries collected and added to backpack."
+
+> if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=2
+> do SetNumberVariable variable="Fiber" modification_sign="+" value=5
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="+5 Fiber collected and added to backpack."
+
+> if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=3
+> do SetNumberVariable variable="Wood" modification_sign="+" value=4
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="+4 Wood collected and added to backpack."
+
+> if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=4
+> do SetNumberVariable variable="Stone" modification_sign="+" value=3
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="+3 Stone collected and added to backpack."
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=0
+or NumberVariable variable="Mode" comparison_sign="!=" value=0
+or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
+do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modification_sign="=" value=0
+do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=0
+
+if KeyFromTextReleased key_to_check="e"
+do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modification_sign="=" value=0
+do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=0
+
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="e"
+if NumberVariable variable="HarvestNear" comparison_sign="=" value=0
 do SetNumberVariable variable="Action" modification_sign="=" value=1
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
@@ -543,20 +647,8 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do SetNumberVariable variable="Action" modification_sign="=" value=0
 
 if NumberVariable variable="Action" comparison_sign="=" value=2
-if NumberVariable variable="Stamina" comparison_sign=">=" value=3
-do SetNumberVariable variable="Berries" modification_sign="+" value=3
-do SetNumberVariable variable="Fiber" modification_sign="+" value=2
-do SetNumberVariable variable="Stamina" modification_sign="-" value=3
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Foraged: berries +3, fiber +2."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-
-if NumberVariable variable="Action" comparison_sign="=" value=3
-if NumberVariable variable="Stamina" comparison_sign=">=" value=4
-do SetNumberVariable variable="Wood" modification_sign="+" value=3
-do SetNumberVariable variable="Stone" modification_sign="+" value=2
-do SetNumberVariable variable="Stamina" modification_sign="-" value=4
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Collected: wood +3, stone +2."
+or NumberVariable variable="Action" comparison_sign="=" value=3
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Walk to a resource and HOLD E to gather."
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do SetNumberVariable variable="Action" modification_sign="=" value=0
 

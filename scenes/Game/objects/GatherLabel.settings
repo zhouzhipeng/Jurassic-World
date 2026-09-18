@@ -9,7 +9,7 @@ effects = [ ]
 behaviors = [ ]
 
 [content]
-text = "R  Gather berries"
+text = "E  Gather nearby"
 font = "interface.ttf"
 characterSize = 22
 color = "242;240;218"

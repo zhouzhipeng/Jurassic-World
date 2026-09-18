@@ -7,7 +7,8 @@ disableInputWhenNotFocused = false
 standardSortMethod = true
 stopSoundsOnStartup = true
 behaviorsSharedData = [ ]
-objectGroups = { }
+[objectGroups]
+HarvestNodes = ["BerryBush", "FiberFern", "WoodSapling", "StoneDeposit"]
 
 [[variables]]
 name = "Mode"
@@ -217,6 +218,16 @@ value = 0
 
 [[variables]]
 name = "SelectedHotbar"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HarvestNear"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HarvestCount"
 type = "number"
 value = 0
 
@@ -2098,3 +2109,129 @@ id = "2ddc1b04-4355-41e0-912a-16c9c3ac59e5"
 object = "Player3D"
 layer = "world3d"
 at = [0, -700, 0]
+
+[[layout.instances]]
+id = "760746b1-229c-4011-aa8d-3825c7328486"
+object = "BerryBush"
+layer = "world3d"
+at = [430, 100, 0]
+
+[[layout.instances]]
+id = "79f11c5d-f813-46c1-a8b8-4b56f08482eb"
+object = "BerryBush"
+layer = "world3d"
+at = [100, -650, 0]
+
+[[layout.instances]]
+id = "e718a5ef-1f44-4818-b5db-b64345447907"
+object = "BerryBush"
+layer = "world3d"
+at = [1050, -900, 0]
+
+[[layout.instances]]
+id = "c79a67d3-8aa4-42e0-92c9-e57903d79594"
+object = "BerryBush"
+layer = "world3d"
+at = [-100, 650, 0]
+
+[[layout.instances]]
+id = "bc45847a-9ffa-459e-9d55-f9993a6ea0a2"
+object = "BerryBush"
+layer = "world3d"
+at = [-1400, -100, 0]
+
+[[layout.instances]]
+id = "6e120c39-558c-41b6-9eca-3d2970dd507f"
+object = "FiberFern"
+layer = "world3d"
+at = [950, 100, 0]
+
+[[layout.instances]]
+id = "6539116d-81dd-4145-8976-7daf1962edb1"
+object = "FiberFern"
+layer = "world3d"
+at = [400, -900, 0]
+
+[[layout.instances]]
+id = "870d3ba9-01ca-4d1e-98f3-03d846118cd6"
+object = "FiberFern"
+layer = "world3d"
+at = [-350, 200, 0]
+
+[[layout.instances]]
+id = "fdfa7b9f-0b93-40cd-8e18-992c9e07674f"
+object = "FiberFern"
+layer = "world3d"
+at = [-1200, 750, 0]
+
+[[layout.instances]]
+id = "bf081b6e-74e0-43a9-8d39-3236d5b52d71"
+object = "FiberFern"
+layer = "world3d"
+at = [1200, 850, 0]
+
+[[layout.instances]]
+id = "26802de0-6a4a-42c0-a67a-68de2a5edc3c"
+object = "WoodSapling"
+layer = "world3d"
+at = [1300, -350, 0]
+
+[[layout.instances]]
+id = "64c2b7c0-8346-4345-9974-3cad8a0817da"
+object = "WoodSapling"
+layer = "world3d"
+at = [-300, -1100, 0]
+
+[[layout.instances]]
+id = "e9355b9e-e0c9-4135-aa92-d7411a6d2501"
+object = "WoodSapling"
+layer = "world3d"
+at = [-1400, -1200, 0]
+
+[[layout.instances]]
+id = "dc30642c-9ee4-45ad-8bea-d53cadb94be3"
+object = "WoodSapling"
+layer = "world3d"
+at = [200, 1000, 0]
+
+[[layout.instances]]
+id = "5fbbf9e6-7c49-4a0f-8b1d-6e51da96fe75"
+object = "StoneDeposit"
+layer = "world3d"
+at = [1100, 600, 0]
+
+[[layout.instances]]
+id = "53e8b934-d1ab-416a-8e24-b2bdf19fc5e7"
+object = "StoneDeposit"
+layer = "world3d"
+at = [-100, 0, 0]
+
+[[layout.instances]]
+id = "b85db08a-5c6a-4683-a121-478109b3503b"
+object = "StoneDeposit"
+layer = "world3d"
+at = [-1400, 350, 0]
+
+[[layout.instances]]
+id = "f653e752-67f4-47ca-a533-5678e3a90516"
+object = "StoneDeposit"
+layer = "world3d"
+at = [550, -1300, 0]
+
+[[layout.instances]]
+id = "0acc2cd2-ce99-4486-b12a-2c19b5f2351a"
+object = "HarvestPanel"
+layer = "hud"
+at = [530, 640]
+size = [540, 100]
+keep_ratio = false
+z_order = 30
+
+[[layout.instances]]
+id = "f88250d7-60cc-41cd-9dc9-28a271097894"
+object = "HarvestHint"
+layer = "hud"
+at = [548, 653]
+size = [504, 82]
+keep_ratio = false
+z_order = 30

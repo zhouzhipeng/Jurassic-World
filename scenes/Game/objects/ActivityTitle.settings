@@ -9,7 +9,7 @@ effects = [ ]
 behaviors = [ ]
 
 [content]
-text = "ISLAND RESOURCES"
+text = "NEARBY RESOURCES"
 font = "interface.ttf"
 characterSize = 17
 color = "247;201;108"

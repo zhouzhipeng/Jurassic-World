@@ -1,0 +1,48 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 199
+folder = ["Real-time 3D"]
+name = "BerryBush"
+type = "Scene3D::Model3DObject"
+behaviors = [ ]
+effects = [ ]
+[[variables]]
+name = "Kind"
+type = "number"
+value = 1
+
+[[variables]]
+name = "Cooldown"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Progress"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Target"
+type = "number"
+value = 0
+
+behaviors = [ ]
+effects = [ ]
+
+[content]
+modelResourceName = "berry-bush.glb"
+width = 224
+height = 223
+depth = 170
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true
+crossfadeDuration = 0.1
+animations = [ ]
+sharedAnimationModelResources = [ ]

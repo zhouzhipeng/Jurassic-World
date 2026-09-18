@@ -756,3 +756,38 @@ name = "survivor.glb"
 file = "assets/models/survivor.glb"
 metadata = ""
 userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "berry-bush.glb"
+file = "assets/models/berry-bush.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "fiber-fern.glb"
+file = "assets/models/fiber-fern.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "wood-sapling.glb"
+file = "assets/models/wood-sapling.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "stone-node.glb"
+file = "assets/models/stone-node.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "harvest.wav"
+file = "assets/harvest.wav"
+metadata = ""
+userAdded = true

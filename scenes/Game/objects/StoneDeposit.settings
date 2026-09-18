@@ -1,0 +1,48 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 202
+folder = ["Real-time 3D"]
+name = "StoneDeposit"
+type = "Scene3D::Model3DObject"
+behaviors = [ ]
+effects = [ ]
+[[variables]]
+name = "Kind"
+type = "number"
+value = 4
+
+[[variables]]
+name = "Cooldown"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Progress"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Target"
+type = "number"
+value = 0
+
+behaviors = [ ]
+effects = [ ]
+
+[content]
+modelResourceName = "stone-node.glb"
+width = 186
+height = 130
+depth = 119
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true
+crossfadeDuration = 0.1
+animations = [ ]
+sharedAnimationModelResources = [ ]

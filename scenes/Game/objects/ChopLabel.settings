@@ -9,7 +9,7 @@ effects = [ ]
 behaviors = [ ]
 
 [content]
-text = "G  Collect wood"
+text = "Find wood / stone"
 font = "interface.ttf"
 characterSize = 22
 color = "242;240;218"
