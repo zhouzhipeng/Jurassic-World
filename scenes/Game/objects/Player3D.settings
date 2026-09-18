@@ -11,8 +11,8 @@ effects = [ ]
 [content]
 modelResourceName = "survivor.glb"
 width = 109
-height = 204
-depth = 72
+height = 72
+depth = 204
 keepAspectRatio = true
 rotationX = 90
 rotationY = 0

@@ -11,8 +11,8 @@ effects = [ ]
 [content]
 modelResourceName = "parasaur.glb"
 width = 215
-height = 435
-depth = 666
+height = 666
+depth = 435
 keepAspectRatio = true
 rotationX = 90
 rotationY = 0

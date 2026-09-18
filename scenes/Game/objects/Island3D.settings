@@ -11,8 +11,8 @@ effects = [ ]
 [content]
 modelResourceName = "island.glb"
 width = 18000
-height = 2939
-depth = 18000
+height = 18000
+depth = 2939
 keepAspectRatio = true
 rotationX = 90
 rotationY = 0
