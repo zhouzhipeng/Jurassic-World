@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 191
+folder = ["Title"]
+name = "TitleContinueLabel"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "Continue expedition"
+font = "interface.ttf"
+characterSize = 22
+color = "22;35;33"
+bold = true
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

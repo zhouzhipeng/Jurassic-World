@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 180
+folder = ["Settings"]
+name = "SettingsHeading"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "SETTINGS"
+font = "interface.ttf"
+characterSize = 32
+color = "242;240;218"
+bold = true
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

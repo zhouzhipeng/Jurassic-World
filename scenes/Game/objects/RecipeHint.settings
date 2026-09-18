@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 151
+folder = ["Inventory"]
+name = "RecipeHint"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "Select recipe"
+font = "interface.ttf"
+characterSize = 17
+color = "179;203;190"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

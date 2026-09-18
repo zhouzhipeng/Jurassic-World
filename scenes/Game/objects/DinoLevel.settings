@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 30
+folder = ["HUD"]
+name = "DinoLevel"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "Level 4  ·  Herbivore"
+font = "interface.ttf"
+characterSize = 17
+color = "182;205;190"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

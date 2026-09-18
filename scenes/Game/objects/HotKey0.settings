@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 52
+folder = ["HUD"]
+name = "HotKey0"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "1"
+font = "interface.ttf"
+characterSize = 11
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

@@ -1,0 +1,25 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 59
+folder = ["HUD"]
+name = "HotSlot3"
+type = "Sprite"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+adaptCollisionMaskAutomatically = true
+updateIfNotVisible = false
+
+[[animations]]
+name = "Default"
+useMultipleDirections = false
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+[[animations.directions.sprites]]
+image = "HotSlot3.svg"
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { name = "Center", x = 0, y = 0, automatic = true }
+points = [ ]
+customCollisionMask = [ ]
+hasCustomCollisionMask = false

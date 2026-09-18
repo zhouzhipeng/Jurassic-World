@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 189
+folder = ["Title"]
+name = "TitleTagline"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "Survive. Build. Find your companion."
+font = "interface.ttf"
+characterSize = 22
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

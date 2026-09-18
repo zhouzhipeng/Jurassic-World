@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 20
+folder = ["HUD"]
+name = "Compass"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "W       ·       N       ·       E"
+font = "interface.ttf"
+characterSize = 19
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

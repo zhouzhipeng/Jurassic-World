@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 47
+folder = ["HUD"]
+name = "Notice"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "Welcome. Feed your first companion with E."
+font = "interface.ttf"
+characterSize = 17
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

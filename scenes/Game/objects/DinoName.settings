@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 29
+folder = ["HUD"]
+name = "DinoName"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "PARASAUROLOPHUS"
+font = "interface.ttf"
+characterSize = 21
+color = "242;240;218"
+bold = true
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

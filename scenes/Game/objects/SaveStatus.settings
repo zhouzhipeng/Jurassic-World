@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 177
+folder = ["Pause"]
+name = "SaveStatus"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "No local save yet.\nUse Save Game to save progress."
+font = "interface.ttf"
+characterSize = 18
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

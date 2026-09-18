@@ -1,0 +1,67 @@
+combinedSettingsFormatVersion = 5
+eventsDslVersion = "3.0"
+kind = "project"
+settingsFormatVersion = 5
+firstLayout = "Game"
+initialGDVersion = "6.0.0"
+variables = [ ]
+objectGroups = { }
+
+[gdVersion]
+build = 0
+major = 6
+minor = 0
+revision = 0
+
+[properties]
+adaptGameResolutionAtRuntime = false
+antialiasingMode = "MSAA"
+antialisingEnabledOnMobile = false
+folderProject = false
+orientation = "landscape"
+packageName = "com.example.gamename"
+pixelsRounding = false
+projectUuid = "45b828fa-b1d4-49e3-8042-4789f1a906b2"
+scaleMode = "linear"
+sizeOnStartupMode = "adaptWidth"
+templateSlug = ""
+version = "1.0.0"
+name = "侏罗纪世界"
+description = ""
+author = ""
+windowWidth = 1_600
+windowHeight = 900
+latestCompilationDirectory = ""
+maxFPS = 60
+minFPS = 20
+verticalSync = false
+platformSpecificAssets = { }
+authorIds = [ ]
+authorUsernames = [ ]
+categories = [ ]
+playableDevices = [ ]
+extensionProperties = [ ]
+currentPlatform = "GDevelop JS platform"
+
+[properties.loadingScreen]
+backgroundColor = 0
+backgroundFadeInDuration = 0.2
+backgroundImageResourceName = ""
+gdevelopLogoStyle = "light"
+logoAndProgressFadeInDuration = 0.2
+logoAndProgressLogoFadeInDelay = 0
+minDuration = 1.5
+progressBarColor = 16_777_215
+progressBarHeight = 20
+progressBarMaxWidth = 200
+progressBarMinWidth = 40
+progressBarWidthPercent = 30
+showGDevelopSplash = false
+showProgressBar = true
+
+[properties.watermark]
+placement = "bottom-left"
+showWatermark = false
+
+[[properties.platforms]]
+name = "GDevelop JS platform"

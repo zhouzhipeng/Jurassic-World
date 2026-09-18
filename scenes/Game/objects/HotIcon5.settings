@@ -1,0 +1,30 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 66
+folder = ["HUD"]
+name = "HotIcon5"
+type = "Sprite"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+adaptCollisionMaskAutomatically = true
+updateIfNotVisible = false
+
+[[animations]]
+name = "Default"
+useMultipleDirections = false
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+[[animations.directions.sprites]]
+image = "inventory-reference.png"
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { name = "Center", x = 0, y = 0, automatic = true }
+points = [ ]
+customCollisionMask = [ ]
+hasCustomCollisionMask = false
+[animations.directions.sprites.sourceRect]
+x = 510
+y = 244
+width = 75
+height = 65

@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 181
+folder = ["Settings"]
+name = "SettingsInfo"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "INTERFACE\n\nShow contextual help\n\nDemo uses a fixed cinematic camera.\nProgress is stored on this device."
+font = "interface.ttf"
+characterSize = 22
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

@@ -1,0 +1,536 @@
+if SceneJustBegins
+do ResetTimer timer_name="survival"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do SetNumberVariable variable="InputMode" modification_sign="=" value=expr(Mode)
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Tab"
+do SetNumberVariable variable="Mode" modification_sign="=" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Tab"
+do SetNumberVariable variable="Mode" modification_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Escape"
+do SetNumberVariable variable="Mode" modification_sign="=" value=2
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Escape"
+do SetNumberVariable variable="Mode" modification_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if KeyFromTextReleased key_to_check="Escape"
+do SetNumberVariable variable="Mode" modification_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=3
+if KeyFromTextReleased key_to_check="Escape"
+do SetNumberVariable variable="Mode" modification_sign="=" value=2
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=4
+if KeyFromTextReleased key_to_check="Escape"
+do SetNumberVariable variable="Mode" modification_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=5
+if KeyFromTextReleased key_to_check="Escape"
+do SetNumberVariable variable="Mode" modification_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if IsCursorOnObject object="OpenPack" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Mode" modification_sign="=" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if IsCursorOnObject object="OpenMenu" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Mode" modification_sign="=" value=2
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="ClosePack" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Mode" modification_sign="=" value=0
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if IsCursorOnObject object="Resume" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Mode" modification_sign="=" value=0
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if IsCursorOnObject object="Settings" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Mode" modification_sign="=" value=3
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=3
+if IsCursorOnObject object="SettingsBack" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Mode" modification_sign="=" value=2
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if IsCursorOnObject object="Photo" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Mode" modification_sign="=" value=5
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if IsCursorOnObject object="Title" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Mode" modification_sign="=" value=4
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=4
+if IsCursorOnObject object="TitleContinue" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Mode" modification_sign="=" value=0
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=3
+if IsCursorOnObject object="HelpToggle" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Help" modification_sign="=" value=expr(1 - Help)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="e"
+do SetNumberVariable variable="Action" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if IsCursorOnObject object="Feed" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Action" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="r"
+do SetNumberVariable variable="Action" modification_sign="=" value=2
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if IsCursorOnObject object="Gather" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Action" modification_sign="=" value=2
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="g"
+do SetNumberVariable variable="Action" modification_sign="=" value=3
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if IsCursorOnObject object="Chop" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Action" modification_sign="=" value=3
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="f"
+do SetNumberVariable variable="Action" modification_sign="=" value=4
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if IsCursorOnObject object="Drink" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Action" modification_sign="=" value=4
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="q"
+do SetNumberVariable variable="Action" modification_sign="=" value=5
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if IsCursorOnObject object="Station" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Action" modification_sign="=" value=5
+
+if NumberVariable variable="Action" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=0
+if NumberVariable variable="Trust" comparison_sign="<" value=100
+if NumberVariable variable="Berries" comparison_sign=">" value=0
+do SetNumberVariable variable="Berries" modification_sign="-" value=1
+do SetNumberVariable variable="Trust" modification_sign="+" value=7
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Berries -1  /  Trust +7"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Trust" comparison_sign=">" value=100
+do SetNumberVariable variable="Trust" modification_sign="=" value=100
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Companion tamed! Return to camp and build a shelter."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Action" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=0
+if NumberVariable variable="Trust" comparison_sign=">=" value=100
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Your companion trusts you. Gather supplies at camp."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Action" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=0
+if NumberVariable variable="Berries" comparison_sign="<=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="No berries. Press R to gather food first."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Action" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=1
+if NumberVariable variable="Built" comparison_sign="=" value=0
+if NumberVariable variable="Wood" comparison_sign=">=" value=10
+if NumberVariable variable="Stone" comparison_sign=">=" value=5
+if NumberVariable variable="Fiber" comparison_sign=">=" value=8
+do SetNumberVariable variable="Wood" modification_sign="-" value=10
+do SetNumberVariable variable="Stone" modification_sign="-" value=5
+do SetNumberVariable variable="Fiber" modification_sign="-" value=8
+do SetNumberVariable variable="Built" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Shelter reinforced! Wood -10, stone -5, fiber -8."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Action" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=1
+if NumberVariable variable="Built" comparison_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Shelter ready. Your camp now protects your supplies."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Action" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Need 10 wood, 5 stone and 8 fiber. Gather with G / R."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Action" comparison_sign="=" value=2
+if NumberVariable variable="Stamina" comparison_sign=">=" value=3
+do SetNumberVariable variable="Berries" modification_sign="+" value=3
+do SetNumberVariable variable="Fiber" modification_sign="+" value=2
+do SetNumberVariable variable="Stamina" modification_sign="-" value=3
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Foraged: berries +3, fiber +2."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Action" comparison_sign="=" value=3
+if NumberVariable variable="Stamina" comparison_sign=">=" value=4
+do SetNumberVariable variable="Wood" modification_sign="+" value=3
+do SetNumberVariable variable="Stone" modification_sign="+" value=2
+do SetNumberVariable variable="Stamina" modification_sign="-" value=4
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Collected: wood +3, stone +2."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Action" comparison_sign="=" value=4
+do SetNumberVariable variable="Water" modification_sign="=" value=100
+do SetNumberVariable variable="Stamina" modification_sign="=" value=100
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Rested at fresh water. Water and stamina restored."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Action" comparison_sign="=" value=5
+do SetNumberVariable variable="StationIndex" modification_sign="=" value=expr(1 - StationIndex)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Location changed. E interacts with this location."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Action" comparison_sign=">" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Too tired to gather. Press F to rest."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot0" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Wood: shelter frames and crafting tool handles."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot1" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Stone: tools and shelter foundations."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot2" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Fiber: bindings, ropes and shelter roofing."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot3" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Hide: island survival supplies."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot4" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Berries: used to tame your companion. E near dinosaur."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot5" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Meat: island survival supplies."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot6" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Water: island survival supplies."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot7" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Stone axe: craft more in Quick Craft."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot8" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Spear: crafted equipment for future expeditions."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot9" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Flint: island survival supplies."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot10" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Rope: island survival supplies."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="ChooseAxe" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Recipe" modification_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="ChooseSpear" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Recipe" modification_sign="=" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Craft" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="CraftRequest" modification_sign="=" value=1
+
+if NumberVariable variable="CraftRequest" comparison_sign="=" value=1
+if NumberVariable variable="Recipe" comparison_sign="=" value=0
+if NumberVariable variable="Wood" comparison_sign=">=" value=5
+if NumberVariable variable="Stone" comparison_sign=">=" value=3
+if NumberVariable variable="Fiber" comparison_sign=">=" value=4
+do SetNumberVariable variable="Wood" modification_sign="-" value=5
+do SetNumberVariable variable="Stone" modification_sign="-" value=3
+do SetNumberVariable variable="Fiber" modification_sign="-" value=4
+do SetNumberVariable variable="Axe" modification_sign="+" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="CraftFeedback" behavior="Text" modification_sign="=" text="Axe crafted and added to backpack."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="CraftRequest" modification_sign="=" value=0
+
+if NumberVariable variable="CraftRequest" comparison_sign="=" value=1
+if NumberVariable variable="Recipe" comparison_sign="=" value=1
+if NumberVariable variable="Wood" comparison_sign=">=" value=6
+if NumberVariable variable="Stone" comparison_sign=">=" value=2
+if NumberVariable variable="Fiber" comparison_sign=">=" value=4
+do SetNumberVariable variable="Wood" modification_sign="-" value=6
+do SetNumberVariable variable="Stone" modification_sign="-" value=2
+do SetNumberVariable variable="Fiber" modification_sign="-" value=4
+do SetNumberVariable variable="Spear" modification_sign="+" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="CraftFeedback" behavior="Text" modification_sign="=" text="Spear crafted and added to backpack."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="CraftRequest" modification_sign="=" value=0
+
+if NumberVariable variable="CraftRequest" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="CraftFeedback" behavior="Text" modification_sign="=" text="Not enough materials. Gather more in the world."
+do SetNumberVariable variable="CraftRequest" modification_sign="=" value=0
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if IsCursorOnObject object="Save" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Trust" expression=expr(Trust)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Berries" expression=expr(Berries)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Wood" expression=expr(Wood)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Stone" expression=expr(Stone)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Fiber" expression=expr(Fiber)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Hide" expression=expr(Hide)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Meat" expression=expr(Meat)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Water" expression=expr(Water)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Stamina" expression=expr(Stamina)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Hunger" expression=expr(Hunger)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Axe" expression=expr(Axe)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Spear" expression=expr(Spear)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Flint" expression=expr(Flint)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Rope" expression=expr(Rope)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Built" expression=expr(Built)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="StationIndex" expression=expr(StationIndex)
+do EcrireFichierExp storage_name="JurassicWorldDemo" group="Version" expression=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text=expr("Saved on this device." + NewLine() + "All resources and progress stored.")
+do SetNumberVariable variable="SaveFlag" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if IsCursorOnObject object="Load" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Action" modification_sign="=" value=10
+
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name="JurassicWorldDemo" group="Version"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Trust" variable="Trust"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Berries" variable="Berries"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Wood" variable="Wood"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Stone" variable="Stone"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Fiber" variable="Fiber"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Hide" variable="Hide"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Meat" variable="Meat"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Water" variable="Water"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Stamina" variable="Stamina"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Hunger" variable="Hunger"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Axe" variable="Axe"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Spear" variable="Spear"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Flint" variable="Flint"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Rope" variable="Rope"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Built" variable="Built"
+do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="StationIndex" variable="StationIndex"
+do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text="Local save loaded successfully."
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Action" comparison_sign="=" value=10
+do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text=expr("No saved expedition yet." + NewLine() + "Choose Save Game first.")
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+do SetNumberVariable variable="Elapsed" modification_sign="+" value=expr(TimeDelta())
+
+if NumberVariable variable="Elapsed" comparison_sign=">=" value=5
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Hunger" comparison_sign=">" value=1
+if NumberVariable variable="Water" comparison_sign=">" value=1
+do SetNumberVariable variable="Elapsed" modification_sign="=" value=0
+do SetNumberVariable variable="Hunger" modification_sign="-" value=1
+do SetNumberVariable variable="Water" modification_sign="-" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if BuiltinCommonInstructions::Once
+do ShowLayer layer="HUD"
+do HideLayer layer="Inventory"
+do HideLayer layer="Pause"
+do HideLayer layer="Settings"
+do HideLayer layer="Title"
+do HideLayer layer="Photo"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::Once
+do HideLayer layer="HUD"
+do ShowLayer layer="Inventory"
+do HideLayer layer="Pause"
+do HideLayer layer="Settings"
+do HideLayer layer="Title"
+do HideLayer layer="Photo"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=2
+if BuiltinCommonInstructions::Once
+do HideLayer layer="HUD"
+do HideLayer layer="Inventory"
+do ShowLayer layer="Pause"
+do HideLayer layer="Settings"
+do HideLayer layer="Title"
+do HideLayer layer="Photo"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=3
+if BuiltinCommonInstructions::Once
+do HideLayer layer="HUD"
+do HideLayer layer="Inventory"
+do HideLayer layer="Pause"
+do ShowLayer layer="Settings"
+do HideLayer layer="Title"
+do HideLayer layer="Photo"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=4
+if BuiltinCommonInstructions::Once
+do HideLayer layer="HUD"
+do HideLayer layer="Inventory"
+do HideLayer layer="Pause"
+do HideLayer layer="Settings"
+do ShowLayer layer="Title"
+do HideLayer layer="Photo"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=5
+if BuiltinCommonInstructions::Once
+do HideLayer layer="HUD"
+do HideLayer layer="Inventory"
+do HideLayer layer="Pause"
+do HideLayer layer="Settings"
+do HideLayer layer="Title"
+do ShowLayer layer="Photo"
+
+if NumberVariable variable="StationIndex" comparison_sign="=" value=0
+if BuiltinCommonInstructions::Once
+do Hide object="CampWorld"
+do TextContainerCapability::TextContainerBehavior::SetValue object="StationLabel" behavior="Text" modification_sign="=" text="Q  Return to camp"
+do TextContainerCapability::TextContainerBehavior::SetValue object="FeedLabel" behavior="Text" modification_sign="=" text="E  Feed berries"
+do TextContainerCapability::TextContainerBehavior::SetValue object="DinoName" behavior="Text" modification_sign="=" text="PARASAUROLOPHUS"
+do TextContainerCapability::TextContainerBehavior::SetValue object="DinoLevel" behavior="Text" modification_sign="=" text="Level 4  /  Herbivore"
+
+if NumberVariable variable="StationIndex" comparison_sign="=" value=1
+if BuiltinCommonInstructions::Once
+do Show object="CampWorld"
+do TextContainerCapability::TextContainerBehavior::SetValue object="StationLabel" behavior="Text" modification_sign="=" text="Q  Visit the dinosaur"
+do TextContainerCapability::TextContainerBehavior::SetValue object="FeedLabel" behavior="Text" modification_sign="=" text="E  Reinforce shelter"
+do TextContainerCapability::TextContainerBehavior::SetValue object="DinoName" behavior="Text" modification_sign="=" text="COASTAL CAMP"
+do TextContainerCapability::TextContainerBehavior::SetValue object="DinoLevel" behavior="Text" modification_sign="=" text="Build: 10 wood / 5 stone / 8 fiber"
+
+if NumberVariable variable="Trust" comparison_sign=">=" value=100
+if BuiltinCommonInstructions::Once
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestTitle" behavior="Text" modification_sign="=" text="A TRUSTED COMPANION"
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestBody" behavior="Text" modification_sign="=" text=expr("Companion tamed." + NewLine() + "Build shelter and craft your equipment.")
+
+if NumberVariable variable="Trust" comparison_sign="<" value=100
+if BuiltinCommonInstructions::Once
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestTitle" behavior="Text" modification_sign="=" text="A NEW COMPANION"
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestBody" behavior="Text" modification_sign="=" text=expr("Offer berries to gain trust." + NewLine() + "Explore, gather and craft a tool.")
+
+if NumberVariable variable="Built" comparison_sign="=" value=1
+if NumberVariable variable="Trust" comparison_sign=">=" value=100
+if BuiltinCommonInstructions::Once
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestTitle" behavior="Text" modification_sign="=" text="READY FOR EXPEDITION"
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestBody" behavior="Text" modification_sign="=" text=expr("Companion and shelter secured." + NewLine() + "Craft a spear and save your progress.")
+
+if NumberVariable variable="Help" comparison_sign="=" value=0
+if BuiltinCommonInstructions::Once
+do Hide object="Controls"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HelpToggleLabel" behavior="Text" modification_sign="=" text="OFF"
+
+if NumberVariable variable="Help" comparison_sign="=" value=1
+if BuiltinCommonInstructions::Once
+do Show object="Controls"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HelpToggleLabel" behavior="Text" modification_sign="=" text="ON"
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="Notice" behavior="Text" modification_sign="=" text=expr(NoticeMessage)
+do TextContainerCapability::TextContainerBehavior::SetValue object="TrustText" behavior="Text" modification_sign="=" text=expr("Trust " + ToString(Trust) + "%")
+do ResizableCapability::ResizableBehavior::SetWidth object="TrustMeter" behavior="Resizable" modification_sign="=" width=expr(Trust * 2.85)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HotBerries" behavior="Text" modification_sign="=" text=expr(ToString(Berries))
+do TextContainerCapability::TextContainerBehavior::SetValue object="Value1" behavior="Text" modification_sign="=" text=expr(ToString(Stamina) + " / 100")
+do ResizableCapability::ResizableBehavior::SetWidth object="Meter1" behavior="Resizable" modification_sign="=" width=expr(Stamina * 1.98)
+do TextContainerCapability::TextContainerBehavior::SetValue object="Value2" behavior="Text" modification_sign="=" text=expr(ToString(Hunger) + " / 100")
+do ResizableCapability::ResizableBehavior::SetWidth object="Meter2" behavior="Resizable" modification_sign="=" width=expr(Hunger * 1.98)
+do TextContainerCapability::TextContainerBehavior::SetValue object="Value3" behavior="Text" modification_sign="=" text=expr(ToString(Water) + " / 100")
+do ResizableCapability::ResizableBehavior::SetWidth object="Meter3" behavior="Resizable" modification_sign="=" width=expr(Water * 1.98)
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountWood" behavior="Text" modification_sign="=" text=expr(ToString(Wood))
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountStone" behavior="Text" modification_sign="=" text=expr(ToString(Stone))
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountFiber" behavior="Text" modification_sign="=" text=expr(ToString(Fiber))
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountHide" behavior="Text" modification_sign="=" text=expr(ToString(Hide))
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountBerries" behavior="Text" modification_sign="=" text=expr(ToString(Berries))
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountMeat" behavior="Text" modification_sign="=" text=expr(ToString(Meat))
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountWater" behavior="Text" modification_sign="=" text=expr(ToString(Water))
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountAxe" behavior="Text" modification_sign="=" text=expr(ToString(Axe))
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountSpear" behavior="Text" modification_sign="=" text=expr(ToString(Spear))
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountFlint" behavior="Text" modification_sign="=" text=expr(ToString(Flint))
+do TextContainerCapability::TextContainerBehavior::SetValue object="CountRope" behavior="Text" modification_sign="=" text=expr(ToString(Rope))
+do TextContainerCapability::TextContainerBehavior::SetValue object="Weight" behavior="Text" modification_sign="=" text=expr("Supplies: " + ToString(Wood + Stone + Fiber + Berries) + " units")
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+if NumberVariable variable="Recipe" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="RecipeTitle" behavior="Text" modification_sign="=" text="STONE AXE"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Requirements" behavior="Text" modification_sign="=" text=expr("Wood   " + ToString(Wood) + " / 5" + NewLine() + "Stone   " + ToString(Stone) + " / 3" + NewLine() + "Fiber    " + ToString(Fiber) + " / 4")
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+if NumberVariable variable="Recipe" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="RecipeTitle" behavior="Text" modification_sign="=" text="SPEAR"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Requirements" behavior="Text" modification_sign="=" text=expr("Wood   " + ToString(Wood) + " / 6" + NewLine() + "Stone   " + ToString(Stone) + " / 2" + NewLine() + "Fiber    " + ToString(Fiber) + " / 4")
+
+if NumberVariable variable="Dirty" comparison_sign="=" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=0

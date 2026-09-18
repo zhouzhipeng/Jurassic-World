@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 77
+folder = ["Inventory"]
+name = "InventoryHeading"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "INVENTORY"
+font = "interface.ttf"
+characterSize = 24
+color = "242;240;218"
+bold = true
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

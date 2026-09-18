@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 11
+folder = ["HUD"]
+name = "Status2"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "HUNGER"
+font = "interface.ttf"
+characterSize = 12
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

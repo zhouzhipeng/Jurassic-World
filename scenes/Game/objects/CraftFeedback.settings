@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 156
+folder = ["Inventory"]
+name = "CraftFeedback"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "Ready to craft."
+font = "interface.ttf"
+characterSize = 18
+color = "242;202;109"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

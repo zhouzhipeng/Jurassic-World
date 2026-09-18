@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 7
+folder = ["HUD"]
+name = "Status1"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "STAMINA"
+font = "interface.ttf"
+characterSize = 12
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

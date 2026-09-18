@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 192
+folder = ["Title"]
+name = "TitleNote"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "INTERACTIVE CONCEPT DEMO\nFixed-view scene • Native GDevelop events"
+font = "interface.ttf"
+characterSize = 18
+color = "183;209;195"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

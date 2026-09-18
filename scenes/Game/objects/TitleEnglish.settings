@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 188
+folder = ["Title"]
+name = "TitleEnglish"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "JURASSIC WORLD"
+font = "interface.ttf"
+characterSize = 31
+color = "237;192;98"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 183
+folder = ["Settings"]
+name = "HelpToggleLabel"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "ON"
+font = "interface.ttf"
+characterSize = 22
+color = "22;35;33"
+bold = true
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

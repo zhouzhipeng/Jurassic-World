@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 175
+folder = ["Pause"]
+name = "WorldStatusText"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "DAY 07   •   14:32\nCoastal Camp"
+font = "interface.ttf"
+characterSize = 20
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

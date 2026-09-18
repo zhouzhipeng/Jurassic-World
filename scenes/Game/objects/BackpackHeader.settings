@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 87
+folder = ["Inventory"]
+name = "BackpackHeader"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "BACKPACK"
+font = "interface.ttf"
+characterSize = 23
+color = "242;240;218"
+bold = true
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

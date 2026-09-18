@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 142
+folder = ["Inventory"]
+name = "InspectItem"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "Materials gathered on the island."
+font = "interface.ttf"
+characterSize = 16
+color = "184;208;195"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

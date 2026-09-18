@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 160
+folder = ["Pause"]
+name = "PauseSubtitle"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "Single-player world"
+font = "interface.ttf"
+characterSize = 21
+color = "154;198;188"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

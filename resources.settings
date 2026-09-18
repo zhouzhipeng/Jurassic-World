@@ -1,0 +1,721 @@
+kind = "resources"
+settingsFormatVersion = 5
+
+[[resources]]
+kind = "image"
+name = "taming.png"
+file = "assets/taming.png"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "camp.png"
+file = "assets/camp.png"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "inventory-reference.png"
+file = "assets/inventory-reference.png"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "font"
+name = "interface.ttf"
+file = "assets/interface.ttf"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "StatusPanel.svg"
+file = "assets/StatusPanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Track0.svg"
+file = "assets/Track0.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Meter0.svg"
+file = "assets/Meter0.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Track1.svg"
+file = "assets/Track1.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Meter1.svg"
+file = "assets/Meter1.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Track2.svg"
+file = "assets/Track2.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Meter2.svg"
+file = "assets/Meter2.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Track3.svg"
+file = "assets/Track3.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Meter3.svg"
+file = "assets/Meter3.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "CompassPanel.svg"
+file = "assets/CompassPanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "QuestPanel.svg"
+file = "assets/QuestPanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "OpenPack.svg"
+file = "assets/OpenPack.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "OpenMenu.svg"
+file = "assets/OpenMenu.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "DinoPanel.svg"
+file = "assets/DinoPanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "TrustTrack.svg"
+file = "assets/TrustTrack.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "TrustMeter.svg"
+file = "assets/TrustMeter.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Feed.svg"
+file = "assets/Feed.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "ActivityPanel.svg"
+file = "assets/ActivityPanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Gather.svg"
+file = "assets/Gather.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Chop.svg"
+file = "assets/Chop.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Drink.svg"
+file = "assets/Drink.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Station.svg"
+file = "assets/Station.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "NoticePanel.svg"
+file = "assets/NoticePanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "HotSlot0.svg"
+file = "assets/HotSlot0.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "HotSlot1.svg"
+file = "assets/HotSlot1.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "HotSlot2.svg"
+file = "assets/HotSlot2.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "HotSlot3.svg"
+file = "assets/HotSlot3.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "HotSlot4.svg"
+file = "assets/HotSlot4.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "HotSlot5.svg"
+file = "assets/HotSlot5.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "HotSlot6.svg"
+file = "assets/HotSlot6.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "HotSlot7.svg"
+file = "assets/HotSlot7.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "InventoryDim.svg"
+file = "assets/InventoryDim.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "InventoryNav.svg"
+file = "assets/InventoryNav.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "ClosePack.svg"
+file = "assets/ClosePack.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "EquipmentPanel.svg"
+file = "assets/EquipmentPanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "BackpackPanel.svg"
+file = "assets/BackpackPanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "CraftPanel.svg"
+file = "assets/CraftPanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot0.svg"
+file = "assets/Slot0.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot1.svg"
+file = "assets/Slot1.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot2.svg"
+file = "assets/Slot2.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot3.svg"
+file = "assets/Slot3.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot4.svg"
+file = "assets/Slot4.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot5.svg"
+file = "assets/Slot5.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot6.svg"
+file = "assets/Slot6.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot7.svg"
+file = "assets/Slot7.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot8.svg"
+file = "assets/Slot8.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot9.svg"
+file = "assets/Slot9.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot10.svg"
+file = "assets/Slot10.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot11.svg"
+file = "assets/Slot11.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot12.svg"
+file = "assets/Slot12.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot13.svg"
+file = "assets/Slot13.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot14.svg"
+file = "assets/Slot14.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot15.svg"
+file = "assets/Slot15.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot16.svg"
+file = "assets/Slot16.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot17.svg"
+file = "assets/Slot17.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot18.svg"
+file = "assets/Slot18.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot19.svg"
+file = "assets/Slot19.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot20.svg"
+file = "assets/Slot20.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot21.svg"
+file = "assets/Slot21.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot22.svg"
+file = "assets/Slot22.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot23.svg"
+file = "assets/Slot23.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot24.svg"
+file = "assets/Slot24.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot25.svg"
+file = "assets/Slot25.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot26.svg"
+file = "assets/Slot26.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot27.svg"
+file = "assets/Slot27.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot28.svg"
+file = "assets/Slot28.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Slot29.svg"
+file = "assets/Slot29.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Craft.svg"
+file = "assets/Craft.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "ChooseAxe.svg"
+file = "assets/ChooseAxe.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "ChooseSpear.svg"
+file = "assets/ChooseSpear.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "PauseShade.svg"
+file = "assets/PauseShade.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Resume.svg"
+file = "assets/Resume.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Save.svg"
+file = "assets/Save.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Load.svg"
+file = "assets/Load.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Settings.svg"
+file = "assets/Settings.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Photo.svg"
+file = "assets/Photo.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "Title.svg"
+file = "assets/Title.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "WorldStatus.svg"
+file = "assets/WorldStatus.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "SaveStatusPanel.svg"
+file = "assets/SaveStatusPanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "SettingsShade.svg"
+file = "assets/SettingsShade.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "SettingsPanel.svg"
+file = "assets/SettingsPanel.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "HelpToggle.svg"
+file = "assets/HelpToggle.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "SettingsBack.svg"
+file = "assets/SettingsBack.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "TitleShade.svg"
+file = "assets/TitleShade.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "TitleContinue.svg"
+file = "assets/TitleContinue.svg"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "PhotoHint.svg"
+file = "assets/PhotoHint.svg"
+metadata = ""
+userAdded = true
+smoothed = true

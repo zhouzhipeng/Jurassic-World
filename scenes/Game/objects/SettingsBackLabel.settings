@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 185
+folder = ["Settings"]
+name = "SettingsBackLabel"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "Back"
+font = "interface.ttf"
+characterSize = 22
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"
