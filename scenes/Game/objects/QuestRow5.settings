@@ -1,17 +1,17 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 23
-folder = ["HUD"]
-name = "QuestBody"
+order = 218
+folder = ["Quests"]
+name = "QuestRow5"
 type = "TextObject::Text"
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
 
 [content]
-text = "Find the red berry bush.\nHold E to gather, then feed your companion."
+text = "06  野外补给委托"
 font = "interface.ttf"
-characterSize = 16
+characterSize = 24
 color = "242;240;218"
 bold = false
 italic = false

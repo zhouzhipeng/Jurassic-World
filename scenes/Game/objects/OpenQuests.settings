@@ -1,0 +1,25 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 205
+folder = ["Quests"]
+name = "OpenQuests"
+type = "Sprite"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+adaptCollisionMaskAutomatically = true
+updateIfNotVisible = false
+
+[[animations]]
+name = "Default"
+useMultipleDirections = false
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+[[animations.directions.sprites]]
+image = "OpenPack.svg"
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { name = "Center", x = 0, y = 0, automatic = true }
+points = [ ]
+customCollisionMask = [ ]
+hasCustomCollisionMask = false

@@ -1,17 +1,17 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 23
-folder = ["HUD"]
-name = "QuestBody"
+order = 212
+folder = ["Quests"]
+name = "JournalSummary"
 type = "TextObject::Text"
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
 
 [content]
-text = "Find the red berry bush.\nHold E to gather, then feed your companion."
+text = "完成实际操作，领取奖励，解锁下一步。J / Esc 返回游戏。"
 font = "interface.ttf"
-characterSize = 16
+characterSize = 22
 color = "242;240;218"
 bold = false
 italic = false
