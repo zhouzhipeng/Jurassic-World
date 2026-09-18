@@ -20,14 +20,14 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
 do SetX object="Player3D" modification_sign="=" value=650
-do SetY object="Player3D" modification_sign="=" value=-150
+do SetY object="Player3D" modification_sign="=" value=150
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=1
 if BuiltinCommonInstructions::Once
 do SetX object="Player3D" modification_sign="=" value=-650
-do SetY object="Player3D" modification_sign="=" value=-350
+do SetY object="Player3D" modification_sign="=" value=350
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -41,13 +41,13 @@ do SetNumberVariable variable="MoveSpeed" modification_sign="=" value=350
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if KeyFromTextPressed key_to_check="w"
-do SetNumberVariable variable="MoveY" modification_sign="=" value=1
+do SetNumberVariable variable="MoveY" modification_sign="=" value=-1
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if KeyFromTextPressed key_to_check="s"
-do SetNumberVariable variable="MoveY" modification_sign="=" value=-1
+do SetNumberVariable variable="MoveY" modification_sign="=" value=1
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -75,8 +75,8 @@ do SetY object="Player3D" modification_sign="+" value=expr(MoveY * MoveSpeed * T
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if PosX object="Player3D" comparison_sign=">" value=-1250
 if PosX object="Player3D" comparison_sign="<" value=-550
-if PosY object="Player3D" comparison_sign=">" value=380
-if PosY object="Player3D" comparison_sign="<" value=1010
+if PosY object="Player3D" comparison_sign=">" value=-1010
+if PosY object="Player3D" comparison_sign="<" value=-380
 do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
@@ -89,11 +89,11 @@ if PosX object="Player3D" comparison_sign="<" value=-1500
 do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if PosY object="Player3D" comparison_sign=">" value=1700
+if PosY object="Player3D" comparison_sign=">" value=1250
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if PosY object="Player3D" comparison_sign="<" value=-1250
+if PosY object="Player3D" comparison_sign="<" value=-1700
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -789,6 +789,6 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=0
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 do SetCameraCenterX modification_sign="=" value=expr(Player3D.X()) layer="World3D" camera_number_default_0=0
-do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() - 1100) layer="World3D" camera_number_default_0=0
+do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + 1100) layer="World3D" camera_number_default_0=0
 do Scene3D::SetCameraZ modification_sign="=" value=620 layer="World3D" camera_number_default_0=0
-do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y() + 420) z_position=100 layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
+do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y() - 420) z_position=100 layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false

@@ -257,7 +257,7 @@ name = "Sky fill"
 type = "Scene3D::HemisphereLight"
 elevation = 90
 groundColor = "145;152;118"
-intensity = 1.1
+intensity = 0.55
 rotation = 0
 skyColor = "225;243;255"
 top = "Z+"
@@ -270,7 +270,7 @@ color = "255;244;218"
 distanceFromCamera = 4000
 elevation = 55
 frustumSize = 6500
-intensity = 1.5
+intensity = 0.85
 isCastingShadow = true
 minimumShadowBias = 0.001
 rotation = 225
@@ -2051,7 +2051,7 @@ at = [0, 0, 0]
 id = "d0563fcc-89ad-4ddc-8fba-9774ed679417"
 object = "Dinosaur3D"
 layer = "world3d"
-at = [650, 350, 0]
+at = [650, -350, 0]
 
 [[layout.instances]]
 id = "2ddc1b04-4355-41e0-912a-16c9c3ac59e5"
