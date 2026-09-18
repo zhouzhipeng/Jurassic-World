@@ -144,6 +144,12 @@ version = 1
 background = "#72BBDD"
 
 [[layout.layers]]
+id = "base"
+name = ""
+rendering = "2d"
+cameras = [{ size = "default", viewport = "default" }]
+
+[[layout.layers]]
 id = "world"
 name = "World"
 visible = true
