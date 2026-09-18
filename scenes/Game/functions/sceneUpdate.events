@@ -615,7 +615,7 @@ do SetNumberVariable variable="Action" modification_sign="=" value=0
 if NumberVariable variable="Action" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=0
 if NumberVariable variable="Berries" comparison_sign="<=" value=0
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="No berries. Press R to gather food first."
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="No berries. Find a red bush and hold E to gather."
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do SetNumberVariable variable="Action" modification_sign="=" value=0
 
@@ -642,7 +642,7 @@ do SetNumberVariable variable="Action" modification_sign="=" value=0
 
 if NumberVariable variable="Action" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Need 10 wood, 5 stone and 8 fiber. Gather with G / R."
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Need 10 wood, 5 stone and 8 fiber. Gather nearby resources with E."
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do SetNumberVariable variable="Action" modification_sign="=" value=0
 
@@ -916,7 +916,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="QuestBody" b
 if NumberVariable variable="Trust" comparison_sign="<" value=100
 if BuiltinCommonInstructions::Once
 do TextContainerCapability::TextContainerBehavior::SetValue object="QuestTitle" behavior="Text" modification_sign="=" text="A NEW COMPANION"
-do TextContainerCapability::TextContainerBehavior::SetValue object="QuestBody" behavior="Text" modification_sign="=" text=expr("Offer berries to gain trust." + NewLine() + "Explore, gather and craft a tool.")
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestBody" behavior="Text" modification_sign="=" text=expr("Gather berries nearby with E." + NewLine() + "Hold E at plants, trees and rocks.")
 
 if NumberVariable variable="Built" comparison_sign="=" value=1
 if NumberVariable variable="Trust" comparison_sign=">=" value=100

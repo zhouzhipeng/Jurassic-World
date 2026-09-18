@@ -31,8 +31,8 @@ effects = [ ]
 
 [content]
 modelResourceName = "berry-bush.glb"
-width = 224
-height = 223
+width = 269
+height = 270
 depth = 170
 keepAspectRatio = true
 rotationX = 90

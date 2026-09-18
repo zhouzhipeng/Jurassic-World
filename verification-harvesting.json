@@ -1,0 +1,53 @@
+{
+  "method": "Deterministic preview input; WASD movement and held E",
+  "checks": [
+    {
+      "test": "Fern yields five fiber",
+      "pass": true,
+      "near": 1
+    },
+    {
+      "test": "Tree yields four wood",
+      "pass": true,
+      "position": {
+        "x": 1303.3333333333321,
+        "y": -345.8333333333332,
+        "z": 0,
+        "layer": "World3D",
+        "zOrder": 0
+      }
+    },
+    {
+      "test": "Rock yields three stone",
+      "pass": true,
+      "position": {
+        "x": 1099.166666666668,
+        "y": 599.1666666666665,
+        "z": 0,
+        "layer": "World3D",
+        "zOrder": 0
+      }
+    },
+    {
+      "test": "R and G no longer grant resources remotely",
+      "pass": true
+    },
+    {
+      "test": "Menu blocks harvesting and freezes regrowth",
+      "pass": true
+    },
+    {
+      "test": "Resource regrows after 30 seconds",
+      "pass": true
+    },
+    {
+      "test": "Regrown resource can be harvested again",
+      "pass": true
+    }
+  ],
+  "additionalObserved": [
+    "Partial E hold cancels without reward",
+    "Berry collection adds exactly 3 berries and costs 3 stamina",
+    "Keeping E held during resource cooldown does not duplicate rewards"
+  ]
+}
