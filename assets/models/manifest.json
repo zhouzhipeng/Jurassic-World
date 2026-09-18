@@ -1,0 +1,29 @@
+{
+  "island": {
+    "file": "island.glb",
+    "dimensions": [
+      180.0,
+      180.0,
+      29.393753051757812
+    ],
+    "triangles": 8738
+  },
+  "parasaur": {
+    "file": "parasaur.glb",
+    "dimensions": [
+      2.1500000953674316,
+      6.656745910644531,
+      4.345139503479004
+    ],
+    "triangles": 1960
+  },
+  "survivor": {
+    "file": "survivor.glb",
+    "dimensions": [
+      1.0859341621398926,
+      0.7200000286102295,
+      2.0399997234344482
+    ],
+    "triangles": 1212
+  }
+}

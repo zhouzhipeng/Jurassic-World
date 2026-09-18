@@ -1,3 +1,109 @@
+@comment "Real-time 3D movement and reference comparison" background=[90,150,180] text=[255,255,255]
+
+if KeyFromTextReleased key_to_check="F3"
+do SetNumberVariable variable="RenderMode" modification_sign="=" value=expr(1 - RenderMode)
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::Once
+do HideLayer layer="World"
+do ShowLayer layer="World3D"
+do TextContainerCapability::TextContainerBehavior::SetValue object="DemoLabel" behavior="Text" modification_sign="=" text="REAL-TIME 3D / F3 ART REFERENCE"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD move   E interact   R forage   G gather   F rest   Q travel   TAB backpack   ESC pause   F3 reference"
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=0
+if BuiltinCommonInstructions::Once
+do ShowLayer layer="World"
+do HideLayer layer="World3D"
+do TextContainerCapability::TextContainerBehavior::SetValue object="DemoLabel" behavior="Text" modification_sign="=" text="ART REFERENCE / F3 REAL-TIME 3D"
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=0
+if BuiltinCommonInstructions::Once
+do SetX object="Player3D" modification_sign="=" value=650
+do SetY object="Player3D" modification_sign="=" value=-150
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=1
+if BuiltinCommonInstructions::Once
+do SetX object="Player3D" modification_sign="=" value=-650
+do SetY object="Player3D" modification_sign="=" value=-350
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetNumberVariable variable="PreviousX" modification_sign="=" value=expr(Player3D.X())
+do SetNumberVariable variable="PreviousY" modification_sign="=" value=expr(Player3D.Y())
+do SetNumberVariable variable="MoveX" modification_sign="=" value=0
+do SetNumberVariable variable="MoveY" modification_sign="=" value=0
+do SetNumberVariable variable="MoveSpeed" modification_sign="=" value=350
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if KeyFromTextPressed key_to_check="w"
+do SetNumberVariable variable="MoveY" modification_sign="=" value=1
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if KeyFromTextPressed key_to_check="s"
+do SetNumberVariable variable="MoveY" modification_sign="=" value=-1
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=0
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if KeyFromTextPressed key_to_check="a"
+do SetNumberVariable variable="MoveX" modification_sign="=" value=-1
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=270
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if KeyFromTextPressed key_to_check="d"
+do SetNumberVariable variable="MoveX" modification_sign="=" value=1
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=90
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="MoveX" comparison_sign="!=" value=0
+if NumberVariable variable="MoveY" comparison_sign="!=" value=0
+do SetNumberVariable variable="MoveSpeed" modification_sign="=" value=247.5
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetX object="Player3D" modification_sign="+" value=expr(MoveX * MoveSpeed * TimeDelta())
+do SetY object="Player3D" modification_sign="+" value=expr(MoveY * MoveSpeed * TimeDelta())
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if PosX object="Player3D" comparison_sign=">" value=-1250
+if PosX object="Player3D" comparison_sign="<" value=-550
+if PosY object="Player3D" comparison_sign=">" value=380
+if PosY object="Player3D" comparison_sign="<" value=1010
+do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if PosX object="Player3D" comparison_sign=">" value=1500
+do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if PosX object="Player3D" comparison_sign="<" value=-1500
+do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if PosY object="Player3D" comparison_sign=">" value=1700
+do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if PosY object="Player3D" comparison_sign="<" value=-1250
+do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetNumberVariable variable="CanFeed" modification_sign="=" value=0
+
+if Distance object="Player3D" object_2="Dinosaur3D" distance=650
+do SetNumberVariable variable="CanFeed" modification_sign="=" value=1
+
+
 if SceneJustBegins
 do ResetTimer timer_name="survival"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
@@ -145,6 +251,14 @@ if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Station" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=5
+
+if NumberVariable variable="Action" comparison_sign="=" value=1
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=0
+if NumberVariable variable="CanFeed" comparison_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Move closer to the dinosaur to feed it."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
 
 if NumberVariable variable="Action" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=0
@@ -670,3 +784,11 @@ do OpacityCapability::OpacityBehavior::SetValue object="TitleContinue" behavior=
 
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=0
+
+
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetCameraCenterX modification_sign="=" value=expr(Player3D.X()) layer="World3D" camera_number_default_0=0
+do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() - 1100) layer="World3D" camera_number_default_0=0
+do Scene3D::SetCameraZ modification_sign="=" value=620 layer="World3D" camera_number_default_0=0
+do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y() + 420) z_position=100 layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false

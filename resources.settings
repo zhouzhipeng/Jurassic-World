@@ -735,3 +735,24 @@ file = "assets/survivor.png"
 metadata = ""
 userAdded = true
 smoothed = true
+
+[[resources]]
+kind = "model3D"
+name = "island.glb"
+file = "assets/models/island.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "parasaur.glb"
+file = "assets/models/parasaur.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "survivor.glb"
+file = "assets/models/survivor.glb"
+metadata = ""
+userAdded = true

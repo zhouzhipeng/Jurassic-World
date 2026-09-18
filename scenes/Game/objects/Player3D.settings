@@ -1,0 +1,27 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 198
+folder = ["Real-time 3D"]
+name = "Player3D"
+type = "Scene3D::Model3DObject"
+variables = [ ]
+behaviors = [ ]
+effects = [ ]
+
+[content]
+modelResourceName = "survivor.glb"
+width = 109
+height = 72
+depth = 204
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true
+crossfadeDuration = 0.1
+animations = [ ]
+sharedAnimationModelResources = [ ]

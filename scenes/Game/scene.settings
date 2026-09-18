@@ -139,6 +139,47 @@ name = "NoticeMessage"
 type = "string"
 value = "Welcome. Feed your first companion with E."
 
+
+[[variables]]
+name = "RenderMode"
+type = "number"
+value = 1
+
+[[variables]]
+name = "MoveX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MoveY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PreviousX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PreviousY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MoveSpeed"
+type = "number"
+value = 350
+
+[[variables]]
+name = "CanFeed"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Riding"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 background = "#72BBDD"
@@ -147,6 +188,18 @@ background = "#72BBDD"
 id = "base"
 name = ""
 rendering = "2d"
+cameras = [{ size = "default", viewport = "default" }]
+
+[[layout.layers]]
+id = "world3d"
+name = "World3D"
+rendering = "3d"
+camera_type = "perspective"
+camera_behavior = "do-nothing"
+lighting = false
+near = 5
+far = 30000
+fov = 58
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.layers]]
@@ -197,6 +250,32 @@ name = "Photo"
 visible = false
 rendering = "2d"
 cameras = [{ size = "default", viewport = "default" }]
+
+[[layout.effects]]
+layer = "world3d"
+name = "Sky fill"
+type = "Scene3D::HemisphereLight"
+elevation = 90
+groundColor = "145;152;118"
+intensity = 1.1
+rotation = 0
+skyColor = "225;243;255"
+top = "Z+"
+
+[[layout.effects]]
+layer = "world3d"
+name = "Sun"
+type = "Scene3D::DirectionalLight"
+color = "255;244;218"
+distanceFromCamera = 4000
+elevation = 55
+frustumSize = 6500
+intensity = 1.5
+isCastingShadow = true
+minimumShadowBias = 0.001
+rotation = 225
+shadowQuality = "high"
+top = "Z+"
 
 [[layout.instances]]
 id = "e05525c3-b4d2-406e-97c5-f1da3360220b"
@@ -1961,3 +2040,21 @@ at = [1102, 160]
 size = [120, 120]
 keep_ratio = false
 z_order = 4
+
+[[layout.instances]]
+id = "3abbf595-12bc-454b-8f35-2211183e639c"
+object = "Island3D"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "d0563fcc-89ad-4ddc-8fba-9774ed679417"
+object = "Dinosaur3D"
+layer = "world3d"
+at = [650, 350, 0]
+
+[[layout.instances]]
+id = "2ddc1b04-4355-41e0-912a-16c9c3ac59e5"
+object = "Player3D"
+layer = "world3d"
+at = [0, -700, 0]
