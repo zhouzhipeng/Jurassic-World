@@ -294,10 +294,12 @@ if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign=
 if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
 if NumberVariable variable="Stamina" comparison_sign=">=" value=3
 if KeyFromTextPressed key_to_check="e"
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="!=" value=3
 do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modification_sign="+" value=expr(TimeDelta())
 do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=expr(sin(HarvestNodes.Variable(Progress) * 35) * 7)
 
 if NumberObjectVariable object="HarvestNodes" variable="Progress" comparison_sign=">=" value=0.8
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="!=" value=3
 if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
 do SetNumberObjectVariable object="HarvestNodes" variable="Cooldown" modification_sign="=" value=30
 do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modification_sign="=" value=0
@@ -507,7 +509,7 @@ do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=8
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 if NumberVariable variable="HotbarRequest" comparison_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=3
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="斧子已选中。靠近小树，按住 E 或在场景中按住左键砍树。"
 
 
 if NumberVariable variable="HotbarRequest" comparison_sign="=" value=2
@@ -1251,7 +1253,7 @@ do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
 if NumberVariable variable="QuestStage" comparison_sign="=" value=1
 do SetStringVariable variable="QuestName" modification_sign="=" value="就地取材"
 do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("木材 " + ToString(min(GatherWood, 4)) + " / 4" + "   石头 " + ToString(min(GatherStone, 3)) + " / 3" + NewLine() + "纤维 " + ToString(min(GatherFiber, 5)) + " / 5")
-do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("跟随顶部目标指引，靠近资源后按住 E。" + NewLine() + "完成过的采集会保留记录，不必重复。")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("小树：按 1 装备斧子，按住 E 砍三下。" + NewLine() + "蕨类和矿石：靠近后按住 E 采集。")
 do SetStringVariable variable="QuestReward" modification_sign="=" value="木材 +6 / 石头 +2 / 纤维 +4"
 do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="建立据点需要多种材料。沿海岛寻找小树、矿石和蕨类，认识不同资源的用途。"
 
@@ -1297,7 +1299,7 @@ do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
 if NumberVariable variable="QuestStage" comparison_sign="=" value=5
 do SetStringVariable variable="QuestName" modification_sign="=" value="野外补给委托"
 do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("浆果 " + ToString(min(GatherBerries - BaseBerries, 3)) + " / 3" + "   纤维 " + ToString(min(GatherFiber - BaseFiber, 5)) + " / 5" + NewLine() + "木材 " + ToString(min(GatherWood - BaseWood, 4)) + " / 4" + "   石头 " + ToString(min(GatherStone - BaseStone, 3)) + " / 3")
-do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("主线已完成！跟随指引收集本轮的新材料。" + NewLine() + "领取后开始下一轮，已消耗的材料也计入进度。")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("跟随指引补给；小树需要按 1 装备斧子砍伐。" + NewLine() + "领取后开始下一轮，已消耗的材料也计入进度。")
 do SetStringVariable variable="QuestReward" modification_sign="=" value="绳索 +2 / 体力 +25 / 饥饿与水分 +15"
 do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="据点需要持续补给。每轮重新收集四种材料，保持探索、采集、返回的循环。"
 
@@ -1573,3 +1575,95 @@ do OpacityCapability::OpacityBehavior::SetValue object="ClaimQuest" behavior="Op
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="Compass" behavior="Text" modification_sign="=" text="F3 返回实时 3D，继续任务"
+
+@comment "Equipped axe: three timed hits, shared gathering rewards, visible hand tool" background=[145,105,65] text=[255,255,255]
+
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do SetNumberVariable variable="ChopInput" modification_sign="=" value=0
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="AxeCooldown" comparison_sign=">" value=0
+do SetNumberVariable variable="AxeCooldown" modification_sign="-" value=expr(TimeDelta())
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="AxeSwing" comparison_sign=">" value=0
+do SetNumberVariable variable="AxeSwing" modification_sign="=" value=expr(max(0, AxeSwing - TimeDelta()))
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextPressed key_to_check="e"
+do SetNumberVariable variable="ChopInput" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if MouseButtonFromTextPressed button_to_check="Left"
+if CursorX comparison_sign=">" value=320 layer="HUD" camera_number_default_0=0
+if CursorX comparison_sign="<" value=1020 layer="HUD" camera_number_default_0=0
+if CursorY comparison_sign=">" value=215 layer="HUD" camera_number_default_0=0
+if CursorY comparison_sign="<" value=630 layer="HUD" camera_number_default_0=0
+do SetNumberVariable variable="ChopInput" modification_sign="=" value=1
+
+if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("小树 · 木材 +4" + NewLine() + "按 1 装备斧子后砍伐")
+
+if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=1
+if NumberVariable variable="Axe" comparison_sign=">" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("小树 · 剩余 " + ToString(3 - WoodSapling.Variable(Hits)) + " 次命中" + NewLine() + "按住 E / 左键  挥斧砍伐")
+
+if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
+if NumberVariable variable="Axe" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("没有斧子" + NewLine() + "Tab → Stone Axe → Craft")
+
+if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
+if NumberVariable variable="Stamina" comparison_sign="<" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text="体力不足，按 F 休息后再砍。"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=1
+if NumberVariable variable="Axe" comparison_sign=">" value=0
+if NumberVariable variable="Stamina" comparison_sign=">=" value=1
+if NumberVariable variable="ChopInput" comparison_sign="=" value=1
+if NumberVariable variable="AxeCooldown" comparison_sign="<=" value=0
+if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
+do SetNumberObjectVariable object="WoodSapling" variable="Hits" modification_sign="+" value=1
+do SetNumberVariable variable="AxeCooldown" modification_sign="=" value=0.5
+do SetNumberVariable variable="AxeSwing" modification_sign="=" value=0.35
+do SetNumberVariable variable="Stamina" modification_sign="-" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("斧子命中！还需 " + ToString(max(0, 3 - WoodSapling.Variable(Hits))) + " 下。")
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Player3D.X(), Player3D.Y(), WoodSapling.X(), WoodSapling.Y()) - 90)
+do PlaySound audio_file_or_audio_resource_name="axe-hit.wav" repeat_the_sound=false volume=70 pitch_speed=1
+
+if NumberObjectVariable object="WoodSapling" variable="Hits" comparison_sign=">=" value=3
+if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
+do SetNumberObjectVariable object="WoodSapling" variable="Cooldown" modification_sign="=" value=30
+do SetNumberObjectVariable object="WoodSapling" variable="Hits" modification_sign="=" value=0
+do Hide object="WoodSapling"
+do SetNumberVariable variable="Wood" modification_sign="+" value=4
+do SetNumberVariable variable="GatherWood" modification_sign="+" value=4
+do SetNumberVariable variable="HarvestCount" modification_sign="+" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="砍伐完成！木材 +4，已放入背包。"
+do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=55 pitch_speed=0.8
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="AxeSwing" comparison_sign=">" value=0
+if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
+do SetAngle object="WoodSapling" modification_sign="=" angle_in_degrees=expr(sin(AxeSwing * 55) * AxeSwing * 20)
+
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do Hide object="HeldAxe"
+
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=1
+if NumberVariable variable="Axe" comparison_sign=">" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+do Show object="HeldAxe"
+do SetX object="HeldAxe" modification_sign="=" value=expr(Player3D.X() - cos(ToRad(Player3D.Angle())) * 45 - sin(ToRad(Player3D.Angle())) * sin(AxeSwing / 0.35 * 3.14159) * 55)
+do SetY object="HeldAxe" modification_sign="=" value=expr(Player3D.Y() - sin(ToRad(Player3D.Angle())) * 45 + cos(ToRad(Player3D.Angle())) * sin(AxeSwing / 0.35 * 3.14159) * 55)
+do SetAngle object="HeldAxe" modification_sign="=" angle_in_degrees=expr(Player3D.Angle())
+do Scene3D::Base3DBehavior::SetRotationX parameter_3d_object="HeldAxe" behavior="Object3D" modification_sign="=" angle_in_degrees=expr(sin(AxeSwing / 0.35 * 3.14159) * 75)

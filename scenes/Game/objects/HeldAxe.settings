@@ -1,44 +1,18 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 201
+order = 228
 folder = ["Real-time 3D"]
-name = "WoodSapling"
+name = "HeldAxe"
 type = "Scene3D::Model3DObject"
+variables = [ ]
 behaviors = [ ]
 effects = [ ]
-[[variables]]
-name = "Kind"
-type = "number"
-value = 3
-
-[[variables]]
-name = "Cooldown"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Progress"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Target"
-type = "number"
-value = 0
-
-behaviors = [ ]
-effects = [ ]
-
-[[variables]]
-name = "Hits"
-type = "number"
-value = 0
 
 [content]
-modelResourceName = "wood-sapling.glb"
-width = 288
-height = 293
-depth = 406
+modelResourceName = "held-axe.glb"
+width = 59
+height = 20
+depth = 115
 keepAspectRatio = true
 rotationX = 90
 rotationY = 0

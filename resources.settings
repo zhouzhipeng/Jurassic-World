@@ -791,3 +791,17 @@ name = "harvest.wav"
 file = "assets/harvest.wav"
 metadata = ""
 userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "held-axe.glb"
+file = "assets/models/held-axe.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "axe-hit.wav"
+file = "assets/axe-hit.wav"
+metadata = ""
+userAdded = true

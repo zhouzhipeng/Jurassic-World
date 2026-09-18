@@ -376,6 +376,21 @@ name = "QuestDirection"
 type = "string"
 value = ""
 
+[[variables]]
+name = "AxeCooldown"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AxeSwing"
+type = "number"
+value = 0
+
+[[variables]]
+name = "ChopInput"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 background = "#72BBDD"
@@ -2594,3 +2609,9 @@ at = [1120, 735]
 size = [310, 40]
 keep_ratio = false
 z_order = 5
+
+[[layout.instances]]
+id = "005cad9f-b161-45b6-a7de-99de459e5087"
+object = "HeldAxe"
+layer = "world3d"
+at = [0, 0, 100]
