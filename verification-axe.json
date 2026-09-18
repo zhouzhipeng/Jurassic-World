@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "test": "Empty hands cannot gather tree with E",
+      "pass": true
+    },
+    {
+      "test": "First and second axe hits damage tree but grant no wood",
+      "pass": true
+    },
+    {
+      "test": "Third hit grants exactly four wood and starts cooldown",
+      "pass": true
+    },
+    {
+      "test": "Holding E against felled tree cannot duplicate wood",
+      "pass": true
+    },
+    {
+      "test": "Journal blocks axe hits",
+      "pass": true
+    },
+    {
+      "test": "Left mouse chops regenerated tree in three timed hits",
+      "pass": true
+    }
+  ],
+  "allPassed": true
+}
