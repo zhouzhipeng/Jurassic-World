@@ -17,14 +17,9 @@ useMultipleDirections = false
 looping = false
 timeBetweenFrames = 1
 [[animations.directions.sprites]]
-image = "inventory-reference.png"
+image = "survivor.png"
 originPoint = { name = "Origin", x = 0, y = 0 }
 centerPoint = { name = "Center", x = 0, y = 0, automatic = true }
 points = [ ]
 customCollisionMask = [ ]
 hasCustomCollisionMask = false
-[animations.directions.sprites.sourceRect]
-x = 151
-y = 155
-width = 237
-height = 506

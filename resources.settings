@@ -719,3 +719,19 @@ file = "assets/PhotoHint.svg"
 metadata = ""
 userAdded = true
 smoothed = true
+
+[[resources]]
+kind = "image"
+name = "items.png"
+file = "assets/items.png"
+metadata = ""
+userAdded = true
+smoothed = true
+
+[[resources]]
+kind = "image"
+name = "survivor.png"
+file = "assets/survivor.png"
+metadata = ""
+userAdded = true
+smoothed = true

@@ -2,6 +2,10 @@ if SceneJustBegins
 do ResetTimer timer_name="survival"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if SceneJustBegins
+if GroupExists storage_name="JurassicWorldDemo" group="Version"
+do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text="Local save available. Choose Load Game."
+
 if NumberVariable variable="Mode" comparison_sign=">=" value=0
 do SetNumberVariable variable="InputMode" modification_sign="=" value=expr(Mode)
 
@@ -531,6 +535,138 @@ if NumberVariable variable="Dirty" comparison_sign="=" value=1
 if NumberVariable variable="Recipe" comparison_sign="=" value=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="RecipeTitle" behavior="Text" modification_sign="=" text="SPEAR"
 do TextContainerCapability::TextContainerBehavior::SetValue object="Requirements" behavior="Text" modification_sign="=" text=expr("Wood   " + ToString(Wood) + " / 6" + NewLine() + "Stone   " + ToString(Stone) + " / 2" + NewLine() + "Fiber    " + ToString(Fiber) + " / 4")
+
+if NumberVariable variable="Recipe" comparison_sign="=" value=0
+if BuiltinCommonInstructions::Once
+do Show object="CraftAxe"
+do Hide object="CraftSpear"
+do TextContainerCapability::TextContainerBehavior::SetValue object="RecipeDescription" behavior="Text" modification_sign="=" text="Gather wood and defend yourself."
+
+if NumberVariable variable="Recipe" comparison_sign="=" value=1
+if BuiltinCommonInstructions::Once
+do Hide object="CraftAxe"
+do Show object="CraftSpear"
+do TextContainerCapability::TextContainerBehavior::SetValue object="RecipeDescription" behavior="Text" modification_sign="=" text="Equipment for your next expedition."
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="Feed" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Feed" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Feed" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="Gather" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Gather" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Gather" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="Chop" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Chop" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Chop" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="Drink" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Drink" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Drink" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="Station" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Station" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Station" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="OpenPack" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="OpenPack" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="OpenPack" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="OpenMenu" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="OpenMenu" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="OpenMenu" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if IsCursorOnObject object="Craft" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Craft" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Craft" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if IsCursorOnObject object="ChooseAxe" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="ChooseAxe" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="ChooseAxe" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if IsCursorOnObject object="ChooseSpear" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="ChooseSpear" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="ChooseSpear" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if IsCursorOnObject object="ClosePack" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="ClosePack" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="ClosePack" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=2
+if IsCursorOnObject object="Resume" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Resume" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Resume" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=2
+if IsCursorOnObject object="Save" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Save" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Save" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=2
+if IsCursorOnObject object="Load" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Load" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Load" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=2
+if IsCursorOnObject object="Settings" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Settings" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Settings" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=2
+if IsCursorOnObject object="Photo" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Photo" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Photo" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=2
+if IsCursorOnObject object="Title" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="Title" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="Title" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=3
+if IsCursorOnObject object="HelpToggle" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="HelpToggle" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="HelpToggle" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=3
+if IsCursorOnObject object="SettingsBack" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="SettingsBack" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="SettingsBack" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="Mode" comparison_sign="=" value=4
+if IsCursorOnObject object="TitleContinue" accurate_test_yes_by_default=false
+do OpacityCapability::OpacityBehavior::SetValue object="TitleContinue" behavior="Opacity" modification_sign="=" opacity_0_255=210
+else
+do OpacityCapability::OpacityBehavior::SetValue object="TitleContinue" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=0

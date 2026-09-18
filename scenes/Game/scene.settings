@@ -967,8 +967,8 @@ z_order = 10
 id = "ab4b50f6-84ca-433c-9d6e-14f31f47b674"
 object = "CharacterPreview"
 layer = "inventory"
-at = [116, 161]
-size = [245, 470]
+at = [75, 161]
+size = [312, 470]
 keep_ratio = false
 z_order = 3
 
@@ -1952,3 +1952,12 @@ at = [50, 845]
 size = [330, 26]
 keep_ratio = false
 z_order = 10
+
+[[layout.instances]]
+id = "d49a7708-0621-4be4-8952-ea25e95a7279"
+object = "CraftSpear"
+layer = "inventory"
+at = [1102, 160]
+size = [120, 120]
+keep_ratio = false
+z_order = 4

@@ -17,14 +17,14 @@ useMultipleDirections = false
 looping = false
 timeBetweenFrames = 1
 [[animations.directions.sprites]]
-image = "inventory-reference.png"
+image = "items.png"
 originPoint = { name = "Origin", x = 0, y = 0 }
 centerPoint = { name = "Center", x = 0, y = 0, automatic = true }
 points = [ ]
 customCollisionMask = [ ]
 hasCustomCollisionMask = false
 [animations.directions.sprites.sourceRect]
-x = 613
-y = 343
-width = 75
-height = 78
+x = 940
+y = 314
+width = 314
+height = 314

@@ -11,7 +11,7 @@ behaviors = [ ]
 [content]
 text = "Level 4  ·  Herbivore"
 font = "interface.ttf"
-characterSize = 17
+characterSize = 14
 color = "182;205;190"
 bold = false
 italic = false

@@ -1,8 +1,8 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 60
-folder = ["HUD"]
-name = "HotIcon3"
+order = 195
+folder = ["Inventory"]
+name = "CraftSpear"
 type = "Sprite"
 variables = [ ]
 effects = [ ]
@@ -24,7 +24,7 @@ points = [ ]
 customCollisionMask = [ ]
 hasCustomCollisionMask = false
 [animations.directions.sprites.sourceRect]
-x = 627
-y = 314
+x = 0
+y = 627
 width = 314
 height = 314

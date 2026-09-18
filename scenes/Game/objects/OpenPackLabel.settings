@@ -11,7 +11,7 @@ behaviors = [ ]
 [content]
 text = "TAB  Backpack"
 font = "interface.ttf"
-characterSize = 22
+characterSize = 17
 color = "242;240;218"
 bold = false
 italic = false
