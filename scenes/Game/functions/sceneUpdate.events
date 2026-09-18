@@ -8,7 +8,7 @@ if BuiltinCommonInstructions::Once
 do HideLayer layer="World"
 do ShowLayer layer="World3D"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DemoLabel" behavior="Text" modification_sign="=" text="REAL-TIME 3D / F3 ART REFERENCE"
-do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD move   E interact   R forage   G gather   F rest   Q travel   TAB backpack   ESC pause   F3 reference"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD move   E interact   R forage   G gather   F rest   Q travel   TAB pack  ESC menu  RMB orbit  Wheel zoom  Home reset"
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
@@ -69,8 +69,8 @@ do SetNumberVariable variable="MoveSpeed" modification_sign="=" value=247.5
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-do SetX object="Player3D" modification_sign="+" value=expr(MoveX * MoveSpeed * TimeDelta())
-do SetY object="Player3D" modification_sign="+" value=expr(MoveY * MoveSpeed * TimeDelta())
+do SetX object="Player3D" modification_sign="+" value=expr((MoveX * cos(ToRad(CameraYaw)) + MoveY * sin(ToRad(CameraYaw))) * MoveSpeed * TimeDelta())
+do SetY object="Player3D" modification_sign="+" value=expr((MoveY * cos(ToRad(CameraYaw)) - MoveX * sin(ToRad(CameraYaw))) * MoveSpeed * TimeDelta())
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if PosX object="Player3D" comparison_sign=">" value=-1250
@@ -787,8 +787,48 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=0
 
 
 
+@comment "Right drag orbits; wheel zooms; UI cancels drag" background=[90,150,180] text=[255,255,255]
+
+if NumberVariable variable="Mode" comparison_sign="!=" value=0
+or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
+do SetNumberVariable variable="CameraDragging" modification_sign="=" value=0
+
+if MouseButtonFromTextReleased button_to_check="Right"
+do SetNumberVariable variable="CameraDragging" modification_sign="=" value=0
+
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-do SetCameraCenterX modification_sign="=" value=expr(Player3D.X()) layer="World3D" camera_number_default_0=0
-do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + 1100) layer="World3D" camera_number_default_0=0
-do Scene3D::SetCameraZ modification_sign="=" value=620 layer="World3D" camera_number_default_0=0
-do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y() - 420) z_position=100 layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if MouseButtonFromTextPressed button_to_check="Right"
+if NumberVariable variable="CameraDragging" comparison_sign="=" value=1
+do SetNumberVariable variable="CameraYaw" modification_sign="-" value=expr((CursorX("HUD", 0) - CameraMouseX) * 0.3)
+do SetNumberVariable variable="CameraPitch" modification_sign="=" value=expr(clamp(CameraPitch + (CursorY("HUD", 0) - CameraMouseY) * 0.2, 12, 65))
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if MouseButtonFromTextPressed button_to_check="Right"
+do SetNumberVariable variable="CameraDragging" modification_sign="=" value=1
+do SetNumberVariable variable="CameraMouseX" modification_sign="=" value=expr(CursorX("HUD", 0))
+do SetNumberVariable variable="CameraMouseY" modification_sign="=" value=expr(CursorY("HUD", 0))
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsMouseWheelScrollingUp
+do SetNumberVariable variable="CameraDistance" modification_sign="=" value=expr(clamp(CameraDistance + (-100), 500, 2000))
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsMouseWheelScrollingDown
+do SetNumberVariable variable="CameraDistance" modification_sign="=" value=expr(clamp(CameraDistance + (100), 500, 2000))
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Home"
+do SetNumberVariable variable="CameraYaw" modification_sign="=" value=0
+do SetNumberVariable variable="CameraPitch" modification_sign="=" value=25
+do SetNumberVariable variable="CameraDistance" modification_sign="=" value=1250
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetCameraCenterX modification_sign="=" value=expr(Player3D.X() + sin(ToRad(CameraYaw)) * cos(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
+do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + cos(ToRad(CameraYaw)) * cos(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::SetCameraZ modification_sign="=" value=expr(120 + sin(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y()) z_position=120 layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false

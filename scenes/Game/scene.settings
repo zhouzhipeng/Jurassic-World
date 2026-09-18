@@ -180,6 +180,36 @@ name = "Riding"
 type = "number"
 value = 0
 
+[[variables]]
+name = "CameraYaw"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraPitch"
+type = "number"
+value = 25
+
+[[variables]]
+name = "CameraDistance"
+type = "number"
+value = 1250
+
+[[variables]]
+name = "CameraDragging"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraMouseX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraMouseY"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 background = "#72BBDD"
