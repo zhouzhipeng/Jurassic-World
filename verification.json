@@ -1,0 +1,183 @@
+{
+  "method": "GDevelop deterministic preview input and runtime snapshots",
+  "checkedAt": "2026-09-18",
+  "allPassed": true,
+  "checks": [
+    {
+      "name": "Feeding consumes one berry and gains seven trust",
+      "passed": true,
+      "state": {
+        "Berries": 11,
+        "Trust": 72
+      }
+    },
+    {
+      "name": "Tab opens inventory",
+      "passed": true,
+      "state": {
+        "Mode": 1
+      }
+    },
+    {
+      "name": "Craft axe consumes required materials",
+      "passed": true,
+      "state": {
+        "Wood": 7,
+        "Stone": 5,
+        "Fiber": 16,
+        "Axe": 2
+      }
+    },
+    {
+      "name": "Select spear recipe",
+      "passed": true,
+      "state": {
+        "Recipe": 1
+      }
+    },
+    {
+      "name": "Craft spear",
+      "passed": true,
+      "state": {
+        "Wood": 1,
+        "Stone": 3,
+        "Fiber": 12,
+        "Spear": 1
+      }
+    },
+    {
+      "name": "Insufficient materials cannot craft",
+      "passed": true,
+      "state": {
+        "Wood": 1,
+        "Spear": 1
+      }
+    },
+    {
+      "name": "Forage adds berries and fiber",
+      "passed": true,
+      "state": {
+        "Berries": 14,
+        "Fiber": 14
+      }
+    },
+    {
+      "name": "Taming completes at 100 without overflow",
+      "passed": true,
+      "state": {
+        "Trust": 100,
+        "Berries": 10
+      }
+    },
+    {
+      "name": "Switch to camp",
+      "passed": true,
+      "state": {
+        "StationIndex": 1
+      }
+    },
+    {
+      "name": "Build shelter consumes supplies",
+      "passed": true,
+      "state": {
+        "Built": 1,
+        "Wood": 0,
+        "Stone": 4,
+        "Fiber": 6
+      }
+    },
+    {
+      "name": "Escape pauses",
+      "passed": true,
+      "state": {
+        "Mode": 2
+      }
+    },
+    {
+      "name": "Pause freezes survival simulation",
+      "passed": true,
+      "state": {
+        "Water": 60,
+        "Elapsed": 0.616766666666667
+      }
+    },
+    {
+      "name": "Save click completes",
+      "passed": true,
+      "state": {
+        "SaveFlag": 1
+      }
+    },
+    {
+      "name": "Progress changes after save",
+      "passed": true,
+      "state": {
+        "Wood": 3
+      }
+    },
+    {
+      "name": "Load restores saved inventory",
+      "passed": true,
+      "state": {
+        "Wood": 0,
+        "Trust": 100,
+        "Built": 1
+      }
+    },
+    {
+      "name": "Saved progress survives a fresh preview",
+      "passed": true,
+      "state": {
+        "Trust": 100,
+        "Berries": 10,
+        "Wood": 0,
+        "Stone": 4,
+        "Fiber": 6,
+        "Built": 1,
+        "Spear": 1
+      }
+    },
+    {
+      "name": "Settings opens",
+      "passed": true,
+      "state": {
+        "Mode": 3
+      }
+    },
+    {
+      "name": "Context help toggle responds",
+      "passed": true,
+      "state": {
+        "Help": 0
+      }
+    },
+    {
+      "name": "Photo mode opens",
+      "passed": true,
+      "state": {
+        "Mode": 5
+      }
+    },
+    {
+      "name": "Title menu opens",
+      "passed": true,
+      "state": {
+        "Mode": 4
+      }
+    },
+    {
+      "name": "Title returns to game",
+      "passed": true,
+      "state": {
+        "Mode": 0
+      }
+    },
+    {
+      "name": "No runtime errors in fresh preview",
+      "passed": true,
+      "state": {
+        "errorCount": 0
+      }
+    }
+  ]
+}
