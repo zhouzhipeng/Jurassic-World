@@ -805,3 +805,17 @@ name = "axe-hit.wav"
 file = "assets/axe-hit.wav"
 metadata = ""
 userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "parasaur-animated.glb"
+file = "assets/models/parasaur-animated.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "seated-rider.glb"
+file = "assets/models/seated-rider.glb"
+metadata = ""
+userAdded = true

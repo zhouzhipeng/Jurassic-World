@@ -4,12 +4,18 @@ order = 197
 folder = ["Real-time 3D"]
 name = "Dinosaur3D"
 type = "Scene3D::Model3DObject"
-variables = [ ]
+behaviors = [ ]
+effects = [ ]
+[[variables]]
+name = "AnimationState"
+type = "number"
+value = 0
+
 behaviors = [ ]
 effects = [ ]
 
 [content]
-modelResourceName = "parasaur.glb"
+modelResourceName = "parasaur-animated.glb"
 width = 215
 height = 666
 depth = 435
@@ -23,5 +29,19 @@ materialType = "StandardWithoutMetalness"
 isCastingShadow = true
 isReceivingShadow = true
 crossfadeDuration = 0.1
-animations = [ ]
 sharedAnimationModelResources = [ ]
+
+[[content.animations]]
+name = "Idle"
+source = "Idle"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Walk"
+source = "Walk"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+

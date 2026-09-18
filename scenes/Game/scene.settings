@@ -391,6 +391,71 @@ name = "ChopInput"
 type = "number"
 value = 0
 
+[[variables]]
+name = "MountRequest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MountFound"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DropX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DropY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DropAllowed"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DinoPreviousX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DinoPreviousY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DinoPreviousAngle"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DinoMoving"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CapsuleX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CapsuleY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CapsuleNearestY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CapsuleDistance"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 background = "#72BBDD"
@@ -2615,3 +2680,27 @@ id = "005cad9f-b161-45b6-a7de-99de459e5087"
 object = "HeldAxe"
 layer = "world3d"
 at = [0, 0, 100]
+
+[[layout.instances]]
+id = "27f29c53-3afe-407b-9513-f29918a6cad8"
+object = "MountedRider"
+layer = "world3d"
+at = [650, -365, 312]
+
+[[layout.instances]]
+id = "6efe573c-7107-4a20-ae65-4869e9568b20"
+object = "MountButton"
+layer = "hud"
+at = [1030, 527]
+size = [330, 48]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "342f3ab4-ed7d-49e5-b314-a410613e4209"
+object = "MountLabel"
+layer = "hud"
+at = [1050, 538]
+size = [290, 32]
+keep_ratio = false
+z_order = 12

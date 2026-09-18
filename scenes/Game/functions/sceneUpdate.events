@@ -1,6 +1,7 @@
 @comment "Real-time 3D movement and reference comparison" background=[90,150,180] text=[255,255,255]
 
 if KeyFromTextReleased key_to_check="F3"
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 do SetNumberVariable variable="RenderMode" modification_sign="=" value=expr(1 - RenderMode)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -8,7 +9,7 @@ if BuiltinCommonInstructions::Once
 do HideLayer layer="World"
 do ShowLayer layer="World3D"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DemoLabel" behavior="Text" modification_sign="=" text="REAL-TIME 3D / F3 ART REFERENCE"
-do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD move   Hold E gather / interact   F rest   Q travel   TAB pack  ESC menu  RMB orbit  Wheel zoom  Home reset"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD move   X ride   Hold E gather / interact   F rest   Q travel   TAB pack  ESC menu  RMB orbit  Wheel zoom  Home reset"
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
@@ -19,8 +20,8 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="DemoLabel" b
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
-do SetX object="Player3D" modification_sign="=" value=650
-do SetY object="Player3D" modification_sign="=" value=150
+do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
+do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y() + 550)
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -69,10 +70,12 @@ do SetNumberVariable variable="MoveSpeed" modification_sign="=" value=247.5
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 do SetX object="Player3D" modification_sign="+" value=expr((MoveX * cos(ToRad(CameraYaw)) + MoveY * sin(ToRad(CameraYaw))) * MoveSpeed * TimeDelta())
 do SetY object="Player3D" modification_sign="+" value=expr((MoveY * cos(ToRad(CameraYaw)) - MoveX * sin(ToRad(CameraYaw))) * MoveSpeed * TimeDelta())
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if PosX object="Player3D" comparison_sign=">" value=-1250
 if PosX object="Player3D" comparison_sign="<" value=-550
 if PosY object="Player3D" comparison_sign=">" value=-1010
@@ -81,20 +84,308 @@ do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if PosX object="Player3D" comparison_sign=">" value=1500
 do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if PosX object="Player3D" comparison_sign="<" value=-1500
 do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if PosY object="Player3D" comparison_sign=">" value=1250
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if PosY object="Player3D" comparison_sign="<" value=-1700
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@comment "Mount state, safe side dismount, rotated capsule separation" background=[95,150,175] text=[255,255,255]
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetNumberVariable variable="DinoPreviousX" modification_sign="=" value=expr(Dinosaur3D.X())
+do SetNumberVariable variable="DinoPreviousY" modification_sign="=" value=expr(Dinosaur3D.Y())
+do SetNumberVariable variable="DinoPreviousAngle" modification_sign="=" value=expr(Dinosaur3D.Angle())
+do SetNumberVariable variable="DinoMoving" modification_sign="=" value=0
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="x"
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if IsCursorOnObject object="MountButton" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=1
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Trust" comparison_sign="<" value=100
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="先用浆果把信任提升到 100，才能骑乘。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if Distance object="Player3D" object_2="Dinosaur3D" distance=650
+do SetNumberVariable variable="Riding" modification_sign="=" value=1
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已骑乘！WASD 移动，右键转动镜头，X 下坐骑。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="请靠近恐龙再按 X 骑乘。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do SetNumberVariable variable="MountFound" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+do SetNumberVariable variable="DropX" modification_sign="=" value=expr(Dinosaur3D.X() + cos(ToRad(Dinosaur3D.Angle())) * 240)
+do SetNumberVariable variable="DropY" modification_sign="=" value=expr(Dinosaur3D.Y() + sin(ToRad(Dinosaur3D.Angle())) * 240)
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=1
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropX" comparison_sign="<" value=-1450
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropX" comparison_sign=">" value=1450
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropY" comparison_sign="<" value=-1650
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropY" comparison_sign=">" value=1200
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropX" comparison_sign=">" value=-1310
+if NumberVariable variable="DropX" comparison_sign="<" value=-490
+if NumberVariable variable="DropY" comparison_sign=">" value=-1070
+if NumberVariable variable="DropY" comparison_sign="<" value=-320
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropAllowed" comparison_sign="=" value=1
+do SetNumberVariable variable="Riding" modification_sign="=" value=0
+do SetNumberVariable variable="MountFound" modification_sign="=" value=1
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
+do SetX object="Player3D" modification_sign="=" value=expr(DropX)
+do SetY object="Player3D" modification_sign="=" value=expr(DropY)
+do SetNumberVariable variable="PreviousX" modification_sign="=" value=expr(DropX)
+do SetNumberVariable variable="PreviousY" modification_sign="=" value=expr(DropY)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已安全下坐骑。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+do SetNumberVariable variable="DropX" modification_sign="=" value=expr(Dinosaur3D.X() + cos(ToRad(Dinosaur3D.Angle())) * -240)
+do SetNumberVariable variable="DropY" modification_sign="=" value=expr(Dinosaur3D.Y() + sin(ToRad(Dinosaur3D.Angle())) * -240)
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=1
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropX" comparison_sign="<" value=-1450
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropX" comparison_sign=">" value=1450
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropY" comparison_sign="<" value=-1650
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropY" comparison_sign=">" value=1200
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropX" comparison_sign=">" value=-1310
+if NumberVariable variable="DropX" comparison_sign="<" value=-490
+if NumberVariable variable="DropY" comparison_sign=">" value=-1070
+if NumberVariable variable="DropY" comparison_sign="<" value=-320
+do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MountFound" comparison_sign="=" value=0
+if NumberVariable variable="DropAllowed" comparison_sign="=" value=1
+do SetNumberVariable variable="Riding" modification_sign="=" value=0
+do SetNumberVariable variable="MountFound" modification_sign="=" value=1
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
+do SetX object="Player3D" modification_sign="=" value=expr(DropX)
+do SetY object="Player3D" modification_sign="=" value=expr(DropY)
+do SetNumberVariable variable="PreviousX" modification_sign="=" value=expr(DropX)
+do SetNumberVariable variable="PreviousY" modification_sign="=" value=expr(DropY)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已安全下坐骑。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="两侧没有安全落脚点，请移动到空地再下坐骑。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do SetX object="Dinosaur3D" modification_sign="=" value=expr(Dinosaur3D.X() + (MoveX * cos(ToRad(CameraYaw)) + MoveY * sin(ToRad(CameraYaw))) * MoveSpeed * 1.4 * TimeDelta())
+do SetY object="Dinosaur3D" modification_sign="=" value=expr(Dinosaur3D.Y() + (MoveY * cos(ToRad(CameraYaw)) - MoveX * sin(ToRad(CameraYaw))) * MoveSpeed * 1.4 * TimeDelta())
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="MoveX" comparison_sign="!=" value=0
+or NumberVariable variable="MoveY" comparison_sign="!=" value=0
+do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(DinoPreviousX, DinoPreviousY, Dinosaur3D.X(), Dinosaur3D.Y()) - 90)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if PosX object="Dinosaur3D" comparison_sign="<" value=-1070
+do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(DinoPreviousAngle)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if PosX object="Dinosaur3D" comparison_sign=">" value=1070
+do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(DinoPreviousAngle)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if PosY object="Dinosaur3D" comparison_sign="<" value=-1270
+do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(DinoPreviousAngle)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if PosY object="Dinosaur3D" comparison_sign=">" value=820
+do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(DinoPreviousAngle)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if PosX object="Dinosaur3D" comparison_sign=">" value=-1680
+if PosX object="Dinosaur3D" comparison_sign="<" value=-120
+if PosY object="Dinosaur3D" comparison_sign=">" value=-1440
+if PosY object="Dinosaur3D" comparison_sign="<" value=50
+do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(DinoPreviousAngle)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do SetNumberVariable variable="DinoMoving" modification_sign="=" value=expr(DistanceBetweenPositions(DinoPreviousX, DinoPreviousY, Dinosaur3D.X(), Dinosaur3D.Y()))
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+do SetNumberVariable variable="CapsuleX" modification_sign="=" value=expr((Player3D.X() - Dinosaur3D.X()) * cos(ToRad(Dinosaur3D.Angle())) + (Player3D.Y() - Dinosaur3D.Y()) * sin(ToRad(Dinosaur3D.Angle())))
+do SetNumberVariable variable="CapsuleY" modification_sign="=" value=expr(-(Player3D.X() - Dinosaur3D.X()) * sin(ToRad(Dinosaur3D.Angle())) + (Player3D.Y() - Dinosaur3D.Y()) * cos(ToRad(Dinosaur3D.Angle())))
+do SetNumberVariable variable="CapsuleNearestY" modification_sign="=" value=expr(clamp(CapsuleY, -330, 200))
+do SetNumberVariable variable="CapsuleDistance" modification_sign="=" value=expr(sqrt(CapsuleX * CapsuleX + (CapsuleY - CapsuleNearestY) * (CapsuleY - CapsuleNearestY)))
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="CapsuleDistance" comparison_sign="<" value=0.001
+do SetNumberVariable variable="CapsuleX" modification_sign="=" value=170
+do SetNumberVariable variable="CapsuleY" modification_sign="=" value=expr(CapsuleNearestY)
+do SetNumberVariable variable="CapsuleDistance" modification_sign="=" value=170
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="CapsuleDistance" comparison_sign="<=" value=170
+do SetNumberVariable variable="CapsuleX" modification_sign="=" value=expr(CapsuleX * 170 / CapsuleDistance)
+do SetNumberVariable variable="CapsuleY" modification_sign="=" value=expr(CapsuleNearestY + (CapsuleY - CapsuleNearestY) * 170 / CapsuleDistance)
+do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X() + CapsuleX * cos(ToRad(Dinosaur3D.Angle())) - CapsuleY * sin(ToRad(Dinosaur3D.Angle())))
+do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y() + CapsuleX * sin(ToRad(Dinosaur3D.Angle())) + CapsuleY * cos(ToRad(Dinosaur3D.Angle())))
+
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
+do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y())
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(Dinosaur3D.Angle())
+do Hide object="Player3D"
+do Show object="MountedRider"
+do SetX object="MountedRider" modification_sign="=" value=expr(Dinosaur3D.X() + sin(ToRad(Dinosaur3D.Angle())) * 15)
+do SetY object="MountedRider" modification_sign="=" value=expr(Dinosaur3D.Y() - cos(ToRad(Dinosaur3D.Angle())) * 15)
+do SetAngle object="MountedRider" modification_sign="=" angle_in_degrees=expr(Dinosaur3D.Angle())
+
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+do Show object="Player3D"
+do Hide object="MountedRider"
+
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+if NumberVariable variable="DinoMoving" comparison_sign=">" value=0.01
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+do AnimatableCapability::AnimatableBehavior::SetName object="Dinosaur3D" behavior="Animation" modification_sign="=" animation_name="Walk"
+do SetNumberObjectVariable object="Dinosaur3D" variable="AnimationState" modification_sign="=" value=1
+
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+or NumberVariable variable="DinoMoving" comparison_sign="<=" value=0.01
+do AnimatableCapability::AnimatableBehavior::SetName object="Dinosaur3D" behavior="Animation" modification_sign="=" animation_name="Idle"
+do SetNumberObjectVariable object="Dinosaur3D" variable="AnimationState" modification_sign="=" value=0
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Dinosaur3D" behavior="Animation"
+
+if NumberVariable variable="Mode" comparison_sign="!=" value=0
+do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Dinosaur3D" behavior="Animation"
+
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Trust" comparison_sign="<" value=100
+do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" behavior="Text" modification_sign="=" text="X  驯服后可骑乘"
+
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Trust" comparison_sign=">=" value=100
+do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" behavior="Text" modification_sign="=" text="X  靠近恐龙骑乘"
+
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" behavior="Text" modification_sign="=" text="X  下坐骑"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -240,6 +531,7 @@ do Hide object="HarvestPanel"
 do Hide object="HarvestHint"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign=">" value=0
 do SetNumberObjectVariable object="HarvestNodes" variable="Cooldown" modification_sign="-" value=expr(TimeDelta())
@@ -251,6 +543,7 @@ if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sig
 do Hide object="HarvestNodes"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if PickNearest object="HarvestNodes" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
 if Distance object="Player3D" object_2="HarvestNodes" distance=260
@@ -289,6 +582,7 @@ if NumberVariable variable="Stamina" comparison_sign="<" value=3
 do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text="Too tired to gather. Rest with F."
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
 if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
@@ -342,6 +636,7 @@ do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=0
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="e"
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="HarvestNear" comparison_sign="=" value=0
 do SetNumberVariable variable="Action" modification_sign="=" value=1
 
@@ -611,6 +906,18 @@ do ChangeColor object="HotSlot7" tint="255;255;255"
 
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=8
 do ChangeColor object="HotSlot7" tint="255;190;60"
+
+if NumberVariable variable="Action" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="请先按 X 下坐骑，再进行互动。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Action" comparison_sign="=" value=5
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="骑乘时用 WASD 移动；先下坐骑才能快速旅行。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 if NumberVariable variable="Action" comparison_sign="=" value=1
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -1216,8 +1523,8 @@ do SetNumberVariable variable="CameraDistance" modification_sign="=" value=1250
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 do SetCameraCenterX modification_sign="=" value=expr(Player3D.X() + sin(ToRad(CameraYaw)) * cos(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
 do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + cos(ToRad(CameraYaw)) * cos(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
-do Scene3D::SetCameraZ modification_sign="=" value=expr(120 + sin(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
-do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y()) z_position=120 layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
+do Scene3D::SetCameraZ modification_sign="=" value=expr(120 + Riding * 220 + sin(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y()) z_position=expr(120 + Riding * 220) layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
 if NumberVariable variable="Mode" comparison_sign="=" value=6
 if BuiltinCommonInstructions::Once
 do ShowLayer layer="Quests"
@@ -1582,18 +1889,22 @@ if NumberVariable variable="Mode" comparison_sign=">=" value=0
 do SetNumberVariable variable="ChopInput" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="AxeCooldown" comparison_sign=">" value=0
 do SetNumberVariable variable="AxeCooldown" modification_sign="-" value=expr(TimeDelta())
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="AxeSwing" comparison_sign=">" value=0
 do SetNumberVariable variable="AxeSwing" modification_sign="=" value=expr(max(0, AxeSwing - TimeDelta()))
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if KeyFromTextPressed key_to_check="e"
 do SetNumberVariable variable="ChopInput" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if MouseButtonFromTextPressed button_to_check="Left"
 if CursorX comparison_sign=">" value=320 layer="HUD" camera_number_default_0=0
 if CursorX comparison_sign="<" value=1020 layer="HUD" camera_number_default_0=0
@@ -1621,6 +1932,7 @@ if NumberVariable variable="Stamina" comparison_sign="<" value=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text="体力不足，按 F 休息后再砍。"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=1
 if NumberVariable variable="Axe" comparison_sign=">" value=0
@@ -1651,6 +1963,7 @@ do SetStringVariable variable="NoticeMessage" modification_sign="=" value="砍�
 do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=55 pitch_speed=0.8
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="AxeSwing" comparison_sign=">" value=0
 if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
 do SetAngle object="WoodSapling" modification_sign="=" angle_in_degrees=expr(sin(AxeSwing * 55) * AxeSwing * 20)
@@ -1662,6 +1975,7 @@ if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=1
 if NumberVariable variable="Axe" comparison_sign=">" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 do Show object="HeldAxe"
 do SetX object="HeldAxe" modification_sign="=" value=expr(Player3D.X() - cos(ToRad(Player3D.Angle())) * 45 - sin(ToRad(Player3D.Angle())) * sin(AxeSwing / 0.35 * 3.14159) * 55)
 do SetY object="HeldAxe" modification_sign="=" value=expr(Player3D.Y() - sin(ToRad(Player3D.Angle())) * 45 + cos(ToRad(Player3D.Angle())) * sin(AxeSwing / 0.35 * 3.14159) * 55)
