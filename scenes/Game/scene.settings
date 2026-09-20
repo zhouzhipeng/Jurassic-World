@@ -524,6 +524,11 @@ name = "TouchPanelBody"
 type = "string"
 value = ""
 
+[[variables]]
+name = "TouchLastNotice"
+type = "string"
+value = ""
+
 [objectGroups]
 ModularParts = ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs"]
 AllBuildings = ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs", "BuiltShelter", "BuiltPalisade", "BuiltCampfire"]

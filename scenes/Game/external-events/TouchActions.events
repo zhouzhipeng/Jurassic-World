@@ -71,8 +71,6 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="TouchCommand" comparison_sign="=" value=expr(303)
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="NearFire" comparison_sign="=" value=expr(1)
-if PickNearest object="SurvivalFires" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
-if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=expr(0)
 if NumberVariable variable="Meat" comparison_sign=">" value=expr(0)
 do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(3)
 

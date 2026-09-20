@@ -234,7 +234,7 @@ do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("
 @event
 if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(5)
 do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("靠近篝火按 V 添柴；需要 1 木材，最多储存 180 秒燃料。")
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("靠近篝火添柴；需要 1 木材，最多储存 180 秒燃料。")
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -257,7 +257,7 @@ do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("
 @event
 if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(3)
 do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("靠近燃烧的篝火按 C 烤肉；需要 1 生肉，等待当前烹饪完成。")
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("靠近燃烧的篝火点「烤肉」 烤肉；需要 1 生肉，等待当前烹饪完成。")
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -274,7 +274,7 @@ do SetNumberVariable variable="Wood" modification_sign="-" value=expr(8)
 do SetNumberVariable variable="ForgeBuilt" modification_sign="=" value=expr(1)
 do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
 do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("营地熔炉修复完成。Z：2 矿石 +2 木材 →1 金属锭。")
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("营地熔炉修复完成。每次 2 矿石 +2 木材 →1 金属锭。")
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -327,7 +327,7 @@ do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("
 @event
 if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(7)
 do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("在修好的熔炉旁按 U 升级：3 金属锭 +4 木材 +2 兽皮，仅需制作一次。")
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("在修好的熔炉旁在工坊升级工具 升级：3 金属锭 +4 木材 +2 兽皮，仅需制作一次。")
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -344,12 +344,12 @@ do SetNumberVariable variable="Fiber" modification_sign="-" value=expr(4)
 do SetNumberVariable variable="Canteen" modification_sign="=" value=expr(1)
 do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
 do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("水袋已做好。到清泉按 F 装满，野外可饮用 3 次。")
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("水袋已做好。到清泉点「饮水」 装满，野外可饮用 3 次。")
 
 @event
 if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(8)
 do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("营地工作台旁按 I 制作水袋：2 兽皮 +4 纤维。做好后无需重复制作。")
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("营地工作台旁在工坊制作水袋 制作水袋：2 兽皮 +4 纤维。做好后无需重复制作。")
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -379,12 +379,12 @@ do SetNumberObjectVariable object="Triceratops" variable="FeedWait" modification
 do SetNumberVariable variable="FeedingDone" modification_sign="=" value=expr(1)
 do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
 do PlaySound audio_file_or_audio_resource_name="feed.wav" repeat_the_sound=false volume=55 pitch_speed=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("三角龙信任 +20；等待 4 秒后再次喂食，按 H 可命令驯服的伙伴。")
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("三角龙信任 +20；等待 4 秒后再次喂食，点「伙伴」下达跟随或等候命令。")
 
 @event
 if NumberVariable variable="TameRequest" comparison_sign="=" value=expr(1)
 if NumberVariable variable="FeedingDone" comparison_sign="=" value=expr(0)
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("靠近三角龙按 T：每次 3 浆果，间隔 4 秒；周围有捕食者时无法喂食。")
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("靠近三角龙点「喂食」：每次 3 浆果，间隔 4 秒；周围有捕食者时无法喂食。")
 
 @event
 if NumberVariable variable="TameRequest" comparison_sign="=" value=expr(1)

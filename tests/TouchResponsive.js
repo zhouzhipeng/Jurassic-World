@@ -1,4 +1,5 @@
-// Exercise real logical viewport changes and all visible card hitboxes.
+// With adaptWidth active the host determines aspect ratio; vary logical density.
+// Portrait and landscape aspect ratios are additionally checked by resizing the preview window.
 const n=name=>Number(harness.getSceneVariable(name)?.value);
 const val=(o,k)=>Number(harness.getObjectVariable(o.id,k)?.value);
 async function tap(command) {
@@ -11,8 +12,9 @@ function contained(objects,w,h){return objects.every(b=>b.x>=0&&b.y>=0&&b.x+b.wi
 try {
   await harness.goToScene('Game');await harness.stepFrames(3);
   harness.setSceneVariable('Invulnerable',9999);
-  for(const [w,h] of [[416,900],[1966,900],[900,900]]){
-    harness.getRuntimeGame().setGameResolutionSize(w,h);await harness.stepFrames(4);
+  for(const requestedHeight of [900,650,1200]){
+    harness.getRuntimeGame().setGameResolutionSize(1600,requestedHeight);await harness.stepFrames(4);
+    const w=harness.getGameResolutionWidth(),h=harness.getGameResolutionHeight();
     const visible=()=>harness.getObjects('TouchButton').filter(o=>val(o,'Active')===1);
     harness.assert(n('TouchWidth')===w&&n('TouchHeight')===h&&contained(visible(),w,h),`All play controls fit ${w} x ${h}`);
     const stick=harness.getObjects('TouchStick')[0];

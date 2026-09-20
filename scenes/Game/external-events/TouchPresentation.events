@@ -16,7 +16,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchStatus" behavior="Text" modification_sign="=" text=expr("生命 "+ToString(round(Health))+"   饥饿 "+ToString(round(Hunger))+"   水分 "+ToString(round(Water))+NewLine()+"第 "+ToString(WorldDay)+" 天  "+ToString(floor(WorldMinutes/60))+":"+ToString(floor(mod(WorldMinutes,60)/10))+ToString(floor(mod(WorldMinutes,10)))+"  "+WeatherName+"  体力 "+ToString(round(Stamina)))
-do TextContainerCapability::TextContainerBehavior::SetValue object="TouchQuest" behavior="Text" modification_sign="=" text=expr("前往 "+NavName+" · "+NavDirection+NewLine()+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),NavX,NavY)))+" 米")
+do TextContainerCapability::TextContainerBehavior::SetValue object="TouchQuest" behavior="Text" modification_sign="=" text=expr("前往 "+NavName+" · "+NavDirection+NewLine()+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),NavX,NavY)/100))+" 米")
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchHint" behavior="Text" modification_sign="=" text=expr(TouchContextHint)
 do SetX object="TouchKnob" modification_sign="=" value=expr(TouchJoyX-40*TouchScale+TouchMoveX*TouchRadius)
 do SetY object="TouchKnob" modification_sign="=" value=expr(TouchJoyY-40*TouchScale+TouchMoveY*TouchRadius)
@@ -72,3 +72,26 @@ do TextObject::SetWrapping object="TouchToastText" wrapping=true
 do TextObject::WrappingWidth object="TouchToastText" modification_sign="=" value=expr(TouchMenuWidth-50*TouchScale)
 do TextObject::Text::SetFontSize object="TouchToastText" modification_sign="=" value=expr(24*TouchScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchToastText" behavior="Text" modification_sign="=" text=expr(TouchToast)
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="NavMode" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="TouchQuest" behavior="Text" modification_sign="=" text=expr(QuestTargetName+" · "+QuestDirection+" · "+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),QuestTargetX,QuestTargetY)/100))+" 米")
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if StringVariable variable="TouchLastNotice" comparison_sign="!=" value=expr(NoticeMessage)
+do SetStringVariable variable="TouchLastNotice" modification_sign="=" value=expr(NoticeMessage)
+do SetStringVariable variable="TouchToast" modification_sign="=" value=expr(NoticeMessage)
+do SetNumberVariable variable="TouchToastTime" modification_sign="=" value=3
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchToastTime" comparison_sign=">" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+do SetX object="TouchToastText" modification_sign="=" value=expr(TouchMargin+8*TouchScale)
+do SetY object="TouchToastText" modification_sign="=" value=expr(TouchMargin+280*TouchScale)
+do TextObject::WrappingWidth object="TouchToastText" modification_sign="=" value=expr(min(680*TouchScale,TouchWidth-2*TouchMargin-110*TouchScale))
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchToastTime" comparison_sign=">" value=0
+if NumberVariable variable="Mode" comparison_sign="!=" value=0
+do SetY object="TouchToastText" modification_sign="=" value=expr(TouchMenuY+166*TouchScale)

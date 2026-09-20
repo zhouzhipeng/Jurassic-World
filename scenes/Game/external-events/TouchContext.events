@@ -166,3 +166,20 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="TouchAutoHarvest" comparison_sign="=" value=expr(1)
 do SetStringVariable variable="TouchContextLabel" modification_sign="=" value=expr("采集中")
 do SetStringVariable variable="TouchContextHint" modification_sign="=" value=expr("正在采集，移动可取消")
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchContext" comparison_sign="=" value=3
+if PickNearest object="SurvivalFires" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value=expr("篝火燃料 "+ToString(ceil(SurvivalFires.Variable(Fuel)))+" 秒 · 生肉 "+ToString(Meat)+" 份")
+> if NumberObjectVariable object="SurvivalFires" variable="Cooking" comparison_sign="=" value=1
+> do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="烹饪中"
+> do SetStringVariable variable="TouchContextHint" modification_sign="=" value=expr("烤肉剩余 "+ToString(ceil(SurvivalFires.Variable(CookTime)))+" 秒 · 燃料 "+ToString(ceil(SurvivalFires.Variable(Fuel)))+" 秒")
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchContext" comparison_sign="=" value=5
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value=expr("副栉龙信任 "+ToString(Trust)+" / 100 · 每次需要 1 浆果")
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchContext" comparison_sign="=" value=8
+if PickNearest object="Triceratops" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value=expr("三角龙信任 "+ToString(Triceratops.Variable(Bond))+" / 100 · 再等 "+ToString(ceil(Triceratops.Variable(FeedWait)))+" 秒 · 3 浆果")
