@@ -1,0 +1,1337 @@
+{
+  "sourceCommit": "7fcecca",
+  "runtimeVerified": true,
+  "completionReady": true,
+  "assertions": [
+    {
+      "index": 0,
+      "type": "runtime_error_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq"
+    },
+    {
+      "index": 1,
+      "type": "object_count",
+      "passed": true,
+      "actual": 15,
+      "expected": 15,
+      "operator": "eq",
+      "objectName": "BerryBush"
+    },
+    {
+      "index": 2,
+      "type": "object_count",
+      "passed": true,
+      "actual": 15,
+      "expected": 15,
+      "operator": "eq",
+      "objectName": "FiberFern"
+    },
+    {
+      "index": 3,
+      "type": "object_count",
+      "passed": true,
+      "actual": 12,
+      "expected": 12,
+      "operator": "eq",
+      "objectName": "WoodSapling"
+    },
+    {
+      "index": 4,
+      "type": "object_count",
+      "passed": true,
+      "actual": 12,
+      "expected": 12,
+      "operator": "eq",
+      "objectName": "StoneDeposit"
+    },
+    {
+      "index": 5,
+      "type": "instance_position_finite",
+      "passed": true,
+      "actual": {
+        "x": 650,
+        "y": 200,
+        "z": 0,
+        "angle": 180,
+        "layer": "World3D",
+        "zOrder": 0
+      },
+      "expected": "finite x/y/z (when z is present)",
+      "objectName": "Player3D"
+    },
+    {
+      "index": 6,
+      "type": "renderer_visible_mesh_count",
+      "passed": true,
+      "actual": 194,
+      "expected": 0,
+      "operator": "gt",
+      "layerName": "World3D"
+    },
+    {
+      "index": 7,
+      "type": "renderer_failed_texture_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 8,
+      "type": "renderer_rejected_object_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    }
+  ],
+  "areaRatio": 2.9966101694915253,
+  "oldBounds": {
+    "x": [
+      -1500,
+      1500
+    ],
+    "y": [
+      -1700,
+      1250
+    ]
+  },
+  "newBounds": {
+    "x": [
+      -2600,
+      2600
+    ],
+    "y": [
+      -2800,
+      2300
+    ]
+  },
+  "walk": {
+    "states": {
+      "Player3D": [
+        {
+          "index": 0,
+          "id": 199,
+          "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+          "picked": true,
+          "position": {
+            "x": 2149.999999999995,
+            "y": 0,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "AnimationState": 1,
+            "Sprinting": 0,
+            "Travel": 5.833333333333485,
+            "HandZ": 80.07952933258724,
+            "FootZ": 20.504034736079387,
+            "AttachmentReady": 1,
+            "HandRX": -1.008054995436296
+          }
+        }
+      ]
+    },
+    "variables": {
+      "SaveStorage": "JurassicWorldMapExpansionTest20260920",
+      "BuildMode": 0,
+      "BuildKind": 1,
+      "BuildAngle": 0,
+      "BuildX": 0,
+      "BuildY": 0,
+      "BuildHX": 0,
+      "BuildHY": 0,
+      "BuildWorldHX": 0,
+      "BuildWorldHY": 0,
+      "BuildValid": 0,
+      "BuildCount": 0,
+      "BuildSlot": -1,
+      "BuildWood": 10,
+      "BuildStone": 5,
+      "BuildFiber": 8,
+      "BuildRestore": 0,
+      "BuildDeleteSlot": -1,
+      "BuildDeleteDistance": 9999,
+      "BuildLX": 0,
+      "BuildLY": 0,
+      "BuildWarm": 0,
+      "BuildRest": 0,
+      "BuildReason": "",
+      "BuildJSON": "[]",
+      "BuildingRecords": [],
+      "Health": 100,
+      "Dead": 0,
+      "Invulnerable": 0,
+      "Threat": 0,
+      "ThreatMix": 0,
+      "MusicStarted": 1,
+      "Muted": 0,
+      "StepClock": 0.08333333333333343,
+      "CombatCD": 0,
+      "CombatSwing": 0,
+      "CombatHit": 0,
+      "Kills": 0,
+      "DeathCount": 0,
+      "NearestWild": 1792.3448328934896,
+      "HitFlash": 0,
+      "SafeCamp": 0,
+      "AudioMode": 0,
+      "AudioRiding": 0,
+      "SoundClock": 3.0083333333333266,
+      "CombatLesson": 0,
+      "FacingTarget": 0,
+      "Mode": 0,
+      "InputMode": 0,
+      "StationIndex": 0
+    },
+    "sounds": [
+      {
+        "soundName": "island-dawn.wav",
+        "isMusic": true,
+        "channel": 20
+      },
+      {
+        "soundName": "predator-pulse.wav",
+        "isMusic": true,
+        "channel": 21
+      },
+      {
+        "soundName": "footstep.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "footstep.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "footstep.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "footstep.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "footstep.wav",
+        "isMusic": false,
+        "channel": null
+      }
+    ]
+  },
+  "eastLimit": {
+    "states": {
+      "Player3D": [
+        {
+          "index": 0,
+          "id": 199,
+          "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+          "picked": false,
+          "position": {
+            "x": 2599.1666666666733,
+            "y": 0,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          }
+        }
+      ]
+    },
+    "variables": {
+      "SaveStorage": "JurassicWorldMapExpansionTest20260920",
+      "BuildMode": 0,
+      "BuildKind": 1,
+      "BuildAngle": 0,
+      "BuildX": 0,
+      "BuildY": 0,
+      "BuildHX": 0,
+      "BuildHY": 0,
+      "BuildWorldHX": 0,
+      "BuildWorldHY": 0,
+      "BuildValid": 0,
+      "BuildCount": 0,
+      "BuildSlot": -1,
+      "BuildWood": 10,
+      "BuildStone": 5,
+      "BuildFiber": 8,
+      "BuildRestore": 0,
+      "BuildDeleteSlot": -1,
+      "BuildDeleteDistance": 9999,
+      "BuildLX": 0,
+      "BuildLY": 0,
+      "BuildWarm": 0,
+      "BuildRest": 0,
+      "BuildReason": "",
+      "BuildJSON": "[]",
+      "BuildingRecords": [],
+      "Health": 100,
+      "Dead": 0,
+      "Invulnerable": 0,
+      "Threat": 0,
+      "ThreatMix": 0,
+      "MusicStarted": 1,
+      "Muted": 0,
+      "StepClock": 0,
+      "CombatCD": 0,
+      "CombatSwing": 0,
+      "CombatHit": 0,
+      "Kills": 0,
+      "DeathCount": 0,
+      "NearestWild": 2059.850806090261,
+      "HitFlash": 0,
+      "SafeCamp": 0,
+      "AudioMode": 0,
+      "AudioRiding": 0,
+      "SoundClock": 5.0083333333333195,
+      "CombatLesson": 0,
+      "FacingTarget": 0,
+      "Mode": 0,
+      "InputMode": 0,
+      "StationIndex": 0
+    },
+    "sounds": [
+      {
+        "soundName": "footstep.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "footstep.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "footstep.wav",
+        "isMusic": false,
+        "channel": null
+      }
+    ]
+  },
+  "otherLimits": [
+    {
+      "name": "west",
+      "pos": {
+        "x": -2596.666666666668,
+        "y": 1000,
+        "z": 0,
+        "layer": "World3D",
+        "zOrder": 0
+      },
+      "passed": true
+    },
+    {
+      "name": "north",
+      "pos": {
+        "x": 0,
+        "y": -2796.666666666668,
+        "z": 0,
+        "layer": "World3D",
+        "zOrder": 0
+      },
+      "passed": true
+    },
+    {
+      "name": "south",
+      "pos": {
+        "x": 0,
+        "y": 2296.666666666668,
+        "z": 0,
+        "layer": "World3D",
+        "zOrder": 0
+      },
+      "passed": true
+    }
+  ],
+  "harvest": {
+    "states": {
+      "BerryBush": [
+        {
+          "index": 0,
+          "id": 200,
+          "persistentUuid": "760746b1-229c-4011-aa8d-3825c7328486",
+          "picked": true,
+          "position": {
+            "x": 430,
+            "y": 100,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 1,
+          "id": 201,
+          "persistentUuid": "79f11c5d-f813-46c1-a8b8-4b56f08482eb",
+          "picked": false,
+          "position": {
+            "x": 100,
+            "y": -650,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 2,
+          "id": 202,
+          "persistentUuid": "e718a5ef-1f44-4818-b5db-b64345447907",
+          "picked": false,
+          "position": {
+            "x": 1050,
+            "y": -900,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 3,
+          "id": 203,
+          "persistentUuid": "c79a67d3-8aa4-42e0-92c9-e57903d79594",
+          "picked": false,
+          "position": {
+            "x": -100,
+            "y": 650,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 4,
+          "id": 204,
+          "persistentUuid": "bc45847a-9ffa-459e-9d55-f9993a6ea0a2",
+          "picked": false,
+          "position": {
+            "x": -1400,
+            "y": -100,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 5,
+          "id": 276,
+          "persistentUuid": "9e9a9ee5-6fd0-43b1-bc7b-62389409b1f6",
+          "picked": false,
+          "position": {
+            "x": -2150,
+            "y": -1900,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 6,
+          "id": 277,
+          "persistentUuid": "eb0551de-440b-422f-8969-f312658b8a94",
+          "picked": false,
+          "position": {
+            "x": -2100,
+            "y": -800,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 7,
+          "id": 278,
+          "persistentUuid": "e82b98db-0f97-41fd-900c-57afb6ea6929",
+          "picked": false,
+          "position": {
+            "x": -2050,
+            "y": 450,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 8,
+          "id": 279,
+          "persistentUuid": "89e4f6a3-a0e6-41c1-98de-feaf911476aa",
+          "picked": false,
+          "position": {
+            "x": -2000,
+            "y": 1850,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 9,
+          "id": 280,
+          "persistentUuid": "d6277891-43a6-4ed4-b827-5b5365ccd809",
+          "picked": false,
+          "position": {
+            "x": -750,
+            "y": 1900,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 10,
+          "id": 281,
+          "persistentUuid": "38bec98f-0751-48f5-9a81-3bd5420bdde6",
+          "picked": false,
+          "position": {
+            "x": 650,
+            "y": 1900,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 11,
+          "id": 282,
+          "persistentUuid": "16dd7aee-48dc-44e5-a9f8-dcf63efd55d2",
+          "picked": false,
+          "position": {
+            "x": 2150,
+            "y": 1700,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 12,
+          "id": 283,
+          "persistentUuid": "a9466824-7d9a-466b-968d-a3b972847b0c",
+          "picked": true,
+          "position": {
+            "x": 2200,
+            "y": 400,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 29.716666666666683,
+            "Progress": 0,
+            "Target": 1
+          }
+        },
+        {
+          "index": 13,
+          "id": 284,
+          "persistentUuid": "65649254-24e8-40aa-bb60-68d6cca38f56",
+          "picked": false,
+          "position": {
+            "x": 2100,
+            "y": -1000,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        },
+        {
+          "index": 14,
+          "id": 285,
+          "persistentUuid": "dec3b137-873f-4b23-9f4e-2144e5119fec",
+          "picked": false,
+          "position": {
+            "x": 600,
+            "y": -2500,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "Kind": 1,
+            "Cooldown": 0,
+            "Progress": 0,
+            "Target": 0
+          }
+        }
+      ]
+    },
+    "variables": {
+      "SaveStorage": "JurassicWorldMapExpansionTest20260920",
+      "BuildMode": 0,
+      "BuildKind": 1,
+      "BuildAngle": 0,
+      "BuildX": 0,
+      "BuildY": 0,
+      "BuildHX": 0,
+      "BuildHY": 0,
+      "BuildWorldHX": 0,
+      "BuildWorldHY": 0,
+      "BuildValid": 0,
+      "BuildCount": 0,
+      "BuildSlot": -1,
+      "BuildWood": 10,
+      "BuildStone": 5,
+      "BuildFiber": 8,
+      "BuildRestore": 0,
+      "BuildDeleteSlot": -1,
+      "BuildDeleteDistance": 9999,
+      "BuildLX": 0,
+      "BuildLY": 0,
+      "BuildWarm": 0,
+      "BuildRest": 0,
+      "BuildReason": "",
+      "BuildJSON": "[]",
+      "BuildingRecords": [],
+      "Health": 100,
+      "Dead": 0,
+      "Invulnerable": 0,
+      "Threat": 0,
+      "ThreatMix": 0,
+      "MusicStarted": 1,
+      "Muted": 0,
+      "StepClock": 0,
+      "CombatCD": 0,
+      "CombatSwing": 0,
+      "CombatHit": 0,
+      "Kills": 0,
+      "DeathCount": 0,
+      "NearestWild": 1374.4093071739228,
+      "HitFlash": 0,
+      "SafeCamp": 0,
+      "AudioMode": 0,
+      "AudioRiding": 0,
+      "SoundClock": 6.091666666666649,
+      "CombatLesson": 0,
+      "FacingTarget": 0,
+      "Mode": 0,
+      "InputMode": 0,
+      "StationIndex": 0
+    },
+    "sounds": [
+      {
+        "soundName": "harvest.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "quest-complete.wav",
+        "isMusic": false,
+        "channel": null
+      }
+    ]
+  },
+  "build": {
+    "states": {
+      "BuiltShelter": [
+        {
+          "index": 0,
+          "id": 312,
+          "picked": false,
+          "position": {
+            "x": -600,
+            "y": 1400,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 101
+          },
+          "variables": {
+            "Kind": 1,
+            "Slot": 0,
+            "HX": 240,
+            "HY": 205,
+            "WorldHX": 240,
+            "WorldHY": 205
+          }
+        }
+      ],
+      "BuildStatus": [
+        {
+          "index": 0,
+          "id": 275,
+          "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+          "picked": false,
+          "position": {
+            "x": 1042,
+            "y": 540,
+            "layer": "HUD",
+            "zOrder": 100
+          },
+          "variables": {
+            "Mode": 1,
+            "Kind": 1,
+            "Valid": 0,
+            "Count": 1,
+            "X": -600,
+            "Y": 1400,
+            "Angle": 0,
+            "Slot": 0,
+            "Warm": 0,
+            "Rest": 0,
+            "Wood": 20,
+            "Stone": 25,
+            "Fiber": 22
+          }
+        }
+      ]
+    },
+    "variables": {
+      "SaveStorage": "JurassicWorldMapExpansionTest20260920",
+      "BuildMode": 1,
+      "BuildKind": 1,
+      "BuildAngle": 0,
+      "BuildX": -600,
+      "BuildY": 1400,
+      "BuildHX": 240,
+      "BuildHY": 205,
+      "BuildWorldHX": 240,
+      "BuildWorldHY": 205,
+      "BuildValid": 0,
+      "BuildCount": 1,
+      "BuildSlot": 0,
+      "BuildWood": 10,
+      "BuildStone": 5,
+      "BuildFiber": 8,
+      "BuildRestore": 0,
+      "BuildDeleteSlot": 0,
+      "BuildDeleteDistance": 0,
+      "BuildLX": 0,
+      "BuildLY": 0,
+      "BuildWarm": 0,
+      "BuildRest": 0,
+      "BuildReason": "建造完成 · 移动到下一处空地",
+      "BuildJSON": "[]",
+      "BuildingRecords": [
+        {
+          "Kind": 1,
+          "X": -600,
+          "Y": 1400,
+          "Angle": 0
+        }
+      ],
+      "Health": 100,
+      "Dead": 0,
+      "Invulnerable": 0,
+      "Threat": 0,
+      "ThreatMix": 0,
+      "MusicStarted": 1,
+      "Muted": 0,
+      "StepClock": 0,
+      "CombatCD": 0,
+      "CombatSwing": 0,
+      "CombatHit": 0,
+      "Kills": 0,
+      "DeathCount": 0,
+      "NearestWild": 1169.8311309442734,
+      "HitFlash": 0,
+      "SafeCamp": 0,
+      "AudioMode": 0,
+      "AudioRiding": 0,
+      "SoundClock": 7.624999999999977,
+      "CombatLesson": 0,
+      "FacingTarget": 0,
+      "Mode": 0,
+      "InputMode": 0,
+      "StationIndex": 0
+    },
+    "sounds": [
+      {
+        "soundName": "build.wav",
+        "isMusic": false,
+        "channel": null
+      }
+    ]
+  },
+  "buildBoundary": {
+    "states": {
+      "BuiltShelter": [
+        {
+          "index": 0,
+          "id": 312,
+          "picked": false,
+          "position": {
+            "x": -600,
+            "y": 1400,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 101
+          },
+          "variables": {
+            "Kind": 1,
+            "Slot": 0,
+            "HX": 240,
+            "HY": 205,
+            "WorldHX": 240,
+            "WorldHY": 205
+          }
+        }
+      ],
+      "BuildStatus": [
+        {
+          "index": 0,
+          "id": 275,
+          "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+          "picked": false,
+          "position": {
+            "x": 1042,
+            "y": 540,
+            "layer": "HUD",
+            "zOrder": 100
+          },
+          "variables": {
+            "Mode": 1,
+            "Kind": 1,
+            "Valid": 0,
+            "Count": 1,
+            "X": -2600,
+            "Y": -2400,
+            "Angle": 0,
+            "Slot": 1,
+            "Warm": 0,
+            "Rest": 0,
+            "Wood": 20,
+            "Stone": 25,
+            "Fiber": 22
+          }
+        }
+      ]
+    },
+    "variables": {
+      "SaveStorage": "JurassicWorldMapExpansionTest20260920",
+      "BuildMode": 1,
+      "BuildKind": 1,
+      "BuildAngle": 0,
+      "BuildX": -2600,
+      "BuildY": -2400,
+      "BuildHX": 240,
+      "BuildHY": 205,
+      "BuildWorldHX": 240,
+      "BuildWorldHY": 205,
+      "BuildValid": 0,
+      "BuildCount": 1,
+      "BuildSlot": 1,
+      "BuildWood": 10,
+      "BuildStone": 5,
+      "BuildFiber": 8,
+      "BuildRestore": 0,
+      "BuildDeleteSlot": -1,
+      "BuildDeleteDistance": 9999,
+      "BuildLX": 0,
+      "BuildLY": 0,
+      "BuildWarm": 0,
+      "BuildRest": 0,
+      "BuildReason": "越过陆地范围，向岛内移动",
+      "BuildJSON": "[]",
+      "BuildingRecords": [
+        {
+          "Kind": 1,
+          "X": -600,
+          "Y": 1400,
+          "Angle": 0
+        },
+        {
+          "Kind": 0
+        }
+      ],
+      "Health": 100,
+      "Dead": 0,
+      "Invulnerable": 0,
+      "Threat": 0,
+      "ThreatMix": 0,
+      "MusicStarted": 1,
+      "Muted": 0,
+      "StepClock": 0,
+      "CombatCD": 0,
+      "CombatSwing": 0,
+      "CombatHit": 0,
+      "Kills": 0,
+      "DeathCount": 0,
+      "NearestWild": 1839.6490145968037,
+      "HitFlash": 0,
+      "SafeCamp": 0,
+      "AudioMode": 0,
+      "AudioRiding": 0,
+      "SoundClock": 9.708333333333394,
+      "CombatLesson": 0,
+      "FacingTarget": 0,
+      "Mode": 0,
+      "InputMode": 0,
+      "StationIndex": 0
+    },
+    "sounds": []
+  },
+  "mount": {
+    "states": {
+      "Dinosaur3D": [
+        {
+          "index": 0,
+          "id": 198,
+          "persistentUuid": "d0563fcc-89ad-4ddc-8fba-9774ed679417",
+          "picked": false,
+          "position": {
+            "x": 2169.6666666666697,
+            "y": 0,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          }
+        }
+      ],
+      "Player3D": [
+        {
+          "index": 0,
+          "id": 199,
+          "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+          "picked": true,
+          "position": {
+            "x": 2169.6666666666697,
+            "y": 0,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          }
+        }
+      ],
+      "MountedRider": [
+        {
+          "index": 0,
+          "id": 244,
+          "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+          "picked": false,
+          "position": {
+            "x": 2154.6666666666697,
+            "y": -9.18485099360515e-16,
+            "z": 312,
+            "layer": "World3D",
+            "zOrder": 0
+          }
+        }
+      ]
+    },
+    "variables": {
+      "SaveStorage": "JurassicWorldMapExpansionTest20260920",
+      "BuildMode": 0,
+      "BuildKind": 1,
+      "BuildAngle": 0,
+      "BuildX": -600,
+      "BuildY": 1400,
+      "BuildHX": 240,
+      "BuildHY": 205,
+      "BuildWorldHX": 240,
+      "BuildWorldHY": 205,
+      "BuildValid": 0,
+      "BuildCount": 1,
+      "BuildSlot": 0,
+      "BuildWood": 10,
+      "BuildStone": 5,
+      "BuildFiber": 8,
+      "BuildRestore": 0,
+      "BuildDeleteSlot": 0,
+      "BuildDeleteDistance": 0,
+      "BuildLX": 0,
+      "BuildLY": 0,
+      "BuildWarm": 0,
+      "BuildRest": 0,
+      "BuildReason": "建造完成 · 移动到下一处空地",
+      "BuildJSON": "[]",
+      "BuildingRecords": [
+        {
+          "Kind": 1,
+          "X": -600,
+          "Y": 1400,
+          "Angle": 0
+        }
+      ],
+      "Health": 100,
+      "Dead": 0,
+      "Invulnerable": 0,
+      "Threat": 0,
+      "ThreatMix": 0,
+      "MusicStarted": 1,
+      "Muted": 0,
+      "StepClock": 0,
+      "CombatCD": 0,
+      "CombatSwing": 0,
+      "CombatHit": 0,
+      "Kills": 0,
+      "DeathCount": 0,
+      "NearestWild": 1890.979234001944,
+      "HitFlash": 0,
+      "SafeCamp": 0,
+      "AudioMode": 0,
+      "AudioRiding": 1,
+      "SoundClock": 9.641666666666724,
+      "CombatLesson": 0,
+      "FacingTarget": 0,
+      "Mode": 0,
+      "InputMode": 0,
+      "StationIndex": 0
+    },
+    "sounds": [
+      {
+        "soundName": "dino-step.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "dino-step.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "dino-step.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "dino-step.wav",
+        "isMusic": false,
+        "channel": null
+      }
+    ]
+  },
+  "dismount": {
+    "states": {
+      "Dinosaur3D": [
+        {
+          "index": 0,
+          "id": 198,
+          "persistentUuid": "d0563fcc-89ad-4ddc-8fba-9774ed679417",
+          "picked": false,
+          "position": {
+            "x": 2169.6666666666697,
+            "y": 0,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          }
+        }
+      ],
+      "Player3D": [
+        {
+          "index": 0,
+          "id": 199,
+          "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+          "picked": false,
+          "position": {
+            "x": 2169.6666666666697,
+            "y": -240,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          }
+        }
+      ]
+    },
+    "variables": {
+      "SaveStorage": "JurassicWorldMapExpansionTest20260920",
+      "BuildMode": 0,
+      "BuildKind": 1,
+      "BuildAngle": 0,
+      "BuildX": -600,
+      "BuildY": 1400,
+      "BuildHX": 240,
+      "BuildHY": 205,
+      "BuildWorldHX": 240,
+      "BuildWorldHY": 205,
+      "BuildValid": 0,
+      "BuildCount": 1,
+      "BuildSlot": 0,
+      "BuildWood": 10,
+      "BuildStone": 5,
+      "BuildFiber": 8,
+      "BuildRestore": 0,
+      "BuildDeleteSlot": 0,
+      "BuildDeleteDistance": 0,
+      "BuildLX": 0,
+      "BuildLY": 0,
+      "BuildWarm": 0,
+      "BuildRest": 0,
+      "BuildReason": "建造完成 · 移动到下一处空地",
+      "BuildJSON": "[]",
+      "BuildingRecords": [
+        {
+          "Kind": 1,
+          "X": -600,
+          "Y": 1400,
+          "Angle": 0
+        }
+      ],
+      "Health": 100,
+      "Dead": 0,
+      "Invulnerable": 0,
+      "Threat": 0,
+      "ThreatMix": 0,
+      "MusicStarted": 1,
+      "Muted": 0,
+      "StepClock": 0,
+      "CombatCD": 0,
+      "CombatSwing": 0,
+      "CombatHit": 0,
+      "Kills": 0,
+      "DeathCount": 0,
+      "NearestWild": 1969.6660773137935,
+      "HitFlash": 0,
+      "SafeCamp": 0,
+      "AudioMode": 0,
+      "AudioRiding": 0,
+      "SoundClock": 9.658333333333392,
+      "CombatLesson": 0,
+      "FacingTarget": 0,
+      "Mode": 0,
+      "InputMode": 0,
+      "StationIndex": 0
+    },
+    "sounds": [
+      {
+        "soundName": "mount.wav",
+        "isMusic": false,
+        "channel": null
+      }
+    ]
+  },
+  "combat": {
+    "states": {
+      "Player3D": [
+        {
+          "index": 0,
+          "id": 199,
+          "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+          "picked": false,
+          "position": {
+            "x": -700,
+            "y": -1650,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "AnimationState": 0,
+            "Sprinting": 0,
+            "Travel": 0,
+            "HandZ": 78.39922068274066,
+            "FootZ": 15.99999942815008,
+            "AttachmentReady": 1,
+            "HandRX": 1.0284992954184287
+          }
+        }
+      ],
+      "Raptor": [
+        {
+          "index": 0,
+          "id": 249,
+          "persistentUuid": "3030d0a1-ab2a-44cf-8469-09ada543a597",
+          "picked": false,
+          "position": {
+            "x": -737.287159777982,
+            "y": -1886.9208184040488,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "HP": 100,
+            "MaxHP": 100,
+            "Carnivore": 1,
+            "HomeX": -700,
+            "HomeY": -2150,
+            "Radius": 95,
+            "HalfLength": 230,
+            "Speed": 285,
+            "Damage": 12,
+            "State": 3,
+            "Clock": 12.708333333333544,
+            "AIClock": 3.6999999999999917,
+            "Cooldown": 1.9666666666666677,
+            "Windup": 0.5999999999999992,
+            "DamageDone": 0,
+            "PX": -737.287159777982,
+            "PY": -1886.9208184040488,
+            "PA": -8.943981945231087,
+            "TargetX": -700,
+            "TargetY": -1650,
+            "Distance": 239.83704150433687,
+            "Travel": 0,
+            "Respawn": 0,
+            "AnimationState": 2,
+            "LocalX": 2.1316282072803006e-14,
+            "LocalY": 239.83704150433687,
+            "NearY": 95,
+            "Separation": 144.83704150433687,
+            "BodyDistance": 0
+          }
+        }
+      ]
+    },
+    "variables": {
+      "SaveStorage": "JurassicWorldMapExpansionTest20260920",
+      "BuildMode": 0,
+      "BuildKind": 1,
+      "BuildAngle": 0,
+      "BuildX": -2600,
+      "BuildY": -2400,
+      "BuildHX": 240,
+      "BuildHY": 205,
+      "BuildWorldHX": 240,
+      "BuildWorldHY": 205,
+      "BuildValid": 0,
+      "BuildCount": 1,
+      "BuildSlot": 1,
+      "BuildWood": 10,
+      "BuildStone": 5,
+      "BuildFiber": 8,
+      "BuildRestore": 0,
+      "BuildDeleteSlot": -1,
+      "BuildDeleteDistance": 9999,
+      "BuildLX": 0,
+      "BuildLY": 0,
+      "BuildWarm": 0,
+      "BuildRest": 0,
+      "BuildReason": "越过陆地范围，向岛内移动",
+      "BuildJSON": "[]",
+      "BuildingRecords": [
+        {
+          "Kind": 1,
+          "X": -600,
+          "Y": 1400,
+          "Angle": 0
+        },
+        {
+          "Kind": 0
+        }
+      ],
+      "Health": 88,
+      "Dead": 0,
+      "Invulnerable": 0,
+      "Threat": 1,
+      "ThreatMix": 47.794230183145956,
+      "MusicStarted": 1,
+      "Muted": 0,
+      "StepClock": 0,
+      "CombatCD": 0,
+      "CombatSwing": 0,
+      "CombatHit": 0,
+      "Kills": 0,
+      "DeathCount": 0,
+      "NearestWild": 239.83704150433687,
+      "HitFlash": 0,
+      "SafeCamp": 0,
+      "AudioMode": 0,
+      "AudioRiding": 0,
+      "SoundClock": 12.708333333333544,
+      "CombatLesson": 0,
+      "FacingTarget": 0,
+      "Mode": 0,
+      "InputMode": 0,
+      "StationIndex": 0
+    },
+    "sounds": [
+      {
+        "soundName": "raptor-call.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "hurt.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "bite.wav",
+        "isMusic": false,
+        "channel": null
+      },
+      {
+        "soundName": "raptor-call.wav",
+        "isMusic": false,
+        "channel": null
+      }
+    ]
+  },
+  "testStorage": "JurassicWorldMapExpansionTest20260920"
+}
