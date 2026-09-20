@@ -12,7 +12,7 @@ def c(n,op,val):return f'NumberVariable variable={q(n)} comparison_sign={q(op)} 
 def oc(o,n,op,val):return f'NumberObjectVariable object={q(o)} variable={q(n)} comparison_sign={q(op)} value=expr({val})'
 def cmp(a,op,b):return f'BuiltinCommonInstructions::CompareNumbers first_expression=expr({a}) comparison_sign={q(op)} second_expression=expr({b})'
 def pos(o,axis,val):return f'Set{axis} object={q(o)} modification_sign="=" value=expr({val})'
-def z(o,val):return f'Scene3D::Base3DBehavior::SetZ parameter_3d_object={q(o)} behavior="3D" modification_sign="=" value=expr({val})'
+def z(o,val):return f'Scene3D::Base3DBehavior::SetZ parameter_3d_object={q(o)} behavior="Object3D" modification_sign="=" value=expr({val})'
 def angle(o,val):return f'SetAngle object={q(o)} modification_sign="=" angle_in_degrees=expr({val})'
 def key(k):return f'KeyFromTextReleased key_to_check={q(k)}'
 def sound():return 'PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1'
@@ -23,7 +23,9 @@ def e(conditions,actions=(),d=0):
 def line(s,d=0):out.append(('>'*d+' ' if d else '')+s)
 play=[c('Mode','=',0),c('RenderMode','=',1)];foot=play+[c('Riding','=',0)];build=foot+[c('BuildMode','=',1)]
 parts=[('PartFoundation',10,150,150,6,2,3),('PartPillar',11,20,20,3,0,1),('PartWall',12,150,14,4,0,2),('PartDoorframe',13,150,14,4,0,2),('PartCeiling',14,150,150,5,0,3),('PartDoor',15,78,12,3,0,1),('PartStairs',16,120,152,6,0,3),('BuiltCampfire',3,80,80,3,3,0)]
-src=read(core);start=src.index('@comment "Construction placement');end=src.index('@comment "Player skeletal animation')
+src=read(core)
+assert '@comment "Construction placement' in src, 'Already migrated: edit the external events directly.'
+start=src.index('@comment "Construction placement');end=src.index('@comment "Player skeletal animation')
 old=src[start:end];assert 'repeat 40' in old
 # Keep legacy models/kinds and their collision/rest behavior intact. V2 adds parts.
 restore=old[old.index('if NumberVariable variable="BuildRestore"'):old.index('link external "HUDBuildSelection"')]

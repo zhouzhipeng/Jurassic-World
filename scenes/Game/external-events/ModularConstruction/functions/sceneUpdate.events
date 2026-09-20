@@ -379,7 +379,7 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 >> if NumberObjectVariable object="ModularParts" variable="Level" comparison_sign="=" value=expr(BuildLevel)
 >> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=expr(10)
 >> if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(16)
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())+abs(BuildY-ModularParts.Y())) comparison_sign="<" second_expression=expr(1)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-BuildingRecords[ModularParts.Variable(Slot)].X)+abs(BuildY-BuildingRecords[ModularParts.Variable(Slot)].Y)) comparison_sign="<" second_expression=expr(1)
 >> do SetNumberVariable variable="BuildParent" modification_sign="=" value=expr(ModularParts.Variable(Slot))
 
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())) comparison_sign="<=" second_expression=expr(151)
@@ -408,7 +408,7 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 >> if NumberObjectVariable object="ModularParts" variable="Level" comparison_sign="=" value=expr(BuildLevel)
 >> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=expr(14)
 >> if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(16)
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())+abs(BuildY-ModularParts.Y())) comparison_sign="<" second_expression=expr(1)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-BuildingRecords[ModularParts.Variable(Slot)].X)+abs(BuildY-BuildingRecords[ModularParts.Variable(Slot)].Y)) comparison_sign="<" second_expression=expr(1)
 >> do SetNumberVariable variable="BuildParent" modification_sign="=" value=expr(ModularParts.Variable(Slot))
 
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())) comparison_sign="<=" second_expression=expr(151)
@@ -435,13 +435,13 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 >> if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(11)
 >> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=expr(11)
 >> if NumberObjectVariable object="ModularParts" variable="Level" comparison_sign="=" value=expr(BuildLevel-1)
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())+abs(BuildY-ModularParts.Y())) comparison_sign="<" second_expression=expr(1)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-BuildingRecords[ModularParts.Variable(Slot)].X)+abs(BuildY-BuildingRecords[ModularParts.Variable(Slot)].Y)) comparison_sign="<" second_expression=expr(1)
 >> do SetNumberVariable variable="BuildParent" modification_sign="=" value=expr(ModularParts.Variable(Slot))
 
 >> if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(15)
 >> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=expr(13)
 >> if NumberObjectVariable object="ModularParts" variable="Level" comparison_sign="=" value=expr(BuildLevel)
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())+abs(BuildY-ModularParts.Y())) comparison_sign="<" second_expression=expr(1)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-BuildingRecords[ModularParts.Variable(Slot)].X)+abs(BuildY-BuildingRecords[ModularParts.Variable(Slot)].Y)) comparison_sign="<" second_expression=expr(1)
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(mod(ModularParts.Angle(),180)) comparison_sign="=" second_expression=expr(mod(BuildAngle,180))
 >> do SetNumberVariable variable="BuildParent" modification_sign="=" value=expr(ModularParts.Variable(Slot))
 
@@ -477,20 +477,20 @@ if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 
 > for each ModularParts
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())+abs(BuildY-ModularParts.Y())) comparison_sign="<" second_expression=expr(1)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-BuildingRecords[ModularParts.Variable(Slot)].X)+abs(BuildY-BuildingRecords[ModularParts.Variable(Slot)].Y)) comparison_sign="<" second_expression=expr(1)
 >> if NumberObjectVariable object="ModularParts" variable="BaseZ" comparison_sign="=" value=expr(BuildZ)
 >> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=expr(BuildKind)
 >> do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(0)
 >> do SetStringVariable variable="BuildReason" modification_sign="=" value="这个构件位置已被占用"
 
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())+abs(BuildY-ModularParts.Y())) comparison_sign="<" second_expression=expr(1)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-BuildingRecords[ModularParts.Variable(Slot)].X)+abs(BuildY-BuildingRecords[ModularParts.Variable(Slot)].Y)) comparison_sign="<" second_expression=expr(1)
 >> if NumberObjectVariable object="ModularParts" variable="BaseZ" comparison_sign="=" value=expr(BuildZ)
 >> if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(12)
 >> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=expr(13)
 >> do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(0)
 >> do SetStringVariable variable="BuildReason" modification_sign="=" value="此边缘已有墙体或门框"
 
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())+abs(BuildY-ModularParts.Y())) comparison_sign="<" second_expression=expr(1)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-BuildingRecords[ModularParts.Variable(Slot)].X)+abs(BuildY-BuildingRecords[ModularParts.Variable(Slot)].Y)) comparison_sign="<" second_expression=expr(1)
 >> if NumberObjectVariable object="ModularParts" variable="BaseZ" comparison_sign="=" value=expr(BuildZ)
 >> if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(13)
 >> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=expr(12)
@@ -507,6 +507,28 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 >> if NumberVariable variable="BuildSlot" comparison_sign="<" value=expr(0)
 >> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=expr(0)
 >> do SetNumberVariable variable="BuildSlot" modification_sign="=" value=expr(i)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+
+> for each ModularParts
+>> if NumberVariable variable="BuildKind" comparison_sign="=" value=14
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=16
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())+abs(BuildY-ModularParts.Y())) comparison_sign="<" second_expression=1
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildZ-ModularParts.Variable(BaseZ)) comparison_sign="=" second_expression=300
+>> do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+>> do SetStringVariable variable="BuildReason" modification_sign="=" value="楼梯上方需留洞口，请把楼板接在楼梯尽头"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+
+> for each ModularParts
+>> if NumberVariable variable="BuildKind" comparison_sign="=" value=16
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=14
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-ModularParts.X())+abs(BuildY-ModularParts.Y())) comparison_sign="<" second_expression=1
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildZ-ModularParts.Variable(BaseZ)) comparison_sign="=" second_expression=-300
+>> do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+>> do SetStringVariable variable="BuildReason" modification_sign="=" value="楼梯上方需留洞口，请把楼板接在楼梯尽头"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -1034,16 +1056,26 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 
 > for each AllBuildings
 >> if NumberObjectVariable object="AllBuildings" variable="Kind" comparison_sign="=" value=expr(BuildKind)
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX,BuildY,AllBuildings.X(),AllBuildings.Y())) comparison_sign="<" second_expression=expr(BuildDeleteDistance)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildingRecords[AllBuildings.Variable(Slot)].Z-BuildZ)) comparison_sign="<" second_expression=1
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX,BuildY,BuildingRecords[AllBuildings.Variable(Slot)].X,BuildingRecords[AllBuildings.Variable(Slot)].Y)) comparison_sign="<" second_expression=expr(BuildDeleteDistance)
 >> do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=expr(AllBuildings.Variable(Slot))
->> do SetNumberVariable variable="BuildDeleteDistance" modification_sign="=" value=expr(DistanceBetweenPositions(BuildX,BuildY,AllBuildings.X(),AllBuildings.Y()))
+>> do SetNumberVariable variable="BuildDeleteDistance" modification_sign="=" value=expr(DistanceBetweenPositions(BuildX,BuildY,BuildingRecords[AllBuildings.Variable(Slot)].X,BuildingRecords[AllBuildings.Variable(Slot)].Y))
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildDeleteSlot" comparison_sign="<" value=0
+
+> for each Buildings
+>> if NumberObjectVariable object="Buildings" variable="Kind" comparison_sign="<=" value=2
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX,BuildY,Buildings.X(),Buildings.Y())) comparison_sign="<" second_expression=200
+>> do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=expr(Buildings.Variable(Slot))
 
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=expr(0)
-if NumberVariable variable="BuildKind" comparison_sign=">=" value=expr(10)
+if NumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" comparison_sign=">=" value=expr(10)
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildingRecords[BuildDeleteSlot].Z-BuildZ)) comparison_sign=">" second_expression=expr(1)
 do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=expr(-1)
 
@@ -1066,6 +1098,24 @@ if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=expr(0)
 if NumberVariable variable="BuildDeleteBlocked" comparison_sign="=" value=expr(1)
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=expr(3)
 do SetStringVariable variable="BuildMessage" modification_sign="=" value="仍在承重：请先拆门、楼板或上方构件"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Delete"
+if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
+if NumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildWood" modification_sign="=" value=10
+do SetNumberVariable variable="BuildStone" modification_sign="=" value=5
+do SetNumberVariable variable="BuildFiber" modification_sign="=" value=8
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Delete"
+if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
+if NumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" comparison_sign="=" value=2
+do SetNumberVariable variable="BuildWood" modification_sign="=" value=4
+do SetNumberVariable variable="BuildStone" modification_sign="=" value=0
+do SetNumberVariable variable="BuildFiber" modification_sign="=" value=2
 
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
@@ -1120,6 +1170,8 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 > for each PartDoor
 >> if NumberObjectVariable object="PartDoor" variable="Slot" comparison_sign=">=" value=expr(0)
 >> do SetAngle object="PartDoor" modification_sign="=" angle_in_degrees=expr(PartDoor.Variable(BaseAngle)+PartDoor.Variable(Open)*90)
+>> do SetNumberObjectVariable object="PartDoor" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(PartDoor.Angle())))*78+abs(sin(ToRad(PartDoor.Angle())))*12)
+>> do SetNumberObjectVariable object="PartDoor" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(PartDoor.Angle())))*78+abs(cos(ToRad(PartDoor.Angle())))*12)
 >> do SetX object="PartDoor" modification_sign="=" value=expr(BuildingRecords[PartDoor.Variable(Slot)].X+PartDoor.Variable(Open)*(-78*cos(ToRad(PartDoor.Variable(BaseAngle)))-78*sin(ToRad(PartDoor.Variable(BaseAngle)))))
 >> do SetY object="PartDoor" modification_sign="=" value=expr(BuildingRecords[PartDoor.Variable(Slot)].Y+PartDoor.Variable(Open)*(-78*sin(ToRad(PartDoor.Variable(BaseAngle)))+78*cos(ToRad(PartDoor.Variable(BaseAngle)))))
 
@@ -1192,10 +1244,6 @@ if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 
 >>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=expr(13)
 >>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildLX)) comparison_sign="<" second_expression=expr(50)
->>> do SetNumberVariable variable="BuildBlocked" modification_sign="=" value=expr(0)
-
->>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=expr(15)
->>> if NumberObjectVariable object="ModularParts" variable="Open" comparison_sign="=" value=expr(1)
 >>> do SetNumberVariable variable="BuildBlocked" modification_sign="=" value=expr(0)
 
 >>> if NumberVariable variable="BuildBlocked" comparison_sign="=" value=expr(1)
