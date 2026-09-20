@@ -1,5 +1,5 @@
 kind = "object"
-settingsFormatVersion = 5
+settingsFormatVersion = 6
 order = 30
 folder = ["UI", "External Layouts"]
 name = "DinoLevel"

@@ -1,5 +1,5 @@
 kind = "scene"
-settingsFormatVersion = 5
+settingsFormatVersion = 6
 order = 0
 name = "Game"
 mangledName = "Game"

@@ -20,7 +20,7 @@ config=[('Triceratops',-950,650,0,120,220,95,0),('Stegosaur',750,780,0,110,250,8
 for info,(name,x,y,carn,rad,half,speed,dmg) in zip(meta,config):
  f=info['species']+'.glb';resource('model3D',f,'assets/models/'+f)
  dims=[round(v*100) for v in info['dimensions']]
- obj=f'kind = "object"\nsettingsFormatVersion = 5\norder = {order}\nfolder = ["Wildlife"]\nname = "{name}"\ntype = "Scene3D::Model3DObject"\nbehaviors = [ ]\neffects = [ ]\n';order+=1
+ obj=f'kind = "object"\nsettingsFormatVersion = 6\norder = {order}\nfolder = ["Wildlife"]\nname = "{name}"\ntype = "Scene3D::Model3DObject"\nbehaviors = [ ]\neffects = [ ]\n';order+=1
  ovs={'HP':100 if name=='Raptor' else 240,'MaxHP':100 if name=='Raptor' else 240,'Carnivore':carn,'HomeX':x,'HomeY':y,'Radius':rad,'HalfLength':half,'Speed':speed,'Damage':dmg,'State':0,'Clock':0,'AIClock':0,'Cooldown':2,'Windup':0,'DamageDone':0,'PX':x,'PY':y,'PA':0,'TargetX':x,'TargetY':y,'Distance':0,'Travel':0,'Respawn':0,'AnimationState':0,'LocalX':0,'LocalY':0,'NearY':0,'Separation':0,'BodyDistance':0}
  obj+=''.join(var(k,v) for k,v in ovs.items())
  obj+=f'[content]\nmodelResourceName = "{f}"\nwidth = {dims[0]}\nheight = {dims[1]}\ndepth = {dims[2]}\nkeepAspectRatio = true\nrotationX = 90\nrotationY = 0\nrotationZ = 0\noriginLocation = "ModelOrigin"\ncenterLocation = "ModelOrigin"\nmaterialType = "StandardWithoutMetalness"\nisCastingShadow = true\nisReceivingShadow = true\ncrossfadeDuration = 0.12\nsharedAnimationModelResources = [ ]\n'

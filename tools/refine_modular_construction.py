@@ -1,6 +1,6 @@
 """Focused fixes found while exercising the modular construction preview."""
 from pathlib import Path
-P=Path(__file__).resolve().parents[1]; E=P/'scenes/Game/external-events/ModularConstruction/functions/sceneUpdate.events'
+P=Path(__file__).resolve().parents[1]; E=P/'scenes/Game/external-events/ModularConstruction.events'
 s=E.read_text(encoding='utf-8')
 # Socket checks must use persisted position, since opening a door moves its mesh.
 s=s.replace('abs(BuildX-ModularParts.X())+abs(BuildY-ModularParts.Y())','abs(BuildX-BuildingRecords[ModularParts.Variable(Slot)].X)+abs(BuildY-BuildingRecords[ModularParts.Variable(Slot)].Y)')
@@ -32,7 +32,7 @@ for kind,wood,stone,fiber in [(1,10,5,8),(2,4,0,2)]:
 s=s[:where]+refund+s[where:]
 E.write_text(s,encoding='utf-8')
 # Selection immediately clears stale placement messages.
-p=P/'scenes/Game/external-events/HUDBuildSelection/functions/sceneUpdate.events';s=p.read_text(encoding='utf-8');import re
+p=P/'scenes/Game/external-events/HUDBuildSelection.events';s=p.read_text(encoding='utf-8');import re
 s=re.sub(r'(do SetNumberVariable variable="BuildKind"[^\n]*\n)',r'\1do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0\n',s);p.write_text(s,encoding='utf-8')
 # Prevent a one-shot generator from reverting subsequent fixes.
 p=P/'tools/author_modular_construction.py';s=p.read_text(encoding='utf-8').replace('behavior="3D"','behavior="Object3D"');s=s.replace("src=read(core);start=", "src=read(core)\nassert '@comment \"Construction placement' in src, 'Already migrated: edit the external events directly.'\nstart=");p.write_text(s,encoding='utf-8')

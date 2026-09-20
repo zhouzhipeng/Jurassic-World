@@ -1,5 +1,5 @@
 kind = "object"
-settingsFormatVersion = 5
+settingsFormatVersion = 6
 order = 271
 folder = ["Construction"]
 name = "PartDoorframeValid"

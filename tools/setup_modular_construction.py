@@ -33,10 +33,8 @@ scene=scene.replace('[[variables]]\nname = "BuildReason"','[[variables]]\nname =
 # Scene's layer id is preserved rather than inferred from its display name.
 worldid=next(l['id'] for l in tomllib.loads(read(S))['layout']['layers'] if l['name']=='World3D')
 scene=scene.replace('layer = "world3d"',f'layer = "{worldid}"');write(S,scene);write(P/'resources.settings',resources)
-E=P/'scenes/Game/external-events/ModularConstruction';(E/'functions').mkdir(parents=True)
-write(E/'external-events.settings','kind = "externalEvents"\nsettingsFormatVersion = 5\norder = 27\nname = "ModularConstruction"\n')
-write(E/'functions/sceneUpdate.settings',read(P/'scenes/Game/functions/sceneUpdate.settings'))
-write(E/'functions/sceneUpdate.events','@comment "Modular construction" background=[120,145,90] text=[255,255,255]\n')
+E=P/'scenes/Game/external-events'; E.mkdir(parents=True, exist_ok=True)
+write(E/'ModularConstruction.events','@comment "Modular construction" background=[120,145,90] text=[255,255,255]\n')
 L=P/'scenes/Game/external-layout/GameHUD.settings';layout=read(L)
 labels=['1 地基  6木 2石 3纤','2 柱子  3木 1纤','3 墙体  4木 2纤','4 门框  4木 2纤','5 楼板  5木 3纤','6 木门  3木 1纤','7 楼梯  6木 3纤','8 篝火  3木 3石']
 def changeinstance(text,obj,x,y,w,h):
@@ -57,4 +55,4 @@ for i in range(1,9):
    text=read(p);text=re.sub(r'^text = .*',f'text = {json.dumps(labels[i-1],ensure_ascii=False)}',text,flags=re.M);text=text.replace('characterSize = 17','characterSize = 15');write(p,text)
 layout=changeinstance(layout,'BuildStatus',1042,541,520,95);write(L,layout)
 p=O/'BuildStatus.settings';s=read(p);s=s.replace('[content]',''.join(nv(n,0) for n in ['Z','Level','Parent','Blocked','Floor','Doors','Placed'])+'[content]');write(p,s)
-print('Declared 7 parts, 14 ghosts, 8 HUD choices, native external event owner.')
+print('Declared 7 parts, 14 ghosts, 8 HUD choices, native external event fragment.')

@@ -119,8 +119,14 @@
 
 构件成本（木 / 石 / 纤维）：地基 6/2/3、柱子 3/0/1、墙与门框 4/0/2、楼板 5/0/3、门 3/0/1、楼梯 6/0/3、篝火 3/3/0。第一层地板高 20，每层高 300。第 1 层选择楼板是在 320 高度封顶；切换第 2 层可在该楼板上继续搭墙。楼梯朝其本地前方上升，R 调整；上方需留洞口，把楼板接在楼梯尽头。
 
-世界建造逻辑位于 `scenes/Game/external-events/ModularConstruction/functions/sceneUpdate.events`，HUD 仍由 HUDBuildSelection、HUDBuildPresentation、HUDBuildStatus 及 GameHUD external layout 独立维护。模型与编辑源为 `assets/models/modular-*`，由 Blender 后台脚本 `tools/build_modular_assets.py` 制作；不修改玩家/恐龙 Prefab。
+世界建造逻辑位于 `scenes/Game/external-events/ModularConstruction.events`，HUD 仍由 HUDBuildSelection、HUDBuildPresentation、HUDBuildStatus 及 GameHUD external layout 独立维护。模型与编辑源为 `assets/models/modular-*`，由 Blender 后台脚本 `tools/build_modular_assets.py` 制作；不修改玩家/恐龙 Prefab。
 
 复用检索：官方扩展仓库提交 `6e0bba82e5123cd95ea06107056d4015ae0d78e3`；SnapToGrid 0.0.5 是二维取整网格，未提供三维连接点、支撑、门或分层碰撞。沿用现有原生建造事件扩展本项目规则更直接，因此未引入扩展或 JavaScript 运行事件。
 
 运行验证见 `verification-modular-construction.json`；测试仅使用独立存档槽，不覆盖玩家的 JurassicWorldDemo。
+
+## 外部事件片段（格式 6）
+
+每个片段只有 `scenes/Game/external-events/<名称>.events` 一个 IfDo 文件，不需要 settings、functions 子目录或登记清单。当前 28 个片段共 28 个文件。`link external "名称"` 在原位置展开正文，继承父条件、对象筛选和局部变量；执行顺序由 Link 所在位置决定，与文件名排序无关。场景自身的生命周期函数仍使用 settings/events 文件对。
+
+2026-09-20 一次性重构保留了全部事件正文和 28 处引用（含 4 处子事件引用），删除 56 个包装文件及 56 个目录。编写指南与 tools 中相关生成脚本已同步；请使用支持格式 6 的新引擎打开。校验记录见 [external-events-migration.md](external-events-migration.md)。

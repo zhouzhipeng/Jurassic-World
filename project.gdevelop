@@ -1,7 +1,7 @@
-combinedSettingsFormatVersion = 5
+combinedSettingsFormatVersion = 6
 eventsDslVersion = "3.0"
 kind = "project"
-settingsFormatVersion = 5
+settingsFormatVersion = 6
 firstLayout = "Game"
 initialGDVersion = "6.0.0"
 variables = [ ]

@@ -2,107 +2,133 @@
   "externalEvents": [
     {
       "name": "HUDConstructionInput",
-      "eventBlocks": 6
+      "eventBlocks": 6,
+      "eventsFile": "scenes/Game/external-events/HUDConstructionInput.events"
     },
     {
       "name": "HUDViewMode",
-      "eventBlocks": 2
+      "eventBlocks": 2,
+      "eventsFile": "scenes/Game/external-events/HUDViewMode.events"
     },
     {
       "name": "HUDMountInput",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDMountInput.events"
     },
     {
       "name": "HUDMountStatus",
-      "eventBlocks": 3
+      "eventBlocks": 3,
+      "eventsFile": "scenes/Game/external-events/HUDMountStatus.events"
     },
     {
       "name": "HUDSaveAvailability",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDSaveAvailability.events"
     },
     {
       "name": "HUDMenuInput",
-      "eventBlocks": 23
+      "eventBlocks": 23,
+      "eventsFile": "scenes/Game/external-events/HUDMenuInput.events"
     },
     {
       "name": "HUDHarvestReset",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDHarvestReset.events"
     },
     {
       "name": "HUDHarvestFeedback",
-      "eventBlocks": 7
+      "eventBlocks": 7,
+      "eventsFile": "scenes/Game/external-events/HUDHarvestFeedback.events"
     },
     {
       "name": "HUDActionBar",
-      "eventBlocks": 55
+      "eventBlocks": 55,
+      "eventsFile": "scenes/Game/external-events/HUDActionBar.events"
     },
     {
       "name": "HUDInventoryAndSave",
-      "eventBlocks": 20
+      "eventBlocks": 20,
+      "eventsFile": "scenes/Game/external-events/HUDInventoryAndSave.events"
     },
     {
       "name": "HUDLoadStatus",
-      "eventBlocks": 2
+      "eventBlocks": 2,
+      "eventsFile": "scenes/Game/external-events/HUDLoadStatus.events"
     },
     {
       "name": "HUDPanels",
-      "eventBlocks": 36
+      "eventBlocks": 36,
+      "eventsFile": "scenes/Game/external-events/HUDPanels.events"
     },
     {
       "name": "HUDQuests",
-      "eventBlocks": 78
+      "eventBlocks": 78,
+      "eventsFile": "scenes/Game/external-events/HUDQuests.events"
     },
     {
       "name": "HUDChoppingFeedback",
-      "eventBlocks": 4
+      "eventBlocks": 4,
+      "eventsFile": "scenes/Game/external-events/HUDChoppingFeedback.events"
     },
     {
       "name": "HUDAudioControls",
-      "eventBlocks": 4
+      "eventBlocks": 4,
+      "eventsFile": "scenes/Game/external-events/HUDAudioControls.events"
     },
     {
       "name": "HUDTriceratopsHint",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDTriceratopsHint.events"
     },
     {
       "name": "HUDStegosaurHint",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDStegosaurHint.events"
     },
     {
       "name": "HUDRaptorHint",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDRaptorHint.events"
     },
     {
       "name": "HUDTyrannosaurHint",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDTyrannosaurHint.events"
     },
     {
       "name": "HUDHealth",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDHealth.events"
     },
     {
       "name": "HUDDamage",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDDamage.events"
     },
     {
       "name": "HUDDeath",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDDeath.events"
     },
     {
       "name": "HUDExplorationHint",
-      "eventBlocks": 2
+      "eventBlocks": 2,
+      "eventsFile": "scenes/Game/external-events/HUDExplorationHint.events"
     },
     {
       "name": "HUDBuildSelection",
-      "eventBlocks": 19
+      "eventBlocks": 19,
+      "eventsFile": "scenes/Game/external-events/HUDBuildSelection.events"
     },
     {
       "name": "HUDBuildPresentation",
-      "eventBlocks": 22
+      "eventBlocks": 22,
+      "eventsFile": "scenes/Game/external-events/HUDBuildPresentation.events"
     },
     {
       "name": "HUDBuildStatus",
-      "eventBlocks": 1
+      "eventBlocks": 1,
+      "eventsFile": "scenes/Game/external-events/HUDBuildStatus.events"
     }
   ],
   "uiObjects": 249,

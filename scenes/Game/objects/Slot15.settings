@@ -1,5 +1,5 @@
 kind = "object"
-settingsFormatVersion = 5
+settingsFormatVersion = 6
 order = 126
 folder = ["UI", "External Layouts"]
 name = "Slot15"

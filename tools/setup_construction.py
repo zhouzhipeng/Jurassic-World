@@ -24,7 +24,7 @@ for kind,(n,info) in enumerate(zip(names,meta),1):
  for suffix,suffixfile in [('', ''),('Valid','-valid'),('Invalid','-invalid')]:
   name=n+suffix;asset='build-'+info['name']+suffixfile+'.glb';resource(asset)
   dims=[round(x*100,3) for x in info['dimensions']]
-  st=f'kind = "object"\nsettingsFormatVersion = 5\norder = {order}\nfolder = ["Construction"]\nname = "{name}"\ntype = "Scene3D::Model3DObject"\nbehaviors = []\neffects = []\n';order+=1
+  st=f'kind = "object"\nsettingsFormatVersion = 6\norder = {order}\nfolder = ["Construction"]\nname = "{name}"\ntype = "Scene3D::Model3DObject"\nbehaviors = []\neffects = []\n';order+=1
   for k,v in {'Kind':kind,'Slot':-1,'HX':240 if kind==1 else 200 if kind==2 else 80,'HY':205 if kind==1 else 25 if kind==2 else 80,'WorldHX':0,'WorldHY':0}.items():st+=var(k,v)
   st+=f'[content]\nmodelResourceName = "{asset}"\nwidth = {dims[0]}\nheight = {dims[1]}\ndepth = {dims[2]}\nkeepAspectRatio = true\nrotationX = 90\nrotationY = 0\nrotationZ = 0\noriginLocation = "ModelOrigin"\ncenterLocation = "ModelOrigin"\nmaterialType = "StandardWithoutMetalness"\nisCastingShadow = '+str(not suffix).lower()+'\nisReceivingShadow = true\ncrossfadeDuration = 0.1\nanimations = []\nsharedAnimationModelResources = []\n'
   (O/(name+'.settings')).write_text(st,encoding='utf-8')

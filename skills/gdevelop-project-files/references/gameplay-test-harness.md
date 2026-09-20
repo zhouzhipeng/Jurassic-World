@@ -32,7 +32,7 @@ Their JavaScript sources are flat files directly below `tests/`:
 
 ```toml
 kind = "tests"
-settingsFormatVersion = 5
+settingsFormatVersion = 6
 
 [[tests]]
 scope = "project"

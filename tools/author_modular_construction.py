@@ -143,13 +143,13 @@ legacy=old[collision:]
 # rfind above lands at the start of the full condition group (only Mode line).
 legacy=legacy.replace('> for each Buildings\n>> for each HarvestNodes','> for each AllBuildings\n>> for each HarvestNodes').replace('HarvestNodes.X()-Buildings.X()','HarvestNodes.X()-AllBuildings.X()').replace('HarvestNodes.Y()-Buildings.Y()','HarvestNodes.Y()-AllBuildings.Y()').replace('expr(Buildings.Variable(WorldHX)+50)','expr(AllBuildings.Variable(WorldHX)+50)').replace('expr(Buildings.Variable(WorldHY)+50)','expr(AllBuildings.Variable(WorldHY)+50)')
 out.append(legacy)
-write(G/'external-events/ModularConstruction/functions/sceneUpdate.events','\n'.join(out)+'\n')
+write(G/'external-events/ModularConstruction.events','\n'.join(out)+'\n')
 src=src[:start]+'link external "ModularConstruction"\n\n'+src[end:]
 src=src.replace('variable="BuildKind" modification_sign="=" value=1','variable="BuildKind" modification_sign="=" value=10')
 marker='if NumberVariable variable="Action" comparison_sign="=" value=10\nif GroupExists storage_name=expr(SaveStorage) group="BuildingsV1"\ndo ReadStringFromStorage storage_name=expr(SaveStorage) group="BuildingsV1" variable="BuildJSON"'
 src=src.replace(marker,marker+'\n\nif NumberVariable variable="Action" comparison_sign="=" value=10\nif GroupExists storage_name=expr(SaveStorage) group="BuildingsV2"\ndo ReadStringFromStorage storage_name=expr(SaveStorage) group="BuildingsV2" variable="BuildJSON"')
 write(core,src)
-p=G/'external-events/HUDInventoryAndSave/functions/sceneUpdate.events';write(p,read(p).replace('group="BuildingsV1"','group="BuildingsV2"'))
+p=G/'external-events/HUDInventoryAndSave.events';write(p,read(p).replace('group="BuildingsV1"','group="BuildingsV2"'))
 # Rewrite only building UI selection/presentation and preserve HUD ownership.
 out=[]
 e([c('Mode','>=',0)],['Hide object="BuildGhosts"']+[f'Hide object="{n}"' for n in ['BuildPanel','BuildTitle','BuildStatus']+[f'BuildChoice{s}{i}' for i in range(1,9) for s in ['','Label']]]+[v('BuildWarm',0),v('BuildRest',0)])
@@ -158,7 +158,7 @@ e([c('Mode','!=',0)],['Hide object="BuildToggle"','Hide object="BuildToggleLabel
 for i,(_,kind,*_) in enumerate(parts,1):
  for condition in [key('Num'+str(i)),f'IsCursorOnObject object="BuildChoice{i}" accurate_test_yes_by_default=false\nif MouseButtonFromTextReleased button_to_check="Left"']:
   e(build+[condition],[v('BuildKind',kind)])
-write(G/'external-events/HUDBuildSelection/functions/sceneUpdate.events','\n'.join(out)+'\n')
+write(G/'external-events/HUDBuildSelection.events','\n'.join(out)+'\n')
 out=[]
 def txt(obj,expression):return f'TextContainerCapability::TextContainerBehavior::SetValue object="{obj}" behavior="Text" modification_sign="=" text=expr({expression})'
 e(foot+[c('BuildMode','=',0)],[txt('BuildToggleLabel',q('B 建造 · 地基 / 墙 / 柱 / 楼板'))])
@@ -169,9 +169,9 @@ for i,(_,kind,*_) in enumerate(parts,1):
  e(build,[f'ChangeColor object="BuildChoice{i}" tint="170;190;180"'])
  e(build+[c('BuildKind','=',kind)],[f'ChangeColor object="BuildChoice{i}" tint="255;215;125"'])
 for mode,verb in [(1,'Hide'),(0,'Show')]:e(foot+[c('BuildMode','=',mode)],[f'{verb} object="{n}"' for n in ['DinoPanel','DinoName','DinoLevel','TrustText','TrustTrack','TrustMeter','Feed','FeedLabel','MountButton','MountLabel','AudioButton','AudioLabel']])
-write(G/'external-events/HUDBuildPresentation/functions/sceneUpdate.events','\n'.join(out)+'\n')
-p=G/'external-events/HUDBuildStatus/functions/sceneUpdate.events';s=read(p).rstrip()+'\n'+''.join('do '+ov('BuildStatus',a,b)+'\n' for a,b in [('Z','BuildZ'),('Level','BuildLevel'),('Parent','BuildParent'),('Blocked','BuildDeleteBlocked'),('Floor','PlayerFloor'),('Doors','DoorSlot'),('Placed','BuildPlacedKind')]);write(p,s)
-p=G/'external-events/HUDQuests/functions/sceneUpdate.events';s=read(p).replace('120 + Riding * 220','120 + PlayerFloor + Riding * 220')
+write(G/'external-events/HUDBuildPresentation.events','\n'.join(out)+'\n')
+p=G/'external-events/HUDBuildStatus.events';s=read(p).rstrip()+'\n'+''.join('do '+ov('BuildStatus',a,b)+'\n' for a,b in [('Z','BuildZ'),('Level','BuildLevel'),('Parent','BuildParent'),('Blocked','BuildDeleteBlocked'),('Floor','PlayerFloor'),('Doors','DoorSlot'),('Placed','BuildPlacedKind')]);write(p,s)
+p=G/'external-events/HUDQuests.events';s=read(p).replace('120 + Riding * 220','120 + PlayerFloor + Riding * 220')
 s=s.replace('"建造庇护所  " + ToString(min(Built, 1)) + " / 1"','"地基 " + ToString(min(BuildFloorCount,1)) + "/1 · 墙/门框 " + ToString(min(BuildWallCount,3)) + "/3 · 楼板 " + ToString(min(BuildRoofCount,1)) + "/1"')
 s=s.replace('按 B 开启建造，选 1 庇护所；移动到空地后按 Enter。','B 建造：1 铺地基 → 3 墙 / 4 门框 → 5 顶部楼板。').replace('需要木材 10、石头 5、纤维 8。','每件按 Enter 搭建；R 换边，6 安门，7 楼梯，PgUp 搭楼上。');write(p,s)
 print('Authored modular sockets, support graph, floors, doors, persistence and HUD.')

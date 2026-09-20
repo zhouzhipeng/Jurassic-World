@@ -1,5 +1,5 @@
 kind = "object"
-settingsFormatVersion = 5
+settingsFormatVersion = 6
 order = 230
 folder = ["Actors"]
 name = "Triceratops"
