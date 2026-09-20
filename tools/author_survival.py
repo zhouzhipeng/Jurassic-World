@@ -44,7 +44,7 @@ event(active+[nv('SafeCamp','>=',330)],[setv('SafeCamp',0)])
 event(active+[nv('SafeCamp','=',1),nv('Health','<',100)],[setv('Health',ex('min(100, Health + TimeDelta() * 4)'))])
 event(active+[key('Space'),nv('Riding','=',0),nv('CombatCD','<=',0),nv('Stamina','>=',3)],[setv('CombatCD',.65),setv('CombatSwing',.30),setv('CombatHit',1),setv('Stamina',ex('max(0, Stamina - 3)')),setv('Dirty',1),sound('swing',50)])
 # Each species is a unique instance. Per-species native state avoids group picking ambiguity.
-config=[('Triceratops','三角龙',0,520,0,85),('Stegosaur','剑龙',0,500,0,75),('Raptor','迅猛龙',1,720,12,190),('Tyrannosaur','霸王龙',1,650,24,325)]
+config=[('Triceratops','三角龙',0,520,0,225),('Stegosaur','剑龙',0,500,0,200),('Raptor','迅猛龙',1,720,12,190),('Tyrannosaur','霸王龙',1,650,24,325)]
 for o,label,carn,detect,damage,reach in config:
  V=lambda k:f'{o}.Variable({k})'
  alive=active+[ov(o,'HP','>',0)]
@@ -54,19 +54,20 @@ for o,label,carn,detect,damage,reach in config:
  event(alive+[ov(o,'State','!=',3),ov(o,'AIClock','>',4)], [seto(o,'State',1),seto(o,'TargetX',ex(V('HomeX')+' + cos('+V('Clock')+' * 0.23) * 145')),seto(o,'TargetY',ex(V('HomeY')+' + sin('+V('Clock')+' * 0.23) * 110'))])
  event(alive+[ov(o,'AIClock','>',9)],[seto(o,'AIClock',0)])
  if carn:
-  event(alive+[ov(o,'Distance','<',detect),nv('SafeCamp','=',0),ov(o,'State','!=',3),nv('Invulnerable','<=',0)],[seto(o,'State',2),seto(o,'TargetX',ex('Player3D.X()')),seto(o,'TargetY',ex('Player3D.Y()')),setv('Threat',1)])
+  event(alive+[ov(o,'Distance','<',detect),nv('SafeCamp','=',0),ov(o,'State','!=',3)],[seto(o,'State',2),seto(o,'TargetX',ex('Player3D.X()')),seto(o,'TargetY',ex('Player3D.Y()')),setv('Threat',1)])
   event(alive+[ov(o,'State','>=',2)],[setv('Threat',1)])
-  event(alive+[ov(o,'State','=',2),ov(o,'Distance','<=',ex(str(reach+65)+' + Riding * 320')),ov(o,'Cooldown','<=',0)],[seto(o,'State',3),seto(o,'Windup',.85),seto(o,'DamageDone',0),seto(o,'Cooldown',2.2),sound('raptor-call' if o=='Raptor' else 'rex-roar',45)])
+  event(alive+[ov(o,'State','=',2),ov(o,'Distance','<=',ex(str(reach+65)+' + Riding * 420')),ov(o,'Cooldown','<=',0)],[seto(o,'State',3),seto(o,'Windup',.85),seto(o,'DamageDone',0),seto(o,'Cooldown',2.2),sound('raptor-call' if o=='Raptor' else 'rex-roar',45)])
   event(alive+[ov(o,'State','=',3)],[seto(o,'Windup',ex(V('Windup')+' - TimeDelta()')),angle(o,'Player3D.X()','Player3D.Y()')])
   event(alive+[ov(o,'State','=',3),ov(o,'Windup','<=',.30),ov(o,'DamageDone','=',0)],[seto(o,'DamageDone',1)])
   # DamageDone=1 is a one-frame contact window; distance is checked again so dodging works.
-  event(alive+[ov(o,'State','=',3),ov(o,'DamageDone','=',1),ov(o,'Distance','<=',ex(str(reach+85)+' + Riding * 320')),nv('Invulnerable','<=',0),nv('SafeCamp','=',0)],[setv('Health',ex(f'max(0, Health - {damage} + Riding * {damage*.5})')),setv('Invulnerable',1),setv('HitFlash',.35),setv('Dirty',1),notice(label+'撕咬！拉开距离，空格反击或骑乘撤离。'),sound('hurt',75),sound('bite',65)])
+  event(alive+[ov(o,'State','=',3),ov(o,'DamageDone','=',1),ov(o,'Distance','<=',ex(str(reach+85)+' + Riding * 420')),nv('Invulnerable','<=',0),nv('SafeCamp','=',0)],[setv('Health',ex(f'max(0, Health - {damage} + Riding * {damage*.5})')),setv('Invulnerable',1),setv('HitFlash',.35),setv('Dirty',1),notice(label+'撕咬！拉开距离，空格反击或骑乘撤离。'),sound('hurt',75),sound('bite',65)])
   event(alive+[ov(o,'DamageDone','=',1)],[seto(o,'DamageDone',2)])
   event(alive+[ov(o,'State','=',3),ov(o,'Windup','<=',0)],[seto(o,'State',0)])
  # Patrol and chase; stop just outside head contact when chasing.
+ event(alive,[seto(o,'Travel',ex(f'DistanceBetweenPositions({o}.X(), {o}.Y(), {V("TargetX")}, {V("TargetY")})'))])
  for state in [1,2] if carn else [1]:
-  cond=alive+[ov(o,'State','=',state)]
-  if state==2:cond+=[ov(o,'Distance','>',ex(str(reach+20)+' + Riding * 320'))]
+  cond=alive+[ov(o,'State','=',state),ov(o,'Travel','>',8)]
+  if state==2:cond+=[ov(o,'Distance','>',ex(str(reach+50)+' + Riding * 420'))]
   speed=ex(V('Speed')+(' * 0.30' if state==1 else ''))
   event(cond,[angle(o,V('TargetX'),V('TargetY')),pos(o,'X',ex(o+'.X() - sin(ToRad('+o+'.Angle())) * '+speed[5:-1]+' * TimeDelta()')),pos(o,'Y',ex(o+'.Y() + cos(ToRad('+o+'.Angle())) * '+speed[5:-1]+' * TimeDelta()'))])
  # Ground-plane bounds and cabin rollback. Avoid setting position by a large discontinuity.

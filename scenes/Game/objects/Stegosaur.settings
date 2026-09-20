@@ -39,7 +39,7 @@ value = 110
 [[variables]]
 name = "HalfLength"
 type = "number"
-value = 250
+value = 310
 
 [[variables]]
 name = "Speed"
