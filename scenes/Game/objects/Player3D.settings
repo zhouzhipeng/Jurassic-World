@@ -37,6 +37,11 @@ name = "AttachmentReady"
 type = "number"
 value = 0
 
+[[variables]]
+name = "HandRX"
+type = "number"
+value = 0
+
 [content]
 modelResourceName = "survivor-animated.glb"
 width = 109

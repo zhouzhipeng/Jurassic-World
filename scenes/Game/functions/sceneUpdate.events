@@ -1332,7 +1332,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="Notice" beha
 do TextContainerCapability::TextContainerBehavior::SetValue object="TrustText" behavior="Text" modification_sign="=" text=expr("Trust " + ToString(Trust) + "%")
 do ResizableCapability::ResizableBehavior::SetWidth object="TrustMeter" behavior="Resizable" modification_sign="=" width=expr(Trust * 2.85)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HotBerries" behavior="Text" modification_sign="=" text=expr(ToString(Berries))
-do TextContainerCapability::TextContainerBehavior::SetValue object="Value1" behavior="Text" modification_sign="=" text=expr(ToString(Stamina) + " / 100")
+do TextContainerCapability::TextContainerBehavior::SetValue object="Value1" behavior="Text" modification_sign="=" text=expr(ToString(round(Stamina)) + " / 100")
 do ResizableCapability::ResizableBehavior::SetWidth object="Meter1" behavior="Resizable" modification_sign="=" width=expr(Stamina * 1.98)
 do TextContainerCapability::TextContainerBehavior::SetValue object="Value2" behavior="Text" modification_sign="=" text=expr(ToString(Hunger) + " / 100")
 do ResizableCapability::ResizableBehavior::SetWidth object="Meter2" behavior="Resizable" modification_sign="=" width=expr(Hunger * 1.98)
@@ -3439,8 +3439,8 @@ do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Player3D" be
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 do SetNumberObjectVariable object="Player3D" variable="HandZ" modification_sign="=" value=expr(Player3D.BoneZ("GripR"))
 do SetNumberObjectVariable object="Player3D" variable="FootZ" modification_sign="=" value=expr(Player3D.BoneZ("FootR"))
+do SetNumberObjectVariable object="Player3D" variable="HandRX" modification_sign="=" value=expr(Player3D.BoneRotationX("GripR"))
 do SetNumberObjectVariable object="Player3D" variable="AttachmentReady" modification_sign="=" value=0
 
 if Model3DBoneAttachment::Model3DBoneAttachmentBehavior::IsBoneAttachmentResolved parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment"
 do SetNumberObjectVariable object="Player3D" variable="AttachmentReady" modification_sign="=" value=1
-

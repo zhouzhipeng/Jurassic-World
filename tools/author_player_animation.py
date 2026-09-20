@@ -23,6 +23,7 @@ for key,angle in [('w',180),('s',0),('a',270),('d',90)]:
 # Bone attachment is the only owner of equipped tool transforms.
 s='\n'.join(line for line in s.splitlines() if not (line.startswith('do ') and any(f'="{n}"' in line for n in ['HeldAxe','CombatSpear']) and any(line.startswith('do '+a+' ') for a in ['SetX','SetY','SetAngle','Scene3D::Base3DBehavior::SetRotationX'])))+'\n'
 s=s.replace('value=0.4\n','value=expr(0.4 - Player3D.Variable(Sprinting) * 0.13)\n')
+s=s.replace('ToString(Stamina)', 'ToString(round(Stamina))')
 s=s.replace('WASD 移动 · E 采集','WASD 移动 · Shift 奔跑 · E 采集')
 out=marker+' background=[95,155,180] text=[255,255,255]\n\n'
 acts=[]
@@ -44,6 +45,6 @@ for i,clip in enumerate(['Idle','Walk','Run','Gather','Chop','Thrust','Hurt','De
  out+=event([obj('AnimationState','=',i)], [f'do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="{clip}"'])
 for cs in [[cond('Mode','>',0),cond('Mode','<',7)],[cond('Riding','=',1)],[cond('RenderMode','=',0)]]:
  out+=event(cs,['do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Player3D" behavior="Animation"'])
-out+=event([cond('RenderMode','=',1)],[seto('HandZ','expr(Player3D.BoneZ("GripR"))'),seto('FootZ','expr(Player3D.BoneZ("FootR"))'),seto('AttachmentReady',0)])
+out+=event([cond('RenderMode','=',1)],[seto('HandZ','expr(Player3D.BoneZ("GripR"))'),seto('FootZ','expr(Player3D.BoneZ("FootR"))'),seto('HandRX','expr(Player3D.BoneRotationX("GripR"))'),seto('AttachmentReady',0)])
 out+=event(['if Model3DBoneAttachment::Model3DBoneAttachmentBehavior::IsBoneAttachmentResolved parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment"'],[seto('AttachmentReady',1)])
-f.write_text(s+'\n'+out,encoding='utf-8')
+f.write_text((s+'\n'+out).rstrip()+'\n',encoding='utf-8')
