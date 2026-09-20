@@ -1,6 +1,6 @@
 ---
 name: gdevelop-project-files
-description: Create, inspect, modify, refactor, and verify GDevelop games through the version 5 multi-file project sources (`project.gdevelop`, `constants.toml`, `.settings`, `.events`, `tests.settings`, and flat `tests/*.js` scripts). Use for any GDevelop project, scene, object, behavior, prefab, extension, third-party extension installation, reusable-component refactor, variable, resource, GLB animation/bone-name inspection, TSL material (`.tsl.ts`) authoring and GLB binding, Constants/placeholder, signal-system, SpringBoneDynamics hair/chest secondary bone animation, layout, event-sheet, JavaScript-event, or gameplay-test work. Read the generated authoring catalogs and public JavaScript/TSL declarations when relevant; regenerate catalogs after large structural changes, then validate direct edits before reload and runtime verification.
+description: Create, inspect, modify, refactor, and verify GDevelop games through the version 6 multi-file project sources (`project.gdevelop`, `constants.toml`, `.settings`, `.events`, `tests.settings`, and flat `tests/*.js` scripts). Use for any GDevelop project, scene, object, behavior, prefab, extension, third-party extension installation, reusable-component refactor, variable, resource, GLB animation/bone-name inspection, TSL material (`.tsl.ts`) authoring and GLB binding, Constants/placeholder, signal-system, SpringBoneDynamics hair/chest secondary bone animation, layout, event-sheet, JavaScript-event, or gameplay-test work. Read the generated authoring catalogs and public JavaScript/TSL declarations when relevant; regenerate catalogs after large structural changes, then validate direct edits before reload and runtime verification.
 ---
 
 # GDevelop Project Files
@@ -346,7 +346,7 @@ Load only the references required by the task:
 - Read
   [references/gameplay-test-harness.md](references/gameplay-test-harness.md)
   in full before creating or materially modifying `tests.settings` or any
-  `tests/*.js` script. Use the exact flat version 5 file identity, read the
+  `tests/*.js` script. Use the exact flat version 6 file identity, read the
   generated `.gdevelop/harness-api.d.ts` contract, and complete its
   validation, reload, run, and result-polling workflow.
 - Read [references/tsl-materials.md](references/tsl-materials.md) in full
