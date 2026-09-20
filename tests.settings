@@ -55,3 +55,19 @@ name = "WeatherPersistence"
 type = "gameplay"
 description = "Save and restore weather type and timing through the pause menu in an isolated test slot."
 file = "tests/WeatherPersistence.js"
+
+[[tests]]
+scope = "project"
+order = 7
+name = "DayNightCycle"
+type = "gameplay"
+description = "World clock, frame-independent speed, day phases, continuous sunset, midnight, full daily cycle and paused menus."
+file = "tests/DayNightCycle.js"
+
+[[tests]]
+scope = "project"
+order = 8
+name = "DayNightPersistence"
+type = "gameplay"
+description = "Save and restore day, time, speed and weather together through the native pause menu in an isolated slot."
+file = "tests/DayNightPersistence.js"

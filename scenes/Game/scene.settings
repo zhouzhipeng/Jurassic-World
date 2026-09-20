@@ -927,6 +927,51 @@ name = "WeatherHint"
 type = "string"
 value = "视野清晰"
 
+[[variables]]
+name = "WorldDay"
+type = "number"
+value = 1
+
+[[variables]]
+name = "WorldMinutes"
+type = "number"
+value = 480
+
+[[variables]]
+name = "DayLengthSeconds"
+type = "number"
+value = 720
+
+[[variables]]
+name = "Daylight"
+type = "number"
+value = 1
+
+[[variables]]
+name = "Twilight"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SunElevation"
+type = "number"
+value = 35
+
+[[variables]]
+name = "SunRotation"
+type = "number"
+value = 210
+
+[[variables]]
+name = "TimePhase"
+type = "string"
+value = "白天"
+
+[[variables]]
+name = "TimeDisplay"
+type = "string"
+value = "08:00"
+
 [layout]
 version = 1
 background = "#72BBDD"
@@ -1044,6 +1089,21 @@ type = "Scene3D::LinearFog"
 color = "114;187;221"
 near = 6500
 far = 26000
+
+[[layout.effects]]
+layer = "world3d"
+name = "Moon"
+type = "Scene3D::DirectionalLight"
+color = "135;174;242"
+distanceFromCamera = 4000
+elevation = 45
+frustumSize = 6500
+intensity = 0
+isCastingShadow = false
+minimumShadowBias = 0.001
+rotation = 30
+shadowQuality = "medium"
+top = "Z+"
 
 [[layout.instances]]
 id = "e05525c3-b4d2-406e-97c5-f1da3360220b"

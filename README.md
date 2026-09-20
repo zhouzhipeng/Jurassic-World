@@ -142,3 +142,15 @@
 源文件：`scenes/Game/external-events/WeatherSystem.events`、`WeatherRestore.events`、`scenes/Game/external-layout/GameWeather.settings`、三个 `Weather*.settings` 对象及 `tools/compose_weather_audio.py`。使用引擎原生光照、雾和 Shape Painter；雨丝复用一个画布，最多 180 条，不持续创建对象。音效为本地程序合成的原创 WAV。
 
 复用检索：[官方 GDevelop 扩展库](https://github.com/GDevelopApp/GDevelop-extensions)，提交 `6e0bba82e5123cd95ea06107056d4015ae0d78e3`。MakeItRain 1.1.1 为二维对象降落，ParticleEmitter3D 3.1.1 为通用三维发射器；本次采用更小的场景专用原生天气事件，复用已有灯光和 HUD 面板，无新增第三方扩展。天气测试使用 `tests/WeatherCycle.js`、`tests/WeatherPersistence.js`，存档槽独立于玩家存档。
+
+## 世界时间与昼夜
+
+新游戏从第 1 天 08:00 开始。默认现实 12 分钟对应游戏 24 小时，午夜自动进入下一天，右上方时钟显示天数、24 小时时间和当前时段。按 **F7** 推进 6 小时，之后继续自然计时；按 **F6** 可以搭配预览不同天气。
+
+05:00～07:00 为黎明，07:00～17:00 为白天，17:00～19:00 为黄昏，其余时间为夜晚。太阳方向、亮度、天空、环境光和雾色随时间连续变化，晨昏有暖色光，夜晚有冷色月光并保留道路与角色的可见度。天气与昼夜统一写入环境光照，因此夜间雨雾和闪电也会正常叠加。
+
+背包、任务、暂停、设置、标题、拍照、死亡和 F3 效果图模式冻结世界时间，F7 在这些状态下不生效。暂停菜单显示实际世界时间；保存同时记录天数、精确分钟、一天时长及天气。载入立即恢复相应昼夜，旧存档从第 1 天 08:00 开始；关闭游戏期间不会额外推进时间。
+
+可在 `scenes/Game/scene.settings` 修改 `DayLengthSeconds` 调整一天的现实秒数（最低 60 秒），`WorldMinutes` 设置起始分钟数，`WorldDay` 设置起始天数。原生逻辑在 `scenes/Game/external-events/TimeSystem.events`、`TimeRestore.events`，光照合成在 `WeatherSystem.events`；时钟布局为 `scenes/Game/external-layout/GameTime.settings`。
+
+复用检索仍基于官方扩展库提交 `6e0bba82e5123cd95ea06107056d4015ae0d78e3`：Clock 0.4.0 提供日期/时钟，TimeFormatter 0.0.2 格式化时分秒，Sky3D 1.0.0 提供程序天空。本项目只需游戏内日历及已有天气灯光的统一控制，采用更小的原生事件实现，并复用现有 HUD 资源。测试为 `tests/DayNightCycle.js`、`tests/DayNightPersistence.js`，后者使用独立存档槽 `JurassicWorldGameplayTests_DayNight`。

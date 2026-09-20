@@ -1,0 +1,14 @@
+@comment "Load before HUDLoadStatus consumes Action=10. Saves from before the calendar begin on Day 1 at 08:00." background=[90,150,180] text=[255,255,255]
+
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do SetNumberVariable variable="WorldDay" modification_sign="=" value=1
+do SetNumberVariable variable="WorldMinutes" modification_sign="=" value=480
+
+> if GroupExists storage_name=expr(SaveStorage) group="TimeVersion"
+> do ReadNumberFromStorage storage_name=expr(SaveStorage) group="WorldDay" variable="WorldDay"
+> do ReadNumberFromStorage storage_name=expr(SaveStorage) group="WorldMinutes" variable="WorldMinutes"
+> do ReadNumberFromStorage storage_name=expr(SaveStorage) group="DayLengthSeconds" variable="DayLengthSeconds"
+> do SetNumberVariable variable="WorldDay" modification_sign="=" value=expr(max(1, floor(WorldDay)))
+> do SetNumberVariable variable="WorldMinutes" modification_sign="=" value=expr(max(0, WorldMinutes))
+> do SetNumberVariable variable="DayLengthSeconds" modification_sign="=" value=expr(clamp(DayLengthSeconds, 60, 86400))

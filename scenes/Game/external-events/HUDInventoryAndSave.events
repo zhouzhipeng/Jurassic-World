@@ -143,6 +143,10 @@ do EcrireFichierExp storage_name=expr(SaveStorage) group="WeatherType" expressio
 do EcrireFichierExp storage_name=expr(SaveStorage) group="WeatherClock" expression=expr(WeatherClock)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="WeatherDuration" expression=expr(WeatherDuration)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="WeatherVersion" expression=1
+do EcrireFichierExp storage_name=expr(SaveStorage) group="WorldDay" expression=expr(WorldDay)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="WorldMinutes" expression=expr(WorldMinutes)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="DayLengthSeconds" expression=expr(DayLengthSeconds)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="TimeVersion" expression=1
 do SetNumberVariable variable="SaveRequested" modification_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text=expr("Saved on this device." + NewLine() + "All resources and progress stored.")
 do SetNumberVariable variable="SaveFlag" modification_sign="=" value=1

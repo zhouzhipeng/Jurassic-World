@@ -1,0 +1,56 @@
+@comment "Island calendar: one day = DayLengthSeconds real seconds. Run before WeatherSystem so weather and daylight share one environment writer." background=[90,150,180] text=[255,255,255]
+
+@event aiGeneratedEventId="time-initialize"
+if SceneJustBegins
+do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GameTime" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0
+
+@event aiGeneratedEventId="time-advance"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetNumberVariable variable="WorldMinutes" modification_sign="+" value=expr(TimeDelta() * 1440 / max(60, DayLengthSeconds))
+
+> if KeyFromTextReleased key_to_check="F7"
+> do SetNumberVariable variable="WorldMinutes" modification_sign="+" value=360
+
+@event aiGeneratedEventId="time-midnight-rollover"
+if NumberVariable variable="WorldMinutes" comparison_sign=">=" value=1440
+do SetNumberVariable variable="WorldDay" modification_sign="+" value=expr(floor(WorldMinutes / 1440))
+do SetNumberVariable variable="WorldMinutes" modification_sign="=" value=expr(mod(WorldMinutes, 1440))
+
+@event aiGeneratedEventId="time-solar-cycle"
+if NumberVariable variable="WorldMinutes" comparison_sign=">=" value=0
+do SetNumberVariable variable="Daylight" modification_sign="=" value=expr(clamp((sin(ToRad(WorldMinutes / 4 - 90)) + 0.26) / 0.52, 0, 1))
+do SetNumberVariable variable="Daylight" modification_sign="=" value=expr(Daylight * Daylight * (3 - 2 * Daylight))
+do SetNumberVariable variable="Twilight" modification_sign="=" value=expr(4 * Daylight * (1 - Daylight))
+do SetNumberVariable variable="SunElevation" modification_sign="=" value=expr(max(5, 70 * sin(ToRad(WorldMinutes / 4 - 90))))
+do SetNumberVariable variable="SunRotation" modification_sign="=" value=expr(mod(90 + WorldMinutes / 4, 360))
+do SetStringVariable variable="TimeDisplay" modification_sign="=" value=expr(SubStr(ToString(100 + floor(WorldMinutes / 60)), 1, 2) + ":" + SubStr(ToString(100 + floor(mod(WorldMinutes, 60))), 1, 2))
+do SetStringVariable variable="TimePhase" modification_sign="=" value="夜晚"
+
+> if NumberVariable variable="WorldMinutes" comparison_sign=">=" value=300
+> if NumberVariable variable="WorldMinutes" comparison_sign="<" value=420
+> do SetStringVariable variable="TimePhase" modification_sign="=" value="黎明"
+
+> if NumberVariable variable="WorldMinutes" comparison_sign=">=" value=420
+> if NumberVariable variable="WorldMinutes" comparison_sign="<" value=1020
+> do SetStringVariable variable="TimePhase" modification_sign="=" value="白天"
+
+> if NumberVariable variable="WorldMinutes" comparison_sign=">=" value=1020
+> if NumberVariable variable="WorldMinutes" comparison_sign="<" value=1140
+> do SetStringVariable variable="TimePhase" modification_sign="=" value="黄昏"
+
+@event aiGeneratedEventId="time-world-status"
+if NumberVariable variable="WorldDay" comparison_sign=">=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="WorldStatusText" behavior="Text" modification_sign="=" text=expr("第 " + ToString(WorldDay) + " 天   ·   " + TimeDisplay + NewLine() + TimePhase + " · 海岸营地")
+
+@event aiGeneratedEventId="time-hud"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do Show object="TimePanel"
+do Show object="TimeStatus"
+do TextContainerCapability::TextContainerBehavior::SetValue object="TimeStatus" behavior="Text" modification_sign="=" text=expr("第 " + ToString(WorldDay) + " 天 · " + TimeDisplay + NewLine() + TimePhase + " · F7 +6小时")
+
+@event aiGeneratedEventId="time-reference-mode"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=0
+do Hide object="TimePanel"
+do Hide object="TimeStatus"
