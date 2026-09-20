@@ -1,0 +1,1713 @@
+{
+  "task": "Player skeletal animation",
+  "sourceCommit": "9232ddf",
+  "validation": {
+    "valid": true,
+    "structural": true,
+    "eventCodeGeneration": true,
+    "semanticLint": true
+  },
+  "runtimeVerified": true,
+  "completionReady": true,
+  "assertions": [
+    {
+      "index": 0,
+      "type": "runtime_error_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq"
+    },
+    {
+      "index": 1,
+      "type": "instance_position_finite",
+      "passed": true,
+      "actual": {
+        "x": 650,
+        "y": 200,
+        "z": 0,
+        "angle": 180,
+        "layer": "World3D",
+        "zOrder": 0
+      },
+      "expected": "finite x/y/z (when z is present)",
+      "objectName": "Player3D"
+    },
+    {
+      "index": 2,
+      "type": "renderer_visible_mesh_count",
+      "passed": true,
+      "actual": 94,
+      "expected": 0,
+      "operator": "gt",
+      "layerName": "World3D"
+    },
+    {
+      "index": 3,
+      "type": "renderer_failed_texture_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 4,
+      "type": "renderer_rejected_object_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    }
+  ],
+  "tests": {
+    "walk": {
+      "label": "walk",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 720.0000000000005,
+              "y": 200,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -90,
+            "variables": {
+              "AnimationState": 1,
+              "Sprinting": 0,
+              "Travel": 5.833333333333371,
+              "HandZ": 80.87061649859548,
+              "FootZ": 22.0768753569256,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 718.0380529560357,
+              "y": 241.91646272086982,
+              "z": 80.87061649859548,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -89.99999994295557,
+            "variables": {}
+          }
+        ]
+      },
+      "stamina": 80
+    },
+    "walk2": {
+      "label": "walk2",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 766.6666666666674,
+              "y": 200,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -90,
+            "variables": {
+              "AnimationState": 1,
+              "Sprinting": 0,
+              "Travel": 5.833333333333371,
+              "HandZ": 80.07953036108431,
+              "FootZ": 20.504036885465887,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 766.8697358926769,
+              "y": 242.064835520826,
+              "z": 80.07953036108431,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -89.9999999698528,
+            "variables": {}
+          }
+        ]
+      },
+      "stamina": 80
+    },
+    "run": {
+      "label": "run",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 641.6666666666669,
+              "y": 200,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 90,
+            "variables": {
+              "AnimationState": 2,
+              "Sprinting": 1,
+              "Travel": 8.333333333333371,
+              "HandZ": 92.98708463733666,
+              "FootZ": 28.397189182615662,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 638.6562993697978,
+              "y": 157.64042936970614,
+              "z": 92.98708463733666,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 89.9999998789087,
+            "variables": {}
+          }
+        ]
+      },
+      "stamina": 76.99999999999996
+    },
+    "idle": {
+      "label": "idle",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 641.6666666666669,
+              "y": 200,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 90,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 77.69533489011462,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 631.5425771474904,
+              "y": 156.71446256868757,
+              "z": 77.69533489011462,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 89.3330074071246,
+            "variables": {}
+          }
+        ]
+      },
+      "stamina": 76.99999999999996
+    },
+    "gather": {
+      "label": "gather",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 641.6666666666669,
+              "y": 200,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -244.712031738177,
+            "variables": {
+              "AnimationState": 3,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 102.80771682291194,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 610.8598992269684,
+              "y": 137.88832369542268,
+              "z": 102.80771682291194,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 115.28796826182302,
+            "variables": {}
+          }
+        ]
+      },
+      "berries": 12
+    },
+    "gather_finish": {
+      "label": "gather_finish",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 641.6666666666669,
+              "y": 200,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -244.712031738177,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 78.13082106018832,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 649.9081681833305,
+              "y": 156.2399415350444,
+              "z": 78.13082106018832,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 115.07195445771318,
+            "variables": {}
+          }
+        ]
+      },
+      "berries": 15
+    },
+    "chop_finish": {
+      "label": "chop_finish",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 200,
+              "y": 810,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {
+              "AnimationState": 4,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 146.3038659881743,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 163.3301062216824,
+              "y": 866.1539891000814,
+              "z": 146.3038659881743,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 2.747556525841578e-7,
+            "variables": {}
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 650,
+              "y": -365,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {}
+          }
+        ],
+        "CombatSpear": [
+          {
+            "index": 0,
+            "id": 258,
+            "persistentUuid": "ff1f837a-0615-48ec-82e0-1a29a38c4f3b",
+            "picked": false,
+            "position": {
+              "x": 163.3301062216824,
+              "y": 866.1539891000814,
+              "z": 146.3038659881743,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 2.747556525841578e-7,
+            "variables": {}
+          }
+        ]
+      },
+      "scene": {
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 28.783333333333402,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 550.8175741568165,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 3.5291666666666592,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0,
+        "Dirty": 0,
+        "Trust": 65,
+        "Berries": 15,
+        "Wood": 16,
+        "Stone": 8,
+        "Fiber": 20,
+        "Hide": 6,
+        "Meat": 4,
+        "Water": 60,
+        "Stamina": 70.99999999999996,
+        "Hunger": 70,
+        "Axe": 1,
+        "Spear": 0,
+        "Flint": 15,
+        "Rope": 6,
+        "Recipe": 0,
+        "CraftRequest": 0,
+        "Action": 0,
+        "Built": 0,
+        "Help": 1,
+        "Elapsed": 3.5291666666666592,
+        "SaveFlag": 0,
+        "NoticeMessage": "砍伐完成！木材 +4，已放入背包。",
+        "RenderMode": 1,
+        "MoveX": 0,
+        "MoveY": 0
+      }
+    },
+    "hurt": {
+      "label": "hurt",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 200,
+              "y": 810,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {
+              "AnimationState": 6,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 84.92733242163906,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 158.5171950696521,
+              "y": 840.2741380086333,
+              "z": 84.92733242163906,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0.06811092019259841,
+            "variables": {}
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 650,
+              "y": -365,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {}
+          }
+        ],
+        "CombatSpear": [
+          {
+            "index": 0,
+            "id": 258,
+            "persistentUuid": "ff1f837a-0615-48ec-82e0-1a29a38c4f3b",
+            "picked": false,
+            "position": {
+              "x": 158.5171950696521,
+              "y": 840.2741380086333,
+              "z": 84.92733242163906,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0.06811092019259841,
+            "variables": {}
+          }
+        ]
+      },
+      "scene": {
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 28.51666666666675,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0.39999999999999963,
+        "CombatSwing": 0.050000000000000044,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 550.8175741568165,
+        "HitFlash": 0.21666666666666667,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 3.795833333333325,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0,
+        "Dirty": 0,
+        "Trust": 65,
+        "Berries": 15,
+        "Wood": 16,
+        "Stone": 8,
+        "Fiber": 20,
+        "Hide": 6,
+        "Meat": 4,
+        "Water": 60,
+        "Stamina": 67.99999999999996,
+        "Hunger": 70,
+        "Axe": 1,
+        "Spear": 1,
+        "Flint": 15,
+        "Rope": 6,
+        "Recipe": 0,
+        "CraftRequest": 0,
+        "Action": 0,
+        "Built": 0,
+        "Help": 1,
+        "Elapsed": 3.795833333333325,
+        "SaveFlag": 0,
+        "NoticeMessage": "砍伐完成！木材 +4，已放入背包。",
+        "RenderMode": 1,
+        "MoveX": 0,
+        "MoveY": 0
+      }
+    },
+    "recover": {
+      "label": "recover",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 200,
+              "y": 810,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 77.82138370044407,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 156.83355647788179,
+              "y": 820.0723175508892,
+              "z": 77.82138370044407,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -0.3896414006679126,
+            "variables": {}
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 650,
+              "y": -365,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {}
+          }
+        ],
+        "CombatSpear": [
+          {
+            "index": 0,
+            "id": 258,
+            "persistentUuid": "ff1f837a-0615-48ec-82e0-1a29a38c4f3b",
+            "picked": false,
+            "position": {
+              "x": 156.83355647788179,
+              "y": 820.0723175508892,
+              "z": 77.82138370044407,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -0.3896414006679126,
+            "variables": {}
+          }
+        ]
+      },
+      "scene": {
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 28.100000000000108,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 553.9485419586994,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 4.212499999999991,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0,
+        "Dirty": 0,
+        "Trust": 65,
+        "Berries": 15,
+        "Wood": 16,
+        "Stone": 8,
+        "Fiber": 20,
+        "Hide": 6,
+        "Meat": 4,
+        "Water": 60,
+        "Stamina": 67.99999999999996,
+        "Hunger": 70,
+        "Axe": 1,
+        "Spear": 1,
+        "Flint": 15,
+        "Rope": 6,
+        "Recipe": 0,
+        "CraftRequest": 0,
+        "Action": 0,
+        "Built": 0,
+        "Help": 1,
+        "Elapsed": 4.212499999999991,
+        "SaveFlag": 0,
+        "NoticeMessage": "砍伐完成！木材 +4，已放入背包。",
+        "RenderMode": 1,
+        "MoveX": 0,
+        "MoveY": 0
+      }
+    },
+    "pause_begin": {
+      "label": "pause_begin",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": 200,
+              "y": 810,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 77.80310203804899,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 156.8163852155893,
+              "y": 820.0797829879795,
+              "z": 77.80310203804899,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -0.4297183291336944,
+            "variables": {}
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 650,
+              "y": -365,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {}
+          }
+        ],
+        "CombatSpear": [
+          {
+            "index": 0,
+            "id": 258,
+            "persistentUuid": "ff1f837a-0615-48ec-82e0-1a29a38c4f3b",
+            "picked": false,
+            "position": {
+              "x": 156.8163852155893,
+              "y": 820.0797829879795,
+              "z": 77.80310203804899,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -0.4297183291336944,
+            "variables": {}
+          }
+        ]
+      },
+      "scene": {
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 28.100000000000108,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 553.9485419586994,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 2,
+        "AudioRiding": 0,
+        "SoundClock": 4.212499999999991,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 2,
+        "InputMode": 0,
+        "StationIndex": 0,
+        "Dirty": 0,
+        "Trust": 65,
+        "Berries": 15,
+        "Wood": 16,
+        "Stone": 8,
+        "Fiber": 20,
+        "Hide": 6,
+        "Meat": 4,
+        "Water": 60,
+        "Stamina": 67.99999999999996,
+        "Hunger": 70,
+        "Axe": 1,
+        "Spear": 1,
+        "Flint": 15,
+        "Rope": 6,
+        "Recipe": 0,
+        "CraftRequest": 0,
+        "Action": 0,
+        "Built": 0,
+        "Help": 1,
+        "Elapsed": 4.212499999999991,
+        "SaveFlag": 0,
+        "NoticeMessage": "砍伐完成！木材 +4，已放入背包。",
+        "RenderMode": 1,
+        "MoveX": 0,
+        "MoveY": 0
+      }
+    },
+    "pause_end": {
+      "label": "pause_end",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": 200,
+              "y": 810,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 77.80310203804899,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 156.8163852155893,
+              "y": 820.0797829879795,
+              "z": 77.80310203804899,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -0.4297183291336944,
+            "variables": {}
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 650,
+              "y": -365,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {}
+          }
+        ],
+        "CombatSpear": [
+          {
+            "index": 0,
+            "id": 258,
+            "persistentUuid": "ff1f837a-0615-48ec-82e0-1a29a38c4f3b",
+            "picked": false,
+            "position": {
+              "x": 156.8163852155893,
+              "y": 820.0797829879795,
+              "z": 77.80310203804899,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -0.4297183291336944,
+            "variables": {}
+          }
+        ]
+      },
+      "scene": {
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 28.100000000000108,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 553.9485419586994,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 2,
+        "AudioRiding": 0,
+        "SoundClock": 4.212499999999991,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 2,
+        "InputMode": 2,
+        "StationIndex": 0,
+        "Dirty": 0,
+        "Trust": 65,
+        "Berries": 15,
+        "Wood": 16,
+        "Stone": 8,
+        "Fiber": 20,
+        "Hide": 6,
+        "Meat": 4,
+        "Water": 60,
+        "Stamina": 67.99999999999996,
+        "Hunger": 70,
+        "Axe": 1,
+        "Spear": 1,
+        "Flint": 15,
+        "Rope": 6,
+        "Recipe": 0,
+        "CraftRequest": 0,
+        "Action": 0,
+        "Built": 0,
+        "Help": 1,
+        "Elapsed": 4.212499999999991,
+        "SaveFlag": 0,
+        "NoticeMessage": "砍伐完成！木材 +4，已放入背包。",
+        "RenderMode": 1,
+        "MoveX": 0,
+        "MoveY": 0
+      }
+    },
+    "death_begin": {
+      "label": "death_begin",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": 200,
+              "y": 810,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {
+              "AnimationState": 7,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 75.06464069126035,
+              "FootZ": 11.906337054542131,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 155.66462746191095,
+              "y": 822.4627718173518,
+              "z": 75.06464069126035,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0.13806098277527049,
+            "variables": {}
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 650,
+              "y": -365,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {}
+          }
+        ],
+        "CombatSpear": [
+          {
+            "index": 0,
+            "id": 258,
+            "persistentUuid": "ff1f837a-0615-48ec-82e0-1a29a38c4f3b",
+            "picked": false,
+            "position": {
+              "x": 155.66462746191095,
+              "y": 822.4627718173518,
+              "z": 75.06464069126035,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0.13806098277527049,
+            "variables": {}
+          }
+        ]
+      },
+      "scene": {
+        "Health": 0,
+        "Dead": 1,
+        "Invulnerable": 28.066666666666777,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 1,
+        "NearestWild": 554.4548781137637,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 7,
+        "AudioRiding": 0,
+        "SoundClock": 4.245833333333324,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 7,
+        "InputMode": 7,
+        "StationIndex": 0,
+        "Dirty": 0,
+        "Trust": 65,
+        "Berries": 15,
+        "Wood": 16,
+        "Stone": 8,
+        "Fiber": 20,
+        "Hide": 6,
+        "Meat": 4,
+        "Water": 60,
+        "Stamina": 67.99999999999996,
+        "Hunger": 70,
+        "Axe": 1,
+        "Spear": 1,
+        "Flint": 15,
+        "Rope": 6,
+        "Recipe": 0,
+        "CraftRequest": 0,
+        "Action": 0,
+        "Built": 0,
+        "Help": 1,
+        "Elapsed": 4.245833333333324,
+        "SaveFlag": 0,
+        "NoticeMessage": "砍伐完成！木材 +4，已放入背包。",
+        "RenderMode": 1,
+        "MoveX": 0,
+        "MoveY": 0
+      }
+    },
+    "death_end": {
+      "label": "death_end",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": 200,
+              "y": 810,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {
+              "AnimationState": 7,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 46.29730848385178,
+              "FootZ": 14.265812567711873,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": 135.47625401915911,
+              "y": 810.0919370506571,
+              "z": 46.29730848385178,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 20.18709050462549,
+            "variables": {}
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 650,
+              "y": -365,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {}
+          }
+        ],
+        "CombatSpear": [
+          {
+            "index": 0,
+            "id": 258,
+            "persistentUuid": "ff1f837a-0615-48ec-82e0-1a29a38c4f3b",
+            "picked": false,
+            "position": {
+              "x": 135.47625401915911,
+              "y": 810.0919370506571,
+              "z": 46.29730848385178,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 20.18709050462549,
+            "variables": {}
+          }
+        ]
+      },
+      "scene": {
+        "Health": 0,
+        "Dead": 1,
+        "Invulnerable": 28.066666666666777,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 1,
+        "NearestWild": 554.4548781137637,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 7,
+        "AudioRiding": 0,
+        "SoundClock": 4.245833333333324,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 7,
+        "InputMode": 7,
+        "StationIndex": 0,
+        "Dirty": 0,
+        "Trust": 65,
+        "Berries": 15,
+        "Wood": 16,
+        "Stone": 8,
+        "Fiber": 20,
+        "Hide": 6,
+        "Meat": 4,
+        "Water": 60,
+        "Stamina": 67.99999999999996,
+        "Hunger": 70,
+        "Axe": 1,
+        "Spear": 1,
+        "Flint": 15,
+        "Rope": 6,
+        "Recipe": 0,
+        "CraftRequest": 0,
+        "Action": 0,
+        "Built": 0,
+        "Help": 1,
+        "Elapsed": 4.245833333333324,
+        "SaveFlag": 0,
+        "NoticeMessage": "砍伐完成！木材 +4，已放入背包。",
+        "RenderMode": 1,
+        "MoveX": 0,
+        "MoveY": 0
+      }
+    },
+    "respawn": {
+      "label": "respawn",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": -650,
+              "y": 350,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 46.297323527151256,
+              "FootZ": 14.265802024459257,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "HeldAxe": [
+          {
+            "index": 0,
+            "id": 243,
+            "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+            "picked": false,
+            "position": {
+              "x": -714.523740860217,
+              "y": 350.0919520156451,
+              "z": 46.297323527151256,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 20.18708621301738,
+            "variables": {}
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 650,
+              "y": -365,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {}
+          }
+        ],
+        "CombatSpear": [
+          {
+            "index": 0,
+            "id": 258,
+            "persistentUuid": "ff1f837a-0615-48ec-82e0-1a29a38c4f3b",
+            "picked": false,
+            "position": {
+              "x": -714.523740860217,
+              "y": 350.0919520156451,
+              "z": 46.297323527151256,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 20.18708621301738,
+            "variables": {}
+          }
+        ]
+      },
+      "scene": {
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 5,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 1,
+        "NearestWild": 554.4548781137637,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 7,
+        "AudioRiding": 0,
+        "SoundClock": 4.245833333333324,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 7,
+        "StationIndex": 1,
+        "Dirty": 1,
+        "Trust": 65,
+        "Berries": 12,
+        "Wood": 16,
+        "Stone": 8,
+        "Fiber": 20,
+        "Hide": 6,
+        "Meat": 3,
+        "Water": 80,
+        "Stamina": 80,
+        "Hunger": 70,
+        "Axe": 1,
+        "Spear": 1,
+        "Flint": 15,
+        "Rope": 6,
+        "Recipe": 0,
+        "CraftRequest": 0,
+        "Action": 0,
+        "Built": 0,
+        "Help": 1,
+        "Elapsed": 4.245833333333324,
+        "SaveFlag": 0,
+        "NoticeMessage": "已在营地重生，获得 5 秒保护。",
+        "RenderMode": 1,
+        "MoveX": 0,
+        "MoveY": 0
+      }
+    },
+    "mount": {
+      "label": "mount",
+      "instances": {
+        "Dinosaur3D": [
+          {
+            "index": 0,
+            "id": 198,
+            "persistentUuid": "d0563fcc-89ad-4ddc-8fba-9774ed679417",
+            "picked": false,
+            "position": {
+              "x": 650,
+              "y": -350,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {
+              "AnimationState": 0
+            }
+          }
+        ],
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 650,
+              "y": -350,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {
+              "AnimationState": 1,
+              "Sprinting": 0,
+              "Travel": 5.833333333333314,
+              "HandZ": 81.22689130460448,
+              "FootZ": 22.74333207805753,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 650,
+              "y": -365,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 0,
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "ride": {
+      "label": "ride",
+      "instances": {
+        "Dinosaur3D": [
+          {
+            "index": 0,
+            "id": 198,
+            "persistentUuid": "d0563fcc-89ad-4ddc-8fba-9774ed679417",
+            "picked": false,
+            "position": {
+              "x": 772.4999999999994,
+              "y": -350,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -90,
+            "variables": {
+              "AnimationState": 1
+            }
+          }
+        ],
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 772.4999999999994,
+              "y": -350,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -90,
+            "variables": {
+              "AnimationState": 1,
+              "Sprinting": 0,
+              "Travel": 5.833333333333314,
+              "HandZ": 81.22689130460448,
+              "FootZ": 22.74333207805753,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 757.4999999999994,
+              "y": -350,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -90,
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "dismount": {
+      "label": "dismount",
+      "instances": {
+        "Dinosaur3D": [
+          {
+            "index": 0,
+            "id": 198,
+            "persistentUuid": "d0563fcc-89ad-4ddc-8fba-9774ed679417",
+            "picked": false,
+            "position": {
+              "x": 772.4999999999994,
+              "y": -350,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -90,
+            "variables": {
+              "AnimationState": 0
+            }
+          }
+        ],
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": 772.4999999999994,
+              "y": -590,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -90,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 81.22689130460448,
+              "FootZ": 22.74333207805753,
+              "AttachmentReady": 1
+            }
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 757.4999999999994,
+              "y": -350,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -90,
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "chop_final": {
+      "Player3D": [
+        {
+          "index": 0,
+          "id": 199,
+          "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+          "picked": true,
+          "position": {
+            "x": 200,
+            "y": 810,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "AnimationState": 4,
+            "Sprinting": 0,
+            "Travel": 0,
+            "HandZ": 162.57103084142398,
+            "FootZ": 15.999999428149925,
+            "AttachmentReady": 1,
+            "HandRX": 125.58897957402058
+          }
+        }
+      ],
+      "HeldAxe": [
+        {
+          "index": 0,
+          "id": 243,
+          "persistentUuid": "005cad9f-b161-45b6-a7de-99de459e5087",
+          "picked": false,
+          "position": {
+            "x": 167.93787173347414,
+            "y": 864.7502720473713,
+            "z": 162.57103084142398,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {}
+        }
+      ]
+    },
+    "thrust_final": {
+      "Player3D": [
+        {
+          "index": 0,
+          "id": 199,
+          "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+          "picked": true,
+          "position": {
+            "x": 650,
+            "y": 200,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "AnimationState": 5,
+            "Sprinting": 0,
+            "Travel": 0,
+            "HandZ": 112.60053744892235,
+            "FootZ": 15.99999942815008,
+            "AttachmentReady": 1,
+            "HandRX": 0.0024364730665802975
+          }
+        }
+      ],
+      "CombatSpear": [
+        {
+          "index": 0,
+          "id": 258,
+          "persistentUuid": "ff1f837a-0615-48ec-82e0-1a29a38c4f3b",
+          "picked": false,
+          "position": {
+            "x": 692.4246560524489,
+            "y": 142.4499472164588,
+            "z": 112.60053744892235,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {}
+        }
+      ]
+    },
+    "run_final": {
+      "Player3D": [
+        {
+          "index": 0,
+          "id": 199,
+          "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+          "picked": false,
+          "position": {
+            "x": 49.99999999999998,
+            "y": 286.6025403784438,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "AnimationState": 2,
+            "Sprinting": 1,
+            "Travel": 8.33333333333331,
+            "HandZ": 94.86506174810953,
+            "FootZ": 31.95721790795044,
+            "AttachmentReady": 1,
+            "HandRX": 16.97267710245617
+          }
+        }
+      ]
+    }
+  }
+}
