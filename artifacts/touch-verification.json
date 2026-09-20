@@ -1,0 +1,1107 @@
+{
+  "sourceCommit": "448d2ab",
+  "sourceCommitMessage": "Separate building controls on short touch screens",
+  "implementationCommits": [
+    "9084191 Add mobile-first touch controls and responsive survival menus",
+    "5834a6c Refine touch feedback and enable building placement",
+    "b42ce6b Polish portrait touch targets and construction feedback",
+    "448d2ab Separate building controls on short touch screens"
+  ],
+  "validation": {
+    "valid": true,
+    "structurallyValid": true,
+    "eventCodeGenerationValid": true,
+    "extensionGeneratedCodeValid": true,
+    "javascriptAuthoringValid": true,
+    "semanticLintPassed": true,
+    "errors": []
+  },
+  "runtime": {
+    "runtimeVerified": true,
+    "completionReady": true,
+    "assertions": [
+      {
+        "index": 0,
+        "type": "object_count",
+        "passed": true,
+        "actual": 24,
+        "expected": 24,
+        "operator": "eq",
+        "objectName": "TouchButton"
+      },
+      {
+        "index": 1,
+        "type": "object_count",
+        "passed": true,
+        "actual": 1,
+        "expected": 1,
+        "operator": "eq",
+        "objectName": "TouchStick"
+      },
+      {
+        "index": 2,
+        "type": "instance_position_finite",
+        "passed": true,
+        "actual": {
+          "x": 650,
+          "y": 200,
+          "z": 0,
+          "angle": 180,
+          "layer": "World3D",
+          "zOrder": 0
+        },
+        "expected": "finite x/y/z (when z is present)",
+        "objectName": "Player3D"
+      },
+      {
+        "index": 3,
+        "type": "runtime_error_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq"
+      }
+    ]
+  },
+  "gameplay": {
+    "operationId": "gameplay-tests-1291d1f2-f0a3-4fd3-bcdd-ee2bf97bc7a2",
+    "status": "completed",
+    "summary": {
+      "total": 18,
+      "completed": 18,
+      "passed": 18,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "totalAssertions": 206,
+    "tests": [
+      {
+        "name": "ConstructionPlacement",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Clear ground accepts a foundation",
+            "passed": true
+          },
+          {
+            "message": "Off-grid aim snaps the foundation to (-1800, -600)",
+            "passed": true
+          },
+          {
+            "message": "One foundation costs 6/2/3, observed 94,98,97",
+            "passed": true
+          },
+          {
+            "message": "Idle frames and duplicate placement neither create another part nor charge materials",
+            "passed": true
+          },
+          {
+            "message": "Adjacent foundation socket is valid",
+            "passed": true
+          },
+          {
+            "message": "Adjacent foundation is created and charged exactly once",
+            "passed": true
+          },
+          {
+            "message": "Insufficient wood invalidates the clear socket",
+            "passed": true
+          },
+          {
+            "message": "Rejected placement leaves inventory and building count unchanged",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "ConstructionSupport",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "A ceiling cannot float above empty ground",
+            "passed": true
+          },
+          {
+            "message": "Unsupported ceiling neither spawns nor consumes materials",
+            "passed": true
+          },
+          {
+            "message": "Supported Num1 placement is valid: 吸附就绪 · 点「放置」",
+            "passed": true
+          },
+          {
+            "message": "Supported Num3 placement is valid: 吸附就绪 · 点「放置」",
+            "passed": true
+          },
+          {
+            "message": "Supported Num5 placement is valid: 吸附就绪 · 点「放置」",
+            "passed": true
+          },
+          {
+            "message": "Supported Num3 placement is valid: 吸附就绪 · 点「放置」",
+            "passed": true
+          },
+          {
+            "message": "Ground wall and upper wall coexist at the same horizontal socket",
+            "passed": true
+          },
+          {
+            "message": "Foundation demolition is blocked while dependent parts exist",
+            "passed": true
+          },
+          {
+            "message": "Demolition at level 1 removes only the upper wall and preserves the ground wall",
+            "passed": true
+          },
+          {
+            "message": "Upper wall returns half of its materials, rounded down",
+            "passed": true
+          },
+          {
+            "message": "Removing children first allows the entire supported structure to be dismantled",
+            "passed": true
+          },
+          {
+            "message": "Each removed part refunds once: 90,99,94",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "ConstructionDoors",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Door requires a matching door frame",
+            "passed": true
+          },
+          {
+            "message": "Door snaps into its frame and starts closed",
+            "passed": true
+          },
+          {
+            "message": "Closed door blocks forward movement: y=494.1666666666664",
+            "passed": true
+          },
+          {
+            "message": "E opens the nearby door",
+            "passed": true
+          },
+          {
+            "message": "Opening a door does not free its socket for a duplicate",
+            "passed": true
+          },
+          {
+            "message": "Player walks through open doorway onto the floor: y=336.6666666666669, z=20",
+            "passed": true
+          },
+          {
+            "message": "E closes the same door again",
+            "passed": true
+          },
+          {
+            "message": "Closing the door restores its blocking collision",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "ConstructionStairs",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Stair fixture Num1 is placeable: 吸附就绪 · 点「放置」",
+            "passed": true
+          },
+          {
+            "message": "Stair fixture Num1 is placeable: 吸附就绪 · 点「放置」",
+            "passed": true
+          },
+          {
+            "message": "Stair fixture Num2 is placeable: 吸附就绪 · 点「放置」",
+            "passed": true
+          },
+          {
+            "message": "Stair fixture Num5 is placeable: 吸附就绪 · 点「放置」",
+            "passed": true
+          },
+          {
+            "message": "Stair fixture Num7 is placeable: 吸附就绪 · 点「放置」",
+            "passed": true
+          },
+          {
+            "message": "Stairs attach to the lower foundation",
+            "passed": true
+          },
+          {
+            "message": "A ceiling cannot cover the staircase headroom",
+            "passed": true
+          },
+          {
+            "message": "Walking up stairs reaches the upper floor: y=353.3333333333319, z=320",
+            "passed": true
+          },
+          {
+            "message": "Player remains supported while standing on the upper floor",
+            "passed": true
+          },
+          {
+            "message": "Walking down returns to ground: y=820, z=0",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "ConstructionPersistence",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Fresh scene resets construction controls: mode=0, kind=10, angle=0",
+            "passed": true
+          },
+          {
+            "message": "B enters construction mode",
+            "passed": true
+          },
+          {
+            "message": "Save fixture Num1 is placeable",
+            "passed": true
+          },
+          {
+            "message": "Save fixture Num4 is placeable",
+            "passed": true
+          },
+          {
+            "message": "Save fixture Num6 is placeable",
+            "passed": true
+          },
+          {
+            "message": "Save fixture Num2 is placeable",
+            "passed": true
+          },
+          {
+            "message": "Save fixture Num5 is placeable",
+            "passed": true
+          },
+          {
+            "message": "Save fixture contains an open door",
+            "passed": true
+          },
+          {
+            "message": "Escape opens the pause menu",
+            "passed": true
+          },
+          {
+            "message": "Save button confirms a completed save",
+            "passed": true
+          },
+          {
+            "message": "Fresh scene contains no prior test buildings",
+            "passed": true
+          },
+          {
+            "message": "Loading restores all building records, sockets, levels and support parents",
+            "passed": true
+          },
+          {
+            "message": "Restored meshes preserve positions, heights, support state and the swung-open door",
+            "passed": true
+          },
+          {
+            "message": "Loading restores exact inventory without charging construction again",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "WeatherCycle",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "A fresh expedition starts clear with exactly one weather canvas",
+            "passed": true
+          },
+          {
+            "message": "F6 selects cloud cover and begins a gradual transition",
+            "passed": true
+          },
+          {
+            "message": "Rain builds up and changes the actual scene background",
+            "passed": true
+          },
+          {
+            "message": "HUD and rain ambience follow the rain state",
+            "passed": true
+          },
+          {
+            "message": "Rain strokes cover the viewport using one visible weather canvas",
+            "passed": true
+          },
+          {
+            "message": "Pause freezes weather progression and particles, silences rain and blocks F6",
+            "passed": true
+          },
+          {
+            "message": "Photo mode retains the frozen weather image while hiding its HUD",
+            "passed": true
+          },
+          {
+            "message": "A ceiling above the player suppresses rain streaks and muffles rainfall",
+            "passed": true
+          },
+          {
+            "message": "Removing overhead shelter restores outdoor rainfall",
+            "passed": true
+          },
+          {
+            "message": "A storm flashes once and schedules thunder after the light",
+            "passed": true
+          },
+          {
+            "message": "The flash fades and the delayed thunder sound plays",
+            "passed": true
+          },
+          {
+            "message": "Fog replaces the storm smoothly and clears rain and pending thunder",
+            "passed": true
+          },
+          {
+            "message": "Art reference mode hides weather and stops its simulation and sound",
+            "passed": true
+          },
+          {
+            "message": "The automatic timer moves a clear spell into cloud cover exactly once",
+            "passed": true
+          },
+          {
+            "message": "Cycling, menus and reference mode do not duplicate weather objects",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "WeatherPersistence",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "The pause menu saves weather to an isolated test slot",
+            "passed": true
+          },
+          {
+            "message": "A new scene starts independently of the stored weather",
+            "passed": true
+          },
+          {
+            "message": "Load restores weather type, exact elapsed time and spell duration",
+            "passed": true
+          },
+          {
+            "message": "The restored weather name reaches the HUD while paused",
+            "passed": true
+          },
+          {
+            "message": "Resuming continues the saved weather clock and fades into its rain preset",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "DayNightCycle",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "A new expedition begins on Day 1 at 08:00 with a 12 minute day",
+            "passed": true
+          },
+          {
+            "message": "The live clock is visible and the native moon light exists",
+            "passed": true
+          },
+          {
+            "message": "One real second advances two game minutes at both 30 and 60 FPS",
+            "passed": true
+          },
+          {
+            "message": "F7 advances exactly six hours on release",
+            "passed": true
+          },
+          {
+            "message": "Advancing into the evening changes the live scene to night",
+            "passed": true
+          },
+          {
+            "message": "Skipping across midnight increments the calendar once",
+            "passed": true
+          },
+          {
+            "message": "The next morning restores daylight",
+            "passed": true
+          },
+          {
+            "message": "The clock and HUD identify 夜晚 at 4:00",
+            "passed": true
+          },
+          {
+            "message": "The clock and HUD identify 黎明 at 6:00",
+            "passed": true
+          },
+          {
+            "message": "The clock and HUD identify 白天 at 12:00",
+            "passed": true
+          },
+          {
+            "message": "The clock and HUD identify 黄昏 at 18:00",
+            "passed": true
+          },
+          {
+            "message": "The clock and HUD identify 夜晚 at 21:00",
+            "passed": true
+          },
+          {
+            "message": "Night has a dark blue sky while dawn and dusk have warm sky colors",
+            "passed": true
+          },
+          {
+            "message": "Sunset colors change smoothly between consecutive frames",
+            "passed": true
+          },
+          {
+            "message": "Natural midnight preserves fractional minutes and pads the clock",
+            "passed": true
+          },
+          {
+            "message": "A full automatic cycle advances one day without accumulating a clock offset",
+            "passed": true
+          },
+          {
+            "message": "Pause freezes the world clock, blocks time skipping and displays the real saved time",
+            "passed": true
+          },
+          {
+            "message": "Photo mode keeps the time and lighting frozen and hides the clock",
+            "passed": true
+          },
+          {
+            "message": "Reference mode hides the clock and disables both automatic and manual advancement",
+            "passed": true
+          },
+          {
+            "message": "Returning to gameplay resumes the same clock",
+            "passed": true
+          },
+          {
+            "message": "Time remains frozen in menu or death mode 1",
+            "passed": true
+          },
+          {
+            "message": "Time remains frozen in menu or death mode 3",
+            "passed": true
+          },
+          {
+            "message": "Time remains frozen in menu or death mode 4",
+            "passed": true
+          },
+          {
+            "message": "Time remains frozen in menu or death mode 6",
+            "passed": true
+          },
+          {
+            "message": "Time remains frozen in menu or death mode 7",
+            "passed": true
+          },
+          {
+            "message": "Day transitions and menus never duplicate the clock objects",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "DayNightPersistence",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "The pause menu saves time and weather into an isolated slot",
+            "passed": true
+          },
+          {
+            "message": "Starting a new scene uses fresh morning defaults until the player loads",
+            "passed": true
+          },
+          {
+            "message": "Load restores the exact day, fractional minutes, day speed and weather state together",
+            "passed": true
+          },
+          {
+            "message": "Loaded night lighting and both clocks update immediately while paused",
+            "passed": true
+          },
+          {
+            "message": "A loaded clock stays frozen until gameplay resumes",
+            "passed": true
+          },
+          {
+            "message": "Resuming uses the saved day speed and continues the saved rainfall",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "SurvivalSupplies",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "The island contains three fresh-water sources and six mineable metal seams",
+            "passed": true
+          },
+          {
+            "message": "Drinking away from water gives directions without free water",
+            "passed": true
+          },
+          {
+            "message": "Hotbar 3 consumes one berry and restores eight hunger",
+            "passed": true
+          },
+          {
+            "message": "An unlit fire cannot consume raw meat",
+            "passed": true
+          },
+          {
+            "message": "One wood starts a 45-second campfire",
+            "passed": true
+          },
+          {
+            "message": "C queues one piece of meat at the nearby fire",
+            "passed": true
+          },
+          {
+            "message": "Repeated cooking input cannot charge for a second occupied slot",
+            "passed": true
+          },
+          {
+            "message": "Fuel and cooking freeze while the pause menu is open",
+            "passed": true
+          },
+          {
+            "message": "Eight active seconds complete exactly one meal",
+            "passed": true
+          },
+          {
+            "message": "Hotbar 5 consumes cooked meat for a substantial meal",
+            "passed": true
+          },
+          {
+            "message": "The workbench crafts one canteen from hide and fiber",
+            "passed": true
+          },
+          {
+            "message": "A second canteen input cannot charge materials again",
+            "passed": true
+          },
+          {
+            "message": "A spring restores water and fills all three canteen portions",
+            "passed": true
+          },
+          {
+            "message": "A wilderness drink spends one stored portion for forty water",
+            "passed": true
+          },
+          {
+            "message": "Drinking while fully hydrated cannot waste stored water",
+            "passed": true
+          },
+          {
+            "message": "Q changes navigation without teleporting the player",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "CompanionGathering",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "First tame feeding spends three berries for twenty trust",
+            "passed": true
+          },
+          {
+            "message": "The four-second feeding interval prevents repeated charges",
+            "passed": true
+          },
+          {
+            "message": "Five real feedings tame the herbivore and unlock companion utility",
+            "passed": true
+          },
+          {
+            "message": "The stay whistle holds the tamed animal in place",
+            "passed": true
+          },
+          {
+            "message": "The follow whistle brings the companion toward a distant player",
+            "passed": true
+          },
+          {
+            "message": "A nearby tamed, stationary companion enables the gathering bonus",
+            "passed": true
+          },
+          {
+            "message": "A real berry harvest doubles both backpack yield and quest credit",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "MetalProgression",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Three native hold-E extractions supply six ore and complete the expedition objective",
+            "passed": true
+          },
+          {
+            "message": "Mined seams remain depleted instead of immediately rewarding another harvest",
+            "passed": true
+          },
+          {
+            "message": "Claiming the expedition unlocks the forge objective",
+            "passed": true
+          },
+          {
+            "message": "The first forge interaction repairs it for the displayed material cost",
+            "passed": true
+          },
+          {
+            "message": "An occupied forge cannot double-charge ore or wood",
+            "passed": true
+          },
+          {
+            "message": "An occupied forge cannot double-charge ore or wood",
+            "passed": true
+          },
+          {
+            "message": "An occupied forge cannot double-charge ore or wood",
+            "passed": true
+          },
+          {
+            "message": "Three timed smelts turn six ore into three ingots and complete the forge goal",
+            "passed": true
+          },
+          {
+            "message": "Forge completion unlocks the metal tools objective",
+            "passed": true
+          },
+          {
+            "message": "Crafting the upgrade spends three ingots and equips stronger tools",
+            "passed": true
+          },
+          {
+            "message": "The permanent upgrade cannot be purchased twice",
+            "passed": true
+          },
+          {
+            "message": "Metal tools unlock the hunting objective",
+            "passed": true
+          },
+          {
+            "message": "Metal tools double ore yield from a new seam",
+            "passed": true
+          },
+          {
+            "message": "A real upgraded spear hit deals 55 damage",
+            "passed": true
+          },
+          {
+            "message": "A completed hunt advances the new objective counter",
+            "passed": true
+          },
+          {
+            "message": "The final main objective opens a fresh, uncompleted expedition contract",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "SurvivalExposure",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Dehydration harms health while hunger continues to decline independently",
+            "passed": true
+          },
+          {
+            "message": "Starvation harms health without freezing the water simulation",
+            "passed": true
+          },
+          {
+            "message": "A soaked player at night becomes hypothermic and takes environmental damage",
+            "passed": true
+          },
+          {
+            "message": "Paused menus freeze exposure and environmental damage",
+            "passed": true
+          },
+          {
+            "message": "A fuelled fire warms and dries the player even during rain",
+            "passed": true
+          },
+          {
+            "message": "Fuel exhaustion pauses the unfinished cooking job",
+            "passed": true
+          },
+          {
+            "message": "Extinguished fires hide their flame meshes",
+            "passed": true
+          },
+          {
+            "message": "Adding fuel resumes the retained job and yields only one meal",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "SurvivalPersistence",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "The persistence fixture can place a real campfire",
+            "passed": true
+          },
+          {
+            "message": "The pause menu stores survival data in an isolated slot",
+            "passed": true
+          },
+          {
+            "message": "A fresh scene starts with fresh survival defaults",
+            "passed": true
+          },
+          {
+            "message": "Loading restores exact supplies, environment, forge queue and chapter progress",
+            "passed": true
+          },
+          {
+            "message": "Both placed and permanent fires restore their own fuel and cooking jobs",
+            "passed": true
+          },
+          {
+            "message": "A partly tamed companion retains its own trust, feeding wait, command and position",
+            "passed": true
+          },
+          {
+            "message": "The depleted ore seam retains its cooldown by site identity",
+            "passed": true
+          },
+          {
+            "message": "Loading returns the player to the saved location",
+            "passed": true
+          },
+          {
+            "message": "The riding companion remains at its saved expedition position instead of returning to spawn",
+            "passed": true
+          },
+          {
+            "message": "Restored production remains frozen while the menu stays open",
+            "passed": true
+          },
+          {
+            "message": "Resuming finishes both retained meals and the ingot exactly once",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "TouchControls",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "The game starts with the phone HUD and hides the old desktop panels",
+            "passed": true
+          },
+          {
+            "message": "The joystick moves the player while other fingers remain down",
+            "passed": true
+          },
+          {
+            "message": "A second finger turns the camera without taking over movement",
+            "passed": true
+          },
+          {
+            "message": "A third finger attacks through the native combat cooldown",
+            "passed": true
+          },
+          {
+            "message": "Releasing movement and attack stops both while the look finger remains active",
+            "passed": true
+          },
+          {
+            "message": "Opening the menu cancels held gestures and pauses the world",
+            "passed": true
+          },
+          {
+            "message": "Closing the menu requires a fresh movement touch",
+            "passed": true
+          },
+          {
+            "message": "Dragging off a button cancels the tap instead of opening a menu",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "TouchSurvival",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "One tap harvests exactly one bush and stops after completion",
+            "passed": true
+          },
+          {
+            "message": "Tree harvesting automatically selects the axe and completes its three hits",
+            "passed": true
+          },
+          {
+            "message": "One fire interaction adds fuel once and cooks one portion",
+            "passed": true
+          },
+          {
+            "message": "Food can be eaten from the touch backpack without a hotkey",
+            "passed": true
+          },
+          {
+            "message": "The contextual workshop crafts a canteen using the native recipe",
+            "passed": true
+          },
+          {
+            "message": "The water action drinks and fills the canteen together",
+            "passed": true
+          },
+          {
+            "message": "Quick supplies choose the canteen when water is low",
+            "passed": true
+          },
+          {
+            "message": "The same contextual button mounts a tamed dinosaur",
+            "passed": true
+          },
+          {
+            "message": "A second contextual tap safely dismounts",
+            "passed": true
+          },
+          {
+            "message": "Moving cancels an unfinished one-tap harvest",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "TouchMenus",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "A touch building card enters placement at a valid ground socket",
+            "passed": true
+          },
+          {
+            "message": "The touch rotate button rotates a preview by 90 degrees",
+            "passed": true
+          },
+          {
+            "message": "Touch placement creates one foundation and charges its real cost",
+            "passed": true
+          },
+          {
+            "message": "Invalid repeat placement cannot duplicate a building or charge materials",
+            "passed": true
+          },
+          {
+            "message": "Upper-floor construction is accessible without Page Up",
+            "passed": true
+          },
+          {
+            "message": "A recipe card crafts a spear and advances the real quest counter",
+            "passed": true
+          },
+          {
+            "message": "The quest card claims a completed goal using touch",
+            "passed": true
+          },
+          {
+            "message": "Destination cards set water navigation and return to exploration",
+            "passed": true
+          },
+          {
+            "message": "Touch save/load restores supplies and the placed building",
+            "passed": true
+          },
+          {
+            "message": "The death state offers a touch respawn flow",
+            "passed": true
+          },
+          {
+            "message": "The respawn card returns the player to camp without Enter",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "TouchResponsive",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "All play controls fit 1600 x 900",
+            "passed": true
+          },
+          {
+            "message": "Joystick and touch targets remain usable at 1600 x 900",
+            "passed": true
+          },
+          {
+            "message": "All eight building cards and the close button fit 1600 x 900",
+            "passed": true
+          },
+          {
+            "message": "Cards do not overlap at 1600 x 900",
+            "passed": true
+          },
+          {
+            "message": "Building controls fit without overlap at 1600 x 900",
+            "passed": true
+          },
+          {
+            "message": "All play controls fit 1155.5555555555557 x 650",
+            "passed": true
+          },
+          {
+            "message": "Joystick and touch targets remain usable at 1155.5555555555557 x 650",
+            "passed": true
+          },
+          {
+            "message": "All eight building cards and the close button fit 1155.5555555555557 x 650",
+            "passed": true
+          },
+          {
+            "message": "Cards do not overlap at 1155.5555555555557 x 650",
+            "passed": true
+          },
+          {
+            "message": "Building controls fit without overlap at 1155.5555555555557 x 650",
+            "passed": true
+          },
+          {
+            "message": "All play controls fit 2133.3333333333335 x 1200",
+            "passed": true
+          },
+          {
+            "message": "Joystick and touch targets remain usable at 2133.3333333333335 x 1200",
+            "passed": true
+          },
+          {
+            "message": "All eight building cards and the close button fit 2133.3333333333335 x 1200",
+            "passed": true
+          },
+          {
+            "message": "Cards do not overlap at 2133.3333333333335 x 1200",
+            "passed": true
+          },
+          {
+            "message": "Building controls fit without overlap at 2133.3333333333335 x 1200",
+            "passed": true
+          }
+        ],
+        "errors": []
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "file": "artifacts/touch-landscape.png",
+      "width": 3196,
+      "height": 1800,
+      "source": "renderer-canvas",
+      "exactGameResolution": true,
+      "quality": {
+        "analyzed": true,
+        "dimensionsMatch": true,
+        "blackRatio": 0,
+        "transparentRatio": 0,
+        "suspicious": false,
+        "pixelHash": "ace50d389c2b61de3f6e586d92f1fc388f7248f5abd07ac97857950324d46e09"
+      },
+      "capturedAt": 1789899791738
+    },
+    {
+      "file": "artifacts/touch-portrait.png",
+      "width": 843,
+      "height": 1800,
+      "source": "renderer-canvas",
+      "exactGameResolution": true,
+      "quality": {
+        "analyzed": true,
+        "dimensionsMatch": true,
+        "blackRatio": 0,
+        "transparentRatio": 0,
+        "suspicious": false,
+        "pixelHash": "e8a2468a12127df9be37944e12c77dffb51307f413fca2c1fb1d930a3ece5068"
+      },
+      "capturedAt": 1789899856158
+    },
+    {
+      "file": "artifacts/touch-backpack.png",
+      "width": 843,
+      "height": 1800,
+      "source": "renderer-canvas",
+      "exactGameResolution": true,
+      "quality": {
+        "analyzed": true,
+        "dimensionsMatch": true,
+        "blackRatio": 0,
+        "transparentRatio": 0,
+        "suspicious": false,
+        "pixelHash": "c4d61d0fe265add19f815fbb969ac5426f3c457a7de81d3dec0012b9d2d1f6f3"
+      },
+      "capturedAt": 1789899869516
+    },
+    {
+      "file": "artifacts/touch-building-menu.png",
+      "width": 843,
+      "height": 1800,
+      "source": "renderer-canvas",
+      "exactGameResolution": true,
+      "quality": {
+        "analyzed": true,
+        "dimensionsMatch": true,
+        "blackRatio": 0,
+        "transparentRatio": 0,
+        "suspicious": false,
+        "pixelHash": "b20feabe9988bbd442e571fc834e09c0e074463472599590bd8aac5f8db9c8f6"
+      },
+      "capturedAt": 1789899869828
+    }
+  ],
+  "visualQA": {
+    "method": "Resized the actual Electron preview with Computer Use. Stepped paused runtime after each resize, then inspected intrinsic game canvas captures.",
+    "landscapeAspect": 1.7755555555555556,
+    "portraitAspect": 0.4683333333333333,
+    "menus": "Menu states arranged with set_runtime_state for screenshots; actual touch interactions separately verified by authored gameplay tests.",
+    "observed": "Landscape play controls, portrait play controls, single-column backpack and all eight building cards fit visibly; labels were inspected.",
+    "physicalMobileBrowsersTested": false
+  }
+}
