@@ -15,7 +15,7 @@ async function click(name) {
   await harness.stepFrames(2);
 }
 try {
-  await harness.goToScene('Game');
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);
   await harness.stepFrames(2);
   harness.setSceneVariable('SaveStorage', storage);
   harness.setSceneVariable('WorldDay', 17);
@@ -30,7 +30,7 @@ try {
   await click('Save');
   harness.assert(value('SaveFlag') === 1, 'The pause menu saves time and weather into an isolated slot');
 
-  await harness.goToScene('Game');
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);
   await harness.stepFrames(2);
   harness.setSceneVariable('SaveStorage', storage);
   const morningSky = harness.getCurrentRuntimeScene().getBackgroundColor();

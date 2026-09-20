@@ -1,4 +1,10 @@
-link external "HUDBootstrap"
+link "HUDBootstrap"
+
+link external "TouchContext"
+
+link external "TouchLayout"
+
+link external "TouchInput"
 
 link external "HUDConstructionInput"
 
@@ -62,6 +68,8 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="MoveX" comparison_sign="!=" value=0
 if NumberVariable variable="MoveY" comparison_sign="!=" value=0
 do SetNumberVariable variable="MoveSpeed" modification_sign="=" value=247.5
+
+link external "TouchMovement"
 
 @comment "Sprint input" background=[90,150,180] text=[255,255,255]
 
@@ -413,7 +421,9 @@ do Show object="HarvestNodes"
 if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign=">" value=0
 do Hide object="HarvestNodes"
 
-link external "HUDHarvestFeedback"
+link "HUDHarvestFeedback"
+
+link external "TouchActions"
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -423,6 +433,7 @@ if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign=
 if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
 if NumberVariable variable="Stamina" comparison_sign=">=" value=3
 if KeyFromTextPressed key_to_check="e"
+or NumberVariable variable="TouchAutoHarvest" comparison_sign="=" value=1
 if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="!=" value=3
 do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modification_sign="+" value=expr(TimeDelta())
 do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=expr(sin(HarvestNodes.Variable(Progress) * 35) * 7)
@@ -479,7 +490,10 @@ link "HUDActionBar"
 @event
 link external "SurvivalUse"
 
-link external "HUDInventoryAndSave"
+if NumberVariable variable="TouchLoad" comparison_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=10
+
+link "HUDInventoryAndSave"
 
 if NumberVariable variable="Action" comparison_sign="=" value=10
 if GroupExists storage_name=expr(SaveStorage) group="Version"
@@ -548,11 +562,13 @@ if NumberVariable variable="Mode" comparison_sign="!=" value=0
 or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
 do SetNumberVariable variable="CameraDragging" modification_sign="=" value=0
 
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Right"
 do SetNumberVariable variable="CameraDragging" modification_sign="=" value=0
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextPressed button_to_check="Right"
 if NumberVariable variable="CameraDragging" comparison_sign="=" value=1
 do SetNumberVariable variable="CameraYaw" modification_sign="-" value=expr((CursorX("HUD", 0) - CameraMouseX) * 0.3)
@@ -560,6 +576,7 @@ do SetNumberVariable variable="CameraPitch" modification_sign="=" value=expr(cla
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextPressed button_to_check="Right"
 do SetNumberVariable variable="CameraDragging" modification_sign="=" value=1
 do SetNumberVariable variable="CameraMouseX" modification_sign="=" value=expr(CursorX("HUD", 0))
@@ -603,11 +620,13 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if KeyFromTextPressed key_to_check="e"
+or NumberVariable variable="TouchAutoHarvest" comparison_sign="=" value=1
 do SetNumberVariable variable="ChopInput" modification_sign="=" value=1
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextPressed button_to_check="Left"
 if CursorX comparison_sign=">" value=320 layer="HUD" camera_number_default_0=0
 if CursorX comparison_sign="<" value=1020 layer="HUD" camera_number_default_0=0
@@ -679,6 +698,7 @@ or KeyFromTextPressed key_to_check="q"
 or KeyFromTextPressed key_to_check="f"
 or KeyFromTextPressed key_to_check="j"
 or KeyFromTextPressed key_to_check="Space"
+or HasAnyTouchOrMouseStarted
 or KeyFromTextPressed key_to_check="Num1"
 or KeyFromTextPressed key_to_check="Num2"
 or KeyFromTextPressed key_to_check="Tab"
@@ -768,6 +788,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="Space"
+or NumberVariable variable="TouchAttack" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="CombatCD" comparison_sign="<=" value=0
 if NumberVariable variable="Stamina" comparison_sign=">=" value=3
@@ -1909,6 +1930,7 @@ link external "HUDDeath"
 
 if NumberVariable variable="Dead" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchRespawn" comparison_sign="=" value=1
 do SetNumberVariable variable="Dead" modification_sign="=" value=0
 do SetNumberVariable variable="Mode" modification_sign="=" value=0
 do SetNumberVariable variable="Health" modification_sign="=" value=100
@@ -2026,3 +2048,5 @@ link external "SurvivalRestoreWorld"
 
 @event
 link external "SurvivalHUD"
+
+link external "TouchPresentation"

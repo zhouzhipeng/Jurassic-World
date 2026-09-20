@@ -8,7 +8,7 @@ async function tap(key) {
   await harness.stepFrames(1);
 }
 try {
-  await harness.goToScene('Game');
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);
   await harness.stepFrames(2);
   harness.setSceneVariable('Invulnerable', 9999);
   harness.assert(value('WorldDay') === 1 && text('TimeDisplay') === '08:00'

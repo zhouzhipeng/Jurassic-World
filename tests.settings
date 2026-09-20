@@ -112,3 +112,35 @@ name = "SurvivalPersistence"
 type = "gameplay"
 description = "Verify native survival gameplay, costs, state and input-driven progression."
 file = "tests/SurvivalPersistence.js"
+
+[[tests]]
+scope = "project"
+order = 14
+name = "TouchControls"
+type = "gameplay"
+description = "Simultaneous move, camera, attack and menu cancellation."
+file = "tests/TouchControls.js"
+
+[[tests]]
+scope = "project"
+order = 15
+name = "TouchSurvival"
+type = "gameplay"
+description = "One-tap supplies, gathering, cooking and riding."
+file = "tests/TouchSurvival.js"
+
+[[tests]]
+scope = "project"
+order = 16
+name = "TouchMenus"
+type = "gameplay"
+description = "Touch crafting, construction, quests, navigation and persistence."
+file = "tests/TouchMenus.js"
+
+[[tests]]
+scope = "project"
+order = 17
+name = "TouchResponsive"
+type = "gameplay"
+description = "Portrait, landscape and square touch layouts."
+file = "tests/TouchResponsive.js"

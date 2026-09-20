@@ -7,7 +7,9 @@ do SetNumberVariable variable="Action" modification_sign="=" value=1
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Feed" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=1
 
@@ -18,7 +20,9 @@ do SetNumberVariable variable="Action" modification_sign="=" value=2
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Gather" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=2
 
@@ -29,7 +33,9 @@ do SetNumberVariable variable="Action" modification_sign="=" value=3
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Chop" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=3
 
@@ -40,7 +46,9 @@ do SetNumberVariable variable="Action" modification_sign="=" value=4
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Drink" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=4
 
@@ -51,7 +59,9 @@ do SetNumberVariable variable="Action" modification_sign="=" value=5
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Station" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=5
 
@@ -60,7 +70,9 @@ do SetNumberVariable variable="Action" modification_sign="=" value=5
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot0" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=1
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=1
@@ -77,7 +89,9 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot1" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=2
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=2
@@ -94,7 +108,9 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot2" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=3
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=3
@@ -111,7 +127,9 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot3" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=4
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=4
@@ -128,7 +146,9 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot4" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=5
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=5
@@ -145,7 +165,9 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot5" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=6
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=6
@@ -162,7 +184,9 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot6" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=7
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=7
@@ -179,7 +203,9 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot7" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=8
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=8

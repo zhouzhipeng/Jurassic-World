@@ -14,11 +14,11 @@ minor = 0
 revision = 0
 
 [properties]
-adaptGameResolutionAtRuntime = false
+adaptGameResolutionAtRuntime = true
 antialiasingMode = "MSAA"
 antialisingEnabledOnMobile = false
 folderProject = false
-orientation = "landscape"
+orientation = "default"
 packageName = "com.example.gamename"
 pixelsRounding = false
 projectUuid = "45b828fa-b1d4-49e3-8042-4789f1a906b2"
@@ -39,7 +39,7 @@ platformSpecificAssets = { }
 authorIds = [ ]
 authorUsernames = [ ]
 categories = [ ]
-playableDevices = [ ]
+playableDevices = ["mobile", "keyboard"]
 extensionProperties = [ ]
 currentPlatform = "GDevelop JS platform"
 

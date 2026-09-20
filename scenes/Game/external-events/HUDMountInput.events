@@ -1,6 +1,8 @@
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="MountButton" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="MountRequest" modification_sign="=" value=1

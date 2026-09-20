@@ -4,7 +4,9 @@ do SetNumberVariable variable="Mode" modification_sign="=" value=6
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="OpenQuests" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=6
 
@@ -14,12 +16,16 @@ or KeyFromTextReleased key_to_check="Escape"
 do SetNumberVariable variable="Mode" modification_sign="=" value=0
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=6
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="CloseQuests" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=0
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=6
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="ClaimQuest" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="QuestClaim" modification_sign="=" value=1
 
@@ -65,54 +71,74 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="OpenPack" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="OpenMenu" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=2
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="ClosePack" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=0
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Resume" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=0
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Settings" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=3
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=3
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="SettingsBack" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=2
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Photo" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=5
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Title" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=4
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=4
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="TitleContinue" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=0
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=3
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="HelpToggle" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Help" modification_sign="=" value=expr(1 - Help)
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1

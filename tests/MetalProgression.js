@@ -23,7 +23,7 @@ async function mine(seam) {
   harness.setKeyPressed('e',false); await harness.stepFrames(2);
 }
 try {
-  await harness.goToScene('Game'); await harness.stepFrames(3);
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0); await harness.stepFrames(3);
   harness.setSceneVariable('SaveStorage','JurassicWorldTests_MetalProgression');
   harness.setSceneVariable('Invulnerable',9999);
   // Start at the mining chapter, with ordinary construction supplies prepared.

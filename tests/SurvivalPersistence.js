@@ -6,7 +6,7 @@ function fires(){return ['BuiltCampfire','CampHearth'].flatMap(name=>harness.get
 function companion(){const o=harness.getObjects('Triceratops')[0];return {x:o.x,y:o.y,values:['Bond','FeedWait','Command','HP'].map(k=>harness.getObjectVariable(o.id,k)?.value)};}
 const storage='JurassicWorldTests_SurvivalPersistence';
 try {
-  await harness.goToScene('Game');await harness.stepFrames(3);
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);await harness.stepFrames(3);
   harness.setSceneVariable('SaveStorage',storage);
   for(const k of ['Wood','Stone','Fiber'])harness.setSceneVariable(k,100);
   await move(0,750);await tap('b');await tap('Num8');
@@ -26,7 +26,7 @@ try {
   const savedCooldown=Number(harness.getObjectVariable(seam.id,'Cooldown')?.value),position=harness.getObjects('Player3D')[0];
   const savedMount=harness.getObjects('Dinosaur3D')[0];
   await click('Save');harness.assert(n('SaveFlag')===1,'The pause menu stores survival data in an isolated slot');
-  await harness.goToScene('Game');await harness.stepFrames(3);harness.setSceneVariable('SaveStorage',storage);
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);await harness.stepFrames(3);harness.setSceneVariable('SaveStorage',storage);
   harness.assert(n('Canteen')===0 && n('MetalOre')===0 && n('ForgeBuilt')===0,'A fresh scene starts with fresh survival defaults');
   await tap('Escape');await click('Load');
   harness.assert(names.every((name,i)=>n(name)===values[i]),'Loading restores exact supplies, environment, forge queue and chapter progress');

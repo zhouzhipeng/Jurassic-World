@@ -1273,3 +1273,51 @@ kind = "model3D"
 metadata = ""
 name = "survival-forge.glb"
 userAdded = true
+
+[[resources]]
+file = "assets/ui/touch-card.svg"
+kind = "image"
+metadata = ""
+name = "touch-card.svg"
+userAdded = true
+smoothed = true
+
+[[resources]]
+file = "assets/ui/touch-action.svg"
+kind = "image"
+metadata = ""
+name = "touch-action.svg"
+userAdded = true
+smoothed = true
+
+[[resources]]
+file = "assets/ui/touch-stick.svg"
+kind = "image"
+metadata = ""
+name = "touch-stick.svg"
+userAdded = true
+smoothed = true
+
+[[resources]]
+file = "assets/ui/touch-knob.svg"
+kind = "image"
+metadata = ""
+name = "touch-knob.svg"
+userAdded = true
+smoothed = true
+
+[[resources]]
+file = "assets/ui/touch-shade.svg"
+kind = "image"
+metadata = ""
+name = "touch-shade.svg"
+userAdded = true
+smoothed = true
+
+[[resources]]
+file = "assets/ui/touch-status.svg"
+kind = "image"
+metadata = ""
+name = "touch-status.svg"
+userAdded = true
+smoothed = true

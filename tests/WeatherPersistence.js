@@ -15,7 +15,7 @@ async function click(name) {
   await harness.stepFrames(2);
 }
 try {
-  await harness.goToScene('Game');
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);
   await harness.stepFrames(2);
   harness.setSceneVariable('SaveStorage', storage);
   await tap('F6');
@@ -25,7 +25,7 @@ try {
   const saved = ['WeatherType', 'WeatherClock', 'WeatherDuration'].map(value);
   await click('Save');
   harness.assert(value('SaveFlag') === 1, 'The pause menu saves weather to an isolated test slot');
-  await harness.goToScene('Game');
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);
   await harness.stepFrames(2);
   harness.setSceneVariable('SaveStorage', storage);
   harness.assert(value('WeatherType') === 0, 'A new scene starts independently of the stored weather');

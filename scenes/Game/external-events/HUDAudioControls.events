@@ -3,7 +3,9 @@ do SetNumberVariable variable="Muted" modification_sign="=" value=expr(1 - Muted
 
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="AudioButton" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Muted" modification_sign="=" value=expr(1 - Muted)
 

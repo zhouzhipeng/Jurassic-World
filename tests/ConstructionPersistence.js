@@ -42,7 +42,7 @@ async function place(key, x, y) {
   await tap('Return');
 }
 try {
-  await harness.goToScene('Game');
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);
   await harness.stepFrames(2);
   harness.assert(number('BuildMode') === 0 && number('BuildKind') === 10 && number('BuildAngle') === 0,
     `Fresh scene resets construction controls: mode=${number('BuildMode')}, kind=${number('BuildKind')}, angle=${number('BuildAngle')}`);
@@ -68,7 +68,7 @@ try {
   await click('Save');
   harness.assert(number('SaveFlag') === 1, 'Save button confirms a completed save');
   // Recreate the scene, then load only the dedicated slot written in this run.
-  await harness.goToScene('Game');
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);
   await harness.stepFrames(2);
   harness.setSceneVariable('SaveStorage', storage);
   harness.assert(parts.every(name => harness.getObjects(name).length === 0), 'Fresh scene contains no prior test buildings');

@@ -6,7 +6,7 @@ async function tap(key) {
   await harness.stepFrames(1);
 }
 try {
-  await harness.goToScene('Game');
+  await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);
   await harness.stepFrames(2);
   // Keep wildlife away from the test; inputs and weather progression remain real.
   harness.setSceneVariable('Invulnerable', 9999);

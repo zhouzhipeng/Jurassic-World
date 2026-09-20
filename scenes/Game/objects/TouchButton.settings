@@ -1,0 +1,82 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 304
+folder = ["UI", "Touch"]
+name = "TouchButton"
+type = "Sprite"
+adaptCollisionMaskAutomatically = true
+updateIfNotVisible = false
+effects = [ ]
+behaviors = [ ]
+
+
+[[variables]]
+name = "Slot"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Command"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Active"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Enabled"
+type = "number"
+value = 1
+
+[[variables]]
+name = "TouchId"
+type = "number"
+value = -999
+
+[[variables]]
+name = "Label"
+type = "string"
+value = ""
+
+[[variables]]
+name = "FontSize"
+type = "number"
+value = 28
+
+[[variables]]
+name = "PressCommand"
+type = "number"
+value = 0
+
+[[animations]]
+name = "Default"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "touch-card.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+[[animations]]
+name = "Round"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "touch-action.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]

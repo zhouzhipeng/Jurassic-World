@@ -1,72 +1,100 @@
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot0" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Wood: shelter frames and crafting tool handles."
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot1" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Stone: tools and shelter foundations."
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot2" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Fiber: bindings, ropes and shelter roofing."
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot3" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Hide: island survival supplies."
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot4" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="浆果：按 3 食用；E 喂副栉龙，T 喂三角龙。"
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot5" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="生肉：靠近燃烧的篝火按 C 烤熟；按 5 食用烤肉。"
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot6" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Water: island survival supplies."
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot7" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Stone axe: craft more in Quick Craft."
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot8" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Spear: crafted equipment for future expeditions."
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot9" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Flint: island survival supplies."
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Slot10" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Rope: island survival supplies."
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="ChooseAxe" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Recipe" modification_sign="=" value=0
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="ChooseSpear" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Recipe" modification_sign="=" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Craft" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="CraftRequest" modification_sign="=" value=1
 
@@ -104,7 +132,9 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="CraftFeedbac
 do SetNumberVariable variable="CraftRequest" modification_sign="=" value=0
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Save" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
 
@@ -156,6 +186,8 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" 
 do SetNumberVariable variable="SaveFlag" modification_sign="=" value=1
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Load" accurate_test_yes_by_default=false
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=10

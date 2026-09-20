@@ -258,6 +258,272 @@ name = "LastTier"
 type = "number"
 value = 0
 
+
+[[variables]]
+name = "TouchMode"
+type = "number"
+value = 1
+
+[[variables]]
+name = "TouchPanel"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchCommand"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchMoveId"
+type = "number"
+value = -999
+
+[[variables]]
+name = "TouchLookId"
+type = "number"
+value = -999
+
+[[variables]]
+name = "TouchMoveX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchMoveY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchDX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchDY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchLength"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchLookX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchLookY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchAttack"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchInteract"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchPlace"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchDoor"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchRespawn"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchLoad"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchAutoHarvest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchHarvestX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchHarvestY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchHarvestCount"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchCookPending"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchDelete"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchDeleteArmed"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchDeleteTimer"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchConsumed"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchId"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchWidth"
+type = "number"
+value = 1600
+
+[[variables]]
+name = "TouchHeight"
+type = "number"
+value = 900
+
+[[variables]]
+name = "TouchScale"
+type = "number"
+value = 1
+
+[[variables]]
+name = "TouchMargin"
+type = "number"
+value = 40
+
+[[variables]]
+name = "TouchJoyX"
+type = "number"
+value = 156
+
+[[variables]]
+name = "TouchJoyY"
+type = "number"
+value = 728
+
+[[variables]]
+name = "TouchRadius"
+type = "number"
+value = 88
+
+[[variables]]
+name = "TouchCardWidth"
+type = "number"
+value = 420
+
+[[variables]]
+name = "TouchCardHeight"
+type = "number"
+value = 88
+
+[[variables]]
+name = "TouchColumns"
+type = "number"
+value = 2
+
+[[variables]]
+name = "TouchMenuX"
+type = "number"
+value = 350
+
+[[variables]]
+name = "TouchMenuY"
+type = "number"
+value = 125
+
+[[variables]]
+name = "TouchMenuWidth"
+type = "number"
+value = 900
+
+[[variables]]
+name = "TouchMenuHeight"
+type = "number"
+value = 650
+
+[[variables]]
+name = "TouchContext"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchContextDistance"
+type = "number"
+value = 99999
+
+[[variables]]
+name = "TouchOldMode"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchOldWidth"
+type = "number"
+value = 1600
+
+[[variables]]
+name = "TouchOldHeight"
+type = "number"
+value = 900
+
+[[variables]]
+name = "TouchToastTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TouchContextLabel"
+type = "string"
+value = "靠近目标"
+
+[[variables]]
+name = "TouchContextHint"
+type = "string"
+value = "左下移动 · 右侧空白处滑动转视角"
+
+[[variables]]
+name = "TouchToast"
+type = "string"
+value = "拖动左侧摇杆移动；靠近目标后点「互动」。"
+
+[[variables]]
+name = "TouchPanelTitle"
+type = "string"
+value = "营地手册"
+
+[[variables]]
+name = "TouchPanelBody"
+type = "string"
+value = ""
+
 [objectGroups]
 ModularParts = ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs"]
 AllBuildings = ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs", "BuiltShelter", "BuiltPalisade", "BuiltCampfire"]
@@ -1306,6 +1572,14 @@ id = "quests"
 name = "Quests"
 visible = false
 rendering = "2d"
+cameras = [{ size = "default", viewport = "default" }]
+
+[[layout.layers]]
+id = "touch"
+name = "Touch"
+rendering = "2d"
+visible = true
+camera_behavior = "top-left-anchored-if-never-moved"
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.effects]]

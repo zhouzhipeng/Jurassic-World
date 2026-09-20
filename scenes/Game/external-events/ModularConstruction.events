@@ -689,6 +689,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildValid" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(10)
 do Create object_to_create="PartFoundation" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
@@ -732,6 +733,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildValid" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(11)
 do Create object_to_create="PartPillar" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
@@ -775,6 +777,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildValid" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(12)
 do Create object_to_create="PartWall" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
@@ -818,6 +821,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildValid" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(13)
 do Create object_to_create="PartDoorframe" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
@@ -861,6 +865,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildValid" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(14)
 do Create object_to_create="PartCeiling" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
@@ -904,6 +909,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildValid" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(15)
 do Create object_to_create="PartDoor" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
@@ -947,6 +953,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildValid" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(16)
 do Create object_to_create="PartStairs" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
@@ -990,6 +997,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildValid" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(3)
 do Create object_to_create="BuiltCampfire" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
@@ -1037,6 +1045,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildSuccess" comparison_sign="=" value=expr(0)
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=expr(2.5)
 do SetStringVariable variable="BuildMessage" modification_sign="=" value=expr(BuildReason)
@@ -1094,6 +1103,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Delete"
+or NumberVariable variable="TouchDelete" comparison_sign="=" value=1
 if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=expr(0)
 if NumberVariable variable="BuildDeleteBlocked" comparison_sign="=" value=expr(1)
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=expr(3)
@@ -1102,6 +1112,7 @@ do SetStringVariable variable="BuildMessage" modification_sign="=" value="仍在
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Delete"
+or NumberVariable variable="TouchDelete" comparison_sign="=" value=1
 if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
 if NumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" comparison_sign="=" value=1
 do SetNumberVariable variable="BuildWood" modification_sign="=" value=10
@@ -1111,6 +1122,7 @@ do SetNumberVariable variable="BuildFiber" modification_sign="=" value=8
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Delete"
+or NumberVariable variable="TouchDelete" comparison_sign="=" value=1
 if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
 if NumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" comparison_sign="=" value=2
 do SetNumberVariable variable="BuildWood" modification_sign="=" value=4
@@ -1122,6 +1134,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if KeyFromTextReleased key_to_check="Delete"
+or NumberVariable variable="TouchDelete" comparison_sign="=" value=1
 if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=expr(0)
 if NumberVariable variable="BuildDeleteBlocked" comparison_sign="=" value=expr(0)
 if NumberObjectVariable object="AllBuildings" variable="Slot" comparison_sign="=" value=expr(BuildDeleteSlot)
@@ -1158,6 +1171,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
 if KeyFromTextReleased key_to_check="e"
+or NumberVariable variable="TouchDoor" comparison_sign="=" value=1
 if NumberVariable variable="DoorSlot" comparison_sign=">=" value=expr(0)
 if NumberObjectVariable object="PartDoor" variable="Slot" comparison_sign="=" value=expr(DoorSlot)
 do SetNumberObjectVariable object="PartDoor" variable="Open" modification_sign="=" value=expr(1-PartDoor.Variable(Open))
