@@ -1,0 +1,2887 @@
+{
+  "sourceCommit": "50c60f2",
+  "runtimeVerified": true,
+  "completionReady": true,
+  "assertions": [
+    {
+      "index": 0,
+      "type": "runtime_error_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq"
+    },
+    {
+      "index": 1,
+      "type": "renderer_visible_mesh_count",
+      "passed": true,
+      "actual": 94,
+      "expected": 0,
+      "operator": "gt",
+      "layerName": "World3D"
+    },
+    {
+      "index": 2,
+      "type": "renderer_failed_texture_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 3,
+      "type": "renderer_rejected_object_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    }
+  ],
+  "behaviorChecks": {
+    "shelterCosts": true,
+    "overlapNoCharge": true,
+    "rotation90": true,
+    "threeKinds": true,
+    "demolitionRefund": true,
+    "restoreCoordinates": true,
+    "restoreInventory": true,
+    "wallStopsPlayer": true,
+    "wallStopsMount": true,
+    "fireHeals": true,
+    "insufficientNoCharge": true
+  },
+  "testStorage": "JurassicWorldConstructionTest20260920",
+  "tests": {
+    "build_valid_final": {
+      "label": "build_valid_final",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 0,
+              "y": 750,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 180,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 78.33187517086166,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": 0.8565242734328656
+            }
+          }
+        ],
+        "BuiltShelter": [],
+        "BuiltPalisade": [],
+        "BuiltCampfire": [],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 1,
+              "Kind": 1,
+              "Valid": 1,
+              "Count": 0,
+              "X": 0,
+              "Y": 300,
+              "Angle": 0,
+              "Slot": 0,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 12,
+              "Stone": 8,
+              "Fiber": 20
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 1,
+        "BuildKind": 1,
+        "BuildAngle": 0,
+        "BuildX": 0,
+        "BuildY": 300,
+        "BuildHX": 240,
+        "BuildHY": 205,
+        "BuildWorldHX": 240,
+        "BuildWorldHY": 205,
+        "BuildValid": 1,
+        "BuildCount": 0,
+        "BuildSlot": 0,
+        "BuildWood": 10,
+        "BuildStone": 5,
+        "BuildFiber": 8,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": -1,
+        "BuildDeleteDistance": 9999,
+        "BuildLX": 0,
+        "BuildLY": 0,
+        "BuildWarm": 0,
+        "BuildRest": 0,
+        "BuildReason": "可放置 · Enter 确认建造",
+        "BuildJSON": "[]",
+        "BuildingRecords": [
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 0,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 0,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 750.5997601918082,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 3.7540999999999976,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    },
+    "build_shelter_final": {
+      "label": "build_shelter_final",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 0,
+              "y": 750,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 180,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 78.31994549441862,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": 0.8260027933261394
+            }
+          }
+        ],
+        "BuiltShelter": [
+          {
+            "index": 0,
+            "id": 276,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 0,
+            "variables": {
+              "Kind": 1,
+              "Slot": 0,
+              "HX": 240,
+              "HY": 205,
+              "WorldHX": 240,
+              "WorldHY": 205
+            }
+          }
+        ],
+        "BuiltPalisade": [],
+        "BuiltCampfire": [],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 1,
+              "Kind": 1,
+              "Valid": 0,
+              "Count": 1,
+              "X": 0,
+              "Y": 300,
+              "Angle": 0,
+              "Slot": 0,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 2,
+              "Stone": 3,
+              "Fiber": 12
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 1,
+        "BuildKind": 1,
+        "BuildAngle": 0,
+        "BuildX": 0,
+        "BuildY": 300,
+        "BuildHX": 240,
+        "BuildHY": 205,
+        "BuildWorldHX": 240,
+        "BuildWorldHY": 205,
+        "BuildValid": 0,
+        "BuildCount": 1,
+        "BuildSlot": 0,
+        "BuildWood": 10,
+        "BuildStone": 5,
+        "BuildFiber": 8,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": 0,
+        "BuildDeleteDistance": 0,
+        "BuildLX": 0,
+        "BuildLY": 0,
+        "BuildWarm": 0,
+        "BuildRest": 0,
+        "BuildReason": "建造完成 · 移动到下一处空地",
+        "BuildJSON": "[]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 0,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 0,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 750.5997601918082,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 3.770766666666664,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    },
+    "build_repeat_final": {
+      "label": "build_repeat_final",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 0,
+              "y": 750,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 180,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 78.30668364710237,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": 0.7920349719576633
+            }
+          }
+        ],
+        "BuiltShelter": [
+          {
+            "index": 0,
+            "id": 276,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 0,
+            "variables": {
+              "Kind": 1,
+              "Slot": 0,
+              "HX": 240,
+              "HY": 205,
+              "WorldHX": 240,
+              "WorldHY": 205
+            }
+          }
+        ],
+        "BuiltPalisade": [],
+        "BuiltCampfire": [],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 1,
+              "Kind": 1,
+              "Valid": 0,
+              "Count": 1,
+              "X": 0,
+              "Y": 300,
+              "Angle": 0,
+              "Slot": 1,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 2,
+              "Stone": 3,
+              "Fiber": 12
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 1,
+        "BuildKind": 1,
+        "BuildAngle": 0,
+        "BuildX": 0,
+        "BuildY": 300,
+        "BuildHX": 240,
+        "BuildHY": 205,
+        "BuildWorldHX": 240,
+        "BuildWorldHY": 205,
+        "BuildValid": 0,
+        "BuildCount": 1,
+        "BuildSlot": 1,
+        "BuildWood": 10,
+        "BuildStone": 5,
+        "BuildFiber": 8,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": 0,
+        "BuildDeleteDistance": 0,
+        "BuildLX": 0,
+        "BuildLY": 0,
+        "BuildWarm": 0,
+        "BuildRest": 0,
+        "BuildReason": "与已有建筑重叠",
+        "BuildJSON": "[]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 0,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 0,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 750.5997601918082,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 3.7874333333333308,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    },
+    "rotate_wall_final": {
+      "label": "rotate_wall_final",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": -200,
+              "y": -750,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 180,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 78.27814233526588,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": 0.7188678835012894
+            }
+          }
+        ],
+        "BuiltShelter": [
+          {
+            "index": 0,
+            "id": 276,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 0,
+            "variables": {
+              "Kind": 1,
+              "Slot": 0,
+              "HX": 240,
+              "HY": 205,
+              "WorldHX": 240,
+              "WorldHY": 205
+            }
+          }
+        ],
+        "BuiltPalisade": [],
+        "BuiltCampfire": [],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 1,
+              "Kind": 2,
+              "Valid": 1,
+              "Count": 1,
+              "X": -200,
+              "Y": -300,
+              "Angle": 90,
+              "Slot": 1,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 100,
+              "Stone": 100,
+              "Fiber": 100
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 1,
+        "BuildKind": 2,
+        "BuildAngle": 90,
+        "BuildX": -200,
+        "BuildY": -300,
+        "BuildHX": 200,
+        "BuildHY": 25,
+        "BuildWorldHX": 25.00000000000001,
+        "BuildWorldHY": 200,
+        "BuildValid": 1,
+        "BuildCount": 1,
+        "BuildSlot": 1,
+        "BuildWood": 4,
+        "BuildStone": 0,
+        "BuildFiber": 2,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": -1,
+        "BuildDeleteDistance": 9999,
+        "BuildLX": 0,
+        "BuildLY": 0,
+        "BuildWarm": 0,
+        "BuildRest": 0,
+        "BuildReason": "可放置 · Enter 确认建造",
+        "BuildJSON": "[]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 89.96666666666667,
+        "Threat": 1,
+        "ThreatMix": 0,
+        "MusicStarted": 0,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 359.25549446402596,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 3.820766666666664,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    },
+    "place_wall_final": {
+      "label": "place_wall_final",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": -200,
+              "y": -750,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 180,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 78.26290461412316,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": 0.6797715321847709
+            }
+          }
+        ],
+        "BuiltShelter": [
+          {
+            "index": 0,
+            "id": 276,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 0,
+            "variables": {
+              "Kind": 1,
+              "Slot": 0,
+              "HX": 240,
+              "HY": 205,
+              "WorldHX": 240,
+              "WorldHY": 205
+            }
+          }
+        ],
+        "BuiltPalisade": [
+          {
+            "index": 0,
+            "id": 277,
+            "picked": false,
+            "position": {
+              "x": -200,
+              "y": -300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 90,
+            "variables": {
+              "Kind": 2,
+              "Slot": 1,
+              "HX": 200,
+              "HY": 25,
+              "WorldHX": 25.00000000000001,
+              "WorldHY": 200
+            }
+          }
+        ],
+        "BuiltCampfire": [],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 1,
+              "Kind": 2,
+              "Valid": 0,
+              "Count": 2,
+              "X": -200,
+              "Y": -300,
+              "Angle": 90,
+              "Slot": 1,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 96,
+              "Stone": 100,
+              "Fiber": 98
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 1,
+        "BuildKind": 2,
+        "BuildAngle": 90,
+        "BuildX": -200,
+        "BuildY": -300,
+        "BuildHX": 200,
+        "BuildHY": 25,
+        "BuildWorldHX": 25.00000000000001,
+        "BuildWorldHY": 200,
+        "BuildValid": 0,
+        "BuildCount": 2,
+        "BuildSlot": 1,
+        "BuildWood": 4,
+        "BuildStone": 0,
+        "BuildFiber": 2,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": 1,
+        "BuildDeleteDistance": 0,
+        "BuildLX": 0,
+        "BuildLY": 0,
+        "BuildWarm": 0,
+        "BuildRest": 0,
+        "BuildReason": "建造完成 · 移动到下一处空地",
+        "BuildJSON": "[]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 2,
+            "X": -200,
+            "Y": -300,
+            "Angle": 90
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 89.95,
+        "Threat": 1,
+        "ThreatMix": 0,
+        "MusicStarted": 0,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 354.50549446402596,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 3.8374333333333306,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    },
+    "place_fire_final": {
+      "label": "place_fire_final",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": -300,
+              "y": 550,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 180,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 78.22993890975097,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": 0.5950613340162924
+            }
+          }
+        ],
+        "BuiltShelter": [
+          {
+            "index": 0,
+            "id": 276,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 0,
+            "variables": {
+              "Kind": 1,
+              "Slot": 0,
+              "HX": 240,
+              "HY": 205,
+              "WorldHX": 240,
+              "WorldHY": 205
+            }
+          }
+        ],
+        "BuiltPalisade": [
+          {
+            "index": 0,
+            "id": 277,
+            "picked": false,
+            "position": {
+              "x": -200,
+              "y": -300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 90,
+            "variables": {
+              "Kind": 2,
+              "Slot": 1,
+              "HX": 200,
+              "HY": 25,
+              "WorldHX": 25.00000000000001,
+              "WorldHY": 200
+            }
+          }
+        ],
+        "BuiltCampfire": [
+          {
+            "index": 0,
+            "id": 278,
+            "picked": false,
+            "position": {
+              "x": -300,
+              "y": 1000,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 90,
+            "variables": {
+              "Kind": 3,
+              "Slot": 2,
+              "HX": 80,
+              "HY": 80,
+              "WorldHX": 80,
+              "WorldHY": 80
+            }
+          }
+        ],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 1,
+              "Kind": 3,
+              "Valid": 0,
+              "Count": 3,
+              "X": -300,
+              "Y": 1000,
+              "Angle": 90,
+              "Slot": 2,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 93,
+              "Stone": 97,
+              "Fiber": 98
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 1,
+        "BuildKind": 3,
+        "BuildAngle": 90,
+        "BuildX": -300,
+        "BuildY": 1000,
+        "BuildHX": 80,
+        "BuildHY": 80,
+        "BuildWorldHX": 80,
+        "BuildWorldHY": 80,
+        "BuildValid": 0,
+        "BuildCount": 3,
+        "BuildSlot": 2,
+        "BuildWood": 3,
+        "BuildStone": 3,
+        "BuildFiber": 0,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": 2,
+        "BuildDeleteDistance": 0,
+        "BuildLX": 0,
+        "BuildLY": 0,
+        "BuildWarm": 0,
+        "BuildRest": 0,
+        "BuildReason": "建造完成 · 移动到下一处空地",
+        "BuildJSON": "[]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 2,
+            "X": -200,
+            "Y": -300,
+            "Angle": 90
+          },
+          {
+            "Kind": 3,
+            "X": -300,
+            "Y": 1000,
+            "Angle": 90
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 89.91666666666667,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 0,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 657.6473218982952,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 3.870766666666664,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    },
+    "demolish_wall": {
+      "label": "demolish_wall",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": -200,
+              "y": -750,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 180,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 78.17585328871333,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": 0.4557388245350962
+            }
+          }
+        ],
+        "BuiltShelter": [
+          {
+            "index": 0,
+            "id": 276,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 0,
+            "variables": {
+              "Kind": 1,
+              "Slot": 0,
+              "HX": 240,
+              "HY": 205,
+              "WorldHX": 240,
+              "WorldHY": 205
+            }
+          }
+        ],
+        "BuiltPalisade": [],
+        "BuiltCampfire": [
+          {
+            "index": 0,
+            "id": 278,
+            "picked": false,
+            "position": {
+              "x": -300,
+              "y": 1000,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 90,
+            "variables": {
+              "Kind": 3,
+              "Slot": 2,
+              "HX": 80,
+              "HY": 80,
+              "WorldHX": 80,
+              "WorldHY": 80
+            }
+          }
+        ],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 1,
+              "Kind": 2,
+              "Valid": 0,
+              "Count": 2,
+              "X": -200,
+              "Y": -300,
+              "Angle": 90,
+              "Slot": 3,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 95,
+              "Stone": 97,
+              "Fiber": 99
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 1,
+        "BuildKind": 2,
+        "BuildAngle": 90,
+        "BuildX": -200,
+        "BuildY": -300,
+        "BuildHX": 200,
+        "BuildHY": 25,
+        "BuildWorldHX": 25.00000000000001,
+        "BuildWorldHY": 200,
+        "BuildValid": 0,
+        "BuildCount": 2,
+        "BuildSlot": 3,
+        "BuildWood": 4,
+        "BuildStone": 0,
+        "BuildFiber": 2,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": 1,
+        "BuildDeleteDistance": 0,
+        "BuildLX": 0,
+        "BuildLY": 0,
+        "BuildWarm": 0,
+        "BuildRest": 0,
+        "BuildReason": "已拆除，返还一半材料",
+        "BuildJSON": "[]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 0,
+            "X": -200,
+            "Y": -300,
+            "Angle": 90
+          },
+          {
+            "Kind": 3,
+            "X": -300,
+            "Y": 1000,
+            "Angle": 90
+          },
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 89.86666666666667,
+        "Threat": 1,
+        "ThreatMix": 0,
+        "MusicStarted": 0,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 345.00549446402607,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 3.9207666666666636,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    },
+    "restore_buildings": {
+      "label": "restore_buildings",
+      "instances": {
+        "BuiltShelter": [
+          {
+            "index": 0,
+            "id": 279,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 0,
+            "variables": {
+              "Kind": 1,
+              "Slot": 0,
+              "HX": 240,
+              "HY": 205,
+              "WorldHX": 240,
+              "WorldHY": 205
+            }
+          }
+        ],
+        "BuiltPalisade": [
+          {
+            "index": 0,
+            "id": 280,
+            "picked": false,
+            "position": {
+              "x": -200,
+              "y": -300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 90,
+            "variables": {
+              "Kind": 2,
+              "Slot": 1,
+              "HX": 200,
+              "HY": 25,
+              "WorldHX": 25.00000000000001,
+              "WorldHY": 200
+            }
+          }
+        ],
+        "BuiltCampfire": [
+          {
+            "index": 0,
+            "id": 281,
+            "picked": false,
+            "position": {
+              "x": -300,
+              "y": 1000,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 90,
+            "variables": {
+              "Kind": 3,
+              "Slot": 2,
+              "HX": 80,
+              "HY": 80,
+              "WorldHX": 80,
+              "WorldHY": 80
+            }
+          }
+        ],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 0,
+              "Kind": 2,
+              "Valid": 1,
+              "Count": 3,
+              "X": -200,
+              "Y": -300,
+              "Angle": 90,
+              "Slot": 1,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 93,
+              "Stone": 97,
+              "Fiber": 98
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 0,
+        "BuildKind": 2,
+        "BuildAngle": 90,
+        "BuildX": -200,
+        "BuildY": -300,
+        "BuildHX": 200,
+        "BuildHY": 25,
+        "BuildWorldHX": 25.00000000000001,
+        "BuildWorldHY": 200,
+        "BuildValid": 1,
+        "BuildCount": 3,
+        "BuildSlot": 1,
+        "BuildWood": 4,
+        "BuildStone": 0,
+        "BuildFiber": 2,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": -1,
+        "BuildDeleteDistance": 9999,
+        "BuildLX": 0,
+        "BuildLY": 0,
+        "BuildWarm": 0,
+        "BuildRest": 0,
+        "BuildReason": "可放置 · Enter 确认建造",
+        "BuildJSON": "[{\"Kind\":1,\"X\":0,\"Y\":300,\"Angle\":0},{\"Kind\":2,\"X\":-200,\"Y\":-300,\"Angle\":90},{\"Kind\":3,\"X\":-300,\"Y\":1000,\"Angle\":90}]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 2,
+            "X": -200,
+            "Y": -300,
+            "Angle": 90
+          },
+          {
+            "Kind": 3,
+            "X": -300,
+            "Y": 1000,
+            "Angle": 90
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 89.83333333333334,
+        "Threat": 1,
+        "ThreatMix": 0,
+        "MusicStarted": 0,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 335.5054944640261,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 2,
+        "AudioRiding": 0,
+        "SoundClock": 3.954099999999997,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 2,
+        "InputMode": 2,
+        "StationIndex": 0
+      }
+    },
+    "fresh_reload_restore": {
+      "instances": {
+        "BuiltShelter": [
+          {
+            "index": 0,
+            "id": 276,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 0,
+            "variables": {
+              "Kind": 1,
+              "Slot": 0,
+              "HX": 240,
+              "HY": 205,
+              "WorldHX": 240,
+              "WorldHY": 205
+            }
+          }
+        ],
+        "BuiltPalisade": [
+          {
+            "index": 0,
+            "id": 277,
+            "picked": false,
+            "position": {
+              "x": -200,
+              "y": -300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 90,
+            "variables": {
+              "Kind": 2,
+              "Slot": 1,
+              "HX": 200,
+              "HY": 25,
+              "WorldHX": 25.00000000000001,
+              "WorldHY": 200
+            }
+          }
+        ],
+        "BuiltCampfire": [
+          {
+            "index": 0,
+            "id": 278,
+            "picked": false,
+            "position": {
+              "x": -300,
+              "y": 1000,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 90,
+            "variables": {
+              "Kind": 3,
+              "Slot": 2,
+              "HX": 80,
+              "HY": 80,
+              "WorldHX": 80,
+              "WorldHY": 80
+            }
+          }
+        ],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 0,
+              "Kind": 1,
+              "Valid": 0,
+              "Count": 3,
+              "X": 0,
+              "Y": 0,
+              "Angle": 0,
+              "Slot": -1,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 93,
+              "Stone": 97,
+              "Fiber": 98
+            }
+          }
+        ]
+      }
+    },
+    "enterShelter": {
+      "label": "enterShelter",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 370.8333333333323,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -180,
+            "variables": {
+              "AnimationState": 1,
+              "Sprinting": 0,
+              "Travel": 5.833333333333314,
+              "HandZ": 81.49346030048883,
+              "FootZ": 23.224126150633438,
+              "AttachmentReady": 1,
+              "HandRX": -3.3804488927123617
+            }
+          }
+        ],
+        "BuiltShelter": [
+          {
+            "index": 0,
+            "id": 276,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 0,
+            "variables": {
+              "Kind": 1,
+              "Slot": 0,
+              "HX": 240,
+              "HY": 205,
+              "WorldHX": 240,
+              "WorldHY": 205
+            }
+          }
+        ],
+        "BuiltPalisade": [],
+        "BuiltCampfire": [],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 0,
+              "Kind": 1,
+              "Valid": 0,
+              "Count": 1,
+              "X": 0,
+              "Y": 300,
+              "Angle": 0,
+              "Slot": 1,
+              "Warm": 0,
+              "Rest": 1
+            }
+          }
+        ]
+      },
+      "vars": {
+        "BuildMode": 0,
+        "BuildKind": 1,
+        "BuildAngle": 0,
+        "BuildX": 0,
+        "BuildY": 300,
+        "BuildHX": 240,
+        "BuildHY": 205,
+        "BuildWorldHX": 240,
+        "BuildWorldHY": 205,
+        "BuildValid": 0,
+        "BuildCount": 1,
+        "BuildSlot": 1,
+        "BuildWood": 10,
+        "BuildStone": 5,
+        "BuildFiber": 8,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": 0,
+        "BuildDeleteDistance": 0,
+        "BuildLX": 0,
+        "BuildLY": 70.83333333333229,
+        "BuildWarm": 0,
+        "BuildRest": 1,
+        "BuildReason": "与已有建筑重叠",
+        "BuildJSON": "[]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 0,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0.16666666666666674,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 854.3520124112262,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 1.7833333333333319,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0,
+        "Dirty": 1
+      }
+    },
+    "backWall": {
+      "label": "backWall",
+      "success": true,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 0,
+              "y": 172.49999999999918,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": -180,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 77.63464931932026,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": -0.961504513527605
+            }
+          }
+        ],
+        "BuiltShelter": [
+          {
+            "index": 0,
+            "id": 276,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 101
+            },
+            "angle": 0,
+            "variables": {
+              "Kind": 1,
+              "Slot": 0,
+              "HX": 240,
+              "HY": 205,
+              "WorldHX": 240,
+              "WorldHY": 205
+            }
+          }
+        ],
+        "BuiltPalisade": [],
+        "BuiltCampfire": [],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 0,
+              "Kind": 1,
+              "Valid": 0,
+              "Count": 1,
+              "X": 0,
+              "Y": 300,
+              "Angle": 0,
+              "Slot": 1,
+              "Warm": 0,
+              "Rest": 1
+            }
+          }
+        ]
+      },
+      "vars": {
+        "BuildMode": 0,
+        "BuildKind": 1,
+        "BuildAngle": 0,
+        "BuildX": 0,
+        "BuildY": 300,
+        "BuildHX": 240,
+        "BuildHY": 205,
+        "BuildWorldHX": 240,
+        "BuildWorldHY": 205,
+        "BuildValid": 0,
+        "BuildCount": 1,
+        "BuildSlot": 1,
+        "BuildWood": 10,
+        "BuildStone": 5,
+        "BuildFiber": 8,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": 0,
+        "BuildDeleteDistance": 0,
+        "BuildLX": 0,
+        "BuildLY": -133.33333333333417,
+        "BuildWarm": 0,
+        "BuildRest": 1,
+        "BuildReason": "与已有建筑重叠",
+        "BuildJSON": "[]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 0,
+        "Threat": 0,
+        "ThreatMix": 0,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 1.0408340855860843e-16,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 968.8538474805056,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 2.7833333333333283,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0,
+        "Dirty": 1
+      }
+    },
+    "wall_collision": {
+      "label": "wall_collision",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": -133.3333333333333,
+              "y": -300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 90,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 77.63464931455162,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": -0.9615045262098727
+            }
+          }
+        ],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 0,
+              "Kind": 2,
+              "Valid": 1,
+              "Count": 3,
+              "X": -200,
+              "Y": -300,
+              "Angle": 90,
+              "Slot": 1,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 93,
+              "Stone": 97,
+              "Fiber": 98
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 0,
+        "BuildKind": 2,
+        "BuildAngle": 90,
+        "BuildX": -200,
+        "BuildY": -300,
+        "BuildHX": 200,
+        "BuildHY": 25,
+        "BuildWorldHX": 25.00000000000001,
+        "BuildWorldHY": 200,
+        "BuildValid": 1,
+        "BuildCount": 3,
+        "BuildSlot": 1,
+        "BuildWood": 4,
+        "BuildStone": 0,
+        "BuildFiber": 2,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": -1,
+        "BuildDeleteDistance": 9999,
+        "BuildLX": 3.724967347406535e-15,
+        "BuildLY": -60.83333333333337,
+        "BuildWarm": 0,
+        "BuildRest": 0,
+        "BuildReason": "可放置 · Enter 确认建造",
+        "BuildJSON": "[{\"Kind\":1,\"X\":0,\"Y\":300,\"Angle\":0},{\"Kind\":2,\"X\":-200,\"Y\":-300,\"Angle\":90},{\"Kind\":3,\"X\":-300,\"Y\":1000,\"Angle\":90}]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 2,
+            "X": -200,
+            "Y": -300,
+            "Angle": 90
+          },
+          {
+            "Kind": 3,
+            "X": -300,
+            "Y": 1000,
+            "Angle": 90
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 100,
+        "Dead": 0,
+        "Invulnerable": 88.48333333333342,
+        "Threat": 1,
+        "ThreatMix": 21.09058921599601,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0.3166666666666667,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 629.177875477821,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 5.304099999999992,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    },
+    "mounted_wall_collision": {
+      "instances": {
+        "Dinosaur3D": [
+          {
+            "index": 0,
+            "id": 198,
+            "persistentUuid": "d0563fcc-89ad-4ddc-8fba-9774ed679417",
+            "picked": false,
+            "position": {
+              "x": 236.66666666666637,
+              "y": -300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 90,
+            "variables": {
+              "AnimationState": 0
+            }
+          }
+        ],
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 236.66666666666637,
+              "y": -300,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 90,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 600.0833275470999,
+              "HandZ": 77.76469315513896,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": -0.6169354814898572
+            }
+          }
+        ],
+        "MountedRider": [
+          {
+            "index": 0,
+            "id": 244,
+            "persistentUuid": "27f29c53-3afe-407b-9513-f29918a6cad8",
+            "picked": false,
+            "position": {
+              "x": 251.66666666666637,
+              "y": -300,
+              "z": 312,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 90,
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "fire_start": {
+      "label": "fire_start",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": -300,
+              "y": 830,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 90,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 77.8780490869808,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": -0.3186966889787506
+            }
+          }
+        ],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 0,
+              "Kind": 2,
+              "Valid": 1,
+              "Count": 3,
+              "X": -200,
+              "Y": -300,
+              "Angle": 90,
+              "Slot": 1,
+              "Warm": 1,
+              "Rest": 0,
+              "Wood": 93,
+              "Stone": 97,
+              "Fiber": 98
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 0,
+        "BuildKind": 2,
+        "BuildAngle": 90,
+        "BuildX": -200,
+        "BuildY": -300,
+        "BuildHX": 200,
+        "BuildHY": 25,
+        "BuildWorldHX": 25.00000000000001,
+        "BuildWorldHY": 200,
+        "BuildValid": 1,
+        "BuildCount": 3,
+        "BuildSlot": 1,
+        "BuildWood": 4,
+        "BuildStone": 0,
+        "BuildFiber": 2,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": -1,
+        "BuildDeleteDistance": 9999,
+        "BuildLX": 3.724967347406535e-15,
+        "BuildLY": -60.83333333333337,
+        "BuildWarm": 1,
+        "BuildRest": 0,
+        "BuildReason": "可放置 · Enter 确认建造",
+        "BuildJSON": "[{\"Kind\":1,\"X\":0,\"Y\":300,\"Angle\":0},{\"Kind\":2,\"X\":-200,\"Y\":-300,\"Angle\":90},{\"Kind\":3,\"X\":-300,\"Y\":1000,\"Angle\":90}]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 2,
+            "X": -200,
+            "Y": -300,
+            "Angle": 90
+          },
+          {
+            "Kind": 3,
+            "X": -300,
+            "Y": 1000,
+            "Angle": 90
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 80.03333333333333,
+        "Dead": 0,
+        "Invulnerable": 86.96666666666684,
+        "Threat": 0,
+        "ThreatMix": 46.31681440134928,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 638.7807344814282,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 6.820766666666653,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    },
+    "fire_rest": {
+      "label": "fire_rest",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": false,
+            "position": {
+              "x": -300,
+              "y": 830,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 90,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 77.91785700738475,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": -0.21442451357997
+            }
+          }
+        ],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 0,
+              "Kind": 2,
+              "Valid": 1,
+              "Count": 3,
+              "X": -200,
+              "Y": -300,
+              "Angle": 90,
+              "Slot": 1,
+              "Warm": 1,
+              "Rest": 0,
+              "Wood": 93,
+              "Stone": 97,
+              "Fiber": 98
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 0,
+        "BuildKind": 2,
+        "BuildAngle": 90,
+        "BuildX": -200,
+        "BuildY": -300,
+        "BuildHX": 200,
+        "BuildHY": 25,
+        "BuildWorldHX": 25.00000000000001,
+        "BuildWorldHY": 200,
+        "BuildValid": 1,
+        "BuildCount": 3,
+        "BuildSlot": 1,
+        "BuildWood": 4,
+        "BuildStone": 0,
+        "BuildFiber": 2,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": -1,
+        "BuildDeleteDistance": 9999,
+        "BuildLX": 3.724967347406535e-15,
+        "BuildLY": -60.83333333333337,
+        "BuildWarm": 1,
+        "BuildRest": 0,
+        "BuildReason": "可放置 · Enter 确认建造",
+        "BuildJSON": "[{\"Kind\":1,\"X\":0,\"Y\":300,\"Angle\":0},{\"Kind\":2,\"X\":-200,\"Y\":-300,\"Angle\":90},{\"Kind\":3,\"X\":-300,\"Y\":1000,\"Angle\":90}]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 2,
+            "X": -200,
+            "Y": -300,
+            "Angle": 90
+          },
+          {
+            "Kind": 3,
+            "X": -300,
+            "Y": 1000,
+            "Angle": 90
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 84.0333333333331,
+        "Dead": 0,
+        "Invulnerable": 84.96666666666695,
+        "Threat": 0,
+        "ThreatMix": 1.1976965363100969,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 682.55331056761,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 8.82076666666669,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    },
+    "reject_insufficient": {
+      "label": "reject_insufficient",
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 199,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 100,
+              "y": 1150,
+              "z": 0,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "angle": 90,
+            "variables": {
+              "AnimationState": 0,
+              "Sprinting": 0,
+              "Travel": 0,
+              "HandZ": 77.8780490503822,
+              "FootZ": 15.99999942815008,
+              "AttachmentReady": 1,
+              "HandRX": -0.31869678509078553
+            }
+          }
+        ],
+        "BuildStatus": [
+          {
+            "index": 0,
+            "id": 275,
+            "persistentUuid": "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d",
+            "picked": false,
+            "position": {
+              "x": 1042,
+              "y": 540,
+              "layer": "HUD",
+              "zOrder": 100
+            },
+            "angle": 0,
+            "variables": {
+              "Mode": 1,
+              "Kind": 3,
+              "Valid": 0,
+              "Count": 3,
+              "X": 100,
+              "Y": 700,
+              "Angle": 90,
+              "Slot": 3,
+              "Warm": 0,
+              "Rest": 0,
+              "Wood": 0,
+              "Stone": 97,
+              "Fiber": 98
+            }
+          }
+        ]
+      },
+      "vars": {
+        "SaveStorage": "JurassicWorldConstructionTest20260920",
+        "BuildMode": 1,
+        "BuildKind": 3,
+        "BuildAngle": 90,
+        "BuildX": 100,
+        "BuildY": 700,
+        "BuildHX": 80,
+        "BuildHY": 80,
+        "BuildWorldHX": 80,
+        "BuildWorldHY": 80,
+        "BuildValid": 0,
+        "BuildCount": 3,
+        "BuildSlot": 3,
+        "BuildWood": 3,
+        "BuildStone": 3,
+        "BuildFiber": 0,
+        "BuildRestore": 0,
+        "BuildDeleteSlot": -1,
+        "BuildDeleteDistance": 9999,
+        "BuildLX": 3.724967347406535e-15,
+        "BuildLY": -60.83333333333337,
+        "BuildWarm": 0,
+        "BuildRest": 0,
+        "BuildReason": "材料不足：先采集木材、石头和纤维",
+        "BuildJSON": "[{\"Kind\":1,\"X\":0,\"Y\":300,\"Angle\":0},{\"Kind\":2,\"X\":-200,\"Y\":-300,\"Angle\":90},{\"Kind\":3,\"X\":-300,\"Y\":1000,\"Angle\":90}]",
+        "BuildingRecords": [
+          {
+            "Kind": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0
+          },
+          {
+            "Kind": 2,
+            "X": -200,
+            "Y": -300,
+            "Angle": 90
+          },
+          {
+            "Kind": 3,
+            "X": -300,
+            "Y": 1000,
+            "Angle": 90
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          },
+          {
+            "Kind": 0
+          }
+        ],
+        "Health": 84.0333333333331,
+        "Dead": 0,
+        "Invulnerable": 84.93333333333362,
+        "Threat": 0,
+        "ThreatMix": 1.1269126710141701,
+        "MusicStarted": 1,
+        "Muted": 0,
+        "StepClock": 0,
+        "CombatCD": 0,
+        "CombatSwing": 0,
+        "CombatHit": 0,
+        "Kills": 0,
+        "DeathCount": 0,
+        "NearestWild": 691.678812009356,
+        "HitFlash": 0,
+        "SafeCamp": 0,
+        "AudioMode": 0,
+        "AudioRiding": 0,
+        "SoundClock": 8.854100000000026,
+        "CombatLesson": 0,
+        "FacingTarget": 0,
+        "Mode": 0,
+        "InputMode": 0,
+        "StationIndex": 0
+      }
+    }
+  }
+}
