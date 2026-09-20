@@ -1,0 +1,25 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 292
+folder = ["Weather"]
+name = "WeatherCanvas"
+type = "PrimitiveDrawing::Drawer"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+absoluteCoordinates = true
+antialiasing = "medium"
+clearBetweenFrames = false
+fillOpacity = 255
+outlineOpacity = 0
+outlineSize = 0
+
+[fillColor]
+r = 205
+g = 225
+b = 240
+
+[outlineColor]
+r = 205
+g = 225
+b = 240

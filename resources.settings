@@ -1218,3 +1218,23 @@ name = "modular-stairs-invalid.glb"
 file = "assets/models/modular-stairs-invalid.glb"
 metadata = ""
 userAdded = true
+
+[[resources]]
+file = "assets/audio/weather-rain.wav"
+kind = "audio"
+metadata = ""
+name = "weather-rain.wav"
+preloadAsMusic = true
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/weather-thunder.wav"
+kind = "audio"
+metadata = ""
+name = "weather-thunder.wav"
+preloadAsMusic = false
+preloadAsSound = true
+preloadInCache = false
+userAdded = true

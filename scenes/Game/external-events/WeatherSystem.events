@@ -1,0 +1,194 @@
+@comment "Native island weather: 0 clear, 1 cloudy, 2 rain, 3 thunderstorm, 4 fog. Weather time freezes with gameplay." background=[90,150,180] text=[255,255,255]
+
+@event aiGeneratedEventId="weather-initialize"
+if SceneJustBegins
+do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GameWeather" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0
+
+@event aiGeneratedEventId="weather-manual-cycle"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="F6"
+do SetNumberVariable variable="WeatherType" modification_sign="=" value=expr(mod(WeatherType + 1, 5))
+do SetNumberVariable variable="WeatherClock" modification_sign="=" value=0
+do SetNumberVariable variable="WeatherDuration" modification_sign="=" value=expr(RandomInRange(60, 100))
+do SetNumberVariable variable="WeatherChanges" modification_sign="+" value=1
+
+@event aiGeneratedEventId="weather-advance"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetNumberVariable variable="WeatherClock" modification_sign="+" value=expr(TimeDelta())
+do SetNumberVariable variable="WeatherMotion" modification_sign="+" value=expr(TimeDelta())
+
+> @event aiGeneratedEventId="weather-choose-next"
+> if NumberVariable variable="WeatherClock" comparison_sign=">=" value=expr(WeatherDuration)
+> do SetNumberVariable variable="WeatherNext" modification_sign="=" value=1
+
+>> if NumberVariable variable="WeatherType" comparison_sign="=" value=1
+>> do SetNumberVariable variable="WeatherNext" modification_sign="=" value=expr(Random(2) * 2)
+
+>> if NumberVariable variable="WeatherType" comparison_sign="=" value=2
+>> do SetNumberVariable variable="WeatherNext" modification_sign="=" value=expr(1 + Random(1) * 2)
+
+>> if NumberVariable variable="WeatherType" comparison_sign="=" value=3
+>> do SetNumberVariable variable="WeatherNext" modification_sign="=" value=2
+
+>> if NumberVariable variable="WeatherType" comparison_sign="=" value=4
+>> do SetNumberVariable variable="WeatherNext" modification_sign="=" value=expr(Random(1))
+
+> @event aiGeneratedEventId="weather-automatic-cycle"
+> if NumberVariable variable="WeatherClock" comparison_sign=">=" value=expr(WeatherDuration)
+> do SetNumberVariable variable="WeatherType" modification_sign="=" value=expr(WeatherNext)
+> do SetNumberVariable variable="WeatherClock" modification_sign="=" value=0
+> do SetNumberVariable variable="WeatherDuration" modification_sign="=" value=expr(RandomInRange(60, 100))
+> do SetNumberVariable variable="WeatherChanges" modification_sign="+" value=1
+
+@event aiGeneratedEventId="weather-apply-preset"
+if NumberVariable variable="WeatherApplied" comparison_sign="!=" value=expr(WeatherType)
+do SetNumberVariable variable="WeatherCloudTarget" modification_sign="=" value=0
+do SetNumberVariable variable="WeatherRainTarget" modification_sign="=" value=0
+do SetNumberVariable variable="WeatherMistTarget" modification_sign="=" value=0
+do SetNumberVariable variable="WeatherFlash" modification_sign="=" value=0
+do SetNumberVariable variable="WeatherLightningClock" modification_sign="=" value=0
+do SetNumberVariable variable="WeatherLightningWait" modification_sign="=" value=expr(RandomInRange(8, 16))
+do SetNumberVariable variable="WeatherThunderDelay" modification_sign="=" value=-1
+do SetNumberVariable variable="WeatherApplied" modification_sign="=" value=expr(WeatherType)
+do StopSoundChannel channel_identifier=31
+
+> if NumberVariable variable="WeatherType" comparison_sign="=" value=0
+> do SetStringVariable variable="WeatherName" modification_sign="=" value="晴朗"
+> do SetStringVariable variable="WeatherHint" modification_sign="=" value="视野清晰"
+
+> if NumberVariable variable="WeatherType" comparison_sign="=" value=1
+> do SetNumberVariable variable="WeatherCloudTarget" modification_sign="=" value=0.38
+> do SetStringVariable variable="WeatherName" modification_sign="=" value="多云"
+> do SetStringVariable variable="WeatherHint" modification_sign="=" value="海风渐起"
+
+> if NumberVariable variable="WeatherType" comparison_sign="=" value=2
+> do SetNumberVariable variable="WeatherCloudTarget" modification_sign="=" value=0.75
+> do SetNumberVariable variable="WeatherRainTarget" modification_sign="=" value=0.55
+> do SetStringVariable variable="WeatherName" modification_sign="=" value="降雨"
+> do SetStringVariable variable="WeatherHint" modification_sign="=" value="雨幕笼罩海岸"
+
+> if NumberVariable variable="WeatherType" comparison_sign="=" value=3
+> do SetNumberVariable variable="WeatherCloudTarget" modification_sign="=" value=1
+> do SetNumberVariable variable="WeatherRainTarget" modification_sign="=" value=1
+> do SetStringVariable variable="WeatherName" modification_sign="=" value="雷暴"
+> do SetStringVariable variable="WeatherHint" modification_sign="=" value="可在屋顶下避雨"
+
+> if NumberVariable variable="WeatherType" comparison_sign="=" value=4
+> do SetNumberVariable variable="WeatherCloudTarget" modification_sign="=" value=0.2
+> do SetNumberVariable variable="WeatherMistTarget" modification_sign="=" value=1
+> do SetStringVariable variable="WeatherName" modification_sign="=" value="雾天"
+> do SetStringVariable variable="WeatherHint" modification_sign="=" value="远处能见度降低"
+
+@event aiGeneratedEventId="weather-smooth-and-lightning"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetNumberVariable variable="WeatherCloud" modification_sign="=" value=expr(lerp(WeatherCloud, WeatherCloudTarget, min(1, TimeDelta() * 0.6)))
+do SetNumberVariable variable="WeatherRain" modification_sign="=" value=expr(lerp(WeatherRain, WeatherRainTarget, min(1, TimeDelta() * 0.6)))
+do SetNumberVariable variable="WeatherMist" modification_sign="=" value=expr(lerp(WeatherMist, WeatherMistTarget, min(1, TimeDelta() * 0.6)))
+do SetNumberVariable variable="WeatherFlash" modification_sign="=" value=expr(max(0, WeatherFlash - TimeDelta() * 2.6))
+
+> if NumberVariable variable="WeatherType" comparison_sign="=" value=3
+> do SetNumberVariable variable="WeatherLightningClock" modification_sign="+" value=expr(TimeDelta())
+
+>> if NumberVariable variable="WeatherCloud" comparison_sign=">" value=0.8
+>> if NumberVariable variable="WeatherLightningClock" comparison_sign=">=" value=expr(WeatherLightningWait)
+>> do SetNumberVariable variable="WeatherLightningClock" modification_sign="=" value=0
+>> do SetNumberVariable variable="WeatherLightningWait" modification_sign="=" value=expr(RandomInRange(8, 16))
+>> do SetNumberVariable variable="WeatherFlash" modification_sign="=" value=1
+>> do SetNumberVariable variable="WeatherThunderDelay" modification_sign="=" value=expr(RandomInRange(7, 16) / 10)
+>> do SetNumberVariable variable="WeatherLightningCount" modification_sign="+" value=1
+
+> if NumberVariable variable="WeatherThunderDelay" comparison_sign=">" value=0
+> do SetNumberVariable variable="WeatherThunderDelay" modification_sign="=" value=expr(max(0, WeatherThunderDelay - TimeDelta()))
+
+> if NumberVariable variable="WeatherThunderDelay" comparison_sign="=" value=0
+> do SetNumberVariable variable="WeatherThunderDelay" modification_sign="=" value=-1
+
+>> if NumberVariable variable="WeatherAudioStarted" comparison_sign="=" value=1
+>> do PlaySoundOnChannel audio_file_or_audio_resource_name="weather-thunder.wav" channel_identifier=31 repeat_the_sound=false volume=55 pitch_speed=expr(RandomInRange(90, 105) / 100)
+
+@event aiGeneratedEventId="weather-shelter-reset"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetNumberVariable variable="WeatherSheltered" modification_sign="=" value=0
+
+> for each PartCeiling
+>> if PosX object="Player3D" comparison_sign=">" value=expr(PartCeiling.X() - 145)
+>> if PosX object="Player3D" comparison_sign="<" value=expr(PartCeiling.X() + 145)
+>> if PosY object="Player3D" comparison_sign=">" value=expr(PartCeiling.Y() - 145)
+>> if PosY object="Player3D" comparison_sign="<" value=expr(PartCeiling.Y() + 145)
+>> if NumberObjectVariable object="PartCeiling" variable="BaseZ" comparison_sign=">" value=expr(PlayerFloor + 180)
+>> if NumberVariable variable="Riding" comparison_sign="=" value=0
+>> do SetNumberVariable variable="WeatherSheltered" modification_sign="=" value=1
+
+@event aiGeneratedEventId="weather-environment"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do ShowLayer layer="Weather"
+do SetStringVariable variable="WeatherSky" modification_sign="=" value=expr(ToString(round(114 - 44 * WeatherCloud + 50 * WeatherMist)) + ";" + ToString(round(187 - 86 * WeatherCloud + 25 * WeatherMist)) + ";" + ToString(round(221 - 101 * WeatherCloud + 2 * WeatherMist)))
+do SceneBackground color=expr(WeatherSky)
+do SetLayerEffectParameter layer="World3D" effect_name="Sun" property_name="intensity" new_value=expr(0.85 - WeatherCloud * 0.7 - WeatherMist * 0.18 + WeatherFlash * 0.6)
+do SetLayerEffectParameter layer="World3D" effect_name="Sky fill" property_name="intensity" new_value=expr(0.55 - WeatherCloud * 0.12 + WeatherFlash * 0.25)
+do SetLayerEffectParameter layer="World3D" effect_name="Weather fog" property_name="near" new_value=expr(max(800, 6500 - WeatherCloud * 4500 - WeatherMist * 5700))
+do SetLayerEffectParameter layer="World3D" effect_name="Weather fog" property_name="far" new_value=expr(max(3500, 26000 - WeatherCloud * 19500 - WeatherMist * 18500))
+do SetLayerEffectStringParameter layer="World3D" effect_name="Weather fog" property_name="color" new_value=expr(WeatherSky)
+do PrimitiveDrawing::Drawer::ClearShapes shape_painter_object="WeatherCanvas"
+do TextContainerCapability::TextContainerBehavior::SetValue object="WeatherStatus" behavior="Text" modification_sign="=" text=expr(WeatherName + " · " + WeatherHint + NewLine() + "自动变化 · F6 切换天气")
+do Show object="WeatherPanel"
+do Show object="WeatherStatus"
+
+> if NumberVariable variable="WeatherSheltered" comparison_sign="=" value=1
+> if NumberVariable variable="WeatherRain" comparison_sign=">" value=0.05
+> do TextContainerCapability::TextContainerBehavior::SetValue object="WeatherStatus" behavior="Text" modification_sign="=" text=expr(WeatherName + " · 屋顶下避雨中" + NewLine() + "自动变化 · F6 切换天气")
+
+> @event aiGeneratedEventId="weather-draw-rain"
+> local rainX = 0
+> local rainY = 0
+> if NumberVariable variable="WeatherRain" comparison_sign=">" value=0.015
+> if NumberVariable variable="WeatherSheltered" comparison_sign="=" value=0
+> do PrimitiveDrawing::FillColor shape_painter_object="WeatherCanvas" fill_color="200;225;245"
+
+>> local drop = 0
+>> repeat "round(180 * WeatherRain)" index=drop
+>>> do SetNumberVariable variable="rainX" modification_sign="=" value=expr(mod(drop * 137.51 + WeatherMotion * (90 + WeatherCloud * 190), 1760) - 80)
+>>> do SetNumberVariable variable="rainY" modification_sign="=" value=expr(mod(drop * 293.73 + WeatherMotion * (700 + mod(drop, 5) * 55), 1080) - 90)
+>>> do PrimitiveDrawing::FillOpacity shape_painter_object="WeatherCanvas" modification_sign="=" opacity_0_255=expr(WeatherRain * (45 + mod(drop, 4) * 24))
+>>> do PrimitiveDrawing::LineV2 shape_painter_object="WeatherCanvas" x_position_of_start_point=expr(rainX) y_position_of_start_point=expr(rainY) x_position_of_end_point=expr(rainX - 4 - WeatherCloud * 9) y_position_of_end_point=expr(rainY + 16 + WeatherRain * 22) thickness_in_pixels=expr(1 + mod(drop, 3) * 0.35)
+
+> if NumberVariable variable="WeatherFlash" comparison_sign=">" value=0
+> do PrimitiveDrawing::FillColor shape_painter_object="WeatherCanvas" fill_color="218;233;255"
+> do PrimitiveDrawing::FillOpacity shape_painter_object="WeatherCanvas" modification_sign="=" opacity_0_255=expr(WeatherFlash * 30)
+> do PrimitiveDrawing::Rectangle shape_painter_object="WeatherCanvas" left_x_position=0 top_y_position=0 right_x_position=1600 bottom_y_position=900
+
+@event aiGeneratedEventId="weather-reference-mode"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=0
+do HideLayer layer="Weather"
+do Hide object="WeatherPanel"
+do Hide object="WeatherStatus"
+
+@event aiGeneratedEventId="weather-start-audio"
+if NumberVariable variable="WeatherAudioStarted" comparison_sign="=" value=0
+if NumberVariable variable="MusicStarted" comparison_sign="=" value=1
+or KeyFromTextPressed key_to_check="F6"
+do PlayMusicOnChannel audio_file_or_audio_resource_name="weather-rain.wav" channel_identifier=30 repeat_the_sound=true volume=0 pitch_speed=1
+do SetNumberVariable variable="WeatherAudioStarted" modification_sign="=" value=1
+
+@event aiGeneratedEventId="weather-mix-audio"
+if NumberVariable variable="WeatherAudioStarted" comparison_sign="=" value=1
+do SetNumberVariable variable="WeatherRainVolume" modification_sign="=" value=0
+
+> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> if NumberVariable variable="Mode" comparison_sign="=" value=0
+> if NumberVariable variable="Dead" comparison_sign="=" value=0
+> do SetNumberVariable variable="WeatherRainVolume" modification_sign="=" value=expr(WeatherRain * (48 - WeatherSheltered * 36))
+
+> if NumberVariable variable="WeatherAudioStarted" comparison_sign="=" value=1
+> do SetMusicChannelVolume channel_identifier=30 modification_sign="=" volume_0_100=expr(WeatherRainVolume)
+
+@event aiGeneratedEventId="weather-quiet-menu"
+if NumberVariable variable="Mode" comparison_sign="!=" value=0
+or NumberVariable variable="RenderMode" comparison_sign="=" value=0
+do StopSoundChannel channel_identifier=31

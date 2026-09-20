@@ -1,0 +1,39 @@
+kind = "externalLayout"
+settingsFormatVersion = 6
+order = 7
+name = "GameWeather"
+
+[layout]
+version = 1
+
+[[layout.layers]]
+id = "weather"
+name = "Weather"
+
+[[layout.layers]]
+id = "hud"
+name = "HUD"
+
+[[layout.instances]]
+id = "e6a13bcd-c5ae-464b-9dd2-ae3d3c947caa"
+object = "WeatherCanvas"
+layer = "weather"
+at = [0, 0]
+
+[[layout.instances]]
+id = "04b0a84c-3b12-48e1-88cc-af069820a76c"
+object = "WeatherPanel"
+layer = "hud"
+at = [630, 74]
+size = [340, 61]
+z_order = 4
+keep_ratio = false
+
+[[layout.instances]]
+id = "3ba77f01-6d0e-40bf-a12f-97a0ecab7afd"
+object = "WeatherStatus"
+layer = "hud"
+at = [640, 82]
+size = [320, 46]
+z_order = 10
+keep_ratio = false

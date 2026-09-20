@@ -139,6 +139,10 @@ do EcrireFichierExp storage_name=expr(SaveStorage) group="BaseWood" expression=e
 do EcrireFichierExp storage_name=expr(SaveStorage) group="BaseStone" expression=expr(BaseStone)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="ExpeditionRounds" expression=expr(ExpeditionRounds)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="QuestVersion" expression=2
+do EcrireFichierExp storage_name=expr(SaveStorage) group="WeatherType" expression=expr(WeatherType)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="WeatherClock" expression=expr(WeatherClock)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="WeatherDuration" expression=expr(WeatherDuration)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="WeatherVersion" expression=1
 do SetNumberVariable variable="SaveRequested" modification_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text=expr("Saved on this device." + NewLine() + "All resources and progress stored.")
 do SetNumberVariable variable="SaveFlag" modification_sign="=" value=1

@@ -807,6 +807,126 @@ name = "CapsuleDistance"
 type = "number"
 value = 0
 
+[[variables]]
+name = "WeatherType"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherApplied"
+type = "number"
+value = -1
+
+[[variables]]
+name = "WeatherClock"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherDuration"
+type = "number"
+value = 60
+
+[[variables]]
+name = "WeatherNext"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherChanges"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherCloud"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherRain"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherMist"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherCloudTarget"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherRainTarget"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherMistTarget"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherMotion"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherFlash"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherLightningClock"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherLightningWait"
+type = "number"
+value = 10
+
+[[variables]]
+name = "WeatherThunderDelay"
+type = "number"
+value = -1
+
+[[variables]]
+name = "WeatherLightningCount"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherAudioStarted"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherRainVolume"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherSheltered"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherSky"
+type = "string"
+value = "114;187;221"
+
+[[variables]]
+name = "WeatherName"
+type = "string"
+value = "晴朗"
+
+[[variables]]
+name = "WeatherHint"
+type = "string"
+value = "视野清晰"
+
 [layout]
 version = 1
 background = "#72BBDD"
@@ -833,6 +953,12 @@ cameras = [{ size = "default", viewport = "default" }]
 id = "world"
 name = "World"
 visible = true
+rendering = "2d"
+cameras = [{ size = "default", viewport = "default" }]
+
+[[layout.layers]]
+id = "weather"
+name = "Weather"
 rendering = "2d"
 cameras = [{ size = "default", viewport = "default" }]
 
@@ -910,6 +1036,14 @@ minimumShadowBias = 0.001
 rotation = 225
 shadowQuality = "high"
 top = "Z+"
+
+[[layout.effects]]
+layer = "world3d"
+name = "Weather fog"
+type = "Scene3D::LinearFog"
+color = "114;187;221"
+near = 6500
+far = 26000
 
 [[layout.instances]]
 id = "e05525c3-b4d2-406e-97c5-f1da3360220b"

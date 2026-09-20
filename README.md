@@ -130,3 +130,15 @@
 每个片段只有 `scenes/Game/external-events/<名称>.events` 一个 IfDo 文件，不需要 settings、functions 子目录或登记清单。当前 28 个片段共 28 个文件。`link external "名称"` 在原位置展开正文，继承父条件、对象筛选和局部变量；执行顺序由 Link 所在位置决定，与文件名排序无关。场景自身的生命周期函数仍使用 settings/events 文件对。
 
 2026-09-20 一次性重构保留了全部事件正文和 28 处引用（含 4 处子事件引用），删除 56 个包装文件及 56 个目录。编写指南与 tools 中相关生成脚本已同步；请使用支持格式 6 的新引擎打开。校验记录见 [external-events-migration.md](external-events-migration.md)。
+
+## 动态天气
+
+晴朗、多云、降雨、雷暴、雾天会按自然相邻状态自动变化，每段天气持续 60～100 秒。按 **F6** 可依次预览五种天气，随后继续自动变化。天空、太阳强度、环境光、远景雾和雨量约用 5～8 秒平滑过渡。
+
+雨丝位于界面下方，雷暴有柔和闪光与延迟雷声。天气音效沿用 M 全局静音；背包、任务、暂停、拍照、死亡和 F3 效果图模式冻结天气计时，菜单中停止天气声音。拍照保留冻结的天气画面并隐藏 HUD。在建造的楼板屋顶下步行会停止雨丝、降低雨声；骑乘时仍按室外处理。
+
+暂停菜单保存天气类型、当前计时及本段时长，旧存档默认晴朗。天气不会额外扣除生命或资源。晴天不会直接跳到雷暴：自动顺序按晴→多云、多云→晴/雨/雾、雨→多云/雷暴、雷暴→雨、雾→晴/多云选择。
+
+源文件：`scenes/Game/external-events/WeatherSystem.events`、`WeatherRestore.events`、`scenes/Game/external-layout/GameWeather.settings`、三个 `Weather*.settings` 对象及 `tools/compose_weather_audio.py`。使用引擎原生光照、雾和 Shape Painter；雨丝复用一个画布，最多 180 条，不持续创建对象。音效为本地程序合成的原创 WAV。
+
+复用检索：[官方 GDevelop 扩展库](https://github.com/GDevelopApp/GDevelop-extensions)，提交 `6e0bba82e5123cd95ea06107056d4015ae0d78e3`。MakeItRain 1.1.1 为二维对象降落，ParticleEmitter3D 3.1.1 为通用三维发射器；本次采用更小的场景专用原生天气事件，复用已有灯光和 HUD 面板，无新增第三方扩展。天气测试使用 `tests/WeatherCycle.js`、`tests/WeatherPersistence.js`，存档槽独立于玩家存档。

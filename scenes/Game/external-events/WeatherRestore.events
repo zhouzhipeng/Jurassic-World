@@ -1,0 +1,18 @@
+@comment "Load before HUDLoadStatus consumes Action=10. Older saves fall back to a fresh clear spell." background=[90,150,180] text=[255,255,255]
+
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do SetNumberVariable variable="WeatherType" modification_sign="=" value=0
+do SetNumberVariable variable="WeatherClock" modification_sign="=" value=0
+do SetNumberVariable variable="WeatherDuration" modification_sign="=" value=60
+do SetNumberVariable variable="WeatherApplied" modification_sign="=" value=-1
+do SetNumberVariable variable="WeatherFlash" modification_sign="=" value=0
+do SetNumberVariable variable="WeatherThunderDelay" modification_sign="=" value=-1
+
+> if GroupExists storage_name=expr(SaveStorage) group="WeatherVersion"
+> do ReadNumberFromStorage storage_name=expr(SaveStorage) group="WeatherType" variable="WeatherType"
+> do ReadNumberFromStorage storage_name=expr(SaveStorage) group="WeatherClock" variable="WeatherClock"
+> do ReadNumberFromStorage storage_name=expr(SaveStorage) group="WeatherDuration" variable="WeatherDuration"
+> do SetNumberVariable variable="WeatherType" modification_sign="=" value=expr(clamp(round(WeatherType), 0, 4))
+> do SetNumberVariable variable="WeatherDuration" modification_sign="=" value=expr(clamp(WeatherDuration, 20, 180))
+> do SetNumberVariable variable="WeatherClock" modification_sign="=" value=expr(clamp(WeatherClock, 0, WeatherDuration))

@@ -39,3 +39,19 @@ name = "ConstructionPersistence"
 type = "gameplay"
 description = "Save and load through the pause menu across a fresh scene using a dedicated test slot."
 file = "tests/ConstructionPersistence.js"
+
+[[tests]]
+scope = "project"
+order = 5
+name = "WeatherCycle"
+type = "gameplay"
+description = "Weather cycling, smooth transitions, automatic timer, pause/photo/reference modes, shelter and delayed thunder."
+file = "tests/WeatherCycle.js"
+
+[[tests]]
+scope = "project"
+order = 6
+name = "WeatherPersistence"
+type = "gameplay"
+description = "Save and restore weather type and timing through the pause menu in an isolated test slot."
+file = "tests/WeatherPersistence.js"

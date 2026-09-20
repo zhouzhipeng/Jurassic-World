@@ -2079,3 +2079,5 @@ do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modific
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0
 do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modification_sign="=" value=0
+
+link external "WeatherSystem"

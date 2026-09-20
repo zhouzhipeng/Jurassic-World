@@ -1,0 +1,31 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 294
+folder = ["UI", "Weather"]
+name = "WeatherStatus"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "晴朗 · 视野清晰\n自动变化 · F6 切换天气"
+font = "interface.ttf"
+characterSize = 17
+bold = false
+italic = false
+underlined = false
+smoothed = true
+textAlignment = "center"
+verticalTextAlignment = "top"
+color = "231;241;232"
+lineHeight = 0
+isOutlineEnabled = false
+outlineColor = "0;0;0"
+outlineThickness = 2
+isShadowEnabled = false
+shadowColor = "0;0;0"
+shadowOpacity = 127
+shadowBlurRadius = 2
+shadowDistance = 4
+shadowAngle = 90
