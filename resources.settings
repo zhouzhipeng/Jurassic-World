@@ -1238,3 +1238,38 @@ preloadAsMusic = false
 preloadAsSound = true
 preloadInCache = false
 userAdded = true
+
+[[resources]]
+file = "assets/models/survival-spring.glb"
+kind = "model3D"
+metadata = ""
+name = "survival-spring.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/survival-ore.glb"
+kind = "model3D"
+metadata = ""
+name = "survival-ore.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/survival-hearth.glb"
+kind = "model3D"
+metadata = ""
+name = "survival-hearth.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/survival-flame.glb"
+kind = "model3D"
+metadata = ""
+name = "survival-flame.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/survival-forge.glb"
+kind = "model3D"
+metadata = ""
+name = "survival-forge.glb"
+userAdded = true

@@ -1,0 +1,27 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 297
+folder = ["Survival"]
+name = "SpringWater"
+type = "Scene3D::Model3DObject"
+effects = [ ]
+behaviors = [ ]
+variables = [ ]
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 88.00000548362732
+height = 288.79802227020264
+width = 348.90589714050293
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "survival-spring.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+sharedAnimationModelResources = [ ]
+animations = [ ]

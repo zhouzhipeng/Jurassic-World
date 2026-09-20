@@ -35,4 +35,4 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint"
 if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
 if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
 if NumberVariable variable="Stamina" comparison_sign="<" value=3
-do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text="Too tired to gather. Rest with F."
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text="体力不足，稍作休息；在屋顶下恢复更快。"

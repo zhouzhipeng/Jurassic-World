@@ -1,0 +1,51 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 298
+folder = ["Survival"]
+name = "MetalDeposit"
+type = "Scene3D::Model3DObject"
+effects = [ ]
+behaviors = [ ]
+
+[[variables]]
+name = "Kind"
+type = "number"
+value = 5
+
+[[variables]]
+name = "Cooldown"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Progress"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Target"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SiteId"
+type = "number"
+value = 0
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 163.99999856948853
+height = 140.10554552078247
+width = 202.48045921325684
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "survival-ore.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+sharedAnimationModelResources = [ ]
+animations = [ ]

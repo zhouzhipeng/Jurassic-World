@@ -10,17 +10,20 @@ do SetNumberVariable variable="RenderMode" modification_sign="=" value=expr(1 - 
 
 link external "HUDViewMode"
 
+@event
+@event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=0
-if BuiltinCommonInstructions::Once
+if SceneJustBegins
 do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
 do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y() + 550)
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
 do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
 
+@event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-if BuiltinCommonInstructions::Once
+if SceneJustBegins
 do SetX object="Player3D" modification_sign="=" value=-650
 do SetY object="Player3D" modification_sign="=" value=350
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
@@ -392,7 +395,11 @@ link external "HUDMenuInput"
 
 @comment "Proximity harvesting: one nearest node, hold E, respawn and feedback" background=[90,150,180] text=[255,255,255]
 
-link external "HUDHarvestReset"
+@event
+link external "SurvivalContext"
+
+@event
+link "HUDHarvestReset"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
@@ -421,6 +428,7 @@ do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modificatio
 do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=expr(sin(HarvestNodes.Variable(Progress) * 35) * 7)
 
 if NumberObjectVariable object="HarvestNodes" variable="Progress" comparison_sign=">=" value=0.8
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="!=" value=5
 if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="!=" value=3
 if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
 do SetNumberObjectVariable object="HarvestNodes" variable="Cooldown" modification_sign="=" value=30
@@ -433,23 +441,23 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=65 pitch_speed=1
 
 > if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=1
-> do SetNumberVariable variable="Berries" modification_sign="+" value=3
-> do SetNumberVariable variable="GatherBerries" modification_sign="+" value=3
+> do SetNumberVariable variable="Berries" modification_sign="+" value=expr(3+3*CompanionBonus)
+> do SetNumberVariable variable="GatherBerries" modification_sign="+" value=expr(3+3*CompanionBonus)
 > do SetStringVariable variable="NoticeMessage" modification_sign="=" value="+3 Berries collected and added to backpack."
 
 > if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=2
-> do SetNumberVariable variable="Fiber" modification_sign="+" value=5
-> do SetNumberVariable variable="GatherFiber" modification_sign="+" value=5
+> do SetNumberVariable variable="Fiber" modification_sign="+" value=expr(5+5*CompanionBonus)
+> do SetNumberVariable variable="GatherFiber" modification_sign="+" value=expr(5+5*CompanionBonus)
 > do SetStringVariable variable="NoticeMessage" modification_sign="=" value="+5 Fiber collected and added to backpack."
 
 > if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=3
-> do SetNumberVariable variable="Wood" modification_sign="+" value=4
-> do SetNumberVariable variable="GatherWood" modification_sign="+" value=4
+> do SetNumberVariable variable="Wood" modification_sign="+" value=expr(4+2*MetalTools)
+> do SetNumberVariable variable="GatherWood" modification_sign="+" value=expr(4+2*MetalTools)
 > do SetStringVariable variable="NoticeMessage" modification_sign="=" value="+4 Wood collected and added to backpack."
 
 > if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=4
-> do SetNumberVariable variable="Stone" modification_sign="+" value=3
-> do SetNumberVariable variable="GatherStone" modification_sign="+" value=3
+> do SetNumberVariable variable="Stone" modification_sign="+" value=expr(3+2*MetalTools)
+> do SetNumberVariable variable="GatherStone" modification_sign="+" value=expr(3+2*MetalTools)
 > do SetStringVariable variable="NoticeMessage" modification_sign="=" value="+3 Stone collected and added to backpack."
 
 if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=0
@@ -462,90 +470,14 @@ if KeyFromTextReleased key_to_check="e"
 do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modification_sign="=" value=0
 do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=0
 
-link external "HUDActionBar"
+@event
+link external "MetalHarvest"
 
-if NumberVariable variable="Action" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="请先按 X 下坐骑，再进行互动。"
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+@event
+link "HUDActionBar"
 
-if NumberVariable variable="Action" comparison_sign="=" value=5
-if NumberVariable variable="Riding" comparison_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="骑乘时用 WASD 移动；先下坐骑才能快速旅行。"
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-
-if NumberVariable variable="Action" comparison_sign="=" value=1
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="StationIndex" comparison_sign="=" value=0
-if NumberVariable variable="CanFeed" comparison_sign="=" value=0
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Move closer to the dinosaur to feed it."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-
-if NumberVariable variable="Action" comparison_sign="=" value=1
-if NumberVariable variable="StationIndex" comparison_sign="=" value=0
-if NumberVariable variable="Trust" comparison_sign="<" value=100
-if NumberVariable variable="Berries" comparison_sign=">" value=0
-do SetNumberVariable variable="Berries" modification_sign="-" value=1
-do SetNumberVariable variable="Trust" modification_sign="+" value=7
-do PlaySound audio_file_or_audio_resource_name="feed.wav" repeat_the_sound=false volume=65 pitch_speed=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Berries -1  /  Trust +7"
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-
-if NumberVariable variable="Trust" comparison_sign=">" value=100
-do SetNumberVariable variable="Trust" modification_sign="=" value=100
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Companion tamed! Return to camp and build a shelter."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-
-if NumberVariable variable="Action" comparison_sign="=" value=1
-if NumberVariable variable="StationIndex" comparison_sign="=" value=0
-if NumberVariable variable="Trust" comparison_sign=">=" value=100
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Your companion trusts you. Gather supplies at camp."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-
-if NumberVariable variable="Action" comparison_sign="=" value=1
-if NumberVariable variable="StationIndex" comparison_sign="=" value=0
-if NumberVariable variable="Berries" comparison_sign="<=" value=0
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="No berries. Find a red bush and hold E to gather."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-
-if NumberVariable variable="Action" comparison_sign="=" value=1
-if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=10
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="选择空地搭建庇护所，完成营地任务。"
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-
-if NumberVariable variable="Action" comparison_sign="=" value=2
-or NumberVariable variable="Action" comparison_sign="=" value=3
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Walk to a resource and HOLD E to gather."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-
-if NumberVariable variable="Action" comparison_sign="=" value=4
-do SetNumberVariable variable="Water" modification_sign="=" value=100
-do PlaySound audio_file_or_audio_resource_name="drink.wav" repeat_the_sound=false volume=50 pitch_speed=1
-do SetNumberVariable variable="Stamina" modification_sign="=" value=100
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Rested at fresh water. Water and stamina restored."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-
-if NumberVariable variable="Action" comparison_sign="=" value=5
-do SetNumberVariable variable="StationIndex" modification_sign="=" value=expr(1 - StationIndex)
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Location changed. E interacts with this location."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-
-if NumberVariable variable="Action" comparison_sign=">" value=0
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Too tired to gather. Press F to rest."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
+@event
+link external "SurvivalUse"
 
 link external "HUDInventoryAndSave"
 
@@ -607,15 +539,6 @@ link external "HUDLoadStatus"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 do SetNumberVariable variable="Elapsed" modification_sign="+" value=expr(TimeDelta())
-
-if NumberVariable variable="Elapsed" comparison_sign=">=" value=5
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="Hunger" comparison_sign=">" value=1
-if NumberVariable variable="Water" comparison_sign=">" value=1
-do SetNumberVariable variable="Elapsed" modification_sign="=" value=0
-do SetNumberVariable variable="Hunger" modification_sign="-" value=1
-do SetNumberVariable variable="Water" modification_sign="-" value=1
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 link external "HUDPanels"
 
@@ -718,8 +641,8 @@ if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign
 do SetNumberObjectVariable object="WoodSapling" variable="Cooldown" modification_sign="=" value=30
 do SetNumberObjectVariable object="WoodSapling" variable="Hits" modification_sign="=" value=0
 do Hide object="WoodSapling"
-do SetNumberVariable variable="Wood" modification_sign="+" value=4
-do SetNumberVariable variable="GatherWood" modification_sign="+" value=4
+do SetNumberVariable variable="Wood" modification_sign="+" value=expr(4+2*MetalTools)
+do SetNumberVariable variable="GatherWood" modification_sign="+" value=expr(4+2*MetalTools)
 do SetNumberVariable variable="HarvestCount" modification_sign="+" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="砍伐完成！木材 +4，已放入背包。"
@@ -834,6 +757,9 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="SafeCamp" comparison_sign="=" value=1
+if NumberVariable variable="Hunger" comparison_sign=">" value=20
+if NumberVariable variable="Water" comparison_sign=">" value=20
+if NumberVariable variable="BodyTemp" comparison_sign=">=" value=35
 if NumberVariable variable="Health" comparison_sign="<" value=100
 do SetNumberVariable variable="Health" modification_sign="=" value=expr(min(100, Health + TimeDelta() * 4))
 
@@ -890,6 +816,10 @@ for each Triceratops
 > if NumberObjectVariable object="Triceratops" variable="AIClock" comparison_sign=">" value=9
 > do SetNumberObjectVariable object="Triceratops" variable="AIClock" modification_sign="=" value=0
 
+> @event
+> link external "CompanionSteering"
+
+> @event
 > if NumberVariable variable="Mode" comparison_sign="=" value=0
 > if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > if NumberVariable variable="Dead" comparison_sign="=" value=0
@@ -1451,7 +1381,7 @@ for each Raptor
 > if NumberVariable variable="CombatHit" comparison_sign="=" value=1
 > if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<" value=expr(Raptor.Variable(HalfLength) + 200)
 > if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=4
-> do SetNumberObjectVariable object="Raptor" variable="HP" modification_sign="=" value=expr(Raptor.Variable(HP) - (12 + min(1, Spear) * 23))
+> do SetNumberObjectVariable object="Raptor" variable="HP" modification_sign="=" value=expr(Raptor.Variable(HP) - (12 + min(1, Spear) * 23 + MetalTools*(10+10*min(1,Spear))))
 > do SetNumberVariable variable="CombatHit" modification_sign="=" value=0
 > do SetNumberVariable variable="CombatLesson" modification_sign="=" value=1
 > do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Player3D.X(), Player3D.Y(), Raptor.X(), Raptor.Y()) - 90)
@@ -1778,7 +1708,7 @@ for each Tyrannosaur
 > if NumberVariable variable="CombatHit" comparison_sign="=" value=1
 > if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<" value=expr(Tyrannosaur.Variable(HalfLength) + 200)
 > if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=4
-> do SetNumberObjectVariable object="Tyrannosaur" variable="HP" modification_sign="=" value=expr(Tyrannosaur.Variable(HP) - (12 + min(1, Spear) * 23))
+> do SetNumberObjectVariable object="Tyrannosaur" variable="HP" modification_sign="=" value=expr(Tyrannosaur.Variable(HP) - (12 + min(1, Spear) * 23 + MetalTools*(10+10*min(1,Spear))))
 > do SetNumberVariable variable="CombatHit" modification_sign="=" value=0
 > do SetNumberVariable variable="CombatLesson" modification_sign="=" value=1
 > do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Player3D.X(), Player3D.Y(), Tyrannosaur.X(), Tyrannosaur.Y()) - 90)
@@ -1994,13 +1924,20 @@ do SetY object="Player3D" modification_sign="=" value=350
 do SetNumberVariable variable="PreviousX" modification_sign="=" value=-650
 do SetNumberVariable variable="PreviousY" modification_sign="=" value=350
 do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
+do SetNumberVariable variable="BodyTemp" modification_sign="=" value=expr(37)
+do SetNumberVariable variable="Wetness" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Hunger" modification_sign="=" value=expr(65)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已在营地重生，获得 5 秒保护。"
 do PlaySound audio_file_or_audio_resource_name="respawn.wav" repeat_the_sound=false volume=70 pitch_speed=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 link external "HUDExplorationHint"
 
-link external "ModularConstruction"
+link "ModularConstruction"
+
+@event
+link external "SurvivalSimulation"
 
 @comment "Player skeletal animation controller" background=[95,155,180] text=[255,255,255]
 
@@ -2083,3 +2020,9 @@ do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modific
 link external "TimeSystem"
 
 link external "WeatherSystem"
+
+@event
+link external "SurvivalRestoreWorld"
+
+@event
+link external "SurvivalHUD"

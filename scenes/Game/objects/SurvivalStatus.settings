@@ -1,0 +1,31 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 302
+folder = ["UI", "Survival"]
+name = "SurvivalStatus"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "生存补给"
+font = "interface.ttf"
+characterSize = 17
+bold = false
+italic = false
+underlined = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"
+color = "242;240;218"
+lineHeight = 0
+isOutlineEnabled = false
+outlineColor = "0;0;0"
+outlineThickness = 2
+isShadowEnabled = false
+shadowColor = "0;0;0"
+shadowOpacity = 127
+shadowBlurRadius = 2
+shadowDistance = 4
+shadowAngle = 90

@@ -170,3 +170,19 @@ type = "number"
 value = 1
 
 [content]
+
+
+[[variables]]
+name = "Bond"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FeedWait"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Command"
+type = "number"
+value = 0

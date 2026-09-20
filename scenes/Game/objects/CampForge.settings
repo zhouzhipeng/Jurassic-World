@@ -1,0 +1,27 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 301
+folder = ["Survival"]
+name = "CampForge"
+type = "Scene3D::Model3DObject"
+effects = [ ]
+behaviors = [ ]
+variables = [ ]
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 111.9999885559082
+height = 143.4281587600708
+width = 278.5717725753784
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "survival-forge.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+sharedAnimationModelResources = [ ]
+animations = [ ]

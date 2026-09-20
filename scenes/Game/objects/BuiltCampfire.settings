@@ -36,11 +36,32 @@ name = "WorldHY"
 type = "number"
 value = 0
 
+
+[[variables]]
+name = "Fuel"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CookTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Cooking"
+type = "number"
+value = 0
+
+[[variables]]
+name = "VisualReady"
+type = "number"
+value = 0
+
 [content]
-modelResourceName = "build-campfire.glb"
-width = 156.038
-height = 156.142
-depth = 97.112
+modelResourceName = "survival-hearth.glb"
+width = 162.1992826461792
+height = 158.92175436019897
+depth = 33.49999785423279
 keepAspectRatio = true
 rotationX = 90
 rotationY = 0

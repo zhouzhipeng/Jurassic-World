@@ -1363,6 +1363,7 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 
 > for each BuiltCampfire
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),BuiltCampfire.X(),BuiltCampfire.Y())) comparison_sign="<" second_expression=expr(230)
+>> if NumberObjectVariable object="BuiltCampfire" variable="Fuel" comparison_sign=">" value=0
 >> do SetNumberVariable variable="BuildWarm" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -1378,6 +1379,8 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildWarm" comparison_sign="=" value=1
+if NumberVariable variable="Hunger" comparison_sign=">" value=20
+if NumberVariable variable="Water" comparison_sign=">" value=20
 if NumberVariable variable="Threat" comparison_sign="=" value=0
 do SetNumberVariable variable="Health" modification_sign="=" value=expr(min(100,Health+2*TimeDelta()))
 do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(min(100,Stamina+5*TimeDelta()))

@@ -1,0 +1,412 @@
+@comment "Native survival actions: contextual supplies, production and taming" background=[90,150,120] text=[255,255,255]
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Action" comparison_sign="=" value=expr(5)
+do SetNumberVariable variable="NavMode" modification_sign="=" value=expr(mod(NavMode+1,5))
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("导航已切换：Q 依次选择任务、清泉、营地、三角龙、矿区。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Action" comparison_sign="=" value=expr(2)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Action" comparison_sign="=" value=expr(20)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Action" comparison_sign="=" value=expr(21)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(2)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Action" comparison_sign="=" value=expr(3)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(3)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Action" comparison_sign="=" value=expr(4)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(4)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Action" comparison_sign="=" value=expr(22)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(5)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if KeyFromTextReleased key_to_check="c"
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(3)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if KeyFromTextReleased key_to_check="v"
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(5)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if KeyFromTextReleased key_to_check="z"
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(6)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if KeyFromTextReleased key_to_check="u"
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(7)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if KeyFromTextReleased key_to_check="i"
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(8)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Action" comparison_sign="=" value=expr(1)
+if NumberVariable variable="CanFeed" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Trust" comparison_sign="<" value=expr(100)
+if NumberVariable variable="Berries" comparison_sign=">" value=expr(0)
+do SetNumberVariable variable="Berries" modification_sign="-" value=expr(1)
+do SetNumberVariable variable="Trust" modification_sign="=" value=expr(min(100,Trust+7))
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do PlaySound audio_file_or_audio_resource_name="feed.wav" repeat_the_sound=false volume=55 pitch_speed=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("副栉龙信任 +7；驯服后按 X 骑乘。")
+
+@event
+if NumberVariable variable="Action" comparison_sign="=" value=expr(1)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("走近副栉龙喂食；三角龙用 T 喂食。建造请按 B。")
+
+@event
+if NumberVariable variable="UseRequest" comparison_sign=">" value=expr(0)
+if NumberVariable variable="UseCooldown" comparison_sign=">" value=expr(0)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Berries" comparison_sign=">" value=expr(0)
+if NumberVariable variable="Hunger" comparison_sign="<" value=expr(98)
+do SetNumberVariable variable="Berries" modification_sign="-" value=expr(1)
+do SetNumberVariable variable="Hunger" modification_sign="=" value=expr(min(100,Hunger+8))
+do SetNumberVariable variable="Health" modification_sign="=" value=expr(min(100,Health+0))
+do SetNumberVariable variable="BerriesEaten" modification_sign="+" value=expr(1)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="UseCooldown" modification_sign="=" value=expr(0.4)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do PlaySound audio_file_or_audio_resource_name="feed.wav" repeat_the_sound=false volume=55 pitch_speed=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("吃下浆果，饥饿值 +8。")
+
+@event
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(1)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("食物不足，或已经吃饱。3 吃浆果，5 吃烤肉。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(2)
+if NumberVariable variable="CookedMeat" comparison_sign=">" value=expr(0)
+if NumberVariable variable="Hunger" comparison_sign="<" value=expr(98)
+do SetNumberVariable variable="CookedMeat" modification_sign="-" value=expr(1)
+do SetNumberVariable variable="Hunger" modification_sign="=" value=expr(min(100,Hunger+30))
+do SetNumberVariable variable="Health" modification_sign="=" value=expr(min(100,Health+8))
+do SetNumberVariable variable="MeatEaten" modification_sign="+" value=expr(1)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="UseCooldown" modification_sign="=" value=expr(0.4)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do PlaySound audio_file_or_audio_resource_name="feed.wav" repeat_the_sound=false volume=55 pitch_speed=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("吃下烤肉，饥饿值 +30、生命 +8。")
+
+@event
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(2)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("食物不足，或已经吃饱。3 吃浆果，5 吃烤肉。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(4)
+if NumberVariable variable="NearWater" comparison_sign="=" value=expr(1)
+do SetNumberVariable variable="Water" modification_sign="=" value=expr(100)
+do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(min(100,Stamina+15))
+do SetNumberVariable variable="CanteenCharges" modification_sign="=" value=expr(Canteen*3)
+do SetNumberVariable variable="WaterVisits" modification_sign="+" value=expr(1)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do PlaySound audio_file_or_audio_resource_name="drink.wav" repeat_the_sound=false volume=55 pitch_speed=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("清泉补满水分；携带水袋时同时装满 3 份水。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(4)
+if NumberVariable variable="CanteenCharges" comparison_sign=">" value=expr(0)
+if NumberVariable variable="Water" comparison_sign="<" value=expr(95)
+do SetNumberVariable variable="Water" modification_sign="=" value=expr(min(100,Water+40))
+do SetNumberVariable variable="CanteenCharges" modification_sign="-" value=expr(1)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do PlaySound audio_file_or_audio_resource_name="drink.wav" repeat_the_sound=false volume=55 pitch_speed=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("喝下一份储水，水分 +40。")
+
+@event
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(4)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="NavMode" modification_sign="=" value=expr(1)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("需要清泉或装满的水袋；顶部已指向最近清泉。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(5)
+if NumberVariable variable="NearFire" comparison_sign="=" value=expr(1)
+if PickNearest object="SurvivalFires" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign="<=" value=expr(135)
+if NumberVariable variable="Wood" comparison_sign=">" value=expr(0)
+do SetNumberVariable variable="Wood" modification_sign="-" value=expr(1)
+do SetNumberObjectVariable object="SurvivalFires" variable="Fuel" modification_sign="+" value=expr(45)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("添柴成功：1 木材维持 45 秒火焰。C 烤肉，靠近保暖。")
+
+@event
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(5)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("靠近篝火按 V 添柴；需要 1 木材，最多储存 180 秒燃料。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(3)
+if NumberVariable variable="NearFire" comparison_sign="=" value=expr(1)
+if PickNearest object="SurvivalFires" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=expr(0)
+if NumberObjectVariable object="SurvivalFires" variable="Cooking" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Meat" comparison_sign=">" value=expr(0)
+do SetNumberVariable variable="Meat" modification_sign="-" value=expr(1)
+do SetNumberObjectVariable object="SurvivalFires" variable="Cooking" modification_sign="=" value=expr(1)
+do SetNumberObjectVariable object="SurvivalFires" variable="CookTime" modification_sign="=" value=expr(8)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("正在烤肉，8 秒后放入背包。熄火会暂停烹饪。")
+
+@event
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(3)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("靠近燃烧的篝火按 C 烤肉；需要 1 生肉，等待当前烹饪完成。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(6)
+if NumberVariable variable="NearForge" comparison_sign="=" value=expr(1)
+if NumberVariable variable="ForgeBuilt" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Stone" comparison_sign=">=" value=expr(12)
+if NumberVariable variable="Wood" comparison_sign=">=" value=expr(8)
+do SetNumberVariable variable="Stone" modification_sign="-" value=expr(12)
+do SetNumberVariable variable="Wood" modification_sign="-" value=expr(8)
+do SetNumberVariable variable="ForgeBuilt" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("营地熔炉修复完成。Z：2 矿石 +2 木材 →1 金属锭。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(6)
+if NumberVariable variable="NearForge" comparison_sign="=" value=expr(1)
+if NumberVariable variable="ForgeBuilt" comparison_sign="=" value=expr(1)
+if NumberVariable variable="ForgeBusy" comparison_sign="=" value=expr(0)
+if NumberVariable variable="MetalOre" comparison_sign=">=" value=expr(2)
+if NumberVariable variable="Wood" comparison_sign=">=" value=expr(2)
+do SetNumberVariable variable="MetalOre" modification_sign="-" value=expr(2)
+do SetNumberVariable variable="Wood" modification_sign="-" value=expr(2)
+do SetNumberVariable variable="ForgeBusy" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="ForgeTime" modification_sign="=" value=expr(10)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("熔炼开始，10 秒后获得 1 金属锭。")
+
+@event
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(6)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="NavMode" modification_sign="=" value=expr(2)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("营地熔炉：先用 12 石头 +8 木材修复；Z 熔炼需 2 矿石 +2 木材。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(7)
+if NumberVariable variable="NearForge" comparison_sign="=" value=expr(1)
+if NumberVariable variable="ForgeBuilt" comparison_sign="=" value=expr(1)
+if NumberVariable variable="MetalTools" comparison_sign="=" value=expr(0)
+if NumberVariable variable="MetalIngot" comparison_sign=">=" value=expr(3)
+if NumberVariable variable="Wood" comparison_sign=">=" value=expr(4)
+if NumberVariable variable="Hide" comparison_sign=">=" value=expr(2)
+do SetNumberVariable variable="MetalIngot" modification_sign="-" value=expr(3)
+do SetNumberVariable variable="Wood" modification_sign="-" value=expr(4)
+do SetNumberVariable variable="Hide" modification_sign="-" value=expr(2)
+do SetNumberVariable variable="MetalTools" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Axe" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Spear" modification_sign="=" value=expr(max(1,Spear))
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do PlaySound audio_file_or_audio_resource_name="quest-complete.wav" repeat_the_sound=false volume=55 pitch_speed=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("金属工具完成！砍树、采石、挖矿增产；长矛伤害提升至 55。")
+
+@event
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(7)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("在修好的熔炉旁按 U 升级：3 金属锭 +4 木材 +2 兽皮，仅需制作一次。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(8)
+if NumberVariable variable="NearForge" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Canteen" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Hide" comparison_sign=">=" value=expr(2)
+if NumberVariable variable="Fiber" comparison_sign=">=" value=expr(4)
+do SetNumberVariable variable="Hide" modification_sign="-" value=expr(2)
+do SetNumberVariable variable="Fiber" modification_sign="-" value=expr(4)
+do SetNumberVariable variable="Canteen" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("水袋已做好。到清泉按 F 装满，野外可饮用 3 次。")
+
+@event
+if NumberVariable variable="UseRequest" comparison_sign="=" value=expr(8)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("营地工作台旁按 I 制作水袋：2 兽皮 +4 纤维。做好后无需重复制作。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if KeyFromTextReleased key_to_check="t"
+do SetNumberVariable variable="TameRequest" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="FeedingDone" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="TameRequest" comparison_sign="=" value=expr(1)
+if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=expr(0)
+if PickNearest object="Triceratops" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),Triceratops.X(),Triceratops.Y())) comparison_sign="<" second_expression=expr(440)
+if NumberObjectVariable object="Triceratops" variable="Bond" comparison_sign="<" value=expr(100)
+if NumberObjectVariable object="Triceratops" variable="FeedWait" comparison_sign="<=" value=expr(0)
+if NumberVariable variable="Berries" comparison_sign=">=" value=expr(3)
+if NumberVariable variable="Threat" comparison_sign="=" value=expr(0)
+do SetNumberVariable variable="Berries" modification_sign="-" value=expr(3)
+do SetNumberObjectVariable object="Triceratops" variable="Bond" modification_sign="=" value=expr(min(100,Triceratops.Variable(Bond)+20))
+do SetNumberObjectVariable object="Triceratops" variable="FeedWait" modification_sign="=" value=expr(4)
+do SetNumberVariable variable="FeedingDone" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do PlaySound audio_file_or_audio_resource_name="feed.wav" repeat_the_sound=false volume=55 pitch_speed=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("三角龙信任 +20；等待 4 秒后再次喂食，按 H 可命令驯服的伙伴。")
+
+@event
+if NumberVariable variable="TameRequest" comparison_sign="=" value=expr(1)
+if NumberVariable variable="FeedingDone" comparison_sign="=" value=expr(0)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("靠近三角龙按 T：每次 3 浆果，间隔 4 秒；周围有捕食者时无法喂食。")
+
+@event
+if NumberVariable variable="TameRequest" comparison_sign="=" value=expr(1)
+do SetNumberVariable variable="TameRequest" modification_sign="=" value=expr(0)
+
+@event
+if NumberObjectVariable object="Triceratops" variable="Bond" comparison_sign=">=" value=expr(100)
+if NumberVariable variable="CompanionTamed" comparison_sign="=" value=expr(0)
+do SetNumberVariable variable="CompanionTamed" modification_sign="=" value=expr(1)
+do PlaySound audio_file_or_audio_resource_name="quest-complete.wav" repeat_the_sound=false volume=55 pitch_speed=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("三角龙已成为采集伙伴！附近采集浆果和纤维翻倍。H 切换跟随 / 留守。")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+if KeyFromTextReleased key_to_check="h"
+if NumberObjectVariable object="Triceratops" variable="Bond" comparison_sign=">=" value=expr(100)
+do SetNumberObjectVariable object="Triceratops" variable="Command" modification_sign="=" value=expr(1-Triceratops.Variable(Command))
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("伙伴命令已切换。靠近三角龙可查看跟随或留守状态。")
+
+@event
+if NumberVariable variable="Action" comparison_sign=">" value=expr(0)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
+

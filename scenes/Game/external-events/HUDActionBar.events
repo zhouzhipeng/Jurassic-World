@@ -201,35 +201,29 @@ do SetNumberVariable variable="Mode" modification_sign="=" value=1
 do SetNumberVariable variable="Recipe" modification_sign="=" value=1
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="长矛：制作后按空格反击食肉恐龙。"
 
-if NumberVariable variable="HotbarRequest" comparison_sign="=" value=3
-if NumberVariable variable="StationIndex" comparison_sign="=" value=0
-do SetNumberVariable variable="Action" modification_sign="=" value=1
+@comment "Functional consumables and building shortcut" background=[90,150,120] text=[255,255,255]
 
-if NumberVariable variable="HotbarRequest" comparison_sign="=" value=3
-if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Berries: travel to your dinosaur with Q, then feed it."
+@event
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=expr(3)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(20)
 
-if NumberVariable variable="HotbarRequest" comparison_sign="=" value=4
-do SetNumberVariable variable="Action" modification_sign="=" value=4
+@event
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=expr(4)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(4)
 
-if NumberVariable variable="HotbarRequest" comparison_sign="=" value=5
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="受伤后返回营地，生命会缓慢恢复。"
+@event
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=expr(5)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(21)
 
-if NumberVariable variable="HotbarRequest" comparison_sign="=" value=6
-if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=4
+@event
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=expr(6)
+do SetNumberVariable variable="Action" modification_sign="=" value=expr(22)
 
-if NumberVariable variable="HotbarRequest" comparison_sign="=" value=6
-if NumberVariable variable="StationIndex" comparison_sign="=" value=0
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Campfire: return to camp with Q to rest."
-
-if NumberVariable variable="HotbarRequest" comparison_sign="=" value=7
-if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=1
-
-if NumberVariable variable="HotbarRequest" comparison_sign="=" value=7
-if NumberVariable variable="StationIndex" comparison_sign="=" value=0
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Hammer: return to camp with Q to reinforce your shelter."
+@event
+if NumberVariable variable="HotbarRequest" comparison_sign="=" value=expr(7)
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(10)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("B 关闭建造；按数字键选部件，Enter 放置。")
 
 if NumberVariable variable="HotbarRequest" comparison_sign="=" value=8
 do SetNumberVariable variable="Mode" modification_sign="=" value=1

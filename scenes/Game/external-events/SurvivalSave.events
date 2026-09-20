@@ -1,0 +1,73 @@
+@comment "Additional survival save data; native storage and per-fire/per-seam identity" background=[90,150,120] text=[255,255,255]
+
+@event
+if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("SurvivalVersion") expression=expr(1)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.BodyTemp") expression=expr(BodyTemp)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Wetness") expression=expr(Wetness)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.NeedsClock") expression=expr(NeedsClock)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.CookedMeat") expression=expr(CookedMeat)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.MealsCooked") expression=expr(MealsCooked)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.WaterVisits") expression=expr(WaterVisits)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.BerriesEaten") expression=expr(BerriesEaten)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.MeatEaten") expression=expr(MeatEaten)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.MetalOre") expression=expr(MetalOre)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.MetalIngot") expression=expr(MetalIngot)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.GatherMetal") expression=expr(GatherMetal)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.SmeltedMetal") expression=expr(SmeltedMetal)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.MetalTools") expression=expr(MetalTools)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.ForgeBuilt") expression=expr(ForgeBuilt)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.ForgeTime") expression=expr(ForgeTime)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.ForgeBusy") expression=expr(ForgeBusy)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Canteen") expression=expr(Canteen)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.CanteenCharges") expression=expr(CanteenCharges)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.CompanionTamed") expression=expr(CompanionTamed)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.BaseMetal") expression=expr(BaseMetal)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.BaseMeals") expression=expr(BaseMeals)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.BaseKills") expression=expr(BaseKills)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Kills") expression=expr(Kills)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Health") expression=expr(Health)
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.PlayerX") expression=expr(Player3D.X())
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.PlayerY") expression=expr(Player3D.Y())
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.PlayerZ") expression=expr(PlayerFloor)
+
+@event
+if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)
+
+> @event
+> for each "SurvivalFires"
+
+>> @event
+>> if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Fire."+ToString(SurvivalFires.Variable(Slot))+".Fuel") expression=expr(SurvivalFires.Variable(Fuel))
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Fire."+ToString(SurvivalFires.Variable(Slot))+".CookTime") expression=expr(SurvivalFires.Variable(CookTime))
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Fire."+ToString(SurvivalFires.Variable(Slot))+".Cooking") expression=expr(SurvivalFires.Variable(Cooking))
+
+@event
+if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)
+
+> @event
+> for each "MetalDeposit"
+
+>> @event
+>> if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Ore."+ToString(MetalDeposit.Variable(SiteId))+".Cooldown") expression=expr(MetalDeposit.Variable(Cooldown))
+
+@event
+if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)
+
+> @event
+> for each "Triceratops"
+
+>> @event
+>> if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Trike"+".Bond") expression=expr(Triceratops.Variable(Bond))
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Trike"+".FeedWait") expression=expr(Triceratops.Variable(FeedWait))
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Trike"+".Command") expression=expr(Triceratops.Variable(Command))
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Trike"+".HP") expression=expr(Triceratops.Variable(HP))
+
+>> @event
+>> if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Trike.X") expression=expr(Triceratops.X())
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Trike.Y") expression=expr(Triceratops.Y())
+

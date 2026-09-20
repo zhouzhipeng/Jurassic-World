@@ -1,0 +1,71 @@
+@comment "Load defaults support older saves; world objects restore after building reconstruction" background=[90,150,120] text=[255,255,255]
+
+@event
+if NumberVariable variable="Action" comparison_sign="=" value=expr(10)
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do SetNumberVariable variable="BodyTemp" modification_sign="=" value=expr(37)
+do SetNumberVariable variable="Wetness" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="NeedsClock" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="CookedMeat" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="MealsCooked" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="WaterVisits" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="BerriesEaten" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="MeatEaten" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="MetalOre" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="MetalIngot" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="GatherMetal" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="SmeltedMetal" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="MetalTools" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="ForgeBuilt" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="ForgeTime" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="ForgeBusy" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Canteen" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="CanteenCharges" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="CompanionTamed" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="BaseMetal" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="BaseMeals" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="BaseKills" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Kills" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Health" modification_sign="=" value=expr(100)
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="NavMode" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="SurvivalLoadPending" modification_sign="=" value=expr(1)
+do SetNumberObjectVariable object="Triceratops" variable="Bond" modification_sign="=" value=expr(0)
+do SetNumberObjectVariable object="Triceratops" variable="FeedWait" modification_sign="=" value=expr(0)
+do SetNumberObjectVariable object="Triceratops" variable="Command" modification_sign="=" value=expr(0)
+do SetNumberObjectVariable object="SurvivalFires" variable="Fuel" modification_sign="=" value=expr(0)
+do SetNumberObjectVariable object="SurvivalFires" variable="CookTime" modification_sign="=" value=expr(0)
+do SetNumberObjectVariable object="SurvivalFires" variable="Cooking" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Action" comparison_sign="=" value=expr(10)
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+if GroupExists storage_name=expr(SaveStorage) group="SurvivalVersion"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.BodyTemp") variable="BodyTemp"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Wetness") variable="Wetness"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.NeedsClock") variable="NeedsClock"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.CookedMeat") variable="CookedMeat"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.MealsCooked") variable="MealsCooked"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.WaterVisits") variable="WaterVisits"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.BerriesEaten") variable="BerriesEaten"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.MeatEaten") variable="MeatEaten"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.MetalOre") variable="MetalOre"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.MetalIngot") variable="MetalIngot"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.GatherMetal") variable="GatherMetal"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.SmeltedMetal") variable="SmeltedMetal"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.MetalTools") variable="MetalTools"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.ForgeBuilt") variable="ForgeBuilt"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.ForgeTime") variable="ForgeTime"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.ForgeBusy") variable="ForgeBusy"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Canteen") variable="Canteen"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.CanteenCharges") variable="CanteenCharges"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.CompanionTamed") variable="CompanionTamed"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.BaseMetal") variable="BaseMetal"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.BaseMeals") variable="BaseMeals"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.BaseKills") variable="BaseKills"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Kills") variable="Kills"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Health") variable="Health"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.PlayerX") variable="SavedPlayerX"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.PlayerY") variable="SavedPlayerY"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.PlayerZ") variable="SavedPlayerZ"
+

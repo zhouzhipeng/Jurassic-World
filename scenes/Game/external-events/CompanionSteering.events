@@ -1,0 +1,27 @@
+@comment "Tamed triceratops follows the player; stay command holds position" background=[90,150,120] text=[255,255,255]
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+do SetNumberObjectVariable object="Triceratops" variable="FeedWait" modification_sign="=" value=expr(max(0,Triceratops.Variable(FeedWait)-TimeDelta()))
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberObjectVariable object="Triceratops" variable="Bond" comparison_sign=">=" value=expr(100)
+do SetNumberObjectVariable object="Triceratops" variable="State" modification_sign="=" value=expr(0)
+do SetNumberObjectVariable object="Triceratops" variable="Speed" modification_sign="=" value=expr(1400)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberObjectVariable object="Triceratops" variable="Bond" comparison_sign=">=" value=expr(100)
+if NumberObjectVariable object="Triceratops" variable="Command" comparison_sign="=" value=expr(0)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),Triceratops.X(),Triceratops.Y())) comparison_sign=">" second_expression=expr(420)
+do SetNumberObjectVariable object="Triceratops" variable="State" modification_sign="=" value=expr(1)
+do SetNumberObjectVariable object="Triceratops" variable="TargetX" modification_sign="=" value=expr(Player3D.X())
+do SetNumberObjectVariable object="Triceratops" variable="TargetY" modification_sign="=" value=expr(Player3D.Y())
+

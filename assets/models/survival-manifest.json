@@ -1,0 +1,57 @@
+[
+  {
+    "asset": "spring",
+    "dimensions": [
+      3.4890589714050293,
+      2.8879802227020264,
+      0.8800000548362732
+    ],
+    "triangles": 504,
+    "bytes": 48880,
+    "roundTripMeshes": 1
+  },
+  {
+    "asset": "ore",
+    "dimensions": [
+      2.0248045921325684,
+      1.4010554552078247,
+      1.6399999856948853
+    ],
+    "triangles": 280,
+    "bytes": 30780,
+    "roundTripMeshes": 1
+  },
+  {
+    "asset": "hearth",
+    "dimensions": [
+      1.621992826461792,
+      1.5892175436019897,
+      0.3349999785423279
+    ],
+    "triangles": 288,
+    "bytes": 30016,
+    "roundTripMeshes": 1
+  },
+  {
+    "asset": "flame",
+    "dimensions": [
+      0.7223803997039795,
+      0.6547127366065979,
+      0.9100000858306885
+    ],
+    "triangles": 96,
+    "bytes": 8412,
+    "roundTripMeshes": 1
+  },
+  {
+    "asset": "forge",
+    "dimensions": [
+      2.785717725753784,
+      1.434281587600708,
+      1.119999885559082
+    ],
+    "triangles": 716,
+    "bytes": 73052,
+    "roundTripMeshes": 1
+  }
+]

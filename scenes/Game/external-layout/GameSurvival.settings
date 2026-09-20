@@ -1,0 +1,135 @@
+kind = "externalLayout"
+settingsFormatVersion = 6
+order = 9
+name = "GameSurvival"
+
+[layout]
+version = 1
+
+[[layout.layers]]
+id = "world3d"
+name = "World3D"
+
+[[layout.layers]]
+id = "hud"
+name = "HUD"
+
+[[layout.instances]]
+id = "1acced0b-25da-416f-8258-554374e9cb00"
+object = "SpringWater"
+layer = "world3d"
+at = [-220, 850, 0]
+
+[[layout.instances]]
+id = "70bf1663-fca6-4634-a4b6-c7bf31d1d4f9"
+object = "SpringWater"
+layer = "world3d"
+at = [1580, 680, 0]
+
+[[layout.instances]]
+id = "c3f345f7-f70c-4d09-baaf-3a163cd674aa"
+object = "SpringWater"
+layer = "world3d"
+at = [-1550, -550, 0]
+
+[[layout.instances]]
+id = "d0002104-a8e2-4347-ab47-cc684baa8440"
+object = "MetalDeposit"
+layer = "world3d"
+at = [-1550, -1780, 0]
+
+[[layout.variables]]
+instance = "d0002104-a8e2-4347-ab47-cc684baa8440"
+name = "SiteId"
+type = "number"
+value = 0
+
+[[layout.instances]]
+id = "d6ef119c-44ee-4212-97ad-5ca055edcddd"
+object = "MetalDeposit"
+layer = "world3d"
+at = [-1200, -1840, 0]
+
+[[layout.variables]]
+instance = "d6ef119c-44ee-4212-97ad-5ca055edcddd"
+name = "SiteId"
+type = "number"
+value = 1
+
+[[layout.instances]]
+id = "9a2d61e6-be94-401c-9dec-844c76ecae22"
+object = "MetalDeposit"
+layer = "world3d"
+at = [-1100, -2240, 0]
+
+[[layout.variables]]
+instance = "9a2d61e6-be94-401c-9dec-844c76ecae22"
+name = "SiteId"
+type = "number"
+value = 2
+
+[[layout.instances]]
+id = "a5624014-88ed-4211-a29a-5bae7416219d"
+object = "MetalDeposit"
+layer = "world3d"
+at = [600, -1750, 0]
+
+[[layout.variables]]
+instance = "a5624014-88ed-4211-a29a-5bae7416219d"
+name = "SiteId"
+type = "number"
+value = 3
+
+[[layout.instances]]
+id = "193d70e9-d54d-452d-b6df-1c4cd4f6626b"
+object = "MetalDeposit"
+layer = "world3d"
+at = [1700, -1900, 0]
+
+[[layout.variables]]
+instance = "193d70e9-d54d-452d-b6df-1c4cd4f6626b"
+name = "SiteId"
+type = "number"
+value = 4
+
+[[layout.instances]]
+id = "e955bcc6-8d80-44c6-855a-fc4f813f15d5"
+object = "MetalDeposit"
+layer = "world3d"
+at = [1850, -2320, 0]
+
+[[layout.variables]]
+instance = "e955bcc6-8d80-44c6-855a-fc4f813f15d5"
+name = "SiteId"
+type = "number"
+value = 5
+
+[[layout.instances]]
+id = "35dab897-1104-4c3d-81e2-b345ef492c52"
+object = "CampHearth"
+layer = "world3d"
+at = [-800, 250, 0]
+
+[[layout.instances]]
+id = "5f1d847e-637d-4ae4-b168-8b578174abf7"
+object = "CampForge"
+layer = "world3d"
+at = [-1120, 300, 0]
+
+[[layout.instances]]
+id = "389d2a3e-8377-4f94-8008-6f1225944d22"
+object = "SurvivalPanel"
+layer = "hud"
+at = [23, 197, 0]
+size = [285, 140]
+keep_ratio = false
+z_order = 4
+
+[[layout.instances]]
+id = "97471a2f-b2dc-43b8-a012-f2400e11c7f8"
+object = "SurvivalStatus"
+layer = "hud"
+at = [36, 208, 0]
+size = [260, 125]
+keep_ratio = false
+z_order = 10

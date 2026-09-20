@@ -21,12 +21,12 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem"
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
 if IsCursorOnObject object="Slot4" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
-do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Berries: used to tame your companion. E near dinosaur."
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="浆果：按 3 食用；E 喂副栉龙，T 喂三角龙。"
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
 if IsCursorOnObject object="Slot5" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
-do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Meat: island survival supplies."
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="生肉：靠近燃烧的篝火按 C 烤熟；按 5 食用烤肉。"
 
 if NumberVariable variable="InputMode" comparison_sign="=" value=1
 if IsCursorOnObject object="Slot6" accurate_test_yes_by_default=false
@@ -108,6 +108,10 @@ if IsCursorOnObject object="Save" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
 
+@event
+link external "SurvivalSave"
+
+@event
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
 do EcrireFichierTxt storage_name=expr(SaveStorage) group="BuildingsV2" text=expr(ToJSON(BuildingRecords))
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Trust" expression=expr(Trust)

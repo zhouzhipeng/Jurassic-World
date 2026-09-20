@@ -1,0 +1,36 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 300
+folder = ["Survival"]
+name = "FireGlow"
+type = "Scene3D::Model3DObject"
+effects = [ ]
+behaviors = [ ]
+
+[[variables]]
+name = "Slot"
+type = "number"
+value = -1
+
+[[variables]]
+name = "OwnerFound"
+type = "number"
+value = 0
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 91.00000858306885
+height = 65.47127366065979
+width = 72.23803997039795
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "survival-flame.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+sharedAnimationModelResources = [ ]
+animations = [ ]

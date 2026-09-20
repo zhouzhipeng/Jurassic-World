@@ -2,6 +2,9 @@ link external "WeatherRestore"
 
 link external "TimeRestore"
 
+@event
+link external "SurvivalRestore"
+
 if NumberVariable variable="Action" comparison_sign="=" value=10
 if GroupExists storage_name=expr(SaveStorage) group="Version"
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Trust" variable="Trust"

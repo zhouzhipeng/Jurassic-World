@@ -7,6 +7,257 @@ disableInputWhenNotFocused = false
 standardSortMethod = true
 stopSoundsOnStartup = true
 behaviorsSharedData = [ ]
+
+[[variables]]
+name = "BodyTemp"
+type = "number"
+value = 37
+
+[[variables]]
+name = "Wetness"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NeedsClock"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Warmth"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NearWater"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NearFire"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NearForge"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CompanionBonus"
+type = "number"
+value = 0
+
+[[variables]]
+name = "UseRequest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "UseCooldown"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CookedMeat"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MealsCooked"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WaterVisits"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BerriesEaten"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MeatEaten"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MetalOre"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MetalIngot"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GatherMetal"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SmeltedMetal"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MetalTools"
+type = "number"
+value = 0
+
+[[variables]]
+name = "ForgeBuilt"
+type = "number"
+value = 0
+
+[[variables]]
+name = "ForgeTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "ForgeBusy"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Canteen"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CanteenCharges"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CompanionTamed"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NavMode"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NavX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NavY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NavForward"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NavRight"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NavName"
+type = "string"
+value = "任务目标"
+
+[[variables]]
+name = "NavDirection"
+type = "string"
+value = "前方"
+
+[[variables]]
+name = "SurvivalLoadPending"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SavedPlayerX"
+type = "number"
+value = 650
+
+[[variables]]
+name = "SavedPlayerY"
+type = "number"
+value = 200
+
+[[variables]]
+name = "SavedPlayerZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "LoadFuel"
+type = "number"
+value = 0
+
+[[variables]]
+name = "LoadCookTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "LoadCooking"
+type = "number"
+value = 0
+
+[[variables]]
+name = "LoadOreCooldown"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseMetal"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseMeals"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseKills"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MealRequest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TameRequest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FeedingDone"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TameAction"
+type = "string"
+value = "等待"
+
+[[variables]]
+name = "ThermalState"
+type = "string"
+value = "舒适"
+
+[[variables]]
+name = "LastTier"
+type = "number"
+value = 0
+
 [objectGroups]
 ModularParts = ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs"]
 AllBuildings = ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs", "BuiltShelter", "BuiltPalisade", "BuiltCampfire"]
@@ -14,7 +265,8 @@ Buildings = ["BuiltShelter", "BuiltPalisade", "BuiltCampfire"]
 BuildGhosts = ["PartFoundationValid", "PartFoundationInvalid", "PartPillarValid", "PartPillarInvalid", "PartWallValid", "PartWallInvalid", "PartDoorframeValid", "PartDoorframeInvalid", "PartCeilingValid", "PartCeilingInvalid", "PartDoorValid", "PartDoorInvalid", "PartStairsValid", "PartStairsInvalid", "BuiltShelterValid", "BuiltShelterInvalid", "BuiltPalisadeValid", "BuiltPalisadeInvalid", "BuiltCampfireValid", "BuiltCampfireInvalid"]
 Wildlife = ["Triceratops", "Stegosaur", "Raptor", "Tyrannosaur"]
 Predators = ["Raptor", "Tyrannosaur"]
-HarvestNodes = ["BerryBush", "FiberFern", "WoodSapling", "StoneDeposit"]
+HarvestNodes = [ "BerryBush", "FiberFern", "WoodSapling", "StoneDeposit", "MetalDeposit" ]
+SurvivalFires = ["CampHearth", "BuiltCampfire"]
 
 [[variables]]
 name = "BuildLevel"

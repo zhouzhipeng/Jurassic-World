@@ -71,3 +71,44 @@ name = "DayNightPersistence"
 type = "gameplay"
 description = "Save and restore day, time, speed and weather together through the native pause menu in an isolated slot."
 file = "tests/DayNightPersistence.js"
+
+
+[[tests]]
+scope = "project"
+order = 9
+name = "SurvivalSupplies"
+type = "gameplay"
+description = "Verify native survival gameplay, costs, state and input-driven progression."
+file = "tests/SurvivalSupplies.js"
+
+[[tests]]
+scope = "project"
+order = 10
+name = "CompanionGathering"
+type = "gameplay"
+description = "Verify native survival gameplay, costs, state and input-driven progression."
+file = "tests/CompanionGathering.js"
+
+[[tests]]
+scope = "project"
+order = 11
+name = "MetalProgression"
+type = "gameplay"
+description = "Verify native survival gameplay, costs, state and input-driven progression."
+file = "tests/MetalProgression.js"
+
+[[tests]]
+scope = "project"
+order = 12
+name = "SurvivalExposure"
+type = "gameplay"
+description = "Verify native survival gameplay, costs, state and input-driven progression."
+file = "tests/SurvivalExposure.js"
+
+[[tests]]
+scope = "project"
+order = 13
+name = "SurvivalPersistence"
+type = "gameplay"
+description = "Verify native survival gameplay, costs, state and input-driven progression."
+file = "tests/SurvivalPersistence.js"

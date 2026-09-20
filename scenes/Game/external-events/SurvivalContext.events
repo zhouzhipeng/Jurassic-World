@@ -1,0 +1,45 @@
+@comment "Context, companion gathering bonus, and shared interaction requests" background=[90,150,120] text=[255,255,255]
+
+@event
+if NumberVariable variable="Mode" comparison_sign=">=" value=expr(0)
+do SetNumberVariable variable="NearWater" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="NearFire" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="NearForge" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="CompanionBonus" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="Warmth" modification_sign="=" value=expr(0)
+
+@event
+if PickNearest object="SpringWater" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),SpringWater.X(),SpringWater.Y())) comparison_sign="<" second_expression=expr(265)
+do SetNumberVariable variable="NearWater" modification_sign="=" value=expr(1)
+
+@event
+if PickNearest object="SurvivalFires" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),SurvivalFires.X(),SurvivalFires.Y())) comparison_sign="<" second_expression=expr(255)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-SurvivalFires.Object3D::Z())) comparison_sign="<" second_expression=expr(130)
+do SetNumberVariable variable="NearFire" modification_sign="=" value=expr(1)
+
+@event
+if PickNearest object="SurvivalFires" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),SurvivalFires.X(),SurvivalFires.Y())) comparison_sign="<" second_expression=expr(320)
+if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=expr(0)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-SurvivalFires.Object3D::Z())) comparison_sign="<" second_expression=expr(160)
+do SetNumberVariable variable="Warmth" modification_sign="=" value=expr(1)
+
+@event
+if PickNearest object="CampForge" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),CampForge.X(),CampForge.Y())) comparison_sign="<" second_expression=expr(280)
+do SetNumberVariable variable="NearForge" modification_sign="=" value=expr(1)
+
+@event
+if NumberObjectVariable object="Triceratops" variable="Bond" comparison_sign=">=" value=expr(100)
+if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=expr(0)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),Triceratops.X(),Triceratops.Y())) comparison_sign="<" second_expression=expr(720)
+do SetNumberVariable variable="CompanionBonus" modification_sign="=" value=expr(1)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+do SetNumberVariable variable="UseCooldown" modification_sign="=" value=expr(max(0,UseCooldown-TimeDelta()))
+

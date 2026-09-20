@@ -1,0 +1,51 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 299
+folder = ["Survival"]
+name = "CampHearth"
+type = "Scene3D::Model3DObject"
+effects = [ ]
+behaviors = [ ]
+
+[[variables]]
+name = "Fuel"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CookTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Cooking"
+type = "number"
+value = 0
+
+[[variables]]
+name = "VisualReady"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Slot"
+type = "number"
+value = -1
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 33.49999785423279
+height = 158.92175436019897
+width = 162.1992826461792
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "survival-hearth.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+sharedAnimationModelResources = [ ]
+animations = [ ]
