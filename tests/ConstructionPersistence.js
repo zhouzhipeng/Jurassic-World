@@ -7,7 +7,12 @@ function decode(variable) {
   if (variable.type === 'structure') return Object.fromEntries((variable.children || []).map(child => [child.name, decode(child)]));
   return variable.value;
 }
-function records() { return JSON.stringify(decode(harness.getSceneVariable('BuildingRecords'))); }
+function records() {
+  // Loading expands the fixed-capacity pool. Empty slots are not buildings;
+  // retain original indices so support-parent and socket identity still matter.
+  return JSON.stringify(decode(harness.getSceneVariable('BuildingRecords'))
+    .map((record, slot) => ({ slot, ...record })).filter(record => record.Kind !== 0));
+}
 function buildings() {
   return JSON.stringify(parts.flatMap(name => harness.getObjects(name).map(object => ({
     name, x: object.x, y: object.y, z: object.z, angle: object.angle,
@@ -39,9 +44,12 @@ async function place(key, x, y) {
 try {
   await harness.goToScene('Game');
   await harness.stepFrames(2);
+  harness.assert(number('BuildMode') === 0 && number('BuildKind') === 10 && number('BuildAngle') === 0,
+    `Fresh scene resets construction controls: mode=${number('BuildMode')}, kind=${number('BuildKind')}, angle=${number('BuildAngle')}`);
   harness.setSceneVariable('SaveStorage', storage);
   for (const name of ['Wood', 'Stone', 'Fiber']) harness.setSceneVariable(name, 100);
   await tap('b');
+  harness.assert(number('BuildMode') === 1, 'B enters construction mode');
   await place('Num1', 0, 750);
   await place('Num4', 0, 900);
   await place('Num6', 0, 900);
