@@ -433,7 +433,7 @@ do ResetTimer timer_name="survival"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 if SceneJustBegins
-if GroupExists storage_name="JurassicWorldDemo" group="Version"
+if GroupExists storage_name=expr(SaveStorage) group="Version"
 do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text="Local save available. Choose Load Game."
 
 if NumberVariable variable="Mode" comparison_sign=">=" value=0
@@ -1164,36 +1164,36 @@ if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
 
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
-do EcrireFichierTxt storage_name="JurassicWorldDemo" group="BuildingsV1" text=expr(ToJSON(BuildingRecords))
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Trust" expression=expr(Trust)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Berries" expression=expr(Berries)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Wood" expression=expr(Wood)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Stone" expression=expr(Stone)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Fiber" expression=expr(Fiber)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Hide" expression=expr(Hide)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Meat" expression=expr(Meat)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Water" expression=expr(Water)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Stamina" expression=expr(Stamina)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Hunger" expression=expr(Hunger)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Axe" expression=expr(Axe)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Spear" expression=expr(Spear)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Flint" expression=expr(Flint)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Rope" expression=expr(Rope)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Built" expression=expr(Built)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="StationIndex" expression=expr(StationIndex)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="Version" expression=1
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="QuestStage" expression=expr(QuestStage)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="GatherBerries" expression=expr(GatherBerries)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="GatherFiber" expression=expr(GatherFiber)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="GatherWood" expression=expr(GatherWood)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="GatherStone" expression=expr(GatherStone)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="CraftedSpears" expression=expr(CraftedSpears)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="BaseBerries" expression=expr(BaseBerries)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="BaseFiber" expression=expr(BaseFiber)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="BaseWood" expression=expr(BaseWood)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="BaseStone" expression=expr(BaseStone)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="ExpeditionRounds" expression=expr(ExpeditionRounds)
-do EcrireFichierExp storage_name="JurassicWorldDemo" group="QuestVersion" expression=2
+do EcrireFichierTxt storage_name=expr(SaveStorage) group="BuildingsV1" text=expr(ToJSON(BuildingRecords))
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Trust" expression=expr(Trust)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Berries" expression=expr(Berries)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Wood" expression=expr(Wood)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Stone" expression=expr(Stone)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Fiber" expression=expr(Fiber)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Hide" expression=expr(Hide)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Meat" expression=expr(Meat)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Water" expression=expr(Water)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Stamina" expression=expr(Stamina)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Hunger" expression=expr(Hunger)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Axe" expression=expr(Axe)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Spear" expression=expr(Spear)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Flint" expression=expr(Flint)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Rope" expression=expr(Rope)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Built" expression=expr(Built)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="StationIndex" expression=expr(StationIndex)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Version" expression=1
+do EcrireFichierExp storage_name=expr(SaveStorage) group="QuestStage" expression=expr(QuestStage)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="GatherBerries" expression=expr(GatherBerries)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="GatherFiber" expression=expr(GatherFiber)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="GatherWood" expression=expr(GatherWood)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="GatherStone" expression=expr(GatherStone)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="CraftedSpears" expression=expr(CraftedSpears)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="BaseBerries" expression=expr(BaseBerries)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="BaseFiber" expression=expr(BaseFiber)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="BaseWood" expression=expr(BaseWood)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="BaseStone" expression=expr(BaseStone)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="ExpeditionRounds" expression=expr(ExpeditionRounds)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="QuestVersion" expression=2
 do SetNumberVariable variable="SaveRequested" modification_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text=expr("Saved on this device." + NewLine() + "All resources and progress stored.")
 do SetNumberVariable variable="SaveFlag" modification_sign="=" value=1
@@ -1204,40 +1204,40 @@ if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=10
 
 if NumberVariable variable="Action" comparison_sign="=" value=10
-if GroupExists storage_name="JurassicWorldDemo" group="Version"
+if GroupExists storage_name=expr(SaveStorage) group="Version"
 do SetStringVariable variable="BuildJSON" modification_sign="=" value="[]"
 do SetNumberVariable variable="BuildRestore" modification_sign="=" value=1
 do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
 
 if NumberVariable variable="Action" comparison_sign="=" value=10
-if GroupExists storage_name="JurassicWorldDemo" group="BuildingsV1"
-do ReadStringFromStorage storage_name="JurassicWorldDemo" group="BuildingsV1" variable="BuildJSON"
+if GroupExists storage_name=expr(SaveStorage) group="BuildingsV1"
+do ReadStringFromStorage storage_name=expr(SaveStorage) group="BuildingsV1" variable="BuildJSON"
 
 if NumberVariable variable="Action" comparison_sign="=" value=10
-if GroupExists storage_name="JurassicWorldDemo" group="Version"
+if GroupExists storage_name=expr(SaveStorage) group="Version"
 do SetNumberVariable variable="Riding" modification_sign="=" value=0
 do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X() + 240)
 do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y())
 
 if NumberVariable variable="Action" comparison_sign="=" value=10
-if GroupExists storage_name="JurassicWorldDemo" group="QuestVersion"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="QuestStage" variable="QuestStage"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="GatherBerries" variable="GatherBerries"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="GatherFiber" variable="GatherFiber"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="GatherWood" variable="GatherWood"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="GatherStone" variable="GatherStone"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="CraftedSpears" variable="CraftedSpears"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="BaseBerries" variable="BaseBerries"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="BaseFiber" variable="BaseFiber"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="BaseWood" variable="BaseWood"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="BaseStone" variable="BaseStone"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="ExpeditionRounds" variable="ExpeditionRounds"
+if GroupExists storage_name=expr(SaveStorage) group="QuestVersion"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="QuestStage" variable="QuestStage"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="GatherBerries" variable="GatherBerries"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="GatherFiber" variable="GatherFiber"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="GatherWood" variable="GatherWood"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="GatherStone" variable="GatherStone"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="CraftedSpears" variable="CraftedSpears"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="BaseBerries" variable="BaseBerries"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="BaseFiber" variable="BaseFiber"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="BaseWood" variable="BaseWood"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="BaseStone" variable="BaseStone"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="ExpeditionRounds" variable="ExpeditionRounds"
 do SetNumberVariable variable="QuestAnnounced" modification_sign="=" value=-1
 
 if NumberVariable variable="Action" comparison_sign="=" value=10
-if GroupExists storage_name="JurassicWorldDemo" group="Version"
+if GroupExists storage_name=expr(SaveStorage) group="Version"
 @instruction inverted=true
-if GroupExists storage_name="JurassicWorldDemo" group="QuestVersion"
+if GroupExists storage_name=expr(SaveStorage) group="QuestVersion"
 do SetNumberVariable variable="QuestStage" modification_sign="=" value=0
 do SetNumberVariable variable="GatherBerries" modification_sign="=" value=0
 do SetNumberVariable variable="GatherFiber" modification_sign="=" value=0
@@ -1252,23 +1252,23 @@ do SetNumberVariable variable="ExpeditionRounds" modification_sign="=" value=0
 do SetNumberVariable variable="QuestAnnounced" modification_sign="=" value=-1
 
 if NumberVariable variable="Action" comparison_sign="=" value=10
-if GroupExists storage_name="JurassicWorldDemo" group="Version"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Trust" variable="Trust"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Berries" variable="Berries"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Wood" variable="Wood"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Stone" variable="Stone"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Fiber" variable="Fiber"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Hide" variable="Hide"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Meat" variable="Meat"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Water" variable="Water"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Stamina" variable="Stamina"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Hunger" variable="Hunger"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Axe" variable="Axe"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Spear" variable="Spear"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Flint" variable="Flint"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Rope" variable="Rope"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="Built" variable="Built"
-do ReadNumberFromStorage storage_name="JurassicWorldDemo" group="StationIndex" variable="StationIndex"
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Trust" variable="Trust"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Berries" variable="Berries"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Wood" variable="Wood"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Stone" variable="Stone"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Fiber" variable="Fiber"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Hide" variable="Hide"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Meat" variable="Meat"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Water" variable="Water"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Stamina" variable="Stamina"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Hunger" variable="Hunger"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Axe" variable="Axe"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Spear" variable="Spear"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Flint" variable="Flint"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Rope" variable="Rope"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Built" variable="Built"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="StationIndex" variable="StationIndex"
 do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text="Local save loaded successfully."
 do SetNumberVariable variable="Action" modification_sign="=" value=0
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
@@ -1660,9 +1660,9 @@ do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
 if NumberVariable variable="QuestStage" comparison_sign="=" value=4
 do SetStringVariable variable="QuestName" modification_sign="=" value="安全的营地"
 do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("建造庇护所  " + ToString(min(Built, 1)) + " / 1")
-do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("按 Q 返回营地，再按 E 或快捷栏 7 加固。" + NewLine() + "需要木材 10、石头 5、纤维 8。")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("按 B 开启建造，选 1 庇护所；移动到空地后按 Enter。" + NewLine() + "需要木材 10、石头 5、纤维 8。")
 do SetStringVariable variable="QuestReward" modification_sign="=" value="绳索 +2；解锁野外补给委托"
-do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="伙伴已经信任你。回到木屋加固营地，为下一次出发建立落脚点。"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="伙伴已经信任你。收集材料，亲手搭建一座庇护所，为下一次出发建立落脚点。"
 
 if NumberVariable variable="QuestStage" comparison_sign="=" value=4
 if NumberVariable variable="Built" comparison_sign="=" value=1
@@ -4045,6 +4045,49 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="BuildKind" comparison_sign="=" value=3
 do ChangeColor object="BuildChoice3" tint="255;215;125"
 
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do Hide object="DinoPanel"
+do Hide object="DinoName"
+do Hide object="DinoLevel"
+do Hide object="TrustText"
+do Hide object="TrustTrack"
+do Hide object="TrustMeter"
+do Hide object="Feed"
+do Hide object="FeedLabel"
+do Hide object="MountButton"
+do Hide object="MountLabel"
+do Hide object="AudioButton"
+do Hide object="AudioLabel"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do Show object="DinoPanel"
+do Show object="DinoName"
+do Show object="DinoLevel"
+do Show object="TrustText"
+do Show object="TrustTrack"
+do Show object="TrustMeter"
+do Show object="Feed"
+do Show object="FeedLabel"
+do Show object="MountButton"
+do Show object="MountLabel"
+do Show object="AudioButton"
+do Show object="AudioLabel"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+
+> for each Buildings
+>> for each HarvestNodes
+>>> if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign=">" value=0
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(HarvestNodes.X()-Buildings.X())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHX)+50)
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(HarvestNodes.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+50)
+>>> do SetNumberObjectVariable object="HarvestNodes" variable="Cooldown" modification_sign="=" value=expr(max(1,HarvestNodes.Variable(Cooldown)))
+
 if NumberVariable variable="Mode" comparison_sign=">=" value=0
 do SetNumberObjectVariable object="BuildStatus" variable="Mode" modification_sign="=" value=expr(BuildMode)
 do SetNumberObjectVariable object="BuildStatus" variable="Kind" modification_sign="=" value=expr(BuildKind)
@@ -4056,6 +4099,9 @@ do SetNumberObjectVariable object="BuildStatus" variable="Angle" modification_si
 do SetNumberObjectVariable object="BuildStatus" variable="Slot" modification_sign="=" value=expr(BuildSlot)
 do SetNumberObjectVariable object="BuildStatus" variable="Warm" modification_sign="=" value=expr(BuildWarm)
 do SetNumberObjectVariable object="BuildStatus" variable="Rest" modification_sign="=" value=expr(BuildRest)
+do SetNumberObjectVariable object="BuildStatus" variable="Wood" modification_sign="=" value=expr(Wood)
+do SetNumberObjectVariable object="BuildStatus" variable="Stone" modification_sign="=" value=expr(Stone)
+do SetNumberObjectVariable object="BuildStatus" variable="Fiber" modification_sign="=" value=expr(Fiber)
 
 @comment "Player skeletal animation controller" background=[95,155,180] text=[255,255,255]
 

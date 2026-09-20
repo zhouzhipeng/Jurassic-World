@@ -121,6 +121,14 @@ out+=event(build,[f'do Show object={q(o)}' for o in ui]+[txt('BuildToggleLabel',
 for i in range(1,4):
  out+=event(build,[f'do ChangeColor object="BuildChoice{i}" tint="170;190;180"'])
  out+=event(build+[nv('BuildKind','=',i)],[f'do ChangeColor object="BuildChoice{i}" tint="255;215;125"'])
-out+=event([nv('Mode','>=',0)],[so('BuildStatus',k,ex(v)) for k,v in [('Mode','BuildMode'),('Kind','BuildKind'),('Valid','BuildValid'),('Count','BuildCount'),('X','BuildX'),('Y','BuildY'),('Angle','BuildAngle'),('Slot','BuildSlot'),('Warm','BuildWarm'),('Rest','BuildRest')]])
+# Conceal the underlying companion card while the construction panel occupies it.
+underlay=['DinoPanel','DinoName','DinoLevel','TrustText','TrustTrack','TrustMeter','Feed','FeedLabel','MountButton','MountLabel','AudioButton','AudioLabel']
+out+=event(build,[f'do Hide object={q(o)}' for o in underlay])
+out+=event(play+[nv('BuildMode')],[f'do Show object={q(o)}' for o in underlay])
+# Depleted resource nodes stay dormant inside a building footprint.
+out+=event([nv('Mode')],[])+'> for each Buildings\n>> for each HarvestNodes\n'+event([ov('HarvestNodes','Cooldown','>',0),cmp('abs(HarvestNodes.X()-Buildings.X())','<','Buildings.Variable(WorldHX)+50'),cmp('abs(HarvestNodes.Y()-Buildings.Y())','<','Buildings.Variable(WorldHY)+50')],[so('HarvestNodes','Cooldown',ex('max(1,HarvestNodes.Variable(Cooldown))'))],3)
+out+=event([nv('Mode','>=',0)],[so('BuildStatus',k,ex(v)) for k,v in [('Mode','BuildMode'),('Kind','BuildKind'),('Valid','BuildValid'),('Count','BuildCount'),('X','BuildX'),('Y','BuildY'),('Angle','BuildAngle'),('Slot','BuildSlot'),('Warm','BuildWarm'),('Rest','BuildRest'),('Wood','Wood'),('Stone','Stone'),('Fiber','Fiber')]])
 assert endmarker in s;s=s.replace(endmarker,out+endmarker,1)
+s=s.replace('storage_name="JurassicWorldDemo"','storage_name=expr(SaveStorage)')
+s=s.replace('按 Q 返回营地，再按 E 或快捷栏 7 加固。','按 B 开启建造，选 1 庇护所；移动到空地后按 Enter。').replace('回到木屋加固营地，为下一次出发建立落脚点。','收集材料，亲手搭建一座庇护所，为下一次出发建立落脚点。')
 F.write_text(s.rstrip()+'\n',encoding='utf-8')

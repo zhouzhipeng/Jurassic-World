@@ -58,6 +58,21 @@ name = "Rest"
 type = "number"
 value = 0
 
+[[variables]]
+name = "Wood"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Stone"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Fiber"
+type = "number"
+value = 0
+
 [content]
 text = "WASD 调整位置 · R 旋转\nEnter 建造 · B 退出"
 font = "interface.ttf"

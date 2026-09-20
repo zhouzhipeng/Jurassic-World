@@ -15,6 +15,11 @@ Predators = ["Raptor", "Tyrannosaur"]
 HarvestNodes = ["BerryBush", "FiberFern", "WoodSapling", "StoneDeposit"]
 
 [[variables]]
+name = "SaveStorage"
+type = "string"
+value = "JurassicWorldDemo"
+
+[[variables]]
 name = "BuildMode"
 type = "number"
 value = 0
