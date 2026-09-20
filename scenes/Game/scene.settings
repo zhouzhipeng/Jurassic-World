@@ -2948,28 +2948,28 @@ z_order = 12
 id = "4d71cf95-5e41-461b-9ee7-f0a0abbfdaf9"
 object = "Triceratops"
 layer = "world3d"
-at = [-950, 650, 0]
+at = [-1750, 1350, 0]
 z_order = 0
 
 [[layout.instances]]
 id = "bc1c730a-334f-4785-8a40-b9671fdfcbc9"
 object = "Stegosaur"
 layer = "world3d"
-at = [750, 780, 0]
+at = [1250, 1550, 0]
 z_order = 0
 
 [[layout.instances]]
 id = "3030d0a1-ab2a-44cf-8469-09ada543a597"
 object = "Raptor"
 layer = "world3d"
-at = [-100, -1100, 0]
+at = [-700, -2150, 0]
 z_order = 0
 
 [[layout.instances]]
 id = "29b2db2c-35d4-4fe4-b154-f1c8afb37b2a"
 object = "Tyrannosaur"
 layer = "world3d"
-at = [850, -1200, 0]
+at = [1350, -2100, 0]
 z_order = 0
 
 [[layout.instances]]
@@ -3181,3 +3181,219 @@ at = [1042, 540, 0]
 z_order = 100
 size = [520, 90]
 keep_ratio = false
+
+[[layout.instances]]
+id = "9e9a9ee5-6fd0-43b1-bc7b-62389409b1f6"
+object = "BerryBush"
+layer = "world3d"
+at = [-2150, -1900, 0]
+
+[[layout.instances]]
+id = "eb0551de-440b-422f-8969-f312658b8a94"
+object = "BerryBush"
+layer = "world3d"
+at = [-2100, -800, 0]
+
+[[layout.instances]]
+id = "e82b98db-0f97-41fd-900c-57afb6ea6929"
+object = "BerryBush"
+layer = "world3d"
+at = [-2050, 450, 0]
+
+[[layout.instances]]
+id = "89e4f6a3-a0e6-41c1-98de-feaf911476aa"
+object = "BerryBush"
+layer = "world3d"
+at = [-2000, 1850, 0]
+
+[[layout.instances]]
+id = "d6277891-43a6-4ed4-b827-5b5365ccd809"
+object = "BerryBush"
+layer = "world3d"
+at = [-750, 1900, 0]
+
+[[layout.instances]]
+id = "38bec98f-0751-48f5-9a81-3bd5420bdde6"
+object = "BerryBush"
+layer = "world3d"
+at = [650, 1900, 0]
+
+[[layout.instances]]
+id = "16dd7aee-48dc-44e5-a9f8-dcf63efd55d2"
+object = "BerryBush"
+layer = "world3d"
+at = [2150, 1700, 0]
+
+[[layout.instances]]
+id = "a9466824-7d9a-466b-968d-a3b972847b0c"
+object = "BerryBush"
+layer = "world3d"
+at = [2200, 400, 0]
+
+[[layout.instances]]
+id = "65649254-24e8-40aa-bb60-68d6cca38f56"
+object = "BerryBush"
+layer = "world3d"
+at = [2100, -1000, 0]
+
+[[layout.instances]]
+id = "dec3b137-873f-4b23-9f4e-2144e5119fec"
+object = "BerryBush"
+layer = "world3d"
+at = [600, -2500, 0]
+
+[[layout.instances]]
+id = "d0c2cdbb-4e62-462c-9deb-98550a840934"
+object = "FiberFern"
+layer = "world3d"
+at = [-1750, -2300, 0]
+
+[[layout.instances]]
+id = "96d131e7-dbaf-4c29-9f39-6d801c563cd8"
+object = "FiberFern"
+layer = "world3d"
+at = [-2350, -1300, 0]
+
+[[layout.instances]]
+id = "ea052171-bff2-45cf-9d04-586595028722"
+object = "FiberFern"
+layer = "world3d"
+at = [-2300, 0, 0]
+
+[[layout.instances]]
+id = "135f32b7-a3cc-4b91-8385-7d7933124cc3"
+object = "FiberFern"
+layer = "world3d"
+at = [-2250, 1250, 0]
+
+[[layout.instances]]
+id = "d07b3de1-a00f-4255-8dc9-bae9a025c51d"
+object = "FiberFern"
+layer = "world3d"
+at = [-1250, 1750, 0]
+
+[[layout.instances]]
+id = "fe4477dd-e948-44b2-a971-228deaaed2c6"
+object = "FiberFern"
+layer = "world3d"
+at = [200, 1700, 0]
+
+[[layout.instances]]
+id = "19225eed-9ea3-404b-a67c-b7926b0fd769"
+object = "FiberFern"
+layer = "world3d"
+at = [1800, 2050, 0]
+
+[[layout.instances]]
+id = "fd820b7a-36ad-4a5c-847f-9d8eac46cc80"
+object = "FiberFern"
+layer = "world3d"
+at = [2350, 900, 0]
+
+[[layout.instances]]
+id = "6e2afaeb-8167-4ad7-8a09-7e845277df69"
+object = "FiberFern"
+layer = "world3d"
+at = [1800, -1550, 0]
+
+[[layout.instances]]
+id = "f641a091-68c5-4ba7-95ca-634a7d5c06cc"
+object = "FiberFern"
+layer = "world3d"
+at = [-100, -2450, 0]
+
+[[layout.instances]]
+id = "775c2586-c4ae-4167-afda-92db423a22d3"
+object = "WoodSapling"
+layer = "world3d"
+at = [-2100, -2300, 0]
+
+[[layout.instances]]
+id = "4556d5ad-bff9-40d0-afb8-120b776ce666"
+object = "WoodSapling"
+layer = "world3d"
+at = [-2000, -1400, 0]
+
+[[layout.instances]]
+id = "e9176f84-be41-43c8-b691-352993a5d2cd"
+object = "WoodSapling"
+layer = "world3d"
+at = [-1950, 100, 0]
+
+[[layout.instances]]
+id = "2b0b1b15-f5ad-4be3-a5c8-04bddc09293a"
+object = "WoodSapling"
+layer = "world3d"
+at = [-1700, 1950, 0]
+
+[[layout.instances]]
+id = "974c8971-52cb-41f9-af13-fb419332a49d"
+object = "WoodSapling"
+layer = "world3d"
+at = [350, 1950, 0]
+
+[[layout.instances]]
+id = "589181eb-b7a8-4299-8378-cb918500a01e"
+object = "WoodSapling"
+layer = "world3d"
+at = [2050, 1200, 0]
+
+[[layout.instances]]
+id = "18183fe6-d2f9-46d7-bd8d-14f3f4ed61de"
+object = "WoodSapling"
+layer = "world3d"
+at = [2150, -500, 0]
+
+[[layout.instances]]
+id = "6a03dd99-d0d5-4e8e-afc0-9842e597d845"
+object = "WoodSapling"
+layer = "world3d"
+at = [1800, -2400, 0]
+
+[[layout.instances]]
+id = "eb79c569-b75b-49d5-9af3-8eb0d9b2015a"
+object = "StoneDeposit"
+layer = "world3d"
+at = [-1000, -2450, 0]
+
+[[layout.instances]]
+id = "8f073425-002c-4b33-83a6-25edf1fa2b08"
+object = "StoneDeposit"
+layer = "world3d"
+at = [-2300, -450, 0]
+
+[[layout.instances]]
+id = "0a157218-05bf-4568-aa3a-167ba8433384"
+object = "StoneDeposit"
+layer = "world3d"
+at = [-1850, 850, 0]
+
+[[layout.instances]]
+id = "d54fb896-0576-4f7a-a595-ebae3209f559"
+object = "StoneDeposit"
+layer = "world3d"
+at = [-450, 1700, 0]
+
+[[layout.instances]]
+id = "191a43a1-68d8-4b98-8432-cd999607a94f"
+object = "StoneDeposit"
+layer = "world3d"
+at = [1050, 2050, 0]
+
+[[layout.instances]]
+id = "1d430dad-1556-4b19-8e9f-bee371415480"
+object = "StoneDeposit"
+layer = "world3d"
+at = [2300, 0, 0]
+
+[[layout.instances]]
+id = "95b7b809-6e6c-4dcc-a2da-c7beae940e97"
+object = "StoneDeposit"
+layer = "world3d"
+at = [2300, -1800, 0]
+
+[[layout.instances]]
+id = "ca53c5cd-548c-4900-b952-748dc97fd698"
+object = "StoneDeposit"
+layer = "world3d"
+at = [700, -2150, 0]

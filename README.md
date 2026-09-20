@@ -97,3 +97,9 @@
 项目采用小型专用原生事件实现，无需引入第三方扩展。
 
 建造验证：`verification-construction.json` 与 `construction-preview.png`。检索官方扩展仓库后未找到适配当前原生 3D 建筑和资源流程的建造系统；二维 SnapToGrid 也不适用，因此采用小范围原生事件实现。存档测试将 `SaveStorage` 临时设为独立测试槽，正常游戏默认仍为 `JurassicWorldDemo`。
+
+## 三倍地图扩展
+
+可步行范围从 3000 × 2950 扩为 5200 × 5100（面积约 2.997 倍）：X 为 −2600～2600，Y 为 −2800～2300。营地、玩家和已有建筑坐标保持原位。陆地、海岸树木、草地和探索小径重新生成；可采集资源从 18 处增加到 54 处（15 浆果、15 蕨类、12 树木、12 石矿）。食草恐龙分布在南侧草地，食肉恐龙分布在北侧外围。步行、骑乘、下坐骑、野生恐龙和建造范围同步扩大，骑乘与建造边界保留体积安全距离。
+
+地形生成源：`tools/build_expanded_island.py`，模型：`assets/models/island.glb`；原 `island-source.blend` 保留，新编辑源为 `island-expanded-source.blend`。

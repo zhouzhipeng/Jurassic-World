@@ -24,12 +24,12 @@ value = 0
 [[variables]]
 name = "HomeX"
 type = "number"
-value = 750
+value = 1250
 
 [[variables]]
 name = "HomeY"
 type = "number"
-value = 780
+value = 1550
 
 [[variables]]
 name = "Radius"

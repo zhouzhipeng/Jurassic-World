@@ -116,22 +116,22 @@ do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
-if PosX object="Player3D" comparison_sign=">" value=1500
+if PosX object="Player3D" comparison_sign=">" value=2600
 do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
-if PosX object="Player3D" comparison_sign="<" value=-1500
+if PosX object="Player3D" comparison_sign="<" value=-2600
 do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
-if PosY object="Player3D" comparison_sign=">" value=1250
+if PosY object="Player3D" comparison_sign=">" value=2300
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
-if PosY object="Player3D" comparison_sign="<" value=-1700
+if PosY object="Player3D" comparison_sign="<" value=-2800
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
 @comment "Mount state, safe side dismount, rotated capsule separation" background=[95,150,175] text=[255,255,255]
@@ -192,25 +192,25 @@ do SetNumberVariable variable="DropAllowed" modification_sign="=" value=1
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 if NumberVariable variable="MountFound" comparison_sign="=" value=0
-if NumberVariable variable="DropX" comparison_sign="<" value=-1450
+if NumberVariable variable="DropX" comparison_sign="<" value=-2550
 do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
 
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 if NumberVariable variable="MountFound" comparison_sign="=" value=0
-if NumberVariable variable="DropX" comparison_sign=">" value=1450
+if NumberVariable variable="DropX" comparison_sign=">" value=2550
 do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
 
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 if NumberVariable variable="MountFound" comparison_sign="=" value=0
-if NumberVariable variable="DropY" comparison_sign="<" value=-1650
+if NumberVariable variable="DropY" comparison_sign="<" value=-2750
 do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
 
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 if NumberVariable variable="MountFound" comparison_sign="=" value=0
-if NumberVariable variable="DropY" comparison_sign=">" value=1200
+if NumberVariable variable="DropY" comparison_sign=">" value=2250
 do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
 
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
@@ -246,25 +246,25 @@ do SetNumberVariable variable="DropAllowed" modification_sign="=" value=1
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 if NumberVariable variable="MountFound" comparison_sign="=" value=0
-if NumberVariable variable="DropX" comparison_sign="<" value=-1450
+if NumberVariable variable="DropX" comparison_sign="<" value=-2550
 do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
 
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 if NumberVariable variable="MountFound" comparison_sign="=" value=0
-if NumberVariable variable="DropX" comparison_sign=">" value=1450
+if NumberVariable variable="DropX" comparison_sign=">" value=2550
 do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
 
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 if NumberVariable variable="MountFound" comparison_sign="=" value=0
-if NumberVariable variable="DropY" comparison_sign="<" value=-1650
+if NumberVariable variable="DropY" comparison_sign="<" value=-2750
 do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
 
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 if NumberVariable variable="MountFound" comparison_sign="=" value=0
-if NumberVariable variable="DropY" comparison_sign=">" value=1200
+if NumberVariable variable="DropY" comparison_sign=">" value=2250
 do SetNumberVariable variable="DropAllowed" modification_sign="=" value=0
 
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
@@ -311,7 +311,7 @@ do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(Angl
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
-if PosX object="Dinosaur3D" comparison_sign="<" value=-1070
+if PosX object="Dinosaur3D" comparison_sign="<" value=-2170
 do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
 do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
 do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(DinoPreviousAngle)
@@ -319,7 +319,7 @@ do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(Dino
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
-if PosX object="Dinosaur3D" comparison_sign=">" value=1070
+if PosX object="Dinosaur3D" comparison_sign=">" value=2170
 do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
 do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
 do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(DinoPreviousAngle)
@@ -327,7 +327,7 @@ do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(Dino
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
-if PosY object="Dinosaur3D" comparison_sign="<" value=-1270
+if PosY object="Dinosaur3D" comparison_sign="<" value=-2370
 do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
 do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
 do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(DinoPreviousAngle)
@@ -335,7 +335,7 @@ do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(Dino
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
-if PosY object="Dinosaur3D" comparison_sign=">" value=820
+if PosY object="Dinosaur3D" comparison_sign=">" value=1870
 do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
 do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
 do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(DinoPreviousAngle)
@@ -2228,7 +2228,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=0
-if PosX object="Triceratops" comparison_sign="<" value=-1400
+if PosX object="Triceratops" comparison_sign="<" value=-2170
 do SetX object="Triceratops" modification_sign="=" value=expr(Triceratops.Variable(PX))
 do SetY object="Triceratops" modification_sign="=" value=expr(Triceratops.Variable(PY))
 
@@ -2236,7 +2236,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=0
-if PosX object="Triceratops" comparison_sign=">" value=1400
+if PosX object="Triceratops" comparison_sign=">" value=2170
 do SetX object="Triceratops" modification_sign="=" value=expr(Triceratops.Variable(PX))
 do SetY object="Triceratops" modification_sign="=" value=expr(Triceratops.Variable(PY))
 
@@ -2244,7 +2244,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=0
-if PosY object="Triceratops" comparison_sign="<" value=-1500
+if PosY object="Triceratops" comparison_sign="<" value=-2370
 do SetX object="Triceratops" modification_sign="=" value=expr(Triceratops.Variable(PX))
 do SetY object="Triceratops" modification_sign="=" value=expr(Triceratops.Variable(PY))
 
@@ -2252,7 +2252,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=0
-if PosY object="Triceratops" comparison_sign=">" value=1000
+if PosY object="Triceratops" comparison_sign=">" value=1870
 do SetX object="Triceratops" modification_sign="=" value=expr(Triceratops.Variable(PX))
 do SetY object="Triceratops" modification_sign="=" value=expr(Triceratops.Variable(PY))
 
@@ -2413,7 +2413,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-if PosX object="Stegosaur" comparison_sign="<" value=-1400
+if PosX object="Stegosaur" comparison_sign="<" value=-2170
 do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
 do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
 
@@ -2421,7 +2421,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-if PosX object="Stegosaur" comparison_sign=">" value=1400
+if PosX object="Stegosaur" comparison_sign=">" value=2170
 do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
 do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
 
@@ -2429,7 +2429,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-if PosY object="Stegosaur" comparison_sign="<" value=-1500
+if PosY object="Stegosaur" comparison_sign="<" value=-2370
 do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
 do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
 
@@ -2437,7 +2437,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-if PosY object="Stegosaur" comparison_sign=">" value=1000
+if PosY object="Stegosaur" comparison_sign=">" value=1870
 do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
 do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
 
@@ -2690,7 +2690,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-if PosX object="Raptor" comparison_sign="<" value=-1400
+if PosX object="Raptor" comparison_sign="<" value=-2170
 do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
 do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
 
@@ -2698,7 +2698,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-if PosX object="Raptor" comparison_sign=">" value=1400
+if PosX object="Raptor" comparison_sign=">" value=2170
 do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
 do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
 
@@ -2706,7 +2706,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-if PosY object="Raptor" comparison_sign="<" value=-1500
+if PosY object="Raptor" comparison_sign="<" value=-2370
 do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
 do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
 
@@ -2714,7 +2714,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-if PosY object="Raptor" comparison_sign=">" value=1000
+if PosY object="Raptor" comparison_sign=">" value=1870
 do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
 do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
 
@@ -3025,7 +3025,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-if PosX object="Tyrannosaur" comparison_sign="<" value=-1400
+if PosX object="Tyrannosaur" comparison_sign="<" value=-2170
 do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
 do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
 
@@ -3033,7 +3033,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-if PosX object="Tyrannosaur" comparison_sign=">" value=1400
+if PosX object="Tyrannosaur" comparison_sign=">" value=2170
 do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
 do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
 
@@ -3041,7 +3041,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-if PosY object="Tyrannosaur" comparison_sign="<" value=-1500
+if PosY object="Tyrannosaur" comparison_sign="<" value=-2370
 do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
 do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
 
@@ -3049,7 +3049,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-if PosY object="Tyrannosaur" comparison_sign=">" value=1000
+if PosY object="Tyrannosaur" comparison_sign=">" value=1870
 do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
 do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
 
@@ -3584,7 +3584,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX) + BuildWorldHX) comparison_sign=">" second_expression=expr(1450)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX) + BuildWorldHX) comparison_sign=">" second_expression=expr(2550)
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
 do SetStringVariable variable="BuildReason" modification_sign="=" value="越过陆地范围，向岛内移动"
 
@@ -3592,7 +3592,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildY + BuildWorldHY) comparison_sign=">" second_expression=expr(1200)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildY + BuildWorldHY) comparison_sign=">" second_expression=expr(2250)
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
 do SetStringVariable variable="BuildReason" modification_sign="=" value="越过陆地范围，向岛内移动"
 
@@ -3600,7 +3600,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(-BuildY + BuildWorldHY) comparison_sign=">" second_expression=expr(1600)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(-BuildY + BuildWorldHY) comparison_sign=">" second_expression=expr(2700)
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
 do SetStringVariable variable="BuildReason" modification_sign="=" value="越过陆地范围，向岛内移动"
 

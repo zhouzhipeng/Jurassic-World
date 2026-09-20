@@ -73,7 +73,7 @@ for o,label,carn,detect,damage,reach in config:
   event(cond,[angle(o,V('TargetX'),V('TargetY')),pos(o,'X',ex(o+'.X() - sin(ToRad('+o+'.Angle())) * '+speed[5:-1]+' * TimeDelta()')),pos(o,'Y',ex(o+'.Y() + cos(ToRad('+o+'.Angle())) * '+speed[5:-1]+' * TimeDelta()'))])
  # Ground-plane bounds and cabin rollback. Avoid setting position by a large discontinuity.
  rollback=[pos(o,'X',ex(V('PX'))),pos(o,'Y',ex(V('PY')))]
- for axis,op,value in [('X','<',-1400),('X','>',1400),('Y','<',-1500),('Y','>',1000)]:event(alive+[f'if Pos{axis} object="{o}" comparison_sign="{op}" value={value}'],rollback)
+ for axis,op,value in [('X','<',-2170),('X','>',2170),('Y','<',-2370),('Y','>',1870)]:event(alive+[f'if Pos{axis} object="{o}" comparison_sign="{op}" value={value}'],rollback)
  event(alive+[f'if PosX object="{o}" comparison_sign=">" value=expr(-1250 - {V("Radius")})',f'if PosX object="{o}" comparison_sign="<" value=expr(-550 + {V("Radius")})',f'if PosY object="{o}" comparison_sign=">" value=expr(-1010 - {V("Radius")})',f'if PosY object="{o}" comparison_sign="<" value=expr(-380 + {V("Radius")})'],rollback)
  # Capsule covers torso and tail, rotates with heading. Expanded by player radius.
  event(alive+[nv('Riding','=',0)],[seto(o,'LocalX',ex(f'(Player3D.X() - {o}.X()) * cos(ToRad({o}.Angle())) + (Player3D.Y() - {o}.Y()) * sin(ToRad({o}.Angle()))')),seto(o,'LocalY',ex(f'-(Player3D.X() - {o}.X()) * sin(ToRad({o}.Angle())) + (Player3D.Y() - {o}.Y()) * cos(ToRad({o}.Angle()))')),seto(o,'NearY',ex(f'clamp({V("LocalY")}, -{V("HalfLength")} + {V("Radius")}, {reach} - {V("Radius")})')),seto(o,'Separation',ex(f'max(0.001, sqrt({V("LocalX")} * {V("LocalX")} + pow({V("LocalY")} - {V("NearY")}, 2)))'))])
