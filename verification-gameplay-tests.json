@@ -1,0 +1,542 @@
+{
+  "date": "2026-09-20",
+  "projectSourceCommit": "d245453",
+  "engineCommit": "275dfbc106",
+  "engineTests": {
+    "filter": "gdjs.InputManager|gdjs.gameplayTests",
+    "passed": 52,
+    "total": 52
+  },
+  "runs": [
+    {
+      "operation_id": "gameplay-tests-533357d1-a53c-4e28-8387-85113a3d30fd",
+      "status": "completed",
+      "summary": {
+        "total": 5,
+        "completed": 5,
+        "passed": 5,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "finished_at": "2026-09-20T02:29:18.676Z",
+      "results": [
+        {
+          "file": "tests/ConstructionPlacement.js",
+          "status": "passed",
+          "framesExecuted": 34,
+          "assertions": [
+            {
+              "message": "Clear ground accepts a foundation",
+              "passed": true
+            },
+            {
+              "message": "Off-grid aim snaps the foundation to (-1800, -600)",
+              "passed": true
+            },
+            {
+              "message": "One foundation costs 6/2/3, observed 94,98,97",
+              "passed": true
+            },
+            {
+              "message": "Idle frames and duplicate placement neither create another part nor charge materials",
+              "passed": true
+            },
+            {
+              "message": "Adjacent foundation socket is valid",
+              "passed": true
+            },
+            {
+              "message": "Adjacent foundation is created and charged exactly once",
+              "passed": true
+            },
+            {
+              "message": "Insufficient wood invalidates the clear socket",
+              "passed": true
+            },
+            {
+              "message": "Rejected placement leaves inventory and building count unchanged",
+              "passed": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "file": "tests/ConstructionSupport.js",
+          "status": "passed",
+          "framesExecuted": 75,
+          "assertions": [
+            {
+              "message": "A ceiling cannot float above empty ground",
+              "passed": true
+            },
+            {
+              "message": "Unsupported ceiling neither spawns nor consumes materials",
+              "passed": true
+            },
+            {
+              "message": "Supported Num1 placement is valid: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Supported Num3 placement is valid: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Supported Num5 placement is valid: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Supported Num3 placement is valid: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Ground wall and upper wall coexist at the same horizontal socket",
+              "passed": true
+            },
+            {
+              "message": "Foundation demolition is blocked while dependent parts exist",
+              "passed": true
+            },
+            {
+              "message": "Demolition at level 1 removes only the upper wall and preserves the ground wall",
+              "passed": true
+            },
+            {
+              "message": "Upper wall returns half of its materials, rounded down",
+              "passed": true
+            },
+            {
+              "message": "Removing children first allows the entire supported structure to be dismantled",
+              "passed": true
+            },
+            {
+              "message": "Each removed part refunds once: 90,99,94",
+              "passed": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "file": "tests/ConstructionDoors.js",
+          "status": "passed",
+          "framesExecuted": 209,
+          "assertions": [
+            {
+              "message": "Door requires a matching door frame",
+              "passed": true
+            },
+            {
+              "message": "Door snaps into its frame and starts closed",
+              "passed": true
+            },
+            {
+              "message": "Closed door blocks forward movement: y=494.1666666666664",
+              "passed": true
+            },
+            {
+              "message": "E opens the nearby door",
+              "passed": true
+            },
+            {
+              "message": "Opening a door does not free its socket for a duplicate",
+              "passed": true
+            },
+            {
+              "message": "Player walks through open doorway onto the floor: y=336.6666666666669, z=20",
+              "passed": true
+            },
+            {
+              "message": "E closes the same door again",
+              "passed": true
+            },
+            {
+              "message": "Closing the door restores its blocking collision",
+              "passed": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "file": "tests/ConstructionStairs.js",
+          "status": "passed",
+          "framesExecuted": 250,
+          "assertions": [
+            {
+              "message": "Stair fixture Num1 is placeable: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Stair fixture Num1 is placeable: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Stair fixture Num2 is placeable: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Stair fixture Num5 is placeable: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Stair fixture Num7 is placeable: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Stairs attach to the lower foundation",
+              "passed": true
+            },
+            {
+              "message": "A ceiling cannot cover the staircase headroom",
+              "passed": true
+            },
+            {
+              "message": "Walking up stairs reaches the upper floor: y=353.3333333333319, z=320",
+              "passed": true
+            },
+            {
+              "message": "Player remains supported while standing on the upper floor",
+              "passed": true
+            },
+            {
+              "message": "Walking down returns to ground: y=820, z=0",
+              "passed": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "file": "tests/ConstructionPersistence.js",
+          "status": "passed",
+          "framesExecuted": 59,
+          "assertions": [
+            {
+              "message": "Fresh scene resets construction controls: mode=0, kind=10, angle=0",
+              "passed": true
+            },
+            {
+              "message": "B enters construction mode",
+              "passed": true
+            },
+            {
+              "message": "Save fixture Num1 is placeable",
+              "passed": true
+            },
+            {
+              "message": "Save fixture Num4 is placeable",
+              "passed": true
+            },
+            {
+              "message": "Save fixture Num6 is placeable",
+              "passed": true
+            },
+            {
+              "message": "Save fixture Num2 is placeable",
+              "passed": true
+            },
+            {
+              "message": "Save fixture Num5 is placeable",
+              "passed": true
+            },
+            {
+              "message": "Save fixture contains an open door",
+              "passed": true
+            },
+            {
+              "message": "Escape opens the pause menu",
+              "passed": true
+            },
+            {
+              "message": "Save button confirms a completed save",
+              "passed": true
+            },
+            {
+              "message": "Fresh scene contains no prior test buildings",
+              "passed": true
+            },
+            {
+              "message": "Loading restores all building records, sockets, levels and support parents",
+              "passed": true
+            },
+            {
+              "message": "Restored meshes preserve positions, heights, support state and the swung-open door",
+              "passed": true
+            },
+            {
+              "message": "Loading restores exact inventory without charging construction again",
+              "passed": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "operation_id": "gameplay-tests-c52a2321-5605-4f77-96c0-3576647c3fb1",
+      "status": "completed",
+      "summary": {
+        "total": 5,
+        "completed": 5,
+        "passed": 5,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "finished_at": "2026-09-20T02:30:26.052Z",
+      "results": [
+        {
+          "file": "tests/ConstructionPlacement.js",
+          "status": "passed",
+          "framesExecuted": 34,
+          "assertions": [
+            {
+              "message": "Clear ground accepts a foundation",
+              "passed": true
+            },
+            {
+              "message": "Off-grid aim snaps the foundation to (-1800, -600)",
+              "passed": true
+            },
+            {
+              "message": "One foundation costs 6/2/3, observed 94,98,97",
+              "passed": true
+            },
+            {
+              "message": "Idle frames and duplicate placement neither create another part nor charge materials",
+              "passed": true
+            },
+            {
+              "message": "Adjacent foundation socket is valid",
+              "passed": true
+            },
+            {
+              "message": "Adjacent foundation is created and charged exactly once",
+              "passed": true
+            },
+            {
+              "message": "Insufficient wood invalidates the clear socket",
+              "passed": true
+            },
+            {
+              "message": "Rejected placement leaves inventory and building count unchanged",
+              "passed": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "file": "tests/ConstructionSupport.js",
+          "status": "passed",
+          "framesExecuted": 75,
+          "assertions": [
+            {
+              "message": "A ceiling cannot float above empty ground",
+              "passed": true
+            },
+            {
+              "message": "Unsupported ceiling neither spawns nor consumes materials",
+              "passed": true
+            },
+            {
+              "message": "Supported Num1 placement is valid: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Supported Num3 placement is valid: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Supported Num5 placement is valid: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Supported Num3 placement is valid: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Ground wall and upper wall coexist at the same horizontal socket",
+              "passed": true
+            },
+            {
+              "message": "Foundation demolition is blocked while dependent parts exist",
+              "passed": true
+            },
+            {
+              "message": "Demolition at level 1 removes only the upper wall and preserves the ground wall",
+              "passed": true
+            },
+            {
+              "message": "Upper wall returns half of its materials, rounded down",
+              "passed": true
+            },
+            {
+              "message": "Removing children first allows the entire supported structure to be dismantled",
+              "passed": true
+            },
+            {
+              "message": "Each removed part refunds once: 90,99,94",
+              "passed": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "file": "tests/ConstructionDoors.js",
+          "status": "passed",
+          "framesExecuted": 209,
+          "assertions": [
+            {
+              "message": "Door requires a matching door frame",
+              "passed": true
+            },
+            {
+              "message": "Door snaps into its frame and starts closed",
+              "passed": true
+            },
+            {
+              "message": "Closed door blocks forward movement: y=494.1666666666664",
+              "passed": true
+            },
+            {
+              "message": "E opens the nearby door",
+              "passed": true
+            },
+            {
+              "message": "Opening a door does not free its socket for a duplicate",
+              "passed": true
+            },
+            {
+              "message": "Player walks through open doorway onto the floor: y=336.6666666666669, z=20",
+              "passed": true
+            },
+            {
+              "message": "E closes the same door again",
+              "passed": true
+            },
+            {
+              "message": "Closing the door restores its blocking collision",
+              "passed": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "file": "tests/ConstructionStairs.js",
+          "status": "passed",
+          "framesExecuted": 250,
+          "assertions": [
+            {
+              "message": "Stair fixture Num1 is placeable: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Stair fixture Num1 is placeable: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Stair fixture Num2 is placeable: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Stair fixture Num5 is placeable: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Stair fixture Num7 is placeable: 吸附就绪 · Enter 放置",
+              "passed": true
+            },
+            {
+              "message": "Stairs attach to the lower foundation",
+              "passed": true
+            },
+            {
+              "message": "A ceiling cannot cover the staircase headroom",
+              "passed": true
+            },
+            {
+              "message": "Walking up stairs reaches the upper floor: y=353.3333333333319, z=320",
+              "passed": true
+            },
+            {
+              "message": "Player remains supported while standing on the upper floor",
+              "passed": true
+            },
+            {
+              "message": "Walking down returns to ground: y=820, z=0",
+              "passed": true
+            }
+          ],
+          "errors": []
+        },
+        {
+          "file": "tests/ConstructionPersistence.js",
+          "status": "passed",
+          "framesExecuted": 59,
+          "assertions": [
+            {
+              "message": "Fresh scene resets construction controls: mode=0, kind=10, angle=0",
+              "passed": true
+            },
+            {
+              "message": "B enters construction mode",
+              "passed": true
+            },
+            {
+              "message": "Save fixture Num1 is placeable",
+              "passed": true
+            },
+            {
+              "message": "Save fixture Num4 is placeable",
+              "passed": true
+            },
+            {
+              "message": "Save fixture Num6 is placeable",
+              "passed": true
+            },
+            {
+              "message": "Save fixture Num2 is placeable",
+              "passed": true
+            },
+            {
+              "message": "Save fixture Num5 is placeable",
+              "passed": true
+            },
+            {
+              "message": "Save fixture contains an open door",
+              "passed": true
+            },
+            {
+              "message": "Escape opens the pause menu",
+              "passed": true
+            },
+            {
+              "message": "Save button confirms a completed save",
+              "passed": true
+            },
+            {
+              "message": "Fresh scene contains no prior test buildings",
+              "passed": true
+            },
+            {
+              "message": "Loading restores all building records, sockets, levels and support parents",
+              "passed": true
+            },
+            {
+              "message": "Restored meshes preserve positions, heights, support state and the swung-open door",
+              "passed": true
+            },
+            {
+              "message": "Loading restores exact inventory without charging construction again",
+              "passed": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}
