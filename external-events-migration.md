@@ -43,5 +43,10 @@
 - GDevelop 新引擎成功打开格式 6 项目。
 - `generate_catalogs` 完成；settings catalog 为版本 3，片段只有 eventsUri。
 - `validate_project_files`：valid=true；序列化往返、结构、语义检查、场景与扩展代码生成均通过，诊断为零。
-- 引擎：Core 138 个断言通过；相关编辑器与存储回归 210 项通过；场景代码生成 10 项通过；生产构建与修改文件 ESLint 通过。
+- 引擎：Core 138 个断言通过；相关编辑器与存储回归 213 项通过；场景代码生成 10 项通过；生产构建与修改文件 ESLint 通过。
 - 存储套件中已有 Physics3D 隐藏属性断言与当前扩展声明不符；使用 HEAD 版本 catalog 生成器复现确认，与本次重构无关。该单项未计入通过数量。
+
+- `reload_project` 成功，已从磁盘加载新片段结构。
+- 全部 5 项现有建造测试完成且通过（52 个断言）：ConstructionPlacement、ConstructionSupport、ConstructionDoors、ConstructionStairs、ConstructionPersistence。
+- `verify_project_change`：runtimeVerified=true、completionReady=true。8 帧内运行时错误为 0，Player3D、StatusPanel、HotSlot0、BuildPanel、WildPanel 各恰好 1 个，玩家坐标有限，7 个断言全部通过。
+- 预览截图与详细断言位于忽略目录 `issues/external-events-refactor-preview.png`、`issues/external-events-verification.json`。
