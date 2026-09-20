@@ -149,13 +149,13 @@ do Show object="WeatherStatus"
 > local rainY = 0
 > if NumberVariable variable="WeatherRain" comparison_sign=">" value=0.015
 > if NumberVariable variable="WeatherSheltered" comparison_sign="=" value=0
-> do PrimitiveDrawing::FillColor shape_painter_object="WeatherCanvas" fill_color="200;225;245"
+> do PrimitiveDrawing::OutlineColor shape_painter_object="WeatherCanvas" color="200;225;245"
 
 >> local drop = 0
 >> repeat "round(180 * WeatherRain)" index=drop
 >>> do SetNumberVariable variable="rainX" modification_sign="=" value=expr(mod(drop * 137.51 + WeatherMotion * (90 + WeatherCloud * 190), 1760) - 80)
 >>> do SetNumberVariable variable="rainY" modification_sign="=" value=expr(mod(drop * 293.73 + WeatherMotion * (700 + mod(drop, 5) * 55), 1080) - 90)
->>> do PrimitiveDrawing::FillOpacity shape_painter_object="WeatherCanvas" modification_sign="=" opacity_0_255=expr(WeatherRain * (45 + mod(drop, 4) * 24))
+>>> do PrimitiveDrawing::OutlineOpacity shape_painter_object="WeatherCanvas" modification_sign="=" opacity_0_255=expr(WeatherRain * (45 + mod(drop, 4) * 24))
 >>> do PrimitiveDrawing::LineV2 shape_painter_object="WeatherCanvas" x_position_of_start_point=expr(rainX) y_position_of_start_point=expr(rainY) x_position_of_end_point=expr(rainX - 4 - WeatherCloud * 9) y_position_of_end_point=expr(rainY + 16 + WeatherRain * 22) thickness_in_pixels=expr(1 + mod(drop, 3) * 0.35)
 
 > if NumberVariable variable="WeatherFlash" comparison_sign=">" value=0

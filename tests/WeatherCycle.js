@@ -23,6 +23,9 @@ try {
     'Rain builds up and changes the actual scene background');
   harness.assert(harness.getObjects('WeatherStatus')[0]?.text?.includes('降雨') === true
     && value('WeatherRainVolume') > 20, 'HUD and rain ambience follow the rain state');
+  const rainCanvas = harness.getObjects('WeatherCanvas')[0];
+  harness.assert(!rainCanvas.hidden && rainCanvas.width > 1400 && rainCanvas.height > 800,
+    'Rain strokes cover the viewport using one visible weather canvas');
 
   await tap('Escape');
   const frozenClock = value('WeatherClock');
