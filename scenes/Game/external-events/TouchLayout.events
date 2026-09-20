@@ -2,6 +2,12 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 do SetNumberVariable variable="TouchWidth" modification_sign="=" value=expr(SceneWindowWidth())
 do SetNumberVariable variable="TouchHeight" modification_sign="=" value=expr(SceneWindowHeight())
 do SetNumberVariable variable="TouchScale" modification_sign="=" value=expr(clamp(min(TouchWidth/1000,TouchHeight/650),0.55,1.35))
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchWidth) comparison_sign="<" second_expression=expr(TouchHeight)
+do SetNumberVariable variable="TouchScale" modification_sign="=" value=expr(clamp(min(TouchWidth/720,TouchHeight/900),0.55,1.35))
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 do SetNumberVariable variable="TouchMargin" modification_sign="=" value=expr(42*TouchScale)
 do SetNumberVariable variable="TouchJoyX" modification_sign="=" value=expr(TouchMargin+110*TouchScale)
 do SetNumberVariable variable="TouchJoyY" modification_sign="=" value=expr(TouchHeight-TouchMargin-110*TouchScale)
@@ -19,7 +25,7 @@ do SetNumberVariable variable="TouchColumns" modification_sign="=" value=expr(1)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 do SetNumberVariable variable="TouchCardWidth" modification_sign="=" value=expr((TouchMenuWidth-60*TouchScale)/TouchColumns-12*TouchScale)
-do SetNumberVariable variable="TouchCardHeight" modification_sign="=" value=expr(min(94*TouchScale,(TouchMenuHeight-230*TouchScale)/(8/TouchColumns)))
+do SetNumberVariable variable="TouchCardHeight" modification_sign="=" value=expr(min(94*TouchScale,(TouchMenuHeight-230*TouchScale-(8/TouchColumns-1)*8*TouchScale)/(8/TouchColumns)))
 do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(0)
 do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(1)
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(28)
@@ -47,7 +53,7 @@ do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-90*TouchScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchMargin)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(90*TouchScale) height=expr(72*TouchScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(90*TouchScale) height=expr(88*TouchScale)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -59,8 +65,8 @@ do SetStringObjectVariable object="TouchButton" variable="Label" modification_si
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(28)
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-90*TouchScale)
-do SetY object="TouchButton" modification_sign="=" value=expr(TouchMargin+88*TouchScale)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(90*TouchScale) height=expr(72*TouchScale)
+do SetY object="TouchButton" modification_sign="=" value=expr(TouchMargin+104*TouchScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(90*TouchScale) height=expr(88*TouchScale)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -73,8 +79,8 @@ do SetStringObjectVariable object="TouchButton" variable="Label" modification_si
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(28)
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-90*TouchScale)
-do SetY object="TouchButton" modification_sign="=" value=expr(TouchMargin+176*TouchScale)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(90*TouchScale) height=expr(72*TouchScale)
+do SetY object="TouchButton" modification_sign="=" value=expr(TouchMargin+208*TouchScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(90*TouchScale) height=expr(88*TouchScale)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -101,7 +107,7 @@ do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-104*TouchScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchHeight-TouchMargin-275*TouchScale)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(104*TouchScale) height=expr(76*TouchScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(104*TouchScale) height=expr(88*TouchScale)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -180,7 +186,7 @@ do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-104*TouchScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchHeight-TouchMargin-275*TouchScale)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(104*TouchScale) height=expr(76*TouchScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(104*TouchScale) height=expr(88*TouchScale)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -194,7 +200,7 @@ do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-104*TouchScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchHeight-TouchMargin-365*TouchScale)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(104*TouchScale) height=expr(76*TouchScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(104*TouchScale) height=expr(88*TouchScale)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -208,7 +214,7 @@ do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-224*TouchScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchHeight-TouchMargin-365*TouchScale)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(104*TouchScale) height=expr(76*TouchScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(104*TouchScale) height=expr(88*TouchScale)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -292,7 +298,7 @@ do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchMenuX+TouchMenuWidth-112*TouchScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchMenuY+10*TouchScale)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(92*TouchScale) height=expr(65*TouchScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(92*TouchScale) height=expr(88*TouchScale)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
@@ -948,7 +954,7 @@ do SetNumberObjectVariable object="TouchButton" variable="Command" modification_
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="管理"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-224*TouchScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchHeight-TouchMargin-275*TouchScale)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(104*TouchScale) height=expr(76*TouchScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(104*TouchScale) height=expr(88*TouchScale)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchPanel" comparison_sign="=" value=4

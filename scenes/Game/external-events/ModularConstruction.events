@@ -171,7 +171,7 @@ do SetNumberVariable variable="BuildZ" modification_sign="=" value=expr(20+Build
 do SetNumberVariable variable="BuildParent" modification_sign="=" value=expr(-1)
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(1)
 do SetNumberVariable variable="BuildSlot" modification_sign="=" value=expr(-1)
-do SetStringVariable variable="BuildReason" modification_sign="=" value="吸附就绪 · Enter 放置"
+do SetStringVariable variable="BuildReason" modification_sign="=" value="吸附就绪 · 点「放置」"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
@@ -460,7 +460,7 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(10)
 if NumberVariable variable="BuildLevel" comparison_sign=">" value=expr(0)
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(0)
-do SetStringVariable variable="BuildReason" modification_sign="=" value="地基和篝火请切回第 1 层（PageDown）"
+do SetStringVariable variable="BuildReason" modification_sign="=" value="地基和篝火请点「层 −」切回第 1 层"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
@@ -469,7 +469,7 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(3)
 if NumberVariable variable="BuildLevel" comparison_sign=">" value=expr(0)
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(0)
-do SetStringVariable variable="BuildReason" modification_sign="=" value="地基和篝火请切回第 1 层（PageDown）"
+do SetStringVariable variable="BuildReason" modification_sign="=" value="地基和篝火请点「层 −」切回第 1 层"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)

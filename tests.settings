@@ -142,5 +142,5 @@ scope = "project"
 order = 17
 name = "TouchResponsive"
 type = "gameplay"
-description = "Portrait, landscape and square touch layouts."
+description = "Touch control bounds and card layout at multiple logical resolutions; aspect ratios checked in preview."
 file = "tests/TouchResponsive.js"
