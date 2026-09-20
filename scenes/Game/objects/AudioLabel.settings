@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 239
+folder = ["HUD"]
+name = "AudioLabel"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "M 声音：开启"
+font = "interface.ttf"
+characterSize = 17
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 237
+folder = ["HUD"]
+name = "WildHint"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "荒野生态 · 留意食肉恐龙\n空格反击 · M 声音 · 濒危时返回营地"
+font = "interface.ttf"
+characterSize = 17
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

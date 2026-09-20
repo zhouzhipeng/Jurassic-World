@@ -1,0 +1,56 @@
+[
+  {
+    "species": "triceratops",
+    "dimensions": [
+      1.6443790197372437,
+      4.823432445526123,
+      2.56499981880188
+    ],
+    "clips": [
+      "Idle",
+      "Walk"
+    ],
+    "triangles": 1540
+  },
+  {
+    "species": "stegosaur",
+    "dimensions": [
+      1.455528974533081,
+      5.053028106689453,
+      2.9135735034942627
+    ],
+    "clips": [
+      "Idle",
+      "Walk"
+    ],
+    "triangles": 2056
+  },
+  {
+    "species": "raptor",
+    "dimensions": [
+      1.1765077114105225,
+      3.7522714138031006,
+      1.837499976158142
+    ],
+    "clips": [
+      "Idle",
+      "Walk",
+      "Attack"
+    ],
+    "triangles": 2252
+  },
+  {
+    "species": "tyrannosaur",
+    "dimensions": [
+      2.1177139282226562,
+      6.75408935546875,
+      3.428999900817871
+    ],
+    "clips": [
+      "Idle",
+      "Walk",
+      "Attack"
+    ],
+    "triangles": 2252
+  }
+]

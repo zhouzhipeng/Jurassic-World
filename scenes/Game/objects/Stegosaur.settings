@@ -1,0 +1,183 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 233
+folder = ["Wildlife"]
+name = "Stegosaur"
+type = "Scene3D::Model3DObject"
+behaviors = [ ]
+effects = [ ]
+[[variables]]
+name = "HP"
+type = "number"
+value = 240
+
+[[variables]]
+name = "MaxHP"
+type = "number"
+value = 240
+
+[[variables]]
+name = "Carnivore"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HomeX"
+type = "number"
+value = 750
+
+[[variables]]
+name = "HomeY"
+type = "number"
+value = 780
+
+[[variables]]
+name = "Radius"
+type = "number"
+value = 110
+
+[[variables]]
+name = "HalfLength"
+type = "number"
+value = 250
+
+[[variables]]
+name = "Speed"
+type = "number"
+value = 80
+
+[[variables]]
+name = "Damage"
+type = "number"
+value = 0
+
+[[variables]]
+name = "State"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Clock"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AIClock"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Cooldown"
+type = "number"
+value = 2
+
+[[variables]]
+name = "Windup"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DamageDone"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PX"
+type = "number"
+value = 750
+
+[[variables]]
+name = "PY"
+type = "number"
+value = 780
+
+[[variables]]
+name = "PA"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TargetX"
+type = "number"
+value = 750
+
+[[variables]]
+name = "TargetY"
+type = "number"
+value = 780
+
+[[variables]]
+name = "Distance"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Travel"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Respawn"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AnimationState"
+type = "number"
+value = 0
+
+[[variables]]
+name = "LocalX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "LocalY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NearY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Separation"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BodyDistance"
+type = "number"
+value = 0
+
+[content]
+modelResourceName = "stegosaur.glb"
+width = 146
+height = 505
+depth = 291
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true
+crossfadeDuration = 0.12
+sharedAnimationModelResources = [ ]
+
+[[content.animations]]
+name = "Idle"
+source = "Idle"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Walk"
+source = "Walk"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false

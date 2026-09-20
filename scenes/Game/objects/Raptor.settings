@@ -1,0 +1,190 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 234
+folder = ["Wildlife"]
+name = "Raptor"
+type = "Scene3D::Model3DObject"
+behaviors = [ ]
+effects = [ ]
+[[variables]]
+name = "HP"
+type = "number"
+value = 100
+
+[[variables]]
+name = "MaxHP"
+type = "number"
+value = 100
+
+[[variables]]
+name = "Carnivore"
+type = "number"
+value = 1
+
+[[variables]]
+name = "HomeX"
+type = "number"
+value = -100
+
+[[variables]]
+name = "HomeY"
+type = "number"
+value = -1100
+
+[[variables]]
+name = "Radius"
+type = "number"
+value = 95
+
+[[variables]]
+name = "HalfLength"
+type = "number"
+value = 190
+
+[[variables]]
+name = "Speed"
+type = "number"
+value = 285
+
+[[variables]]
+name = "Damage"
+type = "number"
+value = 12
+
+[[variables]]
+name = "State"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Clock"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AIClock"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Cooldown"
+type = "number"
+value = 2
+
+[[variables]]
+name = "Windup"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DamageDone"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PX"
+type = "number"
+value = -100
+
+[[variables]]
+name = "PY"
+type = "number"
+value = -1100
+
+[[variables]]
+name = "PA"
+type = "number"
+value = 0
+
+[[variables]]
+name = "TargetX"
+type = "number"
+value = -100
+
+[[variables]]
+name = "TargetY"
+type = "number"
+value = -1100
+
+[[variables]]
+name = "Distance"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Travel"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Respawn"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AnimationState"
+type = "number"
+value = 0
+
+[[variables]]
+name = "LocalX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "LocalY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NearY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Separation"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BodyDistance"
+type = "number"
+value = 0
+
+[content]
+modelResourceName = "raptor.glb"
+width = 118
+height = 375
+depth = 184
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true
+crossfadeDuration = 0.12
+sharedAnimationModelResources = [ ]
+
+[[content.animations]]
+name = "Idle"
+source = "Idle"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Walk"
+source = "Walk"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Attack"
+source = "Attack"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false

@@ -8,7 +8,114 @@ standardSortMethod = true
 stopSoundsOnStartup = true
 behaviorsSharedData = [ ]
 [objectGroups]
+Wildlife = ["Triceratops", "Stegosaur", "Raptor", "Tyrannosaur"]
+Predators = ["Raptor", "Tyrannosaur"]
 HarvestNodes = ["BerryBush", "FiberFern", "WoodSapling", "StoneDeposit"]
+
+[[variables]]
+name = "Health"
+type = "number"
+value = 100
+
+[[variables]]
+name = "Dead"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Invulnerable"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Threat"
+type = "number"
+value = 0
+
+[[variables]]
+name = "ThreatMix"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MusicStarted"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Muted"
+type = "number"
+value = 0
+
+[[variables]]
+name = "StepClock"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CombatCD"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CombatSwing"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CombatHit"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Kills"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DeathCount"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NearestWild"
+type = "number"
+value = 9999
+
+[[variables]]
+name = "HitFlash"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SafeCamp"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AudioMode"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AudioRiding"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SoundClock"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CombatLesson"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FacingTarget"
+type = "number"
+value = 0
 
 [[variables]]
 name = "Mode"
@@ -2704,3 +2811,100 @@ at = [1050, 538]
 size = [290, 32]
 keep_ratio = false
 z_order = 12
+
+[[layout.instances]]
+id = "4d71cf95-5e41-461b-9ee7-f0a0abbfdaf9"
+object = "Triceratops"
+layer = "world3d"
+at = [-950, 650, 0]
+z_order = 0
+
+[[layout.instances]]
+id = "bc1c730a-334f-4785-8a40-b9671fdfcbc9"
+object = "Stegosaur"
+layer = "world3d"
+at = [750, 780, 0]
+z_order = 0
+
+[[layout.instances]]
+id = "3030d0a1-ab2a-44cf-8469-09ada543a597"
+object = "Raptor"
+layer = "world3d"
+at = [-100, -1100, 0]
+z_order = 0
+
+[[layout.instances]]
+id = "29b2db2c-35d4-4fe4-b154-f1c8afb37b2a"
+object = "Tyrannosaur"
+layer = "world3d"
+at = [850, -1200, 0]
+z_order = 0
+
+[[layout.instances]]
+id = "ce2a05d5-393d-4d27-a880-62a1d1f2ff1c"
+object = "WildPanel"
+layer = "hud"
+at = [340, 96, 0]
+z_order = 20
+size = [650, 82]
+keep_ratio = false
+
+[[layout.instances]]
+id = "31b2031c-c609-4ba5-b4c7-99fb36e63fee"
+object = "WildHint"
+layer = "hud"
+at = [358, 108, 0]
+z_order = 20
+size = [615, 70]
+keep_ratio = false
+
+[[layout.instances]]
+id = "cdeebe45-52e8-4b2e-8462-cf94445bb644"
+object = "AudioButton"
+layer = "hud"
+at = [1050, 588, 0]
+z_order = 20
+size = [310, 36]
+keep_ratio = false
+
+[[layout.instances]]
+id = "35992847-dbe1-4454-a387-9903cbd8ce8e"
+object = "AudioLabel"
+layer = "hud"
+at = [1066, 596, 0]
+z_order = 20
+size = [290, 30]
+keep_ratio = false
+
+[[layout.instances]]
+id = "2d9bfeca-7b44-4148-b600-44979b599d0e"
+object = "DeathPanel"
+layer = "hud"
+at = [400, 240, 0]
+z_order = 20
+size = [800, 370]
+keep_ratio = false
+
+[[layout.instances]]
+id = "a0031553-6893-4b53-81d1-97915923ba7a"
+object = "DeathText"
+layer = "hud"
+at = [440, 295, 0]
+z_order = 20
+size = [720, 260]
+keep_ratio = false
+
+[[layout.instances]]
+id = "6e78268d-a128-40af-9632-286da4cc28eb"
+object = "DamageFlash"
+layer = "hud"
+at = [0, 0, 0]
+z_order = 20
+size = [1600, 900]
+keep_ratio = false
+
+[[layout.instances]]
+id = "ff1f837a-0615-48ec-82e0-1a29a38c4f3b"
+object = "CombatSpear"
+layer = "world3d"
+at = [0, 0, 115]

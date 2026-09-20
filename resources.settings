@@ -819,3 +819,185 @@ name = "seated-rider.glb"
 file = "assets/models/seated-rider.glb"
 metadata = ""
 userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "triceratops.glb"
+file = "assets/models/triceratops.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "stegosaur.glb"
+file = "assets/models/stegosaur.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "raptor.glb"
+file = "assets/models/raptor.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "tyrannosaur.glb"
+file = "assets/models/tyrannosaur.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "bite.wav"
+file = "assets/audio/bite.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "build.wav"
+file = "assets/audio/build.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "craft.wav"
+file = "assets/audio/craft.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "death.wav"
+file = "assets/audio/death.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "dino-step.wav"
+file = "assets/audio/dino-step.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "drink.wav"
+file = "assets/audio/drink.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "feed.wav"
+file = "assets/audio/feed.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "footstep.wav"
+file = "assets/audio/footstep.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "herbivore-call.wav"
+file = "assets/audio/herbivore-call.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "hurt.wav"
+file = "assets/audio/hurt.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "island-dawn.wav"
+file = "assets/audio/island-dawn.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "mount.wav"
+file = "assets/audio/mount.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "pickup.wav"
+file = "assets/audio/pickup.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "predator-pulse.wav"
+file = "assets/audio/predator-pulse.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "quest-complete.wav"
+file = "assets/audio/quest-complete.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "raptor-call.wav"
+file = "assets/audio/raptor-call.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "respawn.wav"
+file = "assets/audio/respawn.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "rex-roar.wav"
+file = "assets/audio/rex-roar.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "swing.wav"
+file = "assets/audio/swing.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "ui-click.wav"
+file = "assets/audio/ui-click.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hit-flash.svg"
+file = "assets/hit-flash.svg"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "combat-spear.glb"
+file = "assets/models/combat-spear.glb"
+metadata = ""
+userAdded = true

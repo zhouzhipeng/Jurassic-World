@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 241
+folder = ["Quests"]
+name = "DeathText"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "你倒下了\n\n按 Enter 在营地重生\n保留工具，损失少量食物"
+font = "interface.ttf"
+characterSize = 22
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

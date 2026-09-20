@@ -1,0 +1,128 @@
+{
+  "title": "Island Dawn / 岛屿初曦",
+  "bpm": 80,
+  "key": "D minor pentatonic",
+  "composition": "Original synthesis: plucked wood, breathy flute, low hand drums; synchronized danger pulse stem",
+  "files": [
+    {
+      "name": "island-dawn.wav",
+      "seconds": 48.0,
+      "peak": 0.29293362517604654,
+      "loop": true
+    },
+    {
+      "name": "predator-pulse.wav",
+      "seconds": 48.0,
+      "peak": 0.38488564141497233,
+      "loop": true
+    },
+    {
+      "name": "footstep.wav",
+      "seconds": 0.18,
+      "peak": 0.42496633712228116,
+      "loop": false
+    },
+    {
+      "name": "dino-step.wav",
+      "seconds": 0.3,
+      "peak": 0.46261538415158787,
+      "loop": false
+    },
+    {
+      "name": "hurt.wav",
+      "seconds": 0.35,
+      "peak": 0.46317369172005785,
+      "loop": false
+    },
+    {
+      "name": "bite.wav",
+      "seconds": 0.35,
+      "peak": 0.5435331749111141,
+      "loop": false
+    },
+    {
+      "name": "ui-click.wav",
+      "seconds": 0.82,
+      "peak": 0.29973020703824904,
+      "loop": false
+    },
+    {
+      "name": "pickup.wav",
+      "seconds": 0.93,
+      "peak": 0.325307688169471,
+      "loop": false
+    },
+    {
+      "name": "craft.wav",
+      "seconds": 1.04,
+      "peak": 0.3101870848634446,
+      "loop": false
+    },
+    {
+      "name": "quest-complete.wav",
+      "seconds": 1.04,
+      "peak": 0.3087817219851643,
+      "loop": false
+    },
+    {
+      "name": "feed.wav",
+      "seconds": 0.93,
+      "peak": 0.30986783633042914,
+      "loop": false
+    },
+    {
+      "name": "mount.wav",
+      "seconds": 0.93,
+      "peak": 0.3095849788795267,
+      "loop": false
+    },
+    {
+      "name": "death.wav",
+      "seconds": 0.93,
+      "peak": 0.2700674922899807,
+      "loop": false
+    },
+    {
+      "name": "respawn.wav",
+      "seconds": 0.93,
+      "peak": 0.3023001995818999,
+      "loop": false
+    },
+    {
+      "name": "drink.wav",
+      "seconds": 0.55,
+      "peak": 0.24168211836065914,
+      "loop": false
+    },
+    {
+      "name": "swing.wav",
+      "seconds": 0.3,
+      "peak": 0.4096522625715965,
+      "loop": false
+    },
+    {
+      "name": "build.wav",
+      "seconds": 0.8,
+      "peak": 0.42743314994048603,
+      "loop": false
+    },
+    {
+      "name": "raptor-call.wav",
+      "seconds": 1.1,
+      "peak": 0.45080109455737616,
+      "loop": false
+    },
+    {
+      "name": "rex-roar.wav",
+      "seconds": 1.6,
+      "peak": 0.44854966085236825,
+      "loop": false
+    },
+    {
+      "name": "herbivore-call.wav",
+      "seconds": 1.2,
+      "peak": 0.43301119771551116,
+      "loop": false
+    }
+  ]
+}
