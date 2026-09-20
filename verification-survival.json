@@ -1,0 +1,187 @@
+{
+  "date": "2026-09-20",
+  "sourceCommit": "d108b38",
+  "completionReady": true,
+  "runtimeVerified": true,
+  "assertions": [
+    {
+      "index": 0,
+      "type": "runtime_error_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq"
+    },
+    {
+      "index": 1,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "Raptor"
+    },
+    {
+      "index": 2,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "Tyrannosaur"
+    },
+    {
+      "index": 3,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "Triceratops"
+    },
+    {
+      "index": 4,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "Stegosaur"
+    },
+    {
+      "index": 5,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "Dinosaur3D"
+    },
+    {
+      "index": 6,
+      "type": "renderer_visible_mesh_count",
+      "passed": true,
+      "actual": 94,
+      "expected": 0,
+      "operator": "gt",
+      "layerName": "World3D"
+    },
+    {
+      "index": 7,
+      "type": "renderer_failed_texture_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 8,
+      "type": "renderer_rejected_object_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    }
+  ],
+  "audio": {
+    "sounds": [
+      {
+        "channel": null,
+        "soundName": "rex-roar.wav",
+        "looping": false
+      },
+      {
+        "channel": null,
+        "soundName": "respawn.wav",
+        "looping": false
+      }
+    ],
+    "musics": [
+      {
+        "channel": 20,
+        "soundName": "island-dawn.wav",
+        "looping": true
+      },
+      {
+        "channel": 21,
+        "soundName": "predator-pulse.wav",
+        "looping": true
+      }
+    ],
+    "error": null,
+    "composition": "Original 48-second 80 BPM D-minor pentatonic exploration loop plus synchronized danger stem",
+    "newSoundEffects": 18,
+    "existingEffectsRetained": [
+      "harvest.wav",
+      "axe-hit.wav"
+    ],
+    "generation": "tools/compose_audio.py",
+    "clipPeaksBelowFullScale": true
+  },
+  "runtimeChecks": [
+    {
+      "check": "Craft spear via Num2 and Craft button",
+      "observed": "Spear 0→1, Wood 12→6, Stone 8→6, Fiber 20→16; craft.wav receipt"
+    },
+    {
+      "check": "Actual WASD approach triggers pursuit",
+      "observed": "Raptor moved from (-100,-1100) toward player; State 2, Walk animation; ThreatMix rose to 28"
+    },
+    {
+      "check": "Predator damage and contact cooldown",
+      "observed": "Raptor bite reduced Health 100→88; hurt.wav and bite.wav; no per-frame damage"
+    },
+    {
+      "check": "Spear retaliation",
+      "observed": "Three Space releases, separated by 40 frames, reduced Raptor HP 100→65→30→-5; one kill, +3 meat +2 hide"
+    },
+    {
+      "check": "Tyrannosaur death and respawn",
+      "method": "Test setup placed player near rex with 24 Health; actual attack and Return input",
+      "observed": "Health 0, Dead 1, Mode 7; Return restored Health 100 at (-650,350), invulnerability 5 seconds, berries -3, meat -1"
+    },
+    {
+      "check": "Dodge during windup",
+      "method": "Test setup placed player within detection, then ordinary S input",
+      "observed": "State 3/Windup .833; moving backward 50 frames avoided contact; Health stayed 100"
+    },
+    {
+      "check": "Menu pause",
+      "observed": "100 frames with W held in quest menu left all wildlife positions, AI clocks and player health unchanged"
+    },
+    {
+      "check": "Mute toggle",
+      "observed": "M toggled Muted 0→1→0; events set global volume 0 or 85"
+    },
+    {
+      "check": "Gathering regression",
+      "observed": "60 frames E held yielded berries 12→15 and harvest/quest sound receipts"
+    },
+    {
+      "check": "Axe regression",
+      "method": "Test setup positioned player beside an existing sapling, followed by Num1 and held E",
+      "observed": "Three axe-hit.wav receipts, Wood +4, sapling hidden on cooldown"
+    },
+    {
+      "check": "Taming/riding regression",
+      "observed": "Five feed clicks then X mounted; 30 D frames moved dinosaur and seated rider 245 units; Walk and dino-step.wav"
+    },
+    {
+      "check": "Herbivores",
+      "method": "Test setup near herbivores with Health 80",
+      "observed": "Both species patrolled with Walk animations; Health remained 80 after 120 frames"
+    }
+  ],
+  "reuseDecision": {
+    "repository": "https://github.com/GDevelopApp/GDevelop-extensions",
+    "finding": "Searched official extension filenames for Enemy/Patrol/AI/Health/Music; Health exists but a small extension of the existing scene-variable system was simpler for this fixed demo. No third-party extension installed."
+  },
+  "limitations": [
+    "Single-player demo, direct pursuit without navigation mesh",
+    "Only companion parasaur is tameable and rideable",
+    "Simplified mutual dinosaur collision; not full environment physics",
+    "Wildlife, health and audio preferences reset on scene restart"
+  ]
+}
