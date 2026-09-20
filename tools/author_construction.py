@@ -105,7 +105,7 @@ for entity,px,py,padx,pady in [('Player3D','PreviousX','PreviousY','36','36'),('
   out+=event([ov('Buildings','Kind','!=',1)],xy(entity,px,py),depth+1)
   out+=event([ov('Buildings','Kind','=',1),cmp('abs(BuildLX)','>','145'),'or BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildLY) comparison_sign="<" second_expression=-130'],xy(entity,px,py),depth+1)
  else:
-  acts=xy(entity,px,py)
+  acts=xy(entity,px,py)+[so(entity,'AnimationState',0),f'do AnimatableCapability::AnimatableBehavior::SetName object={q(entity)} behavior="Animation" modification_sign="=" animation_name="Idle"']
   if entity=='Dinosaur3D':
    out+=event(inside,acts,depth);out+=event([nv('Riding','=',1)],xy('Player3D','Dinosaur3D.X()','Dinosaur3D.Y()')+xy('MountedRider','Dinosaur3D.X() + sin(ToRad(Dinosaur3D.Angle())) * 15','Dinosaur3D.Y() - cos(ToRad(Dinosaur3D.Angle())) * 15'),depth+1)
   else:out+=event(inside,acts,depth)

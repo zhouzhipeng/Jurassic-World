@@ -3915,6 +3915,8 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Dinosaur3D.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+(150 + abs(cos(ToRad(Dinosaur3D.Angle()))) * 260))
 >> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
 >> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+>> do SetNumberObjectVariable object="Dinosaur3D" variable="AnimationState" modification_sign="=" value=0
+>> do AnimatableCapability::AnimatableBehavior::SetName object="Dinosaur3D" behavior="Animation" modification_sign="=" animation_name="Idle"
 
 >>> if NumberVariable variable="Riding" comparison_sign="=" value=1
 >>> do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
@@ -3931,6 +3933,8 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 >>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Wildlife.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+(Wildlife.Variable(Radius) + abs(cos(ToRad(Wildlife.Angle()))) * Wildlife.Variable(HalfLength)))
 >>> do SetX object="Wildlife" modification_sign="=" value=expr(Wildlife.Variable(PX))
 >>> do SetY object="Wildlife" modification_sign="=" value=expr(Wildlife.Variable(PY))
+>>> do SetNumberObjectVariable object="Wildlife" variable="AnimationState" modification_sign="=" value=0
+>>> do AnimatableCapability::AnimatableBehavior::SetName object="Wildlife" behavior="Animation" modification_sign="=" animation_name="Idle"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
