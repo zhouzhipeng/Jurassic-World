@@ -1,0 +1,70 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 263
+folder = ["HUD"]
+name = "BuildStatus"
+type = "TextObject::Text"
+
+effects = [ ]
+behaviors = [ ]
+
+[[variables]]
+name = "Mode"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Kind"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Valid"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Count"
+type = "number"
+value = 0
+
+[[variables]]
+name = "X"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Y"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Angle"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Slot"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Warm"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Rest"
+type = "number"
+value = 0
+
+[content]
+text = "WASD 调整位置 · R 旋转\nEnter 建造 · B 退出"
+font = "interface.ttf"
+characterSize = 17
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"

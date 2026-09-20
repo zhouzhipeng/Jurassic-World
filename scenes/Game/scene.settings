@@ -8,9 +8,136 @@ standardSortMethod = true
 stopSoundsOnStartup = true
 behaviorsSharedData = [ ]
 [objectGroups]
+Buildings = ["BuiltShelter", "BuiltPalisade", "BuiltCampfire"]
+BuildGhosts = ["BuiltShelterValid", "BuiltShelterInvalid", "BuiltPalisadeValid", "BuiltPalisadeInvalid", "BuiltCampfireValid", "BuiltCampfireInvalid"]
 Wildlife = ["Triceratops", "Stegosaur", "Raptor", "Tyrannosaur"]
 Predators = ["Raptor", "Tyrannosaur"]
 HarvestNodes = ["BerryBush", "FiberFern", "WoodSapling", "StoneDeposit"]
+
+[[variables]]
+name = "BuildMode"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildKind"
+type = "number"
+value = 1
+
+[[variables]]
+name = "BuildAngle"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildHX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildHY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildWorldHX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildWorldHY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildValid"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildCount"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildSlot"
+type = "number"
+value = -1
+
+[[variables]]
+name = "BuildWood"
+type = "number"
+value = 10
+
+[[variables]]
+name = "BuildStone"
+type = "number"
+value = 5
+
+[[variables]]
+name = "BuildFiber"
+type = "number"
+value = 8
+
+[[variables]]
+name = "BuildRestore"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildDeleteSlot"
+type = "number"
+value = -1
+
+[[variables]]
+name = "BuildDeleteDistance"
+type = "number"
+value = 9999
+
+[[variables]]
+name = "BuildLX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildLY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildWarm"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildRest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildReason"
+type = "string"
+value = ""
+
+[[variables]]
+name = "BuildJSON"
+type = "string"
+value = "[]"
+
+[[variables]]
+name = "BuildingRecords"
+type = "array"
+children = []
 
 [[variables]]
 name = "Health"
@@ -2908,3 +3035,144 @@ id = "ff1f837a-0615-48ec-82e0-1a29a38c4f3b"
 object = "CombatSpear"
 layer = "world3d"
 at = [0, 0, 115]
+
+[[layout.instances]]
+id = "57d63db8-5f6e-4dd5-87e2-d4f2be451986"
+object = "BuiltShelterValid"
+layer = "world3d"
+at = [0, 0, 0]
+z_order = 100
+
+[[layout.instances]]
+id = "ef0a5939-9613-413a-95b8-f82ead8c4ea7"
+object = "BuiltShelterInvalid"
+layer = "world3d"
+at = [0, 0, 0]
+z_order = 100
+
+[[layout.instances]]
+id = "6d34409f-7011-424b-b57d-836974f29466"
+object = "BuiltPalisadeValid"
+layer = "world3d"
+at = [0, 0, 0]
+z_order = 100
+
+[[layout.instances]]
+id = "be125011-0ed2-4e7a-9e61-b0fd0c48e525"
+object = "BuiltPalisadeInvalid"
+layer = "world3d"
+at = [0, 0, 0]
+z_order = 100
+
+[[layout.instances]]
+id = "7eb76cfb-72d5-45ff-9ce9-ccc2d22804e5"
+object = "BuiltCampfireValid"
+layer = "world3d"
+at = [0, 0, 0]
+z_order = 100
+
+[[layout.instances]]
+id = "9b114a28-7163-4b0c-932d-54733cdc24a4"
+object = "BuiltCampfireInvalid"
+layer = "world3d"
+at = [0, 0, 0]
+z_order = 100
+
+[[layout.instances]]
+id = "d838dd75-17e1-475d-ba68-fbfda28256cd"
+object = "BuildToggle"
+layer = "hud"
+at = [1140, 651, 0]
+z_order = 100
+size = [430, 43]
+keep_ratio = false
+
+[[layout.instances]]
+id = "17f7f46a-bdc5-47b8-b9db-3bc495e9a307"
+object = "BuildToggleLabel"
+layer = "hud"
+at = [1156, 662, 0]
+z_order = 100
+size = [400, 28]
+keep_ratio = false
+
+[[layout.instances]]
+id = "5db73c29-f5e0-45cb-ac27-ed093fcb7839"
+object = "BuildPanel"
+layer = "hud"
+at = [1020, 315, 0]
+z_order = 100
+size = [560, 325]
+keep_ratio = false
+
+[[layout.instances]]
+id = "ba2b54a3-73c2-44d8-84aa-33b3668a9248"
+object = "BuildTitle"
+layer = "hud"
+at = [1042, 335, 0]
+z_order = 100
+size = [520, 35]
+keep_ratio = false
+
+[[layout.instances]]
+id = "ebae2ff1-754d-4195-8573-321ada193518"
+object = "BuildChoice1"
+layer = "hud"
+at = [1040, 383, 0]
+z_order = 100
+size = [520, 41]
+keep_ratio = false
+
+[[layout.instances]]
+id = "445b51bb-32cc-4e75-a7a6-ba3f5525b20f"
+object = "BuildChoiceLabel1"
+layer = "hud"
+at = [1052, 394, 0]
+z_order = 100
+size = [500, 29]
+keep_ratio = false
+
+[[layout.instances]]
+id = "8ad2d0cb-9e6b-42cc-80b7-096c7244e2e7"
+object = "BuildChoice2"
+layer = "hud"
+at = [1040, 431, 0]
+z_order = 100
+size = [520, 41]
+keep_ratio = false
+
+[[layout.instances]]
+id = "8cf5ad6c-a199-4fc5-9150-c8edff6446f0"
+object = "BuildChoiceLabel2"
+layer = "hud"
+at = [1052, 442, 0]
+z_order = 100
+size = [500, 29]
+keep_ratio = false
+
+[[layout.instances]]
+id = "d0d5b05d-5383-42b8-9db9-9f83996f926e"
+object = "BuildChoice3"
+layer = "hud"
+at = [1040, 479, 0]
+z_order = 100
+size = [520, 41]
+keep_ratio = false
+
+[[layout.instances]]
+id = "d94dc4af-d580-47a5-aa4a-f1f5d9e88196"
+object = "BuildChoiceLabel3"
+layer = "hud"
+at = [1052, 490, 0]
+z_order = 100
+size = [500, 29]
+keep_ratio = false
+
+[[layout.instances]]
+id = "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d"
+object = "BuildStatus"
+layer = "hud"
+at = [1042, 540, 0]
+z_order = 100
+size = [520, 90]
+keep_ratio = false

@@ -1,3 +1,27 @@
+@comment "Construction input" background=[120,145,90] text=[255,255,255]
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="b"
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=expr(1 - BuildMode)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if IsCursorOnObject object="BuildToggle" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=expr(1 - BuildMode)
+
+if NumberVariable variable="Mode" comparison_sign="!=" value=0
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=0
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+
 @comment "Real-time 3D movement and reference comparison" background=[90,150,180] text=[255,255,255]
 
 if KeyFromTextReleased key_to_check="F3"
@@ -9,7 +33,7 @@ if BuiltinCommonInstructions::Once
 do HideLayer layer="World"
 do ShowLayer layer="World3D"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DemoLabel" behavior="Text" modification_sign="=" text="REAL-TIME 3D / F3 ART REFERENCE"
-do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · Shift 奔跑 · E 采集 · 1 斧子 · 2 长矛制作 · 空格 反击 · X 骑乘 · J 任务 · M 声音 · 右键 镜头"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · Shift 奔跑 · B 建造 · E 采集 · 1 斧子 · 2 长矛制作 · 空格 反击 · X 骑乘 · J 任务 · M 声音 · 右键 镜头"
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
@@ -119,11 +143,13 @@ do SetNumberVariable variable="DinoPreviousY" modification_sign="=" value=expr(D
 do SetNumberVariable variable="DinoPreviousAngle" modification_sign="=" value=expr(Dinosaur3D.Angle())
 do SetNumberVariable variable="DinoMoving" modification_sign="=" value=0
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="x"
 do SetNumberVariable variable="MountRequest" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if IsCursorOnObject object="MountButton" accurate_test_yes_by_default=false
@@ -417,6 +443,7 @@ if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="j"
 do SetNumberVariable variable="Mode" modification_sign="=" value=6
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if IsCursorOnObject object="OpenQuests" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
@@ -477,12 +504,14 @@ if KeyFromTextReleased key_to_check="Escape"
 do SetNumberVariable variable="Mode" modification_sign="=" value=0
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if IsCursorOnObject object="OpenPack" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Mode" modification_sign="=" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if IsCursorOnObject object="OpenMenu" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
@@ -588,6 +617,7 @@ if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sig
 if NumberVariable variable="Stamina" comparison_sign="<" value=3
 do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text="Too tired to gather. Rest with F."
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -641,48 +671,58 @@ if KeyFromTextReleased key_to_check="e"
 do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modification_sign="=" value=0
 do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=0
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="e"
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="HarvestNear" comparison_sign="=" value=0
 do SetNumberVariable variable="Action" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Feed" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="r"
 do SetNumberVariable variable="Action" modification_sign="=" value=2
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Gather" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=2
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="g"
 do SetNumberVariable variable="Action" modification_sign="=" value=3
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Chop" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=3
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="f"
 do SetNumberVariable variable="Action" modification_sign="=" value=4
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Drink" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=4
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="q"
 do SetNumberVariable variable="Action" modification_sign="=" value=5
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Station" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
@@ -690,6 +730,7 @@ do SetNumberVariable variable="Action" modification_sign="=" value=5
 
 @comment "Interactive hotbar: click or number keys, dispatch once" background=[90,150,180] text=[255,255,255]
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot0" accurate_test_yes_by_default=false
@@ -698,6 +739,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=1
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="Num1"
@@ -705,6 +747,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=1
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot1" accurate_test_yes_by_default=false
@@ -713,6 +756,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=2
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=2
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="Num2"
@@ -720,6 +764,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=2
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=2
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot2" accurate_test_yes_by_default=false
@@ -728,6 +773,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=3
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=3
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="Num3"
@@ -735,6 +781,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=3
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=3
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot3" accurate_test_yes_by_default=false
@@ -743,6 +790,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=4
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=4
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="Num4"
@@ -750,6 +798,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=4
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=4
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot4" accurate_test_yes_by_default=false
@@ -758,6 +807,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=5
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=5
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="Num5"
@@ -765,6 +815,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=5
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=5
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot5" accurate_test_yes_by_default=false
@@ -773,6 +824,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=6
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=6
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="Num6"
@@ -780,6 +832,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=6
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=6
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot6" accurate_test_yes_by_default=false
@@ -788,6 +841,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=7
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=7
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="Num7"
@@ -795,6 +849,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=7
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=7
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if IsCursorOnObject object="HotSlot7" accurate_test_yes_by_default=false
@@ -803,6 +858,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=8
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=8
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="Num8"
@@ -966,31 +1022,11 @@ do SetNumberVariable variable="Action" modification_sign="=" value=0
 
 if NumberVariable variable="Action" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-if NumberVariable variable="Built" comparison_sign="=" value=0
-if NumberVariable variable="Wood" comparison_sign=">=" value=10
-if NumberVariable variable="Stone" comparison_sign=">=" value=5
-if NumberVariable variable="Fiber" comparison_sign=">=" value=8
-do SetNumberVariable variable="Wood" modification_sign="-" value=10
-do SetNumberVariable variable="Stone" modification_sign="-" value=5
-do SetNumberVariable variable="Fiber" modification_sign="-" value=8
-do SetNumberVariable variable="Built" modification_sign="=" value=1
-do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=65 pitch_speed=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Shelter reinforced! Wood -10, stone -5, fiber -8."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=1
 do SetNumberVariable variable="Action" modification_sign="=" value=0
-
-if NumberVariable variable="Action" comparison_sign="=" value=1
-if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-if NumberVariable variable="Built" comparison_sign="=" value=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Shelter ready. Your camp now protects your supplies."
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="选择空地搭建庇护所，完成营地任务。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
-
-if NumberVariable variable="Action" comparison_sign="=" value=1
-if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Need 10 wood, 5 stone and 8 fiber. Gather nearby resources with E."
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="Action" modification_sign="=" value=0
 
 if NumberVariable variable="Action" comparison_sign="=" value=2
 or NumberVariable variable="Action" comparison_sign="=" value=3
@@ -1128,6 +1164,7 @@ if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
 
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
+do EcrireFichierTxt storage_name="JurassicWorldDemo" group="BuildingsV1" text=expr(ToJSON(BuildingRecords))
 do EcrireFichierExp storage_name="JurassicWorldDemo" group="Trust" expression=expr(Trust)
 do EcrireFichierExp storage_name="JurassicWorldDemo" group="Berries" expression=expr(Berries)
 do EcrireFichierExp storage_name="JurassicWorldDemo" group="Wood" expression=expr(Wood)
@@ -1165,6 +1202,16 @@ if NumberVariable variable="InputMode" comparison_sign="=" value=2
 if IsCursorOnObject object="Load" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=10
+
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name="JurassicWorldDemo" group="Version"
+do SetStringVariable variable="BuildJSON" modification_sign="=" value="[]"
+do SetNumberVariable variable="BuildRestore" modification_sign="=" value=1
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name="JurassicWorldDemo" group="BuildingsV1"
+do ReadStringFromStorage storage_name="JurassicWorldDemo" group="BuildingsV1" variable="BuildJSON"
 
 if NumberVariable variable="Action" comparison_sign="=" value=10
 if GroupExists storage_name="JurassicWorldDemo" group="Version"
@@ -1315,7 +1362,7 @@ do Show object="CampWorld"
 do TextContainerCapability::TextContainerBehavior::SetValue object="StationLabel" behavior="Text" modification_sign="=" text="Q  Visit the dinosaur"
 do TextContainerCapability::TextContainerBehavior::SetValue object="FeedLabel" behavior="Text" modification_sign="=" text="E  Reinforce shelter"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DinoName" behavior="Text" modification_sign="=" text="COASTAL CAMP"
-do TextContainerCapability::TextContainerBehavior::SetValue object="DinoLevel" behavior="Text" modification_sign="=" text="Build: 10 wood / 5 stone / 8 fiber"
+do TextContainerCapability::TextContainerBehavior::SetValue object="DinoLevel" behavior="Text" modification_sign="=" text="B 建造庇护所：10 木 / 5 石 / 8 纤维"
 
 if NumberVariable variable="Help" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
@@ -1612,7 +1659,7 @@ do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
 
 if NumberVariable variable="QuestStage" comparison_sign="=" value=4
 do SetStringVariable variable="QuestName" modification_sign="=" value="安全的营地"
-do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("营地加固  " + ToString(min(Built, 1)) + " / 1")
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("建造庇护所  " + ToString(min(Built, 1)) + " / 1")
 do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("按 Q 返回营地，再按 E 或快捷栏 7 加固。" + NewLine() + "需要木材 10、石头 5、纤维 8。")
 do SetStringVariable variable="QuestReward" modification_sign="=" value="绳索 +2；解锁野外补给委托"
 do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="伙伴已经信任你。回到木屋加固营地，为下一次出发建立落脚点。"
@@ -1916,11 +1963,13 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="AxeSwing" comparison_sign=">" value=0
 do SetNumberVariable variable="AxeSwing" modification_sign="=" value=expr(max(0, AxeSwing - TimeDelta()))
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if KeyFromTextPressed key_to_check="e"
 do SetNumberVariable variable="ChopInput" modification_sign="=" value=1
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if MouseButtonFromTextPressed button_to_check="Left"
@@ -2023,6 +2072,7 @@ do SetNumberVariable variable="MusicStarted" modification_sign="=" value=1
 if KeyFromTextReleased key_to_check="m"
 do SetNumberVariable variable="Muted" modification_sign="=" value=expr(1 - Muted)
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if IsCursorOnObject object="AudioButton" accurate_test_yes_by_default=false
 if MouseButtonFromTextReleased button_to_check="Left"
@@ -2106,6 +2156,7 @@ if NumberVariable variable="SafeCamp" comparison_sign="=" value=1
 if NumberVariable variable="Health" comparison_sign="<" value=100
 do SetNumberVariable variable="Health" modification_sign="=" value=expr(min(100, Health + TimeDelta() * 4))
 
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
@@ -3327,6 +3378,684 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="NearestWild" comparison_sign=">" value=1100
 if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("荒野探索 · 共 5 种恐龙" + NewLine() + "2 制作长矛 · 空格反击 · M 声音")
+
+@comment "Construction placement and persistence" background=[120,145,90] text=[255,255,255]
+
+if NumberVariable variable="BuildRestore" comparison_sign="=" value=1
+do Delete object="Buildings"
+do JSONToVariableStructure2 json_string=expr(BuildJSON) variable_where_to_store_the_json_object="BuildingRecords"
+do SetNumberVariable variable="BuildCount" modification_sign="=" value=0
+
+> local i = 0
+> repeat 40 index=i
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=1
+>> do Create object_to_create="BuiltShelter" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="BuiltShelter" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="BuiltShelter" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="BuiltShelter" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltShelter.Variable(HX) + abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltShelter.Variable(HY))
+>> do SetNumberObjectVariable object="BuiltShelter" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltShelter.Variable(HX) + abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltShelter.Variable(HY))
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=2
+>> do Create object_to_create="BuiltPalisade" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="BuiltPalisade" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="BuiltPalisade" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="BuiltPalisade" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltPalisade.Variable(HX) + abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltPalisade.Variable(HY))
+>> do SetNumberObjectVariable object="BuiltPalisade" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltPalisade.Variable(HX) + abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltPalisade.Variable(HY))
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=3
+>> do Create object_to_create="BuiltCampfire" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="BuiltCampfire" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="BuiltCampfire" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="BuiltCampfire" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltCampfire.Variable(HX) + abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltCampfire.Variable(HY))
+>> do SetNumberObjectVariable object="BuiltCampfire" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltCampfire.Variable(HX) + abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltCampfire.Variable(HY))
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+if NumberVariable variable="BuildRestore" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildRestore" modification_sign="=" value=0
+
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do Hide object="BuildGhosts"
+do Hide object="BuildPanel"
+do Hide object="BuildTitle"
+do Hide object="BuildStatus"
+do Hide object="BuildChoice1"
+do Hide object="BuildChoiceLabel1"
+do Hide object="BuildChoice2"
+do Hide object="BuildChoiceLabel2"
+do Hide object="BuildChoice3"
+do Hide object="BuildChoiceLabel3"
+do SetNumberVariable variable="BuildWarm" modification_sign="=" value=0
+do SetNumberVariable variable="BuildRest" modification_sign="=" value=0
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+do Show object="BuildToggle"
+do Show object="BuildToggleLabel"
+
+if NumberVariable variable="Mode" comparison_sign="!=" value=0
+do Hide object="BuildToggle"
+do Hide object="BuildToggleLabel"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Num1"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if IsCursorOnObject object="BuildChoice1" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Num2"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=2
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if IsCursorOnObject object="BuildChoice2" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=2
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Num3"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=3
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if IsCursorOnObject object="BuildChoice3" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=3
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="r"
+do SetNumberVariable variable="BuildAngle" modification_sign="=" value=expr(mod(BuildAngle + 90, 360))
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildX" modification_sign="=" value=expr(round((Player3D.X() - sin(ToRad(CameraYaw)) * 450) / 100) * 100)
+do SetNumberVariable variable="BuildY" modification_sign="=" value=expr(round((Player3D.Y() - cos(ToRad(CameraYaw)) * 450) / 100) * 100)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=1
+do SetNumberVariable variable="BuildSlot" modification_sign="=" value=-1
+do SetStringVariable variable="BuildReason" modification_sign="=" value="可放置 · Enter 确认建造"
+
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+> local i = 0
+> repeat 40 index=i
+>> if NumberVariable variable="BuildSlot" comparison_sign="<" value=0
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=0
+>> do SetNumberVariable variable="BuildSlot" modification_sign="=" value=expr(i)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildWood" modification_sign="=" value=10
+do SetNumberVariable variable="BuildStone" modification_sign="=" value=5
+do SetNumberVariable variable="BuildFiber" modification_sign="=" value=8
+do SetNumberVariable variable="BuildHX" modification_sign="=" value=240
+do SetNumberVariable variable="BuildHY" modification_sign="=" value=205
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=2
+do SetNumberVariable variable="BuildWood" modification_sign="=" value=4
+do SetNumberVariable variable="BuildStone" modification_sign="=" value=0
+do SetNumberVariable variable="BuildFiber" modification_sign="=" value=2
+do SetNumberVariable variable="BuildHX" modification_sign="=" value=200
+do SetNumberVariable variable="BuildHY" modification_sign="=" value=25
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=3
+do SetNumberVariable variable="BuildWood" modification_sign="=" value=3
+do SetNumberVariable variable="BuildStone" modification_sign="=" value=3
+do SetNumberVariable variable="BuildFiber" modification_sign="=" value=0
+do SetNumberVariable variable="BuildHX" modification_sign="=" value=80
+do SetNumberVariable variable="BuildHY" modification_sign="=" value=80
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildWorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildAngle))) * BuildHX + abs(sin(ToRad(BuildAngle))) * BuildHY)
+do SetNumberVariable variable="BuildWorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildAngle))) * BuildHX + abs(cos(ToRad(BuildAngle))) * BuildHY)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="Wood" comparison_sign="<" value=expr(BuildWood)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="材料不足：先采集木材、石头和纤维"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="Stone" comparison_sign="<" value=expr(BuildStone)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="材料不足：先采集木材、石头和纤维"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="Fiber" comparison_sign="<" value=expr(BuildFiber)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="材料不足：先采集木材、石头和纤维"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildSlot" comparison_sign="<" value=0
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="最多保留 40 个建筑，请先拆除"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX) + BuildWorldHX) comparison_sign=">" second_expression=expr(1450)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="越过陆地范围，向岛内移动"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildY + BuildWorldHY) comparison_sign=">" second_expression=expr(1200)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="越过陆地范围，向岛内移动"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(-BuildY + BuildWorldHY) comparison_sign=">" second_expression=expr(1600)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="越过陆地范围，向岛内移动"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildX + BuildWorldHX) comparison_sign=">" second_expression=expr(-1300)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildX - BuildWorldHX) comparison_sign="<" second_expression=expr(-500)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildY + BuildWorldHY) comparison_sign=">" second_expression=expr(-1060)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildY - BuildWorldHY) comparison_sign="<" second_expression=expr(-330)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="与现有木屋重叠"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX, BuildY, -650, 350)) comparison_sign="<" second_expression=expr(sqrt(BuildHX*BuildHX+BuildHY*BuildHY)+180)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="请留出营地重生区"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+
+> for each Buildings
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX - Buildings.X())) comparison_sign="<" second_expression=expr(BuildWorldHX + Buildings.Variable(WorldHX) - 1)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildY - Buildings.Y())) comparison_sign="<" second_expression=expr(BuildWorldHY + Buildings.Variable(WorldHY) - 1)
+>> do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+>> do SetStringVariable variable="BuildReason" modification_sign="=" value="与已有建筑重叠"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+
+> for each HarvestNodes
+>> if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-HarvestNodes.X())) comparison_sign="<" second_expression=expr(BuildWorldHX+80)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildY-HarvestNodes.Y())) comparison_sign="<" second_expression=expr(BuildWorldHY+80)
+>> do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+>> do SetStringVariable variable="BuildReason" modification_sign="=" value="此处有资源，请换一块空地"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX,BuildY,Dinosaur3D.X(),Dinosaur3D.Y())) comparison_sign="<" second_expression=expr(sqrt(BuildHX*BuildHX+BuildHY*BuildHY)+380)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="坐骑占用此处，请先移开"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+
+> for each Wildlife
+>> if NumberObjectVariable object="Wildlife" variable="HP" comparison_sign=">" value=0
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX,BuildY,Wildlife.X(),Wildlife.Y())) comparison_sign="<" second_expression=expr(sqrt(BuildHX*BuildHX+BuildHY*BuildHY)+Wildlife.Variable(HalfLength)+Wildlife.Variable(Radius))
+>> do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+>> do SetStringVariable variable="BuildReason" modification_sign="=" value="恐龙占用此处，请保持距离"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=1
+if NumberVariable variable="BuildValid" comparison_sign="=" value=1
+do SetX object="BuiltShelterValid" modification_sign="=" value=expr(BuildX)
+do SetY object="BuiltShelterValid" modification_sign="=" value=expr(BuildY)
+do SetAngle object="BuiltShelterValid" modification_sign="=" angle_in_degrees=expr(BuildAngle)
+do Show object="BuiltShelterValid"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=1
+if NumberVariable variable="BuildValid" comparison_sign="=" value=0
+do SetX object="BuiltShelterInvalid" modification_sign="=" value=expr(BuildX)
+do SetY object="BuiltShelterInvalid" modification_sign="=" value=expr(BuildY)
+do SetAngle object="BuiltShelterInvalid" modification_sign="=" angle_in_degrees=expr(BuildAngle)
+do Show object="BuiltShelterInvalid"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=2
+if NumberVariable variable="BuildValid" comparison_sign="=" value=1
+do SetX object="BuiltPalisadeValid" modification_sign="=" value=expr(BuildX)
+do SetY object="BuiltPalisadeValid" modification_sign="=" value=expr(BuildY)
+do SetAngle object="BuiltPalisadeValid" modification_sign="=" angle_in_degrees=expr(BuildAngle)
+do Show object="BuiltPalisadeValid"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=2
+if NumberVariable variable="BuildValid" comparison_sign="=" value=0
+do SetX object="BuiltPalisadeInvalid" modification_sign="=" value=expr(BuildX)
+do SetY object="BuiltPalisadeInvalid" modification_sign="=" value=expr(BuildY)
+do SetAngle object="BuiltPalisadeInvalid" modification_sign="=" angle_in_degrees=expr(BuildAngle)
+do Show object="BuiltPalisadeInvalid"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=3
+if NumberVariable variable="BuildValid" comparison_sign="=" value=1
+do SetX object="BuiltCampfireValid" modification_sign="=" value=expr(BuildX)
+do SetY object="BuiltCampfireValid" modification_sign="=" value=expr(BuildY)
+do SetAngle object="BuiltCampfireValid" modification_sign="=" angle_in_degrees=expr(BuildAngle)
+do Show object="BuiltCampfireValid"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=3
+if NumberVariable variable="BuildValid" comparison_sign="=" value=0
+do SetX object="BuiltCampfireInvalid" modification_sign="=" value=expr(BuildX)
+do SetY object="BuiltCampfireInvalid" modification_sign="=" value=expr(BuildY)
+do SetAngle object="BuiltCampfireInvalid" modification_sign="=" angle_in_degrees=expr(BuildAngle)
+do Show object="BuiltCampfireInvalid"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Return"
+if NumberVariable variable="BuildValid" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=1
+do Create object_to_create="BuiltShelter" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
+do SetAngle object="BuiltShelter" modification_sign="=" angle_in_degrees=expr(BuildAngle)
+do SetNumberObjectVariable object="BuiltShelter" variable="Slot" modification_sign="=" value=expr(BuildSlot)
+do SetNumberObjectVariable object="BuiltShelter" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildAngle))) * BuiltShelter.Variable(HX) + abs(sin(ToRad(BuildAngle))) * BuiltShelter.Variable(HY))
+do SetNumberObjectVariable object="BuiltShelter" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildAngle))) * BuiltShelter.Variable(HX) + abs(cos(ToRad(BuildAngle))) * BuiltShelter.Variable(HY))
+do SetNumberVariable variable="BuildingRecords[BuildSlot].Kind" modification_sign="=" value=expr(BuildKind)
+do SetNumberVariable variable="BuildingRecords[BuildSlot].X" modification_sign="=" value=expr(BuildX)
+do SetNumberVariable variable="BuildingRecords[BuildSlot].Y" modification_sign="=" value=expr(BuildY)
+do SetNumberVariable variable="BuildingRecords[BuildSlot].Angle" modification_sign="=" value=expr(BuildAngle)
+do SetNumberVariable variable="Wood" modification_sign="-" value=expr(BuildWood)
+do SetNumberVariable variable="Stone" modification_sign="-" value=expr(BuildStone)
+do SetNumberVariable variable="Fiber" modification_sign="-" value=expr(BuildFiber)
+do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="建造完成 · 移动到下一处空地"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=60 pitch_speed=1
+do SetNumberVariable variable="Built" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Return"
+if NumberVariable variable="BuildValid" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=2
+do Create object_to_create="BuiltPalisade" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
+do SetAngle object="BuiltPalisade" modification_sign="=" angle_in_degrees=expr(BuildAngle)
+do SetNumberObjectVariable object="BuiltPalisade" variable="Slot" modification_sign="=" value=expr(BuildSlot)
+do SetNumberObjectVariable object="BuiltPalisade" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildAngle))) * BuiltPalisade.Variable(HX) + abs(sin(ToRad(BuildAngle))) * BuiltPalisade.Variable(HY))
+do SetNumberObjectVariable object="BuiltPalisade" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildAngle))) * BuiltPalisade.Variable(HX) + abs(cos(ToRad(BuildAngle))) * BuiltPalisade.Variable(HY))
+do SetNumberVariable variable="BuildingRecords[BuildSlot].Kind" modification_sign="=" value=expr(BuildKind)
+do SetNumberVariable variable="BuildingRecords[BuildSlot].X" modification_sign="=" value=expr(BuildX)
+do SetNumberVariable variable="BuildingRecords[BuildSlot].Y" modification_sign="=" value=expr(BuildY)
+do SetNumberVariable variable="BuildingRecords[BuildSlot].Angle" modification_sign="=" value=expr(BuildAngle)
+do SetNumberVariable variable="Wood" modification_sign="-" value=expr(BuildWood)
+do SetNumberVariable variable="Stone" modification_sign="-" value=expr(BuildStone)
+do SetNumberVariable variable="Fiber" modification_sign="-" value=expr(BuildFiber)
+do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="建造完成 · 移动到下一处空地"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=60 pitch_speed=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Return"
+if NumberVariable variable="BuildValid" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=3
+do Create object_to_create="BuiltCampfire" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
+do SetAngle object="BuiltCampfire" modification_sign="=" angle_in_degrees=expr(BuildAngle)
+do SetNumberObjectVariable object="BuiltCampfire" variable="Slot" modification_sign="=" value=expr(BuildSlot)
+do SetNumberObjectVariable object="BuiltCampfire" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildAngle))) * BuiltCampfire.Variable(HX) + abs(sin(ToRad(BuildAngle))) * BuiltCampfire.Variable(HY))
+do SetNumberObjectVariable object="BuiltCampfire" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildAngle))) * BuiltCampfire.Variable(HX) + abs(cos(ToRad(BuildAngle))) * BuiltCampfire.Variable(HY))
+do SetNumberVariable variable="BuildingRecords[BuildSlot].Kind" modification_sign="=" value=expr(BuildKind)
+do SetNumberVariable variable="BuildingRecords[BuildSlot].X" modification_sign="=" value=expr(BuildX)
+do SetNumberVariable variable="BuildingRecords[BuildSlot].Y" modification_sign="=" value=expr(BuildY)
+do SetNumberVariable variable="BuildingRecords[BuildSlot].Angle" modification_sign="=" value=expr(BuildAngle)
+do SetNumberVariable variable="Wood" modification_sign="-" value=expr(BuildWood)
+do SetNumberVariable variable="Stone" modification_sign="-" value=expr(BuildStone)
+do SetNumberVariable variable="Fiber" modification_sign="-" value=expr(BuildFiber)
+do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetStringVariable variable="BuildReason" modification_sign="=" value="建造完成 · 移动到下一处空地"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=60 pitch_speed=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Return"
+if NumberVariable variable="BuildValid" comparison_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildDeleteDistance" modification_sign="=" value=9999
+do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=-1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+
+> for each Buildings
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX,BuildY,Buildings.X(),Buildings.Y())) comparison_sign="<" second_expression=expr(250)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX,BuildY,Buildings.X(),Buildings.Y())) comparison_sign="<" second_expression=expr(BuildDeleteDistance)
+>> do SetNumberVariable variable="BuildDeleteDistance" modification_sign="=" value=expr(DistanceBetweenPositions(BuildX,BuildY,Buildings.X(),Buildings.Y()))
+>> do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=expr(Buildings.Variable(Slot))
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Delete"
+if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
+if NumberObjectVariable object="Buildings" variable="Slot" comparison_sign="=" value=expr(BuildDeleteSlot)
+if NumberObjectVariable object="Buildings" variable="Kind" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" modification_sign="=" value=0
+do Delete object="Buildings"
+do SetNumberVariable variable="BuildCount" modification_sign="-" value=1
+do SetNumberVariable variable="Wood" modification_sign="+" value=5
+do SetNumberVariable variable="Stone" modification_sign="+" value=2
+do SetNumberVariable variable="Fiber" modification_sign="+" value=4
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetStringVariable variable="BuildReason" modification_sign="=" value="已拆除，返还一半材料"
+do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=60 pitch_speed=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Delete"
+if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
+if NumberObjectVariable object="Buildings" variable="Slot" comparison_sign="=" value=expr(BuildDeleteSlot)
+if NumberObjectVariable object="Buildings" variable="Kind" comparison_sign="=" value=2
+do SetNumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" modification_sign="=" value=0
+do Delete object="Buildings"
+do SetNumberVariable variable="BuildCount" modification_sign="-" value=1
+do SetNumberVariable variable="Wood" modification_sign="+" value=2
+do SetNumberVariable variable="Stone" modification_sign="+" value=0
+do SetNumberVariable variable="Fiber" modification_sign="+" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetStringVariable variable="BuildReason" modification_sign="=" value="已拆除，返还一半材料"
+do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=60 pitch_speed=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Delete"
+if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
+if NumberObjectVariable object="Buildings" variable="Slot" comparison_sign="=" value=expr(BuildDeleteSlot)
+if NumberObjectVariable object="Buildings" variable="Kind" comparison_sign="=" value=3
+do SetNumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" modification_sign="=" value=0
+do Delete object="Buildings"
+do SetNumberVariable variable="BuildCount" modification_sign="-" value=1
+do SetNumberVariable variable="Wood" modification_sign="+" value=1
+do SetNumberVariable variable="Stone" modification_sign="+" value=1
+do SetNumberVariable variable="Fiber" modification_sign="+" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetStringVariable variable="BuildReason" modification_sign="=" value="已拆除，返还一半材料"
+do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=60 pitch_speed=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+
+> for each Buildings
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.X()-Buildings.X())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHX)+(36))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+(36))
+>> do SetNumberVariable variable="BuildLX" modification_sign="=" value=expr((Player3D.X()-Buildings.X())*cos(ToRad(Buildings.Angle()))+(Player3D.Y()-Buildings.Y())*sin(ToRad(Buildings.Angle())))
+>> do SetNumberVariable variable="BuildLY" modification_sign="=" value=expr(-(Player3D.X()-Buildings.X())*sin(ToRad(Buildings.Angle()))+(Player3D.Y()-Buildings.Y())*cos(ToRad(Buildings.Angle())))
+
+>>> if NumberObjectVariable object="Buildings" variable="Kind" comparison_sign="!=" value=1
+>>> do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+>>> do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+>>> if NumberObjectVariable object="Buildings" variable="Kind" comparison_sign="=" value=1
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildLX)) comparison_sign=">" second_expression=expr(145)
+>>> or BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildLY) comparison_sign="<" second_expression=-130
+>>> do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+>>> do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+
+> for each Buildings
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Dinosaur3D.X()-Buildings.X())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHX)+(150 + abs(sin(ToRad(Dinosaur3D.Angle()))) * 260))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Dinosaur3D.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+(150 + abs(cos(ToRad(Dinosaur3D.Angle()))) * 260))
+>> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+>> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+
+>>> if NumberVariable variable="Riding" comparison_sign="=" value=1
+>>> do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
+>>> do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y())
+>>> do SetX object="MountedRider" modification_sign="=" value=expr(Dinosaur3D.X() + sin(ToRad(Dinosaur3D.Angle())) * 15)
+>>> do SetY object="MountedRider" modification_sign="=" value=expr(Dinosaur3D.Y() - cos(ToRad(Dinosaur3D.Angle())) * 15)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+
+> for each Buildings
+>> for each Wildlife
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Wildlife.X()-Buildings.X())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHX)+(Wildlife.Variable(Radius) + abs(sin(ToRad(Wildlife.Angle()))) * Wildlife.Variable(HalfLength)))
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Wildlife.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+(Wildlife.Variable(Radius) + abs(cos(ToRad(Wildlife.Angle()))) * Wildlife.Variable(HalfLength)))
+>>> do SetX object="Wildlife" modification_sign="=" value=expr(Wildlife.Variable(PX))
+>>> do SetY object="Wildlife" modification_sign="=" value=expr(Wildlife.Variable(PY))
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+
+> for each BuiltCampfire
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),BuiltCampfire.X(),BuiltCampfire.Y())) comparison_sign="<" second_expression=expr(230)
+>> do SetNumberVariable variable="BuildWarm" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+
+> for each BuiltShelter
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),BuiltShelter.X(),BuiltShelter.Y())) comparison_sign="<" second_expression=expr(140)
+>> do SetNumberVariable variable="BuildRest" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildWarm" comparison_sign="=" value=1
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+do SetNumberVariable variable="Health" modification_sign="=" value=expr(min(100,Health+2*TimeDelta()))
+do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(min(100,Stamina+5*TimeDelta()))
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildRest" comparison_sign="=" value=1
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(min(100,Stamina+8*TimeDelta()))
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="B 建造 · 庇护所 / 栅栏 / 篝火"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildWarm" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="篝火温暖：恢复生命与体力 · B 建造"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildRest" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="庇护所休息：恢复体力 · B 建造"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do Show object="BuildPanel"
+do Show object="BuildTitle"
+do Show object="BuildStatus"
+do Show object="BuildChoice1"
+do Show object="BuildChoiceLabel1"
+do Show object="BuildChoice2"
+do Show object="BuildChoiceLabel2"
+do Show object="BuildChoice3"
+do Show object="BuildChoiceLabel3"
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="B 退出建造 · Delete 拆除预览处建筑"
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildTitle" behavior="Text" modification_sign="=" text=expr("营地建造 · " + ToString(BuildCount) + " / 40   木 " + ToString(Wood) + " 石 " + ToString(Stone) + " 纤 " + ToString(Fiber))
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildStatus" behavior="Text" modification_sign="=" text=expr(BuildReason + NewLine() + "WASD 移位 · R 旋转 · Enter 建造" + NewLine() + "朝向 " + ToString(BuildAngle) + "° · Delete 拆除（返还一半）")
+do Hide object="HarvestPanel"
+do Hide object="HarvestHint"
+do Hide object="HeldAxe"
+do Hide object="CombatSpear"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do ChangeColor object="BuildChoice1" tint="170;190;180"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=1
+do ChangeColor object="BuildChoice1" tint="255;215;125"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do ChangeColor object="BuildChoice2" tint="170;190;180"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=2
+do ChangeColor object="BuildChoice2" tint="255;215;125"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do ChangeColor object="BuildChoice3" tint="170;190;180"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=3
+do ChangeColor object="BuildChoice3" tint="255;215;125"
+
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do SetNumberObjectVariable object="BuildStatus" variable="Mode" modification_sign="=" value=expr(BuildMode)
+do SetNumberObjectVariable object="BuildStatus" variable="Kind" modification_sign="=" value=expr(BuildKind)
+do SetNumberObjectVariable object="BuildStatus" variable="Valid" modification_sign="=" value=expr(BuildValid)
+do SetNumberObjectVariable object="BuildStatus" variable="Count" modification_sign="=" value=expr(BuildCount)
+do SetNumberObjectVariable object="BuildStatus" variable="X" modification_sign="=" value=expr(BuildX)
+do SetNumberObjectVariable object="BuildStatus" variable="Y" modification_sign="=" value=expr(BuildY)
+do SetNumberObjectVariable object="BuildStatus" variable="Angle" modification_sign="=" value=expr(BuildAngle)
+do SetNumberObjectVariable object="BuildStatus" variable="Slot" modification_sign="=" value=expr(BuildSlot)
+do SetNumberObjectVariable object="BuildStatus" variable="Warm" modification_sign="=" value=expr(BuildWarm)
+do SetNumberObjectVariable object="BuildStatus" variable="Rest" modification_sign="=" value=expr(BuildRest)
 
 @comment "Player skeletal animation controller" background=[95,155,180] text=[255,255,255]
 

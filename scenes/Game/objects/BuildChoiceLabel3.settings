@@ -1,0 +1,20 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 262
+folder = ["HUD"]
+name = "BuildChoiceLabel3"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = "3  篝火          3 木 / 3 石"
+font = "interface.ttf"
+characterSize = 17
+color = "242;240;218"
+bold = false
+italic = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"
