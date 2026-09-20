@@ -1,0 +1,595 @@
+{
+  "task": "Dynamic island weather",
+  "date": "2026-09-20",
+  "sourceCommit": "107a8e8e9d686d18b64ef4879cad2a23c1012267",
+  "implementationCommits": [
+    {
+      "hash": "d9d09d9",
+      "message": "Add dynamic island weather with rain fog and thunder"
+    },
+    {
+      "hash": "3904a6f",
+      "message": "Place weather status beside the survival HUD"
+    },
+    {
+      "hash": "107a8e8",
+      "message": "Use line stroke opacity for visible rainfall"
+    }
+  ],
+  "preRuntime": {
+    "valid": true,
+    "structurallyValid": true,
+    "eventCodeGenerationValid": true,
+    "extensionGeneratedCodeValid": true,
+    "javascriptAuthoringValid": true,
+    "semanticLintPassed": true
+  },
+  "runtime": {
+    "runtimeVerified": true,
+    "completionReady": true,
+    "assertions": [
+      {
+        "index": 0,
+        "type": "object_count",
+        "passed": true,
+        "actual": 1,
+        "expected": 1,
+        "operator": "eq",
+        "objectName": "WeatherCanvas"
+      },
+      {
+        "index": 1,
+        "type": "object_count",
+        "passed": true,
+        "actual": 1,
+        "expected": 1,
+        "operator": "eq",
+        "objectName": "WeatherStatus"
+      },
+      {
+        "index": 2,
+        "type": "instance_position_finite",
+        "passed": true,
+        "actual": {
+          "x": 650,
+          "y": 200,
+          "z": 0,
+          "angle": 180,
+          "layer": "World3D",
+          "zOrder": 0
+        },
+        "expected": "finite x/y/z (when z is present)",
+        "objectName": "Player3D"
+      },
+      {
+        "index": 3,
+        "type": "runtime_error_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq"
+      },
+      {
+        "index": 4,
+        "type": "renderer_has_three_group",
+        "passed": true,
+        "actual": true,
+        "expected": true,
+        "operator": "eq",
+        "layerName": "World3D"
+      },
+      {
+        "index": 5,
+        "type": "renderer_visible_mesh_count",
+        "passed": true,
+        "actual": 194,
+        "expected": 0,
+        "operator": "gt",
+        "layerName": "World3D"
+      },
+      {
+        "index": 6,
+        "type": "renderer_failed_texture_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq",
+        "layerName": "World3D"
+      },
+      {
+        "index": 7,
+        "type": "renderer_rejected_object_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq",
+        "layerName": "World3D"
+      }
+    ],
+    "errors": [],
+    "world3D": {
+      "layerName": "World3D",
+      "renderingType": "3d",
+      "configuredLightingLayer": false,
+      "effectiveLightingLayer": false,
+      "hasThreeScene": true,
+      "hasThreeGroup": true,
+      "hasThreeCamera": true,
+      "threeSceneChildCount": 4,
+      "threeGroupChildCount": 81,
+      "threeMeshCount": 226,
+      "visibleThreeMeshCount": 194,
+      "rejected3DRendererObjectCount": 0,
+      "failedTextureCount": 0,
+      "textureFailures": [],
+      "textureFailureRegistryTruncated": false,
+      "effectCount": 3,
+      "effectComposerPassCount": 3,
+      "camera": {
+        "type": "PerspectiveCamera",
+        "position": [
+          6.5,
+          -13.328847337958125,
+          6.482728271758743
+        ],
+        "rotationDegrees": [
+          64.99999999999999,
+          0,
+          0
+        ],
+        "forward": [
+          0,
+          0.9063077870366499,
+          -0.4226182617406996
+        ],
+        "near": 0.05,
+        "far": 300,
+        "fov": 58
+      },
+      "traversedNodeCount": 621,
+      "truncated": false
+    },
+    "audio": {
+      "sounds": [],
+      "musics": [
+        {
+          "channel": 30,
+          "soundName": "weather-rain.wav",
+          "looping": true
+        }
+      ],
+      "error": null
+    }
+  },
+  "gameplay": {
+    "operationId": "gameplay-tests-a2928c7e-dc76-43c9-83b5-e003c6c5658a",
+    "status": "completed",
+    "summary": {
+      "total": 7,
+      "completed": 7,
+      "passed": 7,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "tests": [
+      {
+        "name": "ConstructionPlacement",
+        "status": "passed",
+        "framesExecuted": 34,
+        "durationMs": 2857,
+        "assertions": [
+          {
+            "message": "Clear ground accepts a foundation",
+            "passed": true
+          },
+          {
+            "message": "Off-grid aim snaps the foundation to (-1800, -600)",
+            "passed": true
+          },
+          {
+            "message": "One foundation costs 6/2/3, observed 94,98,97",
+            "passed": true
+          },
+          {
+            "message": "Idle frames and duplicate placement neither create another part nor charge materials",
+            "passed": true
+          },
+          {
+            "message": "Adjacent foundation socket is valid",
+            "passed": true
+          },
+          {
+            "message": "Adjacent foundation is created and charged exactly once",
+            "passed": true
+          },
+          {
+            "message": "Insufficient wood invalidates the clear socket",
+            "passed": true
+          },
+          {
+            "message": "Rejected placement leaves inventory and building count unchanged",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "ConstructionSupport",
+        "status": "passed",
+        "framesExecuted": 75,
+        "durationMs": 1256,
+        "assertions": [
+          {
+            "message": "A ceiling cannot float above empty ground",
+            "passed": true
+          },
+          {
+            "message": "Unsupported ceiling neither spawns nor consumes materials",
+            "passed": true
+          },
+          {
+            "message": "Supported Num1 placement is valid: 吸附就绪 · Enter 放置",
+            "passed": true
+          },
+          {
+            "message": "Supported Num3 placement is valid: 吸附就绪 · Enter 放置",
+            "passed": true
+          },
+          {
+            "message": "Supported Num5 placement is valid: 吸附就绪 · Enter 放置",
+            "passed": true
+          },
+          {
+            "message": "Supported Num3 placement is valid: 吸附就绪 · Enter 放置",
+            "passed": true
+          },
+          {
+            "message": "Ground wall and upper wall coexist at the same horizontal socket",
+            "passed": true
+          },
+          {
+            "message": "Foundation demolition is blocked while dependent parts exist",
+            "passed": true
+          },
+          {
+            "message": "Demolition at level 1 removes only the upper wall and preserves the ground wall",
+            "passed": true
+          },
+          {
+            "message": "Upper wall returns half of its materials, rounded down",
+            "passed": true
+          },
+          {
+            "message": "Removing children first allows the entire supported structure to be dismantled",
+            "passed": true
+          },
+          {
+            "message": "Each removed part refunds once: 90,99,94",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "ConstructionDoors",
+        "status": "passed",
+        "framesExecuted": 209,
+        "durationMs": 2560,
+        "assertions": [
+          {
+            "message": "Door requires a matching door frame",
+            "passed": true
+          },
+          {
+            "message": "Door snaps into its frame and starts closed",
+            "passed": true
+          },
+          {
+            "message": "Closed door blocks forward movement: y=494.1666666666664",
+            "passed": true
+          },
+          {
+            "message": "E opens the nearby door",
+            "passed": true
+          },
+          {
+            "message": "Opening a door does not free its socket for a duplicate",
+            "passed": true
+          },
+          {
+            "message": "Player walks through open doorway onto the floor: y=336.6666666666669, z=20",
+            "passed": true
+          },
+          {
+            "message": "E closes the same door again",
+            "passed": true
+          },
+          {
+            "message": "Closing the door restores its blocking collision",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "ConstructionStairs",
+        "status": "passed",
+        "framesExecuted": 250,
+        "durationMs": 3151,
+        "assertions": [
+          {
+            "message": "Stair fixture Num1 is placeable: 吸附就绪 · Enter 放置",
+            "passed": true
+          },
+          {
+            "message": "Stair fixture Num1 is placeable: 吸附就绪 · Enter 放置",
+            "passed": true
+          },
+          {
+            "message": "Stair fixture Num2 is placeable: 吸附就绪 · Enter 放置",
+            "passed": true
+          },
+          {
+            "message": "Stair fixture Num5 is placeable: 吸附就绪 · Enter 放置",
+            "passed": true
+          },
+          {
+            "message": "Stair fixture Num7 is placeable: 吸附就绪 · Enter 放置",
+            "passed": true
+          },
+          {
+            "message": "Stairs attach to the lower foundation",
+            "passed": true
+          },
+          {
+            "message": "A ceiling cannot cover the staircase headroom",
+            "passed": true
+          },
+          {
+            "message": "Walking up stairs reaches the upper floor: y=353.3333333333319, z=320",
+            "passed": true
+          },
+          {
+            "message": "Player remains supported while standing on the upper floor",
+            "passed": true
+          },
+          {
+            "message": "Walking down returns to ground: y=820, z=0",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "ConstructionPersistence",
+        "status": "passed",
+        "framesExecuted": 59,
+        "durationMs": 1009,
+        "assertions": [
+          {
+            "message": "Fresh scene resets construction controls: mode=0, kind=10, angle=0",
+            "passed": true
+          },
+          {
+            "message": "B enters construction mode",
+            "passed": true
+          },
+          {
+            "message": "Save fixture Num1 is placeable",
+            "passed": true
+          },
+          {
+            "message": "Save fixture Num4 is placeable",
+            "passed": true
+          },
+          {
+            "message": "Save fixture Num6 is placeable",
+            "passed": true
+          },
+          {
+            "message": "Save fixture Num2 is placeable",
+            "passed": true
+          },
+          {
+            "message": "Save fixture Num5 is placeable",
+            "passed": true
+          },
+          {
+            "message": "Save fixture contains an open door",
+            "passed": true
+          },
+          {
+            "message": "Escape opens the pause menu",
+            "passed": true
+          },
+          {
+            "message": "Save button confirms a completed save",
+            "passed": true
+          },
+          {
+            "message": "Fresh scene contains no prior test buildings",
+            "passed": true
+          },
+          {
+            "message": "Loading restores all building records, sockets, levels and support parents",
+            "passed": true
+          },
+          {
+            "message": "Restored meshes preserve positions, heights, support state and the swung-open door",
+            "passed": true
+          },
+          {
+            "message": "Loading restores exact inventory without charging construction again",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "WeatherCycle",
+        "status": "passed",
+        "framesExecuted": 1439,
+        "durationMs": 11868,
+        "assertions": [
+          {
+            "message": "A fresh expedition starts clear with exactly one weather canvas",
+            "passed": true
+          },
+          {
+            "message": "F6 selects cloud cover and begins a gradual transition",
+            "passed": true
+          },
+          {
+            "message": "Rain builds up and changes the actual scene background",
+            "passed": true
+          },
+          {
+            "message": "HUD and rain ambience follow the rain state",
+            "passed": true
+          },
+          {
+            "message": "Rain strokes cover the viewport using one visible weather canvas",
+            "passed": true
+          },
+          {
+            "message": "Pause freezes weather progression and particles, silences rain and blocks F6",
+            "passed": true
+          },
+          {
+            "message": "Photo mode retains the frozen weather image while hiding its HUD",
+            "passed": true
+          },
+          {
+            "message": "A ceiling above the player suppresses rain streaks and muffles rainfall",
+            "passed": true
+          },
+          {
+            "message": "Removing overhead shelter restores outdoor rainfall",
+            "passed": true
+          },
+          {
+            "message": "A storm flashes once and schedules thunder after the light",
+            "passed": true
+          },
+          {
+            "message": "The flash fades and the delayed thunder sound plays",
+            "passed": true
+          },
+          {
+            "message": "Fog replaces the storm smoothly and clears rain and pending thunder",
+            "passed": true
+          },
+          {
+            "message": "Art reference mode hides weather and stops its simulation and sound",
+            "passed": true
+          },
+          {
+            "message": "The automatic timer moves a clear spell into cloud cover exactly once",
+            "passed": true
+          },
+          {
+            "message": "Cycling, menus and reference mode do not duplicate weather objects",
+            "passed": true
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "WeatherPersistence",
+        "status": "passed",
+        "framesExecuted": 142,
+        "durationMs": 1414,
+        "assertions": [
+          {
+            "message": "The pause menu saves weather to an isolated test slot",
+            "passed": true
+          },
+          {
+            "message": "A new scene starts independently of the stored weather",
+            "passed": true
+          },
+          {
+            "message": "Load restores weather type, exact elapsed time and spell duration",
+            "passed": true
+          },
+          {
+            "message": "The restored weather name reaches the HUD while paused",
+            "passed": true
+          },
+          {
+            "message": "Resuming continues the saved weather clock and fades into its rain preset",
+            "passed": true
+          }
+        ],
+        "errors": []
+      }
+    ]
+  },
+  "visualQA": {
+    "storm": "weather-storm-preview.png",
+    "fog": "weather-fog-preview.png",
+    "checked": [
+      "Weather card does not overlap the compass or wilderness hints.",
+      "Rain strokes are visible below the HUD.",
+      "Thunderstorm reduces sunlight and darkens the sky.",
+      "Fog obscures distant geometry while nearby player and HUD remain legible."
+    ],
+    "fogCapture": {
+      "success": true,
+      "running": true,
+      "filePath": "C:/Users/Administrator/Documents/Codex/2026-09-18/new-chat/outputs/JurassicWorld/weather-fog-preview.png",
+      "width": 1600,
+      "height": 900,
+      "source": "renderer-canvas",
+      "debuggerId": "preview-ws-4",
+      "sceneName": "Game",
+      "sceneElapsedTimeSeconds": 15.137,
+      "renderedBeforeCapture": true,
+      "capturedAt": 1789877149140,
+      "attempt": 1,
+      "attempts": 1,
+      "exactGameResolution": true,
+      "quality": {
+        "analyzed": true,
+        "dimensionsMatch": true,
+        "blackRatio": 0,
+        "transparentRatio": 0,
+        "suspicious": false,
+        "pixelHash": "138d5adf868557e7553da1ea60e2d7d1074e92ea5b8378d4e758d3cc7c025dde"
+      }
+    }
+  },
+  "reuse": {
+    "repository": "https://github.com/GDevelopApp/GDevelop-extensions",
+    "commit": "6e0bba82e5123cd95ea06107056d4015ae0d78e3",
+    "candidates": [
+      "community/MakeItRain 1.1.1: 2D falling-object behavior",
+      "reviewed/ParticleEmitter3D 3.1.1: general 3D emitter"
+    ],
+    "decision": "Small scene-specific native event system reuses existing lighting and HUD panels; no third-party extension added."
+  },
+  "storage": "Gameplay tests use dedicated slots. Player storage JurassicWorldDemo is not written by verification.",
+  "changes": [
+    "scenes/Game/objects/WeatherCanvas.settings",
+    "scenes/Game/objects/WeatherPanel.settings",
+    "scenes/Game/objects/WeatherStatus.settings",
+    "scenes/Game/external-layout/GameWeather.settings",
+    "scenes/Game/external-events/WeatherSystem.events",
+    "scenes/Game/external-events/WeatherRestore.events",
+    "tools/compose_weather_audio.py",
+    "assets/audio/weather-rain.wav",
+    "assets/audio/weather-thunder.wav",
+    "tests/WeatherCycle.js",
+    "tests/WeatherPersistence.js",
+    "scenes/Game/scene.settings",
+    "scenes/Game/functions/sceneUpdate.events",
+    "scenes/Game/external-events/HUDInventoryAndSave.events",
+    "scenes/Game/external-events/HUDLoadStatus.events",
+    "resources.settings",
+    "tests.settings",
+    "README.md"
+  ]
+}
