@@ -23,6 +23,9 @@ try {
     const cards=visible().filter(o=>val(o,'Slot')>=100);
     harness.assert(cards.length===8&&contained(visible(),w,h),`All eight building cards and the close button fit ${w} x ${h}`);
     harness.assert(cards.every((a,i)=>cards.slice(i+1).every(b=>a.x+a.width<=b.x||b.x+b.width<=a.x||a.y+a.height<=b.y||b.y+b.height<=a.y)),`Cards do not overlap at ${w} x ${h}`);
-    await tap(8);
+    await tap(210);
+    const building=visible();
+    harness.assert(n('BuildMode')===1&&contained(building,w,h)&&building.every((a,i)=>building.slice(i+1).every(b=>a.x+a.width<=b.x||b.x+b.width<=a.x||a.y+a.height<=b.y||b.y+b.height<=a.y)),`Building controls fit without overlap at ${w} x ${h}`);
+    await tap(10);
   }
 } finally { harness.releaseAllInputs(); harness.getRuntimeGame().setGameResolutionSize(1600,900); }

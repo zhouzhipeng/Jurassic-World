@@ -72,6 +72,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(3)
 do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
 do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(3)
@@ -994,3 +995,10 @@ or NumberVariable variable="Stone" comparison_sign="<" value=3
 or NumberVariable variable="Fiber" comparison_sign="<" value=4
 do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=0
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="石斧 · 材料不足"
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=2
+do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=3
+do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="部件"
