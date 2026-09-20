@@ -4,6 +4,7 @@ import json
 P=Path(__file__).resolve().parents[1];F=P/'scenes/Game/functions/sceneUpdate.events'
 s=F.read_text(encoding='utf-8');marker='@comment "Wildlife and survival audio"'
 s=s.split(marker)[0].rstrip()+'\n\n'
+s=s.replace('WASD move   X ride   Hold E gather / interact   F rest   Q travel   TAB pack  ESC menu  RMB orbit  Wheel zoom  Home reset', 'WASD 移动 · E 采集 · 1 斧子 · 2 长矛制作 · 空格 反击 · X 骑乘 · J 任务 · M 声音 · 右键 镜头')
 def q(v):return json.dumps(v,ensure_ascii=False)
 def ex(v):return 'expr('+v+')'
 def nv(k,op,v):return f'if NumberVariable variable={q(k)} comparison_sign={q(op)} value={v}'
@@ -24,7 +25,7 @@ def event(conds,actions):lines.extend(conds+actions+[''])
 active=[nv('Mode','=',0),nv('RenderMode','=',1),nv('Dead','=',0)]
 key=lambda k:f'if KeyFromTextReleased key_to_check={q(k)}'
 # Audio starts on a deliberate interaction so WebAudio can unlock in web exports.
-event([nv('MusicStarted','=',0),'if MouseButtonFromTextPressed button_to_check="Left"','or MouseButtonFromTextPressed button_to_check="Right"','or KeyFromTextPressed key_to_check="w"','or KeyFromTextPressed key_to_check="e"','or KeyFromTextPressed key_to_check="Tab"','or KeyFromTextPressed key_to_check="m"'],[
+event([nv('MusicStarted','=',0),'if MouseButtonFromTextPressed button_to_check="Left"','or MouseButtonFromTextPressed button_to_check="Right"'] + ['or KeyFromTextPressed key_to_check='+q(k) for k in ['w','a','s','d','e','x','q','f','j','Space','Num1','Num2','Tab','Escape','m']],[
  'do PlayMusicOnChannel audio_file_or_audio_resource_name="island-dawn.wav" channel_identifier=20 repeat_the_sound=true volume=55 pitch_speed=1',
  'do PlayMusicOnChannel audio_file_or_audio_resource_name="predator-pulse.wav" channel_identifier=21 repeat_the_sound=true volume=0 pitch_speed=1',setv('MusicStarted',1)])
 event([key('m')],[setv('Muted',ex('1 - Muted'))])

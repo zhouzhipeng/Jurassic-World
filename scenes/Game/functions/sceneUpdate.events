@@ -9,7 +9,7 @@ if BuiltinCommonInstructions::Once
 do HideLayer layer="World"
 do ShowLayer layer="World3D"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DemoLabel" behavior="Text" modification_sign="=" text="REAL-TIME 3D / F3 ART REFERENCE"
-do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD move   X ride   Hold E gather / interact   F rest   Q travel   TAB pack  ESC menu  RMB orbit  Wheel zoom  Home reset"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · E 采集 · 1 斧子 · 2 长矛制作 · 空格 反击 · X 骑乘 · J 任务 · M 声音 · 右键 镜头"
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
@@ -1999,8 +1999,19 @@ if NumberVariable variable="MusicStarted" comparison_sign="=" value=0
 if MouseButtonFromTextPressed button_to_check="Left"
 or MouseButtonFromTextPressed button_to_check="Right"
 or KeyFromTextPressed key_to_check="w"
+or KeyFromTextPressed key_to_check="a"
+or KeyFromTextPressed key_to_check="s"
+or KeyFromTextPressed key_to_check="d"
 or KeyFromTextPressed key_to_check="e"
+or KeyFromTextPressed key_to_check="x"
+or KeyFromTextPressed key_to_check="q"
+or KeyFromTextPressed key_to_check="f"
+or KeyFromTextPressed key_to_check="j"
+or KeyFromTextPressed key_to_check="Space"
+or KeyFromTextPressed key_to_check="Num1"
+or KeyFromTextPressed key_to_check="Num2"
 or KeyFromTextPressed key_to_check="Tab"
+or KeyFromTextPressed key_to_check="Escape"
 or KeyFromTextPressed key_to_check="m"
 do PlayMusicOnChannel audio_file_or_audio_resource_name="island-dawn.wav" channel_identifier=20 repeat_the_sound=true volume=55 pitch_speed=1
 do PlayMusicOnChannel audio_file_or_audio_resource_name="predator-pulse.wav" channel_identifier=21 repeat_the_sound=true volume=0 pitch_speed=1
