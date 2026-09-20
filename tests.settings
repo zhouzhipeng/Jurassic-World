@@ -1,3 +1,41 @@
 kind = "tests"
 settingsFormatVersion = 5
-tests = [ ]
+[[tests]]
+scope = "project"
+order = 0
+name = "ConstructionPlacement"
+type = "gameplay"
+description = "Foundation snapping, adjacent placement, exact costs and rejected placement."
+file = "tests/ConstructionPlacement.js"
+
+[[tests]]
+scope = "project"
+order = 1
+name = "ConstructionSupport"
+type = "gameplay"
+description = "Floating rejection, stacked floors, dependent demolition and refunds."
+file = "tests/ConstructionSupport.js"
+
+[[tests]]
+scope = "project"
+order = 2
+name = "ConstructionDoors"
+type = "gameplay"
+description = "Door socket placement, closed collision, E interaction and open traversal."
+file = "tests/ConstructionDoors.js"
+
+[[tests]]
+scope = "project"
+order = 3
+name = "ConstructionStairs"
+type = "gameplay"
+description = "Build stairs, preserve headroom, ascend, stand on an upper floor and descend."
+file = "tests/ConstructionStairs.js"
+
+[[tests]]
+scope = "project"
+order = 4
+name = "ConstructionPersistence"
+type = "gameplay"
+description = "Save and load through the pause menu across a fresh scene using a dedicated test slot."
+file = "tests/ConstructionPersistence.js"

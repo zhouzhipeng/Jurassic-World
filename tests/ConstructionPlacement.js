@@ -1,0 +1,46 @@
+// Arrange inventory and a clear site; all buildings are placed through real input.
+const number = name => Number(harness.getSceneVariable(name)?.value);
+const player = () => harness.getObjects('Player3D')[0];
+const materials = () => ['Wood', 'Stone', 'Fiber'].map(number).join(',');
+async function tap(key) {
+  harness.setKeyPressed(key, true);
+  await harness.stepFrames(1);
+  harness.setKeyPressed(key, false);
+  await harness.stepFrames(1);
+}
+try {
+  await harness.goToScene('Game');
+  await harness.stepFrames(2);
+  harness.watch('PartFoundation');
+  for (const name of ['Wood', 'Stone', 'Fiber']) harness.setSceneVariable(name, 100);
+  harness.setObjectPosition(player().id, -1780, -135, 0);
+  await tap('b');
+  await tap('Num1');
+  harness.assert(number('BuildValid') === 1, 'Clear ground accepts a foundation');
+  await tap('Return');
+  const first = harness.getObjects('PartFoundation');
+  harness.assert(first.length === 1 && first[0].x === -1800 && first[0].y === -600,
+    'Off-grid aim snaps the foundation to (-1800, -600)');
+  harness.assert(materials() === '94,98,97', `One foundation costs 6/2/3, observed ${materials()}`);
+  await harness.stepFrames(15);
+  await tap('Return');
+  harness.assert(harness.getObjects('PartFoundation').length === 1 && materials() === '94,98,97',
+    'Idle frames and duplicate placement neither create another part nor charge materials');
+  harness.setObjectPosition(player().id, -1500, -150, 0);
+  await harness.stepFrames(2);
+  harness.assert(number('BuildValid') === 1, 'Adjacent foundation socket is valid');
+  await tap('Return');
+  harness.assert(harness.getObjects('PartFoundation').length === 2 && materials() === '88,96,94',
+    'Adjacent foundation is created and charged exactly once');
+  // A separate empty site isolates material rejection from overlap rejection.
+  harness.setObjectPosition(player().id, 0, 750, 0);
+  harness.setSceneVariable('Wood', 0);
+  await harness.stepFrames(2);
+  const before = materials();
+  harness.assert(number('BuildValid') === 0, 'Insufficient wood invalidates the clear socket');
+  await tap('Return');
+  harness.assert(harness.getObjects('PartFoundation').length === 2 && materials() === before,
+    'Rejected placement leaves inventory and building count unchanged');
+} finally {
+  harness.releaseAllInputs();
+}
