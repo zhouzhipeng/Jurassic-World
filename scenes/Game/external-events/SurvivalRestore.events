@@ -68,4 +68,3 @@ do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Hea
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.PlayerX") variable="SavedPlayerX"
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.PlayerY") variable="SavedPlayerY"
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.PlayerZ") variable="SavedPlayerZ"
-

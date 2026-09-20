@@ -70,4 +70,3 @@ if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)
 >> if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)
 >> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Trike.X") expression=expr(Triceratops.X())
 >> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Trike.Y") expression=expr(Triceratops.Y())
-

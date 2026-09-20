@@ -19,4 +19,3 @@ do SetNumberVariable variable="Stamina" modification_sign="-" value=expr(3)
 do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
 do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=55 pitch_speed=1
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("获得金属矿石。营地 Z 熔炼，U 制作金属工具。矿脉 180 秒后恢复。")
-

@@ -42,4 +42,3 @@ if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 do SetNumberVariable variable="UseCooldown" modification_sign="=" value=expr(max(0,UseCooldown-TimeDelta()))
-

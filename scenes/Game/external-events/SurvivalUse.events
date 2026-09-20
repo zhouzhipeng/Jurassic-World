@@ -128,6 +128,7 @@ do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("
 
 @event
 if NumberVariable variable="UseRequest" comparison_sign=">" value=expr(0)
+if NumberVariable variable="UseRequest" comparison_sign="<=" value=expr(2)
 if NumberVariable variable="UseCooldown" comparison_sign=">" value=expr(0)
 do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
 
@@ -409,4 +410,3 @@ do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("
 @event
 if NumberVariable variable="Action" comparison_sign=">" value=expr(0)
 do SetNumberVariable variable="Action" modification_sign="=" value=expr(0)
-

@@ -687,4 +687,3 @@ do OpacityCapability::OpacityBehavior::SetValue object="ClaimQuest" behavior="Op
 @event
 if NumberVariable variable="QuestReady" comparison_sign="=" value=expr(1)
 do OpacityCapability::OpacityBehavior::SetValue object="ClaimQuest" behavior="Opacity" modification_sign="=" opacity_0_255=255
-

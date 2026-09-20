@@ -166,4 +166,3 @@ do SetStringVariable variable="NavDirection" modification_sign="=" value=expr("�
 @event
 if NumberVariable variable="NavMode" comparison_sign=">" value=expr(0)
 do TextContainerCapability::TextContainerBehavior::SetValue object="Compass" behavior="Text" modification_sign="=" text=expr(NavDirection+" · "+NavName+" "+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),NavX,NavY)/100))+"m · Q 切换")
-

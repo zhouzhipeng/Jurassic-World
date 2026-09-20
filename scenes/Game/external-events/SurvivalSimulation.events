@@ -190,4 +190,3 @@ if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 do SetNumberVariable variable="Dead" modification_sign="=" value=expr(1)
 do SetNumberVariable variable="Riding" modification_sign="=" value=expr(0)
 do PlaySound audio_file_or_audio_resource_name="death.wav" repeat_the_sound=false volume=55 pitch_speed=1
-

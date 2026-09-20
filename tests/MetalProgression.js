@@ -64,6 +64,7 @@ try {
   harness.assert(Number(harness.getObjectVariable(raptor.id,'HP')?.value)===65,
     'A real upgraded spear hit deals 55 damage');
   for(let i=0;i<2;i++){await harness.stepFrames(42);await tap('Space');}
+  await harness.stepFrames(2); // Allow the HUD to observe the completed combat update.
   harness.assert(n('Kills')===1 && n('QuestReady')===1,'A completed hunt advances the new objective counter');
   await claim();
   harness.assert(n('QuestStage')===11 && n('QuestReady')===0,

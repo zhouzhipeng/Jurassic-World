@@ -24,4 +24,3 @@ if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetwe
 do SetNumberObjectVariable object="Triceratops" variable="State" modification_sign="=" value=expr(1)
 do SetNumberObjectVariable object="Triceratops" variable="TargetX" modification_sign="=" value=expr(Player3D.X())
 do SetNumberObjectVariable object="Triceratops" variable="TargetY" modification_sign="=" value=expr(Player3D.Y())
-

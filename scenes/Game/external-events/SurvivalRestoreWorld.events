@@ -66,4 +66,3 @@ do SetNumberVariable variable="SurvivalLoadPending" modification_sign="=" value=
 do SetNumberObjectVariable object="SurvivalFires" variable="VisualReady" modification_sign="=" value=expr(0)
 do Delete object="FireGlow"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
-
