@@ -27,9 +27,12 @@ do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.BaseMeal
 do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.BaseKills") expression=expr(BaseKills)
 do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Kills") expression=expr(Kills)
 do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Health") expression=expr(Health)
-do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.PlayerX") expression=expr(Player3D.X())
+do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.PlayerX") expression=expr(Player3D.X()+Riding*240)
 do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.PlayerY") expression=expr(Player3D.Y())
 do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.PlayerZ") expression=expr(PlayerFloor)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.Dino.X" expression=expr(Dinosaur3D.X())
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.Dino.Y" expression=expr(Dinosaur3D.Y())
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.Dino.Angle" expression=expr(Dinosaur3D.Angle())
 
 @event
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=expr(1)

@@ -1,6 +1,18 @@
 @comment "Apply persisted fire queues, ore cooldowns, companion state and player position" background=[90,150,120] text=[255,255,255]
 
 @event
+if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
+if GroupExists storage_name=expr(SaveStorage) group="Survival.Dino.X"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Survival.Dino.X" variable="LoadFuel"
+do SetX object="Dinosaur3D" modification_sign="=" value=expr(LoadFuel)
+do SetNumberVariable variable="DinoPreviousX" modification_sign="=" value=expr(LoadFuel)
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Survival.Dino.Y" variable="LoadFuel"
+do SetY object="Dinosaur3D" modification_sign="=" value=expr(LoadFuel)
+do SetNumberVariable variable="DinoPreviousY" modification_sign="=" value=expr(LoadFuel)
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Survival.Dino.Angle" variable="LoadFuel"
+do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(LoadFuel)
+
+@event
 if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=expr(1)
 if GroupExists storage_name=expr(SaveStorage) group="SurvivalVersion"
 do SetX object="Player3D" modification_sign="=" value=expr(SavedPlayerX)

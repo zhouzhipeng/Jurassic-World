@@ -18,11 +18,13 @@ try {
   harness.setObjectVariable(trike.id,'Bond',60);harness.setObjectVariable(trike.id,'FeedWait',2);
   harness.setObjectVariable(trike.id,'Command',1);harness.setObjectPosition(trike.id,-1650,1440,0);
   const seam=harness.getObjects('MetalDeposit')[0];harness.setObjectVariable(seam.id,'Cooldown',137);
+  harness.setObjectPosition(harness.getObjects('Dinosaur3D')[0].id,1550,850,0);
   for(const [k,v] of Object.entries({BodyTemp:35.4,Wetness:61,Canteen:1,CanteenCharges:2,MetalOre:5,MetalIngot:2,ForgeBuilt:1,ForgeBusy:1,ForgeTime:6,CookedMeat:3,MealsCooked:8,QuestStage:8}))harness.setSceneVariable(k,v);
   await tap('Escape');
   const names=['BodyTemp','Wetness','Canteen','CanteenCharges','MetalOre','MetalIngot','ForgeBuilt','ForgeBusy','ForgeTime','CookedMeat','MealsCooked','QuestStage','Health'];
   const values=names.map(n),savedFires=JSON.stringify(fires()),savedTrike=JSON.stringify(companion());
   const savedCooldown=Number(harness.getObjectVariable(seam.id,'Cooldown')?.value),position=harness.getObjects('Player3D')[0];
+  const savedMount=harness.getObjects('Dinosaur3D')[0];
   await click('Save');harness.assert(n('SaveFlag')===1,'The pause menu stores survival data in an isolated slot');
   await harness.goToScene('Game');await harness.stepFrames(3);harness.setSceneVariable('SaveStorage',storage);
   harness.assert(n('Canteen')===0 && n('MetalOre')===0 && n('ForgeBuilt')===0,'A fresh scene starts with fresh survival defaults');
@@ -34,6 +36,9 @@ try {
   harness.assert(Number(harness.getObjectVariable(restored.id,'Cooldown')?.value)===savedCooldown,'The depleted ore seam retains its cooldown by site identity');
   const loaded=harness.getObjects('Player3D')[0];
   harness.assert(loaded.x===position.x && loaded.y===position.y,'Loading returns the player to the saved location');
+  const mount=harness.getObjects('Dinosaur3D')[0];
+  harness.assert(mount.x===savedMount.x && mount.y===savedMount.y && mount.angle===savedMount.angle,
+    'The riding companion remains at its saved expedition position instead of returning to spawn');
   await harness.stepFrames(40);
   harness.assert(JSON.stringify(fires())===savedFires && n('ForgeTime')===values[names.indexOf('ForgeTime')],
     'Restored production remains frozen while the menu stays open');

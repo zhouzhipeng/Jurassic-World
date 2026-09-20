@@ -741,7 +741,7 @@ value = 0
 [[variables]]
 name = "NoticeMessage"
 type = "string"
-value = "Welcome. Feed your first companion with E."
+value = "按住 E 采集，3 吃浆果；Q 导航，J 查看任务。"
 
 
 [[variables]]
