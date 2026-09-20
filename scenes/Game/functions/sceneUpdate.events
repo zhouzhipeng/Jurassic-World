@@ -16,6 +16,7 @@ if BuiltinCommonInstructions::Once
 do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
 do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y() + 550)
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=1
@@ -23,6 +24,7 @@ if BuiltinCommonInstructions::Once
 do SetX object="Player3D" modification_sign="=" value=-650
 do SetY object="Player3D" modification_sign="=" value=350
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -566,6 +568,8 @@ if GroupExists storage_name=expr(SaveStorage) group="Version"
 do SetNumberVariable variable="Riding" modification_sign="=" value=0
 do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X() + 240)
 do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y())
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=0
 
 if NumberVariable variable="Action" comparison_sign="=" value=10
 if GroupExists storage_name=expr(SaveStorage) group="QuestVersion"
@@ -1989,6 +1993,7 @@ do SetX object="Player3D" modification_sign="=" value=-650
 do SetY object="Player3D" modification_sign="=" value=350
 do SetNumberVariable variable="PreviousX" modification_sign="=" value=-650
 do SetNumberVariable variable="PreviousY" modification_sign="=" value=350
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已在营地重生，获得 5 秒保护。"
 do PlaySound audio_file_or_audio_resource_name="respawn.wav" repeat_the_sound=false volume=70 pitch_speed=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
