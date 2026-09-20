@@ -1,5 +1,7 @@
 """Generate catalog-backed native events for this demo; reruns replace only our marked section."""
 from pathlib import Path
+if (Path(__file__).resolve().parents[1] / "extensions/JurassicActors").exists():
+    raise SystemExit("This one-shot generator targets the pre-prefab layout. Edit scene external events and JurassicActors prefab sources directly.")
 import json
 P=Path(__file__).resolve().parents[1];F=P/'scenes/Game/functions/sceneUpdate.events'
 s=F.read_text(encoding='utf-8');marker='@comment "Wildlife and survival audio"'

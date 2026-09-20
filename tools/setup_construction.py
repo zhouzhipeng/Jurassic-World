@@ -1,5 +1,7 @@
 """One-time native object/resource definitions for the construction kit."""
 from pathlib import Path
+if (Path(__file__).resolve().parents[1] / "extensions/JurassicActors").exists():
+    raise SystemExit("This one-shot generator targets the pre-prefab layout. Edit scene external events and JurassicActors prefab sources directly.")
 import json,uuid,re
 P=Path(__file__).resolve().parents[1];S=P/'scenes/Game/scene.settings';R=P/'resources.settings';O=P/'scenes/Game/objects'
 s=S.read_text(encoding='utf-8');r=R.read_text(encoding='utf-8');assert 'name = "BuildMode"' not in s

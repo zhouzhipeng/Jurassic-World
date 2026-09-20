@@ -14,55 +14,7 @@ isUsingLegacyInstancesRenderer = false
 propertyDescriptors = []
 objectGroups = { }
 
-[[variables]]
-name = "AnimationState"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Sprinting"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Travel"
-type = "number"
-value = 0
-
-[[variables]]
-name = "HandZ"
-type = "number"
-value = 0
-
-[[variables]]
-name = "FootZ"
-type = "number"
-value = 0
-
-[[variables]]
-name = "AttachmentReady"
-type = "number"
-value = 0
-
-[[variables]]
-name = "HandRX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "AnimationPlaying"
-type = "number"
-value = 1
-
-[[variables]]
-name = "HeldAxeVisible"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CombatSpearVisible"
-type = "number"
-value = 0
+variables = []
 
 [layout]
 version = 1

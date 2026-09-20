@@ -1,6 +1,6 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 234
+order = 232
 folder = ["Actors"]
 name = "Raptor"
 type = "JurassicActors::Raptor"
@@ -163,5 +163,10 @@ value = 1
 name = "SpawnReady"
 type = "number"
 value = 0
+
+[[variables]]
+name = "ActorConfigured"
+type = "number"
+value = 1
 
 [content]

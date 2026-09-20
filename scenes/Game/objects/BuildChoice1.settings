@@ -1,6 +1,6 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 257
+order = 254
 folder = ["UI", "External Layouts"]
 name = "BuildChoice1"
 type = "Sprite"

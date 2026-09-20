@@ -1,5 +1,7 @@
 """Install native player animation events; safe to rerun for controller tuning."""
 from pathlib import Path
+if (Path(__file__).resolve().parents[1] / "extensions/JurassicActors").exists():
+    raise SystemExit("This one-shot generator targets the pre-prefab layout. Edit scene external events and JurassicActors prefab sources directly.")
 import re
 P=Path(__file__).resolve().parents[1]
 f=P/'scenes/Game/functions/sceneUpdate.events';s=f.read_text(encoding='utf-8')

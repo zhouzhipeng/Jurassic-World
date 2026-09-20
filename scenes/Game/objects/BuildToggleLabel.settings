@@ -1,6 +1,6 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 254
+order = 251
 folder = ["UI", "External Layouts"]
 name = "BuildToggleLabel"
 type = "TextObject::Text"

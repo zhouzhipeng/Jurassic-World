@@ -1,6 +1,6 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 236
+order = 234
 folder = ["UI", "External Layouts"]
 name = "WildPanel"
 type = "Sprite"

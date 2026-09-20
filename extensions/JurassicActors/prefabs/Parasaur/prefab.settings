@@ -14,20 +14,7 @@ isUsingLegacyInstancesRenderer = false
 propertyDescriptors = []
 objectGroups = { }
 
-[[variables]]
-name = "AnimationState"
-type = "number"
-value = 0
-
-[[variables]]
-name = "AnimationPlaying"
-type = "number"
-value = 1
-
-[[variables]]
-name = "MountedRiderVisible"
-type = "number"
-value = 0
+variables = []
 
 [layout]
 version = 1

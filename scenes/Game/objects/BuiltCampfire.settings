@@ -1,6 +1,6 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 250
+order = 247
 folder = ["Construction"]
 name = "BuiltCampfire"
 type = "Scene3D::Model3DObject"

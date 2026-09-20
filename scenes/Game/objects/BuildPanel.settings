@@ -1,6 +1,6 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 255
+order = 252
 folder = ["UI", "External Layouts"]
 name = "BuildPanel"
 type = "Sprite"

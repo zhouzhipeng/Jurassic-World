@@ -1,6 +1,6 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 239
+order = 237
 folder = ["UI", "External Layouts"]
 name = "AudioLabel"
 type = "TextObject::Text"

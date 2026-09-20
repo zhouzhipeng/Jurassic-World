@@ -1,6 +1,6 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 263
+order = 260
 folder = ["UI", "External Layouts"]
 name = "BuildStatus"
 type = "TextObject::Text"

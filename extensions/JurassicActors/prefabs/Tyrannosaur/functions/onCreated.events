@@ -1,2 +1,35 @@
+if VarObjet object="Object" variable="ActorConfigured" comparison_sign="=" value=0
+do ModVarObjet object="Object" variable="HP" modification_sign="=" value=240
+do ModVarObjet object="Object" variable="MaxHP" modification_sign="=" value=240
+do ModVarObjet object="Object" variable="Carnivore" modification_sign="=" value=1
+do ModVarObjet object="Object" variable="HomeX" modification_sign="=" value=1350
+do ModVarObjet object="Object" variable="HomeY" modification_sign="=" value=-2100
+do ModVarObjet object="Object" variable="Radius" modification_sign="=" value=170
+do ModVarObjet object="Object" variable="HalfLength" modification_sign="=" value=410
+do ModVarObjet object="Object" variable="Speed" modification_sign="=" value=210
+do ModVarObjet object="Object" variable="Damage" modification_sign="=" value=24
+do ModVarObjet object="Object" variable="State" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="Clock" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="AIClock" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="Cooldown" modification_sign="=" value=2
+do ModVarObjet object="Object" variable="Windup" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="DamageDone" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="PX" modification_sign="=" value=850
+do ModVarObjet object="Object" variable="PY" modification_sign="=" value=-1200
+do ModVarObjet object="Object" variable="PA" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="TargetX" modification_sign="=" value=850
+do ModVarObjet object="Object" variable="TargetY" modification_sign="=" value=-1200
+do ModVarObjet object="Object" variable="Distance" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="Travel" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="Respawn" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="AnimationState" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="LocalX" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="LocalY" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="NearY" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="Separation" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="BodyDistance" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="AnimationPlaying" modification_sign="=" value=1
+do ModVarObjet object="Object" variable="ActorConfigured" modification_sign="=" value=1
+
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign=">=" second_expression=0
 do JurassicActors::Tyrannosaur::SetRotationCenter object="Object" x_position=0 y_position=0 z_position=0

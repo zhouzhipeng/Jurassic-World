@@ -1,3 +1,9 @@
+if VarObjet object="Object" variable="ActorConfigured" comparison_sign="=" value=0
+do ModVarObjet object="Object" variable="AnimationState" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="AnimationPlaying" modification_sign="=" value=1
+do ModVarObjet object="Object" variable="MountedRiderVisible" modification_sign="=" value=0
+do ModVarObjet object="Object" variable="ActorConfigured" modification_sign="=" value=1
+
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign=">=" second_expression=0
 do JurassicActors::Parasaur::SetRotationCenter object="Object" x_position=0 y_position=0 z_position=0
 do Hide object="MountedRider"

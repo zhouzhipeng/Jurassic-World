@@ -1,6 +1,6 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 237
+order = 235
 folder = ["UI", "External Layouts"]
 name = "WildHint"
 type = "TextObject::Text"

@@ -1,5 +1,7 @@
 """Project-specific native construction events, no JavaScript runtime dependency."""
 from pathlib import Path
+if (Path(__file__).resolve().parents[1] / "extensions/JurassicActors").exists():
+    raise SystemExit("This one-shot generator targets the pre-prefab layout. Edit scene external events and JurassicActors prefab sources directly.")
 import json,re
 P=Path(__file__).resolve().parents[1];F=P/'scenes/Game/functions/sceneUpdate.events'
 s=F.read_text(encoding='utf-8');marker='@comment "Construction placement and persistence"';endmarker='@comment "Player skeletal animation controller"'

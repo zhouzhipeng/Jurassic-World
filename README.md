@@ -103,3 +103,13 @@
 可步行范围从 3000 × 2950 扩为 5200 × 5100（面积约 2.997 倍）：X 为 −2600～2600，Y 为 −2800～2300。营地、玩家和已有建筑坐标保持原位。陆地、海岸树木、草地和探索小径重新生成；可采集资源从 18 处增加到 54 处（15 浆果、15 蕨类、12 树木、12 石矿）。食草恐龙分布在南侧草地，食肉恐龙分布在北侧外围。步行、骑乘、下坐骑、野生恐龙和建造范围同步扩大，骑乘与建造边界保留体积安全距离。
 
 地形生成源：`tools/build_expanded_island.py`，模型：`assets/models/island.glb`；原 `island-source.blend` 保留，新编辑源为 `island-expanded-source.blend`。
+
+## HUD 与角色组件结构
+
+- `scenes/Game/external-layout/`：7 个独立布局，共 239 个 UI 实例，分别为 GameHUD、GameInventory、GamePause、GameSettings、GameTitle、GamePhoto、GameQuests。场景中不再放置这些 UI 实例。
+- `scenes/Game/external-events/`：HUDBootstrap 在场景首帧创建布局一次；26 份按职责命名的 HUD 事件负责菜单输入、快捷栏、背包制作和保存反馈、采集提示、任务、生命/受伤/死亡提示、建造选择与显示。调用顺序保留原事件顺序，避免输入重复消费和拾取范围变化。`ui-module-map.json` 记录模块清单。
+- `scenes/Game/objects/`：保留 GDevelop 原生 External Layouts 必须引用的 UI 对象定义，统一放在编辑器的 UI / External Layouts 分组。外部布局拥有 UI 摆放，外部事件拥有 UI 执行逻辑。
+- `extensions/JurassicActors/prefabs/`：Survivor、Parasaur、Triceratops、Stegosaur、Raptor、Tyrannosaur 六个真实 3D Prefab。场景中的 Player3D、Dinosaur3D 等名称和实例 UUID 保持不变，但类型已替换为这些 Prefab。
+- Survivor 拥有 Body、HeldAxe、CombatSpear，内部处理动画播放及 GripR 骨骼装备绑定；Parasaur 拥有 Body 和 MountedRider，骑手随父级移动/转向。恐龙 Prefab 各自拥有模型、动画生命周期及独立实例状态。场景只提交 AnimationState、AnimationPlaying 和装备/骑手可见状态，跨角色交互、世界碰撞和玩家输入由场景编排。
+- 野生恐龙 AI 按实例循环处理，复制同种 Prefab 时不会共用移动坐标；出生位置在首帧放置完成后初始化。Prefab 为新对象定义补齐默认实例状态，场景对象声明用于编辑器校验与参数定制。
+- 原场景 HeldAxe、CombatSpear、MountedRider 定义和实例已移除。旧的一次性 author_* / setup_construction 生成器已加版本检查，避免覆盖新的组件结构；后续请直接编辑上述组件文件。

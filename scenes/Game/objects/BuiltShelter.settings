@@ -1,6 +1,6 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 244
+order = 241
 folder = ["Construction"]
 name = "BuiltShelter"
 type = "Scene3D::Model3DObject"

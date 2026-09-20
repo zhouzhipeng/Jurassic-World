@@ -59,4 +59,9 @@ name = "CombatSpearVisible"
 type = "number"
 value = 0
 
+[[variables]]
+name = "ActorConfigured"
+type = "number"
+value = 1
+
 [content]
