@@ -1,0 +1,381 @@
+{
+  "sourceCommit": "6b83a51",
+  "runtimeVerified": true,
+  "completionReady": true,
+  "assertions": [
+    {
+      "index": 0,
+      "type": "runtime_error_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq"
+    },
+    {
+      "index": 1,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "StatusPanel"
+    },
+    {
+      "index": 2,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "BuildStatus"
+    },
+    {
+      "index": 3,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "Player3D"
+    },
+    {
+      "index": 4,
+      "type": "renderer_visible_mesh_count",
+      "passed": true,
+      "actual": 194,
+      "expected": 0,
+      "operator": "gt",
+      "layerName": "World3D"
+    },
+    {
+      "index": 5,
+      "type": "renderer_rejected_object_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 6,
+      "type": "renderer_failed_texture_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    }
+  ],
+  "ownershipAudit": {
+    "identicalExternalUIInstances": 239,
+    "externalLayouts": 7,
+    "externalEventSheets": 27,
+    "prefabs": 6,
+    "actorInstanceIdentityPreserved": true,
+    "sceneUIInstructionsRemaining": 0,
+    "obsoleteSceneEquipmentRemoved": true
+  },
+  "tests": {
+    "uiInput": [
+      {
+        "test": "pack",
+        "mode": 1,
+        "passed": true
+      },
+      {
+        "test": "pack-close",
+        "mode": 0,
+        "passed": true
+      },
+      {
+        "test": "pause",
+        "mode": 2,
+        "passed": true
+      },
+      {
+        "test": "pause-close",
+        "mode": 0,
+        "passed": true
+      },
+      {
+        "test": "quests",
+        "mode": 6,
+        "passed": true
+      },
+      {
+        "test": "quests-close",
+        "mode": 0,
+        "passed": true
+      }
+    ],
+    "harvestBerryCooldown": 29.80000000000001,
+    "choppedTreeCooldown": 29.38333333333337,
+    "boneAttachmentResolved": 1,
+    "mount": {
+      "Dinosaur3D": [
+        {
+          "index": 0,
+          "id": 4,
+          "persistentUuid": "d0563fcc-89ad-4ddc-8fba-9774ed679417",
+          "picked": false,
+          "position": {
+            "x": 1826.6666666666697,
+            "y": 0,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "angle": -90,
+          "variables": {
+            "AnimationState": 1,
+            "AnimationPlaying": 1,
+            "MountedRiderVisible": 1,
+            "ActorConfigured": 1
+          }
+        }
+      ],
+      "Player3D": [
+        {
+          "index": 0,
+          "id": 7,
+          "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+          "picked": true,
+          "position": {
+            "x": 1826.6666666666697,
+            "y": 0,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "angle": -90,
+          "variables": {
+            "AnimationState": 0,
+            "Sprinting": 0,
+            "Travel": 0,
+            "HandZ": 77.73699628670919,
+            "FootZ": 15.99999942815008,
+            "AttachmentReady": 1,
+            "HandRX": -0.6900907236219702,
+            "AnimationPlaying": 0,
+            "HeldAxeVisible": 0,
+            "CombatSpearVisible": 0,
+            "ActorConfigured": 1
+          }
+        }
+      ]
+    },
+    "dismount": {
+      "Dinosaur3D": [
+        {
+          "index": 0,
+          "id": 4,
+          "persistentUuid": "d0563fcc-89ad-4ddc-8fba-9774ed679417",
+          "picked": false,
+          "position": {
+            "x": 1826.6666666666697,
+            "y": 0,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "AnimationState": 0,
+            "AnimationPlaying": 1,
+            "MountedRiderVisible": 0,
+            "ActorConfigured": 1
+          }
+        }
+      ],
+      "Player3D": [
+        {
+          "index": 0,
+          "id": 7,
+          "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+          "picked": false,
+          "position": {
+            "x": 1826.6666666666697,
+            "y": -240,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "variables": {
+            "AnimationState": 0,
+            "Sprinting": 0,
+            "Travel": 0,
+            "HandZ": 77.73699628670919,
+            "FootZ": 15.99999942815008,
+            "AttachmentReady": 1,
+            "HandRX": -0.6900907236219702,
+            "AnimationPlaying": 1,
+            "HeldAxeVisible": 0,
+            "CombatSpearVisible": 0,
+            "ActorConfigured": 1
+          }
+        }
+      ]
+    },
+    "independentInstanceAI": [
+      {
+        "position": {
+          "x": -785.1487111629957,
+          "y": -2238.456114812995,
+          "z": 0,
+          "layer": "World3D",
+          "zOrder": 0
+        },
+        "home": [
+          -700,
+          -2150
+        ],
+        "HP": 100
+      },
+      {
+        "position": {
+          "x": -1865.22052453668,
+          "y": -1693.8188069852188,
+          "z": 0,
+          "layer": "",
+          "zOrder": 0
+        },
+        "home": [
+          -1900,
+          -1800
+        ],
+        "HP": 100
+      }
+    ],
+    "independentInstanceTestNote": "Runtime spawn tool places the temporary clone on the base layer. This verifies separate AI state and position, not rendered 3D placement of the clone. The six scene-placed prefabs render on World3D.",
+    "deleteInstanceRemainingCount": 1,
+    "construction": {
+      "BuiltShelter": [
+        {
+          "index": 0,
+          "id": 320,
+          "picked": false,
+          "position": {
+            "x": 0,
+            "y": 300,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 101
+          },
+          "variables": {
+            "Kind": 1,
+            "Slot": 0,
+            "HX": 240,
+            "HY": 205,
+            "WorldHX": 240,
+            "WorldHY": 205
+          }
+        }
+      ],
+      "BuildStatus": [
+        {
+          "index": 0,
+          "id": 177,
+          "picked": false,
+          "position": {
+            "x": 1042,
+            "y": 540,
+            "layer": "HUD",
+            "zOrder": 100
+          },
+          "variables": {
+            "Mode": 1,
+            "Kind": 1,
+            "Valid": 0,
+            "Count": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0,
+            "Slot": 0,
+            "Warm": 0,
+            "Rest": 0,
+            "Wood": 20,
+            "Stone": 25,
+            "Fiber": 22
+          }
+        }
+      ]
+    },
+    "menuSaveLoadRestored": {
+      "BuiltShelter": [
+        {
+          "index": 0,
+          "id": 321,
+          "picked": false,
+          "position": {
+            "x": 0,
+            "y": 300,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 101
+          },
+          "variables": {
+            "Kind": 1,
+            "Slot": 0,
+            "HX": 240,
+            "HY": 205,
+            "WorldHX": 240,
+            "WorldHY": 205
+          }
+        }
+      ],
+      "BuildStatus": [
+        {
+          "index": 0,
+          "id": 177,
+          "picked": false,
+          "position": {
+            "x": 1042,
+            "y": 540,
+            "layer": "HUD",
+            "zOrder": 100
+          },
+          "variables": {
+            "Mode": 0,
+            "Kind": 1,
+            "Valid": 0,
+            "Count": 1,
+            "X": 0,
+            "Y": 300,
+            "Angle": 0,
+            "Slot": 0,
+            "Warm": 0,
+            "Rest": 0,
+            "Wood": 20,
+            "Stone": 25,
+            "Fiber": 22
+          }
+        }
+      ]
+    },
+    "questRewardResult": [
+      {
+        "variable": "Berries",
+        "value": 15
+      },
+      {
+        "variable": "QuestStage",
+        "value": 1
+      }
+    ],
+    "combatHealth": 88,
+    "deathMode": 7,
+    "deathAnimation": 7,
+    "respawn": {
+      "mode": 0,
+      "health": 100,
+      "position": {
+        "x": -650,
+        "y": 350,
+        "z": 0,
+        "layer": "World3D",
+        "zOrder": 0
+      }
+    },
+    "errors": []
+  },
+  "testStorage": "JurassicWorldPrefabHUDTest20260920"
+}
