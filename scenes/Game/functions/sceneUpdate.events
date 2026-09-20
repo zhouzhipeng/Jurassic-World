@@ -3332,9 +3332,9 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" be
 
 if SceneJustBegins
 do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::AttachToModelBone parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment" target_3d_model="Player3D" bone_name="GripR"
-do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment" x_rotation_offset=-90 y_rotation_offset=0 z_rotation_offset=0
+do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment" x_rotation_offset=0 y_rotation_offset=0 z_rotation_offset=0
 do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::AttachToModelBone parameter_3d_object="CombatSpear" bone_attachment_behavior="HandAttachment" target_3d_model="Player3D" bone_name="GripR"
-do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="CombatSpear" bone_attachment_behavior="HandAttachment" x_rotation_offset=-90 y_rotation_offset=0 z_rotation_offset=0
+do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="CombatSpear" bone_attachment_behavior="HandAttachment" x_rotation_offset=0 y_rotation_offset=0 z_rotation_offset=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1

@@ -28,7 +28,7 @@ s=s.replace('WASD 移动 · E 采集','WASD 移动 · Shift 奔跑 · E 采集')
 out=marker+' background=[95,155,180] text=[255,255,255]\n\n'
 acts=[]
 for tool in ['HeldAxe','CombatSpear']:
- acts += [f'do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::AttachToModelBone parameter_3d_object="{tool}" bone_attachment_behavior="HandAttachment" target_3d_model="Player3D" bone_name="GripR"',f'do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="{tool}" bone_attachment_behavior="HandAttachment" x_rotation_offset=-90 y_rotation_offset=0 z_rotation_offset=0']
+ acts += [f'do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::AttachToModelBone parameter_3d_object="{tool}" bone_attachment_behavior="HandAttachment" target_3d_model="Player3D" bone_name="GripR"',f'do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="{tool}" bone_attachment_behavior="HandAttachment" x_rotation_offset=0 y_rotation_offset=0 z_rotation_offset=0']
 out+=event(['if SceneJustBegins'],acts)
 out+=event(playing,[seto('AnimationState',0),seto('Travel','expr(DistanceBetweenPositions(PreviousX, PreviousY, Player3D.X(), Player3D.Y()))'),'do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Player3D" behavior="Animation"'])
 move=playing+[obj('Travel','>',.1),cond('MoveSpeed','>',0),'if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(MoveX) + abs(MoveY)) comparison_sign=">" second_expression=0']
