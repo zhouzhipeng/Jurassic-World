@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 87
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "BackpackHeader"
 type = "TextObject::Text"
 variables = [ ]

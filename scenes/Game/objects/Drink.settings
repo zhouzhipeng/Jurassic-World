@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 42
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "Drink"
 type = "Sprite"
 variables = [ ]

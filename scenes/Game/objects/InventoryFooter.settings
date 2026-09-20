@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 157
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "InventoryFooter"
 type = "TextObject::Text"
 variables = [ ]

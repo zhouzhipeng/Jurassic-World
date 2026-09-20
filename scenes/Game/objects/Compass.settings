@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 20
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "Compass"
 type = "TextObject::Text"
 variables = [ ]

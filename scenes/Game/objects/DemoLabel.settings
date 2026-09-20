@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 49
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "DemoLabel"
 type = "TextObject::Text"
 variables = [ ]

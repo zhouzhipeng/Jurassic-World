@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 206
-folder = ["Quests"]
+folder = ["UI", "External Layouts"]
 name = "OpenQuestsLabel"
 type = "TextObject::Text"
 variables = [ ]

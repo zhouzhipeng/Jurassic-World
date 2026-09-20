@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 13
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "Meter2"
 type = "Sprite"
 variables = [ ]

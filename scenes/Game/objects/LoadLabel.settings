@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 166
-folder = ["Pause"]
+folder = ["UI", "External Layouts"]
 name = "LoadLabel"
 type = "TextObject::Text"
 variables = [ ]

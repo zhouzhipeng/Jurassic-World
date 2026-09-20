@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 178
-folder = ["Settings"]
+folder = ["UI", "External Layouts"]
 name = "SettingsShade"
 type = "Sprite"
 variables = [ ]

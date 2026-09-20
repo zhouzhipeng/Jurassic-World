@@ -1,0 +1,84 @@
+kind = "externalLayout"
+settingsFormatVersion = 5
+order = 3
+name = "GameSettings"
+
+[layout]
+version = 1
+
+[[layout.layers]]
+id = "settings"
+name = "Settings"
+
+[[layout.instances]]
+id = "6381222b-b231-40e9-ab0d-f166fb08a162"
+object = "SettingsShade"
+layer = "settings"
+at = [0, 0]
+size = [1600, 900]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "ec2c1ceb-c378-4231-87b9-53bfd23b3a44"
+object = "SettingsPanel"
+layer = "settings"
+at = [420, 185]
+size = [760, 530]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "da145772-cb24-4c1b-8da8-7bc7d127136a"
+object = "SettingsHeading"
+layer = "settings"
+at = [460, 220]
+size = [600, 50]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "987c9846-ef3d-428f-9de5-b2ee9c0890b4"
+object = "SettingsInfo"
+layer = "settings"
+at = [462, 304]
+size = [650, 240]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "dd0fa7b3-4554-4263-8b48-9e8e7bf21ca0"
+object = "HelpToggle"
+layer = "settings"
+at = [967, 370]
+size = [150, 50]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "3b2c1ecd-bf86-4bf9-81fd-c692205d77cd"
+object = "HelpToggleLabel"
+layer = "settings"
+at = [987, 381]
+size = [115, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "2d23d242-ecfa-4c9b-b5f1-20ad582a6651"
+object = "SettingsBack"
+layer = "settings"
+at = [460, 620]
+size = [660, 56]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "708363c4-e00d-45cb-94c0-143d4c9a204e"
+object = "SettingsBackLabel"
+layer = "settings"
+at = [480, 634]
+size = [625, 32]
+keep_ratio = false
+z_order = 12
+

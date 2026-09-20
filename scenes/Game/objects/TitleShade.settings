@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 186
-folder = ["Title"]
+folder = ["UI", "External Layouts"]
 name = "TitleShade"
 type = "Sprite"
 variables = [ ]

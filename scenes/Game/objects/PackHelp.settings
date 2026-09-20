@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 88
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "PackHelp"
 type = "TextObject::Text"
 variables = [ ]

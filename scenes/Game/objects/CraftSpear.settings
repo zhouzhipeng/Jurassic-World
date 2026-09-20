@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 195
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "CraftSpear"
 type = "Sprite"
 variables = [ ]

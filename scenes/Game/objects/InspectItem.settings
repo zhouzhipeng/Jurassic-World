@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 142
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "InspectItem"
 type = "TextObject::Text"
 variables = [ ]

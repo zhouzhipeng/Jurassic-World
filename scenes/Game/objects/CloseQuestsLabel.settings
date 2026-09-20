@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 227
-folder = ["Quests"]
+folder = ["UI", "External Layouts"]
 name = "CloseQuestsLabel"
 type = "TextObject::Text"
 variables = [ ]

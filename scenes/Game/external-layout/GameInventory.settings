@@ -1,0 +1,768 @@
+kind = "externalLayout"
+settingsFormatVersion = 5
+order = 1
+name = "GameInventory"
+
+[layout]
+version = 1
+
+[[layout.layers]]
+id = "inventory"
+name = "Inventory"
+
+[[layout.instances]]
+id = "19a55bb6-3a17-40cf-b28b-c085f3024b93"
+object = "InventoryDim"
+layer = "inventory"
+at = [0, 0]
+size = [1600, 900]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "fc63eb5a-a0ca-4122-8e51-ef548a9ee794"
+object = "InventoryNav"
+layer = "inventory"
+at = [26, 18]
+size = [1378, 60]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "2b268768-a927-4a8d-a313-5ab21c14ff61"
+object = "InventoryHeading"
+layer = "inventory"
+at = [65, 34]
+size = [250, 35]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "8c2b8f7c-b0ff-4235-aecc-bb7217914a87"
+object = "InventorySubheading"
+layer = "inventory"
+at = [420, 39]
+size = [870, 30]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "22d236b5-db4c-49ab-9f61-95782062b499"
+object = "ClosePack"
+layer = "inventory"
+at = [1418, 18]
+size = [158, 60]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "ba9e1a93-51f4-445e-aae2-a74921bfea5a"
+object = "ClosePackLabel"
+layer = "inventory"
+at = [1438, 34]
+size = [123, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "a9763831-5f6f-4cbc-966e-ff70c385518f"
+object = "EquipmentPanel"
+layer = "inventory"
+at = [26, 90]
+size = [407, 695]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "6f09c775-7bce-4d2d-8e25-e954dbfa98b9"
+object = "BackpackPanel"
+layer = "inventory"
+at = [442, 90]
+size = [622, 695]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "00643262-488d-4bca-9be2-db2cc6150203"
+object = "CraftPanel"
+layer = "inventory"
+at = [1074, 90]
+size = [500, 695]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "ed5c8bbf-8057-4b08-81c1-a9e0208fd259"
+object = "EquipmentHeader"
+layer = "inventory"
+at = [46, 111]
+size = [320, 32]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "ab4b50f6-84ca-433c-9d6e-14f31f47b674"
+object = "CharacterPreview"
+layer = "inventory"
+at = [75, 161]
+size = [312, 470]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "78465b54-d55b-416c-bc75-4ecda65c6f99"
+object = "EquipmentStats"
+layer = "inventory"
+at = [51, 642]
+size = [340, 140]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "b125335c-79b0-4c8b-9f75-a047cd1eddc6"
+object = "BackpackHeader"
+layer = "inventory"
+at = [465, 111]
+size = [300, 32]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "27d6e84e-6b38-4a3e-93a1-3a090faa1728"
+object = "PackHelp"
+layer = "inventory"
+at = [465, 151]
+size = [440, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "d6379f76-c7fb-40c6-ad8d-04a2dddcd708"
+object = "Slot0"
+layer = "inventory"
+at = [462, 202]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "0645e8e1-8e58-4ec4-acd7-fb5773219d0e"
+object = "ItemWood"
+layer = "inventory"
+at = [470, 210]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "07f16e4d-b6ed-4945-be03-ce93cc237c0a"
+object = "CountWood"
+layer = "inventory"
+at = [522, 266]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "95dc74e8-79bc-4695-b41c-f137f4a3b30c"
+object = "Slot1"
+layer = "inventory"
+at = [560, 202]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "193357b9-92e0-4c79-905a-df73555c5d93"
+object = "ItemStone"
+layer = "inventory"
+at = [568, 210]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "c0fdd5e1-162f-4e66-a5a2-f1cd154aa71e"
+object = "CountStone"
+layer = "inventory"
+at = [620, 266]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "868afc3d-2e41-4ed5-803a-777ae5b48e2d"
+object = "Slot2"
+layer = "inventory"
+at = [658, 202]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "6b57484b-c78c-4287-b5d6-3f672c918e9a"
+object = "ItemFiber"
+layer = "inventory"
+at = [666, 210]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "856ab3c2-01e4-4401-b788-2cc01eb709c0"
+object = "CountFiber"
+layer = "inventory"
+at = [718, 266]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "0ec62c7b-ba4d-4b19-855b-075d39542178"
+object = "Slot3"
+layer = "inventory"
+at = [756, 202]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "91eac8c9-896e-4265-9ab8-f0516de06505"
+object = "ItemHide"
+layer = "inventory"
+at = [764, 210]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "bedf007d-c788-4e26-a703-6ce4d9928226"
+object = "CountHide"
+layer = "inventory"
+at = [816, 266]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "3d2dfa6b-7305-4d61-915b-a0d986fec85c"
+object = "Slot4"
+layer = "inventory"
+at = [854, 202]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "577f5be8-20df-47ac-81a6-994318160cae"
+object = "ItemBerries"
+layer = "inventory"
+at = [862, 210]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "e68cb6e7-355d-4937-9350-3be34ee03408"
+object = "CountBerries"
+layer = "inventory"
+at = [914, 266]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "64c7f4d2-38d3-40ad-a97e-bf55f95b60d6"
+object = "Slot5"
+layer = "inventory"
+at = [952, 202]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "226150f6-226d-496b-9162-6c1a872b82d4"
+object = "ItemMeat"
+layer = "inventory"
+at = [960, 210]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "439b0a4a-1ad7-4342-8527-cb49e4f71529"
+object = "CountMeat"
+layer = "inventory"
+at = [1012, 266]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "7b97cf61-2c8e-46a9-8df9-b570b5b31430"
+object = "Slot6"
+layer = "inventory"
+at = [462, 301]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "7853c20f-a722-4d7a-827a-3f95ef208395"
+object = "ItemWater"
+layer = "inventory"
+at = [470, 309]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "56a887ad-bcbd-4415-950f-6900b5ffb25f"
+object = "CountWater"
+layer = "inventory"
+at = [522, 365]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "55fd8aad-7d62-4749-ac64-667772765bcd"
+object = "Slot7"
+layer = "inventory"
+at = [560, 301]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "4ec3410e-c601-4d54-b728-c45af31782eb"
+object = "ItemAxe"
+layer = "inventory"
+at = [568, 309]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "621fdb50-ed8e-402b-8f47-b5db94e7ce4c"
+object = "CountAxe"
+layer = "inventory"
+at = [620, 365]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "ff3abc70-22b1-4ff4-8ade-cb4a180cc740"
+object = "Slot8"
+layer = "inventory"
+at = [658, 301]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "038643be-9919-4201-914a-a2bdf72a1a51"
+object = "ItemSpear"
+layer = "inventory"
+at = [666, 309]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "fbbc7d59-f10f-49c4-be3e-444ee2cdaf5b"
+object = "CountSpear"
+layer = "inventory"
+at = [718, 365]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "6cf76cd3-6365-4239-a171-70df047e75dc"
+object = "Slot9"
+layer = "inventory"
+at = [756, 301]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "027f80b3-e572-4069-94f1-ba5417bd73ee"
+object = "ItemFlint"
+layer = "inventory"
+at = [764, 309]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "2beb25f0-5e90-40ea-b541-d2ff397f16cc"
+object = "CountFlint"
+layer = "inventory"
+at = [816, 365]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "59263c48-67cb-4861-b395-f6996f484c4b"
+object = "Slot10"
+layer = "inventory"
+at = [854, 301]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "e2e99933-bddc-4adb-a75e-acfc6a499f16"
+object = "ItemRope"
+layer = "inventory"
+at = [862, 309]
+size = [72, 64]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "96f6f5a2-fa90-4ea8-a1e9-67262f69d45c"
+object = "CountRope"
+layer = "inventory"
+at = [914, 365]
+size = [29, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "570308e4-c4de-47d8-a5ec-f45df727267e"
+object = "Slot11"
+layer = "inventory"
+at = [952, 301]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "58b2b4e3-1b10-4d1e-b2b5-472ee33ce643"
+object = "Slot12"
+layer = "inventory"
+at = [462, 400]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "cb6d0d9e-94f4-4443-801e-7a736dd255da"
+object = "Slot13"
+layer = "inventory"
+at = [560, 400]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "6d6809c5-37e5-4c5d-9390-fc2446e2fd08"
+object = "Slot14"
+layer = "inventory"
+at = [658, 400]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "a5b329dd-f79b-4e1a-a0d5-105dfe585e65"
+object = "Slot15"
+layer = "inventory"
+at = [756, 400]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "3af36467-f91b-4106-b749-54a30d0123b2"
+object = "Slot16"
+layer = "inventory"
+at = [854, 400]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "142bb761-09d5-4d1c-a220-078a80379146"
+object = "Slot17"
+layer = "inventory"
+at = [952, 400]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "deb599cc-2159-498c-883f-f133c83dfe69"
+object = "Slot18"
+layer = "inventory"
+at = [462, 499]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "7a9317af-5990-411f-9e3c-9ad509e2d265"
+object = "Slot19"
+layer = "inventory"
+at = [560, 499]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "f597e90c-4f40-4b30-a304-5b7e1131c9d6"
+object = "Slot20"
+layer = "inventory"
+at = [658, 499]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "49491e9c-7728-4d96-8070-7c9f1564d818"
+object = "Slot21"
+layer = "inventory"
+at = [756, 499]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "f825694b-e27d-46af-b9aa-8daa827800a3"
+object = "Slot22"
+layer = "inventory"
+at = [854, 499]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "9d565484-41c4-475d-a765-21813bd047c2"
+object = "Slot23"
+layer = "inventory"
+at = [952, 499]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "a1b97bb7-565f-486b-ac2f-ff702e1fa3f6"
+object = "Slot24"
+layer = "inventory"
+at = [462, 598]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "97620494-af73-4429-8a1b-6f65f80df2b8"
+object = "Slot25"
+layer = "inventory"
+at = [560, 598]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "692c5c05-f0a9-4ff2-b852-98975bddf165"
+object = "Slot26"
+layer = "inventory"
+at = [658, 598]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "bc999b7b-df6f-4e3b-9264-713355bcfa53"
+object = "Slot27"
+layer = "inventory"
+at = [756, 598]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "6fc56971-5115-440d-be9f-3deea15112bd"
+object = "Slot28"
+layer = "inventory"
+at = [854, 598]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "a3334944-db80-4370-aeb3-5a25bf6f353c"
+object = "Slot29"
+layer = "inventory"
+at = [952, 598]
+size = [90, 91]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "9d6f9bef-3f2a-4925-908f-9ca4f243eb95"
+object = "Weight"
+layer = "inventory"
+at = [466, 731]
+size = [400, 30]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "e5b12432-9833-4f66-967b-3f5f631c45ca"
+object = "InspectItem"
+layer = "inventory"
+at = [465, 702]
+size = [570, 24]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "99da9437-c396-4a93-9d03-9c93cf26c429"
+object = "CraftHeader"
+layer = "inventory"
+at = [1097, 112]
+size = [440, 32]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "b34977bb-9c04-427e-bade-5fbe1878f4a9"
+object = "CraftAxe"
+layer = "inventory"
+at = [1102, 160]
+size = [120, 120]
+keep_ratio = false
+z_order = 3
+
+[[layout.instances]]
+id = "10aa308a-b9f5-4523-a0e6-d07500483269"
+object = "RecipeTitle"
+layer = "inventory"
+at = [1240, 161]
+size = [290, 35]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "f423d006-a454-4ebf-a3a5-3ef7cef49fb0"
+object = "RecipeDescription"
+layer = "inventory"
+at = [1240, 209]
+size = [290, 70]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "32207618-fdae-4d81-90e4-fe8d6f58f056"
+object = "RequirementsHeader"
+layer = "inventory"
+at = [1100, 304]
+size = [400, 30]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "c80febdc-005b-4db3-8c41-1820c871118e"
+object = "Requirements"
+layer = "inventory"
+at = [1100, 351]
+size = [435, 145]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "985d18cb-efcc-4ff9-ac9a-09985eb4b06f"
+object = "Craft"
+layer = "inventory"
+at = [1100, 511]
+size = [449, 60]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "973f5860-43da-42d4-a6c7-85efca3ab6fd"
+object = "CraftLabel"
+layer = "inventory"
+at = [1120, 527]
+size = [414, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "c3ef1fc1-1a77-4eb0-a80d-e93a0d0e9640"
+object = "RecipeHint"
+layer = "inventory"
+at = [1100, 596]
+size = [380, 25]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "adafc576-dbf3-4fcf-ae45-1d3b8788d01a"
+object = "ChooseAxe"
+layer = "inventory"
+at = [1100, 635]
+size = [211, 49]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "114ffd5c-43d4-4c6a-9e47-a3694e7c7936"
+object = "ChooseAxeLabel"
+layer = "inventory"
+at = [1120, 645]
+size = [176, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "8352a24c-2da0-437b-a151-81cd749548a3"
+object = "ChooseSpear"
+layer = "inventory"
+at = [1320, 635]
+size = [229, 49]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "1f0d91b1-9b72-4362-bb52-fca3c60af242"
+object = "ChooseSpearLabel"
+layer = "inventory"
+at = [1340, 645]
+size = [194, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "f0b75129-cd88-4323-b853-16a5e8fc464e"
+object = "CraftFeedback"
+layer = "inventory"
+at = [1100, 714]
+size = [450, 50]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "eca75ab5-b733-49c5-b8d8-7614a493cab6"
+object = "InventoryFooter"
+layer = "inventory"
+at = [32, 846]
+size = [1300, 30]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "d49a7708-0621-4be4-8952-ea25e95a7279"
+object = "CraftSpear"
+layer = "inventory"
+at = [1102, 160]
+size = [120, 120]
+keep_ratio = false
+z_order = 4
+

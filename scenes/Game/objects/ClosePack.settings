@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 79
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "ClosePack"
 type = "Sprite"
 variables = [ ]

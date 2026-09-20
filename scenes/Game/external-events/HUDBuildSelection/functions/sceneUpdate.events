@@ -1,0 +1,68 @@
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do Hide object="BuildGhosts"
+do Hide object="BuildPanel"
+do Hide object="BuildTitle"
+do Hide object="BuildStatus"
+do Hide object="BuildChoice1"
+do Hide object="BuildChoiceLabel1"
+do Hide object="BuildChoice2"
+do Hide object="BuildChoiceLabel2"
+do Hide object="BuildChoice3"
+do Hide object="BuildChoiceLabel3"
+do SetNumberVariable variable="BuildWarm" modification_sign="=" value=0
+do SetNumberVariable variable="BuildRest" modification_sign="=" value=0
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+do Show object="BuildToggle"
+do Show object="BuildToggleLabel"
+
+if NumberVariable variable="Mode" comparison_sign="!=" value=0
+do Hide object="BuildToggle"
+do Hide object="BuildToggleLabel"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Num1"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if IsCursorOnObject object="BuildChoice1" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Num2"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=2
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if IsCursorOnObject object="BuildChoice2" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=2
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Num3"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=3
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if IsCursorOnObject object="BuildChoice3" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=3

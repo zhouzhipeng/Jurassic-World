@@ -1,8 +1,2 @@
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign=">=" second_expression=0
 do JurassicActors::Raptor::SetRotationCenter object="Object" x_position=0 y_position=0 z_position=0
-do ModVarObjet object="Object" variable="HomeX" modification_sign="=" value=expr(Object.X())
-do ModVarObjet object="Object" variable="HomeY" modification_sign="=" value=expr(Object.Y())
-do ModVarObjet object="Object" variable="PX" modification_sign="=" value=expr(Object.X())
-do ModVarObjet object="Object" variable="PY" modification_sign="=" value=expr(Object.Y())
-do ModVarObjet object="Object" variable="TargetX" modification_sign="=" value=expr(Object.X())
-do ModVarObjet object="Object" variable="TargetY" modification_sign="=" value=expr(Object.Y())

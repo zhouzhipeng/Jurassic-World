@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 120
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "ItemRope"
 type = "Sprite"
 variables = [ ]

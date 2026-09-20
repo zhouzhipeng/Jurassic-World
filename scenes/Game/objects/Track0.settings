@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 4
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "Track0"
 type = "Sprite"
 variables = [ ]

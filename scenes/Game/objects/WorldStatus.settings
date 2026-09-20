@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 174
-folder = ["Pause"]
+folder = ["UI", "External Layouts"]
 name = "WorldStatus"
 type = "Sprite"
 variables = [ ]

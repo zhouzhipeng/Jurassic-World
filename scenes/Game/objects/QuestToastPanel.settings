@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 207
-folder = ["Quests"]
+folder = ["UI", "External Layouts"]
 name = "QuestToastPanel"
 type = "Sprite"
 variables = [ ]

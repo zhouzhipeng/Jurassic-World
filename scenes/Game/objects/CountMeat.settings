@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 106
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "CountMeat"
 type = "TextObject::Text"
 variables = [ ]

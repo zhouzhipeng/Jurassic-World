@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 255
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "BuildPanel"
 type = "Sprite"
 variables = [ ]

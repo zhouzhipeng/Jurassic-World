@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 180
-folder = ["Settings"]
+folder = ["UI", "External Layouts"]
 name = "SettingsHeading"
 type = "TextObject::Text"
 variables = [ ]

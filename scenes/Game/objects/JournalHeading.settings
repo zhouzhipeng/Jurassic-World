@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 211
-folder = ["Quests"]
+folder = ["UI", "External Layouts"]
 name = "JournalHeading"
 type = "TextObject::Text"
 variables = [ ]

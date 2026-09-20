@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 91
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "CountWood"
 type = "TextObject::Text"
 variables = [ ]

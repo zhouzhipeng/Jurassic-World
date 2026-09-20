@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 86
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "EquipmentStats"
 type = "TextObject::Text"
 variables = [ ]

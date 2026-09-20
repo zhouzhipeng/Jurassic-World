@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 194
-folder = ["Photo"]
+folder = ["UI", "External Layouts"]
 name = "PhotoText"
 type = "TextObject::Text"
 variables = [ ]

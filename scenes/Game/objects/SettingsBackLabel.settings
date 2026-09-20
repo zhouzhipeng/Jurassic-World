@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 185
-folder = ["Settings"]
+folder = ["UI", "External Layouts"]
 name = "SettingsBackLabel"
 type = "TextObject::Text"
 variables = [ ]

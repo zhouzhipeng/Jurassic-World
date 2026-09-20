@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 146
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "RecipeDescription"
 type = "TextObject::Text"
 variables = [ ]

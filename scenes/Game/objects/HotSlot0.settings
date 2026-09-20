@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 50
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "HotSlot0"
 type = "Sprite"
 variables = [ ]

@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 203
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "HarvestPanel"
 type = "Sprite"
 variables = [ ]

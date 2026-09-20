@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 29
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "DinoName"
 type = "TextObject::Text"
 variables = [ ]

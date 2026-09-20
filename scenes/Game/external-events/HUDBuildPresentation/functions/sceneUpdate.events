@@ -1,0 +1,111 @@
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="B 建造 · 庇护所 / 栅栏 / 篝火"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildWarm" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="篝火温暖：恢复生命与体力 · B 建造"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildRest" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="庇护所休息：恢复体力 · B 建造"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do Show object="BuildPanel"
+do Show object="BuildTitle"
+do Show object="BuildStatus"
+do Show object="BuildChoice1"
+do Show object="BuildChoiceLabel1"
+do Show object="BuildChoice2"
+do Show object="BuildChoiceLabel2"
+do Show object="BuildChoice3"
+do Show object="BuildChoiceLabel3"
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="B 退出建造 · Delete 拆除预览处建筑"
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildTitle" behavior="Text" modification_sign="=" text=expr("营地建造 · " + ToString(BuildCount) + " / 40   木 " + ToString(Wood) + " 石 " + ToString(Stone) + " 纤 " + ToString(Fiber))
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildStatus" behavior="Text" modification_sign="=" text=expr(BuildReason + NewLine() + "WASD 移位 · R 旋转 · Enter 建造" + NewLine() + "朝向 " + ToString(BuildAngle) + "° · Delete 拆除（返还一半）")
+do Hide object="HarvestPanel"
+do Hide object="HarvestHint"
+do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modification_sign="=" value=0
+do SetNumberObjectVariable object="Player3D" variable="CombatSpearVisible" modification_sign="=" value=0
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do ChangeColor object="BuildChoice1" tint="170;190;180"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=1
+do ChangeColor object="BuildChoice1" tint="255;215;125"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do ChangeColor object="BuildChoice2" tint="170;190;180"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=2
+do ChangeColor object="BuildChoice2" tint="255;215;125"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do ChangeColor object="BuildChoice3" tint="170;190;180"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=3
+do ChangeColor object="BuildChoice3" tint="255;215;125"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do Hide object="DinoPanel"
+do Hide object="DinoName"
+do Hide object="DinoLevel"
+do Hide object="TrustText"
+do Hide object="TrustTrack"
+do Hide object="TrustMeter"
+do Hide object="Feed"
+do Hide object="FeedLabel"
+do Hide object="MountButton"
+do Hide object="MountLabel"
+do Hide object="AudioButton"
+do Hide object="AudioLabel"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do Show object="DinoPanel"
+do Show object="DinoName"
+do Show object="DinoLevel"
+do Show object="TrustText"
+do Show object="TrustTrack"
+do Show object="TrustMeter"
+do Show object="Feed"
+do Show object="FeedLabel"
+do Show object="MountButton"
+do Show object="MountLabel"
+do Show object="AudioButton"
+do Show object="AudioLabel"

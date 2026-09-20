@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 160
-folder = ["Pause"]
+folder = ["UI", "External Layouts"]
 name = "PauseSubtitle"
 type = "TextObject::Text"
 variables = [ ]

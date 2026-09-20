@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 189
-folder = ["Title"]
+folder = ["UI", "External Layouts"]
 name = "TitleTagline"
 type = "TextObject::Text"
 variables = [ ]

@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 144
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "CraftAxe"
 type = "Sprite"
 variables = [ ]

@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 181
-folder = ["Settings"]
+folder = ["UI", "External Layouts"]
 name = "SettingsInfo"
 type = "TextObject::Text"
 variables = [ ]

@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 175
-folder = ["Pause"]
+folder = ["UI", "External Layouts"]
 name = "WorldStatusText"
 type = "TextObject::Text"
 variables = [ ]

@@ -1,0 +1,75 @@
+kind = "externalLayout"
+settingsFormatVersion = 5
+order = 4
+name = "GameTitle"
+
+[layout]
+version = 1
+
+[[layout.layers]]
+id = "title"
+name = "Title"
+
+[[layout.instances]]
+id = "17c2729d-f5c4-475a-a8bb-507990e77896"
+object = "TitleShade"
+layer = "title"
+at = [0, 0]
+size = [650, 900]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "97d142be-b4c4-476b-b78d-793af4cb5d52"
+object = "ChineseTitle"
+layer = "title"
+at = [65, 180]
+size = [580, 100]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "c28cd4e3-0b3c-4594-9fd7-9995f1c010f4"
+object = "TitleEnglish"
+layer = "title"
+at = [70, 290]
+size = [550, 60]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "c6f40ac3-9e29-462b-aafb-2767291681e0"
+object = "TitleTagline"
+layer = "title"
+at = [70, 361]
+size = [540, 50]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "9a8f722b-d555-4010-82e2-9f51bcca4cc3"
+object = "TitleContinue"
+layer = "title"
+at = [70, 483]
+size = [450, 66]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "6742ffb5-2cb7-4795-a2ac-f519631d78d5"
+object = "TitleContinueLabel"
+layer = "title"
+at = [90, 502]
+size = [415, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "ce9265b6-c3cd-46ee-9216-2adb0b7d9d95"
+object = "TitleNote"
+layer = "title"
+at = [70, 782]
+size = [540, 70]
+keep_ratio = false
+z_order = 10
+

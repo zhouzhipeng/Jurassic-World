@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 170
-folder = ["Pause"]
+folder = ["UI", "External Layouts"]
 name = "PhotoLabel"
 type = "TextObject::Text"
 variables = [ ]

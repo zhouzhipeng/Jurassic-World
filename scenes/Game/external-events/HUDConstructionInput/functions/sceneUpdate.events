@@ -1,0 +1,23 @@
+@comment "Construction input" background=[120,145,90] text=[255,255,255]
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="b"
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=expr(1 - BuildMode)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if IsCursorOnObject object="BuildToggle" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=expr(1 - BuildMode)
+
+if NumberVariable variable="Mode" comparison_sign="!=" value=0
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=0
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=0

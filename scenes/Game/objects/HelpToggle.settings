@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 182
-folder = ["Settings"]
+folder = ["UI", "External Layouts"]
 name = "HelpToggle"
 type = "Sprite"
 variables = [ ]

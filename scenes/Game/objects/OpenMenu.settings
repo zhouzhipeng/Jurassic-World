@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 26
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "OpenMenu"
 type = "Sprite"
 variables = [ ]

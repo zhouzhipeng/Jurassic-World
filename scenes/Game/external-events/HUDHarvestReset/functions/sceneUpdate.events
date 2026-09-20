@@ -1,0 +1,5 @@
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do SetNumberVariable variable="HarvestNear" modification_sign="=" value=0
+do SetNumberObjectVariable object="HarvestNodes" variable="Target" modification_sign="=" value=0
+do Hide object="HarvestPanel"
+do Hide object="HarvestHint"

@@ -1,0 +1,8 @@
+if NumberVariable variable="Dead" comparison_sign="=" value=1
+do SetNumberVariable variable="Mode" modification_sign="=" value=7
+do ShowLayer layer="HUD"
+do Show object="DeathPanel"
+do Show object="DeathText"
+do SetNumberObjectVariable object="Player3D" variable="CombatSpearVisible" modification_sign="=" value=0
+do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modification_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="DeathText" behavior="Text" modification_sign="=" text=expr("你倒下了" + NewLine() + NewLine() + "按 Enter 在营地重生" + NewLine() + "保留工具，损失 3 浆果和 1 生肉" + NewLine() + "下次带上长矛，或骑乘逃离追击。")

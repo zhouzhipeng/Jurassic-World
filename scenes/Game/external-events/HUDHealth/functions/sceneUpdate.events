@@ -1,0 +1,7 @@
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do SetNumberObjectVariable object="Player3D" variable="CombatSpearVisible" modification_sign="=" value=0
+do Hide object="DeathPanel"
+do Hide object="DeathText"
+do Hide object="DamageFlash"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Value0" behavior="Text" modification_sign="=" text=expr(ToString(round(Health)) + " / 100")
+do ResizableCapability::ResizableBehavior::SetWidth object="Meter0" behavior="Resizable" modification_sign="=" width=expr(max(0, Health) * 1.98)

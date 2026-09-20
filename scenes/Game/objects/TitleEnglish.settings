@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 188
-folder = ["Title"]
+folder = ["UI", "External Layouts"]
 name = "TitleEnglish"
 type = "TextObject::Text"
 variables = [ ]

@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 261
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "BuildChoice3"
 type = "Sprite"
 variables = [ ]

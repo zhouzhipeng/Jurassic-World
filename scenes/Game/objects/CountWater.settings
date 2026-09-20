@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 109
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "CountWater"
 type = "TextObject::Text"
 variables = [ ]

@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 55
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "HotKey1"
 type = "TextObject::Text"
 variables = [ ]

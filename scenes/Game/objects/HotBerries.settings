@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 74
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "HotBerries"
 type = "TextObject::Text"
 variables = [ ]

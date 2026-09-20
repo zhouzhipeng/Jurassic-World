@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 22
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "QuestTitle"
 type = "TextObject::Text"
 variables = [ ]

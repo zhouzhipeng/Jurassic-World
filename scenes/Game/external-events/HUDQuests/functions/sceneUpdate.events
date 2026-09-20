@@ -1,0 +1,360 @@
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetCameraCenterX modification_sign="=" value=expr(Player3D.X() + sin(ToRad(CameraYaw)) * cos(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
+do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + cos(ToRad(CameraYaw)) * cos(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::SetCameraZ modification_sign="=" value=expr(120 + Riding * 220 + sin(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y()) z_position=expr(120 + Riding * 220) layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
+if NumberVariable variable="Mode" comparison_sign="=" value=6
+if BuiltinCommonInstructions::Once
+do ShowLayer layer="Quests"
+do HideLayer layer="HUD"
+do HideLayer layer="Inventory"
+do HideLayer layer="Pause"
+do HideLayer layer="Settings"
+do HideLayer layer="Title"
+do HideLayer layer="Photo"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=5
+do HideLayer layer="Quests"
+
+@comment "Quest state machine: action counters, explicit claims, saved rewards" background=[190,145,70] text=[255,255,255]
+
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=0
+do SetNumberVariable variable="QuestTargetKind" modification_sign="=" value=0
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=0
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=0
+do SetStringVariable variable="QuestName" modification_sign="=" value="第一份食物"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("亲手采集浆果  " + ToString(min(GatherBerries, 3)) + " / 3")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("靠近红果灌木，按住 E 直到采集完成。" + NewLine() + "顶部显示最近目标的方向和距离。")
+do SetStringVariable variable="QuestReward" modification_sign="=" value="浆果 +3"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="你和恐龙都需要食物。先学会辨认红果灌木，亲手采集第一份浆果。"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=0
+if NumberVariable variable="GatherBerries" comparison_sign=">=" value=3
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+do SetStringVariable variable="QuestName" modification_sign="=" value="就地取材"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("木材 " + ToString(min(GatherWood, 4)) + " / 4" + "   石头 " + ToString(min(GatherStone, 3)) + " / 3" + NewLine() + "纤维 " + ToString(min(GatherFiber, 5)) + " / 5")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("小树：按 1 装备斧子，按住 E 砍三下。" + NewLine() + "蕨类和矿石：靠近后按住 E 采集。")
+do SetStringVariable variable="QuestReward" modification_sign="=" value="木材 +6 / 石头 +2 / 纤维 +4"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="建立据点需要多种材料。沿海岛寻找小树、矿石和蕨类，认识不同资源的用途。"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+if NumberVariable variable="GatherWood" comparison_sign=">=" value=4
+if NumberVariable variable="GatherStone" comparison_sign=">=" value=3
+if NumberVariable variable="GatherFiber" comparison_sign=">=" value=5
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=2
+do SetStringVariable variable="QuestName" modification_sign="=" value="亲手制作"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("制作长矛  " + ToString(min(CraftedSpears, 1)) + " / 1")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("按 Tab 打开背包 → 选择 Spear → 点击 Craft。" + NewLine() + "配方：木材 6、石头 2、纤维 4。")
+do SetStringVariable variable="QuestReward" modification_sign="=" value="体力 +30"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="将收集到的材料变成装备。长矛是本次远征的第一件自制工具。"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=2
+if NumberVariable variable="CraftedSpears" comparison_sign=">=" value=1
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=3
+do SetStringVariable variable="QuestName" modification_sign="=" value="第一位伙伴"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("恐龙信任  " + ToString(min(Trust, 100)) + " / 100")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("走近副栉龙，点右侧喂食按钮或松开 E。" + NewLine() + "附近有资源时 E 优先采集，可用喂食按钮。")
+do SetStringVariable variable="QuestReward" modification_sign="=" value="兽皮 +2"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="用浆果赢得副栉龙的信任。采集来的食物，终于派上了另一种用场。"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=3
+if NumberVariable variable="Trust" comparison_sign=">=" value=100
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=4
+do SetStringVariable variable="QuestName" modification_sign="=" value="安全的营地"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("建造庇护所  " + ToString(min(Built, 1)) + " / 1")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("按 B 开启建造，选 1 庇护所；移动到空地后按 Enter。" + NewLine() + "需要木材 10、石头 5、纤维 8。")
+do SetStringVariable variable="QuestReward" modification_sign="=" value="绳索 +2；解锁野外补给委托"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="伙伴已经信任你。收集材料，亲手搭建一座庇护所，为下一次出发建立落脚点。"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=4
+if NumberVariable variable="Built" comparison_sign="=" value=1
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+do SetStringVariable variable="QuestName" modification_sign="=" value="野外补给委托"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("浆果 " + ToString(min(GatherBerries - BaseBerries, 3)) + " / 3" + "   纤维 " + ToString(min(GatherFiber - BaseFiber, 5)) + " / 5" + NewLine() + "木材 " + ToString(min(GatherWood - BaseWood, 4)) + " / 4" + "   石头 " + ToString(min(GatherStone - BaseStone, 3)) + " / 3")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("跟随指引补给；小树需要按 1 装备斧子砍伐。" + NewLine() + "领取后开始下一轮，已消耗的材料也计入进度。")
+do SetStringVariable variable="QuestReward" modification_sign="=" value="绳索 +2 / 体力 +25 / 饥饿与水分 +15"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="据点需要持续补给。每轮重新收集四种材料，保持探索、采集、返回的循环。"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+if NumberVariable variable="GatherBerries" comparison_sign=">=" value=expr(BaseBerries + 3)
+if NumberVariable variable="GatherFiber" comparison_sign=">=" value=expr(BaseFiber + 5)
+if NumberVariable variable="GatherWood" comparison_sign=">=" value=expr(BaseWood + 4)
+if NumberVariable variable="GatherStone" comparison_sign=">=" value=expr(BaseStone + 3)
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+if NumberVariable variable="QuestReady" comparison_sign="=" value=1
+if NumberVariable variable="QuestAnnounced" comparison_sign="!=" value=expr(QuestStage)
+do SetNumberVariable variable="QuestAnnounced" modification_sign="=" value=expr(QuestStage)
+do SetNumberVariable variable="QuestToastTime" modification_sign="=" value=5
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestToast" behavior="Text" modification_sign="=" text=expr("目标达成：" + QuestName + NewLine() + "按 J 打开任务，领取奖励并继续。")
+do PlaySound audio_file_or_audio_resource_name="quest-complete.wav" repeat_the_sound=false volume=60 pitch_speed=1
+
+if NumberVariable variable="QuestClaim" comparison_sign="=" value=1
+if NumberVariable variable="QuestReady" comparison_sign="=" value=1
+do SetNumberVariable variable="QuestClaimStage" modification_sign="=" value=expr(QuestStage)
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=0
+do SetNumberVariable variable="QuestClaim" modification_sign="=" value=0
+do SetNumberVariable variable="QuestAnnounced" modification_sign="=" value=-1
+do SetNumberVariable variable="QuestToastTime" modification_sign="=" value=5
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestToast" behavior="Text" modification_sign="=" text=expr("奖励已领取：" + QuestReward + NewLine() + "进度已自动保存。")
+
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=0
+
+> do SetNumberVariable variable="Berries" modification_sign="+" value=3
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=1
+
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=1
+
+> do SetNumberVariable variable="Wood" modification_sign="+" value=6
+> do SetNumberVariable variable="Stone" modification_sign="+" value=2
+> do SetNumberVariable variable="Fiber" modification_sign="+" value=4
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=2
+
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=2
+
+> do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(min(100, Stamina + 30))
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=3
+
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=3
+
+> do SetNumberVariable variable="Hide" modification_sign="+" value=2
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=4
+
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=4
+
+> do SetNumberVariable variable="Rope" modification_sign="+" value=2
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=5
+> do SetNumberVariable variable="BaseBerries" modification_sign="=" value=expr(GatherBerries)
+> do SetNumberVariable variable="BaseFiber" modification_sign="=" value=expr(GatherFiber)
+> do SetNumberVariable variable="BaseWood" modification_sign="=" value=expr(GatherWood)
+> do SetNumberVariable variable="BaseStone" modification_sign="=" value=expr(GatherStone)
+
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=5
+
+> do SetNumberVariable variable="Rope" modification_sign="+" value=2
+> do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(min(100, Stamina + 25))
+> do SetNumberVariable variable="Hunger" modification_sign="=" value=expr(min(100, Hunger + 15))
+> do SetNumberVariable variable="Water" modification_sign="=" value=expr(min(100, Water + 15))
+> do SetNumberVariable variable="ExpeditionRounds" modification_sign="+" value=1
+> do SetNumberVariable variable="BaseBerries" modification_sign="=" value=expr(GatherBerries)
+> do SetNumberVariable variable="BaseFiber" modification_sign="=" value=expr(GatherFiber)
+> do SetNumberVariable variable="BaseWood" modification_sign="=" value=expr(GatherWood)
+> do SetNumberVariable variable="BaseStone" modification_sign="=" value=expr(GatherStone)
+
+if NumberVariable variable="QuestClaim" comparison_sign="=" value=1
+do SetNumberVariable variable="QuestClaim" modification_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="ClaimQuestLabel" behavior="Text" modification_sign="=" text="先完成当前目标"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=0
+if NumberVariable variable="QuestReady" comparison_sign="=" value=0
+do SetNumberVariable variable="QuestTargetKind" modification_sign="=" value=1
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=0
+if NumberVariable variable="GatherWood" comparison_sign="<" value=4
+do SetNumberVariable variable="QuestTargetKind" modification_sign="=" value=3
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=0
+if NumberVariable variable="GatherStone" comparison_sign="<" value=3
+do SetNumberVariable variable="QuestTargetKind" modification_sign="=" value=4
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=0
+if NumberVariable variable="GatherFiber" comparison_sign="<" value=5
+do SetNumberVariable variable="QuestTargetKind" modification_sign="=" value=2
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=0
+if NumberVariable variable="GatherBerries" comparison_sign="<" value=expr(BaseBerries + 3)
+do SetNumberVariable variable="QuestTargetKind" modification_sign="=" value=1
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=0
+if NumberVariable variable="GatherWood" comparison_sign="<" value=expr(BaseWood + 4)
+do SetNumberVariable variable="QuestTargetKind" modification_sign="=" value=3
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=0
+if NumberVariable variable="GatherStone" comparison_sign="<" value=expr(BaseStone + 3)
+do SetNumberVariable variable="QuestTargetKind" modification_sign="=" value=4
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=0
+if NumberVariable variable="GatherFiber" comparison_sign="<" value=expr(BaseFiber + 5)
+do SetNumberVariable variable="QuestTargetKind" modification_sign="=" value=2
+
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=1
+if NumberObjectVariable object="BerryBush" variable="Cooldown" comparison_sign="<=" value=0
+if PickNearest object="BerryBush" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(BerryBush.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(BerryBush.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="红果灌木"
+
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=2
+if NumberObjectVariable object="FiberFern" variable="Cooldown" comparison_sign="<=" value=0
+if PickNearest object="FiberFern" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(FiberFern.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(FiberFern.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="纤维蕨类"
+
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=3
+if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
+if PickNearest object="WoodSapling" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(WoodSapling.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(WoodSapling.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="小树"
+
+if NumberVariable variable="QuestTargetKind" comparison_sign="=" value=4
+if NumberObjectVariable object="StoneDeposit" variable="Cooldown" comparison_sign="<=" value=0
+if PickNearest object="StoneDeposit" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(StoneDeposit.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(StoneDeposit.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="矿石"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=3
+if NumberVariable variable="QuestReady" comparison_sign="=" value=0
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(Dinosaur3D.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(Dinosaur3D.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="副栉龙"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=4
+if NumberVariable variable="QuestReady" comparison_sign="=" value=0
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=-650
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=350
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="营地（Q 快速返回）"
+
+if NumberVariable variable="QuestTargetValid" comparison_sign="=" value=1
+do SetNumberVariable variable="QuestRight" modification_sign="=" value=expr((QuestTargetX - Player3D.X()) * cos(ToRad(CameraYaw)) - (QuestTargetY - Player3D.Y()) * sin(ToRad(CameraYaw)))
+do SetNumberVariable variable="QuestForward" modification_sign="=" value=expr(-(QuestTargetX - Player3D.X()) * sin(ToRad(CameraYaw)) - (QuestTargetY - Player3D.Y()) * cos(ToRad(CameraYaw)))
+do SetStringVariable variable="QuestDirection" modification_sign="=" value="前方"
+
+if NumberVariable variable="QuestForward" comparison_sign="<" value=0
+do SetStringVariable variable="QuestDirection" modification_sign="=" value="后方"
+
+if NumberVariable variable="QuestRight" comparison_sign=">" value=expr(abs(QuestForward))
+do SetStringVariable variable="QuestDirection" modification_sign="=" value="右侧"
+
+if NumberVariable variable="QuestRight" comparison_sign="<" value=expr(-abs(QuestForward))
+do SetStringVariable variable="QuestDirection" modification_sign="=" value="左侧"
+
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestTitle" behavior="Text" modification_sign="=" text=expr(QuestName)
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestBody" behavior="Text" modification_sign="=" text=expr(QuestProgress + NewLine() + "按 J 查看步骤与奖励")
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalTitle" behavior="Text" modification_sign="=" text=expr(QuestName)
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalProgress" behavior="Text" modification_sign="=" text=expr(QuestProgress)
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalInstruction" behavior="Text" modification_sign="=" text=expr(QuestInstruction)
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalReward" behavior="Text" modification_sign="=" text=expr("奖励：" + QuestReward)
+do TextContainerCapability::TextContainerBehavior::SetValue object="ClaimQuestLabel" behavior="Text" modification_sign="=" text="完成目标后领取"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Compass" behavior="Text" modification_sign="=" text=expr("任务指引 · J 查看详情")
+
+if NumberVariable variable="QuestTargetValid" comparison_sign="=" value=1
+if NumberVariable variable="QuestReady" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="Compass" behavior="Text" modification_sign="=" text=expr(QuestDirection + " · " + QuestTargetName + "  " + ToString(round(DistanceBetweenPositions(Player3D.X(), Player3D.Y(), QuestTargetX, QuestTargetY) / 100)) + "m")
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=2
+if NumberVariable variable="QuestReady" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="Compass" behavior="Text" modification_sign="=" text="Tab 背包 → Spear → Craft"
+
+if NumberVariable variable="QuestReady" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestBody" behavior="Text" modification_sign="=" text=expr(QuestProgress + NewLine() + "已完成！按 J 领取奖励")
+do TextContainerCapability::TextContainerBehavior::SetValue object="ClaimQuestLabel" behavior="Text" modification_sign="=" text="领取奖励，继续下一步"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Compass" behavior="Text" modification_sign="=" text="目标达成 · 按 J 领取奖励"
+
+if NumberVariable variable="QuestStage" comparison_sign=">" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow0" behavior="Text" modification_sign="=" text="✓  第一份食物"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow0" behavior="Text" modification_sign="=" text="▶  第一份食物"
+
+if NumberVariable variable="QuestStage" comparison_sign="<" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow0" behavior="Text" modification_sign="=" text="·  第一份食物（未解锁）"
+
+if NumberVariable variable="QuestStage" comparison_sign=">" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow1" behavior="Text" modification_sign="=" text="✓  就地取材"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow1" behavior="Text" modification_sign="=" text="▶  就地取材"
+
+if NumberVariable variable="QuestStage" comparison_sign="<" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow1" behavior="Text" modification_sign="=" text="·  就地取材（未解锁）"
+
+if NumberVariable variable="QuestStage" comparison_sign=">" value=2
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow2" behavior="Text" modification_sign="=" text="✓  亲手制作"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=2
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow2" behavior="Text" modification_sign="=" text="▶  亲手制作"
+
+if NumberVariable variable="QuestStage" comparison_sign="<" value=2
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow2" behavior="Text" modification_sign="=" text="·  亲手制作（未解锁）"
+
+if NumberVariable variable="QuestStage" comparison_sign=">" value=3
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow3" behavior="Text" modification_sign="=" text="✓  第一位伙伴"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=3
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow3" behavior="Text" modification_sign="=" text="▶  第一位伙伴"
+
+if NumberVariable variable="QuestStage" comparison_sign="<" value=3
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow3" behavior="Text" modification_sign="=" text="·  第一位伙伴（未解锁）"
+
+if NumberVariable variable="QuestStage" comparison_sign=">" value=4
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow4" behavior="Text" modification_sign="=" text="✓  安全的营地"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=4
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow4" behavior="Text" modification_sign="=" text="▶  安全的营地"
+
+if NumberVariable variable="QuestStage" comparison_sign="<" value=4
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow4" behavior="Text" modification_sign="=" text="·  安全的营地（未解锁）"
+
+if NumberVariable variable="QuestStage" comparison_sign=">" value=5
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow5" behavior="Text" modification_sign="=" text="✓  野外补给委托"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow5" behavior="Text" modification_sign="=" text="▶  野外补给委托"
+
+if NumberVariable variable="QuestStage" comparison_sign="<" value=5
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestRow5" behavior="Text" modification_sign="=" text="·  野外补给委托（未解锁）"
+
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalHeading" behavior="Text" modification_sign="=" text=expr("生存手册 / 主线完成 · 补给委托 " + ToString(ExpeditionRounds) + " 轮")
+
+if NumberVariable variable="QuestToastTime" comparison_sign=">" value=0
+do SetNumberVariable variable="QuestToastTime" modification_sign="-" value=expr(TimeDelta())
+do Show object="QuestToastPanel"
+do Show object="QuestToast"
+
+if NumberVariable variable="QuestToastTime" comparison_sign="<=" value=0
+do Hide object="QuestToastPanel"
+do Hide object="QuestToast"
+
+if NumberVariable variable="QuestStage" comparison_sign="<" value=5
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalHeading" behavior="Text" modification_sign="=" text="生存手册 / 建立你的海岛据点"
+
+if NumberVariable variable="QuestReady" comparison_sign="=" value=0
+do OpacityCapability::OpacityBehavior::SetValue object="ClaimQuest" behavior="Opacity" modification_sign="=" opacity_0_255=130
+
+if NumberVariable variable="QuestReady" comparison_sign="=" value=1
+do OpacityCapability::OpacityBehavior::SetValue object="ClaimQuest" behavior="Opacity" modification_sign="=" opacity_0_255=255
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="Compass" behavior="Text" modification_sign="=" text="F3 返回实时 3D，继续任务"

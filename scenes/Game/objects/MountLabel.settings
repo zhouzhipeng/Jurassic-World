@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 231
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "MountLabel"
 type = "TextObject::Text"
 variables = [ ]

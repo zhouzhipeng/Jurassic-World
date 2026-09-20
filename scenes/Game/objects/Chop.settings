@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 40
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "Chop"
 type = "Sprite"
 variables = [ ]

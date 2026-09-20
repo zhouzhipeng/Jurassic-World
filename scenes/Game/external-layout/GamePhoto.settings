@@ -1,0 +1,30 @@
+kind = "externalLayout"
+settingsFormatVersion = 5
+order = 5
+name = "GamePhoto"
+
+[layout]
+version = 1
+
+[[layout.layers]]
+id = "photo"
+name = "Photo"
+
+[[layout.instances]]
+id = "c9c4266e-ea68-42c8-a671-063768094039"
+object = "PhotoHint"
+layer = "photo"
+at = [32, 835]
+size = [360, 40]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "7456984a-89fb-4047-886d-b395909f6f7f"
+object = "PhotoText"
+layer = "photo"
+at = [50, 845]
+size = [330, 26]
+keep_ratio = false
+z_order = 10
+

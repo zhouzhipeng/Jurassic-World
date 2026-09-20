@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 31
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "TrustText"
 type = "TextObject::Text"
 variables = [ ]

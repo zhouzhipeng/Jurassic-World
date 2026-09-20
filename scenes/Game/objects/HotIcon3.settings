@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 60
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "HotIcon3"
 type = "Sprite"
 variables = [ ]

@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 2
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "StatusPanel"
 type = "Sprite"
 variables = [ ]

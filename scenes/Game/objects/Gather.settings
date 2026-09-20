@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 38
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "Gather"
 type = "Sprite"
 variables = [ ]

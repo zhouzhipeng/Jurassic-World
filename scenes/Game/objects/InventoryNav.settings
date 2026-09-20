@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 76
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "InventoryNav"
 type = "Sprite"
 variables = [ ]

@@ -1,0 +1,192 @@
+kind = "externalLayout"
+settingsFormatVersion = 5
+order = 2
+name = "GamePause"
+
+[layout]
+version = 1
+
+[[layout.layers]]
+id = "pause"
+name = "Pause"
+
+[[layout.instances]]
+id = "8db4ba78-a5c4-4ee5-8f57-6940fb3b217e"
+object = "PauseShade"
+layer = "pause"
+at = [0, 0]
+size = [450, 900]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "648e34ff-1c83-402c-883b-3f7a1f2a7c7d"
+object = "PauseHeader"
+layer = "pause"
+at = [56, 91]
+size = [360, 80]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "dc2cefd0-ec1f-438f-ab96-f3910020a47e"
+object = "PauseSubtitle"
+layer = "pause"
+at = [58, 165]
+size = [350, 35]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "bb2650f2-511c-488a-9d55-94d859067ebf"
+object = "Resume"
+layer = "pause"
+at = [54, 249]
+size = [342, 64]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "e0de160d-b6c6-49f5-975e-ccd7f37f9f96"
+object = "ResumeLabel"
+layer = "pause"
+at = [74, 267]
+size = [307, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "83fc66a4-62a5-4aec-838f-2348650d3f14"
+object = "Save"
+layer = "pause"
+at = [54, 332]
+size = [342, 64]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "dd95162e-4cb2-4d9f-8ae6-9f323e104feb"
+object = "SaveLabel"
+layer = "pause"
+at = [74, 350]
+size = [307, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "b50d3d34-7b85-459a-aae7-044ecddaf08b"
+object = "Load"
+layer = "pause"
+at = [54, 415]
+size = [342, 64]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "109d9e90-c57b-4f8c-b680-d843a48b0d31"
+object = "LoadLabel"
+layer = "pause"
+at = [74, 433]
+size = [307, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "c743b256-187e-4a08-8174-00e6bad2d90f"
+object = "Settings"
+layer = "pause"
+at = [54, 498]
+size = [342, 64]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "bb5bb6f8-e05c-473d-b7ed-2266e149b371"
+object = "SettingsLabel"
+layer = "pause"
+at = [74, 516]
+size = [307, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "f73dff91-6a53-4934-8e9d-c181bd2bed52"
+object = "Photo"
+layer = "pause"
+at = [54, 581]
+size = [342, 64]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "60ad88af-0ad6-4fcd-aeb3-68da3a2bbd69"
+object = "PhotoLabel"
+layer = "pause"
+at = [74, 599]
+size = [307, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "4e64dc2c-06e6-4f53-a26f-b3e49c79f467"
+object = "Title"
+layer = "pause"
+at = [54, 664]
+size = [342, 64]
+keep_ratio = false
+z_order = 2
+
+[[layout.instances]]
+id = "0fb68567-3558-405e-baf7-4b72068c7359"
+object = "TitleLabel"
+layer = "pause"
+at = [74, 682]
+size = [307, 32]
+keep_ratio = false
+z_order = 12
+
+[[layout.instances]]
+id = "e2c59fb5-93ab-4285-91de-365721e6a628"
+object = "PauseHint"
+layer = "pause"
+at = [57, 836]
+size = [320, 30]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "e84abb24-d640-4bc0-8c1e-fe23fbefe6c5"
+object = "WorldStatus"
+layer = "pause"
+at = [1240, 35]
+size = [322, 100]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "269d95b9-3129-4d57-a427-dca7ee1f9e7b"
+object = "WorldStatusText"
+layer = "pause"
+at = [1261, 50]
+size = [280, 70]
+keep_ratio = false
+z_order = 10
+
+[[layout.instances]]
+id = "e88d31bf-6471-45be-b228-db56a41f737d"
+object = "SaveStatusPanel"
+layer = "pause"
+at = [1170, 782]
+size = [390, 90]
+keep_ratio = false
+z_order = 0
+
+[[layout.instances]]
+id = "b2b71639-73f0-4d06-a7e0-84b0c9386d2b"
+object = "SaveStatus"
+layer = "pause"
+at = [1190, 799]
+size = [350, 70]
+keep_ratio = false
+z_order = 10
+

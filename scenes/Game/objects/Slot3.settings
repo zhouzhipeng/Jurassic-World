@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 98
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "Slot3"
 type = "Sprite"
 variables = [ ]

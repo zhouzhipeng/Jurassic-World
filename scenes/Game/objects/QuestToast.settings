@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 208
-folder = ["Quests"]
+folder = ["UI", "External Layouts"]
 name = "QuestToast"
 type = "TextObject::Text"
 variables = [ ]

@@ -1,0 +1,111 @@
+{
+  "externalEvents": [
+    {
+      "name": "HUDConstructionInput",
+      "eventBlocks": 6
+    },
+    {
+      "name": "HUDViewMode",
+      "eventBlocks": 2
+    },
+    {
+      "name": "HUDMountInput",
+      "eventBlocks": 1
+    },
+    {
+      "name": "HUDMountStatus",
+      "eventBlocks": 3
+    },
+    {
+      "name": "HUDSaveAvailability",
+      "eventBlocks": 1
+    },
+    {
+      "name": "HUDMenuInput",
+      "eventBlocks": 23
+    },
+    {
+      "name": "HUDHarvestReset",
+      "eventBlocks": 1
+    },
+    {
+      "name": "HUDHarvestFeedback",
+      "eventBlocks": 7
+    },
+    {
+      "name": "HUDActionBar",
+      "eventBlocks": 55
+    },
+    {
+      "name": "HUDInventoryAndSave",
+      "eventBlocks": 20
+    },
+    {
+      "name": "HUDLoadStatus",
+      "eventBlocks": 2
+    },
+    {
+      "name": "HUDPanels",
+      "eventBlocks": 36
+    },
+    {
+      "name": "HUDQuests",
+      "eventBlocks": 66
+    },
+    {
+      "name": "HUDChoppingFeedback",
+      "eventBlocks": 4
+    },
+    {
+      "name": "HUDAudioControls",
+      "eventBlocks": 4
+    },
+    {
+      "name": "HUDTriceratopsHint",
+      "eventBlocks": 1
+    },
+    {
+      "name": "HUDStegosaurHint",
+      "eventBlocks": 1
+    },
+    {
+      "name": "HUDRaptorHint",
+      "eventBlocks": 1
+    },
+    {
+      "name": "HUDTyrannosaurHint",
+      "eventBlocks": 1
+    },
+    {
+      "name": "HUDHealth",
+      "eventBlocks": 1
+    },
+    {
+      "name": "HUDDamage",
+      "eventBlocks": 1
+    },
+    {
+      "name": "HUDDeath",
+      "eventBlocks": 1
+    },
+    {
+      "name": "HUDExplorationHint",
+      "eventBlocks": 2
+    },
+    {
+      "name": "HUDBuildSelection",
+      "eventBlocks": 9
+    },
+    {
+      "name": "HUDBuildPresentation",
+      "eventBlocks": 12
+    },
+    {
+      "name": "HUDBuildStatus",
+      "eventBlocks": 1
+    }
+  ],
+  "uiObjects": 239,
+  "externalLayouts": 7,
+  "preservesOriginalExecutionOrder": true
+}

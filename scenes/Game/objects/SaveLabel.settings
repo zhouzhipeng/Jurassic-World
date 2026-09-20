@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 164
-folder = ["Pause"]
+folder = ["UI", "External Layouts"]
 name = "SaveLabel"
 type = "TextObject::Text"
 variables = [ ]

@@ -1,0 +1,149 @@
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot0" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Wood: shelter frames and crafting tool handles."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot1" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Stone: tools and shelter foundations."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot2" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Fiber: bindings, ropes and shelter roofing."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot3" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Hide: island survival supplies."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot4" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Berries: used to tame your companion. E near dinosaur."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot5" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Meat: island survival supplies."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot6" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Water: island survival supplies."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot7" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Stone axe: craft more in Quick Craft."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot8" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Spear: crafted equipment for future expeditions."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot9" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Flint: island survival supplies."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Slot10" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do TextContainerCapability::TextContainerBehavior::SetValue object="InspectItem" behavior="Text" modification_sign="=" text="Rope: island survival supplies."
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="ChooseAxe" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Recipe" modification_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="ChooseSpear" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Recipe" modification_sign="=" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=1
+if IsCursorOnObject object="Craft" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="CraftRequest" modification_sign="=" value=1
+
+if NumberVariable variable="CraftRequest" comparison_sign="=" value=1
+if NumberVariable variable="Recipe" comparison_sign="=" value=0
+if NumberVariable variable="Wood" comparison_sign=">=" value=5
+if NumberVariable variable="Stone" comparison_sign=">=" value=3
+if NumberVariable variable="Fiber" comparison_sign=">=" value=4
+do SetNumberVariable variable="Wood" modification_sign="-" value=5
+do SetNumberVariable variable="Stone" modification_sign="-" value=3
+do SetNumberVariable variable="Fiber" modification_sign="-" value=4
+do SetNumberVariable variable="Axe" modification_sign="+" value=1
+do PlaySound audio_file_or_audio_resource_name="craft.wav" repeat_the_sound=false volume=65 pitch_speed=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="CraftFeedback" behavior="Text" modification_sign="=" text="Axe crafted and added to backpack."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="CraftRequest" modification_sign="=" value=0
+
+if NumberVariable variable="CraftRequest" comparison_sign="=" value=1
+if NumberVariable variable="Recipe" comparison_sign="=" value=1
+if NumberVariable variable="Wood" comparison_sign=">=" value=6
+if NumberVariable variable="Stone" comparison_sign=">=" value=2
+if NumberVariable variable="Fiber" comparison_sign=">=" value=4
+do SetNumberVariable variable="Wood" modification_sign="-" value=6
+do SetNumberVariable variable="Stone" modification_sign="-" value=2
+do SetNumberVariable variable="Fiber" modification_sign="-" value=4
+do SetNumberVariable variable="Spear" modification_sign="+" value=1
+do PlaySound audio_file_or_audio_resource_name="craft.wav" repeat_the_sound=false volume=65 pitch_speed=1
+do SetNumberVariable variable="CraftedSpears" modification_sign="+" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="CraftFeedback" behavior="Text" modification_sign="=" text="Spear crafted and added to backpack."
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="CraftRequest" modification_sign="=" value=0
+
+if NumberVariable variable="CraftRequest" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="CraftFeedback" behavior="Text" modification_sign="=" text="Not enough materials. Gather more in the world."
+do SetNumberVariable variable="CraftRequest" modification_sign="=" value=0
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if IsCursorOnObject object="Save" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
+
+if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
+do EcrireFichierTxt storage_name=expr(SaveStorage) group="BuildingsV1" text=expr(ToJSON(BuildingRecords))
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Trust" expression=expr(Trust)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Berries" expression=expr(Berries)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Wood" expression=expr(Wood)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Stone" expression=expr(Stone)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Fiber" expression=expr(Fiber)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Hide" expression=expr(Hide)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Meat" expression=expr(Meat)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Water" expression=expr(Water)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Stamina" expression=expr(Stamina)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Hunger" expression=expr(Hunger)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Axe" expression=expr(Axe)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Spear" expression=expr(Spear)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Flint" expression=expr(Flint)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Rope" expression=expr(Rope)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Built" expression=expr(Built)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="StationIndex" expression=expr(StationIndex)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Version" expression=1
+do EcrireFichierExp storage_name=expr(SaveStorage) group="QuestStage" expression=expr(QuestStage)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="GatherBerries" expression=expr(GatherBerries)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="GatherFiber" expression=expr(GatherFiber)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="GatherWood" expression=expr(GatherWood)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="GatherStone" expression=expr(GatherStone)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="CraftedSpears" expression=expr(CraftedSpears)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="BaseBerries" expression=expr(BaseBerries)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="BaseFiber" expression=expr(BaseFiber)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="BaseWood" expression=expr(BaseWood)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="BaseStone" expression=expr(BaseStone)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="ExpeditionRounds" expression=expr(ExpeditionRounds)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="QuestVersion" expression=2
+do SetNumberVariable variable="SaveRequested" modification_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text=expr("Saved on this device." + NewLine() + "All resources and progress stored.")
+do SetNumberVariable variable="SaveFlag" modification_sign="=" value=1
+
+if NumberVariable variable="InputMode" comparison_sign="=" value=2
+if IsCursorOnObject object="Load" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Action" modification_sign="=" value=10

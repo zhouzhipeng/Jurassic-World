@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 35
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "FeedLabel"
 type = "TextObject::Text"
 variables = [ ]

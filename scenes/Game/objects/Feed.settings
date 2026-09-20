@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 34
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "Feed"
 type = "Sprite"
 variables = [ ]

@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 96
-folder = ["Inventory"]
+folder = ["UI", "External Layouts"]
 name = "ItemFiber"
 type = "Sprite"
 variables = [ ]

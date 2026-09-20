@@ -1,0 +1,18 @@
+if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("小树 · 木材 +4" + NewLine() + "按 1 装备斧子后砍伐")
+
+if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=1
+if NumberVariable variable="Axe" comparison_sign=">" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("小树 · 剩余 " + ToString(3 - WoodSapling.Variable(Hits)) + " 次命中" + NewLine() + "按住 E / 左键  挥斧砍伐")
+
+if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
+if NumberVariable variable="Axe" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("没有斧子" + NewLine() + "Tab → Stone Axe → Craft")
+
+if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="=" value=1
+if NumberVariable variable="Stamina" comparison_sign="<" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text="体力不足，按 F 休息后再砍。"

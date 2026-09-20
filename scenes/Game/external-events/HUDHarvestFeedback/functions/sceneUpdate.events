@@ -1,0 +1,38 @@
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if PickNearest object="HarvestNodes" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if Distance object="Player3D" object_2="HarvestNodes" distance=260
+do SetNumberVariable variable="HarvestNear" modification_sign="=" value=1
+do SetNumberObjectVariable object="HarvestNodes" variable="Target" modification_sign="=" value=1
+do Show object="HarvestPanel"
+do Show object="HarvestHint"
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("BERRY BUSH  /  Berries +3" + NewLine() + "HOLD E   " + ToString(round(HarvestNodes.Variable(Progress) / 0.8 * 100)) + "%")
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=2
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("FIBER FERN  /  Fiber +5" + NewLine() + "HOLD E   " + ToString(round(HarvestNodes.Variable(Progress) / 0.8 * 100)) + "%")
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=3
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("YOUNG TREE  /  Wood +4" + NewLine() + "HOLD E   " + ToString(round(HarvestNodes.Variable(Progress) / 0.8 * 100)) + "%")
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=4
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("MINERAL ROCK  /  Stone +3" + NewLine() + "HOLD E   " + ToString(round(HarvestNodes.Variable(Progress) / 0.8 * 100)) + "%")
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign=">" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("RESOURCE GATHERED" + NewLine() + "Regrows in " + ToString(ceil(HarvestNodes.Variable(Cooldown))) + "s")
+
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
+if NumberVariable variable="Stamina" comparison_sign="<" value=3
+do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text="Too tired to gather. Rest with F."

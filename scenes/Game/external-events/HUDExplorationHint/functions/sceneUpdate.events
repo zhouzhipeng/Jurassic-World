@@ -1,0 +1,12 @@
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="SafeCamp" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("营地庇护 · 生命缓慢恢复" + NewLine() + "出发前制作长矛；空格反击，X 骑乘撤离")
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="NearestWild" comparison_sign=">" value=1100
+if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("荒野探索 · 共 5 种恐龙" + NewLine() + "2 制作长矛 · 空格反击 · M 声音")

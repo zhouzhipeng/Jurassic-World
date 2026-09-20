@@ -159,4 +159,9 @@ name = "AnimationPlaying"
 type = "number"
 value = 1
 
+[[variables]]
+name = "SpawnReady"
+type = "number"
+value = 0
+
 [content]

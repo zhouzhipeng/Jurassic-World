@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 36
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "ActivityPanel"
 type = "Sprite"
 variables = [ ]

@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 179
-folder = ["Settings"]
+folder = ["UI", "External Layouts"]
 name = "SettingsPanel"
 type = "Sprite"
 variables = [ ]

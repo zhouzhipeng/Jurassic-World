@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 25
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "OpenPackLabel"
 type = "TextObject::Text"
 variables = [ ]

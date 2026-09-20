@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 45
-folder = ["HUD"]
+folder = ["UI", "External Layouts"]
 name = "StationLabel"
 type = "TextObject::Text"
 variables = [ ]

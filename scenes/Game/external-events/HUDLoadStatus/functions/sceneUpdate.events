@@ -1,0 +1,25 @@
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Trust" variable="Trust"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Berries" variable="Berries"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Wood" variable="Wood"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Stone" variable="Stone"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Fiber" variable="Fiber"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Hide" variable="Hide"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Meat" variable="Meat"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Water" variable="Water"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Stamina" variable="Stamina"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Hunger" variable="Hunger"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Axe" variable="Axe"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Spear" variable="Spear"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Flint" variable="Flint"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Rope" variable="Rope"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Built" variable="Built"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="StationIndex" variable="StationIndex"
+do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text="Local save loaded successfully."
+do SetNumberVariable variable="Action" modification_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Action" comparison_sign="=" value=10
+do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text=expr("No saved expedition yet." + NewLine() + "Choose Save Game first.")
+do SetNumberVariable variable="Action" modification_sign="=" value=0

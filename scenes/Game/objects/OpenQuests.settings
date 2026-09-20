@@ -1,7 +1,7 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 205
-folder = ["Quests"]
+folder = ["UI", "External Layouts"]
 name = "OpenQuests"
 type = "Sprite"
 variables = [ ]

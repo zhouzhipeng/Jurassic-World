@@ -1,0 +1,16 @@
+if KeyFromTextReleased key_to_check="m"
+do SetNumberVariable variable="Muted" modification_sign="=" value=expr(1 - Muted)
+
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if IsCursorOnObject object="AudioButton" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do SetNumberVariable variable="Muted" modification_sign="=" value=expr(1 - Muted)
+
+if NumberVariable variable="Muted" comparison_sign="=" value=0
+do SetGlobalVolume modification_sign="=" volume_0_100=85
+do TextContainerCapability::TextContainerBehavior::SetValue object="AudioLabel" behavior="Text" modification_sign="=" text="M 声音：开启"
+
+if NumberVariable variable="Muted" comparison_sign="=" value=1
+do SetGlobalVolume modification_sign="=" volume_0_100=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="AudioLabel" behavior="Text" modification_sign="=" text="M 声音：静音"

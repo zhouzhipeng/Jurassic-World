@@ -1,0 +1,7 @@
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=0
+if NumberObjectVariable object="Triceratops" variable="Distance" comparison_sign="<" value=expr(NearestWild)
+do SetNumberVariable variable="NearestWild" modification_sign="=" value=expr(Triceratops.Variable(Distance))
+do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("三角龙 · 食草 / 温顺" + "  " + ToString(round(Triceratops.Variable(Distance) / 100)) + "m" + NewLine() + "缓慢觅食中 · 保持距离观察")

@@ -1,0 +1,6 @@
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="HitFlash" comparison_sign=">" value=0
+do Show object="DamageFlash"
+do OpacityCapability::OpacityBehavior::SetValue object="DamageFlash" behavior="Opacity" modification_sign="=" opacity_0_255=expr(HitFlash / 0.35 * 190)
