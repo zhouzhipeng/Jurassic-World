@@ -9,7 +9,7 @@ if BuiltinCommonInstructions::Once
 do HideLayer layer="World"
 do ShowLayer layer="World3D"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DemoLabel" behavior="Text" modification_sign="=" text="REAL-TIME 3D / F3 ART REFERENCE"
-do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · E 采集 · 1 斧子 · 2 长矛制作 · 空格 反击 · X 骑乘 · J 任务 · M 声音 · 右键 镜头"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · Shift 奔跑 · E 采集 · 1 斧子 · 2 长矛制作 · 空格 反击 · X 骑乘 · J 任务 · M 声音 · 右键 镜头"
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
@@ -38,35 +38,42 @@ do SetNumberVariable variable="PreviousY" modification_sign="=" value=expr(Playe
 do SetNumberVariable variable="MoveX" modification_sign="=" value=0
 do SetNumberVariable variable="MoveY" modification_sign="=" value=0
 do SetNumberVariable variable="MoveSpeed" modification_sign="=" value=350
+do SetNumberObjectVariable object="Player3D" variable="Sprinting" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if KeyFromTextPressed key_to_check="w"
 do SetNumberVariable variable="MoveY" modification_sign="=" value=-1
-do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if KeyFromTextPressed key_to_check="s"
 do SetNumberVariable variable="MoveY" modification_sign="=" value=1
-do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if KeyFromTextPressed key_to_check="a"
 do SetNumberVariable variable="MoveX" modification_sign="=" value=-1
-do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=270
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if KeyFromTextPressed key_to_check="d"
 do SetNumberVariable variable="MoveX" modification_sign="=" value=1
-do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=90
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="MoveX" comparison_sign="!=" value=0
 if NumberVariable variable="MoveY" comparison_sign="!=" value=0
 do SetNumberVariable variable="MoveSpeed" modification_sign="=" value=247.5
+
+@comment "Sprint input" background=[90,150,180] text=[255,255,255]
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Stamina" comparison_sign=">" value=1
+if KeyFromTextPressed key_to_check="LShift"
+do SetNumberObjectVariable object="Player3D" variable="Sprinting" modification_sign="=" value=1
+do SetNumberVariable variable="MoveSpeed" modification_sign="*" value=expr(500 / 350)
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -1988,10 +1995,6 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 do Show object="HeldAxe"
-do SetX object="HeldAxe" modification_sign="=" value=expr(Player3D.X() - cos(ToRad(Player3D.Angle())) * 45 - sin(ToRad(Player3D.Angle())) * sin(AxeSwing / 0.35 * 3.14159) * 55)
-do SetY object="HeldAxe" modification_sign="=" value=expr(Player3D.Y() - sin(ToRad(Player3D.Angle())) * 45 + cos(ToRad(Player3D.Angle())) * sin(AxeSwing / 0.35 * 3.14159) * 55)
-do SetAngle object="HeldAxe" modification_sign="=" angle_in_degrees=expr(Player3D.Angle())
-do Scene3D::Base3DBehavior::SetRotationX parameter_3d_object="HeldAxe" behavior="Object3D" modification_sign="=" angle_in_degrees=expr(sin(AxeSwing / 0.35 * 3.14159) * 75)
 
 @comment "Wildlife and survival audio" background=[160,110,80] text=[255,255,255]
 
@@ -2068,7 +2071,7 @@ or NumberVariable variable="PreviousY" comparison_sign="!=" value=expr(Player3D.
 if NumberVariable variable="StepClock" comparison_sign="<=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 do PlaySound audio_file_or_audio_resource_name="footstep.wav" repeat_the_sound=false volume=28 pitch_speed=1
-do SetNumberVariable variable="StepClock" modification_sign="=" value=0.4
+do SetNumberVariable variable="StepClock" modification_sign="=" value=expr(0.4 - Player3D.Variable(Sprinting) * 0.13)
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -3248,9 +3251,6 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="CombatSwing" comparison_sign=">" value=0
 do Show object="CombatSpear"
 do Hide object="HeldAxe"
-do SetX object="CombatSpear" modification_sign="=" value=expr(Player3D.X() - cos(ToRad(Player3D.Angle())) * 40 - sin(ToRad(Player3D.Angle())) * CombatSwing * 170)
-do SetY object="CombatSpear" modification_sign="=" value=expr(Player3D.Y() - sin(ToRad(Player3D.Angle())) * 40 + cos(ToRad(Player3D.Angle())) * CombatSwing * 170)
-do SetAngle object="CombatSpear" modification_sign="=" angle_in_degrees=expr(Player3D.Angle())
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -3327,3 +3327,120 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="NearestWild" comparison_sign=">" value=1100
 if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("荒野探索 · 共 5 种恐龙" + NewLine() + "2 制作长矛 · 空格反击 · M 声音")
+
+@comment "Player skeletal animation controller" background=[95,155,180] text=[255,255,255]
+
+if SceneJustBegins
+do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::AttachToModelBone parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment" target_3d_model="Player3D" bone_name="GripR"
+do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment" x_rotation_offset=-90 y_rotation_offset=0 z_rotation_offset=0
+do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::AttachToModelBone parameter_3d_object="CombatSpear" bone_attachment_behavior="HandAttachment" target_3d_model="Player3D" bone_name="GripR"
+do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="CombatSpear" bone_attachment_behavior="HandAttachment" x_rotation_offset=-90 y_rotation_offset=0 z_rotation_offset=0
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=0
+do SetNumberObjectVariable object="Player3D" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(PreviousX, PreviousY, Player3D.X(), Player3D.Y()))
+do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Player3D" behavior="Animation"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberObjectVariable object="Player3D" variable="Travel" comparison_sign=">" value=0.1
+if NumberVariable variable="MoveSpeed" comparison_sign=">" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(MoveX) + abs(MoveY)) comparison_sign=">" second_expression=0
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberObjectVariable object="Player3D" variable="Travel" comparison_sign=">" value=0.1
+if NumberVariable variable="MoveSpeed" comparison_sign=">" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(MoveX) + abs(MoveY)) comparison_sign=">" second_expression=0
+if NumberObjectVariable object="Player3D" variable="Sprinting" comparison_sign="=" value=1
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=2
+do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(max(0, Stamina - 12 * TimeDelta()))
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Progress" comparison_sign=">" value=0
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=3
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Player3D.X(), Player3D.Y(), HarvestNodes.X(), HarvestNodes.Y()) - 90)
+do Hide object="HeldAxe"
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="AxeSwing" comparison_sign=">" value=0
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=4
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="CombatSwing" comparison_sign=">" value=0
+if NumberVariable variable="Spear" comparison_sign=">" value=0
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=5
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="HitFlash" comparison_sign=">" value=0
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=6
+
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="<=" value=2
+if NumberObjectVariable object="Player3D" variable="Travel" comparison_sign=">" value=0.1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(MoveX) + abs(MoveY)) comparison_sign=">" second_expression=0
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(PreviousX, PreviousY, Player3D.X(), Player3D.Y()) - 90)
+
+if NumberVariable variable="Mode" comparison_sign="=" value=7
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=7
+do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Player3D" behavior="Animation"
+
+if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=0
+do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Idle"
+
+if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=1
+do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Walk"
+
+if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=2
+do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Run"
+
+if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=3
+do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Gather"
+
+if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=4
+do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Chop"
+
+if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=5
+do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Thrust"
+
+if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=6
+do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Hurt"
+
+if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=7
+do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Death"
+
+if NumberVariable variable="Mode" comparison_sign=">" value=0
+if NumberVariable variable="Mode" comparison_sign="<" value=7
+do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Player3D" behavior="Animation"
+
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Player3D" behavior="Animation"
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=0
+do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Player3D" behavior="Animation"
+
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetNumberObjectVariable object="Player3D" variable="HandZ" modification_sign="=" value=expr(Player3D.BoneZ("GripR"))
+do SetNumberObjectVariable object="Player3D" variable="FootZ" modification_sign="=" value=expr(Player3D.BoneZ("FootR"))
+do SetNumberObjectVariable object="Player3D" variable="AttachmentReady" modification_sign="=" value=0
+
+if Model3DBoneAttachment::Model3DBoneAttachmentBehavior::IsBoneAttachmentResolved parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment"
+do SetNumberObjectVariable object="Player3D" variable="AttachmentReady" modification_sign="=" value=1
+

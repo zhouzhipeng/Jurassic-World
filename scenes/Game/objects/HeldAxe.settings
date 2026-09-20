@@ -5,8 +5,12 @@ folder = ["Real-time 3D"]
 name = "HeldAxe"
 type = "Scene3D::Model3DObject"
 variables = [ ]
-behaviors = [ ]
 effects = [ ]
+
+[[behaviors]]
+name = "HandAttachment"
+type = "Model3DBoneAttachment::Model3DBoneAttachmentBehavior"
+object3D = "Object3D"
 
 [content]
 modelResourceName = "held-axe.glb"

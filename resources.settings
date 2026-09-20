@@ -1001,3 +1001,10 @@ name = "combat-spear.glb"
 file = "assets/models/combat-spear.glb"
 metadata = ""
 userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "survivor-animated.glb"
+file = "assets/models/survivor-animated.glb"
+metadata = ""
+userAdded = true

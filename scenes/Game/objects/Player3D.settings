@@ -4,15 +4,44 @@ order = 198
 folder = ["Real-time 3D"]
 name = "Player3D"
 type = "Scene3D::Model3DObject"
-variables = [ ]
 behaviors = [ ]
 effects = [ ]
 
+[[variables]]
+name = "AnimationState"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Sprinting"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Travel"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HandZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FootZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AttachmentReady"
+type = "number"
+value = 0
+
 [content]
-modelResourceName = "survivor.glb"
+modelResourceName = "survivor-animated.glb"
 width = 109
 height = 72
-depth = 204
+depth = 202
 keepAspectRatio = true
 rotationX = 90
 rotationY = 0
@@ -22,6 +51,62 @@ centerLocation = "ModelOrigin"
 materialType = "StandardWithoutMetalness"
 isCastingShadow = true
 isReceivingShadow = true
-crossfadeDuration = 0.1
-animations = [ ]
+crossfadeDuration = 0.12
+
 sharedAnimationModelResources = [ ]
+
+[[content.animations]]
+name = "Idle"
+source = "Idle"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Walk"
+source = "Walk"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Run"
+source = "Run"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Gather"
+source = "Gather"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Chop"
+source = "Chop"
+sourceModelResourceName = ""
+loop = false
+useRootMotion = false
+
+[[content.animations]]
+name = "Thrust"
+source = "Thrust"
+sourceModelResourceName = ""
+loop = false
+useRootMotion = false
+
+[[content.animations]]
+name = "Hurt"
+source = "Hurt"
+sourceModelResourceName = ""
+loop = false
+useRootMotion = false
+
+[[content.animations]]
+name = "Death"
+source = "Death"
+sourceModelResourceName = ""
+loop = false
+useRootMotion = false
