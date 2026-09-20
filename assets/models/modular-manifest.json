@@ -1,0 +1,65 @@
+[
+  {
+    "name": "foundation",
+    "dimensions": [
+      3.0,
+      3.0,
+      0.5699999928474426
+    ],
+    "triangles": 216
+  },
+  {
+    "name": "pillar",
+    "dimensions": [
+      0.4000000059604645,
+      0.4000000059604645,
+      3.0
+    ],
+    "triangles": 60
+  },
+  {
+    "name": "wall",
+    "dimensions": [
+      3.0,
+      0.27000001072883606,
+      3.0
+    ],
+    "triangles": 180
+  },
+  {
+    "name": "doorframe",
+    "dimensions": [
+      3.0,
+      0.25,
+      3.0
+    ],
+    "triangles": 96
+  },
+  {
+    "name": "ceiling",
+    "dimensions": [
+      3.0,
+      3.0,
+      0.27000001072883606
+    ],
+    "triangles": 168
+  },
+  {
+    "name": "door",
+    "dimensions": [
+      1.5550000667572021,
+      0.23999999463558197,
+      2.4000000953674316
+    ],
+    "triangles": 108
+  },
+  {
+    "name": "stairs",
+    "dimensions": [
+      2.4000000953674316,
+      3.0264177322387695,
+      3.113208293914795
+    ],
+    "triangles": 168
+  }
+]

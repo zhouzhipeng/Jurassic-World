@@ -1,0 +1,95 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 261
+folder = ["Construction"]
+name = "PartFoundation"
+type = "Scene3D::Model3DObject"
+behaviors = []
+effects = []
+[[variables]]
+name = "Kind"
+type = "number"
+value = 10
+
+[[variables]]
+name = "Slot"
+type = "number"
+value = -1
+
+[[variables]]
+name = "HX"
+type = "number"
+value = 150
+
+[[variables]]
+name = "HY"
+type = "number"
+value = 150
+
+[[variables]]
+name = "WorldHX"
+type = "number"
+value = 150
+
+[[variables]]
+name = "WorldHY"
+type = "number"
+value = 150
+
+[[variables]]
+name = "BaseZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Level"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Parent"
+type = "number"
+value = -1
+
+[[variables]]
+name = "Open"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseAngle"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CostWood"
+type = "number"
+value = 6
+
+[[variables]]
+name = "CostStone"
+type = "number"
+value = 2
+
+[[variables]]
+name = "CostFiber"
+type = "number"
+value = 3
+
+[content]
+modelResourceName = "modular-foundation.glb"
+width = 300.00000
+height = 300.00000
+depth = 57.00000
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true
+crossfadeDuration = 0.1
+animations = []
+sharedAnimationModelResources = []

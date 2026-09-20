@@ -842,62 +842,152 @@ keep_ratio = false
 id = "ebae2ff1-754d-4195-8573-321ada193518"
 object = "BuildChoice1"
 layer = "hud"
-at = [1040, 383, 0]
+at = [1040, 380, 0]
 z_order = 100
-size = [520, 41]
+size = [255, 35]
 keep_ratio = false
 
 [[layout.instances]]
 id = "445b51bb-32cc-4e75-a7a6-ba3f5525b20f"
 object = "BuildChoiceLabel1"
 layer = "hud"
-at = [1052, 394, 0]
+at = [1048, 390, 0]
 z_order = 100
-size = [500, 29]
+size = [245, 28]
 keep_ratio = false
 
 [[layout.instances]]
 id = "8ad2d0cb-9e6b-42cc-80b7-096c7244e2e7"
 object = "BuildChoice2"
 layer = "hud"
-at = [1040, 431, 0]
+at = [1305, 380, 0]
 z_order = 100
-size = [520, 41]
+size = [255, 35]
 keep_ratio = false
 
 [[layout.instances]]
 id = "8cf5ad6c-a199-4fc5-9150-c8edff6446f0"
 object = "BuildChoiceLabel2"
 layer = "hud"
-at = [1052, 442, 0]
+at = [1313, 390, 0]
 z_order = 100
-size = [500, 29]
+size = [245, 28]
 keep_ratio = false
 
 [[layout.instances]]
 id = "d0d5b05d-5383-42b8-9db9-9f83996f926e"
 object = "BuildChoice3"
 layer = "hud"
-at = [1040, 479, 0]
+at = [1040, 419, 0]
 z_order = 100
-size = [520, 41]
+size = [255, 35]
 keep_ratio = false
 
 [[layout.instances]]
 id = "d94dc4af-d580-47a5-aa4a-f1f5d9e88196"
 object = "BuildChoiceLabel3"
 layer = "hud"
-at = [1052, 490, 0]
+at = [1048, 429, 0]
 z_order = 100
-size = [500, 29]
+size = [245, 28]
 keep_ratio = false
 
 [[layout.instances]]
 id = "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d"
 object = "BuildStatus"
 layer = "hud"
-at = [1042, 540, 0]
+at = [1042, 541, 0]
 z_order = 100
-size = [520, 90]
+size = [520, 95]
 keep_ratio = false
 
+
+[[layout.instances]]
+id = "2c8ab300-4f2a-46d4-8986-981fa37aea7d"
+object = "BuildChoice4"
+layer = "hud"
+at = [1305, 419, 0]
+z_order = 100
+size = [255, 35]
+keep_ratio = false
+
+[[layout.instances]]
+id = "6a7e2dcf-b95f-49cf-a618-c0c416a97236"
+object = "BuildChoiceLabel4"
+layer = "hud"
+at = [1313, 429, 0]
+z_order = 100
+size = [245, 28]
+keep_ratio = false
+
+[[layout.instances]]
+id = "823204f3-4f2b-4116-ab6f-c6e1ceeef119"
+object = "BuildChoice5"
+layer = "hud"
+at = [1040, 458, 0]
+z_order = 100
+size = [255, 35]
+keep_ratio = false
+
+[[layout.instances]]
+id = "e840bc0e-bc4f-44fe-8ac2-6ac7ef555c4e"
+object = "BuildChoiceLabel5"
+layer = "hud"
+at = [1048, 468, 0]
+z_order = 100
+size = [245, 28]
+keep_ratio = false
+
+[[layout.instances]]
+id = "cd56b42a-ff48-4d5b-9441-a4282ad01f0d"
+object = "BuildChoice6"
+layer = "hud"
+at = [1305, 458, 0]
+z_order = 100
+size = [255, 35]
+keep_ratio = false
+
+[[layout.instances]]
+id = "f7388cc3-4f54-4521-b16b-dc18951b0587"
+object = "BuildChoiceLabel6"
+layer = "hud"
+at = [1313, 468, 0]
+z_order = 100
+size = [245, 28]
+keep_ratio = false
+
+[[layout.instances]]
+id = "a74c84ae-fb1a-4f68-b750-817b8ad3ae7c"
+object = "BuildChoice7"
+layer = "hud"
+at = [1040, 497, 0]
+z_order = 100
+size = [255, 35]
+keep_ratio = false
+
+[[layout.instances]]
+id = "947e8ce6-0bb7-4dd4-82e1-9fdc84e8ec7d"
+object = "BuildChoiceLabel7"
+layer = "hud"
+at = [1048, 507, 0]
+z_order = 100
+size = [245, 28]
+keep_ratio = false
+
+[[layout.instances]]
+id = "ed385338-411c-41d4-be31-19700e69dc19"
+object = "BuildChoice8"
+layer = "hud"
+at = [1305, 497, 0]
+z_order = 100
+size = [255, 35]
+keep_ratio = false
+
+[[layout.instances]]
+id = "36a4c2d0-3fa6-4a09-89a4-9d0ba19a2d71"
+object = "BuildChoiceLabel8"
+layer = "hud"
+at = [1313, 507, 0]
+z_order = 100
+size = [245, 28]
+keep_ratio = false

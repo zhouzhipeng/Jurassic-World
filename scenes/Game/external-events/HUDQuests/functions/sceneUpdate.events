@@ -1,8 +1,8 @@
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 do SetCameraCenterX modification_sign="=" value=expr(Player3D.X() + sin(ToRad(CameraYaw)) * cos(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
 do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + cos(ToRad(CameraYaw)) * cos(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
-do Scene3D::SetCameraZ modification_sign="=" value=expr(120 + Riding * 220 + sin(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
-do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y()) z_position=expr(120 + Riding * 220) layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
+do Scene3D::SetCameraZ modification_sign="=" value=expr(120 + PlayerFloor + Riding * 220 + sin(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y()) z_position=expr(120 + PlayerFloor + Riding * 220) layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
 if NumberVariable variable="Mode" comparison_sign="=" value=6
 if BuiltinCommonInstructions::Once
 do ShowLayer layer="Quests"
@@ -71,8 +71,8 @@ do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
 
 if NumberVariable variable="QuestStage" comparison_sign="=" value=4
 do SetStringVariable variable="QuestName" modification_sign="=" value="安全的营地"
-do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("建造庇护所  " + ToString(min(Built, 1)) + " / 1")
-do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("按 B 开启建造，选 1 庇护所；移动到空地后按 Enter。" + NewLine() + "需要木材 10、石头 5、纤维 8。")
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("地基 " + ToString(min(BuildFloorCount,1)) + "/1 · 墙/门框 " + ToString(min(BuildWallCount,3)) + "/3 · 楼板 " + ToString(min(BuildRoofCount,1)) + "/1")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value=expr("B 建造：1 铺地基 → 3 墙 / 4 门框 → 5 顶部楼板。" + NewLine() + "每件按 Enter 搭建；R 换边，6 安门，7 楼梯，PgUp 搭楼上。")
 do SetStringVariable variable="QuestReward" modification_sign="=" value="绳索 +2；解锁野外补给委托"
 do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="伙伴已经信任你。收集材料，亲手搭建一座庇护所，为下一次出发建立落脚点。"
 

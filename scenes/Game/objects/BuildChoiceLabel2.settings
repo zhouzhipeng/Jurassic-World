@@ -9,9 +9,9 @@ effects = [ ]
 behaviors = [ ]
 
 [content]
-text = "2  木栅栏        4 木 / 2 纤维"
+text = "2 柱子  3木 1纤"
 font = "interface.ttf"
-characterSize = 17
+characterSize = 15
 color = "242;240;218"
 bold = false
 italic = false

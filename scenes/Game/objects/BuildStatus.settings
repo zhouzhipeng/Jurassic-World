@@ -73,6 +73,41 @@ name = "Fiber"
 type = "number"
 value = 0
 
+[[variables]]
+name = "Z"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Level"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Parent"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Blocked"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Floor"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Doors"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Placed"
+type = "number"
+value = 0
+
 [content]
 text = "WASD 调整位置 · R 旋转\nEnter 建造 · B 退出"
 font = "interface.ttf"

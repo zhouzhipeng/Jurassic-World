@@ -109,7 +109,7 @@ if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
 
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
-do EcrireFichierTxt storage_name=expr(SaveStorage) group="BuildingsV1" text=expr(ToJSON(BuildingRecords))
+do EcrireFichierTxt storage_name=expr(SaveStorage) group="BuildingsV2" text=expr(ToJSON(BuildingRecords))
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Trust" expression=expr(Trust)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Berries" expression=expr(Berries)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Wood" expression=expr(Wood)

@@ -1,15 +1,15 @@
 kind = "object"
 settingsFormatVersion = 5
-order = 255
+order = 291
 folder = ["UI", "External Layouts"]
-name = "BuildChoiceLabel1"
+name = "BuildChoiceLabel8"
 type = "TextObject::Text"
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
 
 [content]
-text = "1 地基  6木 2石 3纤"
+text = "8 篝火  3木 3石"
 font = "interface.ttf"
 characterSize = 15
 color = "242;240;218"

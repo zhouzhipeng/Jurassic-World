@@ -1,0 +1,95 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 277
+folder = ["Construction"]
+name = "PartDoorValid"
+type = "Scene3D::Model3DObject"
+behaviors = []
+effects = []
+[[variables]]
+name = "Kind"
+type = "number"
+value = 15
+
+[[variables]]
+name = "Slot"
+type = "number"
+value = -1
+
+[[variables]]
+name = "HX"
+type = "number"
+value = 78
+
+[[variables]]
+name = "HY"
+type = "number"
+value = 12
+
+[[variables]]
+name = "WorldHX"
+type = "number"
+value = 78
+
+[[variables]]
+name = "WorldHY"
+type = "number"
+value = 12
+
+[[variables]]
+name = "BaseZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Level"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Parent"
+type = "number"
+value = -1
+
+[[variables]]
+name = "Open"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseAngle"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CostWood"
+type = "number"
+value = 3
+
+[[variables]]
+name = "CostStone"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CostFiber"
+type = "number"
+value = 1
+
+[content]
+modelResourceName = "modular-door-valid.glb"
+width = 155.50001
+height = 24.00000
+depth = 240.00001
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = false
+isReceivingShadow = true
+crossfadeDuration = 0.1
+animations = []
+sharedAnimationModelResources = []

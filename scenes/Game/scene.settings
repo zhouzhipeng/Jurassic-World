@@ -8,11 +8,118 @@ standardSortMethod = true
 stopSoundsOnStartup = true
 behaviorsSharedData = [ ]
 [objectGroups]
+ModularParts = ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs"]
+AllBuildings = ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs", "BuiltShelter", "BuiltPalisade", "BuiltCampfire"]
 Buildings = ["BuiltShelter", "BuiltPalisade", "BuiltCampfire"]
-BuildGhosts = ["BuiltShelterValid", "BuiltShelterInvalid", "BuiltPalisadeValid", "BuiltPalisadeInvalid", "BuiltCampfireValid", "BuiltCampfireInvalid"]
+BuildGhosts = ["PartFoundationValid", "PartFoundationInvalid", "PartPillarValid", "PartPillarInvalid", "PartWallValid", "PartWallInvalid", "PartDoorframeValid", "PartDoorframeInvalid", "PartCeilingValid", "PartCeilingInvalid", "PartDoorValid", "PartDoorInvalid", "PartStairsValid", "PartStairsInvalid", "BuiltShelterValid", "BuiltShelterInvalid", "BuiltPalisadeValid", "BuiltPalisadeInvalid", "BuiltCampfireValid", "BuiltCampfireInvalid"]
 Wildlife = ["Triceratops", "Stegosaur", "Raptor", "Tyrannosaur"]
 Predators = ["Raptor", "Tyrannosaur"]
 HarvestNodes = ["BerryBush", "FiberFern", "WoodSapling", "StoneDeposit"]
+
+[[variables]]
+name = "BuildLevel"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildParent"
+type = "number"
+value = -1
+
+[[variables]]
+name = "BuildRawX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildRawY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildBlocked"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildDeleteBlocked"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildMessageTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildSuccess"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildPlacedKind"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildFloorCount"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildWallCount"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildRoofCount"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PlayerFloor"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FloorTarget"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FloorCandidate"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DoorSlot"
+type = "number"
+value = -1
+
+[[variables]]
+name = "DoorDistance"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildCostWood"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildCostStone"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildCostFiber"
+type = "number"
+value = 0
 
 [[variables]]
 name = "SaveStorage"
@@ -27,7 +134,7 @@ value = 0
 [[variables]]
 name = "BuildKind"
 type = "number"
-value = 1
+value = 10
 
 [[variables]]
 name = "BuildAngle"
@@ -128,6 +235,11 @@ value = 0
 name = "BuildRest"
 type = "number"
 value = 0
+
+[[variables]]
+name = "BuildMessage"
+type = "string"
+value = ""
 
 [[variables]]
 name = "BuildReason"
@@ -1228,3 +1340,87 @@ id = "ca53c5cd-548c-4900-b952-748dc97fd698"
 object = "StoneDeposit"
 layer = "world3d"
 at = [700, -2150, 0]
+
+[[layout.instances]]
+id = "683a6cd0-0ccf-4cac-a471-7a1ceb6d292d"
+object = "PartFoundationValid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "6aaada73-a410-4388-b696-ee02d643b5a0"
+object = "PartFoundationInvalid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "5b351cec-534b-4944-b3fb-dc47ce9ea9c4"
+object = "PartPillarValid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "623194f5-11cf-4af8-a5e0-abf9e1045213"
+object = "PartPillarInvalid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "f57a04a0-c638-470e-8617-2e3cf8f65db6"
+object = "PartWallValid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "590801e1-da9a-43c3-875c-5e38dedf7447"
+object = "PartWallInvalid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "4eb18f37-0a05-44da-8bd6-5c72a135a3be"
+object = "PartDoorframeValid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "932f3e28-813e-4601-a2f3-08473969578e"
+object = "PartDoorframeInvalid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "dc533c06-6cd7-4f1d-b2a0-8b5f0c5168c7"
+object = "PartCeilingValid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "eab7c985-eefc-4c34-ab03-751cfb1ba8dd"
+object = "PartCeilingInvalid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "8739f39e-5dcf-4969-9785-bcf54d430070"
+object = "PartDoorValid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "6b50d12e-780e-4f16-b386-1d23ec548285"
+object = "PartDoorInvalid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "c32b9ade-e0f7-4af6-ad30-d97ab27c4270"
+object = "PartStairsValid"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "5d9fe935-957f-4d28-b9bf-a82f270606be"
+object = "PartStairsInvalid"
+layer = "world3d"
+at = [0, 0, 0]

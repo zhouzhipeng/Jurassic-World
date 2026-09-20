@@ -9,9 +9,9 @@ effects = [ ]
 behaviors = [ ]
 
 [content]
-text = "3  篝火          3 木 / 3 石"
+text = "3 墙体  4木 2纤"
 font = "interface.ttf"
-characterSize = 17
+characterSize = 15
 color = "242;240;218"
 bold = false
 italic = false

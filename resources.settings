@@ -1071,3 +1071,150 @@ name = "build-campfire-invalid.glb"
 file = "assets/models/build-campfire-invalid.glb"
 metadata = ""
 userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-foundation.glb"
+file = "assets/models/modular-foundation.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-foundation-valid.glb"
+file = "assets/models/modular-foundation-valid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-foundation-invalid.glb"
+file = "assets/models/modular-foundation-invalid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-pillar.glb"
+file = "assets/models/modular-pillar.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-pillar-valid.glb"
+file = "assets/models/modular-pillar-valid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-pillar-invalid.glb"
+file = "assets/models/modular-pillar-invalid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-wall.glb"
+file = "assets/models/modular-wall.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-wall-valid.glb"
+file = "assets/models/modular-wall-valid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-wall-invalid.glb"
+file = "assets/models/modular-wall-invalid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-doorframe.glb"
+file = "assets/models/modular-doorframe.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-doorframe-valid.glb"
+file = "assets/models/modular-doorframe-valid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-doorframe-invalid.glb"
+file = "assets/models/modular-doorframe-invalid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-ceiling.glb"
+file = "assets/models/modular-ceiling.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-ceiling-valid.glb"
+file = "assets/models/modular-ceiling-valid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-ceiling-invalid.glb"
+file = "assets/models/modular-ceiling-invalid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-door.glb"
+file = "assets/models/modular-door.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-door-valid.glb"
+file = "assets/models/modular-door-valid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-door-invalid.glb"
+file = "assets/models/modular-door-invalid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-stairs.glb"
+file = "assets/models/modular-stairs.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-stairs-valid.glb"
+file = "assets/models/modular-stairs-valid.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "modular-stairs-invalid.glb"
+file = "assets/models/modular-stairs-invalid.glb"
+metadata = ""
+userAdded = true
