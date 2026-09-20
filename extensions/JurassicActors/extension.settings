@@ -1,0 +1,12 @@
+kind = "extension"
+settingsFormatVersion = 5
+order = 0
+name = "JurassicActors"
+fullName = "Jurassic Actors"
+version = "1.0.0"
+shortDescription = "Reusable survivor and dinosaur prefabs"
+description = ["Native visual composition and per-instance animation state for Jurassic World."]
+category = "Gameplay"
+author = ""
+authorIds = []
+tags = ["3d", "prefab", "survival"]

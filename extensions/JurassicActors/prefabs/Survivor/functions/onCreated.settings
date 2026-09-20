@@ -1,0 +1,12 @@
+kind = "function"
+settingsFormatVersion = 5
+order = 0
+folder = []
+name = "onCreated"
+functionType = "Action"
+fullName = "onCreated"
+description = "Own Survivor child presentation and initialization."
+private = false
+async = false
+parameters = [{ name = "Object", description = "Object", type = "object", supplementaryInformation = "JurassicActors::Survivor" }]
+objectGroups = { }

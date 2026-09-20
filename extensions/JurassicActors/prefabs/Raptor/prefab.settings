@@ -1,13 +1,18 @@
-kind = "object"
+kind = "prefab"
 settingsFormatVersion = 5
-order = 234
-folder = ["Actors"]
+order = 4
 name = "Raptor"
-type = "JurassicActors::Raptor"
-variant = ""
-behaviors = []
-effects = []
-
+fullName = "Raptor"
+description = "Reusable Raptor model, instance state and animation controller."
+defaultName = "Raptor"
+private = false
+is3D = true
+isAnimatable = false
+isTextContainer = false
+isInnerAreaFollowingParentSize = false
+isUsingLegacyInstancesRenderer = false
+propertyDescriptors = []
+objectGroups = { }
 
 [[variables]]
 name = "HP"
@@ -159,4 +164,18 @@ name = "AnimationPlaying"
 type = "number"
 value = 1
 
-[content]
+[layout]
+version = 1
+bounds = { min = [-59, -188, 0], max = [59, 188, 184] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+lighting = false
+
+[[layout.instances]]
+id = "d7fc7cb4-e806-4d7d-bae1-7672de3bf630"
+object = "Body"
+layer = "base"
+at = [0, 0, 0]

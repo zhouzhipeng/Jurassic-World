@@ -1,0 +1,27 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 1
+folder = ["Real-time 3D"]
+name = "MountedRider"
+type = "Scene3D::Model3DObject"
+variables = [ ]
+behaviors = [ ]
+effects = [ ]
+
+[content]
+modelResourceName = "seated-rider.glb"
+width = 277
+height = 111
+depth = 238
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true
+crossfadeDuration = 0.1
+animations = [ ]
+sharedAnimationModelResources = [ ]

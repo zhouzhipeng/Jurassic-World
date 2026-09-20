@@ -1,0 +1,12 @@
+kind = "function"
+settingsFormatVersion = 5
+order = 1
+folder = []
+name = "doStepPostEvents"
+functionType = "Action"
+fullName = "doStepPostEvents"
+description = "Own Triceratops child presentation and initialization."
+private = false
+async = false
+parameters = [{ name = "Object", description = "Object", type = "object", supplementaryInformation = "JurassicActors::Triceratops" }]
+objectGroups = { }

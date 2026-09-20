@@ -1,11 +1,14 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 233
-folder = ["Wildlife"]
+folder = ["Actors"]
 name = "Stegosaur"
-type = "Scene3D::Model3DObject"
-behaviors = [ ]
-effects = [ ]
+type = "JurassicActors::Stegosaur"
+variant = ""
+behaviors = []
+effects = []
+
+
 [[variables]]
 name = "HP"
 type = "number"
@@ -151,33 +154,9 @@ name = "BodyDistance"
 type = "number"
 value = 0
 
+[[variables]]
+name = "AnimationPlaying"
+type = "number"
+value = 1
+
 [content]
-modelResourceName = "stegosaur.glb"
-width = 146
-height = 505
-depth = 291
-keepAspectRatio = true
-rotationX = 90
-rotationY = 0
-rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = true
-isReceivingShadow = true
-crossfadeDuration = 0.12
-sharedAnimationModelResources = [ ]
-
-[[content.animations]]
-name = "Idle"
-source = "Idle"
-sourceModelResourceName = ""
-loop = true
-useRootMotion = false
-
-[[content.animations]]
-name = "Walk"
-source = "Walk"
-sourceModelResourceName = ""
-loop = true
-useRootMotion = false

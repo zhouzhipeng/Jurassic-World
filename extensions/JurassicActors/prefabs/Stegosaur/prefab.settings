@@ -1,58 +1,63 @@
-kind = "object"
+kind = "prefab"
 settingsFormatVersion = 5
-order = 234
-folder = ["Actors"]
-name = "Raptor"
-type = "JurassicActors::Raptor"
-variant = ""
-behaviors = []
-effects = []
-
+order = 3
+name = "Stegosaur"
+fullName = "Stegosaur"
+description = "Reusable Stegosaur model, instance state and animation controller."
+defaultName = "Stegosaur"
+private = false
+is3D = true
+isAnimatable = false
+isTextContainer = false
+isInnerAreaFollowingParentSize = false
+isUsingLegacyInstancesRenderer = false
+propertyDescriptors = []
+objectGroups = { }
 
 [[variables]]
 name = "HP"
 type = "number"
-value = 100
+value = 240
 
 [[variables]]
 name = "MaxHP"
 type = "number"
-value = 100
+value = 240
 
 [[variables]]
 name = "Carnivore"
 type = "number"
-value = 1
+value = 0
 
 [[variables]]
 name = "HomeX"
 type = "number"
-value = -700
+value = 1250
 
 [[variables]]
 name = "HomeY"
 type = "number"
-value = -2150
+value = 1550
 
 [[variables]]
 name = "Radius"
 type = "number"
-value = 95
+value = 110
 
 [[variables]]
 name = "HalfLength"
 type = "number"
-value = 230
+value = 310
 
 [[variables]]
 name = "Speed"
 type = "number"
-value = 285
+value = 80
 
 [[variables]]
 name = "Damage"
 type = "number"
-value = 12
+value = 0
 
 [[variables]]
 name = "State"
@@ -87,12 +92,12 @@ value = 0
 [[variables]]
 name = "PX"
 type = "number"
-value = -100
+value = 750
 
 [[variables]]
 name = "PY"
 type = "number"
-value = -1100
+value = 780
 
 [[variables]]
 name = "PA"
@@ -102,12 +107,12 @@ value = 0
 [[variables]]
 name = "TargetX"
 type = "number"
-value = -100
+value = 750
 
 [[variables]]
 name = "TargetY"
 type = "number"
-value = -1100
+value = 780
 
 [[variables]]
 name = "Distance"
@@ -159,4 +164,18 @@ name = "AnimationPlaying"
 type = "number"
 value = 1
 
-[content]
+[layout]
+version = 1
+bounds = { min = [-73, -252, 0], max = [73, 252, 291] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+lighting = false
+
+[[layout.instances]]
+id = "ae2a0460-20a0-4fee-8a69-c1a1db03644f"
+object = "Body"
+layer = "base"
+at = [0, 0, 0]

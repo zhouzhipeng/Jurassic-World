@@ -1,11 +1,13 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 198
-folder = ["Real-time 3D"]
+folder = ["Actors"]
 name = "Player3D"
-type = "Scene3D::Model3DObject"
-behaviors = [ ]
-effects = [ ]
+type = "JurassicActors::Survivor"
+variant = ""
+behaviors = []
+effects = []
+
 
 [[variables]]
 name = "AnimationState"
@@ -42,76 +44,19 @@ name = "HandRX"
 type = "number"
 value = 0
 
+[[variables]]
+name = "AnimationPlaying"
+type = "number"
+value = 1
+
+[[variables]]
+name = "HeldAxeVisible"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CombatSpearVisible"
+type = "number"
+value = 0
+
 [content]
-modelResourceName = "survivor-animated.glb"
-width = 109
-height = 72
-depth = 202
-keepAspectRatio = true
-rotationX = 90
-rotationY = 0
-rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = true
-isReceivingShadow = true
-crossfadeDuration = 0.12
-
-sharedAnimationModelResources = [ ]
-
-[[content.animations]]
-name = "Idle"
-source = "Idle"
-sourceModelResourceName = ""
-loop = true
-useRootMotion = false
-
-[[content.animations]]
-name = "Walk"
-source = "Walk"
-sourceModelResourceName = ""
-loop = true
-useRootMotion = false
-
-[[content.animations]]
-name = "Run"
-source = "Run"
-sourceModelResourceName = ""
-loop = true
-useRootMotion = false
-
-[[content.animations]]
-name = "Gather"
-source = "Gather"
-sourceModelResourceName = ""
-loop = true
-useRootMotion = false
-
-[[content.animations]]
-name = "Chop"
-source = "Chop"
-sourceModelResourceName = ""
-loop = false
-useRootMotion = false
-
-[[content.animations]]
-name = "Thrust"
-source = "Thrust"
-sourceModelResourceName = ""
-loop = false
-useRootMotion = false
-
-[[content.animations]]
-name = "Hurt"
-source = "Hurt"
-sourceModelResourceName = ""
-loop = false
-useRootMotion = false
-
-[[content.animations]]
-name = "Death"
-source = "Death"
-sourceModelResourceName = ""
-loop = false
-useRootMotion = false

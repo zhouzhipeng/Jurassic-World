@@ -1,0 +1,52 @@
+kind = "prefab"
+settingsFormatVersion = 5
+order = 1
+name = "Parasaur"
+fullName = "Parasaur"
+description = "Reusable Parasaur model, instance state and animation controller."
+defaultName = "Dinosaur3D"
+private = false
+is3D = true
+isAnimatable = false
+isTextContainer = false
+isInnerAreaFollowingParentSize = false
+isUsingLegacyInstancesRenderer = false
+propertyDescriptors = []
+objectGroups = { }
+
+[[variables]]
+name = "AnimationState"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AnimationPlaying"
+type = "number"
+value = 1
+
+[[variables]]
+name = "MountedRiderVisible"
+type = "number"
+value = 0
+
+[layout]
+version = 1
+bounds = { min = [-108, -333, 0], max = [108, 333, 435] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+lighting = false
+
+[[layout.instances]]
+id = "64b0036e-38f9-40c8-addd-a0926d3c251e"
+object = "Body"
+layer = "base"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "a0d171ff-b969-4ea1-a05e-f7abe3823d5c"
+object = "MountedRider"
+layer = "base"
+at = [0, -15, 312]

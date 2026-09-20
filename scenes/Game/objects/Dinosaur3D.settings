@@ -1,47 +1,27 @@
 kind = "object"
 settingsFormatVersion = 5
 order = 197
-folder = ["Real-time 3D"]
+folder = ["Actors"]
 name = "Dinosaur3D"
-type = "Scene3D::Model3DObject"
-behaviors = [ ]
-effects = [ ]
+type = "JurassicActors::Parasaur"
+variant = ""
+behaviors = []
+effects = []
+
+
 [[variables]]
 name = "AnimationState"
 type = "number"
 value = 0
 
-behaviors = [ ]
-effects = [ ]
+[[variables]]
+name = "AnimationPlaying"
+type = "number"
+value = 1
+
+[[variables]]
+name = "MountedRiderVisible"
+type = "number"
+value = 0
 
 [content]
-modelResourceName = "parasaur-animated.glb"
-width = 215
-height = 666
-depth = 435
-keepAspectRatio = true
-rotationX = 90
-rotationY = 0
-rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = true
-isReceivingShadow = true
-crossfadeDuration = 0.1
-sharedAnimationModelResources = [ ]
-
-[[content.animations]]
-name = "Idle"
-source = "Idle"
-sourceModelResourceName = ""
-loop = true
-useRootMotion = false
-
-[[content.animations]]
-name = "Walk"
-source = "Walk"
-sourceModelResourceName = ""
-loop = true
-useRootMotion = false
-

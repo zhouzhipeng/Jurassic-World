@@ -1,0 +1,31 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 2
+folder = ["Real-time 3D"]
+name = "CombatSpear"
+type = "Scene3D::Model3DObject"
+variables = [ ]
+effects = [ ]
+
+[[behaviors]]
+name = "HandAttachment"
+type = "Model3DBoneAttachment::Model3DBoneAttachmentBehavior"
+object3D = "Object3D"
+
+[content]
+modelResourceName = "combat-spear.glb"
+width = 23
+height = 225
+depth = 23
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true
+crossfadeDuration = 0.1
+animations = [ ]
+sharedAnimationModelResources = [ ]

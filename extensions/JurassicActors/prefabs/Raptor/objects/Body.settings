@@ -1,0 +1,47 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 0
+folder = ["Wildlife"]
+name = "Body"
+type = "Scene3D::Model3DObject"
+behaviors = [ ]
+effects = [ ]
+variables = [ ]
+
+[content]
+modelResourceName = "raptor.glb"
+width = 118
+height = 375
+depth = 184
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true
+crossfadeDuration = 0.12
+sharedAnimationModelResources = [ ]
+
+[[content.animations]]
+name = "Idle"
+source = "Idle"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Walk"
+source = "Walk"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Attack"
+source = "Attack"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false

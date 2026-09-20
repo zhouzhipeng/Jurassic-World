@@ -1,0 +1,50 @@
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=0
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Idle"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=1
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Walk"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=2
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Run"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=3
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Gather"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=4
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Chop"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=5
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Thrust"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=6
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Hurt"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=7
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Death"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationPlaying)) comparison_sign="=" second_expression=1
+do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Body" behavior="Animation"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationPlaying)) comparison_sign="=" second_expression=0
+do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Body" behavior="Animation"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(HeldAxeVisible)) comparison_sign="=" second_expression=0
+do Hide object="HeldAxe"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(HeldAxeVisible)) comparison_sign="=" second_expression=1
+do Show object="HeldAxe"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(CombatSpearVisible)) comparison_sign="=" second_expression=0
+do Hide object="CombatSpear"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(CombatSpearVisible)) comparison_sign="=" second_expression=1
+do Show object="CombatSpear"
+
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign=">=" second_expression=0
+do ModVarObjet object="Object" variable="HandZ" modification_sign="=" value=expr(Body.BoneZ("GripR"))
+do ModVarObjet object="Object" variable="FootZ" modification_sign="=" value=expr(Body.BoneZ("FootR"))
+do ModVarObjet object="Object" variable="HandRX" modification_sign="=" value=expr(Body.BoneRotationX("GripR"))
+do ModVarObjet object="Object" variable="AttachmentReady" modification_sign="=" value=0
+
+if Model3DBoneAttachment::Model3DBoneAttachmentBehavior::IsBoneAttachmentResolved parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment"
+do ModVarObjet object="Object" variable="AttachmentReady" modification_sign="=" value=1

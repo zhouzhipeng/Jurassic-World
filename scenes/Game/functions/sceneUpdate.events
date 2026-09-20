@@ -383,31 +383,26 @@ do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
 do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y())
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(Dinosaur3D.Angle())
 do Hide object="Player3D"
-do Show object="MountedRider"
-do SetX object="MountedRider" modification_sign="=" value=expr(Dinosaur3D.X() + sin(ToRad(Dinosaur3D.Angle())) * 15)
-do SetY object="MountedRider" modification_sign="=" value=expr(Dinosaur3D.Y() - cos(ToRad(Dinosaur3D.Angle())) * 15)
-do SetAngle object="MountedRider" modification_sign="=" angle_in_degrees=expr(Dinosaur3D.Angle())
+do SetNumberObjectVariable object="Dinosaur3D" variable="MountedRiderVisible" modification_sign="=" value=1
 
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 do Show object="Player3D"
-do Hide object="MountedRider"
+do SetNumberObjectVariable object="Dinosaur3D" variable="MountedRiderVisible" modification_sign="=" value=0
 
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 if NumberVariable variable="DinoMoving" comparison_sign=">" value=0.01
 if NumberVariable variable="Mode" comparison_sign="=" value=0
-do AnimatableCapability::AnimatableBehavior::SetName object="Dinosaur3D" behavior="Animation" modification_sign="=" animation_name="Walk"
 do SetNumberObjectVariable object="Dinosaur3D" variable="AnimationState" modification_sign="=" value=1
 
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 or NumberVariable variable="DinoMoving" comparison_sign="<=" value=0.01
-do AnimatableCapability::AnimatableBehavior::SetName object="Dinosaur3D" behavior="Animation" modification_sign="=" animation_name="Idle"
 do SetNumberObjectVariable object="Dinosaur3D" variable="AnimationState" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
-do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Dinosaur3D" behavior="Animation"
+do SetNumberObjectVariable object="Dinosaur3D" variable="AnimationPlaying" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="!=" value=0
-do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Dinosaur3D" behavior="Animation"
+do SetNumberObjectVariable object="Dinosaur3D" variable="AnimationPlaying" modification_sign="=" value=0
 
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="Trust" comparison_sign="<" value=100
@@ -2036,14 +2031,14 @@ if NumberObjectVariable object="WoodSapling" variable="Target" comparison_sign="
 do SetAngle object="WoodSapling" modification_sign="=" angle_in_degrees=expr(sin(AxeSwing * 55) * AxeSwing * 20)
 
 if NumberVariable variable="Mode" comparison_sign=">=" value=0
-do Hide object="HeldAxe"
+do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modification_sign="=" value=0
 
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=1
 if NumberVariable variable="Axe" comparison_sign=">" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
-do Show object="HeldAxe"
+do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modification_sign="=" value=1
 
 @comment "Wildlife and survival audio" background=[160,110,80] text=[255,255,255]
 
@@ -2326,7 +2321,6 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Triceratops" variable="Travel" comparison_sign=">" value=0.01
 if NumberObjectVariable object="Triceratops" variable="State" comparison_sign="!=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Triceratops" behavior="Animation" modification_sign="=" animation_name="Walk"
 do SetNumberObjectVariable object="Triceratops" variable="AnimationState" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -2335,18 +2329,17 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Triceratops" variable="Travel" comparison_sign="<=" value=0.01
 if NumberObjectVariable object="Triceratops" variable="State" comparison_sign="!=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Triceratops" behavior="Animation" modification_sign="=" animation_name="Idle"
 do SetNumberObjectVariable object="Triceratops" variable="AnimationState" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=0
-do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Triceratops" behavior="Animation"
+do SetNumberObjectVariable object="Triceratops" variable="AnimationPlaying" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="!=" value=0
 or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
-do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Triceratops" behavior="Animation"
+do SetNumberObjectVariable object="Triceratops" variable="AnimationPlaying" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -2511,7 +2504,6 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Stegosaur" variable="Travel" comparison_sign=">" value=0.01
 if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="!=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Stegosaur" behavior="Animation" modification_sign="=" animation_name="Walk"
 do SetNumberObjectVariable object="Stegosaur" variable="AnimationState" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -2520,18 +2512,17 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Stegosaur" variable="Travel" comparison_sign="<=" value=0.01
 if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="!=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Stegosaur" behavior="Animation" modification_sign="=" animation_name="Idle"
 do SetNumberObjectVariable object="Stegosaur" variable="AnimationState" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Stegosaur" behavior="Animation"
+do SetNumberObjectVariable object="Stegosaur" variable="AnimationPlaying" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="!=" value=0
 or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
-do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Stegosaur" behavior="Animation"
+do SetNumberObjectVariable object="Stegosaur" variable="AnimationPlaying" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -2838,7 +2829,6 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Raptor" variable="Travel" comparison_sign=">" value=0.01
 if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Raptor" behavior="Animation" modification_sign="=" animation_name="Walk"
 do SetNumberObjectVariable object="Raptor" variable="AnimationState" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -2847,7 +2837,6 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Raptor" variable="Travel" comparison_sign="<=" value=0.01
 if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Raptor" behavior="Animation" modification_sign="=" animation_name="Idle"
 do SetNumberObjectVariable object="Raptor" variable="AnimationState" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -2855,18 +2844,17 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Raptor" behavior="Animation" modification_sign="=" animation_name="Attack"
 do SetNumberObjectVariable object="Raptor" variable="AnimationState" modification_sign="=" value=2
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Raptor" behavior="Animation"
+do SetNumberObjectVariable object="Raptor" variable="AnimationPlaying" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="!=" value=0
 or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
-do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Raptor" behavior="Animation"
+do SetNumberObjectVariable object="Raptor" variable="AnimationPlaying" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -3173,7 +3161,6 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="Travel" comparison_sign=">" value=0.01
 if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Tyrannosaur" behavior="Animation" modification_sign="=" animation_name="Walk"
 do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationState" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -3182,7 +3169,6 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="Travel" comparison_sign="<=" value=0.01
 if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Tyrannosaur" behavior="Animation" modification_sign="=" animation_name="Idle"
 do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationState" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -3190,18 +3176,17 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Tyrannosaur" behavior="Animation" modification_sign="=" animation_name="Attack"
 do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationState" modification_sign="=" value=2
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Tyrannosaur" behavior="Animation"
+do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationPlaying" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="!=" value=0
 or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
-do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Tyrannosaur" behavior="Animation"
+do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationPlaying" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -3283,11 +3268,9 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
 do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y())
-do SetX object="MountedRider" modification_sign="=" value=expr(Dinosaur3D.X() + sin(ToRad(Dinosaur3D.Angle())) * 15)
-do SetY object="MountedRider" modification_sign="=" value=expr(Dinosaur3D.Y() - cos(ToRad(Dinosaur3D.Angle())) * 15)
 
 if NumberVariable variable="Mode" comparison_sign=">=" value=0
-do Hide object="CombatSpear"
+do SetNumberObjectVariable object="Player3D" variable="CombatSpearVisible" modification_sign="=" value=0
 do Hide object="DeathPanel"
 do Hide object="DeathText"
 do Hide object="DamageFlash"
@@ -3300,8 +3283,8 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="Spear" comparison_sign=">" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="CombatSwing" comparison_sign=">" value=0
-do Show object="CombatSpear"
-do Hide object="HeldAxe"
+do SetNumberObjectVariable object="Player3D" variable="CombatSpearVisible" modification_sign="=" value=1
+do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -3342,8 +3325,8 @@ do SetNumberVariable variable="Mode" modification_sign="=" value=7
 do ShowLayer layer="HUD"
 do Show object="DeathPanel"
 do Show object="DeathText"
-do Hide object="CombatSpear"
-do Hide object="HeldAxe"
+do SetNumberObjectVariable object="Player3D" variable="CombatSpearVisible" modification_sign="=" value=0
+do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modification_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="DeathText" behavior="Text" modification_sign="=" text=expr("你倒下了" + NewLine() + NewLine() + "按 Enter 在营地重生" + NewLine() + "保留工具，损失 3 浆果和 1 生肉" + NewLine() + "下次带上长矛，或骑乘逃离追击。")
 
 if NumberVariable variable="Dead" comparison_sign="=" value=1
@@ -3916,13 +3899,10 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 >> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
 >> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
 >> do SetNumberObjectVariable object="Dinosaur3D" variable="AnimationState" modification_sign="=" value=0
->> do AnimatableCapability::AnimatableBehavior::SetName object="Dinosaur3D" behavior="Animation" modification_sign="=" animation_name="Idle"
 
 >>> if NumberVariable variable="Riding" comparison_sign="=" value=1
 >>> do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
 >>> do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y())
->>> do SetX object="MountedRider" modification_sign="=" value=expr(Dinosaur3D.X() + sin(ToRad(Dinosaur3D.Angle())) * 15)
->>> do SetY object="MountedRider" modification_sign="=" value=expr(Dinosaur3D.Y() - cos(ToRad(Dinosaur3D.Angle())) * 15)
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -3934,7 +3914,6 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 >>> do SetX object="Wildlife" modification_sign="=" value=expr(Wildlife.Variable(PX))
 >>> do SetY object="Wildlife" modification_sign="=" value=expr(Wildlife.Variable(PY))
 >>> do SetNumberObjectVariable object="Wildlife" variable="AnimationState" modification_sign="=" value=0
->>> do AnimatableCapability::AnimatableBehavior::SetName object="Wildlife" behavior="Animation" modification_sign="=" animation_name="Idle"
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -4007,8 +3986,8 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="BuildTitle" 
 do TextContainerCapability::TextContainerBehavior::SetValue object="BuildStatus" behavior="Text" modification_sign="=" text=expr(BuildReason + NewLine() + "WASD 移位 · R 旋转 · Enter 建造" + NewLine() + "朝向 " + ToString(BuildAngle) + "° · Delete 拆除（返还一半）")
 do Hide object="HarvestPanel"
 do Hide object="HarvestHint"
-do Hide object="HeldAxe"
-do Hide object="CombatSpear"
+do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modification_sign="=" value=0
+do SetNumberObjectVariable object="Player3D" variable="CombatSpearVisible" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -4109,18 +4088,12 @@ do SetNumberObjectVariable object="BuildStatus" variable="Fiber" modification_si
 
 @comment "Player skeletal animation controller" background=[95,155,180] text=[255,255,255]
 
-if SceneJustBegins
-do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::AttachToModelBone parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment" target_3d_model="Player3D" bone_name="GripR"
-do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment" x_rotation_offset=0 y_rotation_offset=0 z_rotation_offset=0
-do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::AttachToModelBone parameter_3d_object="CombatSpear" bone_attachment_behavior="HandAttachment" target_3d_model="Player3D" bone_name="GripR"
-do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="CombatSpear" bone_attachment_behavior="HandAttachment" x_rotation_offset=0 y_rotation_offset=0 z_rotation_offset=0
-
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=0
 do SetNumberObjectVariable object="Player3D" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(PreviousX, PreviousY, Player3D.X(), Player3D.Y()))
-do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Player3D" behavior="Animation"
+do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -4148,7 +4121,7 @@ if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign=
 if NumberObjectVariable object="HarvestNodes" variable="Progress" comparison_sign=">" value=0
 do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=3
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Player3D.X(), Player3D.Y(), HarvestNodes.X(), HarvestNodes.Y()) - 90)
-do Hide object="HeldAxe"
+do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modification_sign="=" value=0
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -4179,47 +4152,14 @@ do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleB
 
 if NumberVariable variable="Mode" comparison_sign="=" value=7
 do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=7
-do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Player3D" behavior="Animation"
-
-if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=0
-do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Idle"
-
-if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=1
-do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Walk"
-
-if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=2
-do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Run"
-
-if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=3
-do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Gather"
-
-if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=4
-do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Chop"
-
-if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=5
-do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Thrust"
-
-if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=6
-do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Hurt"
-
-if NumberObjectVariable object="Player3D" variable="AnimationState" comparison_sign="=" value=7
-do AnimatableCapability::AnimatableBehavior::SetName object="Player3D" behavior="Animation" modification_sign="=" animation_name="Death"
+do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modification_sign="=" value=1
 
 if NumberVariable variable="Mode" comparison_sign=">" value=0
 if NumberVariable variable="Mode" comparison_sign="<" value=7
-do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Player3D" behavior="Animation"
+do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modification_sign="=" value=0
 
 if NumberVariable variable="Riding" comparison_sign="=" value=1
-do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Player3D" behavior="Animation"
+do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modification_sign="=" value=0
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0
-do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Player3D" behavior="Animation"
-
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-do SetNumberObjectVariable object="Player3D" variable="HandZ" modification_sign="=" value=expr(Player3D.BoneZ("GripR"))
-do SetNumberObjectVariable object="Player3D" variable="FootZ" modification_sign="=" value=expr(Player3D.BoneZ("FootR"))
-do SetNumberObjectVariable object="Player3D" variable="HandRX" modification_sign="=" value=expr(Player3D.BoneRotationX("GripR"))
-do SetNumberObjectVariable object="Player3D" variable="AttachmentReady" modification_sign="=" value=0
-
-if Model3DBoneAttachment::Model3DBoneAttachmentBehavior::IsBoneAttachmentResolved parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment"
-do SetNumberObjectVariable object="Player3D" variable="AttachmentReady" modification_sign="=" value=1
+do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modification_sign="=" value=0

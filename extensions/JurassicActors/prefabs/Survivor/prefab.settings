@@ -1,0 +1,93 @@
+kind = "prefab"
+settingsFormatVersion = 5
+order = 0
+name = "Survivor"
+fullName = "Survivor"
+description = "Reusable Survivor model, instance state and animation controller."
+defaultName = "Player3D"
+private = false
+is3D = true
+isAnimatable = false
+isTextContainer = false
+isInnerAreaFollowingParentSize = false
+isUsingLegacyInstancesRenderer = false
+propertyDescriptors = []
+objectGroups = { }
+
+[[variables]]
+name = "AnimationState"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Sprinting"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Travel"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HandZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FootZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AttachmentReady"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HandRX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AnimationPlaying"
+type = "number"
+value = 1
+
+[[variables]]
+name = "HeldAxeVisible"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CombatSpearVisible"
+type = "number"
+value = 0
+
+[layout]
+version = 1
+bounds = { min = [-54, -36, 0], max = [54, 36, 202] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+lighting = false
+
+[[layout.instances]]
+id = "98d54e1c-5921-4afa-835c-1ab79400e872"
+object = "Body"
+layer = "base"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "31ec6300-918c-490e-9592-c265dae8ebfb"
+object = "HeldAxe"
+layer = "base"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "44902796-b265-4620-8ea4-7e891b2ec443"
+object = "CombatSpear"
+layer = "base"
+at = [0, 0, 0]

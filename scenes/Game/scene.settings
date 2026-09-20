@@ -2915,18 +2915,6 @@ keep_ratio = false
 z_order = 5
 
 [[layout.instances]]
-id = "005cad9f-b161-45b6-a7de-99de459e5087"
-object = "HeldAxe"
-layer = "world3d"
-at = [0, 0, 100]
-
-[[layout.instances]]
-id = "27f29c53-3afe-407b-9513-f29918a6cad8"
-object = "MountedRider"
-layer = "world3d"
-at = [650, -365, 312]
-
-[[layout.instances]]
 id = "6efe573c-7107-4a20-ae65-4869e9568b20"
 object = "MountButton"
 layer = "hud"
@@ -3034,12 +3022,6 @@ at = [0, 0, 0]
 z_order = 20
 size = [1600, 900]
 keep_ratio = false
-
-[[layout.instances]]
-id = "ff1f837a-0615-48ec-82e0-1a29a38c4f3b"
-object = "CombatSpear"
-layer = "world3d"
-at = [0, 0, 115]
 
 [[layout.instances]]
 id = "57d63db8-5f6e-4dd5-87e2-d4f2be451986"

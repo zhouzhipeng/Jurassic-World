@@ -1,0 +1,8 @@
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign=">=" second_expression=0
+do JurassicActors::Survivor::SetRotationCenter object="Object" x_position=0 y_position=0 z_position=0
+do Hide object="HeldAxe"
+do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::AttachToModelBone parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment" target_3d_model="Body" bone_name="GripR"
+do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="HeldAxe" bone_attachment_behavior="HandAttachment" x_rotation_offset=0 y_rotation_offset=0 z_rotation_offset=0
+do Hide object="CombatSpear"
+do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::AttachToModelBone parameter_3d_object="CombatSpear" bone_attachment_behavior="HandAttachment" target_3d_model="Body" bone_name="GripR"
+do Model3DBoneAttachment::Model3DBoneAttachmentBehavior::SetBoneAttachmentRotationOffset parameter_3d_object="CombatSpear" bone_attachment_behavior="HandAttachment" x_rotation_offset=0 y_rotation_offset=0 z_rotation_offset=0

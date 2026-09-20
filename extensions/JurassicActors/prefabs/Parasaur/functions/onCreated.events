@@ -1,0 +1,3 @@
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign=">=" second_expression=0
+do JurassicActors::Parasaur::SetRotationCenter object="Object" x_position=0 y_position=0 z_position=0
+do Hide object="MountedRider"

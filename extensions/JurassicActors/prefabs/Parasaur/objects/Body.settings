@@ -1,0 +1,41 @@
+kind = "object"
+settingsFormatVersion = 5
+order = 0
+folder = ["Real-time 3D"]
+name = "Body"
+type = "Scene3D::Model3DObject"
+behaviors = [ ]
+effects = [ ]
+variables = [ ]
+
+[content]
+modelResourceName = "parasaur-animated.glb"
+width = 215
+height = 666
+depth = 435
+keepAspectRatio = true
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true
+crossfadeDuration = 0.1
+sharedAnimationModelResources = [ ]
+
+[[content.animations]]
+name = "Idle"
+source = "Idle"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
+[[content.animations]]
+name = "Walk"
+source = "Walk"
+sourceModelResourceName = ""
+loop = true
+useRootMotion = false
+
