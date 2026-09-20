@@ -50,7 +50,7 @@
     },
     {
       "name": "HUDQuests",
-      "eventBlocks": 66
+      "eventBlocks": 78
     },
     {
       "name": "HUDChoppingFeedback",
@@ -94,18 +94,21 @@
     },
     {
       "name": "HUDBuildSelection",
-      "eventBlocks": 9
+      "eventBlocks": 19
     },
     {
       "name": "HUDBuildPresentation",
-      "eventBlocks": 12
+      "eventBlocks": 22
     },
     {
       "name": "HUDBuildStatus",
       "eventBlocks": 1
     }
   ],
-  "uiObjects": 239,
+  "uiObjects": 249,
   "externalLayouts": 7,
-  "preservesOriginalExecutionOrder": true
+  "preservesOriginalExecutionOrder": true,
+  "worldExternalEvents": [
+    "ModularConstruction"
+  ]
 }
