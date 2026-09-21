@@ -39,8 +39,14 @@ try {
   const wallHits = gdjs.evtTools.scene3d.raycastObjects(2000, 1500, 120, 0,
     Math.cos(25 * Math.PI / 180), Math.sin(25 * Math.PI / 180),
     [harness.getRuntimeObject(wall.id)], 0, 1280, true);
+  const nearbyNames = ['Island3D', 'BerryBush', 'FiberFern', 'WoodSapling', 'StoneDeposit', 'MetalDeposit', 'SpringWater', 'CampHearth', 'CampForge', 'PartWall', 'Dinosaur3D', 'Triceratops', 'Stegosaur', 'Raptor', 'Tyrannosaur'];
+  const candidates = nearbyNames.flatMap(name => harness.getCurrentRuntimeScene().getObjects(name)).filter(o => o.isVisible());
+  const diagnosticHits = [-80, 0, 80].flatMap(z => [-65, 0, 65].flatMap(x =>
+    gdjs.evtTools.scene3d.raycastObjects(player().x + x, player().y, targetZ() + z,
+      0, Math.cos(25 * Math.PI / 180), Math.sin(25 * Math.PI / 180), candidates, 0, 1280, true)
+      .slice(0, 1).map(h => [h.object.getName(), h.distance, h.pointX, h.pointY, h.pointZ])));
   harness.assert(n('CameraResolvedDistance') < 500 && n('CameraDistance') === 1250,
-    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}, hits=${JSON.stringify(wallHits.map(h => [h.distance, h.pointX, h.pointY, h.pointZ]))}`);
+    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}, hits=${JSON.stringify(diagnosticHits)}, center=${wallHits.length}`);
   clearSight([harness.getRuntimeObject(wall.id)], 'Wall');
   const compressed = n('CameraResolvedDistance');
   harness.getRuntimeObject(wall.id).hide(true);
