@@ -15,7 +15,7 @@ revision = 0
 
 [properties]
 adaptGameResolutionAtRuntime = true
-antialiasingMode = "none"
+antialiasingMode = "MSAA"
 antialisingEnabledOnMobile = false
 folderProject = false
 orientation = "default"
