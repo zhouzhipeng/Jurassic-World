@@ -1,11 +1,13 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 276
-folder = ["Construction"]
+assetStoreId = ""
 name = "PartDoor"
 type = "Scene3D::Model3DObject"
-behaviors = []
-effects = []
+effects = [ ]
+behaviors = [ ]
+folder = [ "Construction" ]
+
 [[variables]]
 name = "Kind"
 type = "number"
@@ -77,19 +79,19 @@ type = "number"
 value = 1
 
 [content]
-modelResourceName = "modular-door.glb"
-width = 155.50001
-height = 24.00000
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
 depth = 240.00001
+height = 24
+isCastingShadow = true
+isReceivingShadow = true
 keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "modular-door.glb"
+originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = true
-isReceivingShadow = true
-crossfadeDuration = 0.1
-animations = []
-sharedAnimationModelResources = []
+width = 155.50001
+sharedAnimationModelResources = [ ]
+animations = [ ]

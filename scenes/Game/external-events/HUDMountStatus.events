@@ -1,10 +1,13 @@
+@event
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="Trust" comparison_sign="<" value=100
 do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" behavior="Text" modification_sign="=" text="X  驯服后可骑乘"
 
+@event
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="Trust" comparison_sign=">=" value=100
 do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" behavior="Text" modification_sign="=" text="X  靠近恐龙骑乘"
 
+@event
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" behavior="Text" modification_sign="=" text="X  下坐骑"

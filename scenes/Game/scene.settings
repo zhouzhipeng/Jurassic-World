@@ -1,11 +1,13 @@
 kind = "scene"
 settingsFormatVersion = 6
 order = 0
-name = "Game"
-mangledName = "Game"
 disableInputWhenNotFocused = false
+mangledName = "Game"
+name = "Game"
+renderer3DWorldScale = 100
 standardSortMethod = true
 stopSoundsOnStartup = true
+title = "(No title)"
 behaviorsSharedData = [ ]
 
 [[variables]]
@@ -107,6 +109,970 @@ value = ""
 name = "PackActionLabel"
 type = "string"
 value = ""
+
+[[variables]]
+name = "BuildLevel"
+persistentUuid = "261b7d47-8f27-47ad-bf46-b9191f08828a"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildZ"
+persistentUuid = "6c95d132-a028-489d-81bd-4ca1488a4756"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildParent"
+persistentUuid = "84854e09-689a-4e92-9bd7-06f7830b3c43"
+type = "number"
+value = -1
+
+[[variables]]
+name = "BuildRawX"
+persistentUuid = "9eac178a-7cd8-4074-b199-85c5139ff1b8"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildRawY"
+persistentUuid = "78239f33-0fa6-4c62-8e24-aaff7734aab7"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildBlocked"
+persistentUuid = "93ca0bb6-f086-42b2-908d-f72dd99dc636"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildDeleteBlocked"
+persistentUuid = "c0230e42-94b7-4e83-905f-f1e4d6d2352a"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildMessageTime"
+persistentUuid = "719a1ad8-e331-4447-b8d0-6be124cd2dac"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildSuccess"
+persistentUuid = "b11269e3-586b-4ce7-ac96-2342a47ca15a"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildPlacedKind"
+persistentUuid = "d4e2cfa3-56a1-4457-93de-109e00ab1eb6"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildFloorCount"
+persistentUuid = "00f474f3-803d-45c6-a524-85929ea4d0fe"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildWallCount"
+persistentUuid = "cfa6759d-884e-48e9-b345-7ad9d09471c5"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildRoofCount"
+persistentUuid = "a3340ed3-e814-466a-ae28-93bef5acdc7e"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PlayerFloor"
+persistentUuid = "f88e0699-0150-4400-9f0c-2621526ddafd"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FloorTarget"
+persistentUuid = "58b8eb6f-6e78-4717-8f86-b165d14c1468"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FloorCandidate"
+persistentUuid = "d41e614a-536a-42d4-b359-6b1a3223210b"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DoorSlot"
+persistentUuid = "27eaba84-088a-4d05-81c1-2efce38a3bca"
+type = "number"
+value = -1
+
+[[variables]]
+name = "DoorDistance"
+persistentUuid = "9820be25-4b2b-48bf-b018-021b92062a85"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildCostWood"
+persistentUuid = "6d8e7ccb-83c6-4e30-9045-5ffa209443e9"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildCostStone"
+persistentUuid = "9b8ea13d-b37d-4d23-8c65-df1970fd5009"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildCostFiber"
+persistentUuid = "13d7b058-117c-4161-bf2e-ca43cf2f3c85"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SaveStorage"
+persistentUuid = "0d2a61c9-14bb-4555-b1d4-474f2bd4753e"
+type = "string"
+value = "JurassicWorldDemo"
+
+[[variables]]
+name = "BuildMode"
+persistentUuid = "7c48c37b-fed4-45a2-915b-ee2fe7049c7b"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildKind"
+persistentUuid = "d4ae816c-8599-4d68-b83c-963cc6efc622"
+type = "number"
+value = 10
+
+[[variables]]
+name = "BuildAngle"
+persistentUuid = "2d182070-672d-45cc-bd3f-32cb17a9e22c"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildX"
+persistentUuid = "7b0c93ab-c817-4787-a48d-a03e2c45d22d"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildY"
+persistentUuid = "ae28058f-e821-443e-a270-53b6a260e978"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildHX"
+persistentUuid = "06ae997a-07a1-45a0-9fe5-39dbdc15c2bc"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildHY"
+persistentUuid = "414037ed-3cc9-4016-9f20-4a174141b572"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildWorldHX"
+persistentUuid = "6b4d8ca9-ea2d-4599-a0db-40298ff4f103"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildWorldHY"
+persistentUuid = "b4c7faa4-299f-417e-b603-0e585e4004b2"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildValid"
+persistentUuid = "e5ddaa7f-d4d2-4d66-b2ee-ba0aa18cb613"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildCount"
+persistentUuid = "6625692b-b014-4bf7-93ce-135c077371fa"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildSlot"
+persistentUuid = "44f850dd-3f15-43b2-b622-42e419309c4d"
+type = "number"
+value = -1
+
+[[variables]]
+name = "BuildWood"
+persistentUuid = "1ad34fe5-b2c0-471b-8e36-b282705254d0"
+type = "number"
+value = 10
+
+[[variables]]
+name = "BuildStone"
+persistentUuid = "3ee78181-7794-4337-a794-0e7fc1d5b0a9"
+type = "number"
+value = 5
+
+[[variables]]
+name = "BuildFiber"
+persistentUuid = "3974f243-94fe-41ba-8c25-47d8791502eb"
+type = "number"
+value = 8
+
+[[variables]]
+name = "BuildRestore"
+persistentUuid = "b9737984-2ff5-46be-996a-ff7ff317f5f2"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildDeleteSlot"
+persistentUuid = "fc059a70-08dd-42c2-929a-86ac674abf0e"
+type = "number"
+value = -1
+
+[[variables]]
+name = "BuildDeleteDistance"
+persistentUuid = "70e7f7fb-7151-4bb2-bb49-7b7679e2ca81"
+type = "number"
+value = 9_999
+
+[[variables]]
+name = "BuildLX"
+persistentUuid = "3a03ca65-37cf-4071-a3e7-28f4764bf9c9"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildLY"
+persistentUuid = "5bcb5f26-6c2d-41ae-9752-48590f464095"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildWarm"
+persistentUuid = "9e1e377a-804b-4eca-8872-405a59c629e7"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildRest"
+persistentUuid = "6c9f2721-cf5d-49d3-a597-7dd40e61c025"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BuildMessage"
+persistentUuid = "cabe610d-636a-4235-bfe9-9ccab8bda933"
+type = "string"
+value = ""
+
+[[variables]]
+name = "BuildReason"
+persistentUuid = "e87c908c-fd5f-46ad-9822-ca983be563ab"
+type = "string"
+value = ""
+
+[[variables]]
+name = "BuildJSON"
+persistentUuid = "be84c0c0-79c5-47a9-8804-253812c28084"
+type = "string"
+value = "[]"
+
+[[variables]]
+name = "BuildingRecords"
+persistentUuid = "1abb303b-0b25-4655-bbb2-133b4fcd726f"
+type = "array"
+children = [ ]
+
+[[variables]]
+name = "Health"
+persistentUuid = "93990fd8-25ed-46fe-ad5e-5692fbae6d57"
+type = "number"
+value = 100
+
+[[variables]]
+name = "Dead"
+persistentUuid = "b377cf93-9d0f-4a87-ab2d-4cf8955a1ee4"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Invulnerable"
+persistentUuid = "edda6081-7b37-4262-8f4b-673c58bc76ad"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Threat"
+persistentUuid = "94be2052-7f6e-4534-b975-01dfcf8a7885"
+type = "number"
+value = 0
+
+[[variables]]
+name = "ThreatMix"
+persistentUuid = "57119c6e-23f8-4981-b65e-d3abe6a5ffa5"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MusicStarted"
+persistentUuid = "b555ef2b-20d2-4b8d-8716-631262d1415d"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Muted"
+persistentUuid = "c4ec6352-04b5-4c81-bde6-89176340017d"
+type = "number"
+value = 0
+
+[[variables]]
+name = "StepClock"
+persistentUuid = "05ffb6bb-e371-40b4-8386-d3c402df92fc"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CombatCD"
+persistentUuid = "a0e4f967-0b84-4e44-ad96-32039a6c5f80"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CombatSwing"
+persistentUuid = "27c0121a-cf40-4248-bf48-5c9958ce5f02"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CombatHit"
+persistentUuid = "e5ad2159-2116-479d-9d86-92cad42169fd"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Kills"
+persistentUuid = "e447590c-b038-48ff-9cc8-06c136b7644f"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DeathCount"
+persistentUuid = "c80fa9de-e4b2-453f-a53b-b1b46bb95bbb"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NearestWild"
+persistentUuid = "105965c6-02f4-4ac9-8085-7a33473ef601"
+type = "number"
+value = 9_999
+
+[[variables]]
+name = "HitFlash"
+persistentUuid = "e58e0e6b-dae9-4f86-a59a-8f0957238349"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SafeCamp"
+persistentUuid = "7b9620e9-e261-4660-a109-c5204f9eb550"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AudioMode"
+persistentUuid = "79aeb7ca-5179-45a3-8693-6cdad526037f"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AudioRiding"
+persistentUuid = "3e799db5-6bc2-493b-af5c-a35e886ef1b5"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SoundClock"
+persistentUuid = "b6d16997-f85e-4c9e-afe3-1deb744bf8ae"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CombatLesson"
+persistentUuid = "60ac2adc-7bdd-4fc5-b903-6d0452cc2f6a"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FacingTarget"
+persistentUuid = "20ebb0b7-b3c4-46d4-94f2-7212121713a6"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Mode"
+persistentUuid = "508ba9eb-b72a-4f10-9d90-ab34fdc64909"
+type = "number"
+value = 0
+
+[[variables]]
+name = "InputMode"
+persistentUuid = "c8bb784a-3166-47ad-90e1-1fa198be80d6"
+type = "number"
+value = 0
+
+[[variables]]
+name = "StationIndex"
+persistentUuid = "fda9cc1c-2269-4425-b197-e7764641481b"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Dirty"
+persistentUuid = "21417dea-cee2-4dfb-9424-0b546961254a"
+type = "number"
+value = 1
+
+[[variables]]
+name = "Trust"
+persistentUuid = "8a3301f9-64d8-4d72-bd9d-88890de3f07b"
+type = "number"
+value = 65
+
+[[variables]]
+name = "Berries"
+persistentUuid = "42fde3a3-9a08-4f29-a525-429f8340156e"
+type = "number"
+value = 12
+
+[[variables]]
+name = "Wood"
+persistentUuid = "1eac0a89-0b75-48a4-813f-50d5fddd7c31"
+type = "number"
+value = 12
+
+[[variables]]
+name = "Stone"
+persistentUuid = "0b3e1748-347f-4d88-9d96-bfe7e8d9855f"
+type = "number"
+value = 8
+
+[[variables]]
+name = "Fiber"
+persistentUuid = "efe9ad1f-7b80-49db-b09f-255623e3e6be"
+type = "number"
+value = 20
+
+[[variables]]
+name = "Hide"
+persistentUuid = "9dea610d-e0fe-440f-b34d-36d9c1696633"
+type = "number"
+value = 6
+
+[[variables]]
+name = "Meat"
+persistentUuid = "b57d852e-cb73-49fc-96fc-567f081c5edc"
+type = "number"
+value = 4
+
+[[variables]]
+name = "Water"
+persistentUuid = "e4ba0a4e-b4fa-470d-9aee-41bd9fb490f3"
+type = "number"
+value = 60
+
+[[variables]]
+name = "Stamina"
+persistentUuid = "cc3dc937-db98-45d3-9388-8214a1ada53f"
+type = "number"
+value = 80
+
+[[variables]]
+name = "Hunger"
+persistentUuid = "86933e54-f72a-4107-ae32-c76780e3d2ed"
+type = "number"
+value = 70
+
+[[variables]]
+name = "Axe"
+persistentUuid = "e7e9ffef-e1b6-49b7-b343-fdf4353f854f"
+type = "number"
+value = 1
+
+[[variables]]
+name = "Spear"
+persistentUuid = "6f8183b6-cd0f-4815-bd16-04f5109dbed2"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Flint"
+persistentUuid = "691f0753-1f97-4c93-b122-f8373f7c5370"
+type = "number"
+value = 15
+
+[[variables]]
+name = "Rope"
+persistentUuid = "757d79e5-db3a-4c22-9428-1158d6995500"
+type = "number"
+value = 6
+
+[[variables]]
+name = "Recipe"
+persistentUuid = "a2aaac14-149f-4f94-b47d-752e6af23944"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CraftRequest"
+persistentUuid = "0287b939-d002-4bc5-bc67-b0e66e410e8f"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Action"
+persistentUuid = "a3ea00c1-2a6b-4243-9ff7-82372b0f660f"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Built"
+persistentUuid = "b1163880-4dc6-4a16-88c1-38061e0f644b"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Help"
+persistentUuid = "30f01c73-b76d-4c42-89b4-ac3faea18737"
+type = "number"
+value = 1
+
+[[variables]]
+name = "Elapsed"
+persistentUuid = "772d3126-012a-452f-ade4-eca3cad752e7"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SaveFlag"
+persistentUuid = "66f5434a-4994-4048-8aa5-42ab73959cc6"
+type = "number"
+value = 0
+
+[[variables]]
+name = "NoticeMessage"
+persistentUuid = "7e6a9446-c54e-44d2-b7ae-08a337dc6216"
+type = "string"
+value = "按住 E 采集，3 吃浆果；Q 导航，J 查看任务。"
+
+[[variables]]
+name = "RenderMode"
+persistentUuid = "3736e4f3-e053-4ffe-9dc8-41d73ef814b5"
+type = "number"
+value = 1
+
+[[variables]]
+name = "MoveX"
+persistentUuid = "a40adb8b-7ea5-4254-a79c-da102d2e6a87"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MoveY"
+persistentUuid = "65384971-2b01-4cbf-9e35-8a5e07ea0cee"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PreviousX"
+persistentUuid = "40aecb0f-55e1-4159-b5e5-74ed0b4e34c3"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PreviousY"
+persistentUuid = "564aacb8-ad15-44e0-9191-54b41afdb710"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MoveSpeed"
+persistentUuid = "56d59c57-5e34-4753-8e60-ba65e9f450a2"
+type = "number"
+value = 350
+
+[[variables]]
+name = "CanFeed"
+persistentUuid = "2c5eed2f-410d-4e63-96fe-9aaf76df9eed"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Riding"
+persistentUuid = "600fe773-2246-42c2-873f-a55fa4179a9f"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraResolvedDistance"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraResolvedPitch"
+type = "number"
+value = 25
+
+[[variables]]
+name = "CameraSafeDistance"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraYaw"
+persistentUuid = "79e9cdf0-519b-49a1-98fe-224f245c9bcd"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraPitch"
+persistentUuid = "8de53dd5-bc5e-4f6b-a21f-792164cc886c"
+type = "number"
+value = 25
+
+[[variables]]
+name = "CameraDistance"
+persistentUuid = "778ec97a-fa57-4f0f-aad7-36fc75f0ae0b"
+type = "number"
+value = 1_250
+
+[[variables]]
+name = "CameraDragging"
+persistentUuid = "b9c6f446-58b9-4cd3-8adf-d13d509788b9"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraMouseX"
+persistentUuid = "55158fbc-1e20-4e39-b564-04aa161ddeb3"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraMouseY"
+persistentUuid = "a5c2782a-250c-4491-80da-95836202d9ac"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HotbarRequest"
+persistentUuid = "da065535-9fa3-4bbf-8604-35fb3bda35a8"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SelectedHotbar"
+persistentUuid = "8b3caedc-b020-4290-b13c-fe39a39e09f9"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HarvestNear"
+persistentUuid = "f2f67ed9-e380-4640-812d-7c81c871d1de"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HarvestCount"
+persistentUuid = "06d78f12-13bd-4fe5-8860-83312faac7ab"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestStage"
+persistentUuid = "1bd50ab6-22e1-4c7a-8e33-077c643b4529"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestReady"
+persistentUuid = "0885d01e-7b6b-4acb-8967-5c0e7d175fef"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestClaim"
+persistentUuid = "5e7b4ab7-73e3-452d-86f3-a62d10da6ace"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestClaimStage"
+persistentUuid = "83e41986-f067-44db-b000-91c112581855"
+type = "number"
+value = -1
+
+[[variables]]
+name = "QuestAnnounced"
+persistentUuid = "a8e6597b-c232-4737-86bb-f4ae91b92368"
+type = "number"
+value = -1
+
+[[variables]]
+name = "QuestToastTime"
+persistentUuid = "c80dfea5-b195-4348-904e-98a5e3e6cbad"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GatherBerries"
+persistentUuid = "3308bda6-8676-4f5a-b10c-0847d8e662ce"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GatherFiber"
+persistentUuid = "f4873d65-dd6d-4638-b04e-1e58a04df953"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GatherWood"
+persistentUuid = "7d9b8d89-b35a-40ab-b791-4b7779cabbc2"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GatherStone"
+persistentUuid = "14e141fb-1b90-4c19-9f6a-a5b4648b2b4b"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CraftedSpears"
+persistentUuid = "a5adc273-8c4d-482e-a00d-1a822ac18e2d"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseBerries"
+persistentUuid = "724d6632-9bc7-4fc7-9140-f9ab80575450"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseFiber"
+persistentUuid = "c9b9ffd0-b010-413d-9e17-a3d43e3d4f56"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseWood"
+persistentUuid = "132f762d-53b5-4846-92b6-4cbc0de8ae1c"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseStone"
+persistentUuid = "97f77d20-7075-401c-b051-5b22bb242710"
+type = "number"
+value = 0
+
+[[variables]]
+name = "ExpeditionRounds"
+persistentUuid = "371fd49c-14b5-46f0-a36b-4a2c090270c7"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SaveRequested"
+persistentUuid = "002c12a3-c2fa-4d9e-afe4-0a53a9c9fe6f"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestTargetKind"
+persistentUuid = "c20f91ac-15f3-4f80-8dab-18794918a937"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestTargetX"
+persistentUuid = "b0180ae7-e6aa-4645-860e-e43834d59e5f"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestTargetY"
+persistentUuid = "66bd09be-61d6-47f9-bf4f-e0ea2bfe6551"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestTargetValid"
+persistentUuid = "d4668440-deed-4f93-b9ea-98576b30145a"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestRight"
+persistentUuid = "4d0ef1e0-c015-4ba0-ba4c-04257276e4e4"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestForward"
+persistentUuid = "77c7e954-5f5c-4da3-adaf-a446c66b4aab"
+type = "number"
+value = 0
+
+[[variables]]
+name = "QuestName"
+persistentUuid = "c24b2283-90c9-4f6c-a1f4-0f73bb4d1cad"
+type = "string"
+value = ""
+
+[[variables]]
+name = "QuestProgress"
+persistentUuid = "032d8f89-2ac6-41ef-9ca4-ca7fc88e0bad"
+type = "string"
+value = ""
+
+[[variables]]
+name = "QuestInstruction"
+persistentUuid = "97a6e47b-d2c0-49ba-a474-7b4fddd8ed4e"
+type = "string"
+value = ""
+
+[[variables]]
+name = "QuestReward"
+persistentUuid = "7411de13-73a8-4fd0-8e21-8bc398a435bb"
+type = "string"
+value = ""
+
+[[variables]]
+name = "QuestTargetName"
+persistentUuid = "f466d1c7-eab5-4223-8785-aa85cbbf74b0"
+type = "string"
+value = ""
+
+[[variables]]
+name = "QuestDirection"
+persistentUuid = "daaa9483-b6d2-407f-a50d-80ef7f0735ce"
+type = "string"
+value = ""
+
+[[variables]]
+name = "AxeCooldown"
+persistentUuid = "89634f15-010f-4792-84d1-db0f72a4573f"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AxeSwing"
+persistentUuid = "60e7f35a-699b-4985-bde0-482089071a8a"
+type = "number"
+value = 0
+
+[[variables]]
+name = "ChopInput"
+persistentUuid = "25749671-f576-4cc1-a082-8473ec4287f0"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MountRequest"
+persistentUuid = "fc77d54c-cfa2-420c-80a6-317852427efa"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MountFound"
+persistentUuid = "76105066-2224-40d1-a4a3-9fb050ca3eb3"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DropX"
+persistentUuid = "fabb93e0-261d-48ca-8ed2-22e9a2b1dc8e"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DropY"
+persistentUuid = "3ec4a886-129a-4d1a-9cf3-09eb8c9d75e0"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DropAllowed"
+persistentUuid = "21943d44-9763-4575-96e5-29d13bca6065"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DinoPreviousX"
+persistentUuid = "0a8175eb-fa68-4c85-850b-ddf333067a51"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DinoPreviousY"
+persistentUuid = "7173bf94-3487-4694-ae62-8d9c4daaab31"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DinoPreviousAngle"
+persistentUuid = "3c6549f2-94af-4672-aec7-216ca3675673"
+type = "number"
+value = 0
+
+[[variables]]
+name = "DinoMoving"
+persistentUuid = "f33cdeef-e159-4b99-ae1e-195eb918b8e4"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CapsuleX"
+persistentUuid = "fa9b4c5b-1edd-48fd-bfd2-3f1ea6e8e2c7"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CapsuleY"
+persistentUuid = "da28bea5-6c6f-4472-8bd8-db94441d5be5"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CapsuleNearestY"
+persistentUuid = "dae5bc82-5f64-4e9f-8244-902ee3eaff02"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CapsuleDistance"
+persistentUuid = "d8cb7702-8812-4be2-b4eb-a5649759cba6"
+type = "number"
+value = 0
+
 
 [[variables]]
 name = "BodyTemp"
@@ -630,820 +1596,54 @@ type = "string"
 value = ""
 
 [objectGroups]
-ModularParts = ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs"]
-AllBuildings = ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs", "BuiltShelter", "BuiltPalisade", "BuiltCampfire"]
-Buildings = ["BuiltShelter", "BuiltPalisade", "BuiltCampfire"]
-BuildGhosts = ["PartFoundationValid", "PartFoundationInvalid", "PartPillarValid", "PartPillarInvalid", "PartWallValid", "PartWallInvalid", "PartDoorframeValid", "PartDoorframeInvalid", "PartCeilingValid", "PartCeilingInvalid", "PartDoorValid", "PartDoorInvalid", "PartStairsValid", "PartStairsInvalid", "BuiltShelterValid", "BuiltShelterInvalid", "BuiltPalisadeValid", "BuiltPalisadeInvalid", "BuiltCampfireValid", "BuiltCampfireInvalid"]
-Wildlife = ["Triceratops", "Stegosaur", "Raptor", "Tyrannosaur"]
-Predators = ["Raptor", "Tyrannosaur"]
+ModularParts = [
+"PartFoundation",
+"PartPillar",
+"PartWall",
+"PartDoorframe",
+"PartCeiling",
+"PartDoor",
+"PartStairs"
+]
+AllBuildings = [
+"PartFoundation",
+"PartPillar",
+"PartWall",
+"PartDoorframe",
+"PartCeiling",
+"PartDoor",
+"PartStairs",
+"BuiltShelter",
+"BuiltPalisade",
+"BuiltCampfire"
+]
+Buildings = [ "BuiltShelter", "BuiltPalisade", "BuiltCampfire" ]
+BuildGhosts = [
+"PartFoundationValid",
+"PartFoundationInvalid",
+"PartPillarValid",
+"PartPillarInvalid",
+"PartWallValid",
+"PartWallInvalid",
+"PartDoorframeValid",
+"PartDoorframeInvalid",
+"PartCeilingValid",
+"PartCeilingInvalid",
+"PartDoorValid",
+"PartDoorInvalid",
+"PartStairsValid",
+"PartStairsInvalid",
+"BuiltShelterValid",
+"BuiltShelterInvalid",
+"BuiltPalisadeValid",
+"BuiltPalisadeInvalid",
+"BuiltCampfireValid",
+"BuiltCampfireInvalid"
+]
+Wildlife = [ "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur" ]
+Predators = [ "Raptor", "Tyrannosaur" ]
 HarvestNodes = [ "BerryBush", "FiberFern", "WoodSapling", "StoneDeposit", "MetalDeposit" ]
 SurvivalFires = ["CampHearth", "BuiltCampfire"]
-
-[[variables]]
-name = "BuildLevel"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildZ"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildParent"
-type = "number"
-value = -1
-
-[[variables]]
-name = "BuildRawX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildRawY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildBlocked"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildDeleteBlocked"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildMessageTime"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildSuccess"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildPlacedKind"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildFloorCount"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildWallCount"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildRoofCount"
-type = "number"
-value = 0
-
-[[variables]]
-name = "PlayerFloor"
-type = "number"
-value = 0
-
-[[variables]]
-name = "FloorTarget"
-type = "number"
-value = 0
-
-[[variables]]
-name = "FloorCandidate"
-type = "number"
-value = 0
-
-[[variables]]
-name = "DoorSlot"
-type = "number"
-value = -1
-
-[[variables]]
-name = "DoorDistance"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildCostWood"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildCostStone"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildCostFiber"
-type = "number"
-value = 0
-
-[[variables]]
-name = "SaveStorage"
-type = "string"
-value = "JurassicWorldDemo"
-
-[[variables]]
-name = "BuildMode"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildKind"
-type = "number"
-value = 10
-
-[[variables]]
-name = "BuildAngle"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildHX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildHY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildWorldHX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildWorldHY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildValid"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildCount"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildSlot"
-type = "number"
-value = -1
-
-[[variables]]
-name = "BuildWood"
-type = "number"
-value = 10
-
-[[variables]]
-name = "BuildStone"
-type = "number"
-value = 5
-
-[[variables]]
-name = "BuildFiber"
-type = "number"
-value = 8
-
-[[variables]]
-name = "BuildRestore"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildDeleteSlot"
-type = "number"
-value = -1
-
-[[variables]]
-name = "BuildDeleteDistance"
-type = "number"
-value = 9999
-
-[[variables]]
-name = "BuildLX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildLY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildWarm"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildRest"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BuildMessage"
-type = "string"
-value = ""
-
-[[variables]]
-name = "BuildReason"
-type = "string"
-value = ""
-
-[[variables]]
-name = "BuildJSON"
-type = "string"
-value = "[]"
-
-[[variables]]
-name = "BuildingRecords"
-type = "array"
-children = []
-
-[[variables]]
-name = "Health"
-type = "number"
-value = 100
-
-[[variables]]
-name = "Dead"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Invulnerable"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Threat"
-type = "number"
-value = 0
-
-[[variables]]
-name = "ThreatMix"
-type = "number"
-value = 0
-
-[[variables]]
-name = "MusicStarted"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Muted"
-type = "number"
-value = 0
-
-[[variables]]
-name = "StepClock"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CombatCD"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CombatSwing"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CombatHit"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Kills"
-type = "number"
-value = 0
-
-[[variables]]
-name = "DeathCount"
-type = "number"
-value = 0
-
-[[variables]]
-name = "NearestWild"
-type = "number"
-value = 9999
-
-[[variables]]
-name = "HitFlash"
-type = "number"
-value = 0
-
-[[variables]]
-name = "SafeCamp"
-type = "number"
-value = 0
-
-[[variables]]
-name = "AudioMode"
-type = "number"
-value = 0
-
-[[variables]]
-name = "AudioRiding"
-type = "number"
-value = 0
-
-[[variables]]
-name = "SoundClock"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CombatLesson"
-type = "number"
-value = 0
-
-[[variables]]
-name = "FacingTarget"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Mode"
-type = "number"
-value = 0
-
-[[variables]]
-name = "InputMode"
-type = "number"
-value = 0
-
-[[variables]]
-name = "StationIndex"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Dirty"
-type = "number"
-value = 1
-
-[[variables]]
-name = "Trust"
-type = "number"
-value = 65
-
-[[variables]]
-name = "Berries"
-type = "number"
-value = 12
-
-[[variables]]
-name = "Wood"
-type = "number"
-value = 12
-
-[[variables]]
-name = "Stone"
-type = "number"
-value = 8
-
-[[variables]]
-name = "Fiber"
-type = "number"
-value = 20
-
-[[variables]]
-name = "Hide"
-type = "number"
-value = 6
-
-[[variables]]
-name = "Meat"
-type = "number"
-value = 4
-
-[[variables]]
-name = "Water"
-type = "number"
-value = 60
-
-[[variables]]
-name = "Stamina"
-type = "number"
-value = 80
-
-[[variables]]
-name = "Hunger"
-type = "number"
-value = 70
-
-[[variables]]
-name = "Axe"
-type = "number"
-value = 1
-
-[[variables]]
-name = "Spear"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Flint"
-type = "number"
-value = 15
-
-[[variables]]
-name = "Rope"
-type = "number"
-value = 6
-
-[[variables]]
-name = "Recipe"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CraftRequest"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Action"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Built"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Help"
-type = "number"
-value = 1
-
-[[variables]]
-name = "Elapsed"
-type = "number"
-value = 0
-
-[[variables]]
-name = "SaveFlag"
-type = "number"
-value = 0
-
-[[variables]]
-name = "NoticeMessage"
-type = "string"
-value = "按住 E 采集，3 吃浆果；Q 导航，J 查看任务。"
-
-
-[[variables]]
-name = "RenderMode"
-type = "number"
-value = 1
-
-[[variables]]
-name = "MoveX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "MoveY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "PreviousX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "PreviousY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "MoveSpeed"
-type = "number"
-value = 350
-
-[[variables]]
-name = "CanFeed"
-type = "number"
-value = 0
-
-[[variables]]
-name = "Riding"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CameraResolvedDistance"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CameraResolvedPitch"
-type = "number"
-value = 25
-
-[[variables]]
-name = "CameraSafeDistance"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CameraYaw"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CameraPitch"
-type = "number"
-value = 25
-
-[[variables]]
-name = "CameraDistance"
-type = "number"
-value = 1250
-
-[[variables]]
-name = "CameraDragging"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CameraMouseX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CameraMouseY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "HotbarRequest"
-type = "number"
-value = 0
-
-[[variables]]
-name = "SelectedHotbar"
-type = "number"
-value = 0
-
-[[variables]]
-name = "HarvestNear"
-type = "number"
-value = 0
-
-[[variables]]
-name = "HarvestCount"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestStage"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestReady"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestClaim"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestClaimStage"
-type = "number"
-value = -1
-
-[[variables]]
-name = "QuestAnnounced"
-type = "number"
-value = -1
-
-[[variables]]
-name = "QuestToastTime"
-type = "number"
-value = 0
-
-[[variables]]
-name = "GatherBerries"
-type = "number"
-value = 0
-
-[[variables]]
-name = "GatherFiber"
-type = "number"
-value = 0
-
-[[variables]]
-name = "GatherWood"
-type = "number"
-value = 0
-
-[[variables]]
-name = "GatherStone"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CraftedSpears"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BaseBerries"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BaseFiber"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BaseWood"
-type = "number"
-value = 0
-
-[[variables]]
-name = "BaseStone"
-type = "number"
-value = 0
-
-[[variables]]
-name = "ExpeditionRounds"
-type = "number"
-value = 0
-
-[[variables]]
-name = "SaveRequested"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestTargetKind"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestTargetX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestTargetY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestTargetValid"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestRight"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestForward"
-type = "number"
-value = 0
-
-[[variables]]
-name = "QuestName"
-type = "string"
-value = ""
-
-[[variables]]
-name = "QuestProgress"
-type = "string"
-value = ""
-
-[[variables]]
-name = "QuestInstruction"
-type = "string"
-value = ""
-
-[[variables]]
-name = "QuestReward"
-type = "string"
-value = ""
-
-[[variables]]
-name = "QuestTargetName"
-type = "string"
-value = ""
-
-[[variables]]
-name = "QuestDirection"
-type = "string"
-value = ""
-
-[[variables]]
-name = "AxeCooldown"
-type = "number"
-value = 0
-
-[[variables]]
-name = "AxeSwing"
-type = "number"
-value = 0
-
-[[variables]]
-name = "ChopInput"
-type = "number"
-value = 0
-
-[[variables]]
-name = "MountRequest"
-type = "number"
-value = 0
-
-[[variables]]
-name = "MountFound"
-type = "number"
-value = 0
-
-[[variables]]
-name = "DropX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "DropY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "DropAllowed"
-type = "number"
-value = 0
-
-[[variables]]
-name = "DinoPreviousX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "DinoPreviousY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "DinoPreviousAngle"
-type = "number"
-value = 0
-
-[[variables]]
-name = "DinoMoving"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CapsuleX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CapsuleY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CapsuleNearestY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "CapsuleDistance"
-type = "number"
-value = 0
 
 [[variables]]
 name = "WeatherType"
@@ -1626,7 +1826,6 @@ name = "World3D"
 rendering = "3d"
 camera_type = "perspective"
 camera_behavior = "do-nothing"
-lighting = false
 near = 5
 far = 30000
 fov = 58
@@ -1635,7 +1834,6 @@ cameras = [{ size = "default", viewport = "default" }]
 [[layout.layers]]
 id = "world"
 name = "World"
-visible = true
 rendering = "2d"
 cameras = [{ size = "default", viewport = "default" }]
 
@@ -1648,50 +1846,49 @@ cameras = [{ size = "default", viewport = "default" }]
 [[layout.layers]]
 id = "hud"
 name = "HUD"
-visible = true
 rendering = "2d"
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.layers]]
 id = "inventory"
 name = "Inventory"
-visible = false
 rendering = "2d"
+visible = false
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.layers]]
 id = "pause"
 name = "Pause"
-visible = false
 rendering = "2d"
+visible = false
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.layers]]
 id = "settings"
 name = "Settings"
-visible = false
 rendering = "2d"
+visible = false
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.layers]]
 id = "title"
 name = "Title"
-visible = false
 rendering = "2d"
+visible = false
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.layers]]
 id = "photo"
 name = "Photo"
-visible = false
 rendering = "2d"
+visible = false
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.layers]]
 id = "quests"
 name = "Quests"
-visible = false
 rendering = "2d"
+visible = false
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.layers]]
@@ -1758,509 +1955,504 @@ layer = "world"
 at = [0, 0]
 size = [1600, 900]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "ba8da425-399c-4952-9c08-dc0609361fc7"
 object = "CampWorld"
 layer = "world"
 at = [0, 0]
+z_order = 1
 size = [1600, 900]
 keep_ratio = false
-z_order = 1
 
 [[layout.instances]]
 id = "3abbf595-12bc-454b-8f35-2211183e639c"
 object = "Island3D"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "d0563fcc-89ad-4ddc-8fba-9774ed679417"
 object = "Dinosaur3D"
 layer = "world3d"
-at = [650, -350, 0]
+at = [650, -350]
 
 [[layout.instances]]
 id = "2ddc1b04-4355-41e0-912a-16c9c3ac59e5"
 object = "Player3D"
 layer = "world3d"
-at = [0, -700, 0]
+at = [0, -700]
 
 [[layout.instances]]
 id = "760746b1-229c-4011-aa8d-3825c7328486"
 object = "BerryBush"
 layer = "world3d"
-at = [430, 100, 0]
+at = [430, 100]
 
 [[layout.instances]]
 id = "79f11c5d-f813-46c1-a8b8-4b56f08482eb"
 object = "BerryBush"
 layer = "world3d"
-at = [100, -650, 0]
+at = [100, -650]
 
 [[layout.instances]]
 id = "e718a5ef-1f44-4818-b5db-b64345447907"
 object = "BerryBush"
 layer = "world3d"
-at = [1050, -900, 0]
+at = [1050, -900]
 
 [[layout.instances]]
 id = "c79a67d3-8aa4-42e0-92c9-e57903d79594"
 object = "BerryBush"
 layer = "world3d"
-at = [-100, 650, 0]
+at = [-100, 650]
 
 [[layout.instances]]
 id = "bc45847a-9ffa-459e-9d55-f9993a6ea0a2"
 object = "BerryBush"
 layer = "world3d"
-at = [-1400, -100, 0]
+at = [-1400, -100]
 
 [[layout.instances]]
 id = "6e120c39-558c-41b6-9eca-3d2970dd507f"
 object = "FiberFern"
 layer = "world3d"
-at = [950, 100, 0]
+at = [950, 100]
 
 [[layout.instances]]
 id = "6539116d-81dd-4145-8976-7daf1962edb1"
 object = "FiberFern"
 layer = "world3d"
-at = [400, -900, 0]
+at = [400, -900]
 
 [[layout.instances]]
 id = "870d3ba9-01ca-4d1e-98f3-03d846118cd6"
 object = "FiberFern"
 layer = "world3d"
-at = [-350, 200, 0]
+at = [-350, 200]
 
 [[layout.instances]]
 id = "fdfa7b9f-0b93-40cd-8e18-992c9e07674f"
 object = "FiberFern"
 layer = "world3d"
-at = [-1200, 750, 0]
+at = [-1200, 750]
 
 [[layout.instances]]
 id = "bf081b6e-74e0-43a9-8d39-3236d5b52d71"
 object = "FiberFern"
 layer = "world3d"
-at = [1200, 850, 0]
+at = [1200, 850]
 
 [[layout.instances]]
 id = "26802de0-6a4a-42c0-a67a-68de2a5edc3c"
 object = "WoodSapling"
 layer = "world3d"
-at = [1300, -350, 0]
+at = [1300, -350]
 
 [[layout.instances]]
 id = "64c2b7c0-8346-4345-9974-3cad8a0817da"
 object = "WoodSapling"
 layer = "world3d"
-at = [-300, -1100, 0]
+at = [-300, -1100]
 
 [[layout.instances]]
 id = "e9355b9e-e0c9-4135-aa92-d7411a6d2501"
 object = "WoodSapling"
 layer = "world3d"
-at = [-1400, -1200, 0]
+at = [-1400, -1200]
 
 [[layout.instances]]
 id = "dc30642c-9ee4-45ad-8bea-d53cadb94be3"
 object = "WoodSapling"
 layer = "world3d"
-at = [200, 1000, 0]
+at = [200, 1000]
 
 [[layout.instances]]
 id = "5fbbf9e6-7c49-4a0f-8b1d-6e51da96fe75"
 object = "StoneDeposit"
 layer = "world3d"
-at = [1100, 600, 0]
+at = [1100, 600]
 
 [[layout.instances]]
 id = "53e8b934-d1ab-416a-8e24-b2bdf19fc5e7"
 object = "StoneDeposit"
 layer = "world3d"
-at = [-100, 0, 0]
+at = [-100, 0]
 
 [[layout.instances]]
 id = "b85db08a-5c6a-4683-a121-478109b3503b"
 object = "StoneDeposit"
 layer = "world3d"
-at = [-1400, 350, 0]
+at = [-1400, 350]
 
 [[layout.instances]]
 id = "f653e752-67f4-47ca-a533-5678e3a90516"
 object = "StoneDeposit"
 layer = "world3d"
-at = [550, -1300, 0]
+at = [550, -1300]
 
 [[layout.instances]]
 id = "4d71cf95-5e41-461b-9ee7-f0a0abbfdaf9"
 object = "Triceratops"
 layer = "world3d"
-at = [-1750, 1350, 0]
-z_order = 0
+at = [-1750, 1350]
 
 [[layout.instances]]
 id = "bc1c730a-334f-4785-8a40-b9671fdfcbc9"
 object = "Stegosaur"
 layer = "world3d"
-at = [1250, 1550, 0]
-z_order = 0
+at = [1250, 1550]
 
 [[layout.instances]]
 id = "3030d0a1-ab2a-44cf-8469-09ada543a597"
 object = "Raptor"
 layer = "world3d"
-at = [-700, -2150, 0]
-z_order = 0
+at = [-700, -2150]
 
 [[layout.instances]]
 id = "29b2db2c-35d4-4fe4-b154-f1c8afb37b2a"
 object = "Tyrannosaur"
 layer = "world3d"
-at = [1350, -2100, 0]
-z_order = 0
+at = [1350, -2100]
 
 [[layout.instances]]
 id = "57d63db8-5f6e-4dd5-87e2-d4f2be451986"
 object = "BuiltShelterValid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 z_order = 100
 
 [[layout.instances]]
 id = "ef0a5939-9613-413a-95b8-f82ead8c4ea7"
 object = "BuiltShelterInvalid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 z_order = 100
 
 [[layout.instances]]
 id = "6d34409f-7011-424b-b57d-836974f29466"
 object = "BuiltPalisadeValid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 z_order = 100
 
 [[layout.instances]]
 id = "be125011-0ed2-4e7a-9e61-b0fd0c48e525"
 object = "BuiltPalisadeInvalid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 z_order = 100
 
 [[layout.instances]]
 id = "7eb76cfb-72d5-45ff-9ce9-ccc2d22804e5"
 object = "BuiltCampfireValid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 z_order = 100
 
 [[layout.instances]]
 id = "9b114a28-7163-4b0c-932d-54733cdc24a4"
 object = "BuiltCampfireInvalid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 z_order = 100
 
 [[layout.instances]]
 id = "9e9a9ee5-6fd0-43b1-bc7b-62389409b1f6"
 object = "BerryBush"
 layer = "world3d"
-at = [-2150, -1900, 0]
+at = [-2150, -1900]
 
 [[layout.instances]]
 id = "eb0551de-440b-422f-8969-f312658b8a94"
 object = "BerryBush"
 layer = "world3d"
-at = [-2100, -800, 0]
+at = [-2100, -800]
 
 [[layout.instances]]
 id = "e82b98db-0f97-41fd-900c-57afb6ea6929"
 object = "BerryBush"
 layer = "world3d"
-at = [-2050, 450, 0]
+at = [-2050, 450]
 
 [[layout.instances]]
 id = "89e4f6a3-a0e6-41c1-98de-feaf911476aa"
 object = "BerryBush"
 layer = "world3d"
-at = [-2000, 1850, 0]
+at = [-2000, 1850]
 
 [[layout.instances]]
 id = "d6277891-43a6-4ed4-b827-5b5365ccd809"
 object = "BerryBush"
 layer = "world3d"
-at = [-750, 1900, 0]
+at = [-750, 1900]
 
 [[layout.instances]]
 id = "38bec98f-0751-48f5-9a81-3bd5420bdde6"
 object = "BerryBush"
 layer = "world3d"
-at = [650, 1900, 0]
+at = [650, 1900]
 
 [[layout.instances]]
 id = "16dd7aee-48dc-44e5-a9f8-dcf63efd55d2"
 object = "BerryBush"
 layer = "world3d"
-at = [2150, 1700, 0]
+at = [2150, 1700]
 
 [[layout.instances]]
 id = "a9466824-7d9a-466b-968d-a3b972847b0c"
 object = "BerryBush"
 layer = "world3d"
-at = [2200, 400, 0]
+at = [2200, 400]
 
 [[layout.instances]]
 id = "65649254-24e8-40aa-bb60-68d6cca38f56"
 object = "BerryBush"
 layer = "world3d"
-at = [2100, -1000, 0]
+at = [2100, -1000]
 
 [[layout.instances]]
 id = "dec3b137-873f-4b23-9f4e-2144e5119fec"
 object = "BerryBush"
 layer = "world3d"
-at = [600, -2500, 0]
+at = [600, -2500]
 
 [[layout.instances]]
 id = "d0c2cdbb-4e62-462c-9deb-98550a840934"
 object = "FiberFern"
 layer = "world3d"
-at = [-1750, -2300, 0]
+at = [-1750, -2300]
 
 [[layout.instances]]
 id = "96d131e7-dbaf-4c29-9f39-6d801c563cd8"
 object = "FiberFern"
 layer = "world3d"
-at = [-2350, -1300, 0]
+at = [-2350, -1300]
 
 [[layout.instances]]
 id = "ea052171-bff2-45cf-9d04-586595028722"
 object = "FiberFern"
 layer = "world3d"
-at = [-2300, 0, 0]
+at = [-2300, 0]
 
 [[layout.instances]]
 id = "135f32b7-a3cc-4b91-8385-7d7933124cc3"
 object = "FiberFern"
 layer = "world3d"
-at = [-2250, 1250, 0]
+at = [-2250, 1250]
 
 [[layout.instances]]
 id = "d07b3de1-a00f-4255-8dc9-bae9a025c51d"
 object = "FiberFern"
 layer = "world3d"
-at = [-1250, 1750, 0]
+at = [-1250, 1750]
 
 [[layout.instances]]
 id = "fe4477dd-e948-44b2-a971-228deaaed2c6"
 object = "FiberFern"
 layer = "world3d"
-at = [200, 1700, 0]
+at = [200, 1700]
 
 [[layout.instances]]
 id = "19225eed-9ea3-404b-a67c-b7926b0fd769"
 object = "FiberFern"
 layer = "world3d"
-at = [1800, 2050, 0]
+at = [1800, 2050]
 
 [[layout.instances]]
 id = "fd820b7a-36ad-4a5c-847f-9d8eac46cc80"
 object = "FiberFern"
 layer = "world3d"
-at = [2350, 900, 0]
+at = [2350, 900]
 
 [[layout.instances]]
 id = "6e2afaeb-8167-4ad7-8a09-7e845277df69"
 object = "FiberFern"
 layer = "world3d"
-at = [1800, -1550, 0]
+at = [1800, -1550]
 
 [[layout.instances]]
 id = "f641a091-68c5-4ba7-95ca-634a7d5c06cc"
 object = "FiberFern"
 layer = "world3d"
-at = [-100, -2450, 0]
+at = [-100, -2450]
 
 [[layout.instances]]
 id = "775c2586-c4ae-4167-afda-92db423a22d3"
 object = "WoodSapling"
 layer = "world3d"
-at = [-2100, -2300, 0]
+at = [-2100, -2300]
 
 [[layout.instances]]
 id = "4556d5ad-bff9-40d0-afb8-120b776ce666"
 object = "WoodSapling"
 layer = "world3d"
-at = [-2000, -1400, 0]
+at = [-2000, -1400]
 
 [[layout.instances]]
 id = "e9176f84-be41-43c8-b691-352993a5d2cd"
 object = "WoodSapling"
 layer = "world3d"
-at = [-1950, 100, 0]
+at = [-1950, 100]
 
 [[layout.instances]]
 id = "2b0b1b15-f5ad-4be3-a5c8-04bddc09293a"
 object = "WoodSapling"
 layer = "world3d"
-at = [-1700, 1950, 0]
+at = [-1700, 1950]
 
 [[layout.instances]]
 id = "974c8971-52cb-41f9-af13-fb419332a49d"
 object = "WoodSapling"
 layer = "world3d"
-at = [350, 1950, 0]
+at = [350, 1950]
 
 [[layout.instances]]
 id = "589181eb-b7a8-4299-8378-cb918500a01e"
 object = "WoodSapling"
 layer = "world3d"
-at = [2050, 1200, 0]
+at = [2050, 1200]
 
 [[layout.instances]]
 id = "18183fe6-d2f9-46d7-bd8d-14f3f4ed61de"
 object = "WoodSapling"
 layer = "world3d"
-at = [2150, -500, 0]
+at = [2150, -500]
 
 [[layout.instances]]
 id = "6a03dd99-d0d5-4e8e-afc0-9842e597d845"
 object = "WoodSapling"
 layer = "world3d"
-at = [1800, -2400, 0]
+at = [1800, -2400]
 
 [[layout.instances]]
 id = "eb79c569-b75b-49d5-9af3-8eb0d9b2015a"
 object = "StoneDeposit"
 layer = "world3d"
-at = [-1000, -2450, 0]
+at = [-1000, -2450]
 
 [[layout.instances]]
 id = "8f073425-002c-4b33-83a6-25edf1fa2b08"
 object = "StoneDeposit"
 layer = "world3d"
-at = [-2300, -450, 0]
+at = [-2300, -450]
 
 [[layout.instances]]
 id = "0a157218-05bf-4568-aa3a-167ba8433384"
 object = "StoneDeposit"
 layer = "world3d"
-at = [-1850, 850, 0]
+at = [-1850, 850]
 
 [[layout.instances]]
 id = "d54fb896-0576-4f7a-a595-ebae3209f559"
 object = "StoneDeposit"
 layer = "world3d"
-at = [-450, 1700, 0]
+at = [-450, 1700]
 
 [[layout.instances]]
 id = "191a43a1-68d8-4b98-8432-cd999607a94f"
 object = "StoneDeposit"
 layer = "world3d"
-at = [1050, 2050, 0]
+at = [1050, 2050]
 
 [[layout.instances]]
 id = "1d430dad-1556-4b19-8e9f-bee371415480"
 object = "StoneDeposit"
 layer = "world3d"
-at = [2300, 0, 0]
+at = [2300, 0]
 
 [[layout.instances]]
 id = "95b7b809-6e6c-4dcc-a2da-c7beae940e97"
 object = "StoneDeposit"
 layer = "world3d"
-at = [2300, -1800, 0]
+at = [2300, -1800]
 
 [[layout.instances]]
 id = "ca53c5cd-548c-4900-b952-748dc97fd698"
 object = "StoneDeposit"
 layer = "world3d"
-at = [700, -2150, 0]
+at = [700, -2150]
 
 [[layout.instances]]
 id = "683a6cd0-0ccf-4cac-a471-7a1ceb6d292d"
 object = "PartFoundationValid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "6aaada73-a410-4388-b696-ee02d643b5a0"
 object = "PartFoundationInvalid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "5b351cec-534b-4944-b3fb-dc47ce9ea9c4"
 object = "PartPillarValid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "623194f5-11cf-4af8-a5e0-abf9e1045213"
 object = "PartPillarInvalid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "f57a04a0-c638-470e-8617-2e3cf8f65db6"
 object = "PartWallValid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "590801e1-da9a-43c3-875c-5e38dedf7447"
 object = "PartWallInvalid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "4eb18f37-0a05-44da-8bd6-5c72a135a3be"
 object = "PartDoorframeValid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "932f3e28-813e-4601-a2f3-08473969578e"
 object = "PartDoorframeInvalid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "dc533c06-6cd7-4f1d-b2a0-8b5f0c5168c7"
 object = "PartCeilingValid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "eab7c985-eefc-4c34-ab03-751cfb1ba8dd"
 object = "PartCeilingInvalid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "8739f39e-5dcf-4969-9785-bcf54d430070"
 object = "PartDoorValid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "6b50d12e-780e-4f16-b386-1d23ec548285"
 object = "PartDoorInvalid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "c32b9ade-e0f7-4af6-ad30-d97ab27c4270"
 object = "PartStairsValid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "5d9fe935-957f-4d28-b9bf-a82f270606be"
 object = "PartStairsInvalid"
 layer = "world3d"
-at = [0, 0, 0]
+at = [0, 0]

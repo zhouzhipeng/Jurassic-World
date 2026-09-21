@@ -1,11 +1,13 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 249
-folder = ["Construction"]
+assetStoreId = ""
 name = "BuiltCampfireInvalid"
 type = "Scene3D::Model3DObject"
-behaviors = []
-effects = []
+effects = [ ]
+behaviors = [ ]
+folder = [ "Construction" ]
+
 [[variables]]
 name = "Kind"
 type = "number"
@@ -37,19 +39,19 @@ type = "number"
 value = 0
 
 [content]
-modelResourceName = "build-campfire-invalid.glb"
-width = 156.038
-height = 156.142
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
 depth = 97.112
+height = 156.142
+isCastingShadow = false
+isReceivingShadow = true
 keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "build-campfire-invalid.glb"
+originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = false
-isReceivingShadow = true
-crossfadeDuration = 0.1
-animations = []
-sharedAnimationModelResources = []
+width = 156.038
+sharedAnimationModelResources = [ ]
+animations = [ ]

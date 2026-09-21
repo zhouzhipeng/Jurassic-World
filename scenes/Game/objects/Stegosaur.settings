@@ -1,13 +1,14 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 231
-folder = ["Actors"]
+assetStoreId = ""
 name = "Stegosaur"
 type = "JurassicActors::Stegosaur"
 variant = ""
-behaviors = []
-effects = []
-
+effects = [ ]
+behaviors = [ ]
+content = { }
+folder = [ "Actors" ]
 
 [[variables]]
 name = "HP"
@@ -27,12 +28,12 @@ value = 0
 [[variables]]
 name = "HomeX"
 type = "number"
-value = 1250
+value = 1_250
 
 [[variables]]
 name = "HomeY"
 type = "number"
-value = 1550
+value = 1_550
 
 [[variables]]
 name = "Radius"
@@ -168,5 +169,3 @@ value = 0
 name = "ActorConfigured"
 type = "number"
 value = 1
-
-[content]

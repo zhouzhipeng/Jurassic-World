@@ -1,30 +1,34 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 105
-folder = ["UI", "External Layouts"]
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
 name = "ItemMeat"
 type = "Sprite"
+updateIfNotVisible = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
-adaptCollisionMaskAutomatically = true
-updateIfNotVisible = false
+folder = [ "UI", "External Layouts" ]
 
 [[animations]]
 name = "Default"
 useMultipleDirections = false
+
 [[animations.directions]]
 looping = false
 timeBetweenFrames = 1
+
 [[animations.directions.sprites]]
-image = "items.png"
-originPoint = { name = "Origin", x = 0, y = 0 }
-centerPoint = { name = "Center", x = 0, y = 0, automatic = true }
-points = [ ]
-customCollisionMask = [ ]
 hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 314
 y = 314
-width = 314
-height = 314

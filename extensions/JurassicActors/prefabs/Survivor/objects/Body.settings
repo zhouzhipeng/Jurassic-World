@@ -1,84 +1,83 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 0
-folder = ["Real-time 3D"]
+assetStoreId = ""
 name = "Body"
 type = "Scene3D::Model3DObject"
-behaviors = [ ]
-effects = [ ]
-
 variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "Real-time 3D" ]
 
 [content]
-modelResourceName = "survivor-animated.glb"
-width = 109
-height = 72
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.12
 depth = 202
+height = 72
+isCastingShadow = true
+isReceivingShadow = true
 keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "survivor-animated.glb"
+originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = true
-isReceivingShadow = true
-crossfadeDuration = 0.12
-
+width = 109
 sharedAnimationModelResources = [ ]
 
 [[content.animations]]
+loop = true
 name = "Idle"
 source = "Idle"
 sourceModelResourceName = ""
-loop = true
 useRootMotion = false
 
 [[content.animations]]
+loop = true
 name = "Walk"
 source = "Walk"
 sourceModelResourceName = ""
-loop = true
 useRootMotion = false
 
 [[content.animations]]
+loop = true
 name = "Run"
 source = "Run"
 sourceModelResourceName = ""
-loop = true
 useRootMotion = false
 
 [[content.animations]]
+loop = true
 name = "Gather"
 source = "Gather"
 sourceModelResourceName = ""
-loop = true
 useRootMotion = false
 
 [[content.animations]]
+loop = false
 name = "Chop"
 source = "Chop"
 sourceModelResourceName = ""
-loop = false
 useRootMotion = false
 
 [[content.animations]]
+loop = false
 name = "Thrust"
 source = "Thrust"
 sourceModelResourceName = ""
-loop = false
 useRootMotion = false
 
 [[content.animations]]
+loop = false
 name = "Hurt"
 source = "Hurt"
 sourceModelResourceName = ""
-loop = false
 useRootMotion = false
 
 [[content.animations]]
+loop = false
 name = "Death"
 source = "Death"
 sourceModelResourceName = ""
-loop = false
 useRootMotion = false

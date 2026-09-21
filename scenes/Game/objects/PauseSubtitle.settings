@@ -1,20 +1,45 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 160
-folder = ["UI", "External Layouts"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "PauseSubtitle"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+string = "Single-player world"
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 21
+folder = [ "UI", "External Layouts" ]
+
+[color]
+b = 188
+g = 198
+r = 154
 
 [content]
+bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
 text = "Single-player world"
 font = "interface.ttf"
-characterSize = 21
-color = "154;198;188"
-bold = false
-italic = false
-smoothed = true
 textAlignment = "left"
 verticalTextAlignment = "top"
+characterSize = 21
+lineHeight = 0
+color = "154;198;188"

@@ -1,25 +1,29 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 1
-folder = ["World"]
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
 name = "CampWorld"
+persistentUuid = "9ac4cd83-bc03-476f-8e38-9d0c0c8ad7fa"
 type = "Sprite"
+updateIfNotVisible = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
-adaptCollisionMaskAutomatically = true
-updateIfNotVisible = false
+folder = [ "World" ]
 
 [[animations]]
 name = "Default"
 useMultipleDirections = false
+
 [[animations.directions]]
 looping = false
 timeBetweenFrames = 1
+
 [[animations.directions.sprites]]
-image = "camp.png"
-originPoint = { name = "Origin", x = 0, y = 0 }
-centerPoint = { name = "Center", x = 0, y = 0, automatic = true }
-points = [ ]
-customCollisionMask = [ ]
 hasCustomCollisionMask = false
+image = "camp.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]

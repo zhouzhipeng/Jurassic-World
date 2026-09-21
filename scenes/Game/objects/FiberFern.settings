@@ -1,11 +1,13 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 200
-folder = ["Real-time 3D"]
+assetStoreId = ""
 name = "FiberFern"
 type = "Scene3D::Model3DObject"
-behaviors = [ ]
 effects = [ ]
+behaviors = [ ]
+folder = [ "Real-time 3D" ]
+
 [[variables]]
 name = "Kind"
 type = "number"
@@ -26,23 +28,20 @@ name = "Target"
 type = "number"
 value = 0
 
-behaviors = [ ]
-effects = [ ]
-
 [content]
-modelResourceName = "fiber-fern.glb"
-width = 206
-height = 209
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
 depth = 123
+height = 209
+isCastingShadow = true
+isReceivingShadow = true
 keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "fiber-fern.glb"
+originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = true
-isReceivingShadow = true
-crossfadeDuration = 0.1
-animations = [ ]
+width = 206
 sharedAnimationModelResources = [ ]
+animations = [ ]

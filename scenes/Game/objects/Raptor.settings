@@ -1,13 +1,14 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 232
-folder = ["Actors"]
+assetStoreId = ""
 name = "Raptor"
 type = "JurassicActors::Raptor"
 variant = ""
-behaviors = []
-effects = []
-
+effects = [ ]
+behaviors = [ ]
+content = { }
+folder = [ "Actors" ]
 
 [[variables]]
 name = "HP"
@@ -32,7 +33,7 @@ value = -700
 [[variables]]
 name = "HomeY"
 type = "number"
-value = -2150
+value = -2_150
 
 [[variables]]
 name = "Radius"
@@ -92,7 +93,7 @@ value = -100
 [[variables]]
 name = "PY"
 type = "number"
-value = -1100
+value = -1_100
 
 [[variables]]
 name = "PA"
@@ -107,7 +108,7 @@ value = -100
 [[variables]]
 name = "TargetY"
 type = "number"
-value = -1100
+value = -1_100
 
 [[variables]]
 name = "Distance"
@@ -168,5 +169,3 @@ value = 0
 name = "ActorConfigured"
 type = "number"
 value = 1
-
-[content]

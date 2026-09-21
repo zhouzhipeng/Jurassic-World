@@ -1,20 +1,45 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 142
-folder = ["UI", "External Layouts"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "InspectItem"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+string = "Materials gathered on the island."
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 16
+folder = [ "UI", "External Layouts" ]
+
+[color]
+b = 195
+g = 208
+r = 184
 
 [content]
+bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
 text = "Materials gathered on the island."
 font = "interface.ttf"
-characterSize = 16
-color = "184;208;195"
-bold = false
-italic = false
-smoothed = true
 textAlignment = "left"
 verticalTextAlignment = "top"
+characterSize = 16
+lineHeight = 0
+color = "184;208;195"

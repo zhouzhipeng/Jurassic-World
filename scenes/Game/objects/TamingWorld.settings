@@ -1,25 +1,28 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 0
-folder = ["World"]
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
 name = "TamingWorld"
 type = "Sprite"
+updateIfNotVisible = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
-adaptCollisionMaskAutomatically = true
-updateIfNotVisible = false
+folder = [ "World" ]
 
 [[animations]]
 name = "Default"
 useMultipleDirections = false
+
 [[animations.directions]]
 looping = false
 timeBetweenFrames = 1
+
 [[animations.directions.sprites]]
-image = "taming.png"
-originPoint = { name = "Origin", x = 0, y = 0 }
-centerPoint = { name = "Center", x = 0, y = 0, automatic = true }
-points = [ ]
-customCollisionMask = [ ]
 hasCustomCollisionMask = false
+image = "taming.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]

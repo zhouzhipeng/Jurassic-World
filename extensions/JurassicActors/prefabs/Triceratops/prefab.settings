@@ -1,33 +1,31 @@
 kind = "prefab"
 settingsFormatVersion = 6
 order = 2
-name = "Triceratops"
-fullName = "Triceratops"
-description = "Reusable Triceratops model, instance state and animation controller."
 defaultName = "Triceratops"
-private = false
+description = "Reusable Triceratops model, instance state and animation controller."
+fullName = "Triceratops"
+helpPath = ""
+iconUrl = ""
 is3D = true
-isAnimatable = false
-isTextContainer = false
-isInnerAreaFollowingParentSize = false
 isUsingLegacyInstancesRenderer = false
-propertyDescriptors = []
+name = "Triceratops"
+previewIconUrl = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
 objectGroups = { }
-
-variables = []
 
 [layout]
 version = 1
-bounds = { min = [-82, -241, 0], max = [82, 241, 256] }
+bounds = { max = [82, 241, 256], min = [-82, -241, 0] }
 
 [[layout.layers]]
 id = "base"
 name = ""
 rendering = "3d"
-lighting = false
 
 [[layout.instances]]
 id = "bcbd835b-96fc-447f-b61f-cf843e547e63"
 object = "Body"
 layer = "base"
-at = [0, 0, 0]
+at = [0, 0]

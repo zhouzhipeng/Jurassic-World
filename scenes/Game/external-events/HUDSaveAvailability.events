@@ -1,3 +1,4 @@
+@event
 if SceneJustBegins
 if GroupExists storage_name=expr(SaveStorage) group="Version"
 do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text="Local save available. Choose Load Game."

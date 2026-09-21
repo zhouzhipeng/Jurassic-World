@@ -1,25 +1,28 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 190
-folder = ["UI", "External Layouts"]
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
 name = "TitleContinue"
 type = "Sprite"
+updateIfNotVisible = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
-adaptCollisionMaskAutomatically = true
-updateIfNotVisible = false
+folder = [ "UI", "External Layouts" ]
 
 [[animations]]
 name = "Default"
 useMultipleDirections = false
+
 [[animations.directions]]
 looping = false
 timeBetweenFrames = 1
+
 [[animations.directions.sprites]]
-image = "TitleContinue.svg"
-originPoint = { name = "Origin", x = 0, y = 0 }
-centerPoint = { name = "Center", x = 0, y = 0, automatic = true }
-points = [ ]
-customCollisionMask = [ ]
 hasCustomCollisionMask = false
+image = "TitleContinue.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]

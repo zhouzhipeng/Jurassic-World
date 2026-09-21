@@ -2,1221 +2,1288 @@ kind = "resources"
 settingsFormatVersion = 6
 
 [[resources]]
-kind = "image"
-name = "taming.png"
 file = "assets/taming.png"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "taming.png"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "camp.png"
 file = "assets/camp.png"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "camp.png"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "inventory-reference.png"
 file = "assets/inventory-reference.png"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "inventory-reference.png"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "font"
-name = "interface.ttf"
 file = "assets/interface.ttf"
+kind = "font"
 metadata = ""
+name = "interface.ttf"
 userAdded = true
 
 [[resources]]
-kind = "image"
-name = "StatusPanel.svg"
 file = "assets/StatusPanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "StatusPanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Track0.svg"
 file = "assets/Track0.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Track0.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Meter0.svg"
 file = "assets/Meter0.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Meter0.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Track1.svg"
 file = "assets/Track1.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Track1.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Meter1.svg"
 file = "assets/Meter1.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Meter1.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Track2.svg"
 file = "assets/Track2.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Track2.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Meter2.svg"
 file = "assets/Meter2.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Meter2.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Track3.svg"
 file = "assets/Track3.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Track3.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Meter3.svg"
 file = "assets/Meter3.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Meter3.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "CompassPanel.svg"
 file = "assets/CompassPanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "CompassPanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "QuestPanel.svg"
 file = "assets/QuestPanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "QuestPanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "OpenPack.svg"
 file = "assets/OpenPack.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "OpenPack.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "OpenMenu.svg"
 file = "assets/OpenMenu.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "OpenMenu.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "DinoPanel.svg"
 file = "assets/DinoPanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "DinoPanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "TrustTrack.svg"
 file = "assets/TrustTrack.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "TrustTrack.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "TrustMeter.svg"
 file = "assets/TrustMeter.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "TrustMeter.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Feed.svg"
 file = "assets/Feed.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Feed.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "ActivityPanel.svg"
 file = "assets/ActivityPanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "ActivityPanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Gather.svg"
 file = "assets/Gather.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Gather.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Chop.svg"
 file = "assets/Chop.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Chop.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Drink.svg"
 file = "assets/Drink.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Drink.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Station.svg"
 file = "assets/Station.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Station.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "NoticePanel.svg"
 file = "assets/NoticePanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "NoticePanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "HotSlot0.svg"
 file = "assets/HotSlot0.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "HotSlot0.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "HotSlot1.svg"
 file = "assets/HotSlot1.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "HotSlot1.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "HotSlot2.svg"
 file = "assets/HotSlot2.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "HotSlot2.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "HotSlot3.svg"
 file = "assets/HotSlot3.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "HotSlot3.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "HotSlot4.svg"
 file = "assets/HotSlot4.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "HotSlot4.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "HotSlot5.svg"
 file = "assets/HotSlot5.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "HotSlot5.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "HotSlot6.svg"
 file = "assets/HotSlot6.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "HotSlot6.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "HotSlot7.svg"
 file = "assets/HotSlot7.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "HotSlot7.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "InventoryDim.svg"
 file = "assets/InventoryDim.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "InventoryDim.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "InventoryNav.svg"
 file = "assets/InventoryNav.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "InventoryNav.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "ClosePack.svg"
 file = "assets/ClosePack.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "ClosePack.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "EquipmentPanel.svg"
 file = "assets/EquipmentPanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "EquipmentPanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "BackpackPanel.svg"
 file = "assets/BackpackPanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "BackpackPanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "CraftPanel.svg"
 file = "assets/CraftPanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "CraftPanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot0.svg"
 file = "assets/Slot0.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot0.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot1.svg"
 file = "assets/Slot1.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot1.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot2.svg"
 file = "assets/Slot2.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot2.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot3.svg"
 file = "assets/Slot3.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot3.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot4.svg"
 file = "assets/Slot4.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot4.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot5.svg"
 file = "assets/Slot5.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot5.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot6.svg"
 file = "assets/Slot6.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot6.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot7.svg"
 file = "assets/Slot7.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot7.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot8.svg"
 file = "assets/Slot8.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot8.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot9.svg"
 file = "assets/Slot9.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot9.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot10.svg"
 file = "assets/Slot10.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot10.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot11.svg"
 file = "assets/Slot11.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot11.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot12.svg"
 file = "assets/Slot12.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot12.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot13.svg"
 file = "assets/Slot13.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot13.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot14.svg"
 file = "assets/Slot14.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot14.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot15.svg"
 file = "assets/Slot15.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot15.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot16.svg"
 file = "assets/Slot16.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot16.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot17.svg"
 file = "assets/Slot17.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot17.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot18.svg"
 file = "assets/Slot18.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot18.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot19.svg"
 file = "assets/Slot19.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot19.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot20.svg"
 file = "assets/Slot20.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot20.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot21.svg"
 file = "assets/Slot21.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot21.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot22.svg"
 file = "assets/Slot22.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot22.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot23.svg"
 file = "assets/Slot23.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot23.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot24.svg"
 file = "assets/Slot24.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot24.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot25.svg"
 file = "assets/Slot25.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot25.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot26.svg"
 file = "assets/Slot26.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot26.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot27.svg"
 file = "assets/Slot27.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot27.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot28.svg"
 file = "assets/Slot28.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot28.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Slot29.svg"
 file = "assets/Slot29.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Slot29.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Craft.svg"
 file = "assets/Craft.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Craft.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "ChooseAxe.svg"
 file = "assets/ChooseAxe.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "ChooseAxe.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "ChooseSpear.svg"
 file = "assets/ChooseSpear.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "ChooseSpear.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "PauseShade.svg"
 file = "assets/PauseShade.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "PauseShade.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Resume.svg"
 file = "assets/Resume.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Resume.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Save.svg"
 file = "assets/Save.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Save.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Load.svg"
 file = "assets/Load.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Load.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Settings.svg"
 file = "assets/Settings.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Settings.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Photo.svg"
 file = "assets/Photo.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Photo.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "Title.svg"
 file = "assets/Title.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "Title.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "WorldStatus.svg"
 file = "assets/WorldStatus.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "WorldStatus.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "SaveStatusPanel.svg"
 file = "assets/SaveStatusPanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "SaveStatusPanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "SettingsShade.svg"
 file = "assets/SettingsShade.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "SettingsShade.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "SettingsPanel.svg"
 file = "assets/SettingsPanel.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "SettingsPanel.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "HelpToggle.svg"
 file = "assets/HelpToggle.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "HelpToggle.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "SettingsBack.svg"
 file = "assets/SettingsBack.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "SettingsBack.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "TitleShade.svg"
 file = "assets/TitleShade.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "TitleShade.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "TitleContinue.svg"
 file = "assets/TitleContinue.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "TitleContinue.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "PhotoHint.svg"
 file = "assets/PhotoHint.svg"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "PhotoHint.svg"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "items.png"
 file = "assets/items.png"
+kind = "image"
 metadata = ""
-userAdded = true
+name = "items.png"
 smoothed = true
+userAdded = true
 
 [[resources]]
-kind = "image"
-name = "survivor.png"
 file = "assets/survivor.png"
-metadata = ""
-userAdded = true
-smoothed = true
-
-[[resources]]
-kind = "model3D"
-name = "island.glb"
-file = "assets/models/island.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "parasaur.glb"
-file = "assets/models/parasaur.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "survivor.glb"
-file = "assets/models/survivor.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "berry-bush.glb"
-file = "assets/models/berry-bush.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "fiber-fern.glb"
-file = "assets/models/fiber-fern.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "wood-sapling.glb"
-file = "assets/models/wood-sapling.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "stone-node.glb"
-file = "assets/models/stone-node.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "harvest.wav"
-file = "assets/harvest.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "held-axe.glb"
-file = "assets/models/held-axe.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "axe-hit.wav"
-file = "assets/axe-hit.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "parasaur-animated.glb"
-file = "assets/models/parasaur-animated.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "seated-rider.glb"
-file = "assets/models/seated-rider.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "triceratops.glb"
-file = "assets/models/triceratops.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "stegosaur.glb"
-file = "assets/models/stegosaur.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "raptor.glb"
-file = "assets/models/raptor.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "model3D"
-name = "tyrannosaur.glb"
-file = "assets/models/tyrannosaur.glb"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "bite.wav"
-file = "assets/audio/bite.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "build.wav"
-file = "assets/audio/build.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "craft.wav"
-file = "assets/audio/craft.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "death.wav"
-file = "assets/audio/death.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "dino-step.wav"
-file = "assets/audio/dino-step.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "drink.wav"
-file = "assets/audio/drink.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "feed.wav"
-file = "assets/audio/feed.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "footstep.wav"
-file = "assets/audio/footstep.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "herbivore-call.wav"
-file = "assets/audio/herbivore-call.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "hurt.wav"
-file = "assets/audio/hurt.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "island-dawn.wav"
-file = "assets/audio/island-dawn.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "mount.wav"
-file = "assets/audio/mount.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "pickup.wav"
-file = "assets/audio/pickup.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "predator-pulse.wav"
-file = "assets/audio/predator-pulse.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "quest-complete.wav"
-file = "assets/audio/quest-complete.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "raptor-call.wav"
-file = "assets/audio/raptor-call.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "respawn.wav"
-file = "assets/audio/respawn.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "rex-roar.wav"
-file = "assets/audio/rex-roar.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "swing.wav"
-file = "assets/audio/swing.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
-kind = "audio"
-name = "ui-click.wav"
-file = "assets/audio/ui-click.wav"
-metadata = ""
-userAdded = true
-
-[[resources]]
 kind = "image"
-name = "hit-flash.svg"
+metadata = ""
+name = "survivor.png"
+smoothed = true
+userAdded = true
+
+[[resources]]
+file = "assets/models/island.glb"
+kind = "model3D"
+metadata = ""
+name = "island.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/parasaur.glb"
+kind = "model3D"
+metadata = ""
+name = "parasaur.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/survivor.glb"
+kind = "model3D"
+metadata = ""
+name = "survivor.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/berry-bush.glb"
+kind = "model3D"
+metadata = ""
+name = "berry-bush.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/fiber-fern.glb"
+kind = "model3D"
+metadata = ""
+name = "fiber-fern.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/wood-sapling.glb"
+kind = "model3D"
+metadata = ""
+name = "wood-sapling.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/stone-node.glb"
+kind = "model3D"
+metadata = ""
+name = "stone-node.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/harvest.wav"
+kind = "audio"
+metadata = ""
+name = "harvest.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/models/held-axe.glb"
+kind = "model3D"
+metadata = ""
+name = "held-axe.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/axe-hit.wav"
+kind = "audio"
+metadata = ""
+name = "axe-hit.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/models/parasaur-animated.glb"
+kind = "model3D"
+metadata = ""
+name = "parasaur-animated.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/seated-rider.glb"
+kind = "model3D"
+metadata = ""
+name = "seated-rider.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/triceratops.glb"
+kind = "model3D"
+metadata = ""
+name = "triceratops.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/stegosaur.glb"
+kind = "model3D"
+metadata = ""
+name = "stegosaur.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/raptor.glb"
+kind = "model3D"
+metadata = ""
+name = "raptor.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/tyrannosaur.glb"
+kind = "model3D"
+metadata = ""
+name = "tyrannosaur.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/audio/bite.wav"
+kind = "audio"
+metadata = ""
+name = "bite.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/build.wav"
+kind = "audio"
+metadata = ""
+name = "build.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/craft.wav"
+kind = "audio"
+metadata = ""
+name = "craft.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/death.wav"
+kind = "audio"
+metadata = ""
+name = "death.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/dino-step.wav"
+kind = "audio"
+metadata = ""
+name = "dino-step.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/drink.wav"
+kind = "audio"
+metadata = ""
+name = "drink.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/feed.wav"
+kind = "audio"
+metadata = ""
+name = "feed.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/footstep.wav"
+kind = "audio"
+metadata = ""
+name = "footstep.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/herbivore-call.wav"
+kind = "audio"
+metadata = ""
+name = "herbivore-call.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/hurt.wav"
+kind = "audio"
+metadata = ""
+name = "hurt.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/island-dawn.wav"
+kind = "audio"
+metadata = ""
+name = "island-dawn.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/mount.wav"
+kind = "audio"
+metadata = ""
+name = "mount.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/pickup.wav"
+kind = "audio"
+metadata = ""
+name = "pickup.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/predator-pulse.wav"
+kind = "audio"
+metadata = ""
+name = "predator-pulse.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/quest-complete.wav"
+kind = "audio"
+metadata = ""
+name = "quest-complete.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/raptor-call.wav"
+kind = "audio"
+metadata = ""
+name = "raptor-call.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/respawn.wav"
+kind = "audio"
+metadata = ""
+name = "respawn.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/rex-roar.wav"
+kind = "audio"
+metadata = ""
+name = "rex-roar.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/swing.wav"
+kind = "audio"
+metadata = ""
+name = "swing.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
+file = "assets/audio/ui-click.wav"
+kind = "audio"
+metadata = ""
+name = "ui-click.wav"
+preloadAsMusic = false
+preloadAsSound = false
+preloadInCache = false
+userAdded = true
+
+[[resources]]
 file = "assets/hit-flash.svg"
+kind = "image"
 metadata = ""
+name = "hit-flash.svg"
+smoothed = false
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "combat-spear.glb"
 file = "assets/models/combat-spear.glb"
+kind = "model3D"
 metadata = ""
+name = "combat-spear.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "survivor-animated.glb"
 file = "assets/models/survivor-animated.glb"
+kind = "model3D"
 metadata = ""
+name = "survivor-animated.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "build-shelter.glb"
 file = "assets/models/build-shelter.glb"
+kind = "model3D"
 metadata = ""
+name = "build-shelter.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "build-shelter-valid.glb"
 file = "assets/models/build-shelter-valid.glb"
+kind = "model3D"
 metadata = ""
+name = "build-shelter-valid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "build-shelter-invalid.glb"
 file = "assets/models/build-shelter-invalid.glb"
+kind = "model3D"
 metadata = ""
+name = "build-shelter-invalid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "build-palisade.glb"
 file = "assets/models/build-palisade.glb"
+kind = "model3D"
 metadata = ""
+name = "build-palisade.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "build-palisade-valid.glb"
 file = "assets/models/build-palisade-valid.glb"
+kind = "model3D"
 metadata = ""
+name = "build-palisade-valid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "build-palisade-invalid.glb"
 file = "assets/models/build-palisade-invalid.glb"
+kind = "model3D"
 metadata = ""
+name = "build-palisade-invalid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "build-campfire.glb"
 file = "assets/models/build-campfire.glb"
+kind = "model3D"
 metadata = ""
+name = "build-campfire.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "build-campfire-valid.glb"
 file = "assets/models/build-campfire-valid.glb"
+kind = "model3D"
 metadata = ""
+name = "build-campfire-valid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "build-campfire-invalid.glb"
 file = "assets/models/build-campfire-invalid.glb"
+kind = "model3D"
 metadata = ""
+name = "build-campfire-invalid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-foundation.glb"
 file = "assets/models/modular-foundation.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-foundation.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-foundation-valid.glb"
 file = "assets/models/modular-foundation-valid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-foundation-valid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-foundation-invalid.glb"
 file = "assets/models/modular-foundation-invalid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-foundation-invalid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-pillar.glb"
 file = "assets/models/modular-pillar.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-pillar.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-pillar-valid.glb"
 file = "assets/models/modular-pillar-valid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-pillar-valid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-pillar-invalid.glb"
 file = "assets/models/modular-pillar-invalid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-pillar-invalid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-wall.glb"
 file = "assets/models/modular-wall.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-wall.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-wall-valid.glb"
 file = "assets/models/modular-wall-valid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-wall-valid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-wall-invalid.glb"
 file = "assets/models/modular-wall-invalid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-wall-invalid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-doorframe.glb"
 file = "assets/models/modular-doorframe.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-doorframe.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-doorframe-valid.glb"
 file = "assets/models/modular-doorframe-valid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-doorframe-valid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-doorframe-invalid.glb"
 file = "assets/models/modular-doorframe-invalid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-doorframe-invalid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-ceiling.glb"
 file = "assets/models/modular-ceiling.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-ceiling.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-ceiling-valid.glb"
 file = "assets/models/modular-ceiling-valid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-ceiling-valid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-ceiling-invalid.glb"
 file = "assets/models/modular-ceiling-invalid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-ceiling-invalid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-door.glb"
 file = "assets/models/modular-door.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-door.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-door-valid.glb"
 file = "assets/models/modular-door-valid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-door-valid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-door-invalid.glb"
 file = "assets/models/modular-door-invalid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-door-invalid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-stairs.glb"
 file = "assets/models/modular-stairs.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-stairs.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-stairs-valid.glb"
 file = "assets/models/modular-stairs-valid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-stairs-valid.glb"
 userAdded = true
 
 [[resources]]
-kind = "model3D"
-name = "modular-stairs-invalid.glb"
 file = "assets/models/modular-stairs-invalid.glb"
+kind = "model3D"
 metadata = ""
+name = "modular-stairs-invalid.glb"
 userAdded = true
 
 [[resources]]

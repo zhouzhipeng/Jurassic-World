@@ -1,11 +1,13 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 202
-folder = ["Real-time 3D"]
+assetStoreId = ""
 name = "StoneDeposit"
 type = "Scene3D::Model3DObject"
-behaviors = [ ]
 effects = [ ]
+behaviors = [ ]
+folder = [ "Real-time 3D" ]
+
 [[variables]]
 name = "Kind"
 type = "number"
@@ -26,23 +28,20 @@ name = "Target"
 type = "number"
 value = 0
 
-behaviors = [ ]
-effects = [ ]
-
 [content]
-modelResourceName = "stone-node.glb"
-width = 186
-height = 130
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
 depth = 119
+height = 130
+isCastingShadow = true
+isReceivingShadow = true
 keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "stone-node.glb"
+originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = true
-isReceivingShadow = true
-crossfadeDuration = 0.1
-animations = [ ]
+width = 186
 sharedAnimationModelResources = [ ]
+animations = [ ]

@@ -1,13 +1,14 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 233
-folder = ["Actors"]
+assetStoreId = ""
 name = "Tyrannosaur"
 type = "JurassicActors::Tyrannosaur"
 variant = ""
-behaviors = []
-effects = []
-
+effects = [ ]
+behaviors = [ ]
+content = { }
+folder = [ "Actors" ]
 
 [[variables]]
 name = "HP"
@@ -27,12 +28,12 @@ value = 1
 [[variables]]
 name = "HomeX"
 type = "number"
-value = 1350
+value = 1_350
 
 [[variables]]
 name = "HomeY"
 type = "number"
-value = -2100
+value = -2_100
 
 [[variables]]
 name = "Radius"
@@ -92,7 +93,7 @@ value = 850
 [[variables]]
 name = "PY"
 type = "number"
-value = -1200
+value = -1_200
 
 [[variables]]
 name = "PA"
@@ -107,7 +108,7 @@ value = 850
 [[variables]]
 name = "TargetY"
 type = "number"
-value = -1200
+value = -1_200
 
 [[variables]]
 name = "Distance"
@@ -168,5 +169,3 @@ value = 0
 name = "ActorConfigured"
 type = "number"
 value = 1
-
-[content]

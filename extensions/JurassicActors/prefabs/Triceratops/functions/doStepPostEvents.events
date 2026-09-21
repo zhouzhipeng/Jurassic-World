@@ -1,3 +1,4 @@
+@event
 if VarObjet object="Object" variable="SpawnReady" comparison_sign="=" value=0
 do ModVarObjet object="Object" variable="HomeX" modification_sign="=" value=expr(Object.X())
 do ModVarObjet object="Object" variable="HomeY" modification_sign="=" value=expr(Object.Y())
@@ -7,15 +8,18 @@ do ModVarObjet object="Object" variable="TargetX" modification_sign="=" value=ex
 do ModVarObjet object="Object" variable="TargetY" modification_sign="=" value=expr(Object.Y())
 do ModVarObjet object="Object" variable="SpawnReady" modification_sign="=" value=1
 
+@event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=0
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Idle"
 
+@event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=1
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Walk"
 
+@event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationPlaying)) comparison_sign="=" second_expression=1
 do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Body" behavior="Animation"
 
+@event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationPlaying)) comparison_sign="=" second_expression=0
 do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Body" behavior="Animation"
-

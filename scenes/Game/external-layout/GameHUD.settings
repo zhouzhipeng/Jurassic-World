@@ -17,151 +17,150 @@ layer = "hud"
 at = [22, 22]
 size = [235, 160]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "e9446c13-67ea-47e7-b00c-d6ca7afa8c49"
 object = "Status0"
 layer = "hud"
 at = [38, 32]
+z_order = 10
 size = [100, 18]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "bfecba50-c3a7-4824-ba71-18d36aba3f2d"
 object = "Track0"
 layer = "hud"
 at = [38, 51]
+z_order = 4
 size = [198, 7]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "2979fe72-6824-4422-bfbc-5c3cf5797e84"
 object = "Meter0"
 layer = "hud"
 at = [38, 51]
+z_order = 4
 size = [198, 7]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "fb70e93e-f995-4ec0-9126-39b6e6e63e9c"
 object = "Value0"
 layer = "hud"
 at = [164, 30]
+z_order = 10
 size = [90, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "bcb5f186-7a5f-4d2f-bc4b-46fc68de4bab"
 object = "Status1"
 layer = "hud"
 at = [38, 68]
+z_order = 10
 size = [100, 18]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "3c4ff3d0-cb57-47d3-8f90-e4501f0e7e59"
 object = "Track1"
 layer = "hud"
 at = [38, 87]
+z_order = 4
 size = [198, 7]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "7a71c29b-84a1-4883-8529-bb708b4c1815"
 object = "Meter1"
 layer = "hud"
 at = [38, 87]
+z_order = 4
 size = [158, 7]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "72af2c28-cac3-41fe-a199-d603f76ba43c"
 object = "Value1"
 layer = "hud"
 at = [164, 66]
+z_order = 10
 size = [90, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "76ca27d8-e354-46a9-a1e4-8631e12880e0"
 object = "Status2"
 layer = "hud"
 at = [38, 104]
+z_order = 10
 size = [100, 18]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "625dc313-4fc9-485a-9028-fb0cce976812"
 object = "Track2"
 layer = "hud"
 at = [38, 123]
+z_order = 4
 size = [198, 7]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "73110fc0-f67a-4420-9177-e3ac67552f45"
 object = "Meter2"
 layer = "hud"
 at = [38, 123]
+z_order = 4
 size = [139, 7]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "af4a6044-9bef-4631-a6d5-fa8ac401ae52"
 object = "Value2"
 layer = "hud"
 at = [164, 102]
+z_order = 10
 size = [90, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "f529e727-7e2d-423d-a2d1-a63008b3ff05"
 object = "Status3"
 layer = "hud"
 at = [38, 140]
+z_order = 10
 size = [100, 18]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "b0d0fdf8-1336-46a7-be58-82d52ed19309"
 object = "Track3"
 layer = "hud"
 at = [38, 159]
+z_order = 4
 size = [198, 7]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "a0f3fb6f-ef01-41e8-af45-89b9290a6f8b"
 object = "Meter3"
 layer = "hud"
 at = [38, 159]
+z_order = 4
 size = [119, 7]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "933802ef-81e8-42b7-8825-147be10ad869"
 object = "Value3"
 layer = "hud"
 at = [164, 138]
+z_order = 10
 size = [90, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "77d8c640-dcc0-49c5-98f5-91257f106b40"
@@ -170,16 +169,15 @@ layer = "hud"
 at = [595, 20]
 size = [410, 44]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "e2389ab9-b9b4-4e78-97fe-d0a841147f53"
 object = "Compass"
 layer = "hud"
 at = [632, 28]
+z_order = 10
 size = [355, 28]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "44066b30-e209-464f-8d70-4e2e971b4ca9"
@@ -188,61 +186,60 @@ layer = "hud"
 at = [1220, 22]
 size = [358, 130]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "142fad05-075d-49f4-a6d1-ca56065c0c3a"
 object = "QuestTitle"
 layer = "hud"
 at = [1240, 39]
+z_order = 10
 size = [315, 30]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "2e634709-2d9e-4f07-9d6c-7706b70dd0ea"
 object = "QuestBody"
 layer = "hud"
 at = [1240, 76]
+z_order = 10
 size = [310, 60]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "29b9a069-21d6-485b-8dcc-635e5494b5e7"
 object = "OpenPack"
 layer = "hud"
 at = [1240, 165]
+z_order = 2
 size = [162, 46]
 keep_ratio = false
-z_order = 2
 
 [[layout.instances]]
 id = "3ff78944-fc62-44fc-ab6c-355e42e44c1a"
 object = "OpenPackLabel"
 layer = "hud"
 at = [1260, 174]
+z_order = 12
 size = [127, 32]
 keep_ratio = false
-z_order = 12
 
 [[layout.instances]]
 id = "b14a8b0b-941f-42cf-929a-34de768515e1"
 object = "OpenMenu"
 layer = "hud"
 at = [1410, 165]
+z_order = 2
 size = [166, 46]
 keep_ratio = false
-z_order = 2
 
 [[layout.instances]]
 id = "992fb195-8b91-4acc-a83b-f3909dc5325c"
 object = "OpenMenuLabel"
 layer = "hud"
 at = [1430, 174]
+z_order = 12
 size = [131, 32]
 keep_ratio = false
-z_order = 12
 
 [[layout.instances]]
 id = "bbafd283-bb54-4b19-9bf9-6e989fd5936c"
@@ -251,70 +248,69 @@ layer = "hud"
 at = [1030, 330]
 size = [330, 186]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "464b484f-c60c-4ad2-800b-3ae0d8037191"
 object = "DinoName"
 layer = "hud"
 at = [1050, 346]
+z_order = 10
 size = [300, 30]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "a7dcd46c-ca6e-4a88-ab1b-d4ba2bdf11e8"
 object = "DinoLevel"
 layer = "hud"
 at = [1050, 377]
+z_order = 10
 size = [290, 25]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "4d907b12-eaa9-4ea0-8fbb-42d2ea5e90b2"
 object = "TrustText"
 layer = "hud"
 at = [1050, 409]
+z_order = 10
 size = [270, 25]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "2e045927-88cf-4b40-aae0-60fdf5c09009"
 object = "TrustTrack"
 layer = "hud"
 at = [1050, 441]
+z_order = 4
 size = [285, 10]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "f4b6f706-15a2-44e2-8244-2b1d8fbce1dc"
 object = "TrustMeter"
 layer = "hud"
 at = [1050, 441]
+z_order = 4
 size = [185, 10]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "448ea220-3772-457e-8101-0dfcc91513e2"
 object = "Feed"
 layer = "hud"
 at = [1030, 467]
+z_order = 2
 size = [330, 49]
 keep_ratio = false
-z_order = 2
 
 [[layout.instances]]
 id = "b3a3334a-0fc8-4887-8daf-654f84a05f0d"
 object = "FeedLabel"
 layer = "hud"
 at = [1050, 477]
+z_order = 12
 size = [295, 32]
 keep_ratio = false
-z_order = 12
 
 [[layout.instances]]
 id = "863eea04-d26e-4a79-906d-f1b74246cfcf"
@@ -323,88 +319,87 @@ layer = "hud"
 at = [23, 545]
 size = [262, 219]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "81e1ec57-06c3-4213-9c36-84f3f5d8d3de"
 object = "ActivityTitle"
 layer = "hud"
 at = [42, 563]
+z_order = 10
 size = [230, 25]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "b0b64fbe-d5bb-4e7b-857c-67fb8d260b0d"
 object = "Gather"
 layer = "hud"
 at = [38, 604]
+z_order = 2
 size = [230, 40]
 keep_ratio = false
-z_order = 2
 
 [[layout.instances]]
 id = "25d370d8-3197-4458-ad7e-95790fa67e47"
 object = "GatherLabel"
 layer = "hud"
 at = [58, 610]
+z_order = 12
 size = [195, 32]
 keep_ratio = false
-z_order = 12
 
 [[layout.instances]]
 id = "6890f2ba-89ed-44b7-af48-36762d7ec45a"
 object = "Chop"
 layer = "hud"
 at = [38, 650]
+z_order = 2
 size = [230, 40]
 keep_ratio = false
-z_order = 2
 
 [[layout.instances]]
 id = "4e2ae5d6-7f18-4498-a824-4095c9de55cc"
 object = "ChopLabel"
 layer = "hud"
 at = [58, 656]
+z_order = 12
 size = [195, 32]
 keep_ratio = false
-z_order = 12
 
 [[layout.instances]]
 id = "143d57e3-a781-4576-893b-633d5204de03"
 object = "Drink"
 layer = "hud"
 at = [38, 696]
+z_order = 2
 size = [230, 40]
 keep_ratio = false
-z_order = 2
 
 [[layout.instances]]
 id = "2b2bc7f3-c449-4928-a01e-fe30ce6b0014"
 object = "DrinkLabel"
 layer = "hud"
 at = [58, 702]
+z_order = 12
 size = [195, 32]
 keep_ratio = false
-z_order = 12
 
 [[layout.instances]]
 id = "73944d0d-a7a9-4aed-bad1-537740993696"
 object = "Station"
 layer = "hud"
 at = [1130, 712]
+z_order = 2
 size = [445, 47]
 keep_ratio = false
-z_order = 2
 
 [[layout.instances]]
 id = "42c191d0-8dc8-4814-ae02-75159dff9169"
 object = "StationLabel"
 layer = "hud"
 at = [1150, 721]
+z_order = 12
 size = [410, 32]
 keep_ratio = false
-z_order = 12
 
 [[layout.instances]]
 id = "7ddde723-6e81-47fe-ad41-029e8a533c35"
@@ -413,34 +408,33 @@ layer = "hud"
 at = [23, 780]
 size = [520, 46]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "766bce27-bff7-48ea-a0f3-3d62c4f3e621"
 object = "Notice"
 layer = "hud"
 at = [40, 790]
+z_order = 10
 size = [490, 32]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "0c69f98b-a70c-487c-bd4a-6ef6e7408f57"
 object = "Controls"
 layer = "hud"
 at = [28, 861]
+z_order = 10
 size = [1250, 26]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "8a809db2-2d2c-4618-9f2c-ccf055b8f5eb"
 object = "DemoLabel"
 layer = "hud"
 at = [1240, 863]
+z_order = 10
 size = [340, 22]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "7a18ae6d-97d9-4fc7-b25d-5063b2800126"
@@ -449,25 +443,24 @@ layer = "hud"
 at = [552, 785]
 size = [72, 68]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "360c308e-b435-4473-b171-582b8079e9e8"
 object = "HotIcon0"
 layer = "hud"
 at = [564, 797]
+z_order = 5
 size = [46, 43]
 keep_ratio = false
-z_order = 5
 
 [[layout.instances]]
 id = "e89f2015-d0bd-4145-ae42-9692c717e229"
 object = "HotKey0"
 layer = "hud"
 at = [557, 789]
+z_order = 10
 size = [20, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "5ac58d63-8e18-4a5c-b7d8-f6d098514dba"
@@ -476,25 +469,24 @@ layer = "hud"
 at = [630, 785]
 size = [72, 68]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "4c872e1c-2135-4734-bf90-a1a2c9351963"
 object = "HotIcon1"
 layer = "hud"
 at = [642, 797]
+z_order = 5
 size = [46, 43]
 keep_ratio = false
-z_order = 5
 
 [[layout.instances]]
 id = "d441cc6b-f8ed-4233-beeb-9641e03dc11d"
 object = "HotKey1"
 layer = "hud"
 at = [635, 789]
+z_order = 10
 size = [20, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "ed9c3c9b-d6b0-47db-8ce0-e599cd925cf0"
@@ -503,25 +495,24 @@ layer = "hud"
 at = [708, 785]
 size = [72, 68]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "a0444318-1303-49c4-ae12-d364f5ec45b8"
 object = "HotIcon2"
 layer = "hud"
 at = [720, 797]
+z_order = 5
 size = [46, 43]
 keep_ratio = false
-z_order = 5
 
 [[layout.instances]]
 id = "c9ebbb6b-e240-4973-919a-697755de6118"
 object = "HotKey2"
 layer = "hud"
 at = [713, 789]
+z_order = 10
 size = [20, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "f59f2ab2-4f23-4692-a95b-6d13af76b419"
@@ -530,25 +521,24 @@ layer = "hud"
 at = [786, 785]
 size = [72, 68]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "66013bae-e2e6-48d2-8414-d17a7628d54f"
 object = "HotIcon3"
 layer = "hud"
 at = [798, 797]
+z_order = 5
 size = [46, 43]
 keep_ratio = false
-z_order = 5
 
 [[layout.instances]]
 id = "15698bf0-ff09-40c0-8be2-b63d03df8ebe"
 object = "HotKey3"
 layer = "hud"
 at = [791, 789]
+z_order = 10
 size = [20, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "954aa77d-8dfd-41fb-ac79-5546e7247c10"
@@ -557,25 +547,24 @@ layer = "hud"
 at = [864, 785]
 size = [72, 68]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "fe723f35-0109-4f0b-88c3-b4d2f260e516"
 object = "HotIcon4"
 layer = "hud"
 at = [876, 797]
+z_order = 5
 size = [46, 43]
 keep_ratio = false
-z_order = 5
 
 [[layout.instances]]
 id = "dd36cb11-22a4-43ce-b3c6-2a27cb6bf553"
 object = "HotKey4"
 layer = "hud"
 at = [869, 789]
+z_order = 10
 size = [20, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "4b4f17e5-2cdd-4c3b-9830-43d9ce5240c0"
@@ -584,25 +573,24 @@ layer = "hud"
 at = [942, 785]
 size = [72, 68]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "806863b8-e4e6-4ffa-a44f-f513111158f4"
 object = "HotIcon5"
 layer = "hud"
 at = [954, 797]
+z_order = 5
 size = [46, 43]
 keep_ratio = false
-z_order = 5
 
 [[layout.instances]]
 id = "8094fbce-5357-44fb-9b91-143b8f7725ac"
 object = "HotKey5"
 layer = "hud"
 at = [947, 789]
+z_order = 10
 size = [20, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "c06088b5-e852-42e1-8fda-f563cdce5f12"
@@ -611,25 +599,24 @@ layer = "hud"
 at = [1020, 785]
 size = [72, 68]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "577838a1-cb76-4f23-bbc8-cff0b9d04707"
 object = "HotIcon6"
 layer = "hud"
 at = [1032, 797]
+z_order = 5
 size = [46, 43]
 keep_ratio = false
-z_order = 5
 
 [[layout.instances]]
 id = "9d3cf4e8-fb98-4487-910f-c8000c00941c"
 object = "HotKey6"
 layer = "hud"
 at = [1025, 789]
+z_order = 10
 size = [20, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "0159d605-56ce-47f0-9e6d-ad00c0e29381"
@@ -638,112 +625,111 @@ layer = "hud"
 at = [1098, 785]
 size = [72, 68]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "50490a00-f502-4862-bdc1-c48d62206e81"
 object = "HotIcon7"
 layer = "hud"
 at = [1110, 797]
+z_order = 5
 size = [46, 43]
 keep_ratio = false
-z_order = 5
 
 [[layout.instances]]
 id = "7beddb4b-d8ee-4f70-aea8-e27b8ddc514b"
 object = "HotKey7"
 layer = "hud"
 at = [1103, 789]
+z_order = 10
 size = [20, 20]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "27349d23-031b-47db-8db6-deb684105e43"
 object = "HotBerries"
 layer = "hud"
 at = [752, 828]
+z_order = 10
 size = [40, 25]
 keep_ratio = false
-z_order = 10
 
 [[layout.instances]]
 id = "0acc2cd2-ce99-4486-b12a-2c19b5f2351a"
 object = "HarvestPanel"
 layer = "hud"
 at = [530, 640]
+z_order = 30
 size = [540, 100]
 keep_ratio = false
-z_order = 30
 
 [[layout.instances]]
 id = "f88250d7-60cc-41cd-9dc9-28a271097894"
 object = "HarvestHint"
 layer = "hud"
 at = [548, 653]
+z_order = 30
 size = [504, 82]
 keep_ratio = false
-z_order = 30
 
 [[layout.instances]]
 id = "1a1e67d3-18c3-4235-b23a-b2b718f35d9d"
 object = "OpenQuests"
 layer = "hud"
 at = [1220, 230]
+z_order = 2
 size = [358, 52]
 keep_ratio = false
-z_order = 2
 
 [[layout.instances]]
 id = "0e3fb458-8ca9-4302-a882-1d60b19dd2f9"
 object = "OpenQuestsLabel"
 layer = "hud"
 at = [1240, 244]
+z_order = 12
 size = [318, 30]
 keep_ratio = false
-z_order = 12
 
 [[layout.instances]]
 id = "309de651-580d-4802-b923-74efd6783fcb"
 object = "QuestToastPanel"
 layer = "hud"
 at = [490, 90]
+z_order = 20
 size = [620, 80]
 keep_ratio = false
-z_order = 20
 
 [[layout.instances]]
 id = "b9f6c5cf-1bb0-4c34-9167-1a7cf291fa5a"
 object = "QuestToast"
 layer = "hud"
 at = [515, 106]
+z_order = 21
 size = [570, 56]
 keep_ratio = false
-z_order = 21
 
 [[layout.instances]]
 id = "6efe573c-7107-4a20-ae65-4869e9568b20"
 object = "MountButton"
 layer = "hud"
 at = [1030, 527]
+z_order = 2
 size = [330, 48]
 keep_ratio = false
-z_order = 2
 
 [[layout.instances]]
 id = "342f3ab4-ed7d-49e5-b314-a410613e4209"
 object = "MountLabel"
 layer = "hud"
 at = [1050, 538]
+z_order = 12
 size = [290, 32]
 keep_ratio = false
-z_order = 12
 
 [[layout.instances]]
 id = "ce2a05d5-393d-4d27-a880-62a1d1f2ff1c"
 object = "WildPanel"
 layer = "hud"
-at = [340, 96, 0]
+at = [340, 96]
 z_order = 20
 size = [650, 82]
 keep_ratio = false
@@ -752,7 +738,7 @@ keep_ratio = false
 id = "31b2031c-c609-4ba5-b4c7-99fb36e63fee"
 object = "WildHint"
 layer = "hud"
-at = [358, 108, 0]
+at = [358, 108]
 z_order = 20
 size = [615, 70]
 keep_ratio = false
@@ -761,7 +747,7 @@ keep_ratio = false
 id = "cdeebe45-52e8-4b2e-8462-cf94445bb644"
 object = "AudioButton"
 layer = "hud"
-at = [1050, 588, 0]
+at = [1050, 588]
 z_order = 20
 size = [310, 36]
 keep_ratio = false
@@ -770,7 +756,7 @@ keep_ratio = false
 id = "35992847-dbe1-4454-a387-9903cbd8ce8e"
 object = "AudioLabel"
 layer = "hud"
-at = [1066, 596, 0]
+at = [1066, 596]
 z_order = 20
 size = [290, 30]
 keep_ratio = false
@@ -779,7 +765,7 @@ keep_ratio = false
 id = "2d9bfeca-7b44-4148-b600-44979b599d0e"
 object = "DeathPanel"
 layer = "hud"
-at = [400, 240, 0]
+at = [400, 240]
 z_order = 20
 size = [800, 370]
 keep_ratio = false
@@ -788,7 +774,7 @@ keep_ratio = false
 id = "a0031553-6893-4b53-81d1-97915923ba7a"
 object = "DeathText"
 layer = "hud"
-at = [440, 295, 0]
+at = [440, 295]
 z_order = 20
 size = [720, 260]
 keep_ratio = false
@@ -797,7 +783,7 @@ keep_ratio = false
 id = "6e78268d-a128-40af-9632-286da4cc28eb"
 object = "DamageFlash"
 layer = "hud"
-at = [0, 0, 0]
+at = [0, 0]
 z_order = 20
 size = [1600, 900]
 keep_ratio = false
@@ -806,7 +792,7 @@ keep_ratio = false
 id = "d838dd75-17e1-475d-ba68-fbfda28256cd"
 object = "BuildToggle"
 layer = "hud"
-at = [1140, 651, 0]
+at = [1140, 651]
 z_order = 100
 size = [430, 43]
 keep_ratio = false
@@ -815,7 +801,7 @@ keep_ratio = false
 id = "17f7f46a-bdc5-47b8-b9db-3bc495e9a307"
 object = "BuildToggleLabel"
 layer = "hud"
-at = [1156, 662, 0]
+at = [1156, 662]
 z_order = 100
 size = [400, 28]
 keep_ratio = false
@@ -824,7 +810,7 @@ keep_ratio = false
 id = "5db73c29-f5e0-45cb-ac27-ed093fcb7839"
 object = "BuildPanel"
 layer = "hud"
-at = [1020, 315, 0]
+at = [1020, 315]
 z_order = 100
 size = [560, 325]
 keep_ratio = false
@@ -833,7 +819,7 @@ keep_ratio = false
 id = "ba2b54a3-73c2-44d8-84aa-33b3668a9248"
 object = "BuildTitle"
 layer = "hud"
-at = [1042, 335, 0]
+at = [1042, 335]
 z_order = 100
 size = [520, 35]
 keep_ratio = false
@@ -842,7 +828,7 @@ keep_ratio = false
 id = "ebae2ff1-754d-4195-8573-321ada193518"
 object = "BuildChoice1"
 layer = "hud"
-at = [1040, 380, 0]
+at = [1040, 380]
 z_order = 100
 size = [255, 35]
 keep_ratio = false
@@ -851,7 +837,7 @@ keep_ratio = false
 id = "445b51bb-32cc-4e75-a7a6-ba3f5525b20f"
 object = "BuildChoiceLabel1"
 layer = "hud"
-at = [1048, 390, 0]
+at = [1048, 390]
 z_order = 100
 size = [245, 28]
 keep_ratio = false
@@ -860,7 +846,7 @@ keep_ratio = false
 id = "8ad2d0cb-9e6b-42cc-80b7-096c7244e2e7"
 object = "BuildChoice2"
 layer = "hud"
-at = [1305, 380, 0]
+at = [1305, 380]
 z_order = 100
 size = [255, 35]
 keep_ratio = false
@@ -869,7 +855,7 @@ keep_ratio = false
 id = "8cf5ad6c-a199-4fc5-9150-c8edff6446f0"
 object = "BuildChoiceLabel2"
 layer = "hud"
-at = [1313, 390, 0]
+at = [1313, 390]
 z_order = 100
 size = [245, 28]
 keep_ratio = false
@@ -878,7 +864,7 @@ keep_ratio = false
 id = "d0d5b05d-5383-42b8-9db9-9f83996f926e"
 object = "BuildChoice3"
 layer = "hud"
-at = [1040, 419, 0]
+at = [1040, 419]
 z_order = 100
 size = [255, 35]
 keep_ratio = false
@@ -887,7 +873,7 @@ keep_ratio = false
 id = "d94dc4af-d580-47a5-aa4a-f1f5d9e88196"
 object = "BuildChoiceLabel3"
 layer = "hud"
-at = [1048, 429, 0]
+at = [1048, 429]
 z_order = 100
 size = [245, 28]
 keep_ratio = false
@@ -896,17 +882,16 @@ keep_ratio = false
 id = "bbbf1200-7adc-420b-9a5b-fd49fb9fb57d"
 object = "BuildStatus"
 layer = "hud"
-at = [1042, 541, 0]
+at = [1042, 541]
 z_order = 100
 size = [520, 95]
 keep_ratio = false
-
 
 [[layout.instances]]
 id = "2c8ab300-4f2a-46d4-8986-981fa37aea7d"
 object = "BuildChoice4"
 layer = "hud"
-at = [1305, 419, 0]
+at = [1305, 419]
 z_order = 100
 size = [255, 35]
 keep_ratio = false
@@ -915,7 +900,7 @@ keep_ratio = false
 id = "6a7e2dcf-b95f-49cf-a618-c0c416a97236"
 object = "BuildChoiceLabel4"
 layer = "hud"
-at = [1313, 429, 0]
+at = [1313, 429]
 z_order = 100
 size = [245, 28]
 keep_ratio = false
@@ -924,7 +909,7 @@ keep_ratio = false
 id = "823204f3-4f2b-4116-ab6f-c6e1ceeef119"
 object = "BuildChoice5"
 layer = "hud"
-at = [1040, 458, 0]
+at = [1040, 458]
 z_order = 100
 size = [255, 35]
 keep_ratio = false
@@ -933,7 +918,7 @@ keep_ratio = false
 id = "e840bc0e-bc4f-44fe-8ac2-6ac7ef555c4e"
 object = "BuildChoiceLabel5"
 layer = "hud"
-at = [1048, 468, 0]
+at = [1048, 468]
 z_order = 100
 size = [245, 28]
 keep_ratio = false
@@ -942,7 +927,7 @@ keep_ratio = false
 id = "cd56b42a-ff48-4d5b-9441-a4282ad01f0d"
 object = "BuildChoice6"
 layer = "hud"
-at = [1305, 458, 0]
+at = [1305, 458]
 z_order = 100
 size = [255, 35]
 keep_ratio = false
@@ -951,7 +936,7 @@ keep_ratio = false
 id = "f7388cc3-4f54-4521-b16b-dc18951b0587"
 object = "BuildChoiceLabel6"
 layer = "hud"
-at = [1313, 468, 0]
+at = [1313, 468]
 z_order = 100
 size = [245, 28]
 keep_ratio = false
@@ -960,7 +945,7 @@ keep_ratio = false
 id = "a74c84ae-fb1a-4f68-b750-817b8ad3ae7c"
 object = "BuildChoice7"
 layer = "hud"
-at = [1040, 497, 0]
+at = [1040, 497]
 z_order = 100
 size = [255, 35]
 keep_ratio = false
@@ -969,7 +954,7 @@ keep_ratio = false
 id = "947e8ce6-0bb7-4dd4-82e1-9fdc84e8ec7d"
 object = "BuildChoiceLabel7"
 layer = "hud"
-at = [1048, 507, 0]
+at = [1048, 507]
 z_order = 100
 size = [245, 28]
 keep_ratio = false
@@ -978,7 +963,7 @@ keep_ratio = false
 id = "ed385338-411c-41d4-be31-19700e69dc19"
 object = "BuildChoice8"
 layer = "hud"
-at = [1305, 497, 0]
+at = [1305, 497]
 z_order = 100
 size = [255, 35]
 keep_ratio = false
@@ -987,7 +972,7 @@ keep_ratio = false
 id = "36a4c2d0-3fa6-4a09-89a4-9d0ba19a2d71"
 object = "BuildChoiceLabel8"
 layer = "hud"
-at = [1313, 507, 0]
+at = [1313, 507]
 z_order = 100
 size = [245, 28]
 keep_ratio = false

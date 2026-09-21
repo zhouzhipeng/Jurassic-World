@@ -1,41 +1,42 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 0
-folder = ["Real-time 3D"]
+assetStoreId = ""
 name = "Body"
+persistentUuid = "a959337c-5cc7-40d0-b1e4-066687557711"
 type = "Scene3D::Model3DObject"
-behaviors = [ ]
-effects = [ ]
 variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "Real-time 3D" ]
 
 [content]
-modelResourceName = "parasaur-animated.glb"
-width = 215
-height = 666
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
 depth = 435
+height = 666
+isCastingShadow = true
+isReceivingShadow = true
 keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "parasaur-animated.glb"
+originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = true
-isReceivingShadow = true
-crossfadeDuration = 0.1
+width = 215
 sharedAnimationModelResources = [ ]
 
 [[content.animations]]
+loop = true
 name = "Idle"
 source = "Idle"
 sourceModelResourceName = ""
-loop = true
 useRootMotion = false
 
 [[content.animations]]
+loop = true
 name = "Walk"
 source = "Walk"
 sourceModelResourceName = ""
-loop = true
 useRootMotion = false
-

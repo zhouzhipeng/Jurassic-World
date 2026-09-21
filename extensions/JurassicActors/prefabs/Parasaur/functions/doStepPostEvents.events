@@ -1,18 +1,23 @@
+@event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=0
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Idle"
 
+@event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=1
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Walk"
 
+@event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationPlaying)) comparison_sign="=" second_expression=1
 do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Body" behavior="Animation"
 
+@event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationPlaying)) comparison_sign="=" second_expression=0
 do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Body" behavior="Animation"
 
+@event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(MountedRiderVisible)) comparison_sign="=" second_expression=0
 do Hide object="MountedRider"
 
+@event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(MountedRiderVisible)) comparison_sign="=" second_expression=1
 do Show object="MountedRider"
-

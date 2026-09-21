@@ -1,20 +1,49 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 23
-folder = ["UI", "External Layouts"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "QuestBody"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+string = """
+Find the red berry bush.
+Hold E to gather, then feed your companion."""
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 16
+folder = [ "UI", "External Layouts" ]
+
+[color]
+b = 218
+g = 240
+r = 242
 
 [content]
-text = "Find the red berry bush.\nHold E to gather, then feed your companion."
-font = "interface.ttf"
-characterSize = 16
-color = "242;240;218"
 bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
 italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
 smoothed = true
+underlined = false
+text = """
+Find the red berry bush.
+Hold E to gather, then feed your companion."""
+font = "interface.ttf"
 textAlignment = "left"
 verticalTextAlignment = "top"
+characterSize = 16
+lineHeight = 0
+color = "242;240;218"

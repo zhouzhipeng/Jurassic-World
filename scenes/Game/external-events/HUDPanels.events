@@ -1,3 +1,4 @@
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
 do ShowLayer layer="HUD"
@@ -8,6 +9,7 @@ do HideLayer layer="Title"
 do HideLayer layer="Photo"
 do HideLayer layer="Quests"
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=1
 if BuiltinCommonInstructions::Once
 do HideLayer layer="HUD"
@@ -18,6 +20,7 @@ do HideLayer layer="Title"
 do HideLayer layer="Photo"
 do HideLayer layer="Quests"
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=2
 if BuiltinCommonInstructions::Once
 do HideLayer layer="HUD"
@@ -28,6 +31,7 @@ do HideLayer layer="Title"
 do HideLayer layer="Photo"
 do HideLayer layer="Quests"
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=3
 if BuiltinCommonInstructions::Once
 do HideLayer layer="HUD"
@@ -38,6 +42,7 @@ do HideLayer layer="Title"
 do HideLayer layer="Photo"
 do HideLayer layer="Quests"
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=4
 if BuiltinCommonInstructions::Once
 do HideLayer layer="HUD"
@@ -48,6 +53,7 @@ do ShowLayer layer="Title"
 do HideLayer layer="Photo"
 do HideLayer layer="Quests"
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=5
 if BuiltinCommonInstructions::Once
 do HideLayer layer="HUD"
@@ -57,6 +63,7 @@ do HideLayer layer="Settings"
 do HideLayer layer="Title"
 do ShowLayer layer="Photo"
 
+@event
 if NumberVariable variable="StationIndex" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
 do Hide object="CampWorld"
@@ -65,6 +72,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="FeedLabel" b
 do TextContainerCapability::TextContainerBehavior::SetValue object="DinoName" behavior="Text" modification_sign="=" text="PARASAUROLOPHUS"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DinoLevel" behavior="Text" modification_sign="=" text="Level 4  /  Herbivore"
 
+@event
 if NumberVariable variable="StationIndex" comparison_sign="=" value=1
 if BuiltinCommonInstructions::Once
 do Show object="CampWorld"
@@ -73,16 +81,19 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="FeedLabel" b
 do TextContainerCapability::TextContainerBehavior::SetValue object="DinoName" behavior="Text" modification_sign="=" text="COASTAL CAMP"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DinoLevel" behavior="Text" modification_sign="=" text="B 建造庇护所：10 木 / 5 石 / 8 纤维"
 
+@event
 if NumberVariable variable="Help" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
 do Hide object="Controls"
 do TextContainerCapability::TextContainerBehavior::SetValue object="HelpToggleLabel" behavior="Text" modification_sign="=" text="OFF"
 
+@event
 if NumberVariable variable="Help" comparison_sign="=" value=1
 if BuiltinCommonInstructions::Once
 do Show object="Controls"
 do TextContainerCapability::TextContainerBehavior::SetValue object="HelpToggleLabel" behavior="Text" modification_sign="=" text="ON"
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="Notice" behavior="Text" modification_sign="=" text=expr(NoticeMessage)
 do TextContainerCapability::TextContainerBehavior::SetValue object="TrustText" behavior="Text" modification_sign="=" text=expr("Trust " + ToString(Trust) + "%")
@@ -107,167 +118,232 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="CountFlint" 
 do TextContainerCapability::TextContainerBehavior::SetValue object="CountRope" behavior="Text" modification_sign="=" text=expr(ToString(Rope))
 do TextContainerCapability::TextContainerBehavior::SetValue object="Weight" behavior="Text" modification_sign="=" text=expr("Supplies: " + ToString(Wood + Stone + Fiber + Berries) + " units")
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 if NumberVariable variable="Recipe" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="RecipeTitle" behavior="Text" modification_sign="=" text="STONE AXE"
 do TextContainerCapability::TextContainerBehavior::SetValue object="Requirements" behavior="Text" modification_sign="=" text=expr("Wood   " + ToString(Wood) + " / 5" + NewLine() + "Stone   " + ToString(Stone) + " / 3" + NewLine() + "Fiber    " + ToString(Fiber) + " / 4")
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 if NumberVariable variable="Recipe" comparison_sign="=" value=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="RecipeTitle" behavior="Text" modification_sign="=" text="SPEAR"
 do TextContainerCapability::TextContainerBehavior::SetValue object="Requirements" behavior="Text" modification_sign="=" text=expr("Wood   " + ToString(Wood) + " / 6" + NewLine() + "Stone   " + ToString(Stone) + " / 2" + NewLine() + "Fiber    " + ToString(Fiber) + " / 4")
 
+@event
 if NumberVariable variable="Recipe" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
 do Show object="CraftAxe"
 do Hide object="CraftSpear"
 do TextContainerCapability::TextContainerBehavior::SetValue object="RecipeDescription" behavior="Text" modification_sign="=" text="Gather wood and defend yourself."
 
+@event
 if NumberVariable variable="Recipe" comparison_sign="=" value=1
 if BuiltinCommonInstructions::Once
 do Hide object="CraftAxe"
 do Show object="CraftSpear"
 do TextContainerCapability::TextContainerBehavior::SetValue object="RecipeDescription" behavior="Text" modification_sign="=" text="Equipment for your next expedition."
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Feed" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Feed" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Feed" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Gather" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Gather" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Gather" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Chop" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Chop" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Chop" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Drink" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Drink" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Drink" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Station" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Station" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Station" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="OpenPack" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="OpenPack" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="OpenPack" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="OpenMenu" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="OpenMenu" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="OpenMenu" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Craft" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Craft" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Craft" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="ChooseAxe" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="ChooseAxe" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="ChooseAxe" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="ChooseSpear" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="ChooseSpear" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="ChooseSpear" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="ClosePack" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="ClosePack" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="ClosePack" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=2
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Resume" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Resume" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Resume" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=2
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Save" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Save" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Save" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=2
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Load" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Load" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Load" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=2
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Settings" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Settings" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Settings" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=2
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Photo" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Photo" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Photo" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=2
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Title" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="Title" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="Title" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=3
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="HelpToggle" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="HelpToggle" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="HelpToggle" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=3
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="SettingsBack" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="SettingsBack" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="SettingsBack" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=4
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="TitleContinue" accurate_test_yes_by_default=false
 do OpacityCapability::OpacityBehavior::SetValue object="TitleContinue" behavior="Opacity" modification_sign="=" opacity_0_255=210
+
+@event
 else
 do OpacityCapability::OpacityBehavior::SetValue object="TitleContinue" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=0

@@ -1,20 +1,49 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 177
-folder = ["UI", "External Layouts"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "SaveStatus"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+string = """
+No local save yet.
+Use Save Game to save progress."""
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 18
+folder = [ "UI", "External Layouts" ]
+
+[color]
+b = 218
+g = 240
+r = 242
 
 [content]
-text = "No local save yet.\nUse Save Game to save progress."
-font = "interface.ttf"
-characterSize = 18
-color = "242;240;218"
 bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
 italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
 smoothed = true
+underlined = false
+text = """
+No local save yet.
+Use Save Game to save progress."""
+font = "interface.ttf"
 textAlignment = "left"
 verticalTextAlignment = "top"
+characterSize = 18
+lineHeight = 0
+color = "242;240;218"

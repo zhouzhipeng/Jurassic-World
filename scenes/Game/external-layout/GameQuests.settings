@@ -17,167 +17,165 @@ layer = "quests"
 at = [0, 0]
 size = [1600, 900]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "f481490d-ccae-441f-b92e-4dc40734df0f"
 object = "QuestBoard"
 layer = "quests"
 at = [60, 54]
+z_order = 1
 size = [1480, 788]
 keep_ratio = false
-z_order = 1
 
 [[layout.instances]]
 id = "a22560fe-8733-445e-9b55-85eca7fc903c"
 object = "JournalHeading"
 layer = "quests"
 at = [100, 85]
+z_order = 4
 size = [1200, 55]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "4037c07c-75fd-4a5c-adca-4e2c43c401f6"
 object = "JournalSummary"
 layer = "quests"
 at = [100, 150]
+z_order = 4
 size = [1300, 45]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "1e26d80d-e8f2-4bcd-af37-b114fb316f07"
 object = "QuestRow0"
 layer = "quests"
 at = [110, 242]
+z_order = 4
 size = [405, 55]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "83908283-b830-410c-9c89-d9f5f681c325"
 object = "QuestRow1"
 layer = "quests"
 at = [110, 314]
+z_order = 4
 size = [405, 55]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "ffc94585-cd05-4624-be0d-5f5de8f51d57"
 object = "QuestRow2"
 layer = "quests"
 at = [110, 386]
+z_order = 4
 size = [405, 55]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "0e60083f-5cf3-4db7-8217-50c0806cc6bc"
 object = "QuestRow3"
 layer = "quests"
 at = [110, 458]
+z_order = 4
 size = [405, 55]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "b8af27e7-0038-45f8-becb-25cef2d7490d"
 object = "QuestRow4"
 layer = "quests"
 at = [110, 530]
+z_order = 4
 size = [405, 55]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "548199e1-7bb6-4493-8c60-073f7295847c"
 object = "QuestRow5"
 layer = "quests"
 at = [110, 602]
+z_order = 4
 size = [405, 55]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "a7859c27-7410-4772-8e33-fdc9b567ff95"
 object = "JournalTitle"
 layer = "quests"
 at = [590, 230]
+z_order = 4
 size = [850, 50]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "9821858f-3aeb-46ec-a833-7c8282023223"
 object = "JournalStory"
 layer = "quests"
 at = [590, 304]
+z_order = 4
 size = [840, 105]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "795c9aa0-f407-4f45-b829-94b89759034e"
 object = "JournalProgress"
 layer = "quests"
 at = [590, 427]
+z_order = 4
 size = [840, 85]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "24730826-c556-4ae6-9e93-54e2ea5e7fd7"
 object = "JournalInstruction"
 layer = "quests"
 at = [590, 523]
+z_order = 4
 size = [840, 86]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "c15bba0f-9306-4ce8-9372-91e059d041c2"
 object = "JournalReward"
 layer = "quests"
 at = [590, 638]
+z_order = 4
 size = [840, 55]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "049d7a15-0041-41a3-a9fe-2018f8e96d23"
 object = "ClaimQuest"
 layer = "quests"
 at = [590, 718]
+z_order = 4
 size = [470, 64]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "0c431a13-0459-475e-99c0-21c3fd1cdf94"
 object = "ClaimQuestLabel"
 layer = "quests"
 at = [612, 735]
+z_order = 5
 size = [425, 40]
 keep_ratio = false
-z_order = 5
 
 [[layout.instances]]
 id = "23405a30-72cd-45ad-b9d8-25534ec92e5f"
 object = "CloseQuests"
 layer = "quests"
 at = [1100, 718]
+z_order = 4
 size = [350, 64]
 keep_ratio = false
-z_order = 4
 
 [[layout.instances]]
 id = "75ed03f7-5d31-431c-a177-dce7326bceb1"
 object = "CloseQuestsLabel"
 layer = "quests"
 at = [1120, 735]
+z_order = 5
 size = [310, 40]
 keep_ratio = false
-z_order = 5
-

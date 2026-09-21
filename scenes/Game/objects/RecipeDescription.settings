@@ -1,20 +1,49 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 146
-folder = ["UI", "External Layouts"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "RecipeDescription"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+string = """
+Gather wood and
+defend yourself."""
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 18
+folder = [ "UI", "External Layouts" ]
+
+[color]
+b = 218
+g = 240
+r = 242
 
 [content]
-text = "Gather wood and\ndefend yourself."
-font = "interface.ttf"
-characterSize = 18
-color = "242;240;218"
 bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
 italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
 smoothed = true
+underlined = false
+text = """
+Gather wood and
+defend yourself."""
+font = "interface.ttf"
 textAlignment = "left"
 verticalTextAlignment = "top"
+characterSize = 18
+lineHeight = 0
+color = "242;240;218"

@@ -1,20 +1,45 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 20
-folder = ["UI", "External Layouts"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "Compass"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+string = "W       ·       N       ·       E"
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 19
+folder = [ "UI", "External Layouts" ]
+
+[color]
+b = 218
+g = 240
+r = 242
 
 [content]
+bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
 text = "W       ·       N       ·       E"
 font = "interface.ttf"
-characterSize = 19
-color = "242;240;218"
-bold = false
-italic = false
-smoothed = true
 textAlignment = "left"
 verticalTextAlignment = "top"
+characterSize = 19
+lineHeight = 0
+color = "242;240;218"

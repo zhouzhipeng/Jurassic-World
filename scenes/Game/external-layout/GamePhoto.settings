@@ -17,14 +17,12 @@ layer = "photo"
 at = [32, 835]
 size = [360, 40]
 keep_ratio = false
-z_order = 0
 
 [[layout.instances]]
 id = "7456984a-89fb-4047-886d-b395909f6f7f"
 object = "PhotoText"
 layer = "photo"
 at = [50, 845]
+z_order = 10
 size = [330, 26]
 keep_ratio = false
-z_order = 10
-

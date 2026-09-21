@@ -1,12 +1,16 @@
 kind = "function"
 settingsFormatVersion = 6
 order = 1
-folder = []
-name = "doStepPostEvents"
-functionType = "Action"
-fullName = "doStepPostEvents"
 description = "Own Survivor child presentation and initialization."
-private = false
-async = false
-parameters = [{ name = "Object", description = "Object", type = "object", supplementaryInformation = "JurassicActors::Survivor" }]
+fullName = "doStepPostEvents"
+functionType = "Action"
+name = "doStepPostEvents"
+sentence = ""
+folder = [ ]
 objectGroups = { }
+
+[[parameters]]
+description = "Object"
+name = "Object"
+supplementaryInformation = "JurassicActors::Survivor"
+type = "object"

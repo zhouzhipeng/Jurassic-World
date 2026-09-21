@@ -1,20 +1,51 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 148
-folder = ["UI", "External Layouts"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "Requirements"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+string = """
+Wood   12 / 5
+Stone    8 / 3
+Fiber   20 / 4"""
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 23
+folder = [ "UI", "External Layouts" ]
+
+[color]
+b = 218
+g = 240
+r = 242
 
 [content]
-text = "Wood   12 / 5\nStone    8 / 3\nFiber   20 / 4"
-font = "interface.ttf"
-characterSize = 23
-color = "242;240;218"
 bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
 italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
 smoothed = true
+underlined = false
+text = """
+Wood   12 / 5
+Stone    8 / 3
+Fiber   20 / 4"""
+font = "interface.ttf"
 textAlignment = "left"
 verticalTextAlignment = "top"
+characterSize = 23
+lineHeight = 0
+color = "242;240;218"

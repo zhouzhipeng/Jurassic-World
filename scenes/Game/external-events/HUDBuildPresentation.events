@@ -1,20 +1,23 @@
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
-do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text=expr("B 建造 · 地基 / 墙 / 柱 / 楼板")
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="B 建造 · 地基 / 墙 / 柱 / 楼板"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="DoorSlot" comparison_sign=">=" value=expr(0)
-do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text=expr("E 打开 / 关闭木门 · B 建造")
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="DoorSlot" comparison_sign=">=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="E 打开 / 关闭木门 · B 建造"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do Show object="BuildPanel"
 do Show object="BuildTitle"
 do Show object="BuildStatus"
@@ -34,129 +37,147 @@ do Show object="BuildChoice7"
 do Show object="BuildChoiceLabel7"
 do Show object="BuildChoice8"
 do Show object="BuildChoiceLabel8"
-do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text=expr("B 退出 · Delete 拆除所选类型构件")
+do TextContainerCapability::TextContainerBehavior::SetValue object="BuildToggleLabel" behavior="Text" modification_sign="=" text="B 退出 · Delete 拆除所选类型构件"
 do TextContainerCapability::TextContainerBehavior::SetValue object="BuildTitle" behavior="Text" modification_sign="=" text=expr("木制构件 · " + ToString(BuildCount) + "/128   木"+ToString(Wood)+" 石"+ToString(Stone)+" 纤"+ToString(Fiber))
 do TextContainerCapability::TextContainerBehavior::SetValue object="BuildStatus" behavior="Text" modification_sign="=" text=expr(BuildReason+NewLine()+"WASD 移位 · R 转向 · Enter 放置"+NewLine()+"PgUp/PgDn 楼层："+ToString(BuildLevel+1)+" · 绿色可搭 / 红色不可搭")
 do Hide object="HarvestPanel"
 do Hide object="HarvestHint"
-do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modification_sign="=" value=expr(0)
-do SetNumberObjectVariable object="Player3D" variable="CombatSpearVisible" modification_sign="=" value=expr(0)
+do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modification_sign="=" value=0
+do SetNumberObjectVariable object="Player3D" variable="CombatSpearVisible" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="BuildMessageTime" comparison_sign=">" value=expr(0)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildMessageTime" comparison_sign=">" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="BuildStatus" behavior="Text" modification_sign="=" text=expr(BuildMessage+NewLine()+"WASD 移位 · R 转向 · Enter 放置"+NewLine()+"PgUp/PgDn 楼层："+ToString(BuildLevel+1)+" · Delete 拆除")
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do ChangeColor object="BuildChoice1" tint="170;190;180"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(10)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=10
 do ChangeColor object="BuildChoice1" tint="255;215;125"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do ChangeColor object="BuildChoice2" tint="170;190;180"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(11)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=11
 do ChangeColor object="BuildChoice2" tint="255;215;125"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do ChangeColor object="BuildChoice3" tint="170;190;180"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(12)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=12
 do ChangeColor object="BuildChoice3" tint="255;215;125"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do ChangeColor object="BuildChoice4" tint="170;190;180"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(13)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=13
 do ChangeColor object="BuildChoice4" tint="255;215;125"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do ChangeColor object="BuildChoice5" tint="170;190;180"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(14)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=14
 do ChangeColor object="BuildChoice5" tint="255;215;125"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do ChangeColor object="BuildChoice6" tint="170;190;180"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(15)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=15
 do ChangeColor object="BuildChoice6" tint="255;215;125"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do ChangeColor object="BuildChoice7" tint="170;190;180"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(16)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=16
 do ChangeColor object="BuildChoice7" tint="255;215;125"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do ChangeColor object="BuildChoice8" tint="170;190;180"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="BuildKind" comparison_sign="=" value=expr(3)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildKind" comparison_sign="=" value=3
 do ChangeColor object="BuildChoice8" tint="255;215;125"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do Hide object="DinoPanel"
 do Hide object="DinoName"
 do Hide object="DinoLevel"
@@ -170,10 +191,11 @@ do Hide object="MountLabel"
 do Hide object="AudioButton"
 do Hide object="AudioLabel"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 do Show object="DinoPanel"
 do Show object="DinoName"
 do Show object="DinoLevel"
@@ -186,4 +208,3 @@ do Show object="MountButton"
 do Show object="MountLabel"
 do Show object="AudioButton"
 do Show object="AudioLabel"
-

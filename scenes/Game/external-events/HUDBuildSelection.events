@@ -1,4 +1,5 @@
-if NumberVariable variable="Mode" comparison_sign=">=" value=expr(0)
+@event
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
 do Hide object="BuildGhosts"
 do Hide object="BuildPanel"
 do Hide object="BuildTitle"
@@ -19,168 +20,185 @@ do Hide object="BuildChoice7"
 do Hide object="BuildChoiceLabel7"
 do Hide object="BuildChoice8"
 do Hide object="BuildChoiceLabel8"
-do SetNumberVariable variable="BuildWarm" modification_sign="=" value=expr(0)
-do SetNumberVariable variable="BuildRest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="BuildWarm" modification_sign="=" value=0
+do SetNumberVariable variable="BuildRest" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
 do Show object="BuildToggle"
 do Show object="BuildToggleLabel"
 
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
+@event
+if NumberVariable variable="Mode" comparison_sign="!=" value=0
 do Hide object="BuildToggle"
 do Hide object="BuildToggleLabel"
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num1"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(10)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=10
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice1" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(10)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=10
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num2"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(11)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=11
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice2" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(11)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=11
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num3"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(12)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=12
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice3" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(12)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=12
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num4"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(13)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=13
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice4" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(13)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=13
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num5"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(14)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=14
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice5" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(14)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=14
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num6"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(15)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=15
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice6" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(15)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=15
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num7"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(16)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=16
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice7" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(16)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=16
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num8"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(3)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=3
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice8" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(3)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=3
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
-

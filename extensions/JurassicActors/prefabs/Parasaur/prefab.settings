@@ -1,36 +1,47 @@
 kind = "prefab"
 settingsFormatVersion = 6
 order = 1
-name = "Parasaur"
-fullName = "Parasaur"
-description = "Reusable Parasaur model, instance state and animation controller."
 defaultName = "Dinosaur3D"
-private = false
+description = "Reusable Parasaur model, instance state and animation controller."
+fullName = "Parasaur"
+helpPath = ""
+iconUrl = ""
 is3D = true
-isAnimatable = false
-isTextContainer = false
-isInnerAreaFollowingParentSize = false
 isUsingLegacyInstancesRenderer = false
-propertyDescriptors = []
+name = "Parasaur"
+previewIconUrl = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
 objectGroups = { }
-
-variables = []
 
 [layout]
 version = 1
-bounds = { min = [-108, -333, 0], max = [108, 333, 435] }
+bounds = { max = [108, 333, 435], min = [-108, -333, 0] }
+
+[layout.editor]
+grid = false
+grid_type = "rectangular"
+grid_size = [32, 32, 32]
+grid_offset = [0, 0, 0]
+grid_color = "#9EB4FF"
+grid_alpha = 0.8
+snap = false
+zoom = 1.0510510510510511
+window_mask = false
+selected_layer = ""
+mode = "embedded-game"
 
 [[layout.layers]]
 id = "base"
 name = ""
 rendering = "3d"
-lighting = false
 
 [[layout.instances]]
 id = "64b0036e-38f9-40c8-addd-a0926d3c251e"
 object = "Body"
 layer = "base"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "a0d171ff-b969-4ea1-a05e-f7abe3823d5c"

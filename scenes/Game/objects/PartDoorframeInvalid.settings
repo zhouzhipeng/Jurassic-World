@@ -1,11 +1,13 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 272
-folder = ["Construction"]
+assetStoreId = ""
 name = "PartDoorframeInvalid"
 type = "Scene3D::Model3DObject"
-behaviors = []
-effects = []
+effects = [ ]
+behaviors = [ ]
+folder = [ "Construction" ]
+
 [[variables]]
 name = "Kind"
 type = "number"
@@ -77,19 +79,19 @@ type = "number"
 value = 2
 
 [content]
-modelResourceName = "modular-doorframe-invalid.glb"
-width = 300.00000
-height = 25.00000
-depth = 300.00000
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 300
+height = 25
+isCastingShadow = false
+isReceivingShadow = true
 keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "modular-doorframe-invalid.glb"
+originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = false
-isReceivingShadow = true
-crossfadeDuration = 0.1
-animations = []
-sharedAnimationModelResources = []
+width = 300
+sharedAnimationModelResources = [ ]
+animations = [ ]

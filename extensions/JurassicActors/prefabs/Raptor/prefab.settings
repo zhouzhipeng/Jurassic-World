@@ -1,33 +1,31 @@
 kind = "prefab"
 settingsFormatVersion = 6
 order = 4
-name = "Raptor"
-fullName = "Raptor"
-description = "Reusable Raptor model, instance state and animation controller."
 defaultName = "Raptor"
-private = false
+description = "Reusable Raptor model, instance state and animation controller."
+fullName = "Raptor"
+helpPath = ""
+iconUrl = ""
 is3D = true
-isAnimatable = false
-isTextContainer = false
-isInnerAreaFollowingParentSize = false
 isUsingLegacyInstancesRenderer = false
-propertyDescriptors = []
+name = "Raptor"
+previewIconUrl = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
 objectGroups = { }
-
-variables = []
 
 [layout]
 version = 1
-bounds = { min = [-59, -188, 0], max = [59, 188, 184] }
+bounds = { max = [59, 188, 184], min = [-59, -188, 0] }
 
 [[layout.layers]]
 id = "base"
 name = ""
 rendering = "3d"
-lighting = false
 
 [[layout.instances]]
 id = "d7fc7cb4-e806-4d7d-bae1-7672de3bf630"
 object = "Body"
 layer = "base"
-at = [0, 0, 0]
+at = [0, 0]

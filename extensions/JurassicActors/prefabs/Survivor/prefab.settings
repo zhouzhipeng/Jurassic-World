@@ -1,45 +1,56 @@
 kind = "prefab"
 settingsFormatVersion = 6
 order = 0
-name = "Survivor"
-fullName = "Survivor"
-description = "Reusable Survivor model, instance state and animation controller."
 defaultName = "Player3D"
-private = false
+description = "Reusable Survivor model, instance state and animation controller."
+fullName = "Survivor"
+helpPath = ""
+iconUrl = ""
 is3D = true
-isAnimatable = false
-isTextContainer = false
-isInnerAreaFollowingParentSize = false
 isUsingLegacyInstancesRenderer = false
-propertyDescriptors = []
+name = "Survivor"
+previewIconUrl = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
 objectGroups = { }
-
-variables = []
 
 [layout]
 version = 1
-bounds = { min = [-54, -36, 0], max = [54, 36, 202] }
+bounds = { max = [54, 36, 202], min = [-54, -36, 0] }
+
+[layout.editor]
+grid = false
+grid_type = "rectangular"
+grid_size = [32, 32, 32]
+grid_offset = [0, 0, 0]
+grid_color = "#9EB4FF"
+grid_alpha = 0.8
+snap = false
+zoom = 2.098796477338534
+window_mask = false
+selected_layer = ""
+mode = "instances-editor"
 
 [[layout.layers]]
 id = "base"
 name = ""
 rendering = "3d"
-lighting = false
 
 [[layout.instances]]
 id = "98d54e1c-5921-4afa-835c-1ab79400e872"
 object = "Body"
 layer = "base"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "31ec6300-918c-490e-9592-c265dae8ebfb"
 object = "HeldAxe"
 layer = "base"
-at = [0, 0, 0]
+at = [0, 0]
 
 [[layout.instances]]
 id = "44902796-b265-4620-8ea4-7e891b2ec443"
 object = "CombatSpear"
 layer = "base"
-at = [0, 0, 0]
+at = [0, 0]

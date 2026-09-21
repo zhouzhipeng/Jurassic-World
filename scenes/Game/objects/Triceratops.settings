@@ -1,13 +1,14 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 230
-folder = ["Actors"]
+assetStoreId = ""
 name = "Triceratops"
 type = "JurassicActors::Triceratops"
 variant = ""
-behaviors = []
-effects = []
-
+effects = [ ]
+behaviors = [ ]
+content = { }
+folder = [ "Actors" ]
 
 [[variables]]
 name = "HP"
@@ -27,12 +28,12 @@ value = 0
 [[variables]]
 name = "HomeX"
 type = "number"
-value = -1750
+value = -1_750
 
 [[variables]]
 name = "HomeY"
 type = "number"
-value = 1350
+value = 1_350
 
 [[variables]]
 name = "Radius"
@@ -168,8 +169,6 @@ value = 0
 name = "ActorConfigured"
 type = "number"
 value = 1
-
-[content]
 
 
 [[variables]]

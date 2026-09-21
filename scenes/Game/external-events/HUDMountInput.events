@@ -1,3 +1,4 @@
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1

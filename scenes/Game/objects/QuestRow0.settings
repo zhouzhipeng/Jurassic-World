@@ -1,20 +1,45 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 213
-folder = ["UI", "External Layouts"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "QuestRow0"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+string = "01  第一份食物"
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 24
+folder = [ "UI", "External Layouts" ]
+
+[color]
+b = 218
+g = 240
+r = 242
 
 [content]
+bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
 text = "01  第一份食物"
 font = "interface.ttf"
-characterSize = 24
-color = "242;240;218"
-bold = false
-italic = false
-smoothed = true
 textAlignment = "left"
 verticalTextAlignment = "top"
+characterSize = 24
+lineHeight = 0
+color = "242;240;218"

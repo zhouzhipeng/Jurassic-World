@@ -1,3 +1,4 @@
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="e"
@@ -5,6 +6,7 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="HarvestNear" comparison_sign="=" value=0
 do SetNumberVariable variable="Action" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
@@ -13,11 +15,13 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="r"
 do SetNumberVariable variable="Action" modification_sign="=" value=2
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
@@ -26,11 +30,13 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=2
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="g"
 do SetNumberVariable variable="Action" modification_sign="=" value=3
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
@@ -39,11 +45,13 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=3
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="f"
 do SetNumberVariable variable="Action" modification_sign="=" value=4
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
@@ -52,11 +60,13 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="Action" modification_sign="=" value=4
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="q"
 do SetNumberVariable variable="Action" modification_sign="=" value=5
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
@@ -67,6 +77,7 @@ do SetNumberVariable variable="Action" modification_sign="=" value=5
 
 @comment "Interactive hotbar: click or number keys, dispatch once" background=[90,150,180] text=[255,255,255]
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -78,6 +89,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=1
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -86,6 +98,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=1
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -97,6 +110,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=2
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=2
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -105,6 +119,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=2
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=2
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -116,6 +131,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=3
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=3
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -124,6 +140,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=3
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=3
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -135,6 +152,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=4
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=4
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -143,6 +161,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=4
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=4
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -154,6 +173,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=5
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=5
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -162,6 +182,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=5
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=5
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -173,6 +194,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=6
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=6
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -181,6 +203,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=6
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=6
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -192,6 +215,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=7
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=7
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -200,6 +224,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=7
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=7
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -211,6 +236,7 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=8
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=8
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="InputMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -219,9 +245,11 @@ do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=8
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=8
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="HotbarRequest" comparison_sign="=" value=1
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="斧子已选中。靠近小树，按住 E 或在场景中按住左键砍树。"
 
+@event
 if NumberVariable variable="HotbarRequest" comparison_sign="=" value=2
 do SetNumberVariable variable="Mode" modification_sign="=" value=1
 do SetNumberVariable variable="Recipe" modification_sign="=" value=1
@@ -251,57 +279,75 @@ do SetNumberVariable variable="BuildMode" modification_sign="=" value=expr(1)
 do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(10)
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("B 关闭建造；按数字键选部件，Enter 放置。")
 
+@event
 if NumberVariable variable="HotbarRequest" comparison_sign="=" value=8
 do SetNumberVariable variable="Mode" modification_sign="=" value=1
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="Backpack opened. Click an item to inspect it."
 
+@event
 if NumberVariable variable="HotbarRequest" comparison_sign=">" value=0
 do SetNumberVariable variable="HotbarRequest" modification_sign="=" value=0
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do ChangeColor object="HotSlot0" tint="255;255;255"
 
+@event
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=1
 do ChangeColor object="HotSlot0" tint="255;190;60"
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do ChangeColor object="HotSlot1" tint="255;255;255"
 
+@event
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=2
 do ChangeColor object="HotSlot1" tint="255;190;60"
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do ChangeColor object="HotSlot2" tint="255;255;255"
 
+@event
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=3
 do ChangeColor object="HotSlot2" tint="255;190;60"
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do ChangeColor object="HotSlot3" tint="255;255;255"
 
+@event
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=4
 do ChangeColor object="HotSlot3" tint="255;190;60"
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do ChangeColor object="HotSlot4" tint="255;255;255"
 
+@event
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=5
 do ChangeColor object="HotSlot4" tint="255;190;60"
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do ChangeColor object="HotSlot5" tint="255;255;255"
 
+@event
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=6
 do ChangeColor object="HotSlot5" tint="255;190;60"
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do ChangeColor object="HotSlot6" tint="255;255;255"
 
+@event
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=7
 do ChangeColor object="HotSlot6" tint="255;190;60"
 
+@event
 if NumberVariable variable="Dirty" comparison_sign="=" value=1
 do ChangeColor object="HotSlot7" tint="255;255;255"
 
+@event
 if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=8
 do ChangeColor object="HotSlot7" tint="255;190;60"

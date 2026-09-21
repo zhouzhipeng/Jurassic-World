@@ -1,3 +1,4 @@
+@event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
@@ -29,4 +30,3 @@ do OpacityCapability::OpacityBehavior::SetValue object="DamageFlash" behavior="O
 @event aiGeneratedEventId="damage-danger-clear-on-death"
 if NumberVariable variable="Dead" comparison_sign="!=" value=0
 do RemoveTimer timer_name="DamageDanger"
-

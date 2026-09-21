@@ -1,33 +1,31 @@
 kind = "prefab"
 settingsFormatVersion = 6
 order = 3
-name = "Stegosaur"
-fullName = "Stegosaur"
-description = "Reusable Stegosaur model, instance state and animation controller."
 defaultName = "Stegosaur"
-private = false
+description = "Reusable Stegosaur model, instance state and animation controller."
+fullName = "Stegosaur"
+helpPath = ""
+iconUrl = ""
 is3D = true
-isAnimatable = false
-isTextContainer = false
-isInnerAreaFollowingParentSize = false
 isUsingLegacyInstancesRenderer = false
-propertyDescriptors = []
+name = "Stegosaur"
+previewIconUrl = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
 objectGroups = { }
-
-variables = []
 
 [layout]
 version = 1
-bounds = { min = [-73, -252, 0], max = [73, 252, 291] }
+bounds = { max = [73, 252, 291], min = [-73, -252, 0] }
 
 [[layout.layers]]
 id = "base"
 name = ""
 rendering = "3d"
-lighting = false
 
 [[layout.instances]]
 id = "ae2a0460-20a0-4fee-8a69-c1a1db03644f"
 object = "Body"
 layer = "base"
-at = [0, 0, 0]
+at = [0, 0]

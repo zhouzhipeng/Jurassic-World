@@ -5,6 +5,7 @@ link external "TimeRestore"
 @event
 link external "SurvivalRestore"
 
+@event
 if NumberVariable variable="Action" comparison_sign="=" value=10
 if GroupExists storage_name=expr(SaveStorage) group="Version"
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Trust" variable="Trust"
@@ -27,6 +28,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" 
 do SetNumberVariable variable="Action" modification_sign="=" value=0
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event
 if NumberVariable variable="Action" comparison_sign="=" value=10
 do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text=expr("No saved expedition yet." + NewLine() + "Choose Save Game first.")
 do SetNumberVariable variable="Action" modification_sign="=" value=0

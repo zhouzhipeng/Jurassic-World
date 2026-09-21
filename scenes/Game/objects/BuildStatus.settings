@@ -1,12 +1,22 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 260
-folder = ["UI", "External Layouts"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "BuildStatus"
+smoothed = true
 type = "TextObject::Text"
-
+underlined = false
 effects = [ ]
 behaviors = [ ]
+string = """
+WASD 调整位置 · R 旋转
+Enter 建造 · B 退出"""
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 17
+folder = [ "UI", "External Layouts" ]
 
 [[variables]]
 name = "Mode"
@@ -108,13 +118,31 @@ name = "Placed"
 type = "number"
 value = 0
 
+[color]
+b = 218
+g = 240
+r = 242
+
 [content]
-text = "WASD 调整位置 · R 旋转\nEnter 建造 · B 退出"
-font = "interface.ttf"
-characterSize = 17
-color = "242;240;218"
 bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
 italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
 smoothed = true
+underlined = false
+text = """
+WASD 调整位置 · R 旋转
+Enter 建造 · B 退出"""
+font = "interface.ttf"
 textAlignment = "left"
 verticalTextAlignment = "top"
+characterSize = 17
+lineHeight = 0
+color = "242;240;218"

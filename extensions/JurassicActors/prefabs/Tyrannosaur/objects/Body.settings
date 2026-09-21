@@ -1,47 +1,48 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 0
-folder = ["Wildlife"]
+assetStoreId = ""
 name = "Body"
 type = "Scene3D::Model3DObject"
-behaviors = [ ]
-effects = [ ]
 variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "Wildlife" ]
 
 [content]
-modelResourceName = "tyrannosaur.glb"
-width = 212
-height = 675
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.12
 depth = 343
+height = 675
+isCastingShadow = true
+isReceivingShadow = true
 keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "tyrannosaur.glb"
+originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = true
-isReceivingShadow = true
-crossfadeDuration = 0.12
+width = 212
 sharedAnimationModelResources = [ ]
 
 [[content.animations]]
+loop = true
 name = "Idle"
 source = "Idle"
 sourceModelResourceName = ""
-loop = true
 useRootMotion = false
 
 [[content.animations]]
+loop = true
 name = "Walk"
 source = "Walk"
 sourceModelResourceName = ""
-loop = true
 useRootMotion = false
 
 [[content.animations]]
+loop = true
 name = "Attack"
 source = "Attack"
 sourceModelResourceName = ""
-loop = true
 useRootMotion = false

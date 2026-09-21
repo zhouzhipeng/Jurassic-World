@@ -1,11 +1,13 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 279
-folder = ["Construction"]
+assetStoreId = ""
 name = "PartStairs"
 type = "Scene3D::Model3DObject"
-behaviors = []
-effects = []
+effects = [ ]
+behaviors = [ ]
+folder = [ "Construction" ]
+
 [[variables]]
 name = "Kind"
 type = "number"
@@ -77,19 +79,19 @@ type = "number"
 value = 3
 
 [content]
-modelResourceName = "modular-stairs.glb"
-width = 240.00001
-height = 302.64177
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
 depth = 311.32083
+height = 302.64177
+isCastingShadow = true
+isReceivingShadow = true
 keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "modular-stairs.glb"
+originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-originLocation = "ModelOrigin"
-centerLocation = "ModelOrigin"
-materialType = "StandardWithoutMetalness"
-isCastingShadow = true
-isReceivingShadow = true
-crossfadeDuration = 0.1
-animations = []
-sharedAnimationModelResources = []
+width = 240.00001
+sharedAnimationModelResources = [ ]
+animations = [ ]

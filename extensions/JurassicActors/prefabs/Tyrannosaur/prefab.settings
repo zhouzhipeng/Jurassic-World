@@ -1,33 +1,31 @@
 kind = "prefab"
 settingsFormatVersion = 6
 order = 5
-name = "Tyrannosaur"
-fullName = "Tyrannosaur"
-description = "Reusable Tyrannosaur model, instance state and animation controller."
 defaultName = "Tyrannosaur"
-private = false
+description = "Reusable Tyrannosaur model, instance state and animation controller."
+fullName = "Tyrannosaur"
+helpPath = ""
+iconUrl = ""
 is3D = true
-isAnimatable = false
-isTextContainer = false
-isInnerAreaFollowingParentSize = false
 isUsingLegacyInstancesRenderer = false
-propertyDescriptors = []
+name = "Tyrannosaur"
+previewIconUrl = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
 objectGroups = { }
-
-variables = []
 
 [layout]
 version = 1
-bounds = { min = [-106, -338, 0], max = [106, 338, 343] }
+bounds = { max = [106, 338, 343], min = [-106, -338, 0] }
 
 [[layout.layers]]
 id = "base"
 name = ""
 rendering = "3d"
-lighting = false
 
 [[layout.instances]]
 id = "ba1bc093-e2b8-41c2-8370-53b95b354cff"
 object = "Body"
 layer = "base"
-at = [0, 0, 0]
+at = [0, 0]

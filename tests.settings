@@ -1,5 +1,6 @@
 kind = "tests"
 settingsFormatVersion = 6
+
 [[tests]]
 scope = "project"
 order = 0
@@ -71,7 +72,6 @@ name = "DayNightPersistence"
 type = "gameplay"
 description = "Save and restore day, time, speed and weather together through the native pause menu in an isolated slot."
 file = "tests/DayNightPersistence.js"
-
 
 [[tests]]
 scope = "project"

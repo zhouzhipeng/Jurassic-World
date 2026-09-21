@@ -1,13 +1,14 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 197
-folder = ["Actors"]
+assetStoreId = ""
 name = "Dinosaur3D"
 type = "JurassicActors::Parasaur"
 variant = ""
-behaviors = []
-effects = []
-
+effects = [ ]
+behaviors = [ ]
+content = { }
+folder = [ "Actors" ]
 
 [[variables]]
 name = "AnimationState"
@@ -28,5 +29,3 @@ value = 0
 name = "ActorConfigured"
 type = "number"
 value = 1
-
-[content]

@@ -1,3 +1,4 @@
+@event
 if NumberVariable variable="Dead" comparison_sign="=" value=1
 do SetNumberVariable variable="Mode" modification_sign="=" value=7
 do ShowLayer layer="HUD"
