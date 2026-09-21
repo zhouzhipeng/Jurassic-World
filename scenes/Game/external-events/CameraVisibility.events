@@ -179,7 +179,7 @@ if (player) {
   const rate = goal < previous ? (rawClearance < 700 ? 4 : 10) : 3;
   // Smooth normal travel and recovery; hard clipping is only a last-resort collision guard.
   const smoothedDistance = previous + (goal - previous) * (1 - Math.exp(-rate * dt));
-  const distance = reset ? safeDistance : rawClearance < 700 && moving
+  const distance = reset ? safeDistance : rawClearance < 700 && (moving || state("ZoomHold") > 0)
     ? smoothedDistance : Math.min(safeDistance, smoothedDistance);
   variables.get("CameraSafeDistance").setNumber(safeDistance);
   variables.get("CameraResolvedDistance").setNumber(distance);

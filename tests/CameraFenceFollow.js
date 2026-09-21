@@ -37,4 +37,8 @@ try {
   }
   harness.assert(closest>=290,`Fence crossings preserve useful third-person framing: min=${closest}; largestStep=${largestStep}; ${worst}`);
   harness.assert(largestStep<90,`Fence crossings do not cause abrupt zoom: ${largestStep}`);
+  harness.setObjectPosition(player().id, -446.7471751788618, -961.2302091713711, 0);
+  await harness.stepFrames(240);
+  harness.assert(n('CameraResolvedDistance') > 1200 && n('CameraResolvedPitch') < 13,
+    `Leaving the fence and eaves restores the requested orbit: distance=${n('CameraResolvedDistance')}, pitch=${n('CameraResolvedPitch')}`);
 } finally { harness.releaseAllInputs(); }
