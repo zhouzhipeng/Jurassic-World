@@ -32,7 +32,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="BuildMessageTime" comparison_sign=">" value=expr(0)
-do TextContainerCapability::TextContainerBehavior::SetValue object="TouchHint" behavior="Text" modification_sign="=" text=expr(BuildMessage)
+do TextContainerCapability::TextContainerBehavior::SetValue object="TouchHint" behavior="Text" modification_sign="=" text=expr("建造层 "+ToString(BuildLevel+1)+" · 材料（持有/需要）"+NewLine()+"木 "+ToString(Wood)+"/"+ToString(BuildWood)+" · 石 "+ToString(Stone)+"/"+ToString(BuildStone)+" · 纤维 "+ToString(Fiber)+"/"+ToString(BuildFiber)+NewLine()+BuildMessage)
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=expr(1)
