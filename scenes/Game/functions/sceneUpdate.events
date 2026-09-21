@@ -1453,7 +1453,7 @@ for each "Raptor"
 > do SetNumberVariable variable="Invulnerable" modification_sign="=" value=1
 > do SetNumberVariable variable="HitFlash" modification_sign="=" value=0.35
 > do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="迅猛龙撕咬！拉开距离，空格反击或骑乘撤离。"
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="迅猛龙撕咬！拉开距离，K 反击或骑乘撤离。"
 > do PlaySound audio_file_or_audio_resource_name="hurt.wav" repeat_the_sound=false volume=75 pitch_speed=1
 > do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=65 pitch_speed=1
 
@@ -1817,7 +1817,7 @@ for each "Tyrannosaur"
 > do SetNumberVariable variable="Invulnerable" modification_sign="=" value=1
 > do SetNumberVariable variable="HitFlash" modification_sign="=" value=0.35
 > do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="霸王龙撕咬！拉开距离，空格反击或骑乘撤离。"
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="霸王龙撕咬！拉开距离，K 反击或骑乘撤离。"
 > do PlaySound audio_file_or_audio_resource_name="hurt.wav" repeat_the_sound=false volume=75 pitch_speed=1
 > do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=65 pitch_speed=1
 
