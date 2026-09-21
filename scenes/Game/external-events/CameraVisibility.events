@@ -102,12 +102,18 @@ if (player) {
       // Check the actual target, not an offset point that may lie inside an
       // adjacent wall. A pitched ray alone could pass over a tall close wall.
       let headRoom = true;
-      // Use two central heights so one plank seam cannot make a wall appear clear.
+      // A narrow central band catches vertical plank seams. Require the center
+      // or both sides to be blocked: one side alone can be inside an adjacent wall.
       for (const height of [40, 80]) {
-        const hits = gdjs.evtTools.scene3d.raycastObjects(
-          x + lookAhead * velocityX, y + lookAhead * velocityY, z + height,
-          Math.sin(yaw), Math.cos(yaw), 0, blockers, 0, 330, true);
-        if (hits.length > 0) { headRoom = false; break; }
+        const blocked = [];
+        for (const side of [-8, 0, 8]) {
+          const hits = gdjs.evtTools.scene3d.raycastObjects(
+            x + rightX * side + lookAhead * velocityX,
+            y + rightY * side + lookAhead * velocityY, z + height,
+            Math.sin(yaw), Math.cos(yaw), 0, blockers, 0, 330, true);
+          blocked.push(hits.length > 0);
+        }
+        if (blocked[1] || (blocked[0] && blocked[2])) { headRoom = false; break; }
       }
       headRoomCache.set(lookAhead, headRoom);
     }
