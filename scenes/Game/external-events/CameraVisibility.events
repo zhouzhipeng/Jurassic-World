@@ -180,7 +180,11 @@ if (player) {
   // stopped. Reach the target exactly, avoiding a long tail near a wall.
   const smoothedDistance = goal < previous ? Math.max(goal, previous - 3600 * dt)
     : previous + (goal - previous) * (1 - Math.exp(-3 * dt));
-  const newBarrier = blockers.length > state("BlockerCount");
+  // Use the scene-wide solid count: entering the broad-phase search radius is
+  // ordinary movement, not newly constructed geometry requiring a hard cut.
+  const solidCount = candidates.filter(object => object.isVisible() &&
+    object.getLayer() === "World3D" && !foliage.includes(object.getName())).length;
+  const newBarrier = solidCount > state("BlockerCount");
   const distance = reset || newBarrier ? safeDistance : rawClearance < 700
     ? smoothedDistance : Math.min(safeDistance, smoothedDistance);
   variables.get("CameraSafeDistance").setNumber(safeDistance);
@@ -194,7 +198,7 @@ if (player) {
   follow.getChild("PlayerY").setNumber(targetY);
   follow.getChild("PitchHold").setNumber(pitchHold);
   follow.getChild("ZoomHold").setNumber(zoomHold);
-  follow.getChild("BlockerCount").setNumber(blockers.length);
+  follow.getChild("BlockerCount").setNumber(solidCount);
 }
 > @end js
 
