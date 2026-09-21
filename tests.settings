@@ -232,3 +232,11 @@ name = "FoliageLOD"
 type = "gameplay"
 description = "Distance detail selection, hysteresis, near interaction, harvest regrowth and proxy lifecycle."
 file = "tests/FoliageLOD.js"
+
+[[tests]]
+scope = "project"
+order = 29
+name = "CameraDinosaurPerformance"
+type = "gameplay"
+description = "Reported dinosaur obstruction, animated orbit frame costs and restored camera clearance."
+file = "tests/CameraDinosaurPerformance.js"
