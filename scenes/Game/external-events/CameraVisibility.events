@@ -101,7 +101,7 @@ if (player) {
     if (!headRoomCache.has(lookAhead)) {
       // Check the actual target, not an offset point that may lie inside an
       // adjacent wall. A pitched ray alone could pass over a tall close wall.
-      let headRoom = true;
+      let blockedHeights = 0;
       // A narrow central band catches vertical plank seams. Require the center
       // or both sides to be blocked: one side alone can be inside an adjacent wall.
       for (const height of [40, 80]) {
@@ -113,9 +113,11 @@ if (player) {
             Math.sin(yaw), Math.cos(yaw), 0, blockers, 0, 330, true);
           blocked.push(hits.length > 0);
         }
-        if (blocked[1] || (blocked[0] && blocked[2])) { headRoom = false; break; }
+        if (blocked[1] || (blocked[0] && blocked[2])) blockedHeights++;
       }
-      headRoomCache.set(lookAhead, headRoom);
+      // A fence post reaches the lower band but leaves the head visible. Only
+      // continuous obstruction across both heights is a solid near-target wall.
+      headRoomCache.set(lookAhead, blockedHeights < 2);
     }
     let distance = requestedDistance;
     let headClearance = requestedDistance;
