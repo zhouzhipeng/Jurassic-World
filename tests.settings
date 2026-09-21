@@ -224,3 +224,11 @@ name = "CameraOrbitPerformance"
 type = "gameplay"
 description = "Profile first-use and warmed full camera rotations while the player stays still."
 file = "tests/CameraOrbitPerformance.js"
+
+[[tests]]
+scope = "project"
+order = 28
+name = "FoliageLOD"
+type = "gameplay"
+description = "Distance detail selection, hysteresis, near interaction, harvest regrowth and proxy lifecycle."
+file = "tests/FoliageLOD.js"

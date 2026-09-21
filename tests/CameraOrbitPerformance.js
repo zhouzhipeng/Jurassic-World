@@ -18,6 +18,12 @@ try {
     const profile = harness.stopProfiling();
     harness.assert(!!profile && Number.isFinite(profile.avgStepTimeMs),
       `Orbit ${lap + 1}: measured mean=${profile?.avgStepTimeMs}, max=${profile?.maxStepTimeMs} ms`);
+    if (lap === 1) {
+      harness.assert(profile.avgStepTimeMs < 33.3 && profile.maxStepTimeMs < 100,
+        `Warmed orbit stays below the host-calibrated recurring-stutter budget: ${profile.avgStepTimeMs}/${profile.maxStepTimeMs} ms`);
+      harness.assert(!!profile.renderer && profile.renderer.triangles < 200000,
+        `Distance LOD reduces geometry at the final orbit view: ${profile.renderer?.triangles} triangles`);
+    }
     const camera = harness.getCameraState('World3D');
     harness.assert(!!camera && Number.isFinite(camera.x + camera.y + camera.z), 'Orbit camera remains finite');
   }

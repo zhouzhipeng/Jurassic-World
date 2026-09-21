@@ -49,10 +49,10 @@ for (const name of ["BerryBush", "FiberFern"]) {
         proxy.setLayer("World3D");
         levels[index].set(id, proxy);
       }
-      proxy.setPosition(object.getX(), object.getY());
-      proxy.setAngle(object.getAngle());
-      proxy.setWidth(object.getWidth());
-      proxy.setHeight(object.getHeight());
+      if (proxy.getX() !== object.getX() || proxy.getY() !== object.getY()) proxy.setPosition(object.getX(), object.getY());
+      if (proxy.getAngle() !== object.getAngle()) proxy.setAngle(object.getAngle());
+      if (proxy.getWidth() !== object.getWidth()) proxy.setWidth(object.getWidth());
+      if (proxy.getHeight() !== object.getHeight()) proxy.setHeight(object.getHeight());
       proxy.hide(!available || level !== index + 1);
     }
     if (!ready) level = 0;
