@@ -164,15 +164,21 @@ if (player) {
   } else if (pitchHold > 0 || requestedClearance < 800) desiredPitch = Math.max(oldPitch, requestedPitch);
   const pitchStep = Math.max(-22 * dt, Math.min(40 * dt, (desiredPitch - oldPitch) * (1 - Math.exp(-6 * dt))));
   const pitch = reset ? requestedPitch : oldPitch + pitchStep;
-  const safeDistance = clearance(pitch);
-  const anticipated = Math.min(safeDistance, clearance(pitch, 0.25));
+  const rawClearance = clearance(pitch);
+  // Near-target occlusion must never put the lens inside the character. Keep
+  // usable framing while the orbit rises over the barrier; distant collisions
+  // still retract immediately so the camera cannot cross them.
+  const minimumFraming = Math.min(requestedDistance, 300);
+  const safeDistance = Math.max(minimumFraming, rawClearance);
+  const anticipated = Math.max(minimumFraming, Math.min(rawClearance, clearance(pitch, 0.25)));
   let zoomHold = Math.max(0, state("ZoomHold") - dt);
   if (anticipated < previous - 10) zoomHold = 0.25;
   const goal = anticipated > previous && zoomHold > 0 ? previous : anticipated;
-  const rate = goal < previous ? 10 : 3;
+  const rate = goal < previous ? (rawClearance < 330 ? 4 : 10) : 3;
   // Smooth normal travel and recovery; hard clipping is only a last-resort collision guard.
-  const distance = reset ? safeDistance : Math.min(safeDistance,
-    previous + (goal - previous) * (1 - Math.exp(-rate * dt)));
+  const smoothedDistance = previous + (goal - previous) * (1 - Math.exp(-rate * dt));
+  const distance = reset ? safeDistance : rawClearance < 330
+    ? smoothedDistance : Math.min(safeDistance, smoothedDistance);
   variables.get("CameraSafeDistance").setNumber(safeDistance);
   variables.get("CameraResolvedDistance").setNumber(distance);
   variables.get("CameraResolvedPitch").setNumber(pitch);
