@@ -26,6 +26,11 @@ try {
   harness.setObjectPosition(player().id, 2000, 1500, 0);
   const island = harness.getRuntimeObject('Island3D');
   island.hide(true);
+  // Nearby resource bushes must not compete with the deliberately arranged wall.
+  for (const name of ['BerryBush', 'FiberFern', 'WoodSapling', 'StoneDeposit',
+    'MetalDeposit', 'SpringWater', 'Dinosaur3D', 'Triceratops', 'Stegosaur', 'Raptor', 'Tyrannosaur']) {
+    for (const object of harness.getCurrentRuntimeScene().getObjects(name)) object.hide(true);
+  }
   await harness.stepFrames(90);
   const wall = harness.spawn('PartWall', 2000, 1950, 100, 'World3D');
   harness.watch('PartWall');
