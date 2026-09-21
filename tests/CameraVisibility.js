@@ -36,17 +36,8 @@ try {
   harness.watch('PartWall');
   harness.watch('Player3D');
   await harness.stepFrames(1);
-  const wallHits = gdjs.evtTools.scene3d.raycastObjects(2000, 1500, 120, 0,
-    Math.cos(25 * Math.PI / 180), Math.sin(25 * Math.PI / 180),
-    [harness.getRuntimeObject(wall.id)], 0, 1280, true);
-  const nearbyNames = ['Island3D', 'BerryBush', 'FiberFern', 'WoodSapling', 'StoneDeposit', 'MetalDeposit', 'SpringWater', 'CampHearth', 'CampForge', 'PartWall', 'Dinosaur3D', 'Triceratops', 'Stegosaur', 'Raptor', 'Tyrannosaur'];
-  const candidates = nearbyNames.flatMap(name => harness.getCurrentRuntimeScene().getObjects(name)).filter(o => o.isVisible());
-  const diagnosticHits = [-80, 0, 80].flatMap(z => [-65, 0, 65].flatMap(x =>
-    gdjs.evtTools.scene3d.raycastObjects(player().x + x, player().y, targetZ() + z,
-      0, Math.cos(25 * Math.PI / 180), Math.sin(25 * Math.PI / 180), candidates, 0, 1280, true)
-      .slice(0, 1).map(h => [h.object.getName(), h.distance, h.pointX, h.pointY, h.pointZ])));
   harness.assert(n('CameraResolvedDistance') < 500 && n('CameraDistance') === 1250,
-    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}, hits=${JSON.stringify(diagnosticHits)}, center=${wallHits.length}`);
+    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}`);
   clearSight([harness.getRuntimeObject(wall.id)], 'Wall');
   const compressed = n('CameraResolvedDistance');
   harness.getRuntimeObject(wall.id).hide(true);
@@ -75,6 +66,14 @@ try {
   await harness.goToScene('Game');
   await harness.stepFrames(3);
   harness.setSceneVariable('Mode', 2);
+  harness.setObjectPosition(player().id, 704.9452698315055, 1569.948293057374, 0);
+  harness.setSceneVariable('CameraYaw', -43.86724579574575);
+  harness.setSceneVariable('CameraPitch', 31.72602739726028);
+  harness.setSceneVariable('CameraDistance', 750);
+  await harness.stepFrames(1);
+  clearSight(harness.getCurrentRuntimeScene().getObjects('Island3D'), 'Reported tree obstruction');
+  harness.assert(n('CameraResolvedDistance') < 750 && n('CameraResolvedDistance') >= 220,
+    `The reported view clears the tree while retaining player framing: ${n('CameraResolvedDistance')}`);
   harness.setSceneVariable('CameraPitch', 25);
   harness.setSceneVariable('CameraDistance', 2000);
   const scene = harness.getCurrentRuntimeScene();
