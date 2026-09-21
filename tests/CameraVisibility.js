@@ -28,9 +28,11 @@ try {
   island.hide(true);
   await harness.stepFrames(90);
   const wall = harness.spawn('PartWall', 4000, 4450, 100, 'World3D');
+  harness.watch('PartWall');
+  harness.watch('Player3D');
   await harness.stepFrames(1);
   harness.assert(n('CameraResolvedDistance') < 500 && n('CameraDistance') === 1250,
-    'A newly placed wall retracts the camera in one frame without changing requested zoom');
+    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}, wall=${JSON.stringify(harness.getObjects('PartWall')[0])}, camera=${JSON.stringify(camera())}`);
   clearSight([harness.getRuntimeObject(wall.id)], 'Wall');
   const compressed = n('CameraResolvedDistance');
   harness.getRuntimeObject(wall.id).hide(true);
