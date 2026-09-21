@@ -55,4 +55,8 @@ try{
   harness.assert(badge(206)==='2/3'&&String(harness.getSceneVariable('PackDescription')?.value).includes('2 / 3'),'The water bag shows remaining drinks instead of the character water stat');
   await tap(8);
   harness.assert(['PackIcon','PackCount','PackName','PackDetailBack','PackDetailTitle','PackDetailBody'].every(name=>harness.getObjects(name).every(o=>o.hidden)),'Closing the backpack hides all inventory contents');
+  harness.setSceneVariable('Hunger',40);harness.setSceneVariable('Water',80);
+  harness.setSceneVariable('Berries',3);harness.setSceneVariable('CookedMeat',1);
+  harness.setSceneVariable('UseCooldown',0);await harness.stepFrames(3);await tap(5);
+  harness.assert(n('CookedMeat')===0&&n('Berries')===3&&n('Hunger')>69,'Quick supplies still choose cooked meat while explicit inventory selection uses the chosen food');
 }finally{harness.releaseAllInputs();}
