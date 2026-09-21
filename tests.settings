@@ -192,3 +192,11 @@ name = "CameraTableFollow"
 type = "gameplay"
 description = "Recorded camp table approach keeps a usable view without entering the survivor."
 file = "tests/CameraTableFollow.js"
+
+[[tests]]
+scope = "project"
+order = 24
+name = "CameraWallApproach"
+type = "gameplay"
+description = "Approaching and pressing against the camp wall must not zoom toward a predicted target inside it."
+file = "tests/CameraWallApproach.js"
