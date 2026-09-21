@@ -23,16 +23,16 @@ try {
   harness.setSceneVariable('CameraYaw', 0);
   harness.setSceneVariable('CameraPitch', 25);
   harness.setSceneVariable('CameraDistance', 1250);
-  harness.setObjectPosition(player().id, 4000, 4000, 0);
+  harness.setObjectPosition(player().id, 2000, 1500, 0);
   const island = harness.getRuntimeObject('Island3D');
   island.hide(true);
   await harness.stepFrames(90);
-  const wall = harness.spawn('PartWall', 4000, 4450, 100, 'World3D');
+  const wall = harness.spawn('PartWall', 2000, 1950, 100, 'World3D');
   harness.watch('PartWall');
   harness.watch('Player3D');
   await harness.stepFrames(1);
   harness.assert(n('CameraResolvedDistance') < 500 && n('CameraDistance') === 1250,
-    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}, wall=${JSON.stringify(harness.getObjects('PartWall')[0])}, camera=${JSON.stringify(camera())}`);
+    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}`);
   clearSight([harness.getRuntimeObject(wall.id)], 'Wall');
   const compressed = n('CameraResolvedDistance');
   harness.getRuntimeObject(wall.id).hide(true);
@@ -43,7 +43,7 @@ try {
   harness.assert(Math.abs(n('CameraResolvedDistance') - 1250) < 1,
     'The selected zoom is restored when the obstruction clears');
   harness.getRuntimeObject(wall.id).hide(false);
-  harness.setObjectPosition(wall.id, 4000, 4120, 0);
+  harness.setObjectPosition(wall.id, 2000, 1620, 0);
   await harness.stepFrames(1);
   harness.assert(n('CameraResolvedPitch') > 25 && n('CameraResolvedDistance') > 260,
     'A close wall selects a clear higher angle without pushing the camera into the player');
