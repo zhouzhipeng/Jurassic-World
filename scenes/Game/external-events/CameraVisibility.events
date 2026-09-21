@@ -80,6 +80,7 @@ if (player) {
   const velocityY = reset ? 0 : Math.max(-650, Math.min(650, (targetY - state("PlayerY")) / Math.max(dt, 0.001)));
   const moving = Math.hypot(velocityX, velocityY) > 5;
   const clearanceCache = new Map();
+  const headRoomCache = new Map();
   const clearance = (pitch = 25, lookAhead = 0) => {
     if (!moving) lookAhead = 0;
     const key = pitch.toFixed(3) + ":" + lookAhead;
@@ -88,6 +89,19 @@ if (player) {
     const dx = Math.sin(yaw) * Math.cos(radians);
     const dy = Math.cos(yaw) * Math.cos(radians);
     const dz = Math.sin(radians);
+    if (!headRoomCache.has(lookAhead)) {
+      // A pitched ray can pass over a tall close wall. Check at head height too
+      // before deciding that nearby torso hits are merely low furniture.
+      let headRoom = true;
+      for (const side of [-65, 0, 65]) {
+        const hits = gdjs.evtTools.scene3d.raycastObjects(
+          x + rightX * side + lookAhead * velocityX,
+          y + rightY * side + lookAhead * velocityY, z + 80,
+          Math.sin(yaw), Math.cos(yaw), 0, blockers, 0, 330, true);
+        if (hits.length > 0) { headRoom = false; break; }
+      }
+      headRoomCache.set(lookAhead, headRoom);
+    }
     let distance = requestedDistance;
     let headClearance = requestedDistance;
     const bodyHits = [];
@@ -107,7 +121,7 @@ if (player) {
       // actual camera are clear. Pulling in would put the lens inside the player.
       // Ignore only this near-target partial occlusion, never a tall wall or a
       // blocker farther along the boom. This also covers spring rims and rocks.
-      if (hitDistance < 330 && headClearance >= 330) continue;
+      if (hitDistance < 330 && headClearance >= 330 && headRoomCache.get(lookAhead)) continue;
       distance = Math.min(distance, Math.max(10, hitDistance - 30));
     }
     clearanceCache.set(key, distance);
