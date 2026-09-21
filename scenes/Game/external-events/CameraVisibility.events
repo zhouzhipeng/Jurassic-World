@@ -176,10 +176,12 @@ if (player) {
   let zoomHold = Math.max(0, state("ZoomHold") - dt);
   if (anticipated < previous - 10) zoomHold = 0.25;
   const goal = anticipated > previous && zoomHold > 0 ? previous : anticipated;
-  const rate = goal < previous ? (rawClearance < 700 ? 4 : 10) : 3;
-  // Smooth normal travel and recovery; hard clipping is only a last-resort collision guard.
-  const smoothedDistance = previous + (goal - previous) * (1 - Math.exp(-rate * dt));
-  const distance = reset ? safeDistance : rawClearance < 700 && (moving || state("ZoomHold") > 0)
+  // Bound inward travel even when a corner becomes visible after movement has
+  // stopped. Reach the target exactly, avoiding a long tail near a wall.
+  const smoothedDistance = goal < previous ? Math.max(goal, previous - 3600 * dt)
+    : previous + (goal - previous) * (1 - Math.exp(-3 * dt));
+  const newBarrier = blockers.length > state("BlockerCount");
+  const distance = reset || newBarrier ? safeDistance : rawClearance < 700
     ? smoothedDistance : Math.min(safeDistance, smoothedDistance);
   variables.get("CameraSafeDistance").setNumber(safeDistance);
   variables.get("CameraResolvedDistance").setNumber(distance);
@@ -192,6 +194,7 @@ if (player) {
   follow.getChild("PlayerY").setNumber(targetY);
   follow.getChild("PitchHold").setNumber(pitchHold);
   follow.getChild("ZoomHold").setNumber(zoomHold);
+  follow.getChild("BlockerCount").setNumber(blockers.length);
 }
 > @end js
 
