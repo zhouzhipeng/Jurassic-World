@@ -49,6 +49,10 @@ try {
   harness.assert(player().z === airborne, 'Menus pause jump physics');
   harness.setSceneVariable('Mode', 0);
   await harness.stepFrames(65);
+  // Move away from the platform sides and roaming dinosaurs for the multi-touch probe.
+  harness.setObjectPosition(player().id, 1600, 0, 0);
+  harness.setSceneVariable('CameraYaw', 0);
+  await harness.stepFrames(3);
   const button = harness.getObjects('TouchButton').find(o => Number(harness.getObjectVariable(o.id,'Command')?.value) === 90 && Number(harness.getObjectVariable(o.id,'Active')?.value) === 1);
   harness.assert(!!button, 'An independent touch jump button is visible');
   const x = player().x;
@@ -58,7 +62,7 @@ try {
   await harness.stepFrames(1);
   harness.touchEnd(82);
   await harness.stepFrames(12);
-  harness.assert(player().z > 90 && player().x > x+15, 'A second finger jumps while the joystick keeps moving');
+  harness.assert(player().z > 90 && player().x > x+15, `A second finger jumps while the joystick keeps moving: z=${player().z}, dx=${player().x-x}`);
   harness.releaseAllInputs();
   await harness.stepFrames(65);
   await press('k', 1);
