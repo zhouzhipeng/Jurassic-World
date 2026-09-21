@@ -1,0 +1,1543 @@
+{
+  "issue": "issue-20260921-094307-865",
+  "engineCommit": "9b0760f443",
+  "projectTestCommit": "929ccb6",
+  "baseline": {
+    "operation_id": "gameplay-tests-f3055b43-2cf0-4eda-bcde-46aad2635ced",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "results": [
+      {
+        "file": "tests/CameraOrbitPerformance.js",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Orbit 1: measured mean=16.85, max=241.4 ms",
+            "passed": true
+          },
+          {
+            "message": "Orbit camera remains finite",
+            "passed": true
+          },
+          {
+            "message": "Orbit 2: measured mean=11.77, max=16.7 ms",
+            "passed": true
+          },
+          {
+            "message": "Warmed orbit stays below the host-calibrated recurring-stutter budget: 11.77/16.7 ms",
+            "passed": true
+          },
+          {
+            "message": "Distance LOD reduces geometry at the final orbit view: 157138 triangles",
+            "passed": true
+          },
+          {
+            "message": "Orbit camera remains finite",
+            "passed": true
+          },
+          {
+            "message": "Performance exercise rotates the camera while the player stays still",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "consoleLogs": [
+          "[warn] [Profiler] Compiled 2 new shader program(s) on frame 18 (195 in total), which costs a dropped frame. \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial206049084883181163192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial206049084883181163192668464102750srgbtrue\".",
+          "[warn] [Profiler] Compiled 2 new shader program(s) on frame 19 (197 in total), which costs a dropped frame. \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial48978427001750563192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial48978427001750563192668464102750srgbtrue\".",
+          "[warn] [Profiler] Compiled 2 new shader program(s) on frame 20 (199 in total), which costs a dropped frame. \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial157611672738785163192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial157611672738785163192668464102750srgbtrue\".",
+          "[warn] [Profiler] Compiled 2 new shader program(s) on frame 22 (201 in total), which costs a dropped frame. \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial875806536448135963192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial875806536448135963192668464102750srgbtrue\".",
+          "[warn] [Profiler] Compiled 6 new shader program(s) on frame 24 (207 in total), which costs a dropped frame. \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial66220725438469863192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial66220725438469863192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial418518319235222263192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"M",
+          "[warn] [Profiler] Compiled 4 new shader program(s) on frame 98 (211 in total), which costs a dropped frame. \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial552913118936581763192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial552913118936581763192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial504467387463210863192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> ",
+          "[warn] [Profiler] Compiled 2 new shader program(s) on frame 99 (213 in total), which costs a dropped frame. \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial526552359787961563192668464102750srgbtrue\". \"MeshStandardNodeMaterial\" differs from the closest program already compiled in 1 field(s): field 55: \"MeshStandardNodeMaterial673037839941390963192668464102750srgbtrue\" -> \"MeshStandardNodeMaterial526552359787961563192668464102750srgbtrue\"."
+        ],
+        "profiles": [
+          {
+            "avgStepTimeMs": 16.85,
+            "maxStepTimeMs": 241.4,
+            "sections": [
+              {
+                "name": "render",
+                "avgTimeMs": 11.09,
+                "maxTimeMs": 232.2
+              },
+              {
+                "name": "events",
+                "avgTimeMs": 4.73,
+                "maxTimeMs": 7.6
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.45,
+                "maxTimeMs": 0.8
+              },
+              {
+                "name": "objects (pre-events)",
+                "avgTimeMs": 0.42,
+                "maxTimeMs": 0.9
+              },
+              {
+                "name": "objects (post-events)",
+                "avgTimeMs": 0.09,
+                "maxTimeMs": 0.2
+              }
+            ],
+            "worstFrames": [
+              {
+                "frame": 149,
+                "timeMs": 241.4
+              },
+              {
+                "frame": 223,
+                "timeMs": 172.8
+              },
+              {
+                "frame": 147,
+                "timeMs": 101.5
+              },
+              {
+                "frame": 145,
+                "timeMs": 97.6
+              },
+              {
+                "frame": 143,
+                "timeMs": 95.1
+              }
+            ],
+            "renderer": {
+              "drawCalls": 554,
+              "triangles": 157138,
+              "geometries": 153,
+              "textures": 37
+            }
+          },
+          {
+            "avgStepTimeMs": 11.77,
+            "maxStepTimeMs": 16.7,
+            "sections": [
+              {
+                "name": "render",
+                "avgTimeMs": 6.48,
+                "maxTimeMs": 10.1
+              },
+              {
+                "name": "events",
+                "avgTimeMs": 4.42,
+                "maxTimeMs": 6.4
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.4,
+                "maxTimeMs": 0.8
+              },
+              {
+                "name": "objects (pre-events)",
+                "avgTimeMs": 0.39,
+                "maxTimeMs": 1.6
+              },
+              {
+                "name": "objects (post-events)",
+                "avgTimeMs": 0.09,
+                "maxTimeMs": 0.2
+              }
+            ],
+            "worstFrames": [
+              {
+                "frame": 326,
+                "timeMs": 16.7
+              },
+              {
+                "frame": 331,
+                "timeMs": 15.6
+              },
+              {
+                "frame": 329,
+                "timeMs": 15.5
+              },
+              {
+                "frame": 311,
+                "timeMs": 15.1
+              },
+              {
+                "frame": 483,
+                "timeMs": 15
+              }
+            ],
+            "renderer": {
+              "drawCalls": 554,
+              "triangles": 157138,
+              "geometries": 153,
+              "textures": 37
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "afterFix": {
+    "operation_id": "gameplay-tests-3d3e7ddc-3baf-48d6-b17b-c4281df40838",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "results": [
+      {
+        "file": "tests/CameraOrbitPerformance.js",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Orbit 1: measured mean=12.69, max=65.4 ms",
+            "passed": true
+          },
+          {
+            "message": "Orbit 1 including first exposure stays within the host budget; mean/p95/max=12.69/18.9/65.4 ms",
+            "passed": true
+          },
+          {
+            "message": "Orbit camera remains finite",
+            "passed": true
+          },
+          {
+            "message": "Orbit 2: measured mean=11.24, max=17.5 ms",
+            "passed": true
+          },
+          {
+            "message": "Orbit 2 including first exposure stays within the host budget; mean/p95/max=11.24/14.9/17.5 ms",
+            "passed": true
+          },
+          {
+            "message": "Warmed orbit stays below the host-calibrated recurring-stutter budget: 11.24/17.5 ms",
+            "passed": true
+          },
+          {
+            "message": "Distance LOD reduces geometry at the final orbit view: 157138 triangles",
+            "passed": true
+          },
+          {
+            "message": "Orbit camera remains finite",
+            "passed": true
+          },
+          {
+            "message": "Performance exercise rotates the camera while the player stays still",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "consoleLogs": [],
+        "profiles": [
+          {
+            "avgStepTimeMs": 12.69,
+            "maxStepTimeMs": 65.4,
+            "sections": [
+              {
+                "name": "render",
+                "avgTimeMs": 7.59,
+                "maxTimeMs": 60.5
+              },
+              {
+                "name": "events",
+                "avgTimeMs": 4.26,
+                "maxTimeMs": 7
+              },
+              {
+                "name": "objects (pre-events)",
+                "avgTimeMs": 0.37,
+                "maxTimeMs": 0.9
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.34,
+                "maxTimeMs": 1.5
+              },
+              {
+                "name": "objects (post-events)",
+                "avgTimeMs": 0.08,
+                "maxTimeMs": 0.3
+              }
+            ],
+            "worstFrames": [
+              {
+                "frame": 149,
+                "timeMs": 65.4
+              },
+              {
+                "frame": 223,
+                "timeMs": 48.4
+              },
+              {
+                "frame": 145,
+                "timeMs": 32.7
+              },
+              {
+                "frame": 147,
+                "timeMs": 32.7
+              },
+              {
+                "frame": 143,
+                "timeMs": 30.9
+              }
+            ],
+            "renderer": {
+              "drawCalls": 554,
+              "triangles": 157138,
+              "geometries": 153,
+              "textures": 37
+            }
+          },
+          {
+            "avgStepTimeMs": 11.24,
+            "maxStepTimeMs": 17.5,
+            "sections": [
+              {
+                "name": "render",
+                "avgTimeMs": 6.33,
+                "maxTimeMs": 10.5
+              },
+              {
+                "name": "events",
+                "avgTimeMs": 4.13,
+                "maxTimeMs": 6.5
+              },
+              {
+                "name": "objects (pre-events)",
+                "avgTimeMs": 0.37,
+                "maxTimeMs": 0.9
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.31,
+                "maxTimeMs": 0.9
+              },
+              {
+                "name": "objects (post-events)",
+                "avgTimeMs": 0.09,
+                "maxTimeMs": 0.3
+              }
+            ],
+            "worstFrames": [
+              {
+                "frame": 310,
+                "timeMs": 17.5
+              },
+              {
+                "frame": 465,
+                "timeMs": 16.7
+              },
+              {
+                "frame": 325,
+                "timeMs": 16.1
+              },
+              {
+                "frame": 441,
+                "timeMs": 16.1
+              },
+              {
+                "frame": 305,
+                "timeMs": 15.8
+              }
+            ],
+            "renderer": {
+              "drawCalls": 554,
+              "triangles": 157138,
+              "geometries": 153,
+              "textures": 37
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "dinosaur": {
+    "operation_id": "gameplay-tests-6f06333b-6676-476e-99c5-732a60924c9d",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "results": [
+      {
+        "file": "tests/CameraDinosaurPerformance.js",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Reported dinosaur view mean/max: 12.03/25.4 ms",
+            "passed": true
+          },
+          {
+            "message": "Actual animated dinosaur mesh leaves the player head visible",
+            "passed": true
+          },
+          {
+            "message": "Dinosaur orbit mean/p95/max: 15.49/28.3/73.5 ms",
+            "passed": true
+          },
+          {
+            "message": "Orbit retains finite usable player framing",
+            "passed": true
+          },
+          {
+            "message": "Warmed dinosaur orbit mean/max: 14.85/41.2 ms",
+            "passed": true
+          },
+          {
+            "message": "Dinosaur3D: camera clears actual model",
+            "passed": true
+          },
+          {
+            "message": "Dinosaur3D: foreground body still triggers camera avoidance",
+            "passed": true
+          },
+          {
+            "message": "Dinosaur3D: turned and elevated model remains clear",
+            "passed": true
+          },
+          {
+            "message": "Dinosaur3D: moving out of the corridor restores requested framing",
+            "passed": true
+          },
+          {
+            "message": "Dinosaur3D: hidden body does not block",
+            "passed": true
+          },
+          {
+            "message": "Triceratops: camera clears actual model",
+            "passed": true
+          },
+          {
+            "message": "Triceratops: foreground body still triggers camera avoidance",
+            "passed": true
+          },
+          {
+            "message": "Triceratops: turned and elevated model remains clear",
+            "passed": true
+          },
+          {
+            "message": "Triceratops: moving out of the corridor restores requested framing",
+            "passed": true
+          },
+          {
+            "message": "Triceratops: hidden body does not block",
+            "passed": true
+          },
+          {
+            "message": "Stegosaur: camera clears actual model",
+            "passed": true
+          },
+          {
+            "message": "Stegosaur: foreground body still triggers camera avoidance",
+            "passed": true
+          },
+          {
+            "message": "Stegosaur: turned and elevated model remains clear",
+            "passed": true
+          },
+          {
+            "message": "Stegosaur: moving out of the corridor restores requested framing",
+            "passed": true
+          },
+          {
+            "message": "Stegosaur: hidden body does not block",
+            "passed": true
+          },
+          {
+            "message": "Raptor: camera clears actual model",
+            "passed": true
+          },
+          {
+            "message": "Raptor: foreground body still triggers camera avoidance",
+            "passed": true
+          },
+          {
+            "message": "Raptor: turned and elevated model remains clear",
+            "passed": true
+          },
+          {
+            "message": "Raptor: moving out of the corridor restores requested framing",
+            "passed": true
+          },
+          {
+            "message": "Raptor: hidden body does not block",
+            "passed": true
+          },
+          {
+            "message": "Tyrannosaur: camera clears actual model",
+            "passed": true
+          },
+          {
+            "message": "Tyrannosaur: foreground body still triggers camera avoidance",
+            "passed": true
+          },
+          {
+            "message": "Tyrannosaur: turned and elevated model remains clear",
+            "passed": true
+          },
+          {
+            "message": "Tyrannosaur: moving out of the corridor restores requested framing",
+            "passed": true
+          },
+          {
+            "message": "Tyrannosaur: hidden body does not block",
+            "passed": true
+          },
+          {
+            "message": "Mounted camera excludes its own dinosaur",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "consoleLogs": [],
+        "profiles": [
+          {
+            "avgStepTimeMs": 12.03,
+            "maxStepTimeMs": 25.4,
+            "sections": [
+              {
+                "name": "events",
+                "avgTimeMs": 5.87,
+                "maxTimeMs": 19.5
+              },
+              {
+                "name": "render",
+                "avgTimeMs": 5.35,
+                "maxTimeMs": 8.9
+              },
+              {
+                "name": "objects (pre-events)",
+                "avgTimeMs": 0.37,
+                "maxTimeMs": 0.8
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.31,
+                "maxTimeMs": 0.8
+              },
+              {
+                "name": "objects (post-events)",
+                "avgTimeMs": 0.1,
+                "maxTimeMs": 1.4
+              }
+            ],
+            "worstFrames": [
+              {
+                "frame": 142,
+                "timeMs": 25.4
+              },
+              {
+                "frame": 136,
+                "timeMs": 24.1
+              },
+              {
+                "frame": 154,
+                "timeMs": 24
+              },
+              {
+                "frame": 130,
+                "timeMs": 23.5
+              },
+              {
+                "frame": 160,
+                "timeMs": 23.2
+              }
+            ],
+            "renderer": {
+              "drawCalls": 449,
+              "triangles": 160529,
+              "geometries": 153,
+              "textures": 37
+            }
+          },
+          {
+            "avgStepTimeMs": 15.49,
+            "maxStepTimeMs": 73.5,
+            "sections": [
+              {
+                "name": "events",
+                "avgTimeMs": 7.94,
+                "maxTimeMs": 26.9
+              },
+              {
+                "name": "render",
+                "avgTimeMs": 6.67,
+                "maxTimeMs": 66.1
+              },
+              {
+                "name": "objects (pre-events)",
+                "avgTimeMs": 0.4,
+                "maxTimeMs": 1.1
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.35,
+                "maxTimeMs": 0.9
+              },
+              {
+                "name": "objects (post-events)",
+                "avgTimeMs": 0.09,
+                "maxTimeMs": 0.2
+              }
+            ],
+            "worstFrames": [
+              {
+                "frame": 368,
+                "timeMs": 73.5
+              },
+              {
+                "frame": 349,
+                "timeMs": 45.2
+              },
+              {
+                "frame": 416,
+                "timeMs": 33
+              },
+              {
+                "frame": 348,
+                "timeMs": 30.8
+              },
+              {
+                "frame": 417,
+                "timeMs": 28.4
+              }
+            ],
+            "renderer": {
+              "drawCalls": 441,
+              "triangles": 170023,
+              "geometries": 153,
+              "textures": 37
+            }
+          },
+          {
+            "avgStepTimeMs": 14.85,
+            "maxStepTimeMs": 41.2,
+            "sections": [
+              {
+                "name": "events",
+                "avgTimeMs": 7.94,
+                "maxTimeMs": 29
+              },
+              {
+                "name": "render",
+                "avgTimeMs": 6.14,
+                "maxTimeMs": 10.3
+              },
+              {
+                "name": "objects (pre-events)",
+                "avgTimeMs": 0.33,
+                "maxTimeMs": 0.8
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.32,
+                "maxTimeMs": 0.9
+              },
+              {
+                "name": "objects (post-events)",
+                "avgTimeMs": 0.09,
+                "maxTimeMs": 0.3
+              }
+            ],
+            "worstFrames": [
+              {
+                "frame": 590,
+                "timeMs": 41.2
+              },
+              {
+                "frame": 429,
+                "timeMs": 34.3
+              },
+              {
+                "frame": 591,
+                "timeMs": 28.4
+              },
+              {
+                "frame": 593,
+                "timeMs": 27.6
+              },
+              {
+                "frame": 594,
+                "timeMs": 27.5
+              }
+            ],
+            "renderer": {
+              "drawCalls": 454,
+              "triangles": 169103,
+              "geometries": 153,
+              "textures": 37
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "engineRegression": {
+    "before": "32 equivalent uniform graphs compiled 32 programs",
+    "after": "32 equivalent uniform graphs share 1 program; independent colors, graph replacement and disposal verified with WebGL pixel reads",
+    "smokeTest": "SharedLibs/ThreeAddons/test/three-tsl-webgl-smoke.html",
+    "uniformBufferUnitTest": "passed",
+    "bundleBuild": "passed",
+    "gdjsBuild": "passed"
+  },
+  "smoothFollow": {
+    "operation_id": "gameplay-tests-358b1f2d-2df7-4ef8-89a5-5a13d9d47497",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "results": [
+      {
+        "file": "tests/CameraSmoothFollow.js",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "The exact reported bush never pushes the camera into the character: 1250",
+            "passed": true
+          },
+          {
+            "message": "No preset-angle or zoom reset jumps: pitch step=0.27008448983142586, zoom-out step=0",
+            "passed": true
+          },
+          {
+            "message": "Foreground foliage remains visible at half opacity in the reported close-up",
+            "passed": true
+          },
+          {
+            "message": "Obscuring plants settle at 50 percent opacity",
+            "passed": true
+          },
+          {
+            "message": "Visible faded bushes have a successfully installed transparent material",
+            "passed": true
+          },
+          {
+            "message": "Harvested foliage stays hidden while its camera fade is cleared",
+            "passed": true
+          },
+          {
+            "message": "No opaque island geometry blocks the final reported camera view",
+            "passed": true
+          },
+          {
+            "message": "Faded bushes regain full opacity after moving away",
+            "passed": true
+          },
+          {
+            "message": "Repeated foliage crossings remain gradual: angle=0, recovery=0",
+            "passed": true
+          },
+          {
+            "message": "A large orbit input is blended over multiple frames: 446.49093910608536",
+            "passed": true
+          },
+          {
+            "message": "Recorded spring route keeps the camera outside the character: minimum=1250, at=",
+            "passed": true
+          },
+          {
+            "message": "Low scenery never causes a sudden close-up: largest inward step=0",
+            "passed": true
+          },
+          {
+            "message": "Follow keeps a stable horizon through starts, stops and reversals: drift=2.842170943040401e-14",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "consoleLogs": [],
+        "profiles": []
+      }
+    ]
+  },
+  "foliageLOD": {
+    "operation_id": "gameplay-tests-292e1075-088d-4009-a139-f2e7aed86f6f",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "results": [
+      {
+        "file": "tests/FoliageLOD.js",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "BerryBush: one persistent instance per detail level",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: exactly one representation visible: far distance selects the lightest mesh",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: far distance selects the lightest mesh",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: one persistent instance per detail level",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: exactly one representation visible: medium distance selects the middle mesh",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: medium distance selects the middle mesh",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: one persistent instance per detail level",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: exactly one representation visible: hysteresis retains middle detail inside the transition band",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: hysteresis retains middle detail inside the transition band",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: one persistent instance per detail level",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: exactly one representation visible: interaction range immediately restores original detail",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: interaction range immediately restores original detail",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: harvest cooldown hides every detail level",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: one persistent instance per detail level",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: exactly one representation visible: regrowth restores exactly one distant representation",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: regrowth restores exactly one distant representation",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: deleting a resource removes its proxies",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: one persistent instance per detail level",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: exactly one representation visible: far distance selects the lightest mesh",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: far distance selects the lightest mesh",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: one persistent instance per detail level",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: exactly one representation visible: medium distance selects the middle mesh",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: medium distance selects the middle mesh",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: one persistent instance per detail level",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: exactly one representation visible: hysteresis retains middle detail inside the transition band",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: hysteresis retains middle detail inside the transition band",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: one persistent instance per detail level",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: exactly one representation visible: interaction range immediately restores original detail",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: interaction range immediately restores original detail",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: harvest cooldown hides every detail level",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: one persistent instance per detail level",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: exactly one representation visible: regrowth restores exactly one distant representation",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: regrowth restores exactly one distant representation",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: deleting a resource removes its proxies",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: restarting does not duplicate LOD instances",
+            "passed": true
+          },
+          {
+            "message": "BerryBush: restarting does not duplicate LOD instances",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: restarting does not duplicate LOD instances",
+            "passed": true
+          },
+          {
+            "message": "FiberFern: restarting does not duplicate LOD instances",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "consoleLogs": [],
+        "profiles": []
+      }
+    ]
+  },
+  "cameraVisibility": {
+    "operation_id": "gameplay-tests-c922c28a-30ac-4e1c-9fd3-dc19f5860d92",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "results": [
+      {
+        "file": "tests/CameraVisibility.js",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "A newly placed wall retracts the camera in one frame without changing requested zoom: distance=460.9416214719632",
+            "passed": true
+          },
+          {
+            "message": "Wall: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Wall: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Wall: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Wall: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Hidden geometry stops blocking and zoom recovers smoothly",
+            "passed": true
+          },
+          {
+            "message": "The selected zoom is restored when the obstruction clears",
+            "passed": true
+          },
+          {
+            "message": "A close wall does not snap the camera to a preset angle",
+            "passed": true
+          },
+          {
+            "message": "A close wall gradually selects a clear higher angle",
+            "passed": true
+          },
+          {
+            "message": "Close wall: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Close wall: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Close wall: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Close wall: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Camera uses the current elevated mounted target height",
+            "passed": true
+          },
+          {
+            "message": "Camera remains centered on the mounted target",
+            "passed": true
+          },
+          {
+            "message": "Reported tree obstruction: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Reported tree obstruction: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Reported tree obstruction: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Reported tree obstruction: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "The reported view retains safe player framing at or within the requested zoom: 750",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 0: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 0: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 0: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 0: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 45: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 45: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 45: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 45: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 90: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 90: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 90: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 90: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 135: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 135: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 135: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 135: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 180: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 180: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 180: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 180: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 225: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 225: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 225: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 225: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 270: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 270: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 270: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 270: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 315: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 315: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 315: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1600,800 yaw 315: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 0: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 0: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 0: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 0: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 45: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 45: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 45: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 45: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 90: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 90: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 90: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 90: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 135: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 135: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 135: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 135: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 180: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 180: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 180: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 180: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 225: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 225: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 225: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 225: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 270: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 270: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 270: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 270: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 315: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 315: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 315: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 1800,1650 yaw 315: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 0: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 0: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 0: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 0: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 45: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 45: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 45: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 45: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 90: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 90: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 90: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 90: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 135: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 135: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 135: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 135: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 180: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 180: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 180: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 180: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 225: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 225: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 225: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 225: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 270: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 270: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 270: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 270: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 315: finite camera",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 315: body height -70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 315: body height 0 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Island 0,0 yaw 315: body height 70 is unobstructed",
+            "passed": true
+          },
+          {
+            "message": "Orbit changes never ease through an obstruction",
+            "passed": true
+          },
+          {
+            "message": "The island sweep exercised actual scenery obstructions",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "consoleLogs": [],
+        "profiles": []
+      }
+    ]
+  }
+}
