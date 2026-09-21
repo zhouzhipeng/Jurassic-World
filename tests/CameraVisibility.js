@@ -36,8 +36,11 @@ try {
   harness.watch('PartWall');
   harness.watch('Player3D');
   await harness.stepFrames(1);
+  const wallHits = gdjs.evtTools.scene3d.raycastObjects(2000, 1500, 120, 0,
+    Math.cos(25 * Math.PI / 180), Math.sin(25 * Math.PI / 180),
+    [harness.getRuntimeObject(wall.id)], 0, 1280, true);
   harness.assert(n('CameraResolvedDistance') < 500 && n('CameraDistance') === 1250,
-    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}`);
+    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}, hits=${JSON.stringify(wallHits.map(h => [h.distance, h.pointX, h.pointY, h.pointZ]))}`);
   clearSight([harness.getRuntimeObject(wall.id)], 'Wall');
   const compressed = n('CameraResolvedDistance');
   harness.getRuntimeObject(wall.id).hide(true);
