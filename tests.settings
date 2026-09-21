@@ -208,3 +208,11 @@ name = "CameraFenceFollow"
 type = "gameplay"
 description = "Crossing the camp fence at the reported low viewing angle must not collapse or pump the camera."
 file = "tests/CameraFenceFollow.js"
+
+[[tests]]
+scope = "project"
+order = 26
+name = "CameraPerformance"
+type = "gameplay"
+description = "Profile real movement at the reported camp view and fence, with a host-calibrated frame budget and top-center FPS check."
+file = "tests/CameraPerformance.js"
