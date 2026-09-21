@@ -46,8 +46,8 @@ if (player) {
   blockers = blockers.filter(object => Math.hypot(object.getX() - targetX, object.getY() - targetY)
     <= requestedDistance + Math.hypot(object.getWidth(), object.getHeight()) + 300);
   const rightX = Math.cos(yaw), rightY = -Math.sin(yaw);
-  // Protect the upper body and camera corridor. Low probes start beyond the
-  // player's feet: a spring rim/ground rock underfoot is not a camera obstruction.
+  // Probe the body corridor, distinguishing nearby waist-high scenery from
+  // obstructions that cover the head or occupy the camera's travel path.
   const offsets = [[0, 0], [-65, 0], [65, 0], [0, -80], [0, 80],
     [-65, -80], [65, -80], [-65, 80], [65, 80]];
   const foliage = ["BerryBush", "FiberFern", "WoodSapling"];
@@ -89,12 +89,26 @@ if (player) {
     const dy = Math.cos(yaw) * Math.cos(radians);
     const dz = Math.sin(radians);
     let distance = requestedDistance;
+    let headClearance = requestedDistance;
+    const bodyHits = [];
     for (const offset of offsets) {
       const hits = gdjs.evtTools.scene3d.raycastObjects(
         x + rightX * offset[0] + lookAhead * velocityX,
         y + rightY * offset[0] + lookAhead * velocityY, z + offset[1],
-        dx, dy, dz, blockers, offset[1] < 0 ? 220 : 0, requestedDistance + 30, true);
-      for (const hit of hits) distance = Math.min(distance, Math.max(10, hit.distance - 30));
+        dx, dy, dz, blockers, 0, requestedDistance + 30, true);
+      for (const hit of hits) {
+        if (offset[1] > 0) headClearance = Math.min(headClearance, Math.max(10, hit.distance - 30));
+        else bodyHits.push(hit.distance);
+      }
+    }
+    distance = Math.min(distance, headClearance);
+    for (const hitDistance of bodyHits) {
+      // A tabletop can intersect a torso probe at its origin while the head and
+      // actual camera are clear. Pulling in would put the lens inside the player.
+      // Ignore only this near-target partial occlusion, never a tall wall or a
+      // blocker farther along the boom. This also covers spring rims and rocks.
+      if (hitDistance < 330 && headClearance >= 330) continue;
+      distance = Math.min(distance, Math.max(10, hitDistance - 30));
     }
     clearanceCache.set(key, distance);
     return distance;

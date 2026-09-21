@@ -24,4 +24,28 @@ try {
   }
   harness.assert(n('CameraResolvedDistance') >= 600,
     `Table view must not enter the survivor: distance=${n('CameraResolvedDistance')}; probes=${JSON.stringify(hits)}`);
+  // Replay approaches and reversals around this table with the real movement input.
+  harness.setSceneVariable('Mode', 0);
+  let closest = n('CameraResolvedDistance'), largestStep = 0;
+  let previous = closest;
+  for (const [key, frames] of [['s', 35], ['', 20], ['w', 26], ['', 39],
+    ['s', 31], ['', 30], ['w', 28], ['', 90]]) {
+    if (key) harness.setKeyPressed(key, true);
+    for (let frame = 0; frame < frames; frame++) {
+      await harness.stepFrames(1);
+      const distance = n('CameraResolvedDistance');
+      closest = Math.min(closest, distance);
+      largestStep = Math.max(largestStep, Math.abs(distance - previous));
+      previous = distance;
+    }
+    harness.releaseAllInputs();
+  }
+  harness.assert(closest >= 600, `Table approaches keep a usable follow distance: ${closest}`);
+  harness.assert(largestStep < 90, `No abrupt zoom on table approaches/reversals: ${largestStep}`);
+  const c = harness.getCameraState('World3D'), finalPlayer = player();
+  const dx = finalPlayer.x - c.x, dy = finalPlayer.y - c.y, dz = 200 - c.z;
+  const length = Math.hypot(dx, dy, dz);
+  harness.assert(gdjs.evtTools.scene3d.raycastObjects(c.x, c.y, c.z,
+    dx / length, dy / length, dz / length, solids, 0, length - 1, true).length === 0,
+    'The survivor head is visible from the resulting table view');
 } finally { harness.releaseAllInputs(); }
