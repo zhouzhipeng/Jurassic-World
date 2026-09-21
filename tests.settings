@@ -184,3 +184,11 @@ name = "CameraSmoothFollow"
 type = "gameplay"
 description = "Reported near-bush view, bounded angle and zoom recovery, foliage restoration and stable follow while moving."
 file = "tests/CameraSmoothFollow.js"
+
+[[tests]]
+scope = "project"
+order = 23
+name = "CameraTableFollow"
+type = "gameplay"
+description = "Recorded camp table approach keeps a usable view without entering the survivor."
+file = "tests/CameraTableFollow.js"
