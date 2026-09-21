@@ -92,6 +92,23 @@ if (player) {
   }
   const clearanceCache = new Map();
   const headRoomCache = new Map();
+  // Near-wall probes are only needed to classify a close body hit. Defer them
+  // until then, and short-circuit the same center-or-both-sides predicate.
+  const hasHeadRoom = (lookAhead = 0) => {
+    if (headRoomCache.has(lookAhead)) return headRoomCache.get(lookAhead);
+    for (const height of [40, 80]) {
+      const blocked = (side = 0) => gdjs.evtTools.scene3d.raycastObjects(
+        x + rightX * side + lookAhead * velocityX,
+        y + rightY * side + lookAhead * velocityY, z + height,
+        Math.sin(yaw), Math.cos(yaw), 0, blockers, 0, 330, true).length > 0;
+      if (!(blocked(0) || (blocked(-8) && blocked(8)))) {
+        headRoomCache.set(lookAhead, true);
+        return true;
+      }
+    }
+    headRoomCache.set(lookAhead, false);
+    return false;
+  };
   const clearance = (pitch = 25, lookAhead = 0) => {
     lookAhead = Math.min(lookAhead, predictionTime);
     const key = pitch.toFixed(3) + ":" + lookAhead;
@@ -100,27 +117,6 @@ if (player) {
     const dx = Math.sin(yaw) * Math.cos(radians);
     const dy = Math.cos(yaw) * Math.cos(radians);
     const dz = Math.sin(radians);
-    if (!headRoomCache.has(lookAhead)) {
-      // Check the actual target, not an offset point that may lie inside an
-      // adjacent wall. A pitched ray alone could pass over a tall close wall.
-      let blockedHeights = 0;
-      // A narrow central band catches vertical plank seams. Require the center
-      // or both sides to be blocked: one side alone can be inside an adjacent wall.
-      for (const height of [40, 80]) {
-        const blocked = [];
-        for (const side of [-8, 0, 8]) {
-          const hits = gdjs.evtTools.scene3d.raycastObjects(
-            x + rightX * side + lookAhead * velocityX,
-            y + rightY * side + lookAhead * velocityY, z + height,
-            Math.sin(yaw), Math.cos(yaw), 0, blockers, 0, 330, true);
-          blocked.push(hits.length > 0);
-        }
-        if (blocked[1] || (blocked[0] && blocked[2])) blockedHeights++;
-      }
-      // A fence post reaches the lower band but leaves the head visible. Only
-      // continuous obstruction across both heights is a solid near-target wall.
-      headRoomCache.set(lookAhead, blockedHeights < 2);
-    }
     let distance = requestedDistance;
     let headClearance = requestedDistance;
     const bodyHits = [];
@@ -143,7 +139,7 @@ if (player) {
       // while the real target and camera are clear. Do not collapse the boom
       // for near-target partial occlusion. Central head blockage and all
       // farther corridor hits still constrain it, including tall walls.
-      if (hitDistance < 330 && headClearance >= 330 && headRoomCache.get(lookAhead)) continue;
+      if (hitDistance < 330 && headClearance >= 330 && hasHeadRoom(lookAhead)) continue;
       distance = Math.min(distance, Math.max(10, hitDistance - 30));
     }
     clearanceCache.set(key, distance);
