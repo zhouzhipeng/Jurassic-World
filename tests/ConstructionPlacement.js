@@ -41,6 +41,25 @@ try {
   await tap('Return');
   harness.assert(harness.getObjects('PartFoundation').length === 2 && materials() === before,
     'Rejected placement leaves inventory and building count unchanged');
+  harness.assert(String(harness.getSceneVariable('BuildReason')?.value).includes('木 6'),
+    'The rejection explains the exact six-wood shortage');
+  const hint = harness.getObjects('TouchHint')[0].text;
+  harness.assert(hint.includes('持有/需要') && hint.includes('木 0/6'),
+    'The build HUD distinguishes held materials from the foundation cost');
+  harness.setSceneVariable('Wood', 6);
+  harness.setSceneVariable('Stone', 1);
+  harness.setSceneVariable('Fiber', 1);
+  await harness.stepFrames(2);
+  const shortage = String(harness.getSceneVariable('BuildReason')?.value);
+  harness.assert(shortage.includes('石 1') && shortage.includes('纤维 2'),
+    'Simultaneous stone and fiber shortages are both shown');
+  harness.setSceneVariable('Stone', 2);
+  harness.setSceneVariable('Fiber', 3);
+  await harness.stepFrames(2);
+  harness.assert(number('BuildValid') === 1, 'Supplying the exact missing materials enables placement');
+  await tap('Return');
+  harness.assert(harness.getObjects('PartFoundation').length === 3 && materials() === '0,0,0',
+    'The previously rejected tile places successfully and consumes exactly its cost');
 } finally {
   harness.releaseAllInputs();
 }

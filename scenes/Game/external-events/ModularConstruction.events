@@ -536,7 +536,7 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="Wood" comparison_sign="<" value=expr(BuildWood)
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
-do SetStringVariable variable="BuildReason" modification_sign="=" value="材料不足：先采集木材、石头和纤维"
+do SetStringVariable variable="BuildReason" modification_sign="=" value=expr("材料不足，还缺：木 "+ToString(max(0,BuildWood-Wood))+" / 石 "+ToString(max(0,BuildStone-Stone))+" / 纤维 "+ToString(max(0,BuildFiber-Fiber)))
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -544,7 +544,7 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="Stone" comparison_sign="<" value=expr(BuildStone)
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
-do SetStringVariable variable="BuildReason" modification_sign="=" value="材料不足：先采集木材、石头和纤维"
+do SetStringVariable variable="BuildReason" modification_sign="=" value=expr("材料不足，还缺：木 "+ToString(max(0,BuildWood-Wood))+" / 石 "+ToString(max(0,BuildStone-Stone))+" / 纤维 "+ToString(max(0,BuildFiber-Fiber)))
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -552,7 +552,7 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="Fiber" comparison_sign="<" value=expr(BuildFiber)
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
-do SetStringVariable variable="BuildReason" modification_sign="=" value="材料不足：先采集木材、石头和纤维"
+do SetStringVariable variable="BuildReason" modification_sign="=" value=expr("材料不足，还缺：木 "+ToString(max(0,BuildWood-Wood))+" / 石 "+ToString(max(0,BuildStone-Stone))+" / 纤维 "+ToString(max(0,BuildFiber-Fiber)))
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
