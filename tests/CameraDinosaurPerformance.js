@@ -29,7 +29,7 @@ try {
   const orbit = harness.stopProfiling();
   const times = orbit.frameTimesMs.slice().sort((a, b) => a - b);
   const p95 = times[Math.floor((times.length - 1) * 0.95)];
-  harness.assert(orbit.avgStepTimeMs < 33.3 && p95 < 50,
+  harness.assert(orbit.avgStepTimeMs < 20 && p95 < 33.3 && orbit.maxStepTimeMs < 100,
     `Dinosaur orbit mean/p95/max: ${orbit.avgStepTimeMs}/${p95}/${orbit.maxStepTimeMs} ms`);
   harness.assert(Number.isFinite(n('CameraResolvedDistance')) && n('CameraResolvedDistance') >= 300,
     'Orbit retains finite usable player framing');

@@ -1,4 +1,5 @@
-// Two full rotations: record both first-use and warmed render costs.
+// issue-20260921-094307-865: the first orbit must also meet the stutter budget.
+// Do not pre-rotate: newly visible foliage exposed duplicate TSL GPU programs.
 try {
   await harness.goToScene('Game');
   await harness.stepFrames(3);
@@ -18,6 +19,10 @@ try {
     const profile = harness.stopProfiling();
     harness.assert(!!profile && Number.isFinite(profile.avgStepTimeMs),
       `Orbit ${lap + 1}: measured mean=${profile?.avgStepTimeMs}, max=${profile?.maxStepTimeMs} ms`);
+    const times = profile.frameTimesMs.slice().sort((a, b) => a - b);
+    const p95 = times[Math.floor((times.length - 1) * 0.95)];
+    harness.assert(profile.avgStepTimeMs < 20 && p95 < 33.3 && profile.maxStepTimeMs < 100,
+      `Orbit ${lap + 1} including first exposure stays within the host budget; mean/p95/max=${profile.avgStepTimeMs}/${p95}/${profile.maxStepTimeMs} ms`);
     if (lap === 1) {
       harness.assert(profile.avgStepTimeMs < 33.3 && profile.maxStepTimeMs < 100,
         `Warmed orbit stays below the host-calibrated recurring-stutter budget: ${profile.avgStepTimeMs}/${profile.maxStepTimeMs} ms`);
