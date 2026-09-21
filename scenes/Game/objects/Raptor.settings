@@ -11,6 +11,16 @@ content = { }
 folder = [ "Actors" ]
 
 [[variables]]
+name = "CameraBoundsZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraBoundsDepth"
+type = "number"
+value = 0
+
+[[variables]]
 name = "HP"
 type = "number"
 value = 100

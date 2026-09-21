@@ -1,5 +1,35 @@
 @comment "Resolve visibility after all movement, riding, floor and construction updates. Keep the requested orbit separate from collision response." background=[74,176,228] text=[0,0,0]
 
+@event aiGeneratedEventId="camera-bounds-dinosaur3d"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Dinosaur3D
+>> do SetNumberObjectVariable object="Dinosaur3D" variable="CameraBoundsZ" modification_sign="=" value=expr(Dinosaur3D.Object3D::Z())
+>> do SetNumberObjectVariable object="Dinosaur3D" variable="CameraBoundsDepth" modification_sign="=" value=expr(Dinosaur3D.Object3D::Depth())
+
+@event aiGeneratedEventId="camera-bounds-triceratops"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Triceratops
+>> do SetNumberObjectVariable object="Triceratops" variable="CameraBoundsZ" modification_sign="=" value=expr(Triceratops.Object3D::Z())
+>> do SetNumberObjectVariable object="Triceratops" variable="CameraBoundsDepth" modification_sign="=" value=expr(Triceratops.Object3D::Depth())
+
+@event aiGeneratedEventId="camera-bounds-stegosaur"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Stegosaur
+>> do SetNumberObjectVariable object="Stegosaur" variable="CameraBoundsZ" modification_sign="=" value=expr(Stegosaur.Object3D::Z())
+>> do SetNumberObjectVariable object="Stegosaur" variable="CameraBoundsDepth" modification_sign="=" value=expr(Stegosaur.Object3D::Depth())
+
+@event aiGeneratedEventId="camera-bounds-raptor"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Raptor
+>> do SetNumberObjectVariable object="Raptor" variable="CameraBoundsZ" modification_sign="=" value=expr(Raptor.Object3D::Z())
+>> do SetNumberObjectVariable object="Raptor" variable="CameraBoundsDepth" modification_sign="=" value=expr(Raptor.Object3D::Depth())
+
+@event aiGeneratedEventId="camera-bounds-tyrannosaur"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Tyrannosaur
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="CameraBoundsZ" modification_sign="=" value=expr(Tyrannosaur.Object3D::Z())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="CameraBoundsDepth" modification_sign="=" value=expr(Tyrannosaur.Object3D::Depth())
+
 @event aiGeneratedEventId="camera-resolve-obstructions"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > @js strict=true expanded=false
@@ -83,9 +113,24 @@ if (player) {
   blockers = blockers.filter(object => object.isVisible() && !foliage.includes(object.getName()));
   // Island3D is static project scenery. Keep scalar hit distances for identical
   // rays while its transform and the camera pivot are unchanged. Moving actors
-  // and player-built geometry always use fresh raycasts, including their bones.
+  // and player-built geometry always use current transforms.
   const terrain = blockers.filter(object => object.getName() === "Island3D");
-  const liveBlockers = blockers.filter(object => object.getName() !== "Island3D");
+  const actorNames = ["Dinosaur3D", "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur"];
+  const liveBlockers = blockers.filter(object => object.getName() !== "Island3D" &&
+    !actorNames.includes(object.getName()));
+  // Camera-only oriented boxes use each prefab's centered XY, bottom-Z bounds.
+  // Rebuild once per frame, so moving, turning, resized and elevated actors stay
+  // current. A small margin covers animation. Avoid hundreds of expensive
+  // skinned-triangle queries during the pitch search; physical collisions and
+  // rendering continue to use the original actors.
+  const actorBounds = blockers.filter(object => actorNames.includes(object.getName())).map(object => {
+    const angle = object.getAngle() * Math.PI / 180;
+    const vars = object.getVariables();
+    return { x: object.getX(), y: object.getY(), z: vars.get("CameraBoundsZ").getAsNumber(),
+      c: Math.cos(angle), s: Math.sin(angle),
+      halfX: object.getWidth() / 2 + 15, halfY: object.getHeight() / 2 + 15,
+      depth: vars.get("CameraBoundsDepth").getAsNumber() + 15 };
+  });
   const terrainKey = [x, y, z, yaw, requestedDistance, ...terrain.flatMap(object =>
     [object.getUniqueId(), object.getX(), object.getY(), object.getAngle(),
       object.getWidth(), object.getHeight()])].join(":");
@@ -97,6 +142,26 @@ if (player) {
   const castSolids = (ox = 0, oy = 0, oz = 0, dx = 0, dy = 0, dz = 0, far = 0) => {
     const distances = liveBlockers.length ? gdjs.evtTools.scene3d.raycastObjects(
       ox, oy, oz, dx, dy, dz, liveBlockers, 0, far, true).map(hit => hit.distance) : [];
+    for (const box of actorBounds) {
+      const rx = ox - box.x, ry = oy - box.y;
+      const origins = [rx * box.c + ry * box.s, -rx * box.s + ry * box.c, oz - box.z];
+      const directions = [dx * box.c + dy * box.s, -dx * box.s + dy * box.c, dz];
+      const lower = [-box.halfX, -box.halfY, -15];
+      const upper = [box.halfX, box.halfY, box.depth];
+      let enter = 0, leave = far;
+      for (let axis = 0; axis < 3; axis++) {
+        if (Math.abs(directions[axis]) < 0.000001) {
+          if (origins[axis] < lower[axis] || origins[axis] > upper[axis]) { leave = -1; break; }
+        } else {
+          const a = (lower[axis] - origins[axis]) / directions[axis];
+          const b = (upper[axis] - origins[axis]) / directions[axis];
+          enter = Math.max(enter, Math.min(a, b));
+          leave = Math.min(leave, Math.max(a, b));
+          if (enter > leave) break;
+        }
+      }
+      if (enter <= leave) distances.push(enter);
+    }
     if (!terrain.length) return distances;
     const key = [ox, oy, oz, dx, dy, dz, far].join(":");
     if (!terrainCache.hasChild(key)) {
