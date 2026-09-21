@@ -1,22 +1,22 @@
 @comment "Copper-bearing stone: slower extraction and a longer replenishment period" background=[90,150,120] text=[255,255,255]
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="MetalDeposit" variable="Target" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="MetalDeposit" variable="Cooldown" comparison_sign="<=" value=expr(0)
-if NumberObjectVariable object="MetalDeposit" variable="Progress" comparison_sign=">=" value=expr(1.8)
-if NumberVariable variable="Stamina" comparison_sign=">=" value=expr(3)
-do SetNumberObjectVariable object="MetalDeposit" variable="Cooldown" modification_sign="=" value=expr(180)
-do SetNumberObjectVariable object="MetalDeposit" variable="Progress" modification_sign="=" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberObjectVariable object="MetalDeposit" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="MetalDeposit" variable="Cooldown" comparison_sign="<=" value=0
+if NumberObjectVariable object="MetalDeposit" variable="Progress" comparison_sign=">=" value=1.8
+if NumberVariable variable="Stamina" comparison_sign=">=" value=3
+do SetNumberObjectVariable object="MetalDeposit" variable="Cooldown" modification_sign="=" value=180
+do SetNumberObjectVariable object="MetalDeposit" variable="Progress" modification_sign="=" value=0
 do SetAngle object="MetalDeposit" modification_sign="=" angle_in_degrees=0
 do Hide object="MetalDeposit"
 do SetNumberVariable variable="MetalOre" modification_sign="+" value=expr(2+2*MetalTools)
 do SetNumberVariable variable="GatherMetal" modification_sign="+" value=expr(2+2*MetalTools)
-do SetNumberVariable variable="Stamina" modification_sign="-" value=expr(3)
-do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Stamina" modification_sign="-" value=3
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
 do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=55 pitch_speed=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("获得金属矿石。营地 Z 熔炼，U 制作金属工具。矿脉 180 秒后恢复。")
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="获得金属矿石。营地 Z 熔炼，U 制作金属工具。矿脉 180 秒后恢复。"

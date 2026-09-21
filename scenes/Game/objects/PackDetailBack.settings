@@ -1,15 +1,15 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 321
-folder = ["UI", "Touch"]
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
 name = "PackDetailBack"
 type = "Sprite"
-adaptCollisionMaskAutomatically = true
 updateIfNotVisible = false
+variables = [ ]
 effects = [ ]
 behaviors = [ ]
-
-variables = [ ]
+folder = [ "UI", "Touch" ]
 
 [[animations]]
 name = "Default"

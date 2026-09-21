@@ -170,7 +170,6 @@ name = "ActorConfigured"
 type = "number"
 value = 1
 
-
 [[variables]]
 name = "Bond"
 type = "number"

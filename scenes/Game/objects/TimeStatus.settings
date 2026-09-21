@@ -1,31 +1,49 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 296
-folder = ["UI", "Time"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "TimeStatus"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+string = """
+第 1 天 · 08:00
+白天 · F7 +6小时"""
+font = "interface.ttf"
+textAlignment = "center"
+characterSize = 17
+folder = [ "UI", "Time" ]
+
+[color]
+b = 218
+g = 240
+r = 242
 
 [content]
-text = "第 1 天 · 08:00\n白天 · F7 +6小时"
-font = "interface.ttf"
-characterSize = 17
 bold = false
-italic = false
-underlined = false
-smoothed = true
-textAlignment = "center"
-verticalTextAlignment = "top"
-color = "242;240;218"
-lineHeight = 0
 isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
 outlineColor = "0;0;0"
 outlineThickness = 2
-isShadowEnabled = false
-shadowColor = "0;0;0"
-shadowOpacity = 127
-shadowBlurRadius = 2
-shadowDistance = 4
 shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
+text = """
+第 1 天 · 08:00
+白天 · F7 +6小时"""
+font = "interface.ttf"
+textAlignment = "center"
+verticalTextAlignment = "top"
+characterSize = 17
+lineHeight = 0
+color = "242;240;218"

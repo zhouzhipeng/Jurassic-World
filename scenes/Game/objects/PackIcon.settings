@@ -1,13 +1,14 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 316
-folder = ["UI", "Touch"]
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
 name = "PackIcon"
 type = "Sprite"
-adaptCollisionMaskAutomatically = true
 updateIfNotVisible = false
 effects = [ ]
 behaviors = [ ]
+folder = [ "UI", "Touch" ]
 
 [[variables]]
 name = "Slot"
@@ -41,10 +42,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 0
 y = 0
-width = 314
-height = 314
 
 [[animations]]
 name = "Stone"
@@ -63,10 +64,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 314
 y = 0
-width = 314
-height = 314
 
 [[animations]]
 name = "Fiber"
@@ -85,10 +86,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 627
 y = 0
-width = 314
-height = 314
 
 [[animations]]
 name = "Hide"
@@ -107,10 +108,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 940
 y = 0
-width = 314
-height = 314
 
 [[animations]]
 name = "Berries"
@@ -129,10 +130,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 0
 y = 314
-width = 314
-height = 314
 
 [[animations]]
 name = "RawMeat"
@@ -167,10 +168,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 627
 y = 314
-width = 314
-height = 314
 
 [[animations]]
 name = "Axe"
@@ -189,10 +190,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 940
 y = 314
-width = 314
-height = 314
 
 [[animations]]
 name = "Spear"
@@ -211,10 +212,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 285
+width = 314
 x = 0
 y = 627
-width = 314
-height = 285
 
 [[animations]]
 name = "Flint"
@@ -233,10 +234,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 314
 y = 627
-width = 314
-height = 314
 
 [[animations]]
 name = "Rope"
@@ -255,10 +256,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 627
 y = 627
-width = 314
-height = 314
 
 [[animations]]
 name = "CookedMeat"
@@ -277,10 +278,10 @@ centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
 
 [animations.directions.sprites.sourceRect]
+height = 314
+width = 314
 x = 314
 y = 314
-width = 314
-height = 314
 
 [[animations]]
 name = "MetalOre"

@@ -720,6 +720,7 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 > @event
 > for each "Wildlife"
 >> @comment "Test the building footprint against the dinosaur's oriented body bounds on all four separating axes. HalfLength is the longitudinal extent, not an extra radius in every direction." background=[90,150,180] text=[255,255,255]
+
 >> @event
 >> if NumberObjectVariable object="Wildlife" variable="HP" comparison_sign=">" value=0
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-Wildlife.X())) comparison_sign="<" second_expression=expr(BuildWorldHX+abs(cos(ToRad(Wildlife.Angle())))*Wildlife.Variable(Radius)+abs(sin(ToRad(Wildlife.Angle())))*Wildlife.Variable(HalfLength))

@@ -9,7 +9,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="WorldMinutes" modification_sign="+" value=expr(TimeDelta() * 1440 / max(60, DayLengthSeconds))
-
+> @event
 > if KeyFromTextReleased key_to_check="F7"
 > do SetNumberVariable variable="WorldMinutes" modification_sign="+" value=360
 
@@ -27,15 +27,17 @@ do SetNumberVariable variable="SunElevation" modification_sign="=" value=expr(ma
 do SetNumberVariable variable="SunRotation" modification_sign="=" value=expr(mod(90 + WorldMinutes / 4, 360))
 do SetStringVariable variable="TimeDisplay" modification_sign="=" value=expr(SubStr(ToString(100 + floor(WorldMinutes / 60)), 1, 2) + ":" + SubStr(ToString(100 + floor(mod(WorldMinutes, 60))), 1, 2))
 do SetStringVariable variable="TimePhase" modification_sign="=" value="夜晚"
-
+> @event
 > if NumberVariable variable="WorldMinutes" comparison_sign=">=" value=300
 > if NumberVariable variable="WorldMinutes" comparison_sign="<" value=420
 > do SetStringVariable variable="TimePhase" modification_sign="=" value="黎明"
 
+> @event
 > if NumberVariable variable="WorldMinutes" comparison_sign=">=" value=420
 > if NumberVariable variable="WorldMinutes" comparison_sign="<" value=1020
 > do SetStringVariable variable="TimePhase" modification_sign="=" value="白天"
 
+> @event
 > if NumberVariable variable="WorldMinutes" comparison_sign=">=" value=1020
 > if NumberVariable variable="WorldMinutes" comparison_sign="<" value=1140
 > do SetStringVariable variable="TimePhase" modification_sign="=" value="黄昏"

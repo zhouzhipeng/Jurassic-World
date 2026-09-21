@@ -15,8 +15,8 @@ id = "59e28923-ad01-47b4-80b2-ff4df526f917"
 object = "TimePanel"
 layer = "hud"
 at = [1018, 22]
-size = [188, 64]
 z_order = 4
+size = [188, 64]
 keep_ratio = false
 
 [[layout.instances]]
@@ -24,6 +24,6 @@ id = "97cc1bbd-fdb6-4569-911c-2645ed55b7df"
 object = "TimeStatus"
 layer = "hud"
 at = [1026, 32]
-size = [172, 46]
 z_order = 10
+size = [172, 46]
 keep_ratio = false

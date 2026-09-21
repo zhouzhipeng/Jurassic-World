@@ -157,7 +157,7 @@ if MouseButtonFromTextReleased button_to_check="Left"
 do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
 
 @event
-link external "SurvivalSave"
+link "SurvivalSave"
 
 @event
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=1

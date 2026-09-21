@@ -1,14 +1,15 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 295
-folder = ["UI", "Time"]
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
 name = "TimePanel"
 type = "Sprite"
-adaptCollisionMaskAutomatically = true
 updateIfNotVisible = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+folder = [ "UI", "Time" ]
 
 [[animations]]
 name = "Default"

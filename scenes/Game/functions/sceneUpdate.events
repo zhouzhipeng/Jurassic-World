@@ -1,11 +1,14 @@
 @event
 link "HUDBootstrap"
 
-link external "TouchContext"
+@event
+link "TouchContext"
 
-link external "TouchLayout"
+@event
+link "TouchLayout"
 
-link external "TouchInput"
+@event
+link "TouchInput"
 
 @event
 link "HUDConstructionInput"
@@ -92,7 +95,8 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Stamina" comparison_sign=">=" value=15
 do SetNumberObjectVariable object="Player3D" variable="SprintExhausted" modification_sign="=" value=0
 
-link external "TouchMovement"
+@event
+link "TouchMovement"
 
 @comment "Sprint input" background=[90,150,180] text=[255,255,255]
 
@@ -327,8 +331,8 @@ do SetStringVariable variable="NoticeMessage" modification_sign="=" value="两�
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 @event
-local mountedHeading = 0
-local mountedStride = 0
+local mountedHeading = var(type="number",value=0,persistentUuid="",folded=false,hasMixedValues=false)
+local mountedStride = var(type="number",value=0,persistentUuid="",folded=false,hasMixedValues=false)
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
@@ -481,7 +485,7 @@ link "HUDMenuInput"
 @comment "Proximity harvesting: one nearest node, hold E, respawn and feedback" background=[90,150,180] text=[255,255,255]
 
 @event
-link external "SurvivalContext"
+link "SurvivalContext"
 
 @event
 link "HUDHarvestReset"
@@ -504,7 +508,8 @@ do Hide object="HarvestNodes"
 @event
 link "HUDHarvestFeedback"
 
-link external "TouchActions"
+@event
+link "TouchActions"
 
 @event
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
@@ -570,18 +575,19 @@ do SetNumberObjectVariable object="HarvestNodes" variable="Progress" modificatio
 do SetAngle object="HarvestNodes" modification_sign="=" angle_in_degrees=0
 
 @event
-link external "MetalHarvest"
+link "MetalHarvest"
 
 @event
 link "HUDActionBar"
 
 @event
-link external "SurvivalUse"
+link "SurvivalUse"
 
 @event
 if NumberVariable variable="TouchLoad" comparison_sign="=" value=1
 do SetNumberVariable variable="Action" modification_sign="=" value=10
 
+@event
 link "HUDInventoryAndSave"
 
 @event
@@ -973,7 +979,7 @@ for each "Triceratops"
 > do SetNumberObjectVariable object="Triceratops" variable="AIClock" modification_sign="=" value=0
 
 > @event
-> link external "CompanionSteering"
+> link "CompanionSteering"
 
 > @event
 > if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -2210,10 +2216,10 @@ do SetY object="Player3D" modification_sign="=" value=350
 do SetNumberVariable variable="PreviousX" modification_sign="=" value=-650
 do SetNumberVariable variable="PreviousY" modification_sign="=" value=350
 do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
-do SetNumberVariable variable="BodyTemp" modification_sign="=" value=expr(37)
-do SetNumberVariable variable="Wetness" modification_sign="=" value=expr(0)
-do SetNumberVariable variable="Hunger" modification_sign="=" value=expr(65)
-do SetNumberVariable variable="UseRequest" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="BodyTemp" modification_sign="=" value=37
+do SetNumberVariable variable="Wetness" modification_sign="=" value=0
+do SetNumberVariable variable="Hunger" modification_sign="=" value=65
+do SetNumberVariable variable="UseRequest" modification_sign="=" value=0
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已在营地重生，获得 5 秒保护。"
 do PlaySound audio_file_or_audio_resource_name="respawn.wav" repeat_the_sound=false volume=70 pitch_speed=1
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
@@ -2225,7 +2231,7 @@ link "HUDExplorationHint"
 link "ModularConstruction"
 
 @event
-link external "SurvivalSimulation"
+link "SurvivalSimulation"
 
 @comment "Player skeletal animation controller" background=[95,155,180] text=[255,255,255]
 
@@ -2317,19 +2323,23 @@ do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modific
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0
 do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modification_sign="=" value=0
 
-link external "TimeSystem"
-
-link external "WeatherSystem"
+@event
+link "TimeSystem"
 
 @event
-link external "SurvivalRestoreWorld"
+link "WeatherSystem"
 
 @event
-link external "SurvivalHUD"
+link "SurvivalRestoreWorld"
 
-link external "TouchPresentation"
+@event
+link "SurvivalHUD"
 
-link external "CameraVisibility"
+@event
+link "TouchPresentation"
+
+@event
+link "CameraVisibility"
 
 @event
 link external "FPSDisplay"

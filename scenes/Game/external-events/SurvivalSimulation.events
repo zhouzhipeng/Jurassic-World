@@ -1,192 +1,190 @@
 @comment "Cooking queues, wetness, cold exposure and finite food/water" background=[90,150,120] text=[255,255,255]
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="NeedsClock" modification_sign="=" value=expr(NeedsClock+TimeDelta())
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NeedsClock" comparison_sign=">=" value=expr(5)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="NeedsClock" comparison_sign=">=" value=5
 do SetNumberVariable variable="NeedsClock" modification_sign="=" value=expr(mod(NeedsClock,5))
 do SetNumberVariable variable="Hunger" modification_sign="=" value=expr(max(0,Hunger-0.5))
 do SetNumberVariable variable="Water" modification_sign="=" value=expr(max(0,Water-0.75))
-do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="WeatherType" comparison_sign=">=" value=expr(2)
-if NumberVariable variable="WeatherType" comparison_sign="<=" value=expr(3)
-if NumberVariable variable="BuildRest" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Warmth" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="WeatherType" comparison_sign=">=" value=2
+if NumberVariable variable="WeatherType" comparison_sign="<=" value=3
+if NumberVariable variable="BuildRest" comparison_sign="=" value=0
+if NumberVariable variable="Warmth" comparison_sign="=" value=0
 do SetNumberVariable variable="Wetness" modification_sign="=" value=expr(min(100,Wetness+TimeDelta()*2))
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="WeatherType" comparison_sign="<" value=expr(2)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="WeatherType" comparison_sign="<" value=2
 do SetNumberVariable variable="Wetness" modification_sign="=" value=expr(max(0,Wetness-TimeDelta()*0.5))
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="WeatherType" comparison_sign="=" value=expr(4)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="WeatherType" comparison_sign="=" value=4
 do SetNumberVariable variable="Wetness" modification_sign="=" value=expr(max(0,Wetness-TimeDelta()*0.5))
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildRest" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildRest" comparison_sign="=" value=1
 do SetNumberVariable variable="Wetness" modification_sign="=" value=expr(max(0,Wetness-TimeDelta()*1.5))
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Warmth" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Warmth" comparison_sign="=" value=1
 do SetNumberVariable variable="Wetness" modification_sign="=" value=expr(max(0,Wetness-TimeDelta()*6))
 do SetNumberVariable variable="BodyTemp" modification_sign="=" value=expr(min(37,BodyTemp+TimeDelta()*0.16))
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Warmth" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Warmth" comparison_sign="=" value=0
 do SetNumberVariable variable="BodyTemp" modification_sign="=" value=expr(BodyTemp + ((36.4+0.6*Daylight-Wetness*0.022)-BodyTemp)*min(1,TimeDelta()*0.035))
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Hunger" comparison_sign="<=" value=expr(0)
-if NumberVariable variable="Invulnerable" comparison_sign="<=" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Hunger" comparison_sign="<=" value=0
+if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
 do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0,Health-TimeDelta()))
-do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Water" comparison_sign="<=" value=expr(0)
-if NumberVariable variable="Invulnerable" comparison_sign="<=" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Water" comparison_sign="<=" value=0
+if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
 do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0,Health-TimeDelta()*1.5))
-do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BodyTemp" comparison_sign="<" value=expr(35)
-if NumberVariable variable="Invulnerable" comparison_sign="<=" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BodyTemp" comparison_sign="<" value=35
+if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
 do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0,Health-TimeDelta()*0.6))
 do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(max(0,Stamina-TimeDelta()*1.2))
-do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Threat" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Hunger" comparison_sign=">" value=expr(0)
-if NumberVariable variable="Water" comparison_sign=">" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+if NumberVariable variable="Hunger" comparison_sign=">" value=0
+if NumberVariable variable="Water" comparison_sign=">" value=0
 do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(min(100,Stamina+TimeDelta()*2))
 
 @event
 for each "SurvivalFires"
-
 > @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="SurvivalFires" variable="Cooking" comparison_sign="=" value=expr(1)
+> if NumberVariable variable="Mode" comparison_sign="=" value=0
+> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> if NumberVariable variable="Dead" comparison_sign="=" value=0
+> if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=0
+> if NumberObjectVariable object="SurvivalFires" variable="Cooking" comparison_sign="=" value=1
 > do SetNumberObjectVariable object="SurvivalFires" variable="CookTime" modification_sign="=" value=expr(max(0,SurvivalFires.Variable(CookTime)-min(TimeDelta(),SurvivalFires.Variable(Fuel))))
 
 > @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=expr(0)
+> if NumberVariable variable="Mode" comparison_sign="=" value=0
+> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> if NumberVariable variable="Dead" comparison_sign="=" value=0
+> if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=0
 > do SetNumberObjectVariable object="SurvivalFires" variable="Fuel" modification_sign="=" value=expr(max(0,SurvivalFires.Variable(Fuel)-TimeDelta()))
 
 > @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="SurvivalFires" variable="Cooking" comparison_sign="=" value=expr(1)
-> if NumberObjectVariable object="SurvivalFires" variable="CookTime" comparison_sign="<=" value=expr(0)
-> do SetNumberObjectVariable object="SurvivalFires" variable="Cooking" modification_sign="=" value=expr(0)
-> do SetNumberVariable variable="CookedMeat" modification_sign="+" value=expr(1)
-> do SetNumberVariable variable="MealsCooked" modification_sign="+" value=expr(1)
-> do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+> if NumberVariable variable="Mode" comparison_sign="=" value=0
+> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> if NumberVariable variable="Dead" comparison_sign="=" value=0
+> if NumberObjectVariable object="SurvivalFires" variable="Cooking" comparison_sign="=" value=1
+> if NumberObjectVariable object="SurvivalFires" variable="CookTime" comparison_sign="<=" value=0
+> do SetNumberObjectVariable object="SurvivalFires" variable="Cooking" modification_sign="=" value=0
+> do SetNumberVariable variable="CookedMeat" modification_sign="+" value=1
+> do SetNumberVariable variable="MealsCooked" modification_sign="+" value=1
+> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 > do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=55 pitch_speed=1
-> do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("烤肉完成，已放入背包。按 5 食用。")
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="烤肉完成，已放入背包。按 5 食用。"
 
 > @event
-> if NumberObjectVariable object="SurvivalFires" variable="VisualReady" comparison_sign="=" value=expr(0)
+> if NumberObjectVariable object="SurvivalFires" variable="VisualReady" comparison_sign="=" value=0
 > do Create object_to_create="FireGlow" x_position=expr(SurvivalFires.X()) y_position=expr(SurvivalFires.Y()) layer="World3D"
 > do Scene3D::Base3DBehavior::SetZ parameter_3d_object="FireGlow" behavior="Object3D" modification_sign="=" value=expr(SurvivalFires.Object3D::Z())
 > do SetNumberObjectVariable object="FireGlow" variable="Slot" modification_sign="=" value=expr(SurvivalFires.Variable(Slot))
-> do SetNumberObjectVariable object="SurvivalFires" variable="VisualReady" modification_sign="=" value=expr(1)
+> do SetNumberObjectVariable object="SurvivalFires" variable="VisualReady" modification_sign="=" value=1
 
 @event
 for each "FireGlow"
-
 > @event
-> if NumberVariable variable="Mode" comparison_sign=">=" value=expr(0)
-> do SetNumberObjectVariable object="FireGlow" variable="OwnerFound" modification_sign="=" value=expr(0)
+> if NumberVariable variable="Mode" comparison_sign=">=" value=0
+> do SetNumberObjectVariable object="FireGlow" variable="OwnerFound" modification_sign="=" value=0
 > do Hide object="FireGlow"
 
 > @event
 > if NumberObjectVariable object="SurvivalFires" variable="Slot" comparison_sign="=" value=expr(FireGlow.Variable(Slot))
-> do SetNumberObjectVariable object="FireGlow" variable="OwnerFound" modification_sign="=" value=expr(1)
+> do SetNumberObjectVariable object="FireGlow" variable="OwnerFound" modification_sign="=" value=1
 > do SetX object="FireGlow" modification_sign="=" value=expr(SurvivalFires.X())
 > do SetY object="FireGlow" modification_sign="=" value=expr(SurvivalFires.Y())
 > do Scene3D::Base3DBehavior::SetZ parameter_3d_object="FireGlow" behavior="Object3D" modification_sign="=" value=expr(SurvivalFires.Object3D::Z())
 
 > @event
 > if NumberObjectVariable object="SurvivalFires" variable="Slot" comparison_sign="=" value=expr(FireGlow.Variable(Slot))
-> if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=expr(0)
+> if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=0
 > do Show object="FireGlow"
 
 > @event
-> if NumberObjectVariable object="FireGlow" variable="OwnerFound" comparison_sign="=" value=expr(0)
+> if NumberObjectVariable object="FireGlow" variable="OwnerFound" comparison_sign="=" value=0
 > do Delete object="FireGlow"
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="ForgeBusy" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="ForgeBusy" comparison_sign="=" value=1
 do SetNumberVariable variable="ForgeTime" modification_sign="=" value=expr(max(0,ForgeTime-TimeDelta()))
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="ForgeBusy" comparison_sign="=" value=expr(1)
-if NumberVariable variable="ForgeTime" comparison_sign="<=" value=expr(0)
-do SetNumberVariable variable="ForgeBusy" modification_sign="=" value=expr(0)
-do SetNumberVariable variable="MetalIngot" modification_sign="+" value=expr(1)
-do SetNumberVariable variable="SmeltedMetal" modification_sign="+" value=expr(1)
-do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="ForgeBusy" comparison_sign="=" value=1
+if NumberVariable variable="ForgeTime" comparison_sign="<=" value=0
+do SetNumberVariable variable="ForgeBusy" modification_sign="=" value=0
+do SetNumberVariable variable="MetalIngot" modification_sign="+" value=1
+do SetNumberVariable variable="SmeltedMetal" modification_sign="+" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=55 pitch_speed=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value=expr("熔炼完成，金属锭 +1。凑齐 3 个后在熔炉旁按 U 升级工具。")
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="熔炼完成，金属锭 +1。凑齐 3 个后在熔炉旁按 U 升级工具。"
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Health" comparison_sign="<=" value=expr(0)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-do SetNumberVariable variable="Dead" modification_sign="=" value=expr(1)
-do SetNumberVariable variable="Riding" modification_sign="=" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Health" comparison_sign="<=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetNumberVariable variable="Dead" modification_sign="=" value=1
+do SetNumberVariable variable="Riding" modification_sign="=" value=0
 do PlaySound audio_file_or_audio_resource_name="death.wav" repeat_the_sound=false volume=55 pitch_speed=1

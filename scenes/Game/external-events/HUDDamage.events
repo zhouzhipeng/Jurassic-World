@@ -15,7 +15,6 @@ do ChangeLayer object="DamageFlash" move_it_to_this_layer="HUD"
 do ResizableCapability::ResizableBehavior::SetWidth object="DamageFlash" behavior="Resizable" modification_sign="=" width=expr(CameraWidth("HUD", 0))
 do ResizableCapability::ResizableBehavior::SetHeight object="DamageFlash" behavior="Resizable" modification_sign="=" height=expr(CameraHeight("HUD", 0))
 do OpacityCapability::OpacityBehavior::SetValue object="DamageFlash" behavior="Opacity" modification_sign="=" opacity_0_255=expr(min(1, (2.2 - TimerElapsedTime("DamageDanger")) / 0.8) * (115 + 100 * (0.5 + 0.5 * cos(TimerElapsedTime("DamageDanger") * 10))))
-
 > @event aiGeneratedEventId="damage-danger-touch-overlay"
 > if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 > do ChangeLayer object="DamageFlash" move_it_to_this_layer="Touch"

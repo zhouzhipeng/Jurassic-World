@@ -1,11 +1,12 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 299
-folder = ["Survival"]
+assetStoreId = ""
 name = "CampHearth"
 type = "Scene3D::Model3DObject"
 effects = [ ]
 behaviors = [ ]
+folder = [ "Survival" ]
 
 [[variables]]
 name = "Fuel"
@@ -37,7 +38,6 @@ centerLocation = "ModelOrigin"
 crossfadeDuration = 0.1
 depth = 33.49999785423279
 height = 158.92175436019897
-width = 162.1992826461792
 isCastingShadow = true
 isReceivingShadow = true
 keepAspectRatio = true
@@ -47,5 +47,6 @@ originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
+width = 162.1992826461792
 sharedAnimationModelResources = [ ]
 animations = [ ]

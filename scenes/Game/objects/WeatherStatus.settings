@@ -1,31 +1,49 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 294
-folder = ["UI", "Weather"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "WeatherStatus"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+string = """
+晴朗 · 视野清晰
+自动变化 · F6 切换天气"""
+font = "interface.ttf"
+textAlignment = "center"
+characterSize = 17
+folder = [ "UI", "Weather" ]
+
+[color]
+b = 232
+g = 241
+r = 231
 
 [content]
-text = "晴朗 · 视野清晰\n自动变化 · F6 切换天气"
-font = "interface.ttf"
-characterSize = 17
 bold = false
-italic = false
-underlined = false
-smoothed = true
-textAlignment = "center"
-verticalTextAlignment = "top"
-color = "231;241;232"
-lineHeight = 0
 isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
 outlineColor = "0;0;0"
 outlineThickness = 2
-isShadowEnabled = false
-shadowColor = "0;0;0"
-shadowOpacity = 127
-shadowBlurRadius = 2
-shadowDistance = 4
 shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
+text = """
+晴朗 · 视野清晰
+自动变化 · F6 切换天气"""
+font = "interface.ttf"
+textAlignment = "center"
+verticalTextAlignment = "top"
+characterSize = 17
+lineHeight = 0
+color = "231;241;232"

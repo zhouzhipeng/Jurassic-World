@@ -1,11 +1,12 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 298
-folder = ["Survival"]
+assetStoreId = ""
 name = "MetalDeposit"
 type = "Scene3D::Model3DObject"
 effects = [ ]
 behaviors = [ ]
+folder = [ "Survival" ]
 
 [[variables]]
 name = "Kind"
@@ -37,7 +38,6 @@ centerLocation = "ModelOrigin"
 crossfadeDuration = 0.1
 depth = 163.99999856948853
 height = 140.10554552078247
-width = 202.48045921325684
 isCastingShadow = true
 isReceivingShadow = true
 keepAspectRatio = true
@@ -47,5 +47,6 @@ originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
+width = 202.48045921325684
 sharedAnimationModelResources = [ ]
 animations = [ ]

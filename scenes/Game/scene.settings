@@ -12,101 +12,121 @@ behaviorsSharedData = [ ]
 
 [[variables]]
 name = "PackSelected"
+persistentUuid = "45096ad2-7197-4a4c-827f-99c9d9271e59"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackColumns"
+persistentUuid = "aec3c904-4d17-4e47-8c17-176aba3d6ccc"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackRows"
+persistentUuid = "2cc9878f-5ab4-4970-88f6-9b105a5fb8ea"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackCell"
+persistentUuid = "e46ced4f-024b-44ef-866b-9bf03af8715e"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackGap"
+persistentUuid = "f89ee53c-e7ba-4000-bb21-263d2ad19b6d"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackGridX"
+persistentUuid = "5df707c5-a81f-40f9-b814-8bd198984de8"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackGridY"
+persistentUuid = "3abb48fe-0720-407c-b5ec-0b80033d3a3d"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackGridWidth"
+persistentUuid = "89a8153f-7f3b-434a-a412-5c60a83123e3"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackGridHeight"
+persistentUuid = "0a5c832b-bb92-4400-90e1-6b169c9300a1"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackAreaWidth"
+persistentUuid = "ed78a48e-c959-4868-ae36-2b22e0de83e0"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackAreaHeight"
+persistentUuid = "55a9c00a-593a-49ca-8605-6781dd5f2b19"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackDetailX"
+persistentUuid = "eecacf25-df11-48bf-99ff-f82cc63cfb97"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackDetailY"
+persistentUuid = "c65650bb-24d5-4360-853d-52708a8a9e47"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackDetailWidth"
+persistentUuid = "401efabc-7a77-4a00-b69b-f4fa6235cb39"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackQuantity"
+persistentUuid = "50cc0c84-f938-41fe-a13d-074750d85892"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackAction"
+persistentUuid = "fcfff7cb-8626-4e13-ad8f-15ed92b20874"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackActionEnabled"
+persistentUuid = "7d882bdf-d42f-4e3f-afd6-fb2b5ca2847c"
 type = "number"
 value = 0
 
 [[variables]]
 name = "PackTitle"
+persistentUuid = "e9e9824e-b254-437c-a71f-71809731b761"
 type = "string"
 value = ""
 
 [[variables]]
 name = "PackDescription"
+persistentUuid = "c7202886-e82d-4cad-90fa-3b7189f0b767"
 type = "string"
 value = ""
 
 [[variables]]
 name = "PackActionLabel"
+persistentUuid = "b3eeb0f7-5162-45a4-b479-21a29ca5602b"
 type = "string"
 value = ""
 
@@ -730,6 +750,7 @@ value = 0
 
 [[variables]]
 name = "CameraResolvedDistance"
+persistentUuid = "b9376a7a-45ef-4f82-a4b2-6c35bd4d34db"
 type = "number"
 value = 0
 
@@ -740,11 +761,13 @@ children = [{ name = "X", type = "number", value = 0 }, { name = "Y", type = "nu
 
 [[variables]]
 name = "CameraResolvedPitch"
+persistentUuid = "d36efd9e-8988-439e-8e72-b60964bd29e0"
 type = "number"
 value = 25
 
 [[variables]]
 name = "CameraSafeDistance"
+persistentUuid = "53566771-e1e5-4af9-834c-d595a2b0310c"
 type = "number"
 value = 0
 
@@ -1078,527 +1101,827 @@ persistentUuid = "d8cb7702-8812-4be2-b4eb-a5649759cba6"
 type = "number"
 value = 0
 
-
 [[variables]]
 name = "BodyTemp"
+persistentUuid = "8a3b20e6-0625-4615-b380-428e8a8cb793"
 type = "number"
 value = 37
 
 [[variables]]
 name = "Wetness"
+persistentUuid = "d0c74746-ca7c-4be2-91bc-25cfc25d6acf"
 type = "number"
 value = 0
 
 [[variables]]
 name = "NeedsClock"
+persistentUuid = "8d255e01-b9e1-4c25-b1aa-a1ea5d2013ea"
 type = "number"
 value = 0
 
 [[variables]]
 name = "Warmth"
+persistentUuid = "aefaaddc-3257-48bd-a5e1-50d01e04cbe0"
 type = "number"
 value = 0
 
 [[variables]]
 name = "NearWater"
+persistentUuid = "b1c836c2-96ef-4d34-a937-a745cf95e669"
 type = "number"
 value = 0
 
 [[variables]]
 name = "NearFire"
+persistentUuid = "61653efd-41e5-49db-8e16-f8830bbf106e"
 type = "number"
 value = 0
 
 [[variables]]
 name = "NearForge"
+persistentUuid = "1ca46676-cf5a-4b2a-96a5-102c035a931d"
 type = "number"
 value = 0
 
 [[variables]]
 name = "CompanionBonus"
+persistentUuid = "bbbc4eb9-f555-437b-9f89-8b91d781b682"
 type = "number"
 value = 0
 
 [[variables]]
 name = "UseRequest"
+persistentUuid = "928609eb-84d5-43f8-a7b2-265e67830aa8"
 type = "number"
 value = 0
 
 [[variables]]
 name = "UseCooldown"
+persistentUuid = "86f12529-f967-499d-94e5-6f33dd26248a"
 type = "number"
 value = 0
 
 [[variables]]
 name = "CookedMeat"
+persistentUuid = "54dfb239-3b3a-44dc-a0cf-2fdc482262a1"
 type = "number"
 value = 0
 
 [[variables]]
 name = "MealsCooked"
+persistentUuid = "1bd6e8cd-d453-4079-bf66-7d944025ced5"
 type = "number"
 value = 0
 
 [[variables]]
 name = "WaterVisits"
+persistentUuid = "22b904f6-f062-452f-b882-e94db880b005"
 type = "number"
 value = 0
 
 [[variables]]
 name = "BerriesEaten"
+persistentUuid = "bccc91cc-ea2e-4eb0-8aa6-7355e7b0d498"
 type = "number"
 value = 0
 
 [[variables]]
 name = "MeatEaten"
+persistentUuid = "5414ccdb-a2c0-4e85-b69b-9e3d4e8393bd"
 type = "number"
 value = 0
 
 [[variables]]
 name = "MetalOre"
+persistentUuid = "0b8afa40-b537-4e95-a5b4-efafb9298c2b"
 type = "number"
 value = 0
 
 [[variables]]
 name = "MetalIngot"
+persistentUuid = "dcb04b29-8ddb-412e-9b22-94902f309f9c"
 type = "number"
 value = 0
 
 [[variables]]
 name = "GatherMetal"
+persistentUuid = "276b22d2-9829-4582-9d0e-c22caef0b162"
 type = "number"
 value = 0
 
 [[variables]]
 name = "SmeltedMetal"
+persistentUuid = "e664fe7f-9cbf-4e6a-850d-f64a04eb9d31"
 type = "number"
 value = 0
 
 [[variables]]
 name = "MetalTools"
+persistentUuid = "df194f06-c94a-4871-b544-f63e9acb2f96"
 type = "number"
 value = 0
 
 [[variables]]
 name = "ForgeBuilt"
+persistentUuid = "2f458a25-a085-4f11-a5a5-d05901b4fb00"
 type = "number"
 value = 0
 
 [[variables]]
 name = "ForgeTime"
+persistentUuid = "db5e2d40-e15e-43e0-8b09-3b394a3ade11"
 type = "number"
 value = 0
 
 [[variables]]
 name = "ForgeBusy"
+persistentUuid = "657b489d-6f00-497c-ac73-9d26b585a886"
 type = "number"
 value = 0
 
 [[variables]]
 name = "Canteen"
+persistentUuid = "646aa727-5aec-4e20-a5c9-1c26dff2c4f8"
 type = "number"
 value = 0
 
 [[variables]]
 name = "CanteenCharges"
+persistentUuid = "a3df5b0e-e651-4477-ab0c-b085ca64416a"
 type = "number"
 value = 0
 
 [[variables]]
 name = "CompanionTamed"
+persistentUuid = "6b047723-2147-4639-8720-ec9e25534a01"
 type = "number"
 value = 0
 
 [[variables]]
 name = "NavMode"
+persistentUuid = "e46b352a-3695-41a1-9e6e-628ddc713d67"
 type = "number"
 value = 0
 
 [[variables]]
 name = "NavX"
+persistentUuid = "1da27769-a617-4f5d-8712-88477f07aed0"
 type = "number"
 value = 0
 
 [[variables]]
 name = "NavY"
+persistentUuid = "2021f911-d626-44b6-9289-b696a5e06b0f"
 type = "number"
 value = 0
 
 [[variables]]
 name = "NavForward"
+persistentUuid = "8e883f00-774a-40f9-a69b-aa58f0450f62"
 type = "number"
 value = 0
 
 [[variables]]
 name = "NavRight"
+persistentUuid = "23dacfa2-22eb-40e2-8df0-3c5fa83c448f"
 type = "number"
 value = 0
 
 [[variables]]
 name = "NavName"
+persistentUuid = "a9355350-6c62-4a36-9a1f-715d71baaf28"
 type = "string"
 value = "任务目标"
 
 [[variables]]
 name = "NavDirection"
+persistentUuid = "ce167029-5235-4ded-a77d-d05d6db22b5d"
 type = "string"
 value = "前方"
 
 [[variables]]
 name = "SurvivalLoadPending"
+persistentUuid = "4ed528bc-5357-44f8-a4f2-0e22f52c0279"
 type = "number"
 value = 0
 
 [[variables]]
 name = "SavedPlayerX"
+persistentUuid = "4ee5e998-8ca3-4065-9601-8e172636a38d"
 type = "number"
 value = 650
 
 [[variables]]
 name = "SavedPlayerY"
+persistentUuid = "8a10f60c-a763-472c-ab45-f226b9db8f41"
 type = "number"
 value = 200
 
 [[variables]]
 name = "SavedPlayerZ"
+persistentUuid = "ef0dae0a-9970-45a1-b1c5-dd09f1ba67c0"
 type = "number"
 value = 0
 
 [[variables]]
 name = "LoadFuel"
+persistentUuid = "59121048-2216-4793-b242-61c61310cbfd"
 type = "number"
 value = 0
 
 [[variables]]
 name = "LoadCookTime"
+persistentUuid = "9f11b9f9-c035-4adb-b66f-fcf13f51b78b"
 type = "number"
 value = 0
 
 [[variables]]
 name = "LoadCooking"
+persistentUuid = "52a0856e-4ea2-41da-a023-be62e4c9092b"
 type = "number"
 value = 0
 
 [[variables]]
 name = "LoadOreCooldown"
+persistentUuid = "f23046fe-9671-4240-b752-3269ed0131c2"
 type = "number"
 value = 0
 
 [[variables]]
 name = "BaseMetal"
+persistentUuid = "73f45536-4fb8-45bf-b7e5-1b15d7206e58"
 type = "number"
 value = 0
 
 [[variables]]
 name = "BaseMeals"
+persistentUuid = "505ad83c-ea42-4381-835a-e2433b889588"
 type = "number"
 value = 0
 
 [[variables]]
 name = "BaseKills"
+persistentUuid = "1d3c8f22-eb69-4144-b2f6-44179c216a4b"
 type = "number"
 value = 0
 
 [[variables]]
 name = "MealRequest"
+persistentUuid = "8e1a4fed-3a66-47b3-b235-3522eec981f0"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TameRequest"
+persistentUuid = "2edae297-1c72-4b69-b1c1-8f451865ca16"
 type = "number"
 value = 0
 
 [[variables]]
 name = "FeedingDone"
+persistentUuid = "8eec130f-2e4b-4a1d-b84d-09a5e1c85a73"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TameAction"
+persistentUuid = "014c0c48-34d1-44db-988c-51f2979da2d0"
 type = "string"
 value = "等待"
 
 [[variables]]
 name = "ThermalState"
+persistentUuid = "bd77f70d-e3e6-4d5b-b634-cf8081cdc050"
 type = "string"
 value = "舒适"
 
 [[variables]]
 name = "LastTier"
+persistentUuid = "34fc06fc-9496-4402-8f8c-78b184fcbeda"
 type = "number"
 value = 0
 
-
 [[variables]]
 name = "TouchMode"
+persistentUuid = "bedb2949-dbc5-436e-80ab-95813ca1dcb5"
 type = "number"
 value = 1
 
 [[variables]]
 name = "TouchPanel"
+persistentUuid = "f2a25baa-b469-4deb-bb53-eb1c0b2fe470"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchCommand"
+persistentUuid = "0f8e975c-8b6c-409a-b96f-c18732809bca"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchMoveId"
+persistentUuid = "0d7c87e4-0e57-41a8-a132-eac3594623f5"
 type = "number"
 value = -999
 
 [[variables]]
 name = "TouchLookId"
+persistentUuid = "00d494a5-358d-4533-9ed8-58336733db65"
 type = "number"
 value = -999
 
 [[variables]]
 name = "TouchMoveX"
+persistentUuid = "e3b6118a-3afe-4192-92bd-dea0f86acbc0"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchMoveY"
+persistentUuid = "75a2491c-34a4-4df7-b0be-67505f24c9c5"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchDX"
+persistentUuid = "b1fa6cf8-5486-4622-b7c7-f8d9034683a2"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchDY"
+persistentUuid = "49d3283e-fe4d-4ad1-866b-e02bce78cf70"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchLength"
+persistentUuid = "99c7cc90-7916-4d18-bf39-f3a8db7f88ad"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchLookX"
+persistentUuid = "8a421991-3f95-445d-934d-9aa448b427db"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchLookY"
+persistentUuid = "2df3cb69-a18e-4848-b806-51ce3423e6c5"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchAttack"
+persistentUuid = "c4c980a0-fe2a-47f6-ab18-a9bd63346c4e"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchInteract"
+persistentUuid = "8ea24e64-7ccc-42c4-8a3b-8af547d5b5b4"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchPlace"
+persistentUuid = "41cd6f6e-ff04-4a0c-b4d7-d1e7ecb11caf"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchDoor"
+persistentUuid = "8201a4d1-b7da-4237-b6bd-de2276783053"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchRespawn"
+persistentUuid = "2684b186-d005-4dc7-9d72-fb65c2776504"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchLoad"
+persistentUuid = "766fcd63-60b8-4085-9d8b-8c1b251f6d0d"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchAutoHarvest"
+persistentUuid = "e0f94567-14f9-46a1-bf3a-778c4a8dc7f9"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchHarvestX"
+persistentUuid = "5373eb3b-05c2-49b8-a650-b1b2fd6c7c42"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchHarvestY"
+persistentUuid = "597c3e59-974e-4cf5-b5ac-cfeb6a42214f"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchHarvestCount"
+persistentUuid = "3af809de-6fcf-456b-aeb4-73bab4f1c12b"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchCookPending"
+persistentUuid = "f441fb3b-28c0-4048-b5be-61f3709d952c"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchDelete"
+persistentUuid = "e264301e-e413-44bc-82b1-a58d2f28b542"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchDeleteArmed"
+persistentUuid = "17fb1a5a-9760-4390-b988-9a7d997c510e"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchDeleteTimer"
+persistentUuid = "1a9229b6-1d79-4596-a342-774a2d97744e"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchConsumed"
+persistentUuid = "09b8b3c4-53d8-45ae-a177-2af977a3e132"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchId"
+persistentUuid = "8d684536-9845-4a36-bc5b-80f591f2f7db"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchWidth"
+persistentUuid = "016e9cb6-4533-490d-ab00-5c0655ffb46c"
 type = "number"
-value = 1600
+value = 1_600
 
 [[variables]]
 name = "TouchHeight"
+persistentUuid = "0b59448a-3864-4dab-b649-ec4107352a43"
 type = "number"
 value = 900
 
 [[variables]]
 name = "TouchScale"
+persistentUuid = "2f582088-4447-463c-ab3a-fabaeb67a985"
 type = "number"
 value = 1
 
 [[variables]]
 name = "TouchMargin"
+persistentUuid = "5625907f-a5b2-4fee-bfc8-e3e62880f7f0"
 type = "number"
 value = 40
 
 [[variables]]
 name = "TouchJoyX"
+persistentUuid = "ab39d8f5-4e75-412a-b371-c85a77123edb"
 type = "number"
 value = 156
 
 [[variables]]
 name = "TouchJoyY"
+persistentUuid = "e96a19b3-45e6-4b9a-b125-a8ff5292b58a"
 type = "number"
 value = 728
 
 [[variables]]
 name = "TouchRadius"
+persistentUuid = "a2c6b308-f676-4cfa-baaa-ba003f9bddcc"
 type = "number"
 value = 88
 
 [[variables]]
 name = "TouchCardWidth"
+persistentUuid = "2610df7c-4e4a-4c56-bba1-40ddfd115acd"
 type = "number"
 value = 420
 
 [[variables]]
 name = "TouchCardHeight"
+persistentUuid = "b3ff77d6-a2d1-4dee-939f-f8a23200b1be"
 type = "number"
 value = 88
 
 [[variables]]
 name = "TouchColumns"
+persistentUuid = "b0da7969-3a25-48f7-8c85-1743e7290071"
 type = "number"
 value = 2
 
 [[variables]]
 name = "TouchMenuX"
+persistentUuid = "d2e9682e-519c-4d06-9a46-200ab079188b"
 type = "number"
 value = 350
 
 [[variables]]
 name = "TouchMenuY"
+persistentUuid = "d5bdb068-2660-4205-ae64-ae9709949252"
 type = "number"
 value = 125
 
 [[variables]]
 name = "TouchMenuWidth"
+persistentUuid = "9edf830f-1c6b-413e-a928-b95ea58c9df4"
 type = "number"
 value = 900
 
 [[variables]]
 name = "TouchMenuHeight"
+persistentUuid = "977cc2d8-e4bd-4086-accf-3d96d5666d9f"
 type = "number"
 value = 650
 
 [[variables]]
 name = "TouchContext"
+persistentUuid = "63ca01fd-a3f5-405e-bf12-0c134f69c52b"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchContextDistance"
+persistentUuid = "7ff46e22-d357-4a78-bc9f-f8c30658045c"
 type = "number"
-value = 99999
+value = 99_999
 
 [[variables]]
 name = "TouchOldMode"
+persistentUuid = "daf03458-bc04-4dd9-abd7-9e0c44d1ffe8"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchOldWidth"
+persistentUuid = "cdb22c9b-ed3e-4f59-98a0-10209c1932fd"
 type = "number"
-value = 1600
+value = 1_600
 
 [[variables]]
 name = "TouchOldHeight"
+persistentUuid = "685edf00-bdc3-4b9f-aeb4-821066712f5d"
 type = "number"
 value = 900
 
 [[variables]]
 name = "TouchToastTime"
+persistentUuid = "d77cca78-354b-4662-ad6e-527c5613b78a"
 type = "number"
 value = 0
 
 [[variables]]
 name = "TouchContextLabel"
+persistentUuid = "0e5abbba-ee2a-4a91-81c2-c0b87dd57eca"
 type = "string"
 value = "靠近目标"
 
 [[variables]]
 name = "TouchContextHint"
+persistentUuid = "2734b036-e8d3-42f4-abdd-60763dc777aa"
 type = "string"
 value = "左下移动 · 右侧空白处滑动转视角"
 
 [[variables]]
 name = "TouchToast"
+persistentUuid = "fd26c953-a302-4f4c-b733-3f539997f29a"
 type = "string"
 value = "拖动左侧摇杆移动；靠近目标后点「互动」。"
 
 [[variables]]
 name = "TouchPanelTitle"
+persistentUuid = "9bc982c7-a7af-4523-8581-3a4a7adf8612"
 type = "string"
 value = "营地手册"
 
 [[variables]]
 name = "TouchPanelBody"
+persistentUuid = "489db07c-056b-4ae7-b314-f665bf25c507"
 type = "string"
 value = ""
 
 [[variables]]
 name = "TouchLastNotice"
+persistentUuid = "1d19d90d-12a2-4010-bc76-4ad9a0c91a9b"
 type = "string"
 value = ""
+
+[[variables]]
+name = "WeatherType"
+persistentUuid = "e020cd3e-8d85-4eb0-a66d-c4f366fb3690"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherApplied"
+persistentUuid = "6a5c5b93-fc14-4300-b7ce-68f80f1247ec"
+type = "number"
+value = -1
+
+[[variables]]
+name = "WeatherClock"
+persistentUuid = "156b0c3f-9d4b-4e76-b17e-78331dd2aee1"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherDuration"
+persistentUuid = "a30a286e-398a-4124-8de3-95cf9bbeca5c"
+type = "number"
+value = 60
+
+[[variables]]
+name = "WeatherNext"
+persistentUuid = "b580aa9f-ce42-43b2-a6de-8fc218f7b13c"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherChanges"
+persistentUuid = "751a001d-4fa4-47ae-b21a-5cb1d8aa3eb2"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherCloud"
+persistentUuid = "4e2159c0-2ff1-43cc-9543-4744da00e6d0"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherRain"
+persistentUuid = "0e93c4e1-2d57-40c1-973a-bf60b397223c"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherMist"
+persistentUuid = "a29f75df-05f6-4fd4-a74e-483f3e31a11b"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherCloudTarget"
+persistentUuid = "459ff382-ba0b-46c0-839b-7157a5ec7443"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherRainTarget"
+persistentUuid = "0034bf24-09e1-4e97-8ba4-6842affc59b9"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherMistTarget"
+persistentUuid = "10ac2698-6921-4f98-8d12-92eb46d34754"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherMotion"
+persistentUuid = "8e36d34d-b719-4fae-afd5-41999bbe7092"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherFlash"
+persistentUuid = "1d4ad33e-0fa3-453e-8a3d-7d2fa6a16447"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherLightningClock"
+persistentUuid = "93ff0d01-dadf-42d3-86da-a2cdf9b5a340"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherLightningWait"
+persistentUuid = "c3f30a5a-9604-4ddd-b7cf-56bdd4429b56"
+type = "number"
+value = 10
+
+[[variables]]
+name = "WeatherThunderDelay"
+persistentUuid = "f69fba33-1233-4d92-addb-cafa5c9f7330"
+type = "number"
+value = -1
+
+[[variables]]
+name = "WeatherLightningCount"
+persistentUuid = "1485b082-a6c4-4957-850e-3f4de40509b5"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherAudioStarted"
+persistentUuid = "d15ad91c-21fd-452b-8f38-6cde3ef81341"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherRainVolume"
+persistentUuid = "b6e57f35-1a97-40e1-b080-715efc0fd62a"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherSheltered"
+persistentUuid = "d37fef16-ddea-4531-a490-f679a3b68ecf"
+type = "number"
+value = 0
+
+[[variables]]
+name = "WeatherSky"
+persistentUuid = "1708aa64-2f2c-478e-887c-2fd337061747"
+type = "string"
+value = "114;187;221"
+
+[[variables]]
+name = "WeatherName"
+persistentUuid = "77e1519f-3c87-4718-8bc9-045d0e50afd3"
+type = "string"
+value = "晴朗"
+
+[[variables]]
+name = "WeatherHint"
+persistentUuid = "936caa56-f563-48a5-a6b4-91405f4ab18a"
+type = "string"
+value = "视野清晰"
+
+[[variables]]
+name = "WorldDay"
+persistentUuid = "3ce92092-f414-4488-bbc9-b1d751014ecf"
+type = "number"
+value = 1
+
+[[variables]]
+name = "WorldMinutes"
+persistentUuid = "efce1acf-1305-4b29-bcc7-e60f8e96673d"
+type = "number"
+value = 480
+
+[[variables]]
+name = "DayLengthSeconds"
+persistentUuid = "ef5a0935-db5b-4dc7-a4d7-a895324bbced"
+type = "number"
+value = 720
+
+[[variables]]
+name = "Daylight"
+persistentUuid = "135b7d0f-d6b3-4b9e-bfa8-269afcad9534"
+type = "number"
+value = 1
+
+[[variables]]
+name = "Twilight"
+persistentUuid = "35661b9d-8b91-4f7c-a934-d77d608896be"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SunElevation"
+persistentUuid = "a00d5938-997b-405f-a658-8b020d262468"
+type = "number"
+value = 35
+
+[[variables]]
+name = "SunRotation"
+persistentUuid = "3ed04204-d873-48bf-ace7-d4f44e32a274"
+type = "number"
+value = 210
+
+[[variables]]
+name = "TimePhase"
+persistentUuid = "4f0ac9fa-3ae9-413f-a440-b356942fb940"
+type = "string"
+value = "白天"
+
+[[variables]]
+name = "TimeDisplay"
+persistentUuid = "329ada46-afa5-4c95-85a5-4be922d0619b"
+type = "string"
+value = "08:00"
 
 [objectGroups]
 ModularParts = [
@@ -1647,177 +1970,31 @@ BuildGhosts = [
 ]
 Wildlife = [ "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur" ]
 Predators = [ "Raptor", "Tyrannosaur" ]
-HarvestNodes = [ "BerryBush", "FiberFern", "WoodSapling", "StoneDeposit", "MetalDeposit" ]
-SurvivalFires = ["CampHearth", "BuiltCampfire"]
-
-[[variables]]
-name = "WeatherType"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherApplied"
-type = "number"
-value = -1
-
-[[variables]]
-name = "WeatherClock"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherDuration"
-type = "number"
-value = 60
-
-[[variables]]
-name = "WeatherNext"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherChanges"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherCloud"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherRain"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherMist"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherCloudTarget"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherRainTarget"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherMistTarget"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherMotion"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherFlash"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherLightningClock"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherLightningWait"
-type = "number"
-value = 10
-
-[[variables]]
-name = "WeatherThunderDelay"
-type = "number"
-value = -1
-
-[[variables]]
-name = "WeatherLightningCount"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherAudioStarted"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherRainVolume"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherSheltered"
-type = "number"
-value = 0
-
-[[variables]]
-name = "WeatherSky"
-type = "string"
-value = "114;187;221"
-
-[[variables]]
-name = "WeatherName"
-type = "string"
-value = "晴朗"
-
-[[variables]]
-name = "WeatherHint"
-type = "string"
-value = "视野清晰"
-
-[[variables]]
-name = "WorldDay"
-type = "number"
-value = 1
-
-[[variables]]
-name = "WorldMinutes"
-type = "number"
-value = 480
-
-[[variables]]
-name = "DayLengthSeconds"
-type = "number"
-value = 720
-
-[[variables]]
-name = "Daylight"
-type = "number"
-value = 1
-
-[[variables]]
-name = "Twilight"
-type = "number"
-value = 0
-
-[[variables]]
-name = "SunElevation"
-type = "number"
-value = 35
-
-[[variables]]
-name = "SunRotation"
-type = "number"
-value = 210
-
-[[variables]]
-name = "TimePhase"
-type = "string"
-value = "白天"
-
-[[variables]]
-name = "TimeDisplay"
-type = "string"
-value = "08:00"
+HarvestNodes = [
+"BerryBush",
+"FiberFern",
+"WoodSapling",
+"StoneDeposit",
+"MetalDeposit"
+]
+SurvivalFires = [ "CampHearth", "BuiltCampfire" ]
 
 [layout]
 version = 1
 background = "#72BBDD"
+
+[layout.editor]
+grid = false
+grid_type = "rectangular"
+grid_size = [32, 32, 32]
+grid_offset = [0, 0, 0]
+grid_color = "#9EB4FF"
+grid_alpha = 0.8
+snap = false
+zoom = 0.21802879174183437
+window_mask = false
+selected_layer = ""
+mode = "instances-editor"
 
 [[layout.layers]]
 id = "base"
@@ -1900,8 +2077,6 @@ cameras = [{ size = "default", viewport = "default" }]
 id = "touch"
 name = "Touch"
 rendering = "2d"
-visible = true
-camera_behavior = "top-left-anchored-if-never-moved"
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.layers]]
@@ -1941,8 +2116,8 @@ layer = "world3d"
 name = "Weather fog"
 type = "Scene3D::LinearFog"
 color = "114;187;221"
-near = 6500
 far = 26000
+near = 6500
 
 [[layout.effects]]
 layer = "world3d"

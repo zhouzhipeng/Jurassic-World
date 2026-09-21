@@ -1,14 +1,15 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 293
-folder = ["UI", "Weather"]
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
 name = "WeatherPanel"
 type = "Sprite"
-adaptCollisionMaskAutomatically = true
 updateIfNotVisible = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+folder = [ "UI", "Weather" ]
 
 [[animations]]
 name = "Default"

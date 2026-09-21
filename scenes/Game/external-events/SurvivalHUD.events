@@ -1,168 +1,168 @@
 @comment "Survival inventory, fire/forge prompts, companion commands and manual navigation" background=[90,150,120] text=[255,255,255]
 
 @event
-if NumberVariable variable="Mode" comparison_sign=">=" value=expr(0)
-do SetStringVariable variable="ThermalState" modification_sign="=" value=expr("舒适")
-do SetStringVariable variable="TameAction" modification_sign="=" value=expr("跟随")
-do TextContainerCapability::TextContainerBehavior::SetValue object="ActivityTitle" behavior="Text" modification_sign="=" text=expr("生存补给")
-do TextContainerCapability::TextContainerBehavior::SetValue object="GatherLabel" behavior="Text" modification_sign="=" text=expr("3 吃浆果")
-do TextContainerCapability::TextContainerBehavior::SetValue object="ChopLabel" behavior="Text" modification_sign="=" text=expr("C 烤肉")
-do TextContainerCapability::TextContainerBehavior::SetValue object="DrinkLabel" behavior="Text" modification_sign="=" text=expr("F 饮水 / 装水")
-do TextContainerCapability::TextContainerBehavior::SetValue object="StationLabel" behavior="Text" modification_sign="=" text=expr("Q 切换导航目标")
-do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text=expr("WASD 移动 · E 采集 · 空格 攻击 · X 骑乘 · B 建造 · Q 导航 · J 任务 · Tab 背包 · ESC 菜单")
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do SetStringVariable variable="ThermalState" modification_sign="=" value="舒适"
+do SetStringVariable variable="TameAction" modification_sign="=" value="跟随"
+do TextContainerCapability::TextContainerBehavior::SetValue object="ActivityTitle" behavior="Text" modification_sign="=" text="生存补给"
+do TextContainerCapability::TextContainerBehavior::SetValue object="GatherLabel" behavior="Text" modification_sign="=" text="3 吃浆果"
+do TextContainerCapability::TextContainerBehavior::SetValue object="ChopLabel" behavior="Text" modification_sign="=" text="C 烤肉"
+do TextContainerCapability::TextContainerBehavior::SetValue object="DrinkLabel" behavior="Text" modification_sign="=" text="F 饮水 / 装水"
+do TextContainerCapability::TextContainerBehavior::SetValue object="StationLabel" behavior="Text" modification_sign="=" text="Q 切换导航目标"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · E 采集 · 空格 攻击 · X 骑乘 · B 建造 · Q 导航 · J 任务 · Tab 背包 · ESC 菜单"
 do TextContainerCapability::TextContainerBehavior::SetValue object="Weight" behavior="Text" modification_sign="=" text=expr("烤肉 "+ToString(CookedMeat)+" · 矿石 "+ToString(MetalOre)+" · 金属锭 "+ToString(MetalIngot)+" · 储水 "+ToString(CanteenCharges)+"/3")
 
 @event
-if NumberVariable variable="BodyTemp" comparison_sign="<" value=expr(35.8)
-do SetStringVariable variable="ThermalState" modification_sign="=" value=expr("寒冷，寻找火源")
+if NumberVariable variable="BodyTemp" comparison_sign="<" value=35.8
+do SetStringVariable variable="ThermalState" modification_sign="=" value="寒冷，寻找火源"
 
 @event
-if NumberVariable variable="BodyTemp" comparison_sign="<" value=expr(35)
-do SetStringVariable variable="ThermalState" modification_sign="=" value=expr("失温，持续受伤")
+if NumberVariable variable="BodyTemp" comparison_sign="<" value=35
+do SetStringVariable variable="ThermalState" modification_sign="=" value="失温，持续受伤"
 
 @event
-if NumberObjectVariable object="Triceratops" variable="Command" comparison_sign="=" value=expr(1)
-do SetStringVariable variable="TameAction" modification_sign="=" value=expr("留守")
+if NumberObjectVariable object="Triceratops" variable="Command" comparison_sign="=" value=1
+do SetStringVariable variable="TameAction" modification_sign="=" value="留守"
 
 @event
-if NumberVariable variable="Mode" comparison_sign=">=" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="SurvivalStatus" behavior="Text" modification_sign="=" text=expr("体温 "+ToString(round(BodyTemp*10)/10)+"°C · "+ThermalState+NewLine()+"湿度 "+ToString(round(Wetness))+"% · 储水 "+ToString(CanteenCharges)+"/3"+NewLine()+"浆果 "+ToString(Berries)+" · 生肉 "+ToString(Meat)+" · 烤肉 "+ToString(CookedMeat)+NewLine()+"矿石 "+ToString(MetalOre)+" · 金属锭 "+ToString(MetalIngot)+NewLine()+"工具等级 "+ToString(1+MetalTools)+" · 伙伴加成 "+ToString(CompanionBonus*100)+"%")
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Threat" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NearFire" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+if NumberVariable variable="NearFire" comparison_sign="=" value=1
 if PickNearest object="SurvivalFires" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
 do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("篝火 · 燃料 "+ToString(ceil(SurvivalFires.Variable(Fuel)))+" 秒 · 烹饪剩余 "+ToString(ceil(SurvivalFires.Variable(CookTime)))+" 秒"+NewLine()+"V 添柴（1 木材） · C 烤肉（1 生肉 /8 秒） · 5 吃烤肉")
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Threat" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NearWater" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+if NumberVariable variable="NearWater" comparison_sign="=" value=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("清澈的泉水 · F 饮水，并装满已制作的水袋"+NewLine()+"水袋可在营地工作台旁按 I 制作，携带 3 次野外饮水。")
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Threat" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NearForge" comparison_sign="=" value=expr(1)
-if NumberVariable variable="ForgeBuilt" comparison_sign="=" value=expr(0)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+if NumberVariable variable="NearForge" comparison_sign="=" value=1
+if NumberVariable variable="ForgeBuilt" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("营地工作台 · Z 修复熔炉（12 石头 +8 木材）"+NewLine()+"I 制作水袋（2 兽皮 +4 纤维）；到清泉 F 装水。")
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Threat" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NearForge" comparison_sign="=" value=expr(1)
-if NumberVariable variable="ForgeBuilt" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+if NumberVariable variable="NearForge" comparison_sign="=" value=1
+if NumberVariable variable="ForgeBuilt" comparison_sign="=" value=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("熔炉 · 剩余 "+ToString(ceil(ForgeTime))+" 秒 · Z 熔炼（2 矿石 +2 木材）"+NewLine()+"U 金属工具（3 锭 +4 木材 +2 兽皮） · I 水袋")
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Threat" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NearForge" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NearFire" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NearWater" comparison_sign="=" value=expr(0)
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),Triceratops.X(),Triceratops.Y())) comparison_sign="<" second_expression=expr(950)
-if NumberObjectVariable object="Triceratops" variable="Bond" comparison_sign="<" value=expr(100)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+if NumberVariable variable="NearForge" comparison_sign="=" value=0
+if NumberVariable variable="NearFire" comparison_sign="=" value=0
+if NumberVariable variable="NearWater" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),Triceratops.X(),Triceratops.Y())) comparison_sign="<" second_expression=950
+if NumberObjectVariable object="Triceratops" variable="Bond" comparison_sign="<" value=100
 do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("三角龙 · 信任 "+ToString(Triceratops.Variable(Bond))+"/100 · T 喂食"+NewLine()+"每次 3 浆果 · 再等 "+ToString(ceil(Triceratops.Variable(FeedWait)))+" 秒 · 驯服后采集加倍")
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Threat" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NearForge" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NearFire" comparison_sign="=" value=expr(0)
-if NumberVariable variable="NearWater" comparison_sign="=" value=expr(0)
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),Triceratops.X(),Triceratops.Y())) comparison_sign="<" second_expression=expr(950)
-if NumberObjectVariable object="Triceratops" variable="Bond" comparison_sign=">=" value=expr(100)
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+if NumberVariable variable="NearForge" comparison_sign="=" value=0
+if NumberVariable variable="NearFire" comparison_sign="=" value=0
+if NumberVariable variable="NearWater" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),Triceratops.X(),Triceratops.Y())) comparison_sign="<" second_expression=950
+if NumberObjectVariable object="Triceratops" variable="Bond" comparison_sign=">=" value=100
 do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("三角龙伙伴 · "+TameAction+" · H 切换命令"+NewLine()+"伙伴在 7.2m 内时，采集浆果与纤维翻倍。")
 
 @event
-if NumberObjectVariable object="MetalDeposit" variable="Target" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="MetalDeposit" variable="Cooldown" comparison_sign="<=" value=expr(0)
+if NumberObjectVariable object="MetalDeposit" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="MetalDeposit" variable="Cooldown" comparison_sign="<=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("金属矿脉 / 矿石 +"+ToString(2+2*MetalTools)+NewLine()+"按住 E "+ToString(min(100,round(MetalDeposit.Variable(Progress)/1.8*100)))+"% · 北部有捕食者")
 
 @event
-if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=expr(0)
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("浆果灌木 / 获得 +"+ToString(3+3*CompanionBonus)+NewLine()+"按住 E "+ToString(min(100,round(HarvestNodes.Variable(Progress)/0.8*100)))+"%")
 
 @event
-if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=expr(2)
-if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=expr(0)
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=2
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("蕨类 / 获得 +"+ToString(5+5*CompanionBonus)+NewLine()+"按住 E "+ToString(min(100,round(HarvestNodes.Variable(Progress)/0.8*100)))+"%")
 
 @event
-if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=expr(4)
-if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=expr(0)
+if NumberObjectVariable object="HarvestNodes" variable="Target" comparison_sign="=" value=1
+if NumberObjectVariable object="HarvestNodes" variable="Kind" comparison_sign="=" value=4
+if NumberObjectVariable object="HarvestNodes" variable="Cooldown" comparison_sign="<=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HarvestHint" behavior="Text" modification_sign="=" text=expr("石头 / 获得 +"+ToString(3+2*MetalTools)+NewLine()+"按住 E "+ToString(min(100,round(HarvestNodes.Variable(Progress)/0.8*100)))+"%")
 
 @event
-if NumberVariable variable="NavMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="NavMode" comparison_sign="=" value=1
 if PickNearest object="SpringWater" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
 do SetNumberVariable variable="NavX" modification_sign="=" value=expr(SpringWater.X())
 do SetNumberVariable variable="NavY" modification_sign="=" value=expr(SpringWater.Y())
-do SetStringVariable variable="NavName" modification_sign="=" value=expr("清泉")
+do SetStringVariable variable="NavName" modification_sign="=" value="清泉"
 
 @event
-if NumberVariable variable="NavMode" comparison_sign="=" value=expr(2)
+if NumberVariable variable="NavMode" comparison_sign="=" value=2
 if PickNearest object="CampForge" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
 do SetNumberVariable variable="NavX" modification_sign="=" value=expr(CampForge.X())
 do SetNumberVariable variable="NavY" modification_sign="=" value=expr(CampForge.Y())
-do SetStringVariable variable="NavName" modification_sign="=" value=expr("营地工作台")
+do SetStringVariable variable="NavName" modification_sign="=" value="营地工作台"
 
 @event
-if NumberVariable variable="NavMode" comparison_sign="=" value=expr(3)
+if NumberVariable variable="NavMode" comparison_sign="=" value=3
 if PickNearest object="Triceratops" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
 do SetNumberVariable variable="NavX" modification_sign="=" value=expr(Triceratops.X())
 do SetNumberVariable variable="NavY" modification_sign="=" value=expr(Triceratops.Y())
-do SetStringVariable variable="NavName" modification_sign="=" value=expr("三角龙")
+do SetStringVariable variable="NavName" modification_sign="=" value="三角龙"
 
 @event
-if NumberVariable variable="NavMode" comparison_sign="=" value=expr(4)
-if NumberObjectVariable object="MetalDeposit" variable="Cooldown" comparison_sign="<=" value=expr(0)
+if NumberVariable variable="NavMode" comparison_sign="=" value=4
+if NumberObjectVariable object="MetalDeposit" variable="Cooldown" comparison_sign="<=" value=0
 if PickNearest object="MetalDeposit" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
 do SetNumberVariable variable="NavX" modification_sign="=" value=expr(MetalDeposit.X())
 do SetNumberVariable variable="NavY" modification_sign="=" value=expr(MetalDeposit.Y())
-do SetStringVariable variable="NavName" modification_sign="=" value=expr("金属矿区")
+do SetStringVariable variable="NavName" modification_sign="=" value="金属矿区"
 
 @event
-if NumberVariable variable="NavMode" comparison_sign=">" value=expr(0)
+if NumberVariable variable="NavMode" comparison_sign=">" value=0
 do SetNumberVariable variable="NavRight" modification_sign="=" value=expr((NavX-Player3D.X())*cos(ToRad(CameraYaw))-(NavY-Player3D.Y())*sin(ToRad(CameraYaw)))
 do SetNumberVariable variable="NavForward" modification_sign="=" value=expr(-(NavX-Player3D.X())*sin(ToRad(CameraYaw))-(NavY-Player3D.Y())*cos(ToRad(CameraYaw)))
-do SetStringVariable variable="NavDirection" modification_sign="=" value=expr("前方")
+do SetStringVariable variable="NavDirection" modification_sign="=" value="前方"
 
 @event
-if NumberVariable variable="NavForward" comparison_sign="<" value=expr(0)
-do SetStringVariable variable="NavDirection" modification_sign="=" value=expr("后方")
+if NumberVariable variable="NavForward" comparison_sign="<" value=0
+do SetStringVariable variable="NavDirection" modification_sign="=" value="后方"
 
 @event
 if NumberVariable variable="NavRight" comparison_sign=">" value=expr(abs(NavForward))
-do SetStringVariable variable="NavDirection" modification_sign="=" value=expr("右侧")
+do SetStringVariable variable="NavDirection" modification_sign="=" value="右侧"
 
 @event
 if NumberVariable variable="NavRight" comparison_sign="<" value=expr(-abs(NavForward))
-do SetStringVariable variable="NavDirection" modification_sign="=" value=expr("左侧")
+do SetStringVariable variable="NavDirection" modification_sign="=" value="左侧"
 
 @event
-if NumberVariable variable="NavMode" comparison_sign=">" value=expr(0)
+if NumberVariable variable="NavMode" comparison_sign=">" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="Compass" behavior="Text" modification_sign="=" text=expr(NavDirection+" · "+NavName+" "+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),NavX,NavY)/100))+"m · Q 切换")

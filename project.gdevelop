@@ -39,7 +39,7 @@ platformSpecificAssets = { }
 authorIds = [ ]
 authorUsernames = [ ]
 categories = [ ]
-playableDevices = ["mobile", "keyboard"]
+playableDevices = [ "keyboard", "mobile" ]
 extensionProperties = [ ]
 currentPlatform = "GDevelop JS platform"
 

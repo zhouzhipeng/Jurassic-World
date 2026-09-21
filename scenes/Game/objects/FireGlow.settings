@@ -1,11 +1,12 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 300
-folder = ["Survival"]
+assetStoreId = ""
 name = "FireGlow"
 type = "Scene3D::Model3DObject"
 effects = [ ]
 behaviors = [ ]
+folder = [ "Survival" ]
 
 [[variables]]
 name = "Slot"
@@ -22,7 +23,6 @@ centerLocation = "ModelOrigin"
 crossfadeDuration = 0.1
 depth = 91.00000858306885
 height = 65.47127366065979
-width = 72.23803997039795
 isCastingShadow = true
 isReceivingShadow = true
 keepAspectRatio = true
@@ -32,5 +32,6 @@ originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
+width = 72.23803997039795
 sharedAnimationModelResources = [ ]
 animations = [ ]

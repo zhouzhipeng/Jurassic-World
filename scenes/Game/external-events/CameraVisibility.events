@@ -2,8 +2,7 @@
 
 @event aiGeneratedEventId="camera-resolve-obstructions"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-
-> @js strict=true
+> @js strict=true expanded=false
 const player = runtimeScene.getObjects("Player3D")[0];
 if (player) {
   const variables = runtimeScene.getVariables();

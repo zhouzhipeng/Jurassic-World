@@ -13,7 +13,7 @@ do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Survival.Dino.Ang
 do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(LoadFuel)
 
 @event
-if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=expr(1)
+if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
 if GroupExists storage_name=expr(SaveStorage) group="SurvivalVersion"
 do SetX object="Player3D" modification_sign="=" value=expr(SavedPlayerX)
 do SetY object="Player3D" modification_sign="=" value=expr(SavedPlayerY)
@@ -23,14 +23,12 @@ do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(Sav
 do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=expr(SavedPlayerZ)
 
 @event
-if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=expr(1)
+if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
 if GroupExists storage_name=expr(SaveStorage) group="SurvivalVersion"
-
 > @event
 > for each "SurvivalFires"
-
 >> @event
->> if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
 >> do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Fire."+ToString(SurvivalFires.Variable(Slot))+".Fuel") variable="LoadFuel"
 >> do SetNumberObjectVariable object="SurvivalFires" variable="Fuel" modification_sign="=" value=expr(LoadFuel)
 >> do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Fire."+ToString(SurvivalFires.Variable(Slot))+".CookTime") variable="LoadFuel"
@@ -39,26 +37,22 @@ if GroupExists storage_name=expr(SaveStorage) group="SurvivalVersion"
 >> do SetNumberObjectVariable object="SurvivalFires" variable="Cooking" modification_sign="=" value=expr(LoadFuel)
 
 @event
-if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=expr(1)
+if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
 if GroupExists storage_name=expr(SaveStorage) group="SurvivalVersion"
-
 > @event
 > for each "MetalDeposit"
-
 >> @event
->> if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
 >> do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Ore."+ToString(MetalDeposit.Variable(SiteId))+".Cooldown") variable="LoadFuel"
 >> do SetNumberObjectVariable object="MetalDeposit" variable="Cooldown" modification_sign="=" value=expr(LoadFuel)
 
 @event
-if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=expr(1)
+if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
 if GroupExists storage_name=expr(SaveStorage) group="SurvivalVersion"
-
 > @event
 > for each "Triceratops"
-
 >> @event
->> if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
 >> do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Trike"+".Bond") variable="LoadFuel"
 >> do SetNumberObjectVariable object="Triceratops" variable="Bond" modification_sign="=" value=expr(LoadFuel)
 >> do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Trike"+".FeedWait") variable="LoadFuel"
@@ -67,14 +61,14 @@ if GroupExists storage_name=expr(SaveStorage) group="SurvivalVersion"
 >> do SetNumberObjectVariable object="Triceratops" variable="Command" modification_sign="=" value=expr(LoadFuel)
 >> do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Trike"+".HP") variable="LoadFuel"
 >> do SetNumberObjectVariable object="Triceratops" variable="HP" modification_sign="=" value=expr(LoadFuel)
->> do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Trike.X") variable="LoadFuel"
+>> do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Survival.Trike.X" variable="LoadFuel"
 >> do SetX object="Triceratops" modification_sign="=" value=expr(LoadFuel)
->> do ReadNumberFromStorage storage_name=expr(SaveStorage) group=expr("Survival.Trike.Y") variable="LoadFuel"
+>> do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Survival.Trike.Y" variable="LoadFuel"
 >> do SetY object="Triceratops" modification_sign="=" value=expr(LoadFuel)
 
 @event
-if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=expr(1)
-do SetNumberVariable variable="SurvivalLoadPending" modification_sign="=" value=expr(0)
-do SetNumberObjectVariable object="SurvivalFires" variable="VisualReady" modification_sign="=" value=expr(0)
+if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
+do SetNumberVariable variable="SurvivalLoadPending" modification_sign="=" value=0
+do SetNumberObjectVariable object="SurvivalFires" variable="VisualReady" modification_sign="=" value=0
 do Delete object="FireGlow"
-do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1

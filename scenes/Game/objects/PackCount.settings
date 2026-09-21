@@ -1,35 +1,49 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 318
-folder = ["UI", "Touch"]
+assetStoreId = ""
+bold = false
+italic = false
 name = "PackCount"
+smoothed = true
 type = "TextObject::Text"
+underlined = false
 effects = [ ]
 behaviors = [ ]
+string = ""
+font = "interface.ttf"
+textAlignment = "right"
+characterSize = 28
+folder = [ "UI", "Touch" ]
 
 [[variables]]
 name = "Slot"
 type = "number"
 value = 200
 
+[color]
+b = 165
+g = 233
+r = 255
+
 [content]
-text = ""
-font = "interface.ttf"
-characterSize = 28
 bold = false
-italic = false
-underlined = false
-smoothed = true
-textAlignment = "right"
-verticalTextAlignment = "top"
-color = "255;233;165"
-lineHeight = 0
 isOutlineEnabled = true
+isShadowEnabled = false
+italic = false
 outlineColor = "10;28;31"
 outlineThickness = 3
-isShadowEnabled = false
-shadowColor = "0;0;0"
-shadowOpacity = 127
-shadowBlurRadius = 2
-shadowDistance = 4
 shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
+text = ""
+font = "interface.ttf"
+textAlignment = "right"
+verticalTextAlignment = "top"
+characterSize = 28
+lineHeight = 0
+color = "255;233;165"

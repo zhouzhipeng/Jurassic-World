@@ -1,4 +1,5 @@
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 do HideLayer layer="HUD"
 do HideLayer layer="Inventory"
 do HideLayer layer="Pause"
@@ -9,50 +10,59 @@ do HideLayer layer="Quests"
 do ShowLayer layer="Touch"
 do SetNumberVariable variable="TouchToastTime" modification_sign="=" value=expr(max(0,TouchToastTime-TimeDelta()))
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do HideLayer layer="Touch"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchStatus" behavior="Text" modification_sign="=" text=expr("生命 "+ToString(round(Health))+"   饥饿 "+ToString(round(Hunger))+"   水分 "+ToString(round(Water))+NewLine()+"第 "+ToString(WorldDay)+" 天  "+ToString(floor(WorldMinutes/60))+":"+ToString(floor(mod(WorldMinutes,60)/10))+ToString(floor(mod(WorldMinutes,10)))+"  "+WeatherName+"  体力 "+ToString(round(Stamina)))
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchQuest" behavior="Text" modification_sign="=" text=expr("前往 "+NavName+" · "+NavDirection+NewLine()+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),NavX,NavY)/100))+" 米")
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchHint" behavior="Text" modification_sign="=" text=expr(TouchContextHint)
 do SetX object="TouchKnob" modification_sign="=" value=expr(TouchJoyX-40*TouchScale+TouchMoveX*TouchRadius)
 do SetY object="TouchKnob" modification_sign="=" value=expr(TouchJoyY-40*TouchScale+TouchMoveY*TouchRadius)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchHint" behavior="Text" modification_sign="=" text=expr("建造层 "+ToString(BuildLevel+1)+" · 材料（持有/需要）"+NewLine()+"木 "+ToString(Wood)+"/"+ToString(BuildWood)+" · 石 "+ToString(Stone)+"/"+ToString(BuildStone)+" · 纤维 "+ToString(Fiber)+"/"+ToString(BuildFiber)+NewLine()+BuildReason)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="BuildMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="BuildMessageTime" comparison_sign=">" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildMessageTime" comparison_sign=">" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchHint" behavior="Text" modification_sign="=" text=expr("建造层 "+ToString(BuildLevel+1)+" · 材料（持有/需要）"+NewLine()+"木 "+ToString(Wood)+"/"+ToString(BuildWood)+" · 石 "+ToString(Stone)+"/"+ToString(BuildStone)+" · 纤维 "+ToString(Fiber)+"/"+ToString(BuildFiber)+NewLine()+BuildMessage)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=1
 do Show object="TouchButton"
-do OpacityCapability::OpacityBehavior::SetValue object="TouchButton" behavior="Opacity" modification_sign="=" opacity_0_255=expr(235)
+do OpacityCapability::OpacityBehavior::SetValue object="TouchButton" behavior="Opacity" modification_sign="=" opacity_0_255=235
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="TouchButton" variable="Enabled" comparison_sign="=" value=expr(0)
-do OpacityCapability::OpacityBehavior::SetValue object="TouchButton" behavior="Opacity" modification_sign="=" opacity_0_255=expr(105)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Enabled" comparison_sign="=" value=0
+do OpacityCapability::OpacityBehavior::SetValue object="TouchButton" behavior="Opacity" modification_sign="=" opacity_0_255=105
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=expr(1)
-if NumberObjectVariable object="TouchButton" variable="TouchId" comparison_sign="!=" value=expr(-999)
-do OpacityCapability::OpacityBehavior::SetValue object="TouchButton" behavior="Opacity" modification_sign="=" opacity_0_255=expr(175)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="TouchId" comparison_sign="!=" value=-999
+do OpacityCapability::OpacityBehavior::SetValue object="TouchButton" behavior="Opacity" modification_sign="=" opacity_0_255=175
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+> @event
 > for each "TouchButton"
->> if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=expr(1)
+>> @event
+>> if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=1
 >> if NumberObjectVariable object="TouchLabel" variable="Slot" comparison_sign="=" value=expr(TouchButton.Variable(Slot))
 >> do Show object="TouchLabel"
 >> do SetX object="TouchLabel" modification_sign="=" value=expr(TouchButton.X()+10*TouchScale)
@@ -63,8 +73,9 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 >> do TextContainerCapability::TextContainerBehavior::SetValue object="TouchLabel" behavior="Text" modification_sign="=" text=expr(TouchButton.VariableString(Label))
 >> do SetY object="TouchLabel" modification_sign="=" value=expr(TouchButton.Y()+(TouchButton.Height()-TouchLabel.Height())/2)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchToastTime" comparison_sign=">" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchToastTime" comparison_sign=">" value=0
 do Show object="TouchToastText"
 do SetX object="TouchToastText" modification_sign="=" value=expr(TouchMenuX+25*TouchScale)
 do SetY object="TouchToastText" modification_sign="=" value=expr(TouchHeight-TouchMargin-62*TouchScale)
@@ -73,17 +84,20 @@ do TextObject::WrappingWidth object="TouchToastText" modification_sign="=" value
 do TextObject::Text::SetFontSize object="TouchToastText" modification_sign="=" value=expr(24*TouchScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchToastText" behavior="Text" modification_sign="=" text=expr(TouchToast)
 
+@event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="NavMode" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchQuest" behavior="Text" modification_sign="=" text=expr(QuestTargetName+" · "+QuestDirection+" · "+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),QuestTargetX,QuestTargetY)/100))+" 米")
 
+@event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if StringVariable variable="TouchLastNotice" comparison_sign="!=" value=expr(NoticeMessage)
 do SetStringVariable variable="TouchLastNotice" modification_sign="=" value=expr(NoticeMessage)
 do SetStringVariable variable="TouchToast" modification_sign="=" value=expr(NoticeMessage)
 do SetNumberVariable variable="TouchToastTime" modification_sign="=" value=3
 
+@event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchToastTime" comparison_sign=">" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -91,21 +105,23 @@ do SetX object="TouchToastText" modification_sign="=" value=expr(TouchMargin+8*T
 do SetY object="TouchToastText" modification_sign="=" value=expr(TouchMargin+280*TouchScale)
 do TextObject::WrappingWidth object="TouchToastText" modification_sign="=" value=expr(min(680*TouchScale,TouchWidth-2*TouchMargin-110*TouchScale))
 
+@event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchToastTime" comparison_sign=">" value=0
 if NumberVariable variable="Mode" comparison_sign="!=" value=0
 do SetY object="TouchToastText" modification_sign="=" value=expr(TouchMenuY+166*TouchScale)
 
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="TouchToastTime" comparison_sign=">" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="TouchToastTime" comparison_sign=">" value=0
 do SetX object="TouchToastText" modification_sign="=" value=expr(TouchMenuX+24*TouchScale)
 do SetY object="TouchToastText" modification_sign="=" value=expr(TouchHeight-TouchMargin-30*TouchScale)
 
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(1)
+@event
+if NumberVariable variable="Mode" comparison_sign="!=" value=1
 do Hide object="PackIcon"
 do Hide object="PackCount"
 do Hide object="PackName"

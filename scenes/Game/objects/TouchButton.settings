@@ -1,14 +1,14 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 304
-folder = ["UI", "Touch"]
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
 name = "TouchButton"
 type = "Sprite"
-adaptCollisionMaskAutomatically = true
 updateIfNotVisible = false
 effects = [ ]
 behaviors = [ ]
-
+folder = [ "UI", "Touch" ]
 
 [[variables]]
 name = "Slot"
@@ -65,6 +65,7 @@ points = [ ]
 originPoint = { name = "Origin", x = 0, y = 0 }
 centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
+
 [[animations]]
 name = "Round"
 useMultipleDirections = false

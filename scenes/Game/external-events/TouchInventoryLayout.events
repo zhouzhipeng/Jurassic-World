@@ -1,6 +1,7 @@
-@comment "Touch inventory: select a grid cell, then explicitly use the selected item."
+@comment "Touch inventory: select a grid cell, then explicitly use the selected item." background=[255,230,109] text=[0,0,0]
 
-if NumberVariable variable="TouchMode" comparison_sign=">=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign=">=" value=0
 do Hide object="PackIcon"
 do Hide object="PackCount"
 do Hide object="PackName"
@@ -8,14 +9,15 @@ do Hide object="PackDetailBack"
 do Hide object="PackDetailTitle"
 do Hide object="PackDetailBody"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-do SetStringVariable variable="TouchPanelTitle" modification_sign="=" value=expr("背包")
-do SetStringVariable variable="TouchPanelBody" modification_sign="=" value=expr("点选物品查看详情")
-do SetNumberVariable variable="PackColumns" modification_sign="=" value=expr(5)
-do SetNumberVariable variable="PackRows" modification_sign="=" value=expr(4)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetStringVariable variable="TouchPanelTitle" modification_sign="=" value="背包"
+do SetStringVariable variable="TouchPanelBody" modification_sign="=" value="点选物品查看详情"
+do SetNumberVariable variable="PackColumns" modification_sign="=" value=5
+do SetNumberVariable variable="PackRows" modification_sign="=" value=4
 do SetNumberVariable variable="PackGap" modification_sign="=" value=expr(10*TouchScale)
 do SetNumberVariable variable="PackAreaWidth" modification_sign="=" value=expr(TouchMenuWidth*0.59-24*TouchScale)
 do SetNumberVariable variable="PackAreaHeight" modification_sign="=" value=expr(TouchMenuHeight-174*TouchScale)
@@ -25,543 +27,600 @@ do SetNumberVariable variable="PackDetailX" modification_sign="=" value=expr(Tou
 do SetNumberVariable variable="PackDetailY" modification_sign="=" value=expr(PackGridY)
 do SetNumberVariable variable="PackDetailWidth" modification_sign="=" value=expr(TouchMenuWidth*0.38-24*TouchScale)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="TouchColumns" comparison_sign="=" value=expr(1)
-do SetNumberVariable variable="PackColumns" modification_sign="=" value=expr(4)
-do SetNumberVariable variable="PackRows" modification_sign="=" value=expr(5)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="TouchColumns" comparison_sign="=" value=1
+do SetNumberVariable variable="PackColumns" modification_sign="=" value=4
+do SetNumberVariable variable="PackRows" modification_sign="=" value=5
 do SetNumberVariable variable="PackAreaWidth" modification_sign="=" value=expr(TouchMenuWidth-48*TouchScale)
 do SetNumberVariable variable="PackAreaHeight" modification_sign="=" value=expr(TouchMenuHeight-528*TouchScale)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="PackCell" modification_sign="=" value=expr(min((PackAreaWidth-(PackColumns-1)*PackGap)/PackColumns,(PackAreaHeight-(PackRows-1)*PackGap)/PackRows))
 do SetNumberVariable variable="PackGridWidth" modification_sign="=" value=expr(PackColumns*PackCell+(PackColumns-1)*PackGap)
 do SetNumberVariable variable="PackGridHeight" modification_sign="=" value=expr(PackRows*PackCell+(PackRows-1)*PackGap)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="TouchColumns" comparison_sign="=" value=expr(1)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="TouchColumns" comparison_sign="=" value=1
 do SetNumberVariable variable="PackGridX" modification_sign="=" value=expr(TouchMenuX+(TouchMenuWidth-PackGridWidth)/2)
 do SetNumberVariable variable="PackDetailX" modification_sign="=" value=expr(PackGridX)
 do SetNumberVariable variable="PackDetailY" modification_sign="=" value=expr(PackGridY+PackGridHeight+28*TouchScale)
 do SetNumberVariable variable="PackDetailWidth" modification_sign="=" value=expr(PackGridWidth)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(200)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=200
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Wood)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("木材")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="木材"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="Wood"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(0)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("木材")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("基础材料，用于制作工具、搭建营地和篝火添柴。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=0
+do SetStringVariable variable="PackTitle" modification_sign="=" value="木材"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="基础材料，用于制作工具、搭建营地和篝火添柴。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Wood)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(3)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("打开建造")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=3
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="打开建造"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(201)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=201
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Stone)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("石头")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="石头"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="Stone"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(1)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("石头")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("基础材料，用于制作石器、建造和修复熔炉。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=1
+do SetStringVariable variable="PackTitle" modification_sign="=" value="石头"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="基础材料，用于制作石器、建造和修复熔炉。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Stone)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(3)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("打开建造")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=3
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="打开建造"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(202)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=202
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Fiber)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("纤维")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="纤维"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="Fiber"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(2)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("纤维")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("采集蕨类获得，可制作工具、水袋和建筑部件。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=2
+do SetStringVariable variable="PackTitle" modification_sign="=" value="纤维"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="采集蕨类获得，可制作工具、水袋和建筑部件。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Fiber)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(3)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("打开建造")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=3
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="打开建造"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(203)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=203
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Hide)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("兽皮")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="兽皮"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="Hide"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(3)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("兽皮")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("狩猎获得，可制作水袋并升级金属工具。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=3
+do SetStringVariable variable="PackTitle" modification_sign="=" value="兽皮"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="狩猎获得，可制作水袋并升级金属工具。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Hide)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(190)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("前往工坊")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=190
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="前往工坊"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(204)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=204
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Berries)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("浆果")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="浆果"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="Berries"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(4)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("浆果")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=4
+do SetStringVariable variable="PackTitle" modification_sign="=" value="浆果"
 do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("食用：饥饿值 +8"+NewLine()+"也可用于喂食恐龙。")
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Berries)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(110)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("食用浆果")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=110
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="食用浆果"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(205)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=205
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Meat)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("生肉")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="生肉"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="RawMeat"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(5)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("生肉")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("在篝火旁烹饪 8 秒，得到一份烤肉。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=5
+do SetStringVariable variable="PackTitle" modification_sign="=" value="生肉"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="在篝火旁烹饪 8 秒，得到一份烤肉。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Meat)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(152)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("寻找营地篝火")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=152
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="寻找营地篝火"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(206)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=206
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Canteen)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("水袋")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="水袋"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="Water"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(6)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("水袋")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("清泉可装满 3 份水，每份恢复 40 水分。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=6
+do SetStringVariable variable="PackTitle" modification_sign="=" value="水袋"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="清泉可装满 3 份水，每份恢复 40 水分。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Canteen)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(112)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("饮水")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=112
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="饮水"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(207)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=207
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Axe)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("石斧")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="石斧"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="Axe"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(7)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("石斧")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("砍伐树木的工具。点选装备后可返回世界采集。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=7
+do SetStringVariable variable="PackTitle" modification_sign="=" value="石斧"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="砍伐树木的工具。点选装备后可返回世界采集。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Axe)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(451)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("装备石斧")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=451
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="装备石斧"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(208)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=208
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Spear)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("长矛")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="长矛"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="Spear"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(8)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("长矛")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("狩猎与防身武器，点击攻击按钮挥击。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=8
+do SetStringVariable variable="PackTitle" modification_sign="=" value="长矛"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="狩猎与防身武器，点击攻击按钮挥击。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Spear)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(452)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("装备长矛")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=452
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="装备长矛"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(209)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=209
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Flint)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("燧石")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="燧石"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="Flint"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(9)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("燧石")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("已收集的燧石材料，暂时没有可用配方。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=9
+do SetStringVariable variable="PackTitle" modification_sign="=" value="燧石"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="已收集的燧石材料，暂时没有可用配方。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Flint)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("暂无可用配方")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="暂无可用配方"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(210)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=210
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(Rope)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("绳索")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="绳索"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="Rope"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(10)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("绳索")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("远征奖励材料，暂时没有可用配方。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=10
+do SetStringVariable variable="PackTitle" modification_sign="=" value="绳索"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="远征奖励材料，暂时没有可用配方。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(Rope)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("暂无可用配方")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="暂无可用配方"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(211)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=211
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(CookedMeat)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("烤肉")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="烤肉"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="CookedMeat"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(11)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("烤肉")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("食用恢复 30 饥饿值和 8 生命。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=11
+do SetStringVariable variable="PackTitle" modification_sign="=" value="烤肉"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="食用恢复 30 饥饿值和 8 生命。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(CookedMeat)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(111)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("食用烤肉")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=111
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="食用烤肉"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(212)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=212
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(MetalOre)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("金属矿")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="金属矿"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="MetalOre"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(12)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("金属矿")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("2 矿石和 2 木材可在熔炉中炼成 1 金属锭。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=12
+do SetStringVariable variable="PackTitle" modification_sign="=" value="金属矿"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="2 矿石和 2 木材可在熔炉中炼成 1 金属锭。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(MetalOre)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(190)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("前往工坊")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=190
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="前往工坊"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=expr(213)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Slot" comparison_sign="=" value=213
 do SetNumberObjectVariable object="PackIcon" variable="Quantity" modification_sign="=" value=expr(MetalIngot)
-do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value=expr("金属锭")
+do SetStringObjectVariable object="PackIcon" variable="Caption" modification_sign="=" value="金属锭"
 do AnimatableCapability::AnimatableBehavior::SetName object="PackIcon" behavior="Animation" modification_sign="=" animation_name="MetalIngot"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(13)
-do SetStringVariable variable="PackTitle" modification_sign="=" value=expr("金属锭")
-do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("3 金属锭、4 木材和 2 兽皮可升级金属工具。")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=13
+do SetStringVariable variable="PackTitle" modification_sign="=" value="金属锭"
+do SetStringVariable variable="PackDescription" modification_sign="=" value="3 金属锭、4 木材和 2 兽皮可升级金属工具。"
 do SetNumberVariable variable="PackQuantity" modification_sign="=" value=expr(MetalIngot)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(190)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("前往工坊")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(1)
+do SetNumberVariable variable="PackAction" modification_sign="=" value=190
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="前往工坊"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=1
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(4)
-if NumberVariable variable="Berries" comparison_sign="<=" value=expr(0)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("尚未拥有")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=4
+if NumberVariable variable="Berries" comparison_sign="<=" value=0
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="尚未拥有"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(5)
-if NumberVariable variable="Meat" comparison_sign="<=" value=expr(0)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("尚未拥有")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=5
+if NumberVariable variable="Meat" comparison_sign="<=" value=0
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="尚未拥有"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(7)
-if NumberVariable variable="Axe" comparison_sign="<=" value=expr(0)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("尚未拥有")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=7
+if NumberVariable variable="Axe" comparison_sign="<=" value=0
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="尚未拥有"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(8)
-if NumberVariable variable="Spear" comparison_sign="<=" value=expr(0)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("尚未拥有")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=8
+if NumberVariable variable="Spear" comparison_sign="<=" value=0
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="尚未拥有"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(11)
-if NumberVariable variable="CookedMeat" comparison_sign="<=" value=expr(0)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("尚未拥有")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=11
+if NumberVariable variable="CookedMeat" comparison_sign="<=" value=0
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="尚未拥有"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(4)
-if NumberVariable variable="Hunger" comparison_sign=">=" value=expr(98)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("已经吃饱")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=4
+if NumberVariable variable="Hunger" comparison_sign=">=" value=98
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="已经吃饱"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(4)
-if NumberVariable variable="UseCooldown" comparison_sign=">" value=expr(0)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("稍等片刻")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=4
+if NumberVariable variable="UseCooldown" comparison_sign=">" value=0
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="稍等片刻"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(11)
-if NumberVariable variable="Hunger" comparison_sign=">=" value=expr(98)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("已经吃饱")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=11
+if NumberVariable variable="Hunger" comparison_sign=">=" value=98
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="已经吃饱"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(11)
-if NumberVariable variable="UseCooldown" comparison_sign=">" value=expr(0)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("稍等片刻")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=11
+if NumberVariable variable="UseCooldown" comparison_sign=">" value=0
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="稍等片刻"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(6)
-if NumberVariable variable="Canteen" comparison_sign="=" value=expr(0)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(190)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("前往工坊制作水袋")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=6
+if NumberVariable variable="Canteen" comparison_sign="=" value=0
+do SetNumberVariable variable="PackAction" modification_sign="=" value=190
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="前往工坊制作水袋"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(6)
-if NumberVariable variable="Canteen" comparison_sign=">" value=expr(0)
-if NumberVariable variable="CanteenCharges" comparison_sign="<=" value=expr(0)
-if NumberVariable variable="NearWater" comparison_sign="=" value=expr(0)
-do SetNumberVariable variable="PackAction" modification_sign="=" value=expr(151)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("寻找清泉装水")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=6
+if NumberVariable variable="Canteen" comparison_sign=">" value=0
+if NumberVariable variable="CanteenCharges" comparison_sign="<=" value=0
+if NumberVariable variable="NearWater" comparison_sign="=" value=0
+do SetNumberVariable variable="PackAction" modification_sign="=" value=151
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="寻找清泉装水"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(6)
-if NumberVariable variable="Water" comparison_sign=">=" value=expr(95)
-if NumberVariable variable="CanteenCharges" comparison_sign=">" value=expr(0)
-if NumberVariable variable="NearWater" comparison_sign="=" value=expr(0)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("水分充足")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=6
+if NumberVariable variable="Water" comparison_sign=">=" value=95
+if NumberVariable variable="CanteenCharges" comparison_sign=">" value=0
+if NumberVariable variable="NearWater" comparison_sign="=" value=0
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="水分充足"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(6)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=6
 do SetStringVariable variable="PackDescription" modification_sign="=" value=expr("储水 "+ToString(CanteenCharges)+" / 3"+NewLine()+"每份恢复 40 水分，清泉可补满。")
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackAction" comparison_sign="=" value=expr(3)
-if NumberVariable variable="Riding" comparison_sign="=" value=expr(1)
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("下马后建造")
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackAction" comparison_sign="=" value=3
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="下马后建造"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(7)
-if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=expr(1)
-if NumberVariable variable="PackQuantity" comparison_sign=">" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("已装备石斧")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=7
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=1
+if NumberVariable variable="PackQuantity" comparison_sign=">" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="已装备石斧"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberVariable variable="PackSelected" comparison_sign="=" value=expr(8)
-if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=expr(2)
-if NumberVariable variable="PackQuantity" comparison_sign=">" value=expr(0)
-do SetStringVariable variable="PackActionLabel" modification_sign="=" value=expr("已装备长矛")
-do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="PackSelected" comparison_sign="=" value=8
+if NumberVariable variable="SelectedHotbar" comparison_sign="=" value=2
+if NumberVariable variable="PackQuantity" comparison_sign=">" value=0
+do SetStringVariable variable="PackActionLabel" modification_sign="=" value="已装备长矛"
+do SetNumberVariable variable="PackActionEnabled" modification_sign="=" value=0
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign=">=" value=expr(200)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="<=" value=expr(219)
-do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign=">=" value=200
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="<=" value=219
+do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=1
 do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(TouchButton.Variable(Slot)+200)
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("")
+do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=""
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Grid"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(PackSelected+200)
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="GridSelected"
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign=">=" value=expr(214)
-do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign=">=" value=214
+do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=0
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+> @event
 > for each "TouchButton"
->> if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign=">=" value=expr(200)
->> if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="<=" value=expr(219)
+>> @event
+>> if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign=">=" value=200
+>> if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="<=" value=219
 >> do SetX object="TouchButton" modification_sign="=" value=expr(PackGridX+mod(TouchButton.Variable(Slot)-200,PackColumns)*(PackCell+PackGap))
 >> do SetY object="TouchButton" modification_sign="=" value=expr(PackGridY+floor((TouchButton.Variable(Slot)-200)/PackColumns)*(PackCell+PackGap))
 >> do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(PackCell) height=expr(PackCell)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
 do Show object="PackIcon"
 do Show object="PackCount"
 do Show object="PackName"
 do Show object="PackDetailBack"
 do Show object="PackDetailTitle"
 do Show object="PackDetailBody"
-do OpacityCapability::OpacityBehavior::SetValue object="PackIcon" behavior="Opacity" modification_sign="=" opacity_0_255=expr(255)
+do OpacityCapability::OpacityBehavior::SetValue object="PackIcon" behavior="Opacity" modification_sign="=" opacity_0_255=255
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackIcon" variable="Quantity" comparison_sign="<=" value=expr(0)
-do OpacityCapability::OpacityBehavior::SetValue object="PackIcon" behavior="Opacity" modification_sign="=" opacity_0_255=expr(75)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackIcon" variable="Quantity" comparison_sign="<=" value=0
+do OpacityCapability::OpacityBehavior::SetValue object="PackIcon" behavior="Opacity" modification_sign="=" opacity_0_255=75
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+> @event
 > for each "PackIcon"
+>> @event
 >> if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(PackIcon.Variable(Slot))
 >> do SetX object="PackIcon" modification_sign="=" value=expr(TouchButton.X()+PackCell*0.15)
 >> do SetY object="PackIcon" modification_sign="=" value=expr(TouchButton.Y()+PackCell*0.07)
 >> do ResizableCapability::ResizableBehavior::SetSize object="PackIcon" behavior="Resizable" width=expr(PackCell*0.7) height=expr(PackCell*0.7)
 
+>> @event
 >> if NumberObjectVariable object="PackName" variable="Slot" comparison_sign="=" value=expr(PackIcon.Variable(Slot))
 >> do SetX object="PackName" modification_sign="=" value=expr(PackIcon.X()-PackCell*0.09)
 >> do SetY object="PackName" modification_sign="=" value=expr(PackIcon.Y()+PackCell*0.67)
@@ -570,6 +629,7 @@ if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 >> do TextObject::Text::SetFontSize object="PackName" modification_sign="=" value=expr(min(PackCell*0.20,26*TouchScale))
 >> do TextContainerCapability::TextContainerBehavior::SetValue object="PackName" behavior="Text" modification_sign="=" text=expr(PackIcon.VariableString(Caption))
 
+>> @event
 >> if NumberObjectVariable object="PackCount" variable="Slot" comparison_sign="=" value=expr(PackIcon.Variable(Slot))
 >> do SetX object="PackCount" modification_sign="=" value=expr(PackIcon.X()-PackCell*0.09)
 >> do SetY object="PackCount" modification_sign="=" value=expr(PackIcon.Y()-PackCell*0.015)
@@ -578,21 +638,23 @@ if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 >> do TextObject::Text::SetFontSize object="PackCount" modification_sign="=" value=expr(min(PackCell*0.24,28*TouchScale))
 >> do TextContainerCapability::TextContainerBehavior::SetValue object="PackCount" behavior="Text" modification_sign="=" text=expr(ToString(PackIcon.Variable(Quantity)))
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="PackCount" variable="Slot" comparison_sign="=" value=expr(206)
-if NumberVariable variable="Canteen" comparison_sign=">" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="PackCount" variable="Slot" comparison_sign="=" value=206
+if NumberVariable variable="Canteen" comparison_sign=">" value=0
 do TextObject::SetWrapping object="PackCount" wrapping=true
 do TextObject::WrappingWidth object="PackCount" modification_sign="=" value=expr(PackCell*0.85)
 do TextObject::Text::SetFontSize object="PackCount" modification_sign="=" value=expr(min(PackCell*0.22,26*TouchScale))
 do TextContainerCapability::TextContainerBehavior::SetValue object="PackCount" behavior="Text" modification_sign="=" text=expr(ToString(CanteenCharges)+"/3")
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="PackDetailBack" modification_sign="=" value=expr(PackDetailX-10*TouchScale)
 do SetY object="PackDetailBack" modification_sign="=" value=expr(PackDetailY-10*TouchScale)
 do ResizableCapability::ResizableBehavior::SetSize object="PackDetailBack" behavior="Resizable" width=expr(PackDetailWidth+20*TouchScale) height=expr(356*TouchScale)
@@ -609,102 +671,112 @@ do TextObject::WrappingWidth object="PackDetailBody" modification_sign="=" value
 do TextObject::Text::SetFontSize object="PackDetailBody" modification_sign="=" value=expr(24*TouchScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="PackDetailBody" behavior="Text" modification_sign="=" text=expr(PackDescription)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(100)
-do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=100
+do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=1
 do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(PackAction)
-do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(1)
+do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=1
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr(PackActionLabel)
-do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(28)
+do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=28
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(PackDetailX)
 do SetY object="TouchButton" modification_sign="=" value=expr(PackDetailY+142*TouchScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(PackDetailWidth) height=expr(88*TouchScale)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(100)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=100
 do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(PackActionEnabled)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(103)
-do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
-do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(113)
-do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(1)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=103
+do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=1
+do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=113
+do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=1
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("制作长矛"+NewLine()+"6木 2石 4纤")
-do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(22)
+do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=22
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(PackDetailX)
 do SetY object="TouchButton" modification_sign="=" value=expr(PackDetailY+246*TouchScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr((PackDetailWidth-12*TouchScale)/2) height=expr(88*TouchScale)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(104)
-do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
-do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(114)
-do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(1)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=104
+do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=1
+do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=114
+do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=1
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("制作石斧"+NewLine()+"5木 3石 4纤")
-do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(22)
+do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=22
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(PackDetailX+(PackDetailWidth+12*TouchScale)/2)
 do SetY object="TouchButton" modification_sign="=" value=expr(PackDetailY+246*TouchScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr((PackDetailWidth-12*TouchScale)/2) height=expr(88*TouchScale)
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(103)
-if NumberVariable variable="Wood" comparison_sign="<" value=expr(6)
-do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=103
+if NumberVariable variable="Wood" comparison_sign="<" value=6
+do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=0
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(103)
-if NumberVariable variable="Stone" comparison_sign="<" value=expr(2)
-do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=103
+if NumberVariable variable="Stone" comparison_sign="<" value=2
+do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=0
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(103)
-if NumberVariable variable="Fiber" comparison_sign="<" value=expr(4)
-do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=103
+if NumberVariable variable="Fiber" comparison_sign="<" value=4
+do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=0
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(104)
-if NumberVariable variable="Wood" comparison_sign="<" value=expr(5)
-do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=104
+if NumberVariable variable="Wood" comparison_sign="<" value=5
+do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=0
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(104)
-if NumberVariable variable="Stone" comparison_sign="<" value=expr(3)
-do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=104
+if NumberVariable variable="Stone" comparison_sign="<" value=3
+do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=0
 
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(104)
-if NumberVariable variable="Fiber" comparison_sign="<" value=expr(4)
-do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=expr(0)
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=1
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=2
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=104
+if NumberVariable variable="Fiber" comparison_sign="<" value=4
+do SetNumberObjectVariable object="TouchButton" variable="Enabled" modification_sign="=" value=0

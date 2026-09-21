@@ -25,8 +25,8 @@ id = "04b0a84c-3b12-48e1-88cc-af069820a76c"
 object = "WeatherPanel"
 layer = "hud"
 at = [278, 22]
-size = [300, 64]
 z_order = 4
+size = [300, 64]
 keep_ratio = false
 
 [[layout.instances]]
@@ -34,6 +34,6 @@ id = "3ba77f01-6d0e-40bf-a12f-97a0ecab7afd"
 object = "WeatherStatus"
 layer = "hud"
 at = [288, 32]
-size = [280, 46]
 z_order = 10
+size = [280, 46]
 keep_ratio = false

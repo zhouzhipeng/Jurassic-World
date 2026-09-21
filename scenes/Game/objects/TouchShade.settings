@@ -1,14 +1,15 @@
 kind = "object"
 settingsFormatVersion = 6
 order = 307
-folder = ["UI", "Touch"]
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
 name = "TouchShade"
 type = "Sprite"
-adaptCollisionMaskAutomatically = true
 updateIfNotVisible = false
 variables = [ ]
 effects = [ ]
 behaviors = [ ]
+folder = [ "UI", "Touch" ]
 
 [[animations]]
 name = "Default"

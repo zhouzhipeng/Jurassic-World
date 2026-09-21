@@ -1,9 +1,11 @@
-link external "WeatherRestore"
-
-link external "TimeRestore"
+@event
+link "WeatherRestore"
 
 @event
-link external "SurvivalRestore"
+link "TimeRestore"
+
+@event
+link "SurvivalRestore"
 
 @event
 if NumberVariable variable="Action" comparison_sign="=" value=10
