@@ -22,20 +22,31 @@ try {
   harness.assert(minDistance > 300, `The exact reported bush never pushes the camera into the character: ${minDistance}`);
   harness.assert(maxPitchStep <= 0.68 && maxZoomOut < 65,
     `No preset-angle or zoom reset jumps: pitch step=${maxPitchStep}, zoom-out step=${maxZoomOut}`);
-  const nearBushes = harness.getObjects('BerryBush').filter(o => o.hidden);
-  harness.assert(nearBushes.length > 0, 'Only foreground foliage is suppressed in the reported close-up');
+  const nearBushes = harness.getObjects('BerryBush').filter(o => !o.hidden && o.opacity > 0 && o.opacity < 200);
+  harness.assert(nearBushes.length > 0, 'Foreground foliage remains visible at half opacity in the reported close-up');
+  harness.assert(nearBushes.every(bush => Math.abs(bush.opacity - 127.5) < 1),
+    'Obscuring plants settle at 50 percent opacity');
+  const harvested = nearBushes[0];
+  if (harvested) {
+    const object = harness.getRuntimeObject(harvested.id);
+    object.getVariables().get('Cooldown').setNumber(30);
+    object.hide(true);
+    await harness.stepFrames(1);
+    harness.assert(harness.getObjects('BerryBush').find(o => o.id === harvested.id)?.hidden,
+      'Harvested foliage stays hidden while its camera fade is cleared');
+  }
   const c = camera(), p = player();
   const dx = p.x - c.x, dy = p.y - c.y, dz = 120 - c.z;
   const length = Math.hypot(dx, dy, dz);
-  const blockers = ['Island3D', 'BerryBush', 'WoodSapling', 'FiberFern'].flatMap(
+  const blockers = ['Island3D'].flatMap(
     name => harness.getCurrentRuntimeScene().getObjects(name)).filter(o => o.isVisible());
   harness.assert(gdjs.evtTools.scene3d.raycastObjects(c.x, c.y, c.z,
     dx / length, dy / length, dz / length, blockers, 0, length - 1, true).length === 0,
-    'The player is visible from the final reported camera view');
+    'No opaque island geometry blocks the final reported camera view');
   harness.setObjectPosition(player().id, 2000, 1500, 0);
   await harness.stepFrames(60);
-  harness.assert(nearBushes.every(bush => !harness.getObjects('BerryBush').find(o => o.id === bush.id)?.hidden),
-    'Camera-hidden bushes return after moving away');
+  harness.assert(nearBushes.every(bush => harness.getObjects('BerryBush').find(o => o.id === bush.id)?.opacity === 255),
+    'Faded bushes regain full opacity after moving away');
 
   // Crossing foliage repeatedly must not alternate between ground and overhead views.
   harness.setObjectPosition(player().id, 508.8247954787804, 158.44715178780407, 0);

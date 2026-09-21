@@ -33,6 +33,16 @@ name = "Hits"
 type = "number"
 value = 0
 
+[[variables]]
+name = "CameraBaseOpacity"
+type = "number"
+value = 255
+
+[[variables]]
+name = "CameraOpacity"
+type = "number"
+value = 255
+
 [content]
 centerLocation = "ModelOrigin"
 crossfadeDuration = 0.1

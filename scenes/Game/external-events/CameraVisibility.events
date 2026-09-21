@@ -33,15 +33,7 @@ if (player) {
     "Stegosaur", "Raptor", "Tyrannosaur"];
   if (number("Riding") === 0) names.push("Dinosaur3D");
   const candidates = names.flatMap(name => runtimeScene.getObjects(name));
-  const hidden = follow.getChild("Hidden");
-  // Restore only foliage hidden by this camera. Harvest cooldown still owns harvested plants.
-  for (const object of candidates) {
-    const key = String(object.getUniqueId());
-    if (hidden.hasChild(key)) {
-      if (object.getVariables().get("Cooldown").getAsNumber() <= 0) object.hide(false);
-      else hidden.removeChild(key);
-    }
-  }
+  const faded = follow.getChild("Faded");
   let blockers = candidates.filter(object => object.isVisible() && object.getLayer() === "World3D");
   blockers = blockers.filter(object => Math.hypot(object.getX() - targetX, object.getY() - targetY)
     <= requestedDistance + Math.hypot(object.getWidth(), object.getHeight()) + 300);
@@ -53,9 +45,9 @@ if (player) {
     [-8, 0], [8, 0], [-8, -80], [8, -80], [-8, 80], [8, 80]];
   const foliage = ["BerryBush", "FiberFern", "WoodSapling"];
   const viewFoliage = blockers.filter(object => foliage.includes(object.getName()));
-  // Foliage uses temporary visibility, never collision zoom (including prediction).
+  // Foliage fades to half opacity, never collision zoom (including prediction).
   // Cover the whole view corridor so approaching/leaving a bush cannot pump the zoom.
-  // Never hide the combined island or solid walls.
+  // Keep the combined island and solid walls opaque.
   const obscuring = new Set();
   const oldPitch = reset ? requestedPitch : number("CameraResolvedPitch");
   for (const offset of offsets) {
@@ -67,14 +59,23 @@ if (player) {
       if (foliage.includes(hit.object.getName())) obscuring.add(String(hit.object.getUniqueId()));
     }
   }
-  for (const object of blockers) {
+  // Restore across all foliage, including plants now outside the search radius.
+  // Harvest visibility belongs to harvesting: the camera never calls hide().
+  for (const object of candidates.filter(object => foliage.includes(object.getName()))) {
     const key = String(object.getUniqueId());
-    if (obscuring.has(key)) hidden.getChild(key).setNumber(0.45);
-    else if (hidden.hasChild(key)) hidden.getChild(key).sub(dt);
-    if (hidden.hasChild(key)) {
-      if (hidden.getChild(key).getAsNumber() > 0) object.hide(true);
-      else hidden.removeChild(key);
+    const objectVars = object.getVariables();
+    const base = objectVars.get("CameraBaseOpacity").getAsNumber();
+    const available = object.isVisible() && objectVars.get("Cooldown").getAsNumber() <= 0;
+    if (available && obscuring.has(key)) faded.getChild(key).setNumber(0.45);
+    else if (faded.hasChild(key)) {
+      faded.getChild(key).sub(dt);
+      if (!available || faded.getChild(key).getAsNumber() <= 0) faded.removeChild(key);
     }
+    const goalOpacity = faded.hasChild(key) ? base * 0.5 : base;
+    const currentOpacity = objectVars.get("CameraOpacity").getAsNumber();
+    const step = base * dt / 0.2;
+    objectVars.get("CameraOpacity").setNumber(!available ? base :
+      currentOpacity + Math.max(-step, Math.min(step, goalOpacity - currentOpacity)));
   }
   blockers = blockers.filter(object => object.isVisible() && !foliage.includes(object.getName()));
   const velocityX = reset ? 0 : Math.max(-650, Math.min(650, (targetX - state("PlayerX")) / Math.max(dt, 0.001)));

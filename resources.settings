@@ -1428,3 +1428,10 @@ metadata = ""
 name = "pack-ingot.svg"
 userAdded = true
 smoothed = true
+
+[[resources]]
+kind = "tslMaterial"
+name = "CameraFoliageFade"
+file = "materials/CameraFoliageFade.tsl.ts"
+metadata = ""
+userAdded = true
