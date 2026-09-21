@@ -1,0 +1,3 @@
+@event
+if VariableChildCount array_variable="FrameTimestamps" comparison_sign="=" value=0
+do PushNumber array_variable="FrameTimestamps" number_to_add=expr(Time("timestamp"))

@@ -1,0 +1,31 @@
+kind = "behavior"
+settingsFormatVersion = 6
+order = 0
+description = "Makes a text object display the current FPS."
+fullName = "FPS Displayer"
+helpPath = ""
+iconUrl = ""
+name = "FPSDisplayer"
+objectType = ""
+previewIconUrl = ""
+
+[[propertyDescriptors]]
+value = ""
+type = "Behavior"
+label = "Text capability"
+extraInformation = [ "TextContainerCapability::TextContainerBehavior" ]
+choices = [ ]
+name = "Text"
+
+[[propertyDescriptors]]
+value = "FPS: "
+type = "String"
+label = "FPS counter prefix"
+name = "prefix"
+
+[[propertyDescriptors]]
+value = "0"
+type = "Number"
+unit = "Dimensionless"
+label = "Number of decimal digits"
+name = "DecimalDigits"

@@ -1,0 +1,14 @@
+kind = "function"
+settingsFormatVersion = 6
+order = 2
+description = "Frames per second (FPS) during the last second."
+fullName = "Frames Per Second (FPS)"
+functionType = "Expression"
+name = "FPS"
+sentence = ""
+parameters = [ ]
+extension = "FPS"
+objectGroups = { }
+
+[expressionType]
+type = "expression"

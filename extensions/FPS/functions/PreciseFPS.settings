@@ -1,0 +1,20 @@
+kind = "function"
+settingsFormatVersion = 6
+order = 3
+description = "Frames per second (FPS) during the last second. [Deprecated]"
+fullName = "Frames Per Second (FPS) [Deprecated]"
+functionType = "Expression"
+name = "PreciseFPS"
+private = true
+sentence = ""
+extension = "FPS"
+objectGroups = { }
+
+[expressionType]
+type = "expression"
+
+[[parameters]]
+description = "The accuracy of the FPS"
+longDescription = "This tells how many numbers after the period should be shown."
+name = "accuracy"
+type = "expression"

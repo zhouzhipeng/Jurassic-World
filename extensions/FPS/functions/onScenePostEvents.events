@@ -1,0 +1,21 @@
+@group "Keep timestamps for every frame inside the lookback period" source="" creationTime=0 color=[74,176,228] parameters=[]
+@comment "Record how much time has elapsed" background=[255,230,109] text=[0,0,0]
+
+@event
+if VariableChildCount array_variable="FrameTimestamps" comparison_sign=">" value=0
+do SetNumberVariable variable="TimeElapsed" modification_sign="=" value=expr(Time("timestamp") - FrameTimestamps[0])
+
+@comment "Remove any data before the last second from the beginning of the array" background=[255,230,109] text=[0,0,0]
+
+@event
+@while infiniteLoopWarning=true
+while VariableChildCount array_variable="FrameTimestamps" comparison_sign=">" value=0
+and while NumberVariable variable="FrameTimestamps[0]" comparison_sign="<" value=expr(Time("timestamp") - 1000)
+do RemoveVariableAt array_variable="FrameTimestamps" index_to_remove=0
+
+@comment "Add the current timestamp to the end of the array" background=[255,230,109] text=[0,0,0]
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Time("timestamp")) comparison_sign=">" second_expression=0
+do PushNumber array_variable="FrameTimestamps" number_to_add=expr(Time("timestamp"))
+@end group

@@ -1,0 +1,22 @@
+@comment "Generate the raw FPS text" background=[255,230,109] text=[0,0,0]
+
+@event
+local UnformattedFPS = var(type="string",value="",persistentUuid="",folded=true,hasMixedValues=false)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(FPS::FPS()) comparison_sign=">=" second_expression=0
+do SetStringVariable variable="UnformattedFPS" modification_sign="=" value=expr(ToString(roundTo(FPS::FPS(), DecimalDigits)))
+> @comment "Add trailing zeroes, if needed" background=[255,230,109] text=[0,0,0]
+
+> @event
+> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DecimalDigits) comparison_sign=">" second_expression=0
+> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(StrFind(UnformattedFPS, ".")) comparison_sign="=" second_expression=-1
+>> @event
+>> do SetStringVariable variable="UnformattedFPS" modification_sign="+" value="."
+
+>> @event
+>> repeat "DecimalDigits"
+>> do SetStringVariable variable="UnformattedFPS" modification_sign="+" value="0"
+
+> @comment "Show the formatted FPS text including the prefix" background=[255,230,109] text=[0,0,0]
+
+> @event
+> do TextContainerCapability::TextContainerBehavior::SetValue object="Object" behavior="Text" modification_sign="=" text=expr(prefix + UnformattedFPS)

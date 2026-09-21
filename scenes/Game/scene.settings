@@ -1904,6 +1904,12 @@ visible = true
 camera_behavior = "top-left-anchored-if-never-moved"
 cameras = [{ size = "default", viewport = "default" }]
 
+[[layout.layers]]
+id = "performance"
+name = "Performance"
+rendering = "2d"
+cameras = [{ size = "default", viewport = "default" }]
+
 [[layout.effects]]
 layer = "world3d"
 name = "Sky fill"
@@ -2461,3 +2467,12 @@ id = "5d9fe935-957f-4d28-b9bf-a82f270606be"
 object = "PartStairsInvalid"
 layer = "world3d"
 at = [0, 0]
+
+[[layout.instances]]
+id = "efbdd2e7-1b1e-4a6a-82fd-1ceec07b972a"
+object = "FPSCounter"
+layer = "performance"
+at = [730, 8]
+z_order = 100
+size = [140, 34]
+keep_ratio = false

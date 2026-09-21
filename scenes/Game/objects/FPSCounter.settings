@@ -1,0 +1,44 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 322
+name = "FPSCounter"
+type = "TextObject::Text"
+folder = ["UI", "Diagnostics"]
+bold = true
+italic = false
+smoothed = true
+underlined = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+string = "FPS: --"
+font = "interface.ttf"
+textAlignment = "center"
+characterSize = 22
+
+[color]
+r = 235
+g = 255
+b = 224
+
+[content]
+bold = true
+italic = false
+smoothed = true
+underlined = false
+text = "FPS: --"
+font = "interface.ttf"
+textAlignment = "center"
+verticalTextAlignment = "top"
+characterSize = 22
+lineHeight = 0
+color = "235;255;224"
+isOutlineEnabled = true
+outlineColor = "12;25;18"
+outlineThickness = 3
+isShadowEnabled = false
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127

@@ -1,0 +1,10 @@
+kind = "function"
+settingsFormatVersion = 6
+order = 1
+fullName = ""
+functionType = "Action"
+name = "onScenePostEvents"
+sentence = ""
+parameters = [ ]
+extension = "FPS"
+objectGroups = { }
