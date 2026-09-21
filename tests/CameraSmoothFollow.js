@@ -60,4 +60,34 @@ try {
   const after = camera();
   const displacement = Math.hypot(after.x - before.x, after.y - before.y, after.z - before.z);
   harness.assert(displacement < 700, `A large orbit input is blended over multiple frames: ${displacement}`);
+  // issue-20260921-043627-272: W/S across the spring must never enter the survivor.
+  await harness.goToScene('Game');
+  await harness.stepFrames(3);
+  harness.setSceneVariable('Mode', 0);
+  harness.setObjectPosition(player().id, -55, 818, 0);
+  harness.setSceneVariable('CameraYaw', 79.02439024390236);
+  harness.setSceneVariable('CameraPitch', 28.784183296378405);
+  harness.setSceneVariable('CameraDistance', 1250);
+  await harness.stepFrames(120);
+  let closest = 1250, largestInwardStep = 0, lowestAt = '';
+  let lastDistance = n('CameraResolvedDistance');
+  for (const [key, frames] of [['w', 56], ['', 31], ['w', 33], ['', 17],
+    ['w', 26], ['', 11], ['s', 88], ['', 53], ['s', 39], ['', 120]]) {
+    if (key) harness.setKeyPressed(key, true);
+    for (let frame = 0; frame < frames; frame++) {
+      await harness.stepFrames(1);
+      const current = n('CameraResolvedDistance');
+      if (current < closest) {
+        closest = current;
+        lowestAt = `${player().x.toFixed(1)},${player().y.toFixed(1)}`;
+      }
+      largestInwardStep = Math.max(largestInwardStep, lastDistance - current);
+      lastDistance = current;
+    }
+    harness.releaseAllInputs();
+  }
+  harness.assert(closest > 300,
+    `Recorded spring route keeps the camera outside the character: minimum=${closest}, at=${lowestAt}`);
+  harness.assert(largestInwardStep < 90,
+    `Low scenery never causes a sudden close-up: largest inward step=${largestInwardStep}`);
 } finally { harness.releaseAllInputs(); }
