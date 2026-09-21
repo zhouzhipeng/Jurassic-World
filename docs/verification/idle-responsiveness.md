@@ -16,6 +16,8 @@
 
 天气回归 `WeatherCycle` 全部通过（`idle-weather-after.json`）：降雨、雷暴、雾天、自动转换、暂停、摄影模式及屋顶遮雨维持原有行为。
 
+最终 `verify_project_change` 通过，`runtimeVerified=true`、`completionReady=true`；运行时错误 0，World3D 可见 mesh 296，纹理失败与拒绝对象均为 0。断言摘要见 `idle-preview-acceptance.json`。
+
 - 更新后的两项雾效测试在修复前均失败，修复后通过。
 - 雾效与 TSL 材质生命周期专项测试共 30 项通过。
 - 真实 WebGL 像素测试验证线性和指数雾连续 120 帧更新距离/密度、改变颜色，画面相应变化，程序数量和材质版本保持不变；已有 uniform 独立性、程序共享和释放测试继续通过。
