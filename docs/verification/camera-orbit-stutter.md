@@ -30,3 +30,5 @@
 项目提交 `929ccb6`（Guard first camera orbit against shader compilation stalls）更新了 `tests/CameraOrbitPerformance.js` 和 `tests/CameraDinosaurPerformance.js`。原测试只对第二圈限制最坏帧，现在第一圈也要求平均 <20 ms、采样 P95 <33.3 ms、最坏 <100 ms。P95 使用 harness 的每两帧最大值桶，是保守指标。修复前的 241 ms 峰值会触发失败。
 
 完整测试操作 ID、断言和性能结果保存在 [verification-camera-orbit-stutter.json](verification-camera-orbit-stutter.json)。这些改进依赖上述引擎提交；仅拷贝游戏项目到未修复的编辑器不会获得缓存修复。
+
+五项专项测试全部完成且 `all_passed=true`：CameraOrbitPerformance、CameraDinosaurPerformance、CameraSmoothFollow、FoliageLOD、CameraVisibility。最终预览验证返回 `runtimeVerified=true`、`completionReady=true`，World3D 有 296 个可见 mesh、0 个纹理失败、0 个拒绝对象，运行时错误为 0。详见 [预览验证](verification-camera-orbit-preview.json) 与 [截图](camera-orbit-stutter.png)。

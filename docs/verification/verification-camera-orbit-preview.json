@@ -1,0 +1,91 @@
+{
+  "success": true,
+  "runtimeVerified": true,
+  "completionReady": true,
+  "debuggerId": "preview-ws-12",
+  "assertions": [
+    {
+      "index": 0,
+      "type": "runtime_error_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq"
+    },
+    {
+      "index": 1,
+      "type": "instance_position_finite",
+      "passed": true,
+      "actual": {
+        "x": 650,
+        "y": 200,
+        "z": 0,
+        "angle": 180,
+        "layer": "World3D",
+        "zOrder": 0
+      },
+      "expected": "finite x/y/z (when z is present)",
+      "objectName": "Player3D"
+    },
+    {
+      "index": 2,
+      "type": "renderer_has_three_group",
+      "passed": true,
+      "actual": true,
+      "expected": true,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 3,
+      "type": "renderer_visible_mesh_count",
+      "passed": true,
+      "actual": 296,
+      "expected": 0,
+      "operator": "gt",
+      "layerName": "World3D"
+    },
+    {
+      "index": 4,
+      "type": "renderer_failed_texture_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 5,
+      "type": "renderer_rejected_object_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    }
+  ],
+  "screenshot": {
+    "success": true,
+    "running": true,
+    "filePath": "C:/Users/Administrator/Documents/Codex/2026-09-18/new-chat/outputs/JurassicWorld/docs/verification/camera-orbit-stutter.png",
+    "width": 3014,
+    "height": 1800,
+    "source": "renderer-canvas",
+    "debuggerId": "preview-ws-12",
+    "sceneName": "Game",
+    "sceneElapsedTimeSeconds": 2.05,
+    "renderedBeforeCapture": true,
+    "capturedAt": 1789998425357,
+    "attempt": 1,
+    "attempts": 1,
+    "exactGameResolution": true,
+    "quality": {
+      "analyzed": true,
+      "dimensionsMatch": true,
+      "blackRatio": 0,
+      "transparentRatio": 0,
+      "suspicious": false,
+      "pixelHash": "0e4f33baa1d25254642e3ec3a819cdf1e934709514b6e028e17b10a135e731f1"
+    }
+  }
+}
