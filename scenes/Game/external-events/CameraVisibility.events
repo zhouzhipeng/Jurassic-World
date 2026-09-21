@@ -213,35 +213,41 @@ do Scene3D::TurnCameraTowardPosition x_position=expr(CameraFollow.X) y_position=
 @event aiGeneratedEventId="camera-fade-berrybush"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each BerryBush
->> do SetNumberObjectVariable object="BerryBush" variable="CameraFadeReady" modification_sign="=" value=0
 >> if NumberObjectVariable object="BerryBush" variable="CameraOpacity" comparison_sign="<" value=255
 >> do TSLMaterial::SetNumberParameter parameter_3d_model="BerryBush" tsl_material_behavior="CameraFade" binding_name="CameraFade" parameter_name="opacity" value=expr(BerryBush.CameraOpacity / 255)
->> do TSLMaterial::EnableBinding parameter_3d_model="BerryBush" tsl_material_behavior="CameraFade" binding_name="CameraFade" enable=true
+>>> if NumberObjectVariable object="BerryBush" variable="CameraFadeReady" comparison_sign="=" value=0
+>>> do TSLMaterial::EnableBinding parameter_3d_model="BerryBush" tsl_material_behavior="CameraFade" binding_name="CameraFade" enable=true
 >> if NumberObjectVariable object="BerryBush" variable="CameraOpacity" comparison_sign=">=" value=255
+>> if NumberObjectVariable object="BerryBush" variable="CameraFadeReady" comparison_sign="=" value=1
 >> do TSLMaterial::EnableBinding parameter_3d_model="BerryBush" tsl_material_behavior="CameraFade" binding_name="CameraFade" enable=false
+>> do SetNumberObjectVariable object="BerryBush" variable="CameraFadeReady" modification_sign="=" value=0
 >> if TSLMaterial::IsBindingReady parameter_3d_model="BerryBush" tsl_material_behavior="CameraFade" binding_name="CameraFade"
 >> do SetNumberObjectVariable object="BerryBush" variable="CameraFadeReady" modification_sign="=" value=1
 
 @event aiGeneratedEventId="camera-fade-fiberfern"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each FiberFern
->> do SetNumberObjectVariable object="FiberFern" variable="CameraFadeReady" modification_sign="=" value=0
 >> if NumberObjectVariable object="FiberFern" variable="CameraOpacity" comparison_sign="<" value=255
 >> do TSLMaterial::SetNumberParameter parameter_3d_model="FiberFern" tsl_material_behavior="CameraFade" binding_name="CameraFade" parameter_name="opacity" value=expr(FiberFern.CameraOpacity / 255)
->> do TSLMaterial::EnableBinding parameter_3d_model="FiberFern" tsl_material_behavior="CameraFade" binding_name="CameraFade" enable=true
+>>> if NumberObjectVariable object="FiberFern" variable="CameraFadeReady" comparison_sign="=" value=0
+>>> do TSLMaterial::EnableBinding parameter_3d_model="FiberFern" tsl_material_behavior="CameraFade" binding_name="CameraFade" enable=true
 >> if NumberObjectVariable object="FiberFern" variable="CameraOpacity" comparison_sign=">=" value=255
+>> if NumberObjectVariable object="FiberFern" variable="CameraFadeReady" comparison_sign="=" value=1
 >> do TSLMaterial::EnableBinding parameter_3d_model="FiberFern" tsl_material_behavior="CameraFade" binding_name="CameraFade" enable=false
+>> do SetNumberObjectVariable object="FiberFern" variable="CameraFadeReady" modification_sign="=" value=0
 >> if TSLMaterial::IsBindingReady parameter_3d_model="FiberFern" tsl_material_behavior="CameraFade" binding_name="CameraFade"
 >> do SetNumberObjectVariable object="FiberFern" variable="CameraFadeReady" modification_sign="=" value=1
 
 @event aiGeneratedEventId="camera-fade-woodsapling"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each WoodSapling
->> do SetNumberObjectVariable object="WoodSapling" variable="CameraFadeReady" modification_sign="=" value=0
 >> if NumberObjectVariable object="WoodSapling" variable="CameraOpacity" comparison_sign="<" value=255
 >> do TSLMaterial::SetNumberParameter parameter_3d_model="WoodSapling" tsl_material_behavior="CameraFade" binding_name="CameraFade" parameter_name="opacity" value=expr(WoodSapling.CameraOpacity / 255)
->> do TSLMaterial::EnableBinding parameter_3d_model="WoodSapling" tsl_material_behavior="CameraFade" binding_name="CameraFade" enable=true
+>>> if NumberObjectVariable object="WoodSapling" variable="CameraFadeReady" comparison_sign="=" value=0
+>>> do TSLMaterial::EnableBinding parameter_3d_model="WoodSapling" tsl_material_behavior="CameraFade" binding_name="CameraFade" enable=true
 >> if NumberObjectVariable object="WoodSapling" variable="CameraOpacity" comparison_sign=">=" value=255
+>> if NumberObjectVariable object="WoodSapling" variable="CameraFadeReady" comparison_sign="=" value=1
 >> do TSLMaterial::EnableBinding parameter_3d_model="WoodSapling" tsl_material_behavior="CameraFade" binding_name="CameraFade" enable=false
+>> do SetNumberObjectVariable object="WoodSapling" variable="CameraFadeReady" modification_sign="=" value=0
 >> if TSLMaterial::IsBindingReady parameter_3d_model="WoodSapling" tsl_material_behavior="CameraFade" binding_name="CameraFade"
 >> do SetNumberObjectVariable object="WoodSapling" variable="CameraFadeReady" modification_sign="=" value=1
