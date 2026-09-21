@@ -25,9 +25,11 @@ try {
     'Outline and body use the same paused skeletal animation');
   const material = outline()?.behaviors?.OutlineMaterial;
   harness.assert(!!material?.act, 'The outline TSL behavior is active');
+  harness.setObjectVariable(plant.id, 'Cooldown', 30);
   harness.getRuntimeObject(plant.id).hide(true);
   await harness.stepFrames(30);
   harness.assert(amount() === 0 && outline()?.hidden, 'Hidden or harvested blockers do not retain an outline');
+  harness.setObjectVariable(plant.id, 'Cooldown', 0);
   harness.getRuntimeObject(plant.id).hide(false);
   harness.setObjectPosition(plant.id, 2200, 1700, -60);
   await harness.stepFrames(30);
