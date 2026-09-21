@@ -55,14 +55,14 @@ value = -1
 [[behaviors]]
 name = "CameraFade"
 type = "TSLMaterial::Material"
-Material = "CameraFoliageFade"
-BindingName = "CameraFade"
-SelectorMode = "All"
-MeshName = ""
-MaterialName = ""
-Priority = 0
-Enabled = true
-Fallback = "KeepOriginal"
+material = "CameraFoliageFade"
+bindingName = "CameraFade"
+selectorMode = "All"
+meshName = ""
+materialName = ""
+priority = 0
+enabled = true
+fallback = "KeepOriginal"
 
 [content]
 centerLocation = "ModelOrigin"
