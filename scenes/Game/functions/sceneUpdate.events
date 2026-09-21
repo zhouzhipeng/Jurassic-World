@@ -69,6 +69,20 @@ if NumberVariable variable="MoveX" comparison_sign="!=" value=0
 if NumberVariable variable="MoveY" comparison_sign="!=" value=0
 do SetNumberVariable variable="MoveSpeed" modification_sign="=" value=247.5
 
+@comment "Sprint exhaustion uses separate stop and recovery thresholds to prevent walk/run flicker." background=[90,150,180] text=[255,255,255]
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Stamina" comparison_sign="<=" value=1
+do SetNumberObjectVariable object="Player3D" variable="SprintExhausted" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Stamina" comparison_sign=">=" value=15
+do SetNumberObjectVariable object="Player3D" variable="SprintExhausted" modification_sign="=" value=0
+
 link external "TouchMovement"
 
 @comment "Sprint input" background=[90,150,180] text=[255,255,255]
@@ -77,6 +91,8 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="Stamina" comparison_sign=">" value=1
+if NumberObjectVariable object="Player3D" variable="SprintExhausted" comparison_sign="=" value=0
+if NumberObjectVariable object="Player3D" variable="Sprinting" comparison_sign="=" value=0
 if KeyFromTextPressed key_to_check="LShift"
 do SetNumberObjectVariable object="Player3D" variable="Sprinting" modification_sign="=" value=1
 do SetNumberVariable variable="MoveSpeed" modification_sign="*" value=expr(500 / 350)

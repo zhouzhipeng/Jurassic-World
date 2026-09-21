@@ -14,6 +14,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="TouchMoveId" comparison_sign="!=" value=expr(-999)
 if NumberVariable variable="TouchLength" comparison_sign=">" value=expr(TouchRadius*0.95)
 if NumberVariable variable="Stamina" comparison_sign=">" value=expr(1)
+if NumberObjectVariable object="Player3D" variable="SprintExhausted" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=expr(0)
 do SetNumberVariable variable="MoveSpeed" modification_sign="=" value=expr(500)
 do SetNumberObjectVariable object="Player3D" variable="Sprinting" modification_sign="=" value=expr(1)

@@ -20,6 +20,11 @@ type = "number"
 value = 0
 
 [[variables]]
+name = "SprintExhausted"
+type = "number"
+value = 0
+
+[[variables]]
 name = "Travel"
 type = "number"
 value = 0

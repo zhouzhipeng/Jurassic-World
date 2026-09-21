@@ -152,3 +152,11 @@ name = "TouchInventoryGrid"
 type = "gameplay"
 description = "Touch inventory selection, drag cancellation, quantities, food, equipment and crafting."
 file = "tests/TouchInventoryGrid.js"
+
+[[tests]]
+scope = "project"
+order = 19
+name = "SprintExhaustion"
+type = "gameplay"
+description = "Held Shift and full joystick remain in walk during stamina recovery, then resume running without animation flicker or stacked speed."
+file = "tests/SprintExhaustion.js"
