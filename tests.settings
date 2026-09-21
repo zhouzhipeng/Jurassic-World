@@ -256,3 +256,11 @@ name = "PlayerJumpAnimation"
 type = "gameplay"
 description = "Actual child GLB clips, skeletal movement, equipment attachment, pause, apex, contact and locomotion recovery."
 file = "tests/PlayerJumpAnimation.js"
+
+[[tests]]
+scope = "project"
+order = 32
+name = "IdleResponsiveness"
+type = "gameplay"
+description = "Reported platform view stays responsive after prolonged idle, including keyboard and touch input."
+file = "tests/IdleResponsiveness.js"
