@@ -1,0 +1,56 @@
+{
+  "actions": {
+    "Chop": [
+      1.0,
+      12.0
+    ],
+    "Death": [
+      1.0,
+      31.0
+    ],
+    "Gather": [
+      1.0,
+      25.0
+    ],
+    "Hurt": [
+      1.0,
+      12.0
+    ],
+    "Idle": [
+      1.0,
+      61.0
+    ],
+    "JumpFall": [
+      1.0,
+      10.0
+    ],
+    "JumpLand": [
+      1.0,
+      10.0
+    ],
+    "JumpRise": [
+      1.0,
+      10.0
+    ],
+    "JumpStart": [
+      1.0,
+      7.0
+    ],
+    "Run": [
+      1.0,
+      19.0
+    ],
+    "Thrust": [
+      1.0,
+      10.0
+    ],
+    "Walk": [
+      1.0,
+      25.0
+    ]
+  },
+  "boneCount": 16,
+  "meshCount": 1,
+  "originalActionsPreserved": true,
+  "bytes": 245944
+}

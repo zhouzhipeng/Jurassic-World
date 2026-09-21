@@ -2307,6 +2307,8 @@ if NumberObjectVariable object="Player3D" variable="Travel" comparison_sign=">" 
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(MoveX) + abs(MoveY)) comparison_sign=">" second_expression=0
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(PreviousX, PreviousY, Player3D.X(), Player3D.Y()) - 90)
 
+link external "PlayerJumpAnimation"
+
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=7
 do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=7

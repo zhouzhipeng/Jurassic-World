@@ -81,3 +81,31 @@ name = "Death"
 source = "Death"
 sourceModelResourceName = ""
 useRootMotion = false
+
+[[content.animations]]
+loop = false
+name = "JumpStart"
+source = "JumpStart"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = false
+name = "JumpRise"
+source = "JumpRise"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = false
+name = "JumpFall"
+source = "JumpFall"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = false
+name = "JumpLand"
+source = "JumpLand"
+sourceModelResourceName = ""
+useRootMotion = false

@@ -1989,6 +1989,16 @@ name = "JumpPreviousZ"
 type = "number"
 value = 0
 
+[[variables]]
+name = "JumpStartTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "JumpLandTime"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 background = "#72BBDD"

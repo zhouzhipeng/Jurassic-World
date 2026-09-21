@@ -248,3 +248,11 @@ name = "PlayerJump"
 type = "gameplay"
 description = "Keyboard and simultaneous touch jumping, four platform landings, side collision, falling, pause and combat separation."
 file = "tests/PlayerJump.js"
+
+[[tests]]
+scope = "project"
+order = 31
+name = "PlayerJumpAnimation"
+type = "gameplay"
+description = "Actual child GLB clips, skeletal movement, equipment attachment, pause, apex, contact and locomotion recovery."
+file = "tests/PlayerJumpAnimation.js"

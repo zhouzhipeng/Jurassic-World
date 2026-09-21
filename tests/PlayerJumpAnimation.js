@@ -1,0 +1,45 @@
+const n = name => Number(harness.getSceneVariable(name)?.value);
+const player = () => harness.getObjects('Player3D')[0];
+const clip = () => player().children?.Body?.[0]?.animation;
+const bone = name => Number(harness.getObjectVariable(player().id, name)?.value);
+try {
+  await harness.goToScene('Game');
+  await harness.stepFrames(3);
+  harness.setObjectPosition(player().id, 1600, 0, 0);
+  harness.setSceneVariable('Invulnerable', 9999);
+  await harness.stepFrames(3);
+  harness.watch('Player3D');
+  const idleHand = bone('HandZ');
+  harness.setKeyPressed('Space', true);
+  await harness.stepFrames(5);
+  harness.assert(clip() === 'JumpStart', `Takeoff plays authored anticipation and push-off: ${clip()}`);
+  harness.setKeyPressed('Space', false);
+  await harness.stepFrames(12);
+  harness.assert(clip() === 'JumpRise' && n('JumpVelocity') > 0, `Ascending plays the tucked rising pose: ${clip()}`);
+  harness.assert(Math.abs(bone('HandZ') - idleHand) > 8, 'Jump animation moves the skeleton, not only the character object');
+  harness.assert(bone('AttachmentReady') === 1, 'Held equipment remains attached to the animated hand');
+  const pausedHeight = player().z, pausedHand = bone('HandZ');
+  harness.setSceneVariable('Mode', 2);
+  await harness.stepFrames(3);
+  const frozenHand = bone('HandZ');
+  await harness.stepFrames(12);
+  harness.assert(player().z === pausedHeight && Math.abs(bone('HandZ')-frozenHand) < .01, 'Menus freeze both physics and the skeletal pose');
+  harness.setSceneVariable('Mode', 0);
+  const falling = await harness.stepUntil(() => n('JumpVelocity') < 0, {maxFrames: 35});
+  harness.assert(falling && clip() === 'JumpFall', `At the apex the character changes to the landing-ready fall: ${clip()}`);
+  const landed = await harness.stepUntil(() => n('JumpLandTime') > 0, {maxFrames: 45});
+  harness.assert(landed && clip() === 'JumpLand' && player().z === 0, `Ground contact plays landing compression: ${clip()}`);
+  await harness.stepFrames(24);
+  harness.assert(clip() === 'Idle', 'Landing recovery blends back to idle');
+  harness.setKeyPressed('d', true);
+  harness.setKeyPressed('Space', true);
+  await harness.stepFrames(5);
+  harness.assert(clip() === 'JumpStart', 'Jump animation overrides walking when moving');
+  harness.setKeyPressed('Space', false);
+  const movingLanded = await harness.stepUntil(() => n('JumpLandTime') > 0, {maxFrames: 70});
+  harness.assert(movingLanded && clip() === 'JumpLand', 'A moving jump also shows landing');
+  await harness.stepFrames(24);
+  harness.assert(clip() === 'Walk', `Recovery returns to locomotion when input is held: ${clip()}`);
+} finally {
+  harness.releaseAllInputs();
+}

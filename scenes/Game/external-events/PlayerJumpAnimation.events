@@ -1,0 +1,20 @@
+@comment "Jump presentation follows actual physics; landing overrides walking briefly." background=[95,155,180] text=[255,255,255]
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+> if NumberVariable variable="JumpLandTime" comparison_sign=">" value=0
+> do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=11
+
+> if NumberVariable variable="JumpVelocity" comparison_sign="<" value=0
+> if NumberVariable variable="PlayerFloor" comparison_sign=">" value=expr(FloorTarget+0.5)
+> do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=10
+
+> if NumberVariable variable="JumpVelocity" comparison_sign=">" value=0
+> do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=9
+
+> if NumberVariable variable="JumpStartTime" comparison_sign=">" value=0
+> if NumberVariable variable="JumpVelocity" comparison_sign=">" value=0
+> do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=8
