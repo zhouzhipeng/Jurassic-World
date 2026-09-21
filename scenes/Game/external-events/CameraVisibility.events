@@ -49,7 +49,8 @@ if (player) {
   // Probe the body corridor, distinguishing nearby waist-high scenery from
   // obstructions that cover the head or occupy the camera's travel path.
   const offsets = [[0, 0], [-65, 0], [65, 0], [0, -80], [0, 80],
-    [-65, -80], [65, -80], [-65, 80], [65, 80]];
+    [-65, -80], [65, -80], [-65, 80], [65, 80],
+    [-8, 0], [8, 0], [-8, -80], [8, -80], [-8, 80], [8, 80]];
   const foliage = ["BerryBush", "FiberFern", "WoodSapling"];
   const viewFoliage = blockers.filter(object => foliage.includes(object.getName()));
   // Foliage uses temporary visibility, never collision zoom (including prediction).
@@ -130,7 +131,7 @@ if (player) {
       for (const hit of hits) {
         // A side probe can originate across an adjacent wall; retracting the
         // actual camera cannot resolve that offset-only overlap.
-        if (offset[0] !== 0 && hit.distance < 330) continue;
+        if (Math.abs(offset[0]) > 8 && hit.distance < 330) continue;
         if (offset[0] === 0 && offset[1] > 0) headClearance = Math.min(headClearance, Math.max(10, hit.distance - 30));
         else bodyHits.push(hit.distance);
       }
@@ -154,8 +155,9 @@ if (player) {
   // Waiting until the boom is almost collapsed leaves no time for smooth tilt.
   if (requestedClearance < 700) {
     let best = requestedClearance;
-    desiredPitch = Math.max(oldPitch, requestedPitch);
-    for (let candidate = Math.max(requestedPitch, oldPitch); candidate <= 80; candidate += 5) {
+    desiredPitch = requestedPitch;
+    for (let step = requestedPitch; step < 85; step += 5) {
+      const candidate = Math.min(80, step);
       const available = clearance(candidate);
       if (available > best + 20) { desiredPitch = candidate; best = available; }
       if (best >= 700) break;
@@ -174,10 +176,10 @@ if (player) {
   let zoomHold = Math.max(0, state("ZoomHold") - dt);
   if (anticipated < previous - 10) zoomHold = 0.25;
   const goal = anticipated > previous && zoomHold > 0 ? previous : anticipated;
-  const rate = goal < previous ? (rawClearance < 330 ? 4 : 10) : 3;
+  const rate = goal < previous ? (rawClearance < 700 ? 4 : 10) : 3;
   // Smooth normal travel and recovery; hard clipping is only a last-resort collision guard.
   const smoothedDistance = previous + (goal - previous) * (1 - Math.exp(-rate * dt));
-  const distance = reset ? safeDistance : rawClearance < 330
+  const distance = reset ? safeDistance : rawClearance < 700 && moving
     ? smoothedDistance : Math.min(safeDistance, smoothedDistance);
   variables.get("CameraSafeDistance").setNumber(safeDistance);
   variables.get("CameraResolvedDistance").setNumber(distance);
