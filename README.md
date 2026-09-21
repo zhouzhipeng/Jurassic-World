@@ -90,14 +90,14 @@
 - `assets/audio/`：原创循环音乐、危险节奏层、交互音效和音频清单。
 - `AUDIO-DESIGN.md`：配器、声音触发点与混音设计。
 - `tools/build_wildlife.py` / `tools/compose_audio.py`：可重复制作模型与原创音频的源脚本。
-- `verification-survival.json`：本次音频、追击、战斗、重生和回归验证记录。
-- `verification.json`：通过 GDevelop 预览输入执行的检查记录。
+- `docs/verification/verification-survival.json`：本次音频、追击、战斗、重生和回归验证记录。
+- `docs/verification/verification.json`：通过 GDevelop 预览输入执行的检查记录。
 
 背景及物品素材由内置 ImageGen 生成；UI 面板为代码生成 SVG，文字、状态条、交互和存储由 GDevelop 原生对象与事件驱动。物品图集使用 Sprite sourceRect 引用，不把整张背包截图用作功能界面。
 
 项目采用小型专用原生事件实现，无需引入第三方扩展。
 
-建造验证：`verification-construction.json` 与 `construction-preview.png`。检索官方扩展仓库后未找到适配当前原生 3D 建筑和资源流程的建造系统；二维 SnapToGrid 也不适用，因此采用小范围原生事件实现。存档测试将 `SaveStorage` 临时设为独立测试槽，正常游戏默认仍为 `JurassicWorldDemo`。
+建造验证：`docs/verification/verification-construction.json` 与 `preview/construction-preview.png`。检索官方扩展仓库后未找到适配当前原生 3D 建筑和资源流程的建造系统；二维 SnapToGrid 也不适用，因此采用小范围原生事件实现。存档测试将 `SaveStorage` 临时设为独立测试槽，正常游戏默认仍为 `JurassicWorldDemo`。
 
 ## 三倍地图扩展
 
@@ -108,7 +108,7 @@
 ## HUD 与角色组件结构
 
 - `scenes/Game/external-layout/`：7 个独立布局，共 249 个 UI 实例，分别为 GameHUD、GameInventory、GamePause、GameSettings、GameTitle、GamePhoto、GameQuests。场景中不再放置这些 UI 实例。
-- `scenes/Game/external-events/`：HUDBootstrap 在场景首帧创建布局一次；26 份按职责命名的 HUD 事件负责菜单输入、快捷栏、背包制作和保存反馈、采集提示、任务、生命/受伤/死亡提示、建造选择与显示。调用顺序保留原事件顺序，避免输入重复消费和拾取范围变化。`ui-module-map.json` 记录模块清单。
+- `scenes/Game/external-events/`：HUDBootstrap 在场景首帧创建布局一次；26 份按职责命名的 HUD 事件负责菜单输入、快捷栏、背包制作和保存反馈、采集提示、任务、生命/受伤/死亡提示、建造选择与显示。调用顺序保留原事件顺序，避免输入重复消费和拾取范围变化。`docs/ui-module-map.json` 记录模块清单。
 - `scenes/Game/objects/`：保留 GDevelop 原生 External Layouts 必须引用的 UI 对象定义，统一放在编辑器的 UI / External Layouts 分组。外部布局拥有 UI 摆放，外部事件拥有 UI 执行逻辑。
 - `extensions/JurassicActors/prefabs/`：Survivor、Parasaur、Triceratops、Stegosaur、Raptor、Tyrannosaur 六个真实 3D Prefab。场景中的 Player3D、Dinosaur3D 等名称和实例 UUID 保持不变，但类型已替换为这些 Prefab。
 - Survivor 拥有 Body、HeldAxe、CombatSpear，内部处理动画播放及 GripR 骨骼装备绑定；Parasaur 拥有 Body 和 MountedRider，骑手随父级移动/转向。恐龙 Prefab 各自拥有模型、动画生命周期及独立实例状态。场景只提交 AnimationState、AnimationPlaying 和装备/骑手可见状态，跨角色交互、世界碰撞和玩家输入由场景编排。
@@ -123,7 +123,7 @@
 
 复用检索：官方扩展仓库提交 `6e0bba82e5123cd95ea06107056d4015ae0d78e3`；SnapToGrid 0.0.5 是二维取整网格，未提供三维连接点、支撑、门或分层碰撞。沿用现有原生建造事件扩展本项目规则更直接，因此未引入扩展或 JavaScript 运行事件。
 
-运行验证见 `verification-modular-construction.json`；测试仅使用独立存档槽，不覆盖玩家的 JurassicWorldDemo。
+运行验证见 `docs/verification/verification-modular-construction.json`；测试仅使用独立存档槽，不覆盖玩家的 JurassicWorldDemo。
 
 ## 外部事件片段（格式 6）
 

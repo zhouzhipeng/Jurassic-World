@@ -529,8 +529,8 @@
     ]
   },
   "visualQA": {
-    "storm": "weather-storm-preview.png",
-    "fog": "weather-fog-preview.png",
+    "storm": "preview/weather-storm-preview.png",
+    "fog": "preview/weather-fog-preview.png",
     "checked": [
       "Weather card does not overlap the compass or wilderness hints.",
       "Rain strokes are visible below the HUD.",
@@ -540,7 +540,7 @@
     "fogCapture": {
       "success": true,
       "running": true,
-      "filePath": "C:/Users/Administrator/Documents/Codex/2026-09-18/new-chat/outputs/JurassicWorld/weather-fog-preview.png",
+      "filePath": "preview/weather-fog-preview.png",
       "width": 1600,
       "height": 900,
       "source": "renderer-canvas",
