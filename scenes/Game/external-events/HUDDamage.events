@@ -2,5 +2,24 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HitFlash" comparison_sign=">" value=0
+do ResetTimer timer_name="DamageDanger"
+
+@event aiGeneratedEventId="damage-danger-pulse"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if CompareTimer timer_name="DamageDanger" comparison_sign="<" time_in_seconds=2.2
 do Show object="DamageFlash"
-do OpacityCapability::OpacityBehavior::SetValue object="DamageFlash" behavior="Opacity" modification_sign="=" opacity_0_255=expr(HitFlash / 0.35 * 190)
+do ResizableCapability::ResizableBehavior::SetWidth object="DamageFlash" behavior="Resizable" modification_sign="=" width=expr(CameraWidth("hud", 0))
+do ResizableCapability::ResizableBehavior::SetHeight object="DamageFlash" behavior="Resizable" modification_sign="=" height=expr(CameraHeight("hud", 0))
+do OpacityCapability::OpacityBehavior::SetValue object="DamageFlash" behavior="Opacity" modification_sign="=" opacity_0_255=expr(min(1, (2.2 - TimerElapsedTime("DamageDanger")) / 0.8) * (115 + 100 * (0.5 + 0.5 * cos(TimerElapsedTime("DamageDanger") * 10))))
+
+> @event aiGeneratedEventId="damage-danger-music"
+> if NumberVariable variable="MusicStarted" comparison_sign="=" value=1
+> do SetMusicChannelVolume channel_identifier=20 modification_sign="=" volume_0_100=expr((55 - ThreatMix * 0.45) * (1 - 0.6 * min(1, (2.2 - TimerElapsedTime("DamageDanger")) / 0.8)))
+> do SetMusicChannelVolume channel_identifier=21 modification_sign="=" volume_0_100=expr(max(ThreatMix, 82 * min(1, (2.2 - TimerElapsedTime("DamageDanger")) / 0.8)))
+
+@event aiGeneratedEventId="damage-danger-clear-on-death"
+if NumberVariable variable="Dead" comparison_sign="!=" value=0
+do RemoveTimer timer_name="DamageDanger"
+
