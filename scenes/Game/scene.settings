@@ -1933,7 +1933,7 @@ intensity = 0.85
 isCastingShadow = true
 minimumShadowBias = 0.001
 rotation = 225
-shadowQuality = "high"
+shadowQuality = "medium"
 top = "Z+"
 
 [[layout.effects]]
