@@ -216,3 +216,11 @@ name = "CameraPerformance"
 type = "gameplay"
 description = "Profile real movement at the reported camp view and fence, with a host-calibrated frame budget and top-center FPS check."
 file = "tests/CameraPerformance.js"
+
+[[tests]]
+scope = "project"
+order = 27
+name = "CameraOrbitPerformance"
+type = "gameplay"
+description = "Profile first-use and warmed full camera rotations while the player stays still."
+file = "tests/CameraOrbitPerformance.js"
