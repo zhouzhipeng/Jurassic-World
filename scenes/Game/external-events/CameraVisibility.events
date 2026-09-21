@@ -128,6 +128,9 @@ if (player) {
         y + rightY * offset[0] + lookAhead * velocityY, z + offset[1],
         dx, dy, dz, blockers, 0, requestedDistance + 30, true);
       for (const hit of hits) {
+        // A side probe can originate across an adjacent wall; retracting the
+        // actual camera cannot resolve that offset-only overlap.
+        if (offset[0] !== 0 && hit.distance < 330) continue;
         if (offset[0] === 0 && offset[1] > 0) headClearance = Math.min(headClearance, Math.max(10, hit.distance - 30));
         else bodyHits.push(hit.distance);
       }
@@ -147,16 +150,18 @@ if (player) {
   let desiredPitch = requestedPitch;
   let pitchHold = Math.max(0, state("PitchHold") - dt);
   const requestedClearance = Math.min(clearance(requestedPitch), clearance(requestedPitch, 0.25));
-  if (requestedClearance < 340) {
+  // Begin looking over an approaching barrier before it reaches the player.
+  // Waiting until the boom is almost collapsed leaves no time for smooth tilt.
+  if (requestedClearance < 700) {
     let best = requestedClearance;
     desiredPitch = Math.max(oldPitch, requestedPitch);
     for (let candidate = Math.max(requestedPitch, oldPitch); candidate <= 80; candidate += 5) {
       const available = clearance(candidate);
       if (available > best + 20) { desiredPitch = candidate; best = available; }
-      if (best >= 400) break;
+      if (best >= 700) break;
     }
     pitchHold = 0.6;
-  } else if (pitchHold > 0 || requestedClearance < 460) desiredPitch = Math.max(oldPitch, requestedPitch);
+  } else if (pitchHold > 0 || requestedClearance < 800) desiredPitch = Math.max(oldPitch, requestedPitch);
   const pitchStep = Math.max(-22 * dt, Math.min(40 * dt, (desiredPitch - oldPitch) * (1 - Math.exp(-6 * dt))));
   const pitch = reset ? requestedPitch : oldPitch + pitchStep;
   const safeDistance = clearance(pitch);
