@@ -2,7 +2,7 @@ kind = "object"
 settingsFormatVersion = 6
 order = 312
 assetStoreId = ""
-bold = false
+bold = true
 italic = false
 name = "TouchHint"
 smoothed = true
@@ -18,17 +18,17 @@ characterSize = 28
 folder = [ "UI", "Touch" ]
 
 [color]
-b = 218
-g = 240
-r = 242
+b = 138
+g = 224
+r = 255
 
 [content]
-bold = false
-isOutlineEnabled = false
+bold = true
+isOutlineEnabled = true
 isShadowEnabled = false
 italic = false
-outlineColor = "0;0;0"
-outlineThickness = 2
+outlineColor = "16;43;50"
+outlineThickness = 3
 shadowAngle = 90
 shadowBlurRadius = 2
 shadowColor = "0;0;0"
@@ -42,4 +42,4 @@ textAlignment = "left"
 verticalTextAlignment = "top"
 characterSize = 28
 lineHeight = 0
-color = "242;240;218"
+color = "255;224;138"
