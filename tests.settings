@@ -176,3 +176,11 @@ name = "CameraVisibility"
 type = "gameplay"
 description = "Camera clears walls, hidden blockers, close obstacles and island foliage; restores zoom and follows elevated and mounted targets."
 file = "tests/CameraVisibility.js"
+
+[[tests]]
+scope = "project"
+order = 22
+name = "CameraSmoothFollow"
+type = "gameplay"
+description = "Reported near-bush view, bounded angle and zoom recovery, foliage restoration and stable follow while moving."
+file = "tests/CameraSmoothFollow.js"

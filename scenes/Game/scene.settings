@@ -734,6 +734,11 @@ type = "number"
 value = 0
 
 [[variables]]
+name = "CameraFollow"
+type = "structure"
+children = [{ name = "X", type = "number", value = 0 }, { name = "Y", type = "number", value = 0 }, { name = "Z", type = "number", value = 120 }, { name = "Yaw", type = "number", value = 0 }, { name = "PlayerX", type = "number", value = 0 }, { name = "PlayerY", type = "number", value = 0 }, { name = "PitchHold", type = "number", value = 0 }, { name = "ZoomHold", type = "number", value = 0 }, { name = "Hidden", type = "structure", children = [] }]
+
+[[variables]]
 name = "CameraResolvedPitch"
 type = "number"
 value = 25

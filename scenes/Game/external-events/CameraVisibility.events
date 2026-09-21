@@ -8,11 +8,22 @@ const player = runtimeScene.getObjects("Player3D")[0];
 if (player) {
   const variables = runtimeScene.getVariables();
   const number = (name = "") => variables.get(name).getAsNumber();
-  const yaw = number("CameraYaw") * Math.PI / 180;
-  const requestedPitch = number("CameraPitch");
-  const requestedDistance = number("CameraDistance");
+  const follow = variables.get("CameraFollow");
+  const state = (name = "") => follow.getChild(name).getAsNumber();
+  const dt = Math.min(0.05, runtimeScene.getElapsedTime() / 1000);
+  const previous = number("CameraResolvedDistance");
   const targetX = player.getX(), targetY = player.getY();
   const targetZ = 120 + number("PlayerFloor") + number("Riding") * 220;
+  const reset = previous <= 0 || Math.hypot(targetX - state("PlayerX"), targetY - state("PlayerY")) > 600;
+  const blend = 1 - Math.exp(-14 * dt);
+  const x = reset ? targetX : state("X") + (targetX - state("X")) * blend;
+  const y = reset ? targetY : state("Y") + (targetY - state("Y")) * blend;
+  const z = reset ? targetZ : state("Z") + (targetZ - state("Z")) * blend;
+  const yawDelta = ((number("CameraYaw") - state("Yaw") + 540) % 360 + 360) % 360 - 180;
+  const yawDegrees = reset ? number("CameraYaw") : state("Yaw") + yawDelta * (1 - Math.exp(-18 * dt));
+  const yaw = yawDegrees * Math.PI / 180;
+  const requestedPitch = number("CameraPitch");
+  const requestedDistance = number("CameraDistance");
   // Island3D includes its trees, rocks and camp. Other entries cover dynamic geometry.
   const names = ["Island3D", "BerryBush", "FiberFern", "WoodSapling", "StoneDeposit",
     "MetalDeposit", "SpringWater", "CampHearth", "CampForge", "BuiltShelter",
@@ -20,13 +31,46 @@ if (player) {
     "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs", "Triceratops",
     "Stegosaur", "Raptor", "Tyrannosaur"];
   if (number("Riding") === 0) names.push("Dinosaur3D");
-  const blockers = names.flatMap(name => runtimeScene.getObjects(name))
-    .filter(object => object.isVisible() && object.getLayer() === "World3D");
+  const candidates = names.flatMap(name => runtimeScene.getObjects(name));
+  const hidden = follow.getChild("Hidden");
+  // Restore only foliage hidden by this camera. Harvest cooldown still owns harvested plants.
+  for (const object of candidates) {
+    const key = String(object.getUniqueId());
+    if (hidden.hasChild(key)) {
+      if (object.getVariables().get("Cooldown").getAsNumber() <= 0) object.hide(false);
+      else hidden.removeChild(key);
+    }
+  }
+  let blockers = candidates.filter(object => object.isVisible() && object.getLayer() === "World3D");
   const rightX = Math.cos(yaw), rightY = -Math.sin(yaw);
   // A body-sized corridor also protects shoulders/feet and the camera near plane.
   const offsets = [[0, 0], [-65, 0], [65, 0], [0, -80], [0, 80],
     [-65, -80], [65, -80], [-65, 80], [65, 80]];
-  const clearance = (pitch = 25) => {
+  const foliage = ["BerryBush", "FiberFern", "WoodSapling"];
+  // A bush touching the player must not collapse the camera into their body.
+  // Temporarily remove just that foreground plant, never the combined island or solid walls.
+  const obscuring = new Set();
+  const oldPitch = reset ? requestedPitch : number("CameraResolvedPitch");
+  for (const offset of offsets) {
+    const r = oldPitch * Math.PI / 180;
+    const hits = gdjs.evtTools.scene3d.raycastObjects(targetX + rightX * offset[0],
+      targetY + rightY * offset[0], targetZ + offset[1],
+      Math.sin(yaw) * Math.cos(r), Math.cos(yaw) * Math.cos(r), Math.sin(r), blockers, 0, 290, true);
+    for (const hit of hits) {
+      if (foliage.includes(hit.object.getName())) obscuring.add(String(hit.object.getUniqueId()));
+    }
+  }
+  for (const object of blockers) {
+    const key = String(object.getUniqueId());
+    if (obscuring.has(key)) hidden.getChild(key).setNumber(0.45);
+    else if (hidden.hasChild(key)) hidden.getChild(key).sub(dt);
+    if (hidden.hasChild(key)) {
+      if (hidden.getChild(key).getAsNumber() > 0) object.hide(true);
+      else hidden.removeChild(key);
+    }
+  }
+  blockers = blockers.filter(object => object.isVisible());
+  const clearance = (pitch = 25, lookAhead = 0) => {
     const radians = pitch * Math.PI / 180;
     const dx = Math.sin(yaw) * Math.cos(radians);
     const dy = Math.cos(yaw) * Math.cos(radians);
@@ -34,41 +78,54 @@ if (player) {
     let distance = requestedDistance;
     for (const offset of offsets) {
       const hits = gdjs.evtTools.scene3d.raycastObjects(
-        targetX + rightX * offset[0], targetY + rightY * offset[0], targetZ + offset[1],
+        targetX + rightX * offset[0] + lookAhead * (reset ? 0 : Math.max(-650, Math.min(650, (targetX - state("PlayerX")) / Math.max(dt, 0.001)))),
+        targetY + rightY * offset[0] + lookAhead * (reset ? 0 : Math.max(-650, Math.min(650, (targetY - state("PlayerY")) / Math.max(dt, 0.001)))), targetZ + offset[1],
         dx, dy, dz, blockers, 0, requestedDistance + 30, true);
       for (const hit of hits) distance = Math.min(distance, Math.max(10, hit.distance - 30));
     }
     return distance;
   };
-  let pitch = requestedPitch;
-  let safeDistance = clearance(pitch);
-  // Near a wall, look down from a clear higher angle rather than clipping into the player.
-  if (safeDistance < 260) {
-    for (const candidate of [65, 80, 88]) {
-      if (candidate <= requestedPitch) continue;
-      const candidateDistance = clearance(candidate);
-      if (candidateDistance > safeDistance) {
-        pitch = candidate;
-        safeDistance = candidateDistance;
-      }
-      if (safeDistance >= 260) break;
+  let desiredPitch = requestedPitch;
+  let pitchHold = Math.max(0, state("PitchHold") - dt);
+  const requestedClearance = Math.min(clearance(requestedPitch), clearance(requestedPitch, 0.25));
+  if (requestedClearance < 340) {
+    let best = requestedClearance;
+    desiredPitch = Math.max(oldPitch, requestedPitch);
+    for (let candidate = Math.max(requestedPitch, oldPitch); candidate <= 80; candidate += 5) {
+      const available = clearance(candidate);
+      if (available > best + 20) { desiredPitch = candidate; best = available; }
+      if (best >= 400) break;
     }
-  }
-  const previous = number("CameraResolvedDistance");
-  const changedPitch = pitch !== number("CameraResolvedPitch");
-  const dt = Math.min(0.05, runtimeScene.getElapsedTime() / 1000);
-  // Pull in immediately; ease outward only within this frame's verified clear corridor.
-  const distance = previous <= 0 || changedPitch || safeDistance < previous
-    ? safeDistance : Math.min(safeDistance, previous + (safeDistance - previous) * (1 - Math.exp(-8 * dt)));
+    pitchHold = 0.6;
+  } else if (pitchHold > 0 || requestedClearance < 460) desiredPitch = Math.max(oldPitch, requestedPitch);
+  const pitchStep = Math.max(-22 * dt, Math.min(40 * dt, (desiredPitch - oldPitch) * (1 - Math.exp(-6 * dt))));
+  const pitch = reset ? requestedPitch : oldPitch + pitchStep;
+  const safeDistance = clearance(pitch);
+  const anticipated = Math.min(safeDistance, clearance(pitch, 0.25));
+  let zoomHold = Math.max(0, state("ZoomHold") - dt);
+  if (anticipated < previous - 10) zoomHold = 0.25;
+  const goal = anticipated > previous && zoomHold > 0 ? previous : anticipated;
+  const rate = goal < previous ? 10 : 3;
+  // Smooth normal travel and recovery; hard clipping is only a last-resort collision guard.
+  const distance = reset ? safeDistance : Math.min(safeDistance,
+    previous + (goal - previous) * (1 - Math.exp(-rate * dt)));
   variables.get("CameraSafeDistance").setNumber(safeDistance);
   variables.get("CameraResolvedDistance").setNumber(distance);
   variables.get("CameraResolvedPitch").setNumber(pitch);
+  follow.getChild("X").setNumber(x);
+  follow.getChild("Y").setNumber(y);
+  follow.getChild("Z").setNumber(z);
+  follow.getChild("Yaw").setNumber(yawDegrees);
+  follow.getChild("PlayerX").setNumber(targetX);
+  follow.getChild("PlayerY").setNumber(targetY);
+  follow.getChild("PitchHold").setNumber(pitchHold);
+  follow.getChild("ZoomHold").setNumber(zoomHold);
 }
 > @end js
 
 @event aiGeneratedEventId="camera-apply-clear-orbit"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-do SetCameraCenterX modification_sign="=" value=expr(Player3D.X() + sin(ToRad(CameraYaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
-do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + cos(ToRad(CameraYaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do SetCameraCenterX modification_sign="=" value=expr(Player3D.X() + sin(ToRad(CameraFollow.Yaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + cos(ToRad(CameraFollow.Yaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
 do Scene3D::SetCameraZ modification_sign="=" value=expr(120 + PlayerFloor + Riding * 220 + sin(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
-do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y()) z_position=expr(120 + PlayerFloor + Riding * 220) layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
+do Scene3D::TurnCameraTowardPosition x_position=expr(CameraFollow.X) y_position=expr(CameraFollow.Y) z_position=expr(CameraFollow.Z) layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false

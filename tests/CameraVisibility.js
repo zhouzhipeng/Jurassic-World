@@ -41,17 +41,21 @@ try {
   clearSight([harness.getRuntimeObject(wall.id)], 'Wall');
   const compressed = n('CameraResolvedDistance');
   harness.getRuntimeObject(wall.id).hide(true);
-  await harness.stepFrames(1);
+  await harness.stepFrames(20);
   harness.assert(n('CameraResolvedDistance') > compressed && n('CameraResolvedDistance') < 1250,
     'Hidden geometry stops blocking and zoom recovers smoothly');
-  await harness.stepFrames(90);
+  await harness.stepFrames(180);
   harness.assert(Math.abs(n('CameraResolvedDistance') - 1250) < 1,
     'The selected zoom is restored when the obstruction clears');
   harness.getRuntimeObject(wall.id).hide(false);
   harness.setObjectPosition(wall.id, 2000, 1620, 0);
+  const previousPitch = n('CameraResolvedPitch');
   await harness.stepFrames(1);
+  harness.assert(Math.abs(n('CameraResolvedPitch') - previousPitch) < 1,
+    'A close wall does not snap the camera to a preset angle');
+  await harness.stepFrames(240);
   harness.assert(n('CameraResolvedPitch') > 25 && n('CameraResolvedDistance') > 260,
-    'A close wall selects a clear higher angle without pushing the camera into the player');
+    'A close wall gradually selects a clear higher angle');
   clearSight([harness.getRuntimeObject(wall.id)], 'Close wall');
   harness.removeObject(wall.id);
   harness.setSceneVariable('PlayerFloor', 600);
@@ -83,7 +87,7 @@ try {
     harness.setObjectPosition(player().id, position[0], position[1], 0);
     for (let yaw = 0; yaw < 360; yaw += 45) {
       harness.setSceneVariable('CameraYaw', yaw);
-      await harness.stepFrames(1);
+      await harness.stepFrames(60);
       if (n('CameraSafeDistance') < 1900) obstructedOrbits++;
       clearSight(terrain, `Island ${position.join(',')} yaw ${yaw}`);
       harness.assert(n('CameraResolvedDistance') <= n('CameraSafeDistance') + 0.01,
