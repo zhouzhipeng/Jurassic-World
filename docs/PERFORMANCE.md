@@ -1,5 +1,62 @@
 # FPS display and camera performance
 
+## Issue 20260921-080220-709: dinosaur occlusion slowdown
+
+Reproduced the report at player (650, 200), parasaur (650, -350), requested
+yaw 187.642276, pitch 14.601626, and distance 1250. The old camera performs
+15 corridor probes for each candidate pitch against animated dinosaur meshes.
+The obstructed view repeats this search every frame, even after its resolved
+camera has found a clear view. The baseline regression failed at 143.57 ms per
+frame: events consumed 136.04 ms, versus 6.41 ms for rendering.
+
+`scenes/Game/external-events/CameraVisibility.events` now uses oriented,
+camera-only boxes for Dinosaur3D, Triceratops, Stegosaur, Raptor and Tyrannosaur.
+Their five object settings declare CameraBoundsZ and CameraBoundsDepth, updated
+with native 3D expressions before the solver. Position, angle and dimensions
+are sampled every frame; the boxes follow the prefabs' centered XY and bottom-Z
+bounds, with a 15-unit margin. Hidden actors and the player's own mount remain
+excluded. Island, building and foliage queries retain their previous paths.
+Models, animation, physical collisions and rendering quality are unchanged.
+
+These conservative camera boxes intentionally avoid the spaces between legs
+and detailed silhouette gaps. They can raise/retract the camera earlier than
+triangle-exact queries. They support the game's upright, yaw-rotated actors;
+future actors leaning on X/Y would need correspondingly rotated camera bounds.
+
+Same host, deterministic gameplay harness, original rendering settings:
+
+| Measurement | Before | After |
+| --- | ---: | ---: |
+| Reported view mean frame | 143.57 ms | 11.46 ms |
+| Reported view worst frame | 228.20 ms | 30.00 ms |
+| Dinosaur first orbit mean / p95 | Not measured | 16.66 / 28.20 ms |
+| Dinosaur warmed orbit mean / worst | Not measured | 14.65 / 36.40 ms |
+| Existing warmed orbit mean / worst | Not measured in this task | 10.91 / 19.50 ms |
+
+Reported-view mean frame cost fell 92%. The first dinosaur orbit still contains
+a 276.9 ms frame, with rendering responsible for the peak; first-use rendering
+stalls described in the earlier LOD investigation are not eliminated here.
+These are host measurements, not a universal FPS guarantee. FPS labels captured
+after unpaced stepping are not real-time framerate measurements.
+
+`tests/CameraDinosaurPerformance.js`, registered in `tests.settings`, first failed
+on the original implementation and now passes. It covers the exact report,
+cold/warm orbits, real-mesh head visibility for all five species, turns and
+elevation, moving away, hidden actors and mounted exclusion. Existing
+CameraVisibility, CameraSmoothFollow, CameraPerformance and
+CameraOrbitPerformance also completed with all assertions passing. Moving
+camp/fence profiles averaged 17.87/14.29 ms.
+
+Final source validation passed structural, event generation, extension code,
+strict JavaScript and semantic checks. The final fresh-preview verification
+returned runtimeVerified=true and completionReady=true, with zero runtime
+errors, visible World3D meshes, and zero failed textures or rejected World3D
+objects. The reported setup was then stepped for 240 frames and visually checked.
+Local screenshot: `issues/images/issue-20260921-080220-709-fixed.png`.
+
+Implementation commit: `806268f` (Use oriented dinosaur bounds for camera
+obstruction probes). Regression commits: `d5f45c8` and `42f769c`.
+
 ## Issue 20260921-072824-223: orbit stutter and automatic foliage LOD
 
 `BerryBush` and `FiberFern` now select three geometry levels from camera
