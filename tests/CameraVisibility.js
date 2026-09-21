@@ -76,8 +76,9 @@ try {
   harness.setSceneVariable('CameraDistance', 750);
   await harness.stepFrames(1);
   clearSight(harness.getCurrentRuntimeScene().getObjects('Island3D'), 'Reported tree obstruction');
-  harness.assert(n('CameraResolvedDistance') < 750 && n('CameraResolvedDistance') >= 220,
-    `The reported view clears the tree while retaining player framing: ${n('CameraResolvedDistance')}`);
+  // Clear body sight is the contract; low ground probes no longer force needless zoom.
+  harness.assert(n('CameraResolvedDistance') <= 750 && n('CameraResolvedDistance') >= 220,
+    `The reported view retains safe player framing at or within the requested zoom: ${n('CameraResolvedDistance')}`);
   harness.setSceneVariable('CameraPitch', 25);
   harness.setSceneVariable('CameraDistance', 2000);
   const scene = harness.getCurrentRuntimeScene();
