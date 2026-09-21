@@ -1,0 +1,38 @@
+@comment "Grounded jumps: one press, gravity, landing on the current support." background=[90,150,180] text=[255,255,255]
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="JumpVelocity" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-FloorTarget)) comparison_sign="<=" second_expression=1
+if KeyFromTextJustPressed key_to_check="Space"
+or NumberVariable variable="TouchCommand" comparison_sign="=" value=90
+do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=680
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+do SetNumberVariable variable="JumpPreviousZ" modification_sign="=" value=expr(PlayerFloor)
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(max(FloorTarget,PlayerFloor+JumpVelocity*TimeDelta()-750*TimeDelta()*TimeDelta()))
+do SetNumberVariable variable="JumpVelocity" modification_sign="-" value=expr(1500*TimeDelta())
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="JumpVelocity" comparison_sign="<=" value=0
+if NumberVariable variable="PlayerFloor" comparison_sign="<=" value=expr(FloorTarget)
+do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=expr(PlayerFloor)
+
+@event
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+or NumberVariable variable="Dead" comparison_sign="=" value=1
+do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=0

@@ -253,7 +253,7 @@ do SetStringVariable variable="NoticeMessage" modification_sign="=" value="斧�
 if NumberVariable variable="HotbarRequest" comparison_sign="=" value=2
 do SetNumberVariable variable="Mode" modification_sign="=" value=1
 do SetNumberVariable variable="Recipe" modification_sign="=" value=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="长矛：制作后按空格反击食肉恐龙。"
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="长矛：制作后按K 反击食肉恐龙。"
 
 @comment "Functional consumables and building shortcut" background=[90,150,120] text=[255,255,255]
 

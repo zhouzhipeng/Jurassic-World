@@ -5,4 +5,4 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<" value=expr(NearestWild)
 do SetNumberVariable variable="NearestWild" modification_sign="=" value=expr(Tyrannosaur.Variable(Distance))
-do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("霸王龙 · 食肉 / 危险" + "  " + ToString(round(Tyrannosaur.Variable(Distance) / 100)) + "m" + NewLine() + "生命 " + ToString(max(0, Tyrannosaur.Variable(HP))) + " · 空格反击 / X 骑乘撤离")
+do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("霸王龙 · 食肉 / 危险" + "  " + ToString(round(Tyrannosaur.Variable(Distance) / 100)) + "m" + NewLine() + "生命 " + ToString(max(0, Tyrannosaur.Variable(HP))) + " · K 反击 / X 骑乘撤离")

@@ -5,4 +5,4 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
 if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<" value=expr(NearestWild)
 do SetNumberVariable variable="NearestWild" modification_sign="=" value=expr(Raptor.Variable(Distance))
-do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("迅猛龙 · 食肉 / 危险" + "  " + ToString(round(Raptor.Variable(Distance) / 100)) + "m" + NewLine() + "生命 " + ToString(max(0, Raptor.Variable(HP))) + " · 空格反击 / X 骑乘撤离")
+do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("迅猛龙 · 食肉 / 危险" + "  " + ToString(round(Raptor.Variable(Distance) / 100)) + "m" + NewLine() + "生命 " + ToString(max(0, Raptor.Variable(HP))) + " · K 反击 / X 骑乘撤离")

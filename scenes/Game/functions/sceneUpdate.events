@@ -925,7 +925,7 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
-if KeyFromTextReleased key_to_check="Space"
+if KeyFromTextReleased key_to_check="k"
 or NumberVariable variable="TouchAttack" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="CombatCD" comparison_sign="<=" value=0

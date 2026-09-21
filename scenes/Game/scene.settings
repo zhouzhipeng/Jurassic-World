@@ -1979,6 +1979,16 @@ HarvestNodes = [
 ]
 SurvivalFires = [ "CampHearth", "BuiltCampfire" ]
 
+[[variables]]
+name = "JumpVelocity"
+type = "number"
+value = 0
+
+[[variables]]
+name = "JumpPreviousZ"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 background = "#72BBDD"
@@ -2651,3 +2661,36 @@ at = [730, 8]
 z_order = 100
 size = [140, 34]
 keep_ratio = false
+
+[[layout.instances]]
+id = "e9e27203-b826-499a-9c6e-5fb01ec9765d"
+object = "JumpPlatform"
+layer = "world3d"
+at = [930, 300, 0]
+size = [240, 240]
+depth = 90
+
+[[layout.instances]]
+id = "4b387eb4-6b90-4ca1-9ff8-c2793231ec25"
+object = "JumpPlatform"
+layer = "world3d"
+at = [930, 640, 0]
+size = [240, 240]
+depth = 180
+
+[[layout.instances]]
+id = "262a67e3-0b52-4576-8037-5efb34a48f41"
+object = "JumpPlatform"
+layer = "world3d"
+at = [930, 980, 0]
+size = [240, 240]
+depth = 270
+
+[[layout.instances]]
+id = "369ede14-4908-4b38-b76a-e896b9245882"
+object = "JumpPlatform"
+layer = "world3d"
+at = [930, 1320, 0]
+size = [240, 240]
+depth = 360
+

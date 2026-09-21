@@ -1,0 +1,18 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 327
+folder = [ "Jump Test" ]
+name = "JumpPlatform"
+type = "Scene3D::Cube3DObject"
+variables = [ ]
+behaviors = [ ]
+effects = [ ]
+
+[content]
+width = 240
+height = 240
+depth = 90
+tint = "225;177;68"
+materialType = "StandardWithoutMetalness"
+isCastingShadow = true
+isReceivingShadow = true

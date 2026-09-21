@@ -60,10 +60,10 @@ try {
   harness.setObjectPosition(raptor.id,0,1300,0);
   harness.setObjectVariable(raptor.id,'HP',120);
   await move(0,1540);
-  await tap('Space');
+  await tap('k');
   harness.assert(Number(harness.getObjectVariable(raptor.id,'HP')?.value)===65,
     'A real upgraded spear hit deals 55 damage');
-  for(let i=0;i<2;i++){await harness.stepFrames(42);await tap('Space');}
+  for(let i=0;i<2;i++){await harness.stepFrames(42);await tap('k');}
   await harness.stepFrames(2); // Allow the HUD to observe the completed combat update.
   harness.assert(n('Kills')===1 && n('QuestReady')===1,'A completed hunt advances the new objective counter');
   await claim();

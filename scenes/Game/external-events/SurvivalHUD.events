@@ -9,7 +9,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="GatherLabel"
 do TextContainerCapability::TextContainerBehavior::SetValue object="ChopLabel" behavior="Text" modification_sign="=" text="C 烤肉"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DrinkLabel" behavior="Text" modification_sign="=" text="F 饮水 / 装水"
 do TextContainerCapability::TextContainerBehavior::SetValue object="StationLabel" behavior="Text" modification_sign="=" text="Q 切换导航目标"
-do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · E 采集 · 空格 攻击 · X 骑乘 · B 建造 · Q 导航 · J 任务 · Tab 背包 · ESC 菜单"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · E 采集 · 空格 跳跃 · K 攻击 · X 骑乘 · B 建造 · Q 导航 · J 任务 · Tab 背包 · ESC 菜单"
 do TextContainerCapability::TextContainerBehavior::SetValue object="Weight" behavior="Text" modification_sign="=" text=expr("烤肉 "+ToString(CookedMeat)+" · 矿石 "+ToString(MetalOre)+" · 金属锭 "+ToString(MetalIngot)+" · 储水 "+ToString(CanteenCharges)+"/3")
 
 @event

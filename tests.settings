@@ -240,3 +240,11 @@ name = "CameraDinosaurPerformance"
 type = "gameplay"
 description = "Reported dinosaur obstruction, animated orbit frame costs and restored camera clearance."
 file = "tests/CameraDinosaurPerformance.js"
+
+[[tests]]
+scope = "project"
+order = 30
+name = "PlayerJump"
+type = "gameplay"
+description = "Keyboard and simultaneous touch jumping, four platform landings, side collision, falling, pause and combat separation."
+file = "tests/PlayerJump.js"

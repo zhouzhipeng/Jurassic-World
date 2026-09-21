@@ -4,7 +4,7 @@ if BuiltinCommonInstructions::Once
 do HideLayer layer="World"
 do ShowLayer layer="World3D"
 do TextContainerCapability::TextContainerBehavior::SetValue object="DemoLabel" behavior="Text" modification_sign="=" text="REAL-TIME 3D / F3 ART REFERENCE"
-do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · Shift 奔跑 · B 建造 · E 采集 · 1 斧子 · 2 长矛制作 · 空格 反击 · X 骑乘 · J 任务 · M 声音 · 右键 镜头"
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · Shift 奔跑 · B 建造 · E 采集 · 1 斧子 · 2 长矛制作 · 空格 跳跃 · K 反击 · X 骑乘 · J 任务 · M 声音 · 右键 镜头"
 
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=0

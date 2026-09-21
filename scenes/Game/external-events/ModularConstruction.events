@@ -1367,8 +1367,29 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
-do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(max(FloorTarget,PlayerFloor-550*TimeDelta()))
-do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=expr(PlayerFloor)
+> for each JumpPlatform
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.X()) comparison_sign=">=" second_expression=expr(JumpPlatform.X()-24)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.X()) comparison_sign="<=" second_expression=expr(JumpPlatform.X()+JumpPlatform.Width()+24)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.Y()) comparison_sign=">=" second_expression=expr(JumpPlatform.Y()-24)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.Y()) comparison_sign="<=" second_expression=expr(JumpPlatform.Y()+JumpPlatform.Height()+24)
+>> if NumberVariable variable="PlayerFloor" comparison_sign="<" value=expr(JumpPlatform.Object3D::Z()+JumpPlatform.Object3D::Depth()-1)
+>> do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+>> do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+> for each JumpPlatform
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.X()) comparison_sign=">=" second_expression=expr(JumpPlatform.X()-16)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.X()) comparison_sign="<=" second_expression=expr(JumpPlatform.X()+JumpPlatform.Width()+16)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.Y()) comparison_sign=">=" second_expression=expr(JumpPlatform.Y()-16)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.Y()) comparison_sign="<=" second_expression=expr(JumpPlatform.Y()+JumpPlatform.Height()+16)
+>> if NumberVariable variable="PlayerFloor" comparison_sign=">=" value=expr(JumpPlatform.Object3D::Z()+JumpPlatform.Object3D::Depth()-1)
+>> if NumberVariable variable="FloorTarget" comparison_sign="<" value=expr(JumpPlatform.Object3D::Z()+JumpPlatform.Object3D::Depth())
+>> do SetNumberVariable variable="FloorTarget" modification_sign="=" value=expr(JumpPlatform.Object3D::Z()+JumpPlatform.Object3D::Depth())
+
+link external "PlayerJump"
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0

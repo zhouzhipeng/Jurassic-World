@@ -983,3 +983,20 @@ do SetStringObjectVariable object="TouchButton" variable="Label" modification_si
 
 @event
 link "TouchInventoryLayout"
+
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=12
+do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=1
+do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=90
+do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="跳跃"
+do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=28
+do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Round"
+do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-278*TouchScale)
+do SetY object="TouchButton" modification_sign="=" value=expr(TouchHeight-TouchMargin-230*TouchScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(106*TouchScale) height=expr(106*TouchScale)
