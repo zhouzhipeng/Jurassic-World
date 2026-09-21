@@ -1,5 +1,61 @@
 # FPS display and camera performance
 
+## Issue 20260921-071339-601: moving-frame optimization
+
+The earlier identical-ray cache improved stationary views but missed on every
+moving frame. The report showed 25 FPS while moving around camp. The island's
+13 material batches each spanned large parts of the world, making their
+raycast bounds ineffective for local camera probes.
+
+`tools/partition_island.py`, executed through Blender 5.1, partitions each
+static material batch by triangle-centroid position into leaves of at most
+256 triangles. The replacement `assets/models/island.glb` contains 85 spatial
+batches and the same 13 materials and 13,318 triangles. An exact multiset check
+preserves each triangle's winding, position/normal/UV bytes and material;
+node transforms and materials are unchanged. A Blender import verified the
+triangle/material counts, and GDevelop inspection verified 85 runtime meshes.
+The asset grows from 668,020 to 773,788 bytes. More spatial batches trade some
+draw submissions for much cheaper ray rejection. Camera behavior, graphical
+quality settings and the top-center third-party FPS display are unchanged.
+
+Same-host, identical `CameraFenceFollow` test (1,083 frames):
+
+| Measurement | Before | After |
+| --- | ---: | ---: |
+| Average harness frame processing | 51.81 ms | 20.34 ms |
+| Test duration including harness overhead | 65,625 ms | 31,790 ms |
+
+The average processing cost fell 60.7%. This is a moving-camera comparison,
+not an inference from stationary FPS. Both versions passed the same camera
+assertions, including the same minimum distance and maximum zoom step.
+
+New `CameraPerformance` runs two warmed 240-frame WASD paths. It checks real
+movement, finite camera positions, the FPS display position and a 33 ms average
+budget calibrated for this development host. Profiles measured 16.64 ms in
+the reported camp view and 31.72 ms at the fence/eaves. A fresh normal-paced
+preview screenshot while W was held displayed 61 FPS near camp. These are
+local samples, not a guarantee of 60 FPS everywhere. The fence profile still
+contained an isolated 434.2 ms frame, mostly rendering (370.5 ms); eliminating
+all first-use rendering spikes is not established by this change.
+
+Verification: all pre-runtime validation phases passed; the fresh preview
+gate returned runtimeVerified/completionReady, with one FPSCounter, no runtime
+errors, 292 visible World3D meshes and no failed textures or rejected objects.
+CameraVisibility, CameraSmoothFollow, CameraTableFollow, CameraWallApproach,
+CameraFenceFollow and CameraPerformance all passed. Source commits:
+`68eb504` (Partition island geometry to accelerate moving camera raycasts) and
+`917192f` (Add moving-camera performance regression coverage).
+
+Rebuild after replacing the source island with an unpartitioned export:
+
+```powershell
+& 'D:/Program Files/Blender Foundation/Blender 5.1/blender.exe' --background --python 'ABSOLUTE_PROJECT/tools/partition_island.py' -- 'ABSOLUTE_SOURCE/island.glb' 'ABSOLUTE_TEMP/island.glb'
+```
+
+Inspect the temporary result before replacing the registered asset, then follow
+the project validation, commit, reload and gameplay-test gates. The utility is
+deliberately restricted to this static, untextured, unskinned indexed model.
+
 ## FPS extension
 
 Imported the official reviewed **FPS 1.2.1** extension by Ahnaf30e, with no
