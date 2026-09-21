@@ -272,18 +272,18 @@ do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="两侧没有安全落脚点，请移动到空地再下坐骑。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=1
-do SetX object="Dinosaur3D" modification_sign="=" value=expr(Dinosaur3D.X() + (MoveX * cos(ToRad(CameraYaw)) + MoveY * sin(ToRad(CameraYaw))) * MoveSpeed * 1.4 * TimeDelta())
-do SetY object="Dinosaur3D" modification_sign="=" value=expr(Dinosaur3D.Y() + (MoveY * cos(ToRad(CameraYaw)) - MoveX * sin(ToRad(CameraYaw))) * MoveSpeed * 1.4 * TimeDelta())
-
+local mountedHeading = 0
+local mountedStride = 0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 if NumberVariable variable="MoveX" comparison_sign="!=" value=0
 or NumberVariable variable="MoveY" comparison_sign="!=" value=0
-do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(DinoPreviousX, DinoPreviousY, Dinosaur3D.X(), Dinosaur3D.Y()) - 90)
+do SetNumberVariable variable="mountedHeading" modification_sign="=" value=expr(AngleBetweenPositions(0, 0, MoveX, MoveY) - CameraYaw - 90)
+do RotateTowardAngle object="Dinosaur3D" angle_to_rotate_towards_in_degrees=expr(mountedHeading) angular_speed_in_degrees_per_second=150
+do SetNumberVariable variable="mountedStride" modification_sign="=" value=expr(sqrt(MoveX * MoveX + MoveY * MoveY) * MoveSpeed * 1.4 * TimeDelta() * max(0, cos(ToRad(AngleDifference(Dinosaur3D.Angle(), mountedHeading)))))
+do SetX object="Dinosaur3D" modification_sign="+" value=expr(cos(ToRad(Dinosaur3D.Angle() + 90)) * mountedStride)
+do SetY object="Dinosaur3D" modification_sign="+" value=expr(sin(ToRad(Dinosaur3D.Angle() + 90)) * mountedStride)
 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -331,7 +331,7 @@ do SetAngle object="Dinosaur3D" modification_sign="=" angle_in_degrees=expr(Dino
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
-do SetNumberVariable variable="DinoMoving" modification_sign="=" value=expr(DistanceBetweenPositions(DinoPreviousX, DinoPreviousY, Dinosaur3D.X(), Dinosaur3D.Y()))
+do SetNumberVariable variable="DinoMoving" modification_sign="=" value=expr(DistanceBetweenPositions(DinoPreviousX, DinoPreviousY, Dinosaur3D.X(), Dinosaur3D.Y()) + abs(AngleDifference(DinoPreviousAngle, Dinosaur3D.Angle())))
 
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
