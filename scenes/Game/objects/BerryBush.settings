@@ -5,7 +5,6 @@ assetStoreId = ""
 name = "BerryBush"
 type = "Scene3D::Model3DObject"
 effects = [ ]
-behaviors = [ ]
 folder = [ "Real-time 3D" ]
 
 [[variables]]
@@ -37,6 +36,23 @@ value = 255
 name = "CameraOpacity"
 type = "number"
 value = 255
+
+[[variables]]
+name = "CameraFadeReady"
+type = "number"
+value = 0
+
+[[behaviors]]
+name = "CameraFade"
+type = "TSLMaterial::Material"
+Material = "CameraFoliageFade"
+BindingName = "CameraFade"
+SelectorMode = "All"
+MeshName = ""
+MaterialName = ""
+Priority = 0
+Enabled = false
+Fallback = "KeepOriginal"
 
 [content]
 centerLocation = "ModelOrigin"

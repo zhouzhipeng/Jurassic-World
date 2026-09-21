@@ -1,3 +1,4 @@
+const opacity = object => Number(object?.variables.find(v => v.name === "CameraOpacity")?.value);
 const n = name => Number(harness.getSceneVariable(name)?.value);
 const player = () => harness.getObjects('Player3D')[0];
 const camera = () => harness.getCameraState('World3D');
@@ -22,10 +23,12 @@ try {
   harness.assert(minDistance > 300, `The exact reported bush never pushes the camera into the character: ${minDistance}`);
   harness.assert(maxPitchStep <= 0.68 && maxZoomOut < 65,
     `No preset-angle or zoom reset jumps: pitch step=${maxPitchStep}, zoom-out step=${maxZoomOut}`);
-  const nearBushes = harness.getObjects('BerryBush').filter(o => !o.hidden && o.opacity > 0 && o.opacity < 200);
+  const nearBushes = harness.getObjects('BerryBush').filter(o => !o.hidden && opacity(o) > 0 && opacity(o) < 200);
   harness.assert(nearBushes.length > 0, 'Foreground foliage remains visible at half opacity in the reported close-up');
-  harness.assert(nearBushes.every(bush => Math.abs(bush.opacity - 127.5) < 1),
+  harness.assert(nearBushes.every(bush => Math.abs(opacity(bush) - 127.5) < 1),
     'Obscuring plants settle at 50 percent opacity');
+  harness.assert(nearBushes.every(bush => bush.variables.find(v => v.name === 'CameraFadeReady')?.value === 1),
+    'Visible faded bushes have a successfully installed transparent material');
   const harvested = nearBushes[0];
   if (harvested) {
     const object = harness.getRuntimeObject(harvested.id);
@@ -45,7 +48,7 @@ try {
     'No opaque island geometry blocks the final reported camera view');
   harness.setObjectPosition(player().id, 2000, 1500, 0);
   await harness.stepFrames(60);
-  harness.assert(nearBushes.every(bush => harness.getObjects('BerryBush').find(o => o.id === bush.id)?.opacity === 255),
+  harness.assert(nearBushes.every(bush => opacity(harness.getObjects('BerryBush').find(o => o.id === bush.id)) === 255),
     'Faded bushes regain full opacity after moving away');
 
   // Crossing foliage repeatedly must not alternate between ground and overhead views.
