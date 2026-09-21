@@ -2,6 +2,20 @@ kind = "resources"
 settingsFormatVersion = 6
 
 [[resources]]
+file = "assets/jump-platform-top.svg"
+kind = "image"
+name = "jump-platform-top.svg"
+smoothed = true
+userAdded = true
+
+[[resources]]
+file = "assets/jump-platform-side.svg"
+kind = "image"
+name = "jump-platform-side.svg"
+smoothed = true
+userAdded = true
+
+[[resources]]
 file = "assets/taming.png"
 kind = "image"
 metadata = ""
