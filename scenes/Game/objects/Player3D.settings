@@ -11,6 +11,16 @@ content = { }
 folder = [ "Actors" ]
 
 [[variables]]
+name = "OcclusionAmount"
+type = "number"
+value = 0
+
+[[variables]]
+name = "OcclusionHold"
+type = "number"
+value = 0
+
+[[variables]]
 name = "AnimationState"
 type = "number"
 value = 0

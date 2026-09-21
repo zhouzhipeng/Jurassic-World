@@ -286,6 +286,37 @@ if (player) {
   variables.get("CameraSafeDistance").setNumber(safeDistance);
   variables.get("CameraResolvedDistance").setNumber(distance);
   variables.get("CameraResolvedPitch").setNumber(pitch);
+  // Test the final camera, not the requested boom: camera avoidance can already
+  // have cleared a wall. These five body probes also catch partial tree cover.
+  const pitchRadians = pitch * Math.PI / 180;
+  const cameraX = x + Math.sin(yaw) * Math.cos(pitchRadians) * distance;
+  const cameraY = y + Math.cos(yaw) * Math.cos(pitchRadians) * distance;
+  const cameraZ = z + Math.sin(pitchRadians) * distance;
+  const outlinePlants = candidates.filter(object => object.isVisible() &&
+    object.getLayer() === "World3D" && foliage.includes(object.getName()) &&
+    Math.hypot(object.getX() - targetX, object.getY() - targetY) < requestedDistance + 400);
+  let occluded = false;
+  if (player.isVisible() && number("Riding") === 0) {
+    for (const [side, height] of [[0, 45], [0, 115], [0, 185], [-30, 115], [30, 115]]) {
+      const ox = targetX + rightX * side, oy = targetY + rightY * side;
+      const oz = number("PlayerFloor") + height;
+      const dx = cameraX - ox, dy = cameraY - oy, dz = cameraZ - oz;
+      const length = Math.hypot(dx, dy, dz);
+      if (length <= 8) continue;
+      if (castSolids(ox, oy, oz, dx / length, dy / length, dz / length, length - 5).length ||
+        (outlinePlants.length && gdjs.evtTools.scene3d.raycastObjects(ox, oy, oz,
+          dx / length, dy / length, dz / length, outlinePlants, 0, length - 5, true).length)) {
+        occluded = true;
+        break;
+      }
+    }
+  }
+  const playerVariables = player.getVariables();
+  const hold = occluded ? 0.15 : Math.max(0, playerVariables.get("OcclusionHold").getAsNumber() - dt);
+  playerVariables.get("OcclusionHold").setNumber(hold);
+  const amount = playerVariables.get("OcclusionAmount").getAsNumber();
+  playerVariables.get("OcclusionAmount").setNumber(!player.isVisible() || number("Riding") !== 0 ? 0 :
+    hold > 0 ? Math.min(1, amount + dt / 0.1) : Math.max(0, amount - dt / 0.2));
   follow.getChild("X").setNumber(x);
   follow.getChild("Y").setNumber(y);
   follow.getChild("Z").setNumber(z);

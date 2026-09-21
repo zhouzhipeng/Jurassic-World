@@ -54,3 +54,11 @@ id = "44902796-b265-4620-8ea4-7e891b2ec443"
 object = "CombatSpear"
 layer = "base"
 at = [0, 0]
+
+[[layout.instances]]
+id = "9c74e3c2-a086-4df8-ab3d-71ca9dbe24d9"
+object = "OcclusionOutline"
+layer = "base"
+at = [0, 0]
+z_order = 1000
+hidden = true

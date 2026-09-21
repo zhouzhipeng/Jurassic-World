@@ -264,3 +264,11 @@ name = "IdleResponsiveness"
 type = "gameplay"
 description = "Reported platform view stays responsive after prolonged idle, including keyboard and touch input."
 file = "tests/IdleResponsiveness.js"
+
+[[tests]]
+scope = "project"
+order = 33
+name = "PlayerOcclusionOutline"
+type = "gameplay"
+description = "Tree and solid obstruction highlighting, clear-view restoration, hidden blockers and skeletal animation synchronization."
+file = "tests/PlayerOcclusionOutline.js"

@@ -1,42 +1,52 @@
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=0
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Idle"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="Idle"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=1
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Walk"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="Walk"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=2
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Run"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="Run"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=3
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Gather"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="Gather"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=4
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Chop"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="Chop"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=5
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Thrust"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="Thrust"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=6
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Hurt"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="Hurt"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=7
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Death"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="Death"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationPlaying)) comparison_sign="=" second_expression=1
 do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Body" behavior="Animation"
+do AnimatableCapability::AnimatableBehavior::PlayAnimation object="OcclusionOutline" behavior="Animation"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationPlaying)) comparison_sign="=" second_expression=0
 do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Body" behavior="Animation"
+do AnimatableCapability::AnimatableBehavior::PauseAnimation object="OcclusionOutline" behavior="Animation"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(HeldAxeVisible)) comparison_sign="=" second_expression=0
@@ -68,15 +78,28 @@ do ModVarObjet object="Object" variable="AttachmentReady" modification_sign="=" 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=8
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="JumpStart"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="JumpStart"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=9
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="JumpRise"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="JumpRise"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=10
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="JumpFall"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="JumpFall"
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=11
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="JumpLand"
+do AnimatableCapability::AnimatableBehavior::SetName object="OcclusionOutline" behavior="Animation" modification_sign="=" animation_name="JumpLand"
+
+@event aiGeneratedEventId="survivor-show-occlusion-outline"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(OcclusionAmount)) comparison_sign=">" second_expression=0
+do TSLMaterial::SetNumberParameter parameter_3d_model="OcclusionOutline" tsl_material_behavior="OutlineMaterial" binding_name="Outline" parameter_name="visibility" value=expr(Object.Variable(OcclusionAmount))
+do Show object="OcclusionOutline"
+
+@event aiGeneratedEventId="survivor-hide-clear-outline"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(OcclusionAmount)) comparison_sign="<=" second_expression=0
+do Hide object="OcclusionOutline"
