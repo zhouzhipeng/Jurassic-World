@@ -3,8 +3,10 @@ try {
   await harness.goToScene('Game');
   await harness.stepFrames(3);
   harness.setSceneVariable('Mode', 2);
+  harness.setObjectPosition(harness.getObjects('Player3D')[0].id,
+    171.6472345523082, 1045.290177449477, 0);
   harness.setSceneVariable('CameraDistance', 1250);
-  harness.setSceneVariable('CameraPitch', 24);
+  harness.setSceneVariable('CameraPitch', 12.473022912047304);
   await harness.stepFrames(120);
   const start = harness.getObjects('Player3D')[0];
   for (let lap = 0; lap < 2; lap++) {
