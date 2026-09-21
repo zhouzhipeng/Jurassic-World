@@ -90,4 +90,28 @@ try {
     `Recorded spring route keeps the camera outside the character: minimum=${closest}, at=${lowestAt}`);
   harness.assert(largestInwardStep < 90,
     `Low scenery never causes a sudden close-up: largest inward step=${largestInwardStep}`);
+
+  // In open space, starting/stopping/reversing follow must not rotate the horizon.
+  harness.setSceneVariable('Mode', 2);
+  for (const name of ['Island3D', 'BerryBush', 'FiberFern', 'WoodSapling', 'StoneDeposit',
+    'MetalDeposit', 'SpringWater', 'CampHearth', 'CampForge', 'Dinosaur3D',
+    'Triceratops', 'Stegosaur', 'Raptor', 'Tyrannosaur']) {
+    for (const object of harness.getObjects(name)) harness.removeObject(object.id);
+  }
+  harness.setObjectPosition(player().id, 2000, 1500, 0);
+  await harness.stepFrames(180);
+  const settled = camera();
+  let horizonDrift = 0;
+  for (const speed of [-6, 0, 6, 0]) {
+    for (let frame = 0; frame < 60; frame++) {
+      const p = player();
+      harness.setObjectPosition(p.id, p.x + speed, p.y + speed, 0);
+      await harness.stepFrames(1);
+      const view = camera();
+      horizonDrift = Math.max(horizonDrift, Math.abs(view.rotationX - settled.rotationX),
+        Math.abs(view.rotationY - settled.rotationY), Math.abs(view.angle - settled.angle));
+    }
+  }
+  harness.assert(horizonDrift < 0.01,
+    `Follow keeps a stable horizon through starts, stops and reversals: drift=${horizonDrift}`);
 } finally { harness.releaseAllInputs(); }

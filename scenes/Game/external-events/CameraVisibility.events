@@ -18,7 +18,8 @@ if (player) {
   const blend = 1 - Math.exp(-14 * dt);
   const x = reset ? targetX : state("X") + (targetX - state("X")) * blend;
   const y = reset ? targetY : state("Y") + (targetY - state("Y")) * blend;
-  const z = reset ? targetZ : state("Z") + (targetZ - state("Z")) * blend;
+  // Height follows the current floor/mount immediately, so the pivot cannot sink below it.
+  const z = targetZ;
   const yawDelta = ((number("CameraYaw") - state("Yaw") + 540) % 360 + 360) % 360 - 180;
   const yawDegrees = reset ? number("CameraYaw") : state("Yaw") + yawDelta * (1 - Math.exp(-18 * dt));
   const yaw = yawDegrees * Math.PI / 180;
@@ -45,7 +46,8 @@ if (player) {
   blockers = blockers.filter(object => Math.hypot(object.getX() - targetX, object.getY() - targetY)
     <= requestedDistance + Math.hypot(object.getWidth(), object.getHeight()) + 300);
   const rightX = Math.cos(yaw), rightY = -Math.sin(yaw);
-  // A body-sized corridor also protects shoulders/feet and the camera near plane.
+  // Protect the upper body and camera corridor. Low probes start beyond the
+  // player's feet: a spring rim/ground rock underfoot is not a camera obstruction.
   const offsets = [[0, 0], [-65, 0], [65, 0], [0, -80], [0, 80],
     [-65, -80], [65, -80], [-65, 80], [65, 80]];
   const foliage = ["BerryBush", "FiberFern", "WoodSapling"];
@@ -57,8 +59,8 @@ if (player) {
   const oldPitch = reset ? requestedPitch : number("CameraResolvedPitch");
   for (const offset of offsets) {
     const r = oldPitch * Math.PI / 180;
-    const hits = gdjs.evtTools.scene3d.raycastObjects(targetX + rightX * offset[0],
-      targetY + rightY * offset[0], targetZ + offset[1],
+    const hits = gdjs.evtTools.scene3d.raycastObjects(x + rightX * offset[0],
+      y + rightY * offset[0], z + offset[1],
       Math.sin(yaw) * Math.cos(r), Math.cos(yaw) * Math.cos(r), Math.sin(r), closeFoliage, 0, 290, true);
     for (const hit of hits) {
       if (foliage.includes(hit.object.getName())) obscuring.add(String(hit.object.getUniqueId()));
@@ -89,9 +91,9 @@ if (player) {
     let distance = requestedDistance;
     for (const offset of offsets) {
       const hits = gdjs.evtTools.scene3d.raycastObjects(
-        targetX + rightX * offset[0] + lookAhead * velocityX,
-        targetY + rightY * offset[0] + lookAhead * velocityY, targetZ + offset[1],
-        dx, dy, dz, blockers, 0, requestedDistance + 30, true);
+        x + rightX * offset[0] + lookAhead * velocityX,
+        y + rightY * offset[0] + lookAhead * velocityY, z + offset[1],
+        dx, dy, dz, blockers, offset[1] < 0 ? 220 : 0, requestedDistance + 30, true);
       for (const hit of hits) distance = Math.min(distance, Math.max(10, hit.distance - 30));
     }
     clearanceCache.set(key, distance);
@@ -137,7 +139,7 @@ if (player) {
 
 @event aiGeneratedEventId="camera-apply-clear-orbit"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-do SetCameraCenterX modification_sign="=" value=expr(Player3D.X() + sin(ToRad(CameraFollow.Yaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
-do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + cos(ToRad(CameraFollow.Yaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
-do Scene3D::SetCameraZ modification_sign="=" value=expr(120 + PlayerFloor + Riding * 220 + sin(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do SetCameraCenterX modification_sign="=" value=expr(CameraFollow.X + sin(ToRad(CameraFollow.Yaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do SetCameraCenterY modification_sign="=" value=expr(CameraFollow.Y + cos(ToRad(CameraFollow.Yaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::SetCameraZ modification_sign="=" value=expr(CameraFollow.Z + sin(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
 do Scene3D::TurnCameraTowardPosition x_position=expr(CameraFollow.X) y_position=expr(CameraFollow.Y) z_position=expr(CameraFollow.Z) layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
