@@ -79,10 +79,19 @@ if (player) {
   const velocityX = reset ? 0 : Math.max(-650, Math.min(650, (targetX - state("PlayerX")) / Math.max(dt, 0.001)));
   const velocityY = reset ? 0 : Math.max(-650, Math.min(650, (targetY - state("PlayerY")) / Math.max(dt, 0.001)));
   const moving = Math.hypot(velocityX, velocityY) > 5;
+  // Prediction must not move the virtual target through a wall the player cannot
+  // enter. Otherwise walking into it retracts an unobstructed camera behind them.
+  const speed = Math.hypot(velocityX, velocityY);
+  let predictionTime = moving ? 0.25 : 0;
+  if (moving) {
+    const hits = gdjs.evtTools.scene3d.raycastObjects(x, y, z + 80,
+      velocityX / speed, velocityY / speed, 0, blockers, 0, speed * predictionTime + 80, true);
+    for (const hit of hits) predictionTime = Math.min(predictionTime, Math.max(0, (hit.distance - 80) / speed));
+  }
   const clearanceCache = new Map();
   const headRoomCache = new Map();
   const clearance = (pitch = 25, lookAhead = 0) => {
-    if (!moving) lookAhead = 0;
+    lookAhead = Math.min(lookAhead, predictionTime);
     const key = pitch.toFixed(3) + ":" + lookAhead;
     if (clearanceCache.has(key)) return clearanceCache.get(key);
     const radians = pitch * Math.PI / 180;
@@ -90,17 +99,12 @@ if (player) {
     const dy = Math.cos(yaw) * Math.cos(radians);
     const dz = Math.sin(radians);
     if (!headRoomCache.has(lookAhead)) {
-      // A pitched ray can pass over a tall close wall. Check at head height too
-      // before deciding that nearby torso hits are merely low furniture.
-      let headRoom = true;
-      for (const side of [-65, 0, 65]) {
-        const hits = gdjs.evtTools.scene3d.raycastObjects(
-          x + rightX * side + lookAhead * velocityX,
-          y + rightY * side + lookAhead * velocityY, z + 80,
-          Math.sin(yaw), Math.cos(yaw), 0, blockers, 0, 330, true);
-        if (hits.length > 0) { headRoom = false; break; }
-      }
-      headRoomCache.set(lookAhead, headRoom);
+      // Check the actual target, not an offset point that may lie inside an
+      // adjacent wall. A pitched ray alone could pass over a tall close wall.
+      const hits = gdjs.evtTools.scene3d.raycastObjects(
+        x + lookAhead * velocityX, y + lookAhead * velocityY, z + 80,
+        Math.sin(yaw), Math.cos(yaw), 0, blockers, 0, 330, true);
+      headRoomCache.set(lookAhead, hits.length === 0);
     }
     let distance = requestedDistance;
     let headClearance = requestedDistance;
@@ -111,16 +115,16 @@ if (player) {
         y + rightY * offset[0] + lookAhead * velocityY, z + offset[1],
         dx, dy, dz, blockers, 0, requestedDistance + 30, true);
       for (const hit of hits) {
-        if (offset[1] > 0) headClearance = Math.min(headClearance, Math.max(10, hit.distance - 30));
+        if (offset[0] === 0 && offset[1] > 0) headClearance = Math.min(headClearance, Math.max(10, hit.distance - 30));
         else bodyHits.push(hit.distance);
       }
     }
     distance = Math.min(distance, headClearance);
     for (const hitDistance of bodyHits) {
-      // A tabletop can intersect a torso probe at its origin while the head and
-      // actual camera are clear. Pulling in would put the lens inside the player.
-      // Ignore only this near-target partial occlusion, never a tall wall or a
-      // blocker farther along the boom. This also covers spring rims and rocks.
+      // Peripheral probes can start in a side wall, or beneath a tabletop,
+      // while the real target and camera are clear. Do not collapse the boom
+      // for near-target partial occlusion. Central head blockage and all
+      // farther corridor hits still constrain it, including tall walls.
       if (hitDistance < 330 && headClearance >= 330 && headRoomCache.get(lookAhead)) continue;
       distance = Math.min(distance, Math.max(10, hitDistance - 30));
     }
