@@ -10,6 +10,8 @@ export default defineMaterial({
   build({ material, inputs, parameters }) {
     material.opacityNode = inputs.opacity.mul(parameters.opacity);
     material.transparent = true;
-    material.depthWrite = false;
+    // The binding stays installed at opacity=1 to avoid rebuilding shaders on
+    // every orbit crossing. Depth writes preserve opaque foliage occlusion.
+    material.depthWrite = true;
   },
 });

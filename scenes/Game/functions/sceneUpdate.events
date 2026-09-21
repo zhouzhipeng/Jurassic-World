@@ -1,3 +1,5 @@
+link external "FoliageLODRestore"
+
 @event
 link "HUDBootstrap"
 
@@ -2340,6 +2342,8 @@ link "TouchPresentation"
 
 @event
 link "CameraVisibility"
+
+link external "FoliageLOD"
 
 @event
 link external "FPSDisplay"

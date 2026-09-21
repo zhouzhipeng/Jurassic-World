@@ -1,0 +1,32 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 326
+assetStoreId = ""
+name = "BerryBushLOD2"
+type = "Scene3D::Model3DObject"
+effects = [ ]
+behaviors = [ ]
+folder = [ "Real-time 3D", "Distance LOD" ]
+
+[[variables]]
+name = "OwnerId"
+type = "number"
+value = -1
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 170
+height = 270
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "berry-bush-lod2.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 269
+sharedAnimationModelResources = [ ]
+animations = [ ]

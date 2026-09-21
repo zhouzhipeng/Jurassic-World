@@ -1435,3 +1435,31 @@ name = "CameraFoliageFade"
 file = "materials/CameraFoliageFade.tsl.ts"
 metadata = ""
 userAdded = true
+
+[[resources]]
+file = "assets/models/fiber-fern-lod1.glb"
+kind = "model3D"
+metadata = ""
+name = "fiber-fern-lod1.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/fiber-fern-lod2.glb"
+kind = "model3D"
+metadata = ""
+name = "fiber-fern-lod2.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/berry-bush-lod1.glb"
+kind = "model3D"
+metadata = ""
+name = "berry-bush-lod1.glb"
+userAdded = true
+
+[[resources]]
+file = "assets/models/berry-bush-lod2.glb"
+kind = "model3D"
+metadata = ""
+name = "berry-bush-lod2.glb"
+userAdded = true

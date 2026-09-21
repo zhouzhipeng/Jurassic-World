@@ -1,0 +1,67 @@
+@comment "Static ground foliage only: camera-distance LOD with hysteresis; original resources own harvest, regrowth and exact raycasts. Never remove distant resources." background=[74,176,228] text=[0,0,0]
+@event aiGeneratedEventId="foliage-select-distance-lod"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> @js strict=true expanded=false
+const sceneVars = runtimeScene.getVariables();
+const follow = sceneVars.get("CameraFollow");
+const clock = follow.getChild("LODClock").getAsNumber() + runtimeScene.getElapsedTime() / 1000;
+const refresh = clock >= 0.1;
+follow.getChild("LODClock").setNumber(refresh ? 0 : clock);
+const camera = runtimeScene.getLayer("World3D");
+const cx = camera.getCameraX(), cy = camera.getCameraY();
+const cz = follow.getChild("Z").getAsNumber() + Math.sin(sceneVars.get("CameraResolvedPitch").getAsNumber() * Math.PI / 180) * sceneVars.get("CameraResolvedDistance").getAsNumber();
+const counts = [0, 0, 0];
+for (const name of ["BerryBush", "FiberFern"]) {
+  const originals = runtimeScene.getObjects(name);
+  const owners = new Set(originals.map(object => object.getUniqueId()));
+  const levels = [1, 2].map(level => {
+    const byOwner = new Map();
+    for (const proxy of runtimeScene.getObjects(name + "LOD" + level).slice()) {
+      const id = proxy.getVariables().get("OwnerId").getAsNumber();
+      if (!owners.has(id)) proxy.deleteFromScene();
+      else byOwner.set(id, proxy);
+    }
+    return byOwner;
+  });
+  for (const object of originals) {
+    const id = object.getUniqueId();
+    const vars = object.getVariables();
+    const available = object.isVisible() && vars.get("Cooldown").getAsNumber() <= 0;
+    let level = vars.get("LODLevel").getAsNumber();
+    // Fading plants and the interaction neighborhood always retain full detail.
+    const closeToPlayer = Math.hypot(object.getX() - follow.getChild("PlayerX").getAsNumber(), object.getY() - follow.getChild("PlayerY").getAsNumber()) < 600;
+    if (closeToPlayer || vars.get("CameraOpacity").getAsNumber() < 255) level = 0;
+    else if (refresh) {
+      const distance = Math.hypot(object.getX() - cx, object.getY() - cy, cz);
+      // Different inward/outward thresholds prevent flicker near boundaries.
+      if (distance < 1400) level = 0;
+      else if (distance > 3400) level = 2;
+      else if (level === 0 && distance > 1800) level = 1;
+      else if (level === 2 && distance < 2900) level = 1;
+    }
+    let ready = true;
+    for (let index = 0; index < levels.length; index++) {
+      let proxy = levels[index].get(id);
+      if (!proxy) {
+        proxy = runtimeScene.createObject(name + "LOD" + (index + 1));
+        if (!proxy) { ready = false; continue; }
+        proxy.getVariables().get("OwnerId").setNumber(id);
+        proxy.setLayer("World3D");
+        levels[index].set(id, proxy);
+      }
+      proxy.setPosition(object.getX(), object.getY());
+      proxy.setAngle(object.getAngle());
+      proxy.setWidth(object.getWidth());
+      proxy.setHeight(object.getHeight());
+      proxy.hide(!available || level !== index + 1);
+    }
+    if (!ready) level = 0;
+    if (available) {
+      object.hide(level !== 0);
+      counts[level]++;
+    }
+    vars.get("LODLevel").setNumber(available ? level : 0);
+  }
+}
+for (let level = 0; level < counts.length; level++) follow.getChild("LODCount" + level).setNumber(counts[level]);
+> @end js

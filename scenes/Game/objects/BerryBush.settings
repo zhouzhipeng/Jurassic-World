@@ -42,6 +42,16 @@ name = "CameraFadeReady"
 type = "number"
 value = 0
 
+[[variables]]
+name = "CameraAppliedOpacity"
+type = "number"
+value = -1
+
+[[variables]]
+name = "LODLevel"
+type = "number"
+value = 0
+
 [[behaviors]]
 name = "CameraFade"
 type = "TSLMaterial::Material"
@@ -51,7 +61,7 @@ SelectorMode = "All"
 MeshName = ""
 MaterialName = ""
 Priority = 0
-Enabled = false
+Enabled = true
 Fallback = "KeepOriginal"
 
 [content]
