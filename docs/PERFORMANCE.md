@@ -1,5 +1,75 @@
 # FPS display and camera performance
 
+## Issue 20260921-072824-223: orbit stutter and automatic foliage LOD
+
+`BerryBush` and `FiberFern` now select three geometry levels from camera
+distance, checked every 0.1 seconds. Outward thresholds are 1800/3400 world
+units; inward thresholds are 1400/2900, preventing boundary flicker. Plants
+within 600 units of the player, or currently fading for camera visibility,
+immediately use the original model. The originals continue to own harvesting,
+regrowth and exact camera raycasts; only the rendered representation changes.
+Proxies follow their source transform, hide during harvest cooldown, and are
+deleted with their owner. This implementation is for the current static,
+ground-level plants; it does not cover animated actors or elevated vegetation.
+
+| Model | Original triangles | Middle LOD | Far LOD |
+| --- | ---: | ---: | ---: |
+| Fiber fern | 7,532 | 1,883 | 602 |
+| Berry bush | 2,436 | 974 | 389 |
+
+`tools/generate_foliage_lods.py` creates separate GLBs through Blender 5.1,
+retaining material slots and fitting each reduced mesh to its original bounds.
+Original assets remain available for close views. The official extension
+repository was searched first: A3F uses a different rendering framework,
+and the foliage/particle extensions do not preserve this project's individual
+harvest objects and camera raycasts. A small project-specific selector using
+the public API is used here; the existing third-party FPS extension is retained.
+
+Camera fade bindings now remain installed and update only changed opacity
+values, avoiding shader destruction/recompilation whenever foliage enters or
+leaves the camera corridor. Depth writing retains opaque occlusion at opacity
+1. Foliage already found by one corridor ray is excluded from remaining rays.
+
+Keeping many TSL materials alive exposed an engine bug: Three's compatibility
+renderer exhausted global uniform-buffer binding points. Engine commit
+`35f754a975` in `D:/code/GDevelop` reuses binding points by program block index,
+while retaining independent material buffers. A 100-group unit test with only
+two binding slots, a WebGL pixel test exceeding the device limit, the pinned
+Three bundle build and GDJS build passed. The rebuilt editor runtime is active;
+a fresh game preview reports zero runtime errors. Other engine installations
+need this engine fix when opening the project.
+
+Two 180-frame rotations at the report's player position and 12.473-degree
+requested pitch, using the same host and original render quality:
+
+| Measurement | Before | After LOD and persistent fade |
+| --- | ---: | ---: |
+| First orbit mean / worst frame | 17.90 / 397.90 ms | 20.18 / 281.90 ms |
+| Warmed orbit mean / worst frame | 18.73 / 370.70 ms | 14.97 / 35.10 ms |
+| Triangles at final orbit view | 284,550 | 157,042 |
+| Draw calls at final orbit view | 469 | 506 |
+
+The sampled geometry load falls 44.8%, and recurring long frames are much
+smaller. Warmed mean frame time falls 20.1% after also avoiding redundant
+proxy transform/size updates; the first orbit is slower on average because
+more material/LOD variants compile on first use. Keeping
+transparent fade materials increases draw calls. This is not a guarantee of
+60 FPS or elimination of initial shader-compilation stalls.
+
+`FoliageLOD` verifies all three levels, hysteresis, immediate close-range
+restoration, cooldown hiding, regrowth, owner deletion and restart cleanup.
+`CameraOrbitPerformance` records cold/warm profiles and checks a host-calibrated
+warm mean below 33.3 ms, maximum below 100 ms, and final-view geometry below
+200,000 triangles.
+
+Final lifecycle checks passed all 38 assertions. CameraSmoothFollow and
+CameraVisibility passed, including near-foliage fading and harvested visibility.
+CameraPerformance also passed both moving paths: camp mean/worst 19.66/35.30 ms,
+fence mean/worst 30.40/70.60 ms, with FPS still visible at the top center.
+Scene initialization still includes roughly 6.2-second material setup frames
+in these deterministic harness runs; this is outside the warmed profile windows
+and is not claimed as improved startup performance.
+
 ## Issue 20260921-071339-601: moving-frame optimization
 
 The earlier identical-ray cache improved stationary views but missed on every
