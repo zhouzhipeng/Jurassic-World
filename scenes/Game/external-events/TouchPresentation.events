@@ -95,3 +95,20 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchToastTime" comparison_sign=">" value=0
 if NumberVariable variable="Mode" comparison_sign="!=" value=0
 do SetY object="TouchToastText" modification_sign="=" value=expr(TouchMenuY+166*TouchScale)
+
+
+if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="TouchToastTime" comparison_sign=">" value=expr(0)
+do SetX object="TouchToastText" modification_sign="=" value=expr(TouchMenuX+24*TouchScale)
+do SetY object="TouchToastText" modification_sign="=" value=expr(TouchHeight-TouchMargin-30*TouchScale)
+
+if NumberVariable variable="Mode" comparison_sign="!=" value=expr(1)
+do Hide object="PackIcon"
+do Hide object="PackCount"
+do Hide object="PackName"
+do Hide object="PackDetailBack"
+do Hide object="PackDetailTitle"
+do Hide object="PackDetailBody"

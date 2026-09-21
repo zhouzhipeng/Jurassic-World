@@ -80,3 +80,35 @@ points = [ ]
 originPoint = { name = "Origin", x = 0, y = 0 }
 centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
+
+[[animations]]
+name = "Grid"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "pack-slot.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[[animations]]
+name = "GridSelected"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "pack-slot-selected.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]

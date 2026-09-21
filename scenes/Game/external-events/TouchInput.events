@@ -143,6 +143,8 @@ if TouchY touch_identifier=expr(TouchButton.Variable(TouchId)) comparison_sign="
 if TouchY touch_identifier=expr(TouchButton.Variable(TouchId)) comparison_sign="<=" value=expr(TouchButton.Y()+TouchButton.Height()) layer="Touch" camera_number_default_0=0
 do SetNumberVariable variable="TouchAttack" modification_sign="=" value=expr(1)
 
+link external "TouchInventoryInput"
+
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="TouchCommand" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)

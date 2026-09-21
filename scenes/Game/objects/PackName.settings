@@ -1,0 +1,35 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 317
+folder = ["UI", "Touch"]
+name = "PackName"
+type = "TextObject::Text"
+effects = [ ]
+behaviors = [ ]
+
+[[variables]]
+name = "Slot"
+type = "number"
+value = 200
+
+[content]
+text = ""
+font = "interface.ttf"
+characterSize = 28
+bold = false
+italic = false
+underlined = false
+smoothed = true
+textAlignment = "center"
+verticalTextAlignment = "top"
+color = "229;237;214"
+lineHeight = 0
+isOutlineEnabled = false
+outlineColor = "0;0;0"
+outlineThickness = 2
+isShadowEnabled = false
+shadowColor = "0;0;0"
+shadowOpacity = 127
+shadowBlurRadius = 2
+shadowDistance = 4
+shadowAngle = 90

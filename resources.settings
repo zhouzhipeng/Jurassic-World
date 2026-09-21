@@ -1321,3 +1321,43 @@ metadata = ""
 name = "touch-status.svg"
 userAdded = true
 smoothed = true
+
+[[resources]]
+file = "assets/ui/pack-slot.svg"
+kind = "image"
+metadata = ""
+name = "pack-slot.svg"
+userAdded = true
+smoothed = true
+
+[[resources]]
+file = "assets/ui/pack-slot-selected.svg"
+kind = "image"
+metadata = ""
+name = "pack-slot-selected.svg"
+userAdded = true
+smoothed = true
+
+[[resources]]
+file = "assets/ui/pack-raw-meat.svg"
+kind = "image"
+metadata = ""
+name = "pack-raw-meat.svg"
+userAdded = true
+smoothed = true
+
+[[resources]]
+file = "assets/ui/pack-ore.svg"
+kind = "image"
+metadata = ""
+name = "pack-ore.svg"
+userAdded = true
+smoothed = true
+
+[[resources]]
+file = "assets/ui/pack-ingot.svg"
+kind = "image"
+metadata = ""
+name = "pack-ingot.svg"
+userAdded = true
+smoothed = true

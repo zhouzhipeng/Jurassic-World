@@ -1,0 +1,1033 @@
+kind = "externalLayout"
+settingsFormatVersion = 6
+order = 11
+name = "GameTouchInventory"
+
+[layout]
+version = 1
+
+[[layout.layers]]
+id = "touch"
+name = "Touch"
+
+[[layout.instances]]
+id = "5ba3987d-ccdc-41ec-a472-5e9a894b5cd8"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "24e6e621-f0b6-4117-8c9a-3ed04be2f761"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "6574ba66-ad10-41b5-a3b8-25efa00f6730"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "eb972867-ca34-49bb-a4aa-c9ec761c10fa"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "7bd55314-71e1-4e65-972a-87e6f6497f11"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "3117a5c0-7f26-4edf-91d6-a2c15282ea1f"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "15690ac1-7317-4924-b15b-b9e27a81c702"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "54b3fe16-cadd-47a7-bf63-dd4c41b6a2ad"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "3a30d56c-5325-41f8-b833-caad3984b55f"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "1917c63e-5a61-4041-921c-23f5eac25aea"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "481a799c-6f83-4453-9df2-dda8c2a039a7"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "f2d8e69d-f9ae-4cef-b894-a1819add7b01"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "40994a07-7303-44db-9b45-f76c3a8a7085"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "a415464a-9e5a-4818-ab46-af744879a131"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "01a7fe9f-1983-43b5-a150-034fe60e8bb9"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "6bec4e30-a65c-47bc-9cdd-359ce0cfbda5"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "3593eb48-ded3-4113-90d8-91073fda802c"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "227f37b6-3efe-4e4c-81b3-cd8767463d20"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "83496a08-cf6b-4d34-a702-723bf7c048d0"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "6a8450cf-1745-4ce1-a38c-fe9ac5316ffb"
+object = "TouchButton"
+layer = "touch"
+at = [0, 0]
+z_order = 5
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "610af0ab-e2f7-4cdb-9c52-bf931465e0d9"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "da2eb5d4-5307-4d26-98df-22f478a568e0"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "d7e44d26-8f73-4a56-8373-c56d2d54737d"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "fed741f6-d286-4177-a523-263f2a381936"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "0c062df7-3b13-485c-a08c-3a7bbefa85cc"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "90d26e3f-6da3-405f-8aee-9e4a930043f4"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "98e35446-33d1-4a78-99f5-84f84d78b505"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "ff16a82e-a91c-4164-b4af-35abe2b1dd1e"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "777f60d2-d125-4077-9d5f-943670097e58"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "4fddfde6-4a02-49b6-8bf2-cc4efcdc6190"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "e0d7b2d2-f260-4152-92ba-03561c8e09ec"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "dcf8b7cf-2d90-4dea-8fc1-635b41f6b9ec"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "5b09c32f-b7e6-44a6-8c78-e79cd71eacff"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "1de1a8ee-1dfd-4f03-8999-72ac00c799fc"
+object = "PackIcon"
+layer = "touch"
+at = [0, 0]
+z_order = 6
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "3d494e3d-1879-4ad4-9843-919be1069f40"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "1e4d253d-b7fa-4788-9ea2-cd7ea5f53c18"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "d6f83424-d7e0-4e4e-92e8-fe7866a4fb60"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "72705d5c-c022-4cb2-b96e-58c887ebca05"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "5bf55ba3-866c-42e1-880e-aea0689dd677"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "0050512c-719e-41ba-9acd-c4a21df7942f"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "001a8560-1e39-4335-a03d-8b743e50c75a"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "e66712c9-670b-4b08-b253-cb556d4124c7"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "49097030-94f3-4a79-8ed0-f0164e78cc89"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "903f0496-48db-463e-ab8b-9bbae7777f4b"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "5d44babd-3961-4019-8f15-62debbd77015"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "afde3e8d-21f5-4cf3-9c94-f86bac520765"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "ec7accc2-4b9d-4d9d-b319-5f05a3cdef83"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "5578147d-ebfd-4386-933c-9ca4eba7f511"
+object = "PackName"
+layer = "touch"
+at = [0, 0]
+z_order = 7
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "1e66672a-2f18-4e94-97a8-f1171918e8a5"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "5a6486a5-5963-4fed-9a8e-0a342ca7decc"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "8c3baac2-a159-46b2-b9e4-4fe880827e1b"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "fcb9812c-0c3f-45fe-9879-c610351a6b5e"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "6cbcdc3b-0edd-4ca0-9580-0f8f4799e8f2"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "11e1e033-2815-4261-bfa6-16f4d76a06d2"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "7015c40f-d074-4ddf-aa48-2afe095ae99f"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "a0be7ceb-d4cc-4cc2-8d7e-17e1a08c4afb"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "f5e0eb23-401d-44a4-bdea-d98ad2973d09"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "12d489fa-91f8-4191-bec8-a4573391602c"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "e9768dd7-a25b-469a-9e52-38d78b81d668"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "334bfe87-f748-452d-a8ae-ae267311fc60"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "356a0e7d-3071-4824-8da8-2ab77d5ae6a9"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "e194de68-f42e-4461-96b8-e84a9016b9d5"
+object = "PackCount"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "f298dd09-4430-4855-9ac6-eca4f90110dd"
+object = "PackDetailBack"
+layer = "touch"
+at = [0, 0]
+z_order = 3
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "871b20ff-33eb-4cd6-a31c-1efe465b897c"
+object = "PackDetailTitle"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.instances]]
+id = "e27dda8e-4e80-4e8a-9479-58700ebf8d82"
+object = "PackDetailBody"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+size = [100, 100]
+keep_ratio = false
+hidden = true
+
+[[layout.variables]]
+instance = "5ba3987d-ccdc-41ec-a472-5e9a894b5cd8"
+name = "Slot"
+type = "number"
+value = 200
+
+[[layout.variables]]
+instance = "24e6e621-f0b6-4117-8c9a-3ed04be2f761"
+name = "Slot"
+type = "number"
+value = 201
+
+[[layout.variables]]
+instance = "6574ba66-ad10-41b5-a3b8-25efa00f6730"
+name = "Slot"
+type = "number"
+value = 202
+
+[[layout.variables]]
+instance = "eb972867-ca34-49bb-a4aa-c9ec761c10fa"
+name = "Slot"
+type = "number"
+value = 203
+
+[[layout.variables]]
+instance = "7bd55314-71e1-4e65-972a-87e6f6497f11"
+name = "Slot"
+type = "number"
+value = 204
+
+[[layout.variables]]
+instance = "3117a5c0-7f26-4edf-91d6-a2c15282ea1f"
+name = "Slot"
+type = "number"
+value = 205
+
+[[layout.variables]]
+instance = "15690ac1-7317-4924-b15b-b9e27a81c702"
+name = "Slot"
+type = "number"
+value = 206
+
+[[layout.variables]]
+instance = "54b3fe16-cadd-47a7-bf63-dd4c41b6a2ad"
+name = "Slot"
+type = "number"
+value = 207
+
+[[layout.variables]]
+instance = "3a30d56c-5325-41f8-b833-caad3984b55f"
+name = "Slot"
+type = "number"
+value = 208
+
+[[layout.variables]]
+instance = "1917c63e-5a61-4041-921c-23f5eac25aea"
+name = "Slot"
+type = "number"
+value = 209
+
+[[layout.variables]]
+instance = "481a799c-6f83-4453-9df2-dda8c2a039a7"
+name = "Slot"
+type = "number"
+value = 210
+
+[[layout.variables]]
+instance = "f2d8e69d-f9ae-4cef-b894-a1819add7b01"
+name = "Slot"
+type = "number"
+value = 211
+
+[[layout.variables]]
+instance = "40994a07-7303-44db-9b45-f76c3a8a7085"
+name = "Slot"
+type = "number"
+value = 212
+
+[[layout.variables]]
+instance = "a415464a-9e5a-4818-ab46-af744879a131"
+name = "Slot"
+type = "number"
+value = 213
+
+[[layout.variables]]
+instance = "01a7fe9f-1983-43b5-a150-034fe60e8bb9"
+name = "Slot"
+type = "number"
+value = 214
+
+[[layout.variables]]
+instance = "6bec4e30-a65c-47bc-9cdd-359ce0cfbda5"
+name = "Slot"
+type = "number"
+value = 215
+
+[[layout.variables]]
+instance = "3593eb48-ded3-4113-90d8-91073fda802c"
+name = "Slot"
+type = "number"
+value = 216
+
+[[layout.variables]]
+instance = "227f37b6-3efe-4e4c-81b3-cd8767463d20"
+name = "Slot"
+type = "number"
+value = 217
+
+[[layout.variables]]
+instance = "83496a08-cf6b-4d34-a702-723bf7c048d0"
+name = "Slot"
+type = "number"
+value = 218
+
+[[layout.variables]]
+instance = "6a8450cf-1745-4ce1-a38c-fe9ac5316ffb"
+name = "Slot"
+type = "number"
+value = 219
+
+[[layout.variables]]
+instance = "610af0ab-e2f7-4cdb-9c52-bf931465e0d9"
+name = "Slot"
+type = "number"
+value = 200
+
+[[layout.variables]]
+instance = "da2eb5d4-5307-4d26-98df-22f478a568e0"
+name = "Slot"
+type = "number"
+value = 201
+
+[[layout.variables]]
+instance = "d7e44d26-8f73-4a56-8373-c56d2d54737d"
+name = "Slot"
+type = "number"
+value = 202
+
+[[layout.variables]]
+instance = "fed741f6-d286-4177-a523-263f2a381936"
+name = "Slot"
+type = "number"
+value = 203
+
+[[layout.variables]]
+instance = "0c062df7-3b13-485c-a08c-3a7bbefa85cc"
+name = "Slot"
+type = "number"
+value = 204
+
+[[layout.variables]]
+instance = "90d26e3f-6da3-405f-8aee-9e4a930043f4"
+name = "Slot"
+type = "number"
+value = 205
+
+[[layout.variables]]
+instance = "98e35446-33d1-4a78-99f5-84f84d78b505"
+name = "Slot"
+type = "number"
+value = 206
+
+[[layout.variables]]
+instance = "ff16a82e-a91c-4164-b4af-35abe2b1dd1e"
+name = "Slot"
+type = "number"
+value = 207
+
+[[layout.variables]]
+instance = "777f60d2-d125-4077-9d5f-943670097e58"
+name = "Slot"
+type = "number"
+value = 208
+
+[[layout.variables]]
+instance = "4fddfde6-4a02-49b6-8bf2-cc4efcdc6190"
+name = "Slot"
+type = "number"
+value = 209
+
+[[layout.variables]]
+instance = "e0d7b2d2-f260-4152-92ba-03561c8e09ec"
+name = "Slot"
+type = "number"
+value = 210
+
+[[layout.variables]]
+instance = "dcf8b7cf-2d90-4dea-8fc1-635b41f6b9ec"
+name = "Slot"
+type = "number"
+value = 211
+
+[[layout.variables]]
+instance = "5b09c32f-b7e6-44a6-8c78-e79cd71eacff"
+name = "Slot"
+type = "number"
+value = 212
+
+[[layout.variables]]
+instance = "1de1a8ee-1dfd-4f03-8999-72ac00c799fc"
+name = "Slot"
+type = "number"
+value = 213
+
+[[layout.variables]]
+instance = "3d494e3d-1879-4ad4-9843-919be1069f40"
+name = "Slot"
+type = "number"
+value = 200
+
+[[layout.variables]]
+instance = "1e4d253d-b7fa-4788-9ea2-cd7ea5f53c18"
+name = "Slot"
+type = "number"
+value = 201
+
+[[layout.variables]]
+instance = "d6f83424-d7e0-4e4e-92e8-fe7866a4fb60"
+name = "Slot"
+type = "number"
+value = 202
+
+[[layout.variables]]
+instance = "72705d5c-c022-4cb2-b96e-58c887ebca05"
+name = "Slot"
+type = "number"
+value = 203
+
+[[layout.variables]]
+instance = "5bf55ba3-866c-42e1-880e-aea0689dd677"
+name = "Slot"
+type = "number"
+value = 204
+
+[[layout.variables]]
+instance = "0050512c-719e-41ba-9acd-c4a21df7942f"
+name = "Slot"
+type = "number"
+value = 205
+
+[[layout.variables]]
+instance = "001a8560-1e39-4335-a03d-8b743e50c75a"
+name = "Slot"
+type = "number"
+value = 206
+
+[[layout.variables]]
+instance = "e66712c9-670b-4b08-b253-cb556d4124c7"
+name = "Slot"
+type = "number"
+value = 207
+
+[[layout.variables]]
+instance = "49097030-94f3-4a79-8ed0-f0164e78cc89"
+name = "Slot"
+type = "number"
+value = 208
+
+[[layout.variables]]
+instance = "903f0496-48db-463e-ab8b-9bbae7777f4b"
+name = "Slot"
+type = "number"
+value = 209
+
+[[layout.variables]]
+instance = "5d44babd-3961-4019-8f15-62debbd77015"
+name = "Slot"
+type = "number"
+value = 210
+
+[[layout.variables]]
+instance = "afde3e8d-21f5-4cf3-9c94-f86bac520765"
+name = "Slot"
+type = "number"
+value = 211
+
+[[layout.variables]]
+instance = "ec7accc2-4b9d-4d9d-b319-5f05a3cdef83"
+name = "Slot"
+type = "number"
+value = 212
+
+[[layout.variables]]
+instance = "5578147d-ebfd-4386-933c-9ca4eba7f511"
+name = "Slot"
+type = "number"
+value = 213
+
+[[layout.variables]]
+instance = "1e66672a-2f18-4e94-97a8-f1171918e8a5"
+name = "Slot"
+type = "number"
+value = 200
+
+[[layout.variables]]
+instance = "5a6486a5-5963-4fed-9a8e-0a342ca7decc"
+name = "Slot"
+type = "number"
+value = 201
+
+[[layout.variables]]
+instance = "8c3baac2-a159-46b2-b9e4-4fe880827e1b"
+name = "Slot"
+type = "number"
+value = 202
+
+[[layout.variables]]
+instance = "fcb9812c-0c3f-45fe-9879-c610351a6b5e"
+name = "Slot"
+type = "number"
+value = 203
+
+[[layout.variables]]
+instance = "6cbcdc3b-0edd-4ca0-9580-0f8f4799e8f2"
+name = "Slot"
+type = "number"
+value = 204
+
+[[layout.variables]]
+instance = "11e1e033-2815-4261-bfa6-16f4d76a06d2"
+name = "Slot"
+type = "number"
+value = 205
+
+[[layout.variables]]
+instance = "7015c40f-d074-4ddf-aa48-2afe095ae99f"
+name = "Slot"
+type = "number"
+value = 206
+
+[[layout.variables]]
+instance = "a0be7ceb-d4cc-4cc2-8d7e-17e1a08c4afb"
+name = "Slot"
+type = "number"
+value = 207
+
+[[layout.variables]]
+instance = "f5e0eb23-401d-44a4-bdea-d98ad2973d09"
+name = "Slot"
+type = "number"
+value = 208
+
+[[layout.variables]]
+instance = "12d489fa-91f8-4191-bec8-a4573391602c"
+name = "Slot"
+type = "number"
+value = 209
+
+[[layout.variables]]
+instance = "e9768dd7-a25b-469a-9e52-38d78b81d668"
+name = "Slot"
+type = "number"
+value = 210
+
+[[layout.variables]]
+instance = "334bfe87-f748-452d-a8ae-ae267311fc60"
+name = "Slot"
+type = "number"
+value = 211
+
+[[layout.variables]]
+instance = "356a0e7d-3071-4824-8da8-2ab77d5ae6a9"
+name = "Slot"
+type = "number"
+value = 212
+
+[[layout.variables]]
+instance = "e194de68-f42e-4461-96b8-e84a9016b9d5"
+name = "Slot"
+type = "number"
+value = 213

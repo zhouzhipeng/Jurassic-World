@@ -1,0 +1,31 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 319
+folder = ["UI", "Touch"]
+name = "PackDetailTitle"
+type = "TextObject::Text"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+
+[content]
+text = ""
+font = "interface.ttf"
+characterSize = 28
+bold = false
+italic = false
+underlined = false
+smoothed = true
+textAlignment = "left"
+verticalTextAlignment = "top"
+color = "246;213;143"
+lineHeight = 0
+isOutlineEnabled = false
+outlineColor = "0;0;0"
+outlineThickness = 2
+isShadowEnabled = false
+shadowColor = "0;0;0"
+shadowOpacity = 127
+shadowBlurRadius = 2
+shadowDistance = 4
+shadowAngle = 90

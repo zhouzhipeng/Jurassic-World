@@ -144,3 +144,11 @@ name = "TouchResponsive"
 type = "gameplay"
 description = "Touch control bounds and card layout at multiple logical resolutions; aspect ratios checked in preview."
 file = "tests/TouchResponsive.js"
+
+[[tests]]
+scope = "project"
+order = 18
+name = "TouchInventoryGrid"
+type = "gameplay"
+description = "Touch inventory selection, drag cancellation, quantities, food, equipment and crafting."
+file = "tests/TouchInventoryGrid.js"

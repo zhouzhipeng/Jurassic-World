@@ -1,0 +1,315 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 316
+folder = ["UI", "Touch"]
+name = "PackIcon"
+type = "Sprite"
+adaptCollisionMaskAutomatically = true
+updateIfNotVisible = false
+effects = [ ]
+behaviors = [ ]
+
+[[variables]]
+name = "Slot"
+type = "number"
+value = 200
+
+[[variables]]
+name = "Quantity"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Caption"
+type = "string"
+value = ""
+
+[[animations]]
+name = "Wood"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 0
+y = 0
+width = 314
+height = 314
+
+[[animations]]
+name = "Stone"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 314
+y = 0
+width = 314
+height = 314
+
+[[animations]]
+name = "Fiber"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 627
+y = 0
+width = 314
+height = 314
+
+[[animations]]
+name = "Hide"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 940
+y = 0
+width = 314
+height = 314
+
+[[animations]]
+name = "Berries"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 0
+y = 314
+width = 314
+height = 314
+
+[[animations]]
+name = "RawMeat"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "pack-raw-meat.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[[animations]]
+name = "Water"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 627
+y = 314
+width = 314
+height = 314
+
+[[animations]]
+name = "Axe"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 940
+y = 314
+width = 314
+height = 314
+
+[[animations]]
+name = "Spear"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 0
+y = 627
+width = 314
+height = 285
+
+[[animations]]
+name = "Flint"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 314
+y = 627
+width = 314
+height = 314
+
+[[animations]]
+name = "Rope"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 627
+y = 627
+width = 314
+height = 314
+
+[[animations]]
+name = "CookedMeat"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "items.png"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[animations.directions.sprites.sourceRect]
+x = 314
+y = 314
+width = 314
+height = 314
+
+[[animations]]
+name = "MetalOre"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "pack-ore.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+[[animations]]
+name = "MetalIngot"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "pack-ingot.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]

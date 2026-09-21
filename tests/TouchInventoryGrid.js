@@ -1,0 +1,58 @@
+// Exercise real touch input through the inventory grid and existing survival actions.
+const n=name=>Number(harness.getSceneVariable(name)?.value);
+const val=(object,key)=>Number(harness.getObjectVariable(object.id,key)?.value);
+const visible=()=>harness.getObjects('TouchButton').filter(o=>val(o,'Active')===1);
+const button=command=>visible().find(o=>val(o,'Command')===command);
+const badge=slot=>harness.getObjects('PackCount').find(o=>val(o,'Slot')===slot)?.text;
+async function tap(command){
+  const b=button(command);
+  if(!b)throw new Error(`Missing inventory action ${command}`);
+  harness.touchStart(91,b.centerX,b.centerY,'Touch');await harness.stepFrames(1);
+  harness.touchEnd(91);await harness.stepFrames(3);
+}
+try{
+  await harness.goToScene('Game');await harness.stepFrames(3);
+  harness.setSceneVariable('Invulnerable',9999);
+  harness.setSceneVariable('Berries',5);harness.setSceneVariable('Hunger',40);
+  harness.setSceneVariable('CookedMeat',2);harness.setSceneVariable('Axe',1);
+  harness.setSceneVariable('Spear',1);harness.setSceneVariable('UseCooldown',0);
+  await tap(2);
+  harness.assert(visible().filter(o=>val(o,'Slot')>=200).length===20&&harness.getObjects('PackIcon').filter(o=>!o.hidden).length===14,'Opening the backpack shows twenty slots with fourteen item icons');
+  const hunger=n('Hunger'),yaw=n('CameraYaw');
+  await tap(404);
+  harness.assert(n('PackSelected')===4&&n('Berries')===5&&n('Hunger')===hunger&&n('Mode')===1,'Tapping the berry icon selects details without eating or closing the backpack');
+  harness.assert(button(404).animation==='GridSelected'&&visible().filter(o=>o.animation==='GridSelected').length===1&&badge(204)==='5','Only the selected slot has a highlight and the badge reflects the actual stock');
+  const berry=button(404),stone=button(401);
+  harness.touchStart(92,berry.centerX,berry.centerY,'Touch');await harness.stepFrames(1);
+  harness.touchMove(92,stone.centerX,stone.centerY,'Touch');await harness.stepFrames(2);
+  harness.touchEnd(92);await harness.stepFrames(3);
+  harness.assert(n('PackSelected')===4&&n('Berries')===5&&n('CameraYaw')===yaw,'Dragging out of a slot cancels the selection and does not rotate the camera');
+  await tap(419);
+  harness.assert(n('PackSelected')===4&&n('Mode')===1,'Empty slots consume the touch without triggering an action');
+  await tap(110);
+  harness.assert(n('Berries')===4&&n('Hunger')>47&&n('Mode')===0,'The explicit eat button consumes exactly one berry and returns to play');
+  await harness.stepFrames(35);await tap(2);
+  harness.assert(badge(204)==='4','Reopening the inventory refreshes the quantity after use');
+  harness.setSceneVariable('Hunger',100);await harness.stepFrames(3);
+  await tap(110);
+  harness.assert(n('Berries')===4&&n('Mode')===1&&val(button(110),'Enabled')===0,'The food action is disabled when already full');
+  harness.setSceneVariable('Hunger',40);await harness.stepFrames(3);
+  await tap(411);await tap(111);
+  harness.assert(n('CookedMeat')===1&&n('Hunger')>69,'Selecting cooked meat uses its separate food action');
+  await harness.stepFrames(35);await tap(2);
+  harness.setSceneVariable('Berries',0);await tap(404);await tap(110);
+  harness.assert(badge(204)==='0'&&n('Mode')===1&&n('Berries')===0,'An exhausted stack stays visible with zero quantity and cannot be consumed');
+  harness.setSceneVariable('SelectedHotbar',0);await tap(407);await tap(451);
+  harness.assert(n('SelectedHotbar')===1&&n('Axe')===1&&n('Mode')===1,'Equipping the axe preserves the item and the open backpack');
+  await tap(408);await tap(452);
+  harness.assert(n('SelectedHotbar')===2&&n('Spear')===1,'The spear has its own explicit equip action');
+  harness.setSceneVariable('Wood',20);harness.setSceneVariable('Stone',20);harness.setSceneVariable('Fiber',20);await harness.stepFrames(3);
+  await tap(113);
+  harness.assert(n('Wood')===14&&n('Stone')===18&&n('Fiber')===16&&n('Spear')===2&&badge(208)==='2','Quick crafting updates the stock badges and charges the native recipe once');
+  harness.setSceneVariable('Wood',0);await harness.stepFrames(3);await tap(114);
+  harness.assert(n('Axe')===1&&val(button(114),'Enabled')===0,'Crafting is disabled when materials are missing');
+  harness.setSceneVariable('Canteen',1);harness.setSceneVariable('CanteenCharges',2);await tap(406);
+  harness.assert(badge(206)==='2/3'&&String(harness.getSceneVariable('PackDescription')?.value).includes('2 / 3'),'The water bag shows remaining drinks instead of the character water stat');
+  await tap(8);
+  harness.assert(['PackIcon','PackCount','PackName','PackDetailBack','PackDetailTitle','PackDetailBody'].every(name=>harness.getObjects(name).every(o=>o.hidden)),'Closing the backpack hides all inventory contents');
+}finally{harness.releaseAllInputs();}

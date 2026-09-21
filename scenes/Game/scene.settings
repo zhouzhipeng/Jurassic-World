@@ -9,6 +9,106 @@ stopSoundsOnStartup = true
 behaviorsSharedData = [ ]
 
 [[variables]]
+name = "PackSelected"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackColumns"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackRows"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackCell"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackGap"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackGridX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackGridY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackGridWidth"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackGridHeight"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackAreaWidth"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackAreaHeight"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackDetailX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackDetailY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackDetailWidth"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackQuantity"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackAction"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackActionEnabled"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PackTitle"
+type = "string"
+value = ""
+
+[[variables]]
+name = "PackDescription"
+type = "string"
+value = ""
+
+[[variables]]
+name = "PackActionLabel"
+type = "string"
+value = ""
+
+[[variables]]
 name = "BodyTemp"
 type = "number"
 value = 37

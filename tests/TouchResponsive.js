@@ -27,5 +27,12 @@ try {
     const building=visible();
     harness.assert(n('BuildMode')===1&&contained(building,w,h)&&building.every((a,i)=>building.slice(i+1).every(b=>a.x+a.width<=b.x||b.x+b.width<=a.x||a.y+a.height<=b.y||b.y+b.height<=a.y)),`Building controls fit without overlap at ${w} x ${h}`);
     await tap(10);
+    await tap(2);
+    const inventory=visible();
+    const tiles=inventory.filter(o=>val(o,'Slot')>=200);
+    harness.assert(tiles.length===20&&tiles.every(o=>Math.abs(o.width-o.height)<1&&o.width>=44)&&contained(inventory,w,h),`Twenty square inventory targets fit ${w} x ${h}`);
+    harness.assert(inventory.every((a,i)=>inventory.slice(i+1).every(b=>a.x+a.width<=b.x||b.x+b.width<=a.x||a.y+a.height<=b.y||b.y+b.height<=a.y)),`Inventory slots, actions and close button do not overlap at ${w} x ${h}`);
+    harness.assert(contained([...harness.getObjects('PackName'),...harness.getObjects('PackCount'),...harness.getObjects('PackDetailTitle'),...harness.getObjects('PackDetailBody')],w,h),`Inventory labels and details stay on screen at ${w} x ${h}`);
+    await tap(8);
   }
 } finally { harness.releaseAllInputs(); harness.getRuntimeGame().setGameResolutionSize(1600,900); }

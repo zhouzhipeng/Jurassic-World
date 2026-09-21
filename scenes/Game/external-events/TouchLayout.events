@@ -413,90 +413,6 @@ do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-do SetStringVariable variable="TouchPanelTitle" modification_sign="=" value=expr("背包 · 快速制作")
-do SetStringVariable variable="TouchPanelBody" modification_sign="=" value=expr("木材 "+ToString(Wood)+"   石头 "+ToString(Stone)+"   纤维 "+ToString(Fiber)+NewLine()+"兽皮 "+ToString(Hide)+"   矿石 "+ToString(MetalOre)+"   金属锭 "+ToString(MetalIngot)+NewLine()+"长矛 "+ToString(Spear)+"   斧头 "+ToString(Axe))
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(100)
-do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
-do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(110)
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("吃浆果")
-do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(27)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchMenuX+30*TouchScale+mod(0,TouchColumns)*(TouchCardWidth+12*TouchScale))
-do SetY object="TouchButton" modification_sign="=" value=expr(TouchMenuY+218*TouchScale+floor(0/TouchColumns)*(TouchCardHeight+8*TouchScale))
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(TouchCardWidth) height=expr(TouchCardHeight)
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(101)
-do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
-do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(111)
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("吃烤肉")
-do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(27)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchMenuX+30*TouchScale+mod(1,TouchColumns)*(TouchCardWidth+12*TouchScale))
-do SetY object="TouchButton" modification_sign="=" value=expr(TouchMenuY+218*TouchScale+floor(1/TouchColumns)*(TouchCardHeight+8*TouchScale))
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(TouchCardWidth) height=expr(TouchCardHeight)
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(102)
-do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
-do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(112)
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("喝水")
-do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(27)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchMenuX+30*TouchScale+mod(2,TouchColumns)*(TouchCardWidth+12*TouchScale))
-do SetY object="TouchButton" modification_sign="=" value=expr(TouchMenuY+218*TouchScale+floor(2/TouchColumns)*(TouchCardHeight+8*TouchScale))
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(TouchCardWidth) height=expr(TouchCardHeight)
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(103)
-do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
-do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(113)
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("制作长矛"+NewLine()+"6 木材 · 2 石头 · 4 纤维")
-do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(24)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchMenuX+30*TouchScale+mod(3,TouchColumns)*(TouchCardWidth+12*TouchScale))
-do SetY object="TouchButton" modification_sign="=" value=expr(TouchMenuY+218*TouchScale+floor(3/TouchColumns)*(TouchCardHeight+8*TouchScale))
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(TouchCardWidth) height=expr(TouchCardHeight)
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(104)
-do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
-do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(114)
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("制作石斧"+NewLine()+"5 木材 · 3 石头 · 4 纤维")
-do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(24)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchMenuX+30*TouchScale+mod(4,TouchColumns)*(TouchCardWidth+12*TouchScale))
-do SetY object="TouchButton" modification_sign="=" value=expr(TouchMenuY+218*TouchScale+floor(4/TouchColumns)*(TouchCardHeight+8*TouchScale))
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(TouchCardWidth) height=expr(TouchCardHeight)
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=expr(105)
-do SetNumberObjectVariable object="TouchButton" variable="Active" modification_sign="=" value=expr(1)
-do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=expr(103)
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("寻找水源 / 工坊")
-do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(27)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchMenuX+30*TouchScale+mod(5,TouchColumns)*(TouchCardWidth+12*TouchScale))
-do SetY object="TouchButton" modification_sign="=" value=expr(TouchMenuY+218*TouchScale+floor(5/TouchColumns)*(TouchCardHeight+8*TouchScale))
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(TouchCardWidth) height=expr(TouchCardHeight)
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
 if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(3)
 do SetStringVariable variable="TouchPanelTitle" modification_sign="=" value=expr("建造 · 选择部件")
 do SetStringVariable variable="TouchPanelBody" modification_sign="=" value=expr("选择后，用摇杆调整位置，滑动右侧转视角。"+NewLine()+"点「放置」建造，点「旋转」调整方向。"+NewLine()+"木材 "+ToString(Wood)+"   石头 "+ToString(Stone)+"   纤维 "+ToString(Fiber))
@@ -871,24 +787,6 @@ do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior
 
 if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberObjectVariable object="TouchButton" variable="Command" comparison_sign="=" value=expr(110)
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("吃浆果 · "+ToString(Berries)+" 份")
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberObjectVariable object="TouchButton" variable="Command" comparison_sign="=" value=expr(111)
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("吃烤肉 · "+ToString(CookedMeat)+" 份")
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
-if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(2)
-if NumberObjectVariable object="TouchButton" variable="Command" comparison_sign="=" value=expr(112)
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=expr("喝水 · 水袋 "+ToString(CanteenCharges)+" / 3")
-
-if NumberVariable variable="TouchMode" comparison_sign="=" value=expr(1)
-if NumberVariable variable="Mode" comparison_sign="!=" value=expr(0)
 if NumberVariable variable="TouchPanel" comparison_sign="=" value=expr(4)
 if NumberVariable variable="QuestReady" comparison_sign="=" value=expr(0)
 if NumberObjectVariable object="TouchButton" variable="Command" comparison_sign="=" value=expr(130)
@@ -1002,3 +900,6 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=2
 do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=3
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="部件"
+
+
+link external "TouchInventoryLayout"

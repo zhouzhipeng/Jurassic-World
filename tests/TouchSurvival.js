@@ -21,7 +21,7 @@ try {
   await move(-800,250); const raw=n('Meat'), fuelWood=n('Wood');
   await tap(303); await harness.stepFrames(490);
   harness.assert(n('Wood')===fuelWood-1 && n('Meat')===raw-1 && n('CookedMeat')===1, 'One fire interaction adds fuel once and cooks one portion');
-  harness.setSceneVariable('Hunger',40); await tap(2); await tap(111);
+  harness.setSceneVariable('Hunger',40); await tap(2); await tap(411); await tap(111);
   harness.assert(n('CookedMeat')===0 && n('Hunger')>69, 'Food can be eaten from the touch backpack without a hotkey');
   await move(-1120,300); const hide=n('Hide'); await tap(304); await tap(120);
   harness.assert(n('Canteen')===1 && n('Hide')===hide-2, 'The contextual workshop crafts a canteen using the native recipe');
