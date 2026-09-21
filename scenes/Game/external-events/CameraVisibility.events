@@ -101,10 +101,15 @@ if (player) {
     if (!headRoomCache.has(lookAhead)) {
       // Check the actual target, not an offset point that may lie inside an
       // adjacent wall. A pitched ray alone could pass over a tall close wall.
-      const hits = gdjs.evtTools.scene3d.raycastObjects(
-        x + lookAhead * velocityX, y + lookAhead * velocityY, z + 80,
-        Math.sin(yaw), Math.cos(yaw), 0, blockers, 0, 330, true);
-      headRoomCache.set(lookAhead, hits.length === 0);
+      let headRoom = true;
+      // Use two central heights so one plank seam cannot make a wall appear clear.
+      for (const height of [40, 80]) {
+        const hits = gdjs.evtTools.scene3d.raycastObjects(
+          x + lookAhead * velocityX, y + lookAhead * velocityY, z + height,
+          Math.sin(yaw), Math.cos(yaw), 0, blockers, 0, 330, true);
+        if (hits.length > 0) { headRoom = false; break; }
+      }
+      headRoomCache.set(lookAhead, headRoom);
     }
     let distance = requestedDistance;
     let headClearance = requestedDistance;
