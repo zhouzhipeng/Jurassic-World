@@ -1,0 +1,74 @@
+@comment "Resolve visibility after all movement, riding, floor and construction updates. Keep the requested orbit separate from collision response." background=[74,176,228] text=[0,0,0]
+
+@event aiGeneratedEventId="camera-resolve-obstructions"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+
+> @js strict=true
+const player = runtimeScene.getObjects("Player3D")[0];
+if (player) {
+  const variables = runtimeScene.getVariables();
+  const number = (name = "") => variables.get(name).getAsNumber();
+  const yaw = number("CameraYaw") * Math.PI / 180;
+  const requestedPitch = number("CameraPitch");
+  const requestedDistance = number("CameraDistance");
+  const targetX = player.getX(), targetY = player.getY();
+  const targetZ = 120 + number("PlayerFloor") + number("Riding") * 220;
+  // Island3D includes its trees, rocks and camp. Other entries cover dynamic geometry.
+  const names = ["Island3D", "BerryBush", "FiberFern", "WoodSapling", "StoneDeposit",
+    "MetalDeposit", "SpringWater", "CampHearth", "CampForge", "BuiltShelter",
+    "BuiltPalisade", "BuiltCampfire", "PartFoundation", "PartPillar", "PartWall",
+    "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs", "Triceratops",
+    "Stegosaur", "Raptor", "Tyrannosaur"];
+  if (number("Riding") === 0) names.push("Dinosaur3D");
+  const blockers = names.flatMap(name => runtimeScene.getObjects(name))
+    .filter(object => object.isVisible() && object.getLayer() === "World3D");
+  const rightX = Math.cos(yaw), rightY = -Math.sin(yaw);
+  // A body-sized corridor also protects shoulders/feet and the camera near plane.
+  const offsets = [[0, 0], [-65, 0], [65, 0], [0, -80], [0, 80],
+    [-65, -80], [65, -80], [-65, 80], [65, 80]];
+  const clearance = (pitch = 25) => {
+    const radians = pitch * Math.PI / 180;
+    const dx = Math.sin(yaw) * Math.cos(radians);
+    const dy = Math.cos(yaw) * Math.cos(radians);
+    const dz = Math.sin(radians);
+    let distance = requestedDistance;
+    for (const offset of offsets) {
+      const hits = gdjs.evtTools.scene3d.raycastObjects(
+        targetX + rightX * offset[0], targetY + rightY * offset[0], targetZ + offset[1],
+        dx, dy, dz, blockers, 0, requestedDistance + 30, true);
+      for (const hit of hits) distance = Math.min(distance, Math.max(10, hit.distance - 30));
+    }
+    return distance;
+  };
+  let pitch = requestedPitch;
+  let safeDistance = clearance(pitch);
+  // Near a wall, look down from a clear higher angle rather than clipping into the player.
+  if (safeDistance < 260) {
+    for (const candidate of [65, 80, 88]) {
+      if (candidate <= requestedPitch) continue;
+      const candidateDistance = clearance(candidate);
+      if (candidateDistance > safeDistance) {
+        pitch = candidate;
+        safeDistance = candidateDistance;
+      }
+      if (safeDistance >= 260) break;
+    }
+  }
+  const previous = number("CameraResolvedDistance");
+  const changedPitch = pitch !== number("CameraResolvedPitch");
+  const dt = Math.min(0.05, runtimeScene.getElapsedTime() / 1000);
+  // Pull in immediately; ease outward only within this frame's verified clear corridor.
+  const distance = previous <= 0 || changedPitch || safeDistance < previous
+    ? safeDistance : Math.min(safeDistance, previous + (safeDistance - previous) * (1 - Math.exp(-8 * dt)));
+  variables.get("CameraSafeDistance").setNumber(safeDistance);
+  variables.get("CameraResolvedDistance").setNumber(distance);
+  variables.get("CameraResolvedPitch").setNumber(pitch);
+}
+> @end js
+
+@event aiGeneratedEventId="camera-apply-clear-orbit"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetCameraCenterX modification_sign="=" value=expr(Player3D.X() + sin(ToRad(CameraYaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + cos(ToRad(CameraYaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::SetCameraZ modification_sign="=" value=expr(120 + PlayerFloor + Riding * 220 + sin(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y()) z_position=expr(120 + PlayerFloor + Riding * 220) layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false

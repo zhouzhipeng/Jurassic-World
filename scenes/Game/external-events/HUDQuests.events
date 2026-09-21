@@ -1,11 +1,4 @@
 @event
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-do SetCameraCenterX modification_sign="=" value=expr(Player3D.X() + sin(ToRad(CameraYaw)) * cos(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
-do SetCameraCenterY modification_sign="=" value=expr(Player3D.Y() + cos(ToRad(CameraYaw)) * cos(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
-do Scene3D::SetCameraZ modification_sign="=" value=expr(120 + PlayerFloor + Riding * 220 + sin(ToRad(CameraPitch)) * CameraDistance) layer="World3D" camera_number_default_0=0
-do Scene3D::TurnCameraTowardPosition x_position=expr(Player3D.X()) y_position=expr(Player3D.Y()) z_position=expr(120 + PlayerFloor + Riding * 220) layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
-
-@event
 if NumberVariable variable="Mode" comparison_sign="=" value=6
 if BuiltinCommonInstructions::Once
 do ShowLayer layer="Quests"

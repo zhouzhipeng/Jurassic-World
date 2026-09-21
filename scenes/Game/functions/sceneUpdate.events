@@ -2066,3 +2066,5 @@ link external "SurvivalRestoreWorld"
 link external "SurvivalHUD"
 
 link external "TouchPresentation"
+
+link external "CameraVisibility"

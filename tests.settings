@@ -168,3 +168,11 @@ name = "ConstructionWildlife"
 type = "gameplay"
 description = "Reported adjacent foundation placement, oriented dinosaur clearance, overlap rejection and exact material costs."
 file = "tests/ConstructionWildlife.js"
+
+[[tests]]
+scope = "project"
+order = 21
+name = "CameraVisibility"
+type = "gameplay"
+description = "Camera clears walls, hidden blockers, close obstacles and island foliage; restores zoom and follows elevated and mounted targets."
+file = "tests/CameraVisibility.js"

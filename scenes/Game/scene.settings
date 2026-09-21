@@ -1156,6 +1156,21 @@ type = "number"
 value = 0
 
 [[variables]]
+name = "CameraResolvedDistance"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CameraResolvedPitch"
+type = "number"
+value = 25
+
+[[variables]]
+name = "CameraSafeDistance"
+type = "number"
+value = 0
+
+[[variables]]
 name = "CameraYaw"
 type = "number"
 value = 0
