@@ -200,3 +200,11 @@ name = "CameraWallApproach"
 type = "gameplay"
 description = "Approaching and pressing against the camp wall must not zoom toward a predicted target inside it."
 file = "tests/CameraWallApproach.js"
+
+[[tests]]
+scope = "project"
+order = 25
+name = "CameraFenceFollow"
+type = "gameplay"
+description = "Crossing the camp fence at the reported low viewing angle must not collapse or pump the camera."
+file = "tests/CameraFenceFollow.js"
