@@ -160,3 +160,11 @@ name = "SprintExhaustion"
 type = "gameplay"
 description = "Held Shift and full joystick remain in walk during stamina recovery, then resume running without animation flicker or stacked speed."
 file = "tests/SprintExhaustion.js"
+
+[[tests]]
+scope = "project"
+order = 20
+name = "ConstructionWildlife"
+type = "gameplay"
+description = "Reported adjacent foundation placement, oriented dinosaur clearance, overlap rejection and exact material costs."
+file = "tests/ConstructionWildlife.js"

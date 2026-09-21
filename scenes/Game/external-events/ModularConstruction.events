@@ -642,8 +642,12 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 
 > for each Wildlife
+>> @comment "Test the building footprint against the dinosaur's oriented body bounds on all four separating axes. HalfLength is the longitudinal extent, not an extra radius in every direction." background=[90,150,180] text=[255,255,255]
 >> if NumberObjectVariable object="Wildlife" variable="HP" comparison_sign=">" value=0
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX,BuildY,Wildlife.X(),Wildlife.Y())) comparison_sign="<" second_expression=expr(sqrt(BuildHX*BuildHX+BuildHY*BuildHY)+Wildlife.Variable(HalfLength)+Wildlife.Variable(Radius))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX-Wildlife.X())) comparison_sign="<" second_expression=expr(BuildWorldHX+abs(cos(ToRad(Wildlife.Angle())))*Wildlife.Variable(Radius)+abs(sin(ToRad(Wildlife.Angle())))*Wildlife.Variable(HalfLength))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildY-Wildlife.Y())) comparison_sign="<" second_expression=expr(BuildWorldHY+abs(sin(ToRad(Wildlife.Angle())))*Wildlife.Variable(Radius)+abs(cos(ToRad(Wildlife.Angle())))*Wildlife.Variable(HalfLength))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs((BuildX-Wildlife.X())*cos(ToRad(Wildlife.Angle()))+(BuildY-Wildlife.Y())*sin(ToRad(Wildlife.Angle())))) comparison_sign="<" second_expression=expr(Wildlife.Variable(Radius)+BuildWorldHX*abs(cos(ToRad(Wildlife.Angle())))+BuildWorldHY*abs(sin(ToRad(Wildlife.Angle()))))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(-(BuildX-Wildlife.X())*sin(ToRad(Wildlife.Angle()))+(BuildY-Wildlife.Y())*cos(ToRad(Wildlife.Angle())))) comparison_sign="<" second_expression=expr(Wildlife.Variable(HalfLength)+BuildWorldHX*abs(sin(ToRad(Wildlife.Angle())))+BuildWorldHY*abs(cos(ToRad(Wildlife.Angle()))))
 >> do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
 >> do SetStringVariable variable="BuildReason" modification_sign="=" value="恐龙占用此处，请保持距离"
 
