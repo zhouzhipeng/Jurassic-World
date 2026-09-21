@@ -29,7 +29,7 @@ try {
   // Nearby resource bushes must not compete with the deliberately arranged wall.
   for (const name of ['BerryBush', 'FiberFern', 'WoodSapling', 'StoneDeposit',
     'MetalDeposit', 'SpringWater', 'Dinosaur3D', 'Triceratops', 'Stegosaur', 'Raptor', 'Tyrannosaur']) {
-    for (const object of harness.getCurrentRuntimeScene().getObjects(name)) object.hide(true);
+    for (const object of harness.getObjects(name)) harness.removeObject(object.id);
   }
   await harness.stepFrames(90);
   const wall = harness.spawn('PartWall', 2000, 1950, 100, 'World3D');
