@@ -26,8 +26,11 @@ try {
   harness.assert(player().z === pausedHeight && Math.abs(bone('HandZ')-frozenHand) < .01, 'Menus freeze both physics and the skeletal pose');
   harness.setSceneVariable('Mode', 0);
   const falling = await harness.stepUntil(() => n('JumpVelocity') < 0, {maxFrames: 35});
+  // Prefab presentation consumes its owner's scene state on the next update.
+  await harness.stepFrames(1);
   harness.assert(falling && clip() === 'JumpFall', `At the apex the character changes to the landing-ready fall: ${clip()}`);
   const landed = await harness.stepUntil(() => n('JumpLandTime') > 0, {maxFrames: 45});
+  await harness.stepFrames(1);
   harness.assert(landed && clip() === 'JumpLand' && player().z === 0, `Ground contact plays landing compression: ${clip()}`);
   await harness.stepFrames(24);
   harness.assert(clip() === 'Idle', 'Landing recovery blends back to idle');
@@ -37,6 +40,7 @@ try {
   harness.assert(clip() === 'JumpStart', 'Jump animation overrides walking when moving');
   harness.setKeyPressed('Space', false);
   const movingLanded = await harness.stepUntil(() => n('JumpLandTime') > 0, {maxFrames: 70});
+  await harness.stepFrames(1);
   harness.assert(movingLanded && clip() === 'JumpLand', 'A moving jump also shows landing');
   await harness.stepFrames(24);
   harness.assert(clip() === 'Walk', `Recovery returns to locomotion when input is held: ${clip()}`);
