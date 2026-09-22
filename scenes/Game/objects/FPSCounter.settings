@@ -8,13 +8,17 @@ bold = true
 italic = false
 smoothed = true
 underlined = false
-variables = [ ]
 effects = [ ]
 behaviors = [ ]
 string = "FPS: --"
 font = "interface.ttf"
 textAlignment = "center"
 characterSize = 22
+
+[[variables]]
+name = "MeasuredFPS"
+type = "number"
+value = 0
 
 [color]
 r = 235
