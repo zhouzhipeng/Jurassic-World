@@ -400,3 +400,11 @@ name = "DamagePerformance"
 type = "gameplay"
 description = "Full-scene damage overlay, real repeated bites, recovery and desktop/touch frame costs."
 file = "tests/DamagePerformance.js"
+
+[[tests]]
+scope = "project"
+order = 50
+name = "DamageCostBreakdown"
+type = "gameplay"
+description = "Diagnostic isolation at the reported mountain view; alternate modes are not acceptance."
+file = "tests/DamageCostBreakdown.js"
