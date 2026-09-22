@@ -109,6 +109,7 @@ meshes=[o for o in bpy.context.scene.objects if o.type=='MESH']
 assert meshes and sum(len(o.data.polygons) for o in meshes)==triangles
 assert not [im for im in bpy.data.images if im.source=='FILE' and not im.packed_file and im.filepath]
 report={'triangles':triangles,'meshesAfterRoundTrip':len(meshes),'bytes':(OUT/'island.glb').stat().st_size,
+        'gdevelopSize':[18000,18000,4049.424362182617],
         'playableBounds':BOUNDS,'areaRatio':(BOUNDS[1]-BOUNDS[0])*(BOUNDS[3]-BOUNDS[2])/(5200*5100),
         'summitHeight':height(2200,-4450),'source':'sources/models/island-expanded-source.blend'}
 (OUT/'mountain-manifest.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
