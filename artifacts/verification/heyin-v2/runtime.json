@@ -1,0 +1,100 @@
+{
+  "sourceRevision": "61ff7ce",
+  "runtime": {
+    "success": true,
+    "runtimeVerified": true,
+    "completionReady": true,
+    "debuggerId": "preview-ws-17",
+    "assertions": [
+      {
+        "index": 0,
+        "type": "object_count",
+        "passed": true,
+        "actual": 1,
+        "expected": 1,
+        "operator": "eq",
+        "objectName": "Heyin"
+      },
+      {
+        "index": 1,
+        "type": "runtime_error_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq"
+      },
+      {
+        "index": 2,
+        "type": "renderer_failed_texture_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq",
+        "layerName": "World3D"
+      },
+      {
+        "index": 3,
+        "type": "renderer_rejected_object_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq",
+        "layerName": "World3D"
+      }
+    ]
+  },
+  "motionSamples": [
+    {
+      "frames": 12,
+      "instances": [
+        {
+          "index": 0,
+          "id": 100,
+          "persistentUuid": "fa2eef99-51e3-4e36-aec8-b1aaa944e58c",
+          "picked": false,
+          "position": {
+            "x": 382.13599999999997,
+            "y": 900,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "angle": -90
+        }
+      ],
+      "sceneVariables": {
+        "HeyinStage": 2,
+        "HeyinStay": 0,
+        "HeyinEnergy": 99.85999999999996,
+        "HeyinResting": 0,
+        "HeyinMoving": 1
+      }
+    },
+    {
+      "frames": 24,
+      "instances": [
+        {
+          "index": 0,
+          "id": 100,
+          "persistentUuid": "fa2eef99-51e3-4e36-aec8-b1aaa944e58c",
+          "picked": false,
+          "position": {
+            "x": 446.4079999999999,
+            "y": 900,
+            "z": 0,
+            "layer": "World3D",
+            "zOrder": 0
+          },
+          "angle": -90
+        }
+      ],
+      "sceneVariables": {
+        "HeyinStage": 2,
+        "HeyinStay": 0,
+        "HeyinEnergy": 99.57999999999987,
+        "HeyinResting": 0,
+        "HeyinMoving": 1
+      }
+    }
+  ]
+}

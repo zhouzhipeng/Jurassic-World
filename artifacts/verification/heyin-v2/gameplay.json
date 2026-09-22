@@ -1,0 +1,133 @@
+{
+  "sourceRevision": "61ff7ce",
+  "tests": [
+    {
+      "operationId": "gameplay-tests-84cd51b6-e054-487e-9ed3-bd809e804667",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "file": "tests/HeyinJourney.js",
+          "status": "passed",
+          "framesExecuted": 3592,
+          "assertions": [
+            {
+              "message": "Companion uses the adult 192-unit height, close to the 202-unit survivor",
+              "passed": true
+            },
+            {
+              "message": "Approach discovers the injured woman; missing supplies cannot complete rescue",
+              "passed": true
+            },
+            {
+              "message": "A nearby living predator blocks rescue without charging materials",
+              "passed": true
+            },
+            {
+              "message": "Safe rescue consumes exactly four fiber and three berries",
+              "passed": true
+            },
+            {
+              "message": "G switches to waiting without repeating the rescue cost",
+              "passed": true
+            },
+            {
+              "message": "Follow resumes with the actual GLB walk animation",
+              "passed": true
+            },
+            {
+              "message": "The model uses the forward heading confirmed by the game side-view preview",
+              "passed": true
+            },
+            {
+              "message": "Pause freezes companion movement and fatigue",
+              "passed": true
+            },
+            {
+              "message": "The NPC physically reaches the camp before the escort chapter completes",
+              "passed": true
+            },
+            {
+              "message": "Low energy triggers the authored rest pose",
+              "passed": true
+            },
+            {
+              "message": "Rest automatically recovers with a separate resume threshold",
+              "passed": true
+            },
+            {
+              "message": "Arriving together and interacting identifies the maternal knot",
+              "passed": true
+            },
+            {
+              "message": "Repeated conversation cannot duplicate rescue costs or clue progress",
+              "passed": true
+            },
+            {
+              "message": "The follower stops outside the static house rather than walking through its wall",
+              "passed": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "operationId": "gameplay-tests-c6c8ca55-e4b5-42f1-b126-842b7e1303d7",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "file": "tests/HeyinPersistence.js",
+          "status": "passed",
+          "framesExecuted": 44,
+          "assertions": [
+            {
+              "message": "The real touch rescue button uses the same material and story rules",
+              "passed": true
+            },
+            {
+              "message": "The rescued companion can be left waiting",
+              "passed": true
+            },
+            {
+              "message": "The normal menu saves to an isolated companion test slot",
+              "passed": true
+            },
+            {
+              "message": "A fresh scene restores rescue progress, waiting command and fatigue",
+              "passed": true
+            },
+            {
+              "message": "Load restores the companion’s exact saved world position and heading",
+              "passed": true
+            },
+            {
+              "message": "Loaded companion resumes following without repeating rescue",
+              "passed": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}
