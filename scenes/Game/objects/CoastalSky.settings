@@ -1,0 +1,39 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 328
+name = "CoastalSky"
+type = "Scene3D::Model3DObject"
+variables = [ ]
+effects = [ ]
+folder = [ "Environment" ]
+
+[[behaviors]]
+name = "EnvironmentMaterial"
+type = "TSLMaterial::Material"
+material = "CoastalSky"
+bindingName = "Environment"
+selectorMode = "All"
+meshName = ""
+materialName = ""
+priority = 0
+enabled = true
+fallback = "KeepOriginal"
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 52000
+height = 52000
+isCastingShadow = false
+isReceivingShadow = false
+keepAspectRatio = true
+materialType = "Basic"
+modelResourceName = "coastal-sky.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 52000
+sharedAnimationModelResources = [ ]
+animations = [ ]
+

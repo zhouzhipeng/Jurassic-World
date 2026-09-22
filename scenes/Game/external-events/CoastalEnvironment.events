@@ -1,0 +1,30 @@
+@comment "Camera-centred panoramic sky and weather-linked animated coastal water." background=[70,125,160] text=[255,255,255]
+
+@event aiGeneratedEventId="coastal-sky-follow"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetXY object="CoastalSky" first_modification_sign="=" x_position=expr(CameraCenterX("World3D", 0)) second_modification_sign="=" y_position=expr(CameraCenterY("World3D", 0))
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="CoastalSky" behavior="Object3D" modification_sign="=" value=expr(Scene3D::CameraZ("World3D", 0))
+
+@event aiGeneratedEventId="coastalsky-weather"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if TSLMaterial::IsBindingReady parameter_3d_model="CoastalSky" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment"
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalSky" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="daylight" value=expr(Daylight)
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalSky" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="twilight" value=expr(Twilight)
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalSky" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="cloud" value=expr(WeatherCloud)
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalSky" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="flash" value=expr(WeatherFlash)
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalSky" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="mist" value=expr(WeatherMist)
+do TSLMaterial::SetColorParameter parameter_3d_model="CoastalSky" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="horizon" color=expr(WeatherSky)
+
+@event aiGeneratedEventId="coastalocean-weather"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if TSLMaterial::IsBindingReady parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment"
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="daylight" value=expr(Daylight)
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="twilight" value=expr(Twilight)
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="cloud" value=expr(WeatherCloud)
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="flash" value=expr(WeatherFlash)
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="clock" value=expr(TimeFromStart())
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="fogNear" value=expr(max(800,6500-WeatherCloud*4500-WeatherMist*5700))
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="fogFar" value=expr(max(3500,26000-WeatherCloud*19500-WeatherMist*18500))
+do TSLMaterial::SetColorParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="horizon" color=expr(WeatherSky)
+do TSLMaterial::SetVector3Parameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="camera" x=expr(CameraCenterX("World3D",0)) y=expr(CameraCenterY("World3D",0)) z=expr(Scene3D::CameraZ("World3D",0))
+do TSLMaterial::SetVector3Parameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="sun" x=expr(cos(ToRad(SunRotation))*cos(ToRad(SunElevation))) y=expr(sin(ToRad(SunRotation))*cos(ToRad(SunElevation))) z=expr(sin(ToRad(SunElevation)))

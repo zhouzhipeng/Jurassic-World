@@ -2,6 +2,34 @@ kind = "resources"
 settingsFormatVersion = 6
 
 [[resources]]
+kind = "model3D"
+name = "coastal-sky.glb"
+file = "assets/environment/coastal-sky.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "coastal-ocean.glb"
+file = "assets/environment/coastal-ocean.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "tslMaterial"
+name = "CoastalSky"
+file = "materials/CoastalSky.tsl.ts"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "tslMaterial"
+name = "CoastalOcean"
+file = "materials/CoastalOcean.tsl.ts"
+metadata = ""
+userAdded = true
+
+[[resources]]
 file = "assets/jump-platform-top.svg"
 kind = "image"
 name = "jump-platform-top.svg"

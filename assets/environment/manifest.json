@@ -1,0 +1,24 @@
+[
+  {
+    "file": "coastal-sky.glb",
+    "triangles": 9024,
+    "dimensions": [
+      520.0006103515625,
+      520.0003662109375,
+      520.0
+    ],
+    "bytes": 1523492,
+    "roundtrip_meshes": 1
+  },
+  {
+    "file": "coastal-ocean.glb",
+    "triangles": 49728,
+    "dimensions": [
+      680.0,
+      680.0,
+      0.0
+    ],
+    "bytes": 898476,
+    "roundtrip_meshes": 1
+  }
+]

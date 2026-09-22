@@ -2349,3 +2349,5 @@ link external "FoliageLOD"
 
 @event
 link external "FPSDisplay"
+
+link external "CoastalEnvironment"

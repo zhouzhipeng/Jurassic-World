@@ -2029,7 +2029,7 @@ rendering = "3d"
 camera_type = "perspective"
 camera_behavior = "do-nothing"
 near = 5
-far = 30000
+far = 60000
 fov = 58
 cameras = [{ size = "default", viewport = "default" }]
 
@@ -2176,6 +2176,18 @@ id = "3abbf595-12bc-454b-8f35-2211183e639c"
 object = "Island3D"
 layer = "world3d"
 at = [0, 0]
+
+[[layout.instances]]
+id = "06cde8bf-99cd-41a3-b3b1-47a2d8bd5684"
+object = "CoastalSky"
+layer = "world3d"
+at = [0, 0, 0]
+
+[[layout.instances]]
+id = "5c79f7dc-6a0a-40d0-a345-5cd0e732bf23"
+object = "CoastalOcean"
+layer = "world3d"
+at = [0, 0, -80]
 
 [[layout.instances]]
 id = "d0563fcc-89ad-4ddc-8fba-9774ed679417"
