@@ -1544,3 +1544,220 @@ file = "assets/ui/radar-target.svg"
 metadata = ""
 smoothed = true
 userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-00.glb"
+file = "assets/models/terrain-probes/terrain-probe-00.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-01.glb"
+file = "assets/models/terrain-probes/terrain-probe-01.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-02.glb"
+file = "assets/models/terrain-probes/terrain-probe-02.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-03.glb"
+file = "assets/models/terrain-probes/terrain-probe-03.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-04.glb"
+file = "assets/models/terrain-probes/terrain-probe-04.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-05.glb"
+file = "assets/models/terrain-probes/terrain-probe-05.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-06.glb"
+file = "assets/models/terrain-probes/terrain-probe-06.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-07.glb"
+file = "assets/models/terrain-probes/terrain-probe-07.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-08.glb"
+file = "assets/models/terrain-probes/terrain-probe-08.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-09.glb"
+file = "assets/models/terrain-probes/terrain-probe-09.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-10.glb"
+file = "assets/models/terrain-probes/terrain-probe-10.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-11.glb"
+file = "assets/models/terrain-probes/terrain-probe-11.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-12.glb"
+file = "assets/models/terrain-probes/terrain-probe-12.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-13.glb"
+file = "assets/models/terrain-probes/terrain-probe-13.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-14.glb"
+file = "assets/models/terrain-probes/terrain-probe-14.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-15.glb"
+file = "assets/models/terrain-probes/terrain-probe-15.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-16.glb"
+file = "assets/models/terrain-probes/terrain-probe-16.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-17.glb"
+file = "assets/models/terrain-probes/terrain-probe-17.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-18.glb"
+file = "assets/models/terrain-probes/terrain-probe-18.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-19.glb"
+file = "assets/models/terrain-probes/terrain-probe-19.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-20.glb"
+file = "assets/models/terrain-probes/terrain-probe-20.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-21.glb"
+file = "assets/models/terrain-probes/terrain-probe-21.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-22.glb"
+file = "assets/models/terrain-probes/terrain-probe-22.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-23.glb"
+file = "assets/models/terrain-probes/terrain-probe-23.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-24.glb"
+file = "assets/models/terrain-probes/terrain-probe-24.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-25.glb"
+file = "assets/models/terrain-probes/terrain-probe-25.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-26.glb"
+file = "assets/models/terrain-probes/terrain-probe-26.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-27.glb"
+file = "assets/models/terrain-probes/terrain-probe-27.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-28.glb"
+file = "assets/models/terrain-probes/terrain-probe-28.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-29.glb"
+file = "assets/models/terrain-probes/terrain-probe-29.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-30.glb"
+file = "assets/models/terrain-probes/terrain-probe-30.glb"
+metadata = ""
+userAdded = true
