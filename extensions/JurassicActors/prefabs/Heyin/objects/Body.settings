@@ -1,0 +1,61 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 0
+name = "Body"
+type = "Scene3D::Model3DObject"
+folder = ["Story"]
+variables = [ ]
+behaviors = [ ]
+effects = [ ]
+
+[content]
+centerLocation = "ModelOrigin"
+originLocation = "ModelOrigin"
+crossfadeDuration = 0.2
+width = 86.302286
+height = 38.397696
+depth = 192
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+keepAspectRatio = true
+materialType = "KeepOriginal"
+isCastingShadow = true
+isReceivingShadow = true
+modelResourceName = "heyin.glb"
+sharedAnimationModelResources = [ ]
+
+[[content.animations]]
+name = "Idle"
+source = "Idle"
+loop = true
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+name = "Walk"
+source = "Walk"
+loop = true
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+name = "Rest"
+source = "Rest"
+loop = true
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+name = "Talk"
+source = "Talk"
+loop = true
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+name = "Injured"
+source = "Injured"
+loop = true
+sourceModelResourceName = ""
+useRootMotion = false

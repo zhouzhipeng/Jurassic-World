@@ -29,4 +29,8 @@ if GroupExists storage_name=expr(SaveStorage) group="Version"
 do SetX object="Heyin" modification_sign="=" value=expr(HeyinLoadX)
 do SetY object="Heyin" modification_sign="=" value=expr(HeyinLoadY)
 do SetAngle object="Heyin" modification_sign="=" angle_in_degrees=expr(HeyinLoadAngle)
-
+do SetNumberObjectVariable object="Heyin" variable="Stay" modification_sign="=" value=expr(HeyinStay)
+do SetNumberObjectVariable object="Heyin" variable="Energy" modification_sign="=" value=expr(HeyinEnergy)
+do SetNumberObjectVariable object="Heyin" variable="Resting" modification_sign="=" value=expr(HeyinResting)
+do SetNumberObjectVariable object="Heyin" variable="Attention" modification_sign="=" value=0
+do SetNumberObjectVariable object="Heyin" variable="Moving" modification_sign="=" value=0

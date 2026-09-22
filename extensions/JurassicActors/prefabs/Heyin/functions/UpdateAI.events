@@ -1,0 +1,155 @@
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+do ModVarObjet object="Object" variable="Moving" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Blocked" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="PX" modification_sign="=" value=expr(Object.X())
+do ModVarObjet object="Object" variable="PY" modification_sign="=" value=expr(Object.Y())
+do ModVarObjet object="Object" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Object.X(),Object.Y(),Player.X(),Player.Y()))
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Distance)) comparison_sign="<" second_expression=230
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(CanTalk) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Danger) comparison_sign="=" second_expression=0
+do ModVarObjet object="Object" variable="Attention" modification_sign="=" value=expr(1)
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Distance)) comparison_sign=">" second_expression=280
+do ModVarObjet object="Object" variable="Attention" modification_sign="=" value=expr(0)
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(CanTalk) comparison_sign="=" second_expression=0
+do ModVarObjet object="Object" variable="Attention" modification_sign="=" value=expr(0)
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Danger) comparison_sign="!=" second_expression=0
+do ModVarObjet object="Object" variable="Attention" modification_sign="=" value=expr(0)
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rescued) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Energy)) comparison_sign="<=" second_expression=5
+do ModVarObjet object="Object" variable="Resting" modification_sign="=" value=1
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Resting)) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Energy)) comparison_sign=">=" second_expression=65
+do ModVarObjet object="Object" variable="Resting" modification_sign="=" value=0
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rescued) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Stay)) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Resting)) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Danger) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(CanFollow) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Distance)) comparison_sign=">" second_expression=180
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Attention)) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Distance)) comparison_sign="<" second_expression=1800
+do ModVarObjet object="Object" variable="Step" modification_sign="=" value=expr(min(160.68*TimeDelta(),Object.Variable(Distance)-180))
+do SetX object="Object" modification_sign="=" value=expr(Object.X()+(Player.X()-Object.X())/max(1,Object.Variable(Distance))*Object.Variable(Step))
+do SetY object="Object" modification_sign="=" value=expr(Object.Y()+(Player.Y()-Object.Y())/max(1,Object.Variable(Distance))*Object.Variable(Step))
+do ModVarObjet object="Object" variable="Moving" modification_sign="=" value=1
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=1
+do ModVarObjet object="Object" variable="Blocked" modification_sign="=" value=0
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.X()) comparison_sign=">" second_expression=-1244
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.X()) comparison_sign="<" second_expression=-556
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Y()) comparison_sign=">" second_expression=-1004
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Y()) comparison_sign="<" second_expression=-396
+do ModVarObjet object="Object" variable="Blocked" modification_sign="=" value=1
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=1
+
+> for each "Buildings"
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Buildings.Object3D::Z()) comparison_sign="<" second_expression=180
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Object.X()-Buildings.X())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHX)+40)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Object.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+40)
+>> do ModVarObjet object="Object" variable="Blocked" modification_sign="=" value=1
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=1
+
+> for each "Platforms"
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Object.X()-Platforms.X())) comparison_sign="<" second_expression=expr(Platforms.Width()/2+40)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Object.Y()-Platforms.Y())) comparison_sign="<" second_expression=expr(Platforms.Height()/2+40)
+>> do ModVarObjet object="Object" variable="Blocked" modification_sign="=" value=1
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Blocked)) comparison_sign="=" second_expression=1
+do SetX object="Object" modification_sign="=" value=expr(Object.Variable(PX))
+do SetY object="Object" modification_sign="=" value=expr(Object.Variable(PY))
+do ModVarObjet object="Object" variable="Moving" modification_sign="=" value=0
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=1
+do ModVarObjet object="Object" variable="Energy" modification_sign="=" value=expr(max(0,Object.Variable(Energy)-TimeDelta()*0.7))
+do SetAngle object="Object" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Object.Variable(PX),Object.Variable(PY),Object.X(),Object.Y())-90)
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rescued) comparison_sign="=" second_expression=1
+do ModVarObjet object="Object" variable="Energy" modification_sign="=" value=expr(min(100,Object.Variable(Energy)+TimeDelta()*5))
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Attention)) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Resting)) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Distance)) comparison_sign=">" second_expression=1
+do RotateTowardAngle object="Object" angle_to_rotate_towards_in_degrees=expr(AngleBetweenPositions(Object.X(),Object.Y(),Player.X(),Player.Y())-90) angular_speed_in_degrees_per_second=180
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Resting)) comparison_sign="=" second_expression=1
+if AnimatableCapability::AnimatableBehavior::Name object="Body" behavior="Animation" comparison_sign="!=" animation_name="Rest"
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Rest"
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Resting)) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=1
+if AnimatableCapability::AnimatableBehavior::Name object="Body" behavior="Animation" comparison_sign="!=" animation_name="Walk"
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Walk"
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Resting)) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Attention)) comparison_sign="=" second_expression=1
+if AnimatableCapability::AnimatableBehavior::Name object="Body" behavior="Animation" comparison_sign="!=" animation_name="Talk"
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Talk"
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Resting)) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Attention)) comparison_sign="=" second_expression=0
+if AnimatableCapability::AnimatableBehavior::Name object="Body" behavior="Animation" comparison_sign="!=" animation_name="Idle"
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Idle"
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Body" behavior="Animation"
+do ModVarObjet object="Object" variable="AnimationTime" modification_sign="=" value=expr(Body.Animation::ElapsedTime())
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="!=" second_expression=1
+do AnimatableCapability::AnimatableBehavior::PauseAnimation object="Body" behavior="Animation"
+

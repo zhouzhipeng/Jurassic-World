@@ -1,0 +1,64 @@
+kind = "function"
+settingsFormatVersion = 6
+order = 1
+description = "Update one companion: attention, following, collision, fatigue and animation."
+fullName = "UpdateAI"
+functionType = "Action"
+name = "UpdateAI"
+sentence = ""
+folder = [ ]
+objectGroups = { }
+
+[[parameters]]
+description = "Object"
+name = "Object"
+supplementaryInformation = "JurassicActors::Heyin"
+type = "object"
+
+[[parameters]]
+description = "Player"
+name = "Player"
+supplementaryInformation = ""
+type = "object"
+
+[[parameters]]
+description = "Buildings"
+name = "Buildings"
+supplementaryInformation = "Scene3D::Model3DObject"
+type = "object"
+
+[[parameters]]
+description = "Platforms"
+name = "Platforms"
+supplementaryInformation = ""
+type = "object"
+
+[[parameters]]
+description = "Active"
+name = "Active"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "Rescued"
+name = "Rescued"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "Danger"
+name = "Danger"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "CanFollow"
+name = "CanFollow"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "CanTalk"
+name = "CanTalk"
+supplementaryInformation = ""
+type = "expression"

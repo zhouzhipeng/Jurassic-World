@@ -1,0 +1,22 @@
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Initialized)) comparison_sign="=" second_expression=0
+do ModVarObjet object="Object" variable="Initialized" modification_sign="=" value=expr(1)
+do ModVarObjet object="Object" variable="Stay" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Energy" modification_sign="=" value=expr(100)
+do ModVarObjet object="Object" variable="Resting" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Moving" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Blocked" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="PX" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="PY" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Step" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Distance" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Attention" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="AnimationTime" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Active" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Rescued" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Danger" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="CanFollow" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="CanTalk" modification_sign="=" value=expr(0)
+do JurassicActors::Heyin::SetRotationCenter object="Object" x_position=0 y_position=0 z_position=0
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Idle"
+

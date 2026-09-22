@@ -1,4 +1,4 @@
-const n=k=>Number(harness.getSceneVariable(k)?.value);
+const n=k=>Number(['HeyinStay','HeyinEnergy','HeyinResting'].includes(k)?harness.getObjectVariable('Heyin',k.slice(5))?.value:harness.getSceneVariable(k)?.value);
 const obj=k=>harness.getObjects(k)[0];
 async function tap(k){harness.setKeyPressed(k,true);await harness.stepFrames(1);harness.setKeyPressed(k,false);await harness.stepFrames(2);}
 async function clickObject(o){harness.setMousePosition(o.centerX,o.centerY,o.layer);harness.setMouseButtonPressed(true,'left');await harness.stepFrames(1);harness.setMouseButtonPressed(false,'left');await harness.stepFrames(3);}

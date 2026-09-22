@@ -2,60 +2,94 @@ kind = "object"
 settingsFormatVersion = 6
 order = 330
 name = "Heyin"
-type = "Scene3D::Model3DObject"
+type = "JurassicActors::Heyin"
+variant = ""
 folder = ["Story"]
-variables = [ ]
-behaviors = [ ]
-effects = [ ]
+behaviors = []
+effects = []
+content = {}
 
-[content]
-centerLocation = "ModelOrigin"
-originLocation = "ModelOrigin"
-crossfadeDuration = 0.2
-width = 86.302286
-height = 38.397696
-depth = 192
-rotationX = 90
-rotationY = 0
-rotationZ = 0
-keepAspectRatio = true
-materialType = "KeepOriginal"
-isCastingShadow = true
-isReceivingShadow = true
-modelResourceName = "heyin.glb"
-sharedAnimationModelResources = [ ]
+[[variables]]
+name = "Initialized"
+type = "number"
+value = 0
 
-[[content.animations]]
-name = "Idle"
-source = "Idle"
-loop = true
-sourceModelResourceName = ""
-useRootMotion = false
+[[variables]]
+name = "Stay"
+type = "number"
+value = 0
 
-[[content.animations]]
-name = "Walk"
-source = "Walk"
-loop = true
-sourceModelResourceName = ""
-useRootMotion = false
+[[variables]]
+name = "Energy"
+type = "number"
+value = 100
 
-[[content.animations]]
-name = "Rest"
-source = "Rest"
-loop = true
-sourceModelResourceName = ""
-useRootMotion = false
+[[variables]]
+name = "Resting"
+type = "number"
+value = 0
 
-[[content.animations]]
-name = "Talk"
-source = "Talk"
-loop = true
-sourceModelResourceName = ""
-useRootMotion = false
+[[variables]]
+name = "Moving"
+type = "number"
+value = 0
 
-[[content.animations]]
-name = "Injured"
-source = "Injured"
-loop = true
-sourceModelResourceName = ""
-useRootMotion = false
+[[variables]]
+name = "Blocked"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Step"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Distance"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Attention"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AnimationTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Active"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Rescued"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Danger"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CanFollow"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CanTalk"
+type = "number"
+value = 0

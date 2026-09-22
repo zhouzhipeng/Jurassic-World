@@ -62,20 +62,20 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
-do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"体力 "+ToString(round(HeyinEnergy))+" · 靠近按 G / 交谈切换等候")
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"体力 "+ToString(round(Heyin.Variable(Energy)))+" · 靠近按 G / 交谈切换等候")
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
-if NumberVariable variable="HeyinStay" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Heyin.Variable(Stay)) comparison_sign="=" second_expression=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"禾音在原地等候。靠近交谈后继续同行。")
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
-if NumberVariable variable="HeyinResting" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Heyin.Variable(Resting)) comparison_sign="=" second_expression=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"禾音：让我休息一会儿，我会自己跟上。")
 
 @event
