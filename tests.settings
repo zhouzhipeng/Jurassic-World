@@ -392,3 +392,11 @@ name = "FrameBudget60"
 type = "gameplay"
 description = "Strict 60 FPS frame-cost budget across full-scene movement and camera rotation."
 file = "tests/FrameBudget60.js"
+
+[[tests]]
+scope = "project"
+order = 49
+name = "DamagePerformance"
+type = "gameplay"
+description = "Full-scene damage overlay, real repeated bites, recovery and desktop/touch frame costs."
+file = "tests/DamagePerformance.js"
