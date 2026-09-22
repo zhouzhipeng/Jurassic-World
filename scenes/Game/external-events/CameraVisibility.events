@@ -208,7 +208,7 @@ if (player) {
     headRoomCache.set(lookAhead, false);
     return false;
   };
-  const clearance = (pitch = 25, lookAhead = 0) => {
+  const clearance = (pitch = 25, lookAhead = 0, rejectAt = -1) => {
     lookAhead = Math.min(lookAhead, predictionTime);
     const key = pitch.toFixed(3) + ":" + lookAhead;
     if (clearanceCache.has(key)) return clearanceCache.get(key);
@@ -216,10 +216,19 @@ if (player) {
     const dx = Math.sin(yaw) * Math.cos(radians);
     const dy = Math.cos(yaw) * Math.cos(radians);
     const dz = Math.sin(radians);
-    let distance = requestedDistance;
     let headClearance = requestedDistance;
-    const bodyHits = [];
+    // Classify the central head first. Every remaining probe can only lower
+    // this upper bound. Candidate angles already unable to beat the best view
+    // need no further rays, especially under a roof. Never cache a partial
+    // result: the actual camera and prediction still require exact clearance.
+    for (const hit of castSolids(x + lookAhead * velocityX,
+      y + lookAhead * velocityY, z + 80, dx, dy, dz, requestedDistance + 30)) {
+      headClearance = Math.min(headClearance, Math.max(10, hit - 30));
+    }
+    let distance = headClearance;
+    if (distance <= rejectAt) return distance;
     for (const offset of offsets) {
+      if (offset[0] === 0 && offset[1] === 80) continue;
       const hits = castSolids(
         x + rightX * offset[0] + lookAhead * velocityX,
         y + rightY * offset[0] + lookAhead * velocityY, z + offset[1],
@@ -228,18 +237,12 @@ if (player) {
         // A side probe can originate across an adjacent wall; retracting the
         // actual camera cannot resolve that offset-only overlap.
         if (Math.abs(offset[0]) > 8 && hit < 330) continue;
-        if (offset[0] === 0 && offset[1] > 0) headClearance = Math.min(headClearance, Math.max(10, hit - 30));
-        else bodyHits.push(hit);
+        // Preserve near-target partial-occlusion classification, now that
+        // the complete head clearance is known before any body probe.
+        if (hit < 330 && headClearance >= 330 && hasHeadRoom(lookAhead)) continue;
+        distance = Math.min(distance, Math.max(10, hit - 30));
       }
-    }
-    distance = Math.min(distance, headClearance);
-    for (const hitDistance of bodyHits) {
-      // Peripheral probes can start in a side wall, or beneath a tabletop,
-      // while the real target and camera are clear. Do not collapse the boom
-      // for near-target partial occlusion. Central head blockage and all
-      // farther corridor hits still constrain it, including tall walls.
-      if (hitDistance < 330 && headClearance >= 330 && hasHeadRoom(lookAhead)) continue;
-      distance = Math.min(distance, Math.max(10, hitDistance - 30));
+      if (distance <= rejectAt) return distance;
     }
     clearanceCache.set(key, distance);
     return distance;
@@ -254,7 +257,7 @@ if (player) {
     desiredPitch = requestedPitch;
     for (let step = requestedPitch; step < 85; step += 5) {
       const candidate = Math.min(80, step);
-      const available = clearance(candidate);
+      const available = clearance(candidate, 0, best + 20);
       if (available > best + 20) { desiredPitch = candidate; best = available; }
       if (best >= 700) break;
     }
