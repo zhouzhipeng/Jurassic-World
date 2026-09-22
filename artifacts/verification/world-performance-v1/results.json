@@ -1,0 +1,803 @@
+{
+  "sourceRevision": "9e5b84005b4f3992ad822fbebd463b077ce17e4f",
+  "baselineRevision": "7026dcc",
+  "validation": {
+    "valid": true,
+    "structurallyValid": true,
+    "eventCodeGenerationValid": true,
+    "extensionGeneratedCodeValid": true,
+    "javascriptAuthoringValid": true,
+    "semanticLintPassed": true
+  },
+  "runtimeAcceptance": {
+    "success": true,
+    "runtimeVerified": true,
+    "completionReady": true,
+    "assertions": [
+      {
+        "index": 0,
+        "type": "runtime_error_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq"
+      },
+      {
+        "index": 1,
+        "type": "renderer_visible_mesh_count",
+        "passed": true,
+        "actual": 553,
+        "expected": 0,
+        "operator": "gt",
+        "layerName": "World3D"
+      },
+      {
+        "index": 2,
+        "type": "renderer_failed_texture_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq",
+        "layerName": "World3D"
+      },
+      {
+        "index": 3,
+        "type": "renderer_rejected_object_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq",
+        "layerName": "World3D"
+      }
+    ]
+  },
+  "baseline": {
+    "operation_id": "gameplay-tests-08af836a-57e3-4de3-8114-68dee64972bd",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 0,
+      "failed": 1,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": false
+    },
+    "results": [
+      {
+        "file": "tests/CameraPerformance.js",
+        "status": "failed",
+        "assertions": [
+          {
+            "message": "Reported camp view: exercised real movement (1400.0000000000018)",
+            "passed": true
+          },
+          {
+            "message": "Reported camp view: average moving frame below 33 ms on the reference host; observed 44.63",
+            "passed": false
+          }
+        ],
+        "errors": [
+          "Assertion failed: Reported camp view: average moving frame below 33 ms on the reference host; observed 44.63"
+        ],
+        "profiles": [
+          {
+            "avgStepTimeMs": 44.63,
+            "maxStepTimeMs": 590.8,
+            "sections": [
+              {
+                "name": "events",
+                "avgTimeMs": 28.45,
+                "maxTimeMs": 565.5
+              },
+              {
+                "name": "render",
+                "avgTimeMs": 13.96,
+                "maxTimeMs": 21.6
+              },
+              {
+                "name": "objects (pre-events)",
+                "avgTimeMs": 1.05,
+                "maxTimeMs": 6.3
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 1.02,
+                "maxTimeMs": 2.9
+              },
+              {
+                "name": "objects (post-events)",
+                "avgTimeMs": 0.21,
+                "maxTimeMs": 1
+              }
+            ],
+            "renderer": {
+              "drawCalls": 1021,
+              "triangles": 381022,
+              "geometries": 354,
+              "textures": 201
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "tests": [
+    {
+      "operation_id": "gameplay-tests-3cb7e79f-12f1-41cf-9c4d-6b4513ceee00",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "file": "tests/DistanceVisibility.js",
+          "status": "passed",
+          "assertions": [
+            {
+              "message": "Uphill camera exercises grid intersection",
+              "passed": true
+            },
+            {
+              "message": "Direct height-grid intersection matches the rendered mountain triangles",
+              "passed": true
+            },
+            {
+              "message": "Stegosaur: outer exploration instance exists",
+              "passed": true
+            },
+            {
+              "message": "Stegosaur: distant instance is not drawn",
+              "passed": true
+            },
+            {
+              "message": "Stegosaur: same instance returns when approached",
+              "passed": true
+            },
+            {
+              "message": "Stegosaur: culling preserves health",
+              "passed": true
+            },
+            {
+              "message": "Stegosaur: leaving hides it again",
+              "passed": true
+            },
+            {
+              "message": "Raptor: outer exploration instance exists",
+              "passed": true
+            },
+            {
+              "message": "Raptor: distant instance is not drawn",
+              "passed": true
+            },
+            {
+              "message": "Raptor: same instance returns when approached",
+              "passed": true
+            },
+            {
+              "message": "Raptor: culling preserves health",
+              "passed": true
+            },
+            {
+              "message": "Raptor: leaving hides it again",
+              "passed": true
+            },
+            {
+              "message": "Tyrannosaur: outer exploration instance exists",
+              "passed": true
+            },
+            {
+              "message": "Tyrannosaur: distant instance is not drawn",
+              "passed": true
+            },
+            {
+              "message": "Tyrannosaur: same instance returns when approached",
+              "passed": true
+            },
+            {
+              "message": "Tyrannosaur: culling preserves health",
+              "passed": true
+            },
+            {
+              "message": "Tyrannosaur: leaving hides it again",
+              "passed": true
+            },
+            {
+              "message": "WoodSapling: outer exploration instance exists",
+              "passed": true
+            },
+            {
+              "message": "WoodSapling: distant instance is not drawn",
+              "passed": true
+            },
+            {
+              "message": "WoodSapling: same instance returns when approached",
+              "passed": true
+            },
+            {
+              "message": "WoodSapling: leaving hides it again",
+              "passed": true
+            },
+            {
+              "message": "StoneDeposit: outer exploration instance exists",
+              "passed": true
+            },
+            {
+              "message": "StoneDeposit: distant instance is not drawn",
+              "passed": true
+            },
+            {
+              "message": "StoneDeposit: same instance returns when approached",
+              "passed": true
+            },
+            {
+              "message": "StoneDeposit: leaving hides it again",
+              "passed": true
+            },
+            {
+              "message": "MetalDeposit: outer exploration instance exists",
+              "passed": true
+            },
+            {
+              "message": "MetalDeposit: distant instance is not drawn",
+              "passed": true
+            },
+            {
+              "message": "MetalDeposit: same instance returns when approached",
+              "passed": true
+            },
+            {
+              "message": "MetalDeposit: leaving hides it again",
+              "passed": true
+            },
+            {
+              "message": "SpringWater: outer exploration instance exists",
+              "passed": true
+            },
+            {
+              "message": "SpringWater: distant instance is not drawn",
+              "passed": true
+            },
+            {
+              "message": "SpringWater: same instance returns when approached",
+              "passed": true
+            },
+            {
+              "message": "SpringWater: leaving hides it again",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: distant detail levels are all culled",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: approaching restores one detail level",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: distant detail levels are all culled",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: approaching restores one detail level",
+              "passed": true
+            }
+          ],
+          "errors": [],
+          "profiles": []
+        }
+      ]
+    },
+    {
+      "operation_id": "gameplay-tests-7f13eae5-6c56-424a-a58a-57de1dc2a3f6",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "file": "tests/CameraPerformance.js",
+          "status": "passed",
+          "assertions": [
+            {
+              "message": "Reported camp view: exercised real movement (1400.0000000000018)",
+              "passed": true
+            },
+            {
+              "message": "Reported camp view: average moving frame below 33 ms on the reference host; observed 30.51",
+              "passed": true
+            },
+            {
+              "message": "Reported camp view: camera remains finite while moving",
+              "passed": true
+            },
+            {
+              "message": "Reported camp view: FPS stays visible at the top center",
+              "passed": true
+            },
+            {
+              "message": "Fence and eaves: exercised real movement (1399.9999999999945)",
+              "passed": true
+            },
+            {
+              "message": "Fence and eaves: average moving frame below 33 ms on the reference host; observed 22.84",
+              "passed": true
+            },
+            {
+              "message": "Fence and eaves: camera remains finite while moving",
+              "passed": true
+            },
+            {
+              "message": "Fence and eaves: FPS stays visible at the top center",
+              "passed": true
+            }
+          ],
+          "errors": [],
+          "profiles": [
+            {
+              "avgStepTimeMs": 30.51,
+              "maxStepTimeMs": 399.4,
+              "sections": [
+                {
+                  "name": "events",
+                  "avgTimeMs": 14,
+                  "maxTimeMs": 222.1
+                },
+                {
+                  "name": "render",
+                  "avgTimeMs": 13.97,
+                  "maxTimeMs": 161
+                },
+                {
+                  "name": "objects (pre-render, effects update)",
+                  "avgTimeMs": 1.25,
+                  "maxTimeMs": 9.8
+                },
+                {
+                  "name": "objects (pre-events)",
+                  "avgTimeMs": 1.13,
+                  "maxTimeMs": 6.6
+                },
+                {
+                  "name": "objects (post-events)",
+                  "avgTimeMs": 0.25,
+                  "maxTimeMs": 1.9
+                }
+              ],
+              "renderer": {
+                "drawCalls": 725,
+                "triangles": 337592,
+                "geometries": 345,
+                "textures": 93
+              }
+            },
+            {
+              "avgStepTimeMs": 22.84,
+              "maxStepTimeMs": 34,
+              "sections": [
+                {
+                  "name": "events",
+                  "avgTimeMs": 12.78,
+                  "maxTimeMs": 21.1
+                },
+                {
+                  "name": "render",
+                  "avgTimeMs": 7.84,
+                  "maxTimeMs": 13.2
+                },
+                {
+                  "name": "objects (pre-render, effects update)",
+                  "avgTimeMs": 1.1,
+                  "maxTimeMs": 1.9
+                },
+                {
+                  "name": "objects (pre-events)",
+                  "avgTimeMs": 0.94,
+                  "maxTimeMs": 2.7
+                },
+                {
+                  "name": "objects (post-events)",
+                  "avgTimeMs": 0.22,
+                  "maxTimeMs": 0.7
+                }
+              ],
+              "renderer": {
+                "drawCalls": 496,
+                "triangles": 213922,
+                "geometries": 350,
+                "textures": 138
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operation_id": "gameplay-tests-bf9a436f-23e5-4b15-8ff0-e9bdec388712",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "file": "tests/MountainRadar.js",
+          "status": "passed",
+          "assertions": [
+            {
+              "message": "Expanded island contains 25 dinosaurs",
+              "passed": true
+            },
+            {
+              "message": "Outer regions contain 12 ore seams and 6 springs",
+              "passed": true
+            },
+            {
+              "message": "Ore seams retain independent save identities",
+              "passed": true
+            },
+            {
+              "message": "Ground follows actual mountain mesh at 0,-1600: z=624.5298710503945, error=0.000018606895309858373",
+              "passed": true
+            },
+            {
+              "message": "Ground follows actual mountain mesh at 1700,-4100: z=2345.0816296624566, error=0.00014111723885434913",
+              "passed": true
+            },
+            {
+              "message": "Ground follows actual mountain mesh at -3800,-3900: z=2142.80076426489, error=0.000025688313598948298",
+              "passed": true
+            },
+            {
+              "message": "Ground follows actual mountain mesh at 4250,1800: z=1725.2895429596135, error=2.6853734531000555",
+              "passed": true
+            },
+            {
+              "message": "Ground follows actual mountain mesh at -2400,3900: z=1149.33487654321, error=0.000026076295171151287",
+              "passed": true
+            },
+            {
+              "message": "Real movement climbs the mountain slope",
+              "passed": true
+            },
+            {
+              "message": "Northward movement moves the radar marker upward",
+              "passed": true
+            },
+            {
+              "message": "Space jumps above elevated terrain",
+              "passed": true
+            },
+            {
+              "message": "Jump lands back on the mountain surface",
+              "passed": true
+            },
+            {
+              "message": "Player can explore beyond both former map boundaries",
+              "passed": true
+            },
+            {
+              "message": "Mounted camera anchor follows high mountain terrain",
+              "passed": true
+            },
+            {
+              "message": "Radar fits top-right: requested 1600x900, actual 1600x900, map 1380,16,204,232.9",
+              "passed": true
+            },
+            {
+              "message": "Radar does not overlap active touch buttons at 1600x900",
+              "passed": true
+            },
+            {
+              "message": "Radar fits top-right: requested 568x320, actual 568.8888888888889x320, map 420.8888888888889,16,132,150.70000000000002",
+              "passed": true
+            },
+            {
+              "message": "Radar does not overlap active touch buttons at 568x320",
+              "passed": true
+            },
+            {
+              "message": "Radar fits top-right: requested 720x900, actual 1600x900, map 1380,16,204,232.9",
+              "passed": true
+            },
+            {
+              "message": "Radar does not overlap active touch buttons at 720x900",
+              "passed": true
+            },
+            {
+              "message": "Radar hides while a menu is open",
+              "passed": true
+            },
+            {
+              "message": "Radar returns on resuming exploration",
+              "passed": true
+            }
+          ],
+          "errors": [],
+          "profiles": []
+        }
+      ]
+    },
+    {
+      "operation_id": "gameplay-tests-f730834f-3ee3-4f4f-bb4e-baec7f46792f",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "file": "tests/CameraSmoothFollow.js",
+          "status": "passed",
+          "assertions": [
+            {
+              "message": "The exact reported bush never pushes the camera into the character: 1250",
+              "passed": true
+            },
+            {
+              "message": "No preset-angle or zoom reset jumps: pitch step=0.27008448983142586, zoom-out step=0",
+              "passed": true
+            },
+            {
+              "message": "Foreground foliage remains visible at half opacity in the reported close-up",
+              "passed": true
+            },
+            {
+              "message": "Obscuring plants settle at 50 percent opacity",
+              "passed": true
+            },
+            {
+              "message": "Visible faded bushes have a successfully installed transparent material",
+              "passed": true
+            },
+            {
+              "message": "Harvested foliage stays hidden while its camera fade is cleared",
+              "passed": true
+            },
+            {
+              "message": "No opaque island geometry blocks the final reported camera view",
+              "passed": true
+            },
+            {
+              "message": "Faded bushes regain full opacity after moving away",
+              "passed": true
+            },
+            {
+              "message": "Repeated foliage crossings remain gradual: angle=0, recovery=0",
+              "passed": true
+            },
+            {
+              "message": "A large orbit input is blended over multiple frames: 446.49093910608536",
+              "passed": true
+            },
+            {
+              "message": "Recorded spring route keeps the camera outside the character: minimum=1250, at=",
+              "passed": true
+            },
+            {
+              "message": "Low scenery never causes a sudden close-up: largest inward step=0",
+              "passed": true
+            },
+            {
+              "message": "Follow keeps a stable horizon through starts, stops and reversals: drift=2.842170943040401e-14",
+              "passed": true
+            }
+          ],
+          "errors": [],
+          "profiles": []
+        }
+      ]
+    },
+    {
+      "operation_id": "gameplay-tests-878a9d6c-a81f-4fc2-8b54-5ad63e0b1c77",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "file": "tests/FoliageLOD.js",
+          "status": "passed",
+          "assertions": [
+            {
+              "message": "BerryBush: one persistent instance per detail level",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: exactly one representation visible: far distance selects the lightest mesh",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: far distance selects the lightest mesh",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: one persistent instance per detail level",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: exactly one representation visible: medium distance selects the middle mesh",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: medium distance selects the middle mesh",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: one persistent instance per detail level",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: exactly one representation visible: hysteresis retains middle detail inside the transition band",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: hysteresis retains middle detail inside the transition band",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: one persistent instance per detail level",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: exactly one representation visible: interaction range immediately restores original detail",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: interaction range immediately restores original detail",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: harvest cooldown hides every detail level",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: one persistent instance per detail level",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: exactly one representation visible: regrowth restores exactly one distant representation",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: regrowth restores exactly one distant representation",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: deleting a resource removes its proxies",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: one persistent instance per detail level",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: exactly one representation visible: far distance selects the lightest mesh",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: far distance selects the lightest mesh",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: one persistent instance per detail level",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: exactly one representation visible: medium distance selects the middle mesh",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: medium distance selects the middle mesh",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: one persistent instance per detail level",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: exactly one representation visible: hysteresis retains middle detail inside the transition band",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: hysteresis retains middle detail inside the transition band",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: one persistent instance per detail level",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: exactly one representation visible: interaction range immediately restores original detail",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: interaction range immediately restores original detail",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: harvest cooldown hides every detail level",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: one persistent instance per detail level",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: exactly one representation visible: regrowth restores exactly one distant representation",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: regrowth restores exactly one distant representation",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: deleting a resource removes its proxies",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: restarting does not duplicate LOD instances",
+              "passed": true
+            },
+            {
+              "message": "BerryBush: restarting does not duplicate LOD instances",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: restarting does not duplicate LOD instances",
+              "passed": true
+            },
+            {
+              "message": "FiberFern: restarting does not duplicate LOD instances",
+              "passed": true
+            }
+          ],
+          "errors": [],
+          "profiles": []
+        }
+      ]
+    }
+  ],
+  "wheel": {
+    "initialCameraDistance": 1250,
+    "negativeDelta": -120,
+    "afterNegative": 1250,
+    "positiveDelta": 120,
+    "afterPositive": 1250,
+    "passed": true
+  }
+}
