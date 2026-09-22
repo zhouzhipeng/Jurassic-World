@@ -1,0 +1,237 @@
+{
+  "sourceRevision": "ebd096f",
+  "purpose": "Pre-task isolated worktree comparison of failing existing regressions",
+  "tests": [
+    {
+      "file": "tests/TouchMenus.js",
+      "operation_id": "gameplay-tests-1b6f44dd-5389-4aed-86bb-e0a279fa1867",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 0,
+        "failed": 1,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": false
+      },
+      "results": [
+        {
+          "status": "failed",
+          "assertions": [
+            {
+              "message": "A touch building card enters placement at a valid ground socket",
+              "passed": false
+            }
+          ],
+          "errors": [
+            "Assertion failed: A touch building card enters placement at a valid ground socket"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "tests/MountainRadar.js",
+      "operation_id": "gameplay-tests-8834b003-c419-42ab-8d06-4c488de78e3e",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 0,
+        "failed": 1,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": false
+      },
+      "results": [
+        {
+          "status": "failed",
+          "assertions": [
+            {
+              "message": "Expanded island contains 25 dinosaurs",
+              "passed": true
+            },
+            {
+              "message": "Outer regions contain 12 ore seams and 6 springs",
+              "passed": true
+            },
+            {
+              "message": "Ore seams retain independent save identities",
+              "passed": true
+            },
+            {
+              "message": "Ground follows actual mountain mesh at 0,-1600: z=624.5298710503945, error=0.000018606895309858373",
+              "passed": true
+            },
+            {
+              "message": "Ground follows actual mountain mesh at 1700,-4100: z=2345.0816296624566, error=0.00014111723885434913",
+              "passed": true
+            },
+            {
+              "message": "Ground follows actual mountain mesh at -3800,-3900: z=2142.80076426489, error=0.000025688313598948298",
+              "passed": true
+            },
+            {
+              "message": "Ground follows actual mountain mesh at 4250,1800: z=1725.2895429596135, error=2.6853734531000555",
+              "passed": true
+            },
+            {
+              "message": "Ground follows actual mountain mesh at -2400,3900: z=1149.33487654321, error=0.000026076295171151287",
+              "passed": true
+            },
+            {
+              "message": "Real movement climbs the mountain slope",
+              "passed": true
+            },
+            {
+              "message": "Northward movement moves the radar marker upward",
+              "passed": true
+            },
+            {
+              "message": "Space jumps above elevated terrain",
+              "passed": true
+            },
+            {
+              "message": "Jump lands back on the mountain surface",
+              "passed": true
+            },
+            {
+              "message": "Player can explore beyond both former map boundaries",
+              "passed": true
+            },
+            {
+              "message": "Mounted camera anchor follows high mountain terrain",
+              "passed": true
+            },
+            {
+              "message": "Radar fits top-right: requested 1600x900, actual 1600x900, map 1298,10.8,216,246.6",
+              "passed": true
+            },
+            {
+              "message": "Radar does not overlap active touch buttons at 1600x900",
+              "passed": false
+            }
+          ],
+          "errors": [
+            "Assertion failed: Radar does not overlap active touch buttons at 1600x900"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "tests/CameraVisibility.js",
+      "operation_id": "gameplay-tests-aa2a5dc3-8b92-4596-bc74-16aa5ee339e4",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 0,
+        "failed": 1,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": false
+      },
+      "results": [
+        {
+          "status": "failed",
+          "assertions": [
+            {
+              "message": "A newly placed wall retracts the camera in one frame without changing requested zoom: distance=460.9416214719632",
+              "passed": true
+            },
+            {
+              "message": "Wall: finite camera",
+              "passed": true
+            },
+            {
+              "message": "Wall: body height -70 is unobstructed",
+              "passed": true
+            },
+            {
+              "message": "Wall: body height 0 is unobstructed",
+              "passed": true
+            },
+            {
+              "message": "Wall: body height 70 is unobstructed",
+              "passed": true
+            },
+            {
+              "message": "Hidden geometry stops blocking and zoom recovers smoothly",
+              "passed": true
+            },
+            {
+              "message": "The selected zoom is restored when the obstruction clears",
+              "passed": true
+            },
+            {
+              "message": "A close wall does not snap the camera to a preset angle",
+              "passed": true
+            },
+            {
+              "message": "A close wall gradually selects a clear higher angle",
+              "passed": true
+            },
+            {
+              "message": "Close wall: finite camera",
+              "passed": true
+            },
+            {
+              "message": "Close wall: body height -70 is unobstructed",
+              "passed": true
+            },
+            {
+              "message": "Close wall: body height 0 is unobstructed",
+              "passed": true
+            },
+            {
+              "message": "Close wall: body height 70 is unobstructed",
+              "passed": true
+            },
+            {
+              "message": "Camera uses the current elevated mounted target height",
+              "passed": true
+            },
+            {
+              "message": "Camera remains centered on the mounted target",
+              "passed": true
+            },
+            {
+              "message": "Reported tree obstruction: finite camera",
+              "passed": true
+            },
+            {
+              "message": "Reported tree obstruction: body height -70 is unobstructed",
+              "passed": true
+            },
+            {
+              "message": "Reported tree obstruction: body height 0 is unobstructed",
+              "passed": true
+            },
+            {
+              "message": "Reported tree obstruction: body height 70 is unobstructed",
+              "passed": true
+            },
+            {
+              "message": "The reported view retains safe player framing at or within the requested zoom: 750",
+              "passed": true
+            },
+            {
+              "message": "Island 1600,800 yaw 0: finite camera",
+              "passed": true
+            },
+            {
+              "message": "Island 1600,800 yaw 0: body height -70 is unobstructed",
+              "passed": false
+            }
+          ],
+          "errors": [
+            "Assertion failed: Island 1600,800 yaw 0: body height -70 is unobstructed"
+          ]
+        }
+      ]
+    }
+  ]
+}

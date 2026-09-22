@@ -1,0 +1,124 @@
+{
+  "sourceRevision": "7ccca00",
+  "genericVerification": {
+    "runtimeVerified": true,
+    "assertions": [
+      {
+        "index": 0,
+        "type": "runtime_error_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq"
+      },
+      {
+        "index": 1,
+        "type": "renderer_visible_mesh_count",
+        "passed": true,
+        "actual": 308,
+        "expected": 0,
+        "operator": "gt",
+        "layerName": "World3D"
+      },
+      {
+        "index": 2,
+        "type": "renderer_failed_texture_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq",
+        "layerName": "World3D"
+      },
+      {
+        "index": 3,
+        "type": "renderer_rejected_object_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq",
+        "layerName": "World3D"
+      }
+    ]
+  },
+  "live": {
+    "canvas": {
+      "width": 3014,
+      "height": 1800
+    },
+    "samples": [
+      {
+        "key": "w",
+        "at": 1790066115353,
+        "fps": 54.24063116370809,
+        "errors": []
+      },
+      {
+        "key": "w",
+        "at": 1790066117917,
+        "fps": 56.547619047619044,
+        "errors": []
+      },
+      {
+        "key": "w",
+        "at": 1790066120682,
+        "fps": 44.29133858267716,
+        "errors": []
+      },
+      {
+        "key": "d",
+        "at": 1790066123420,
+        "fps": 59.7609561752988,
+        "errors": []
+      },
+      {
+        "key": "d",
+        "at": 1790066125884,
+        "fps": 58.93909626719057,
+        "errors": []
+      },
+      {
+        "key": "d",
+        "at": 1790066128545,
+        "fps": 54.726368159203986,
+        "errors": []
+      },
+      {
+        "key": "s",
+        "at": 1790066131758,
+        "fps": 58.764940239043824,
+        "errors": []
+      },
+      {
+        "key": "s",
+        "at": 1790066135590,
+        "fps": 53.46534653465346,
+        "errors": []
+      },
+      {
+        "key": "s",
+        "at": 1790066139847,
+        "fps": 36.81592039800996,
+        "errors": []
+      },
+      {
+        "key": "a",
+        "at": 1790066144413,
+        "fps": 23.738872403560833,
+        "errors": []
+      },
+      {
+        "key": "a",
+        "at": 1790066147469,
+        "fps": 57.884231536926144,
+        "errors": []
+      },
+      {
+        "key": "a",
+        "at": 1790066150075,
+        "fps": 56.77290836653386,
+        "errors": []
+      }
+    ],
+    "note": "Normal playback; debugger snapshots serialize scene state and perturb timing. Samples are diagnostic, not an uncontaminated benchmark."
+  }
+}
