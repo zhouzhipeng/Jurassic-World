@@ -1,0 +1,206 @@
+{
+  "sourceRevision": "8fde6ea",
+  "validation": {
+    "valid": true
+  },
+  "runtime": {
+    "success": true,
+    "runtimeVerified": true,
+    "completionReady": true,
+    "assertions": [
+      {
+        "index": 0,
+        "type": "object_count",
+        "passed": true,
+        "actual": 1,
+        "expected": 1,
+        "operator": "eq",
+        "objectName": "FireGlow"
+      },
+      {
+        "index": 1,
+        "type": "runtime_error_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq"
+      },
+      {
+        "index": 2,
+        "type": "renderer_failed_texture_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq",
+        "layerName": "World3D"
+      },
+      {
+        "index": 3,
+        "type": "renderer_rejected_object_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq",
+        "layerName": "World3D"
+      }
+    ]
+  },
+  "tests": [
+    {
+      "operationId": "gameplay-tests-b2854dc3-1081-4e7f-9979-a1ad833e5c09",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "file": "tests/FireParticles.js",
+          "status": "passed",
+          "frames": 495,
+          "assertions": [
+            {
+              "message": "An unlit hearth emits no embers",
+              "passed": true
+            },
+            {
+              "message": "Real fuel input lights the flame and starts particles",
+              "passed": true
+            },
+            {
+              "message": "A living ember rises and shrinks instead of remaining a static decoration",
+              "passed": true
+            },
+            {
+              "message": "Flame height changes between frames",
+              "passed": true
+            },
+            {
+              "message": "Pause freezes fire motion and particle lifetime",
+              "passed": true
+            },
+            {
+              "message": "Fuel exhaustion hides the flame and all remaining embers expire",
+              "passed": true
+            },
+            {
+              "message": "Adding fuel restarts particles without recreating the scene",
+              "passed": true
+            },
+            {
+              "message": "Each constructed fire receives its own linked flame",
+              "passed": true
+            },
+            {
+              "message": "Multiple fires respect the global 96-particle limit",
+              "passed": true
+            },
+            {
+              "message": "Raised constructed fires emit at their own world elevation",
+              "passed": true
+            },
+            {
+              "message": "Removing fire owners leaves no orphan flames or particles",
+              "passed": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "operationId": "gameplay-tests-9612755e-c7e1-450b-967e-75af9314f5b7",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "file": "tests/SurvivalSupplies.js",
+          "status": "passed",
+          "frames": 729,
+          "assertions": [
+            {
+              "message": "The island contains three fresh-water sources and six mineable metal seams",
+              "passed": true
+            },
+            {
+              "message": "Drinking away from water gives directions without free water",
+              "passed": true
+            },
+            {
+              "message": "Hotbar 3 consumes one berry and restores eight hunger",
+              "passed": true
+            },
+            {
+              "message": "An unlit fire cannot consume raw meat",
+              "passed": true
+            },
+            {
+              "message": "One wood starts a 45-second campfire",
+              "passed": true
+            },
+            {
+              "message": "C queues one piece of meat at the nearby fire",
+              "passed": true
+            },
+            {
+              "message": "Repeated cooking input cannot charge for a second occupied slot",
+              "passed": true
+            },
+            {
+              "message": "Fuel and cooking freeze while the pause menu is open",
+              "passed": true
+            },
+            {
+              "message": "Eight active seconds complete exactly one meal",
+              "passed": true
+            },
+            {
+              "message": "Hotbar 5 consumes cooked meat for a substantial meal",
+              "passed": true
+            },
+            {
+              "message": "The workbench crafts one canteen from hide and fiber",
+              "passed": true
+            },
+            {
+              "message": "A second canteen input cannot charge materials again",
+              "passed": true
+            },
+            {
+              "message": "A spring restores water and fills all three canteen portions",
+              "passed": true
+            },
+            {
+              "message": "A wilderness drink spends one stored portion for forty water",
+              "passed": true
+            },
+            {
+              "message": "Drinking while fully hydrated cannot waste stored water",
+              "passed": true
+            },
+            {
+              "message": "Q changes navigation without teleporting the player",
+              "passed": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}
