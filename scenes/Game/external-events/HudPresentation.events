@@ -480,3 +480,8 @@ do SetY object="TouchToastText" modification_sign="=" value=expr(HudContextY-44*
 do TextObject::Text::SetFontSize object="TouchToastText" modification_sign="=" value=expr(20*HudScale)
 do TextObject::SetWrapping object="TouchToastText" wrapping=true
 do TextObject::WrappingWidth object="TouchToastText" modification_sign="=" value=expr(560*HudScale)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=9
+or NumberVariable variable="Mode" comparison_sign="=" value=10
+do HideLayer layer="Touch"
