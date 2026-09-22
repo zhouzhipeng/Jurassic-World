@@ -17,7 +17,8 @@ do Hide object="HudCompanionHP"
 do Hide object="HudCompanionEnergy"
 do Hide object="HudContextTitle"
 do Hide object="HudContextDetail"
-do Hide object="FPSCounter"
+do Show object="FPSCounter"
+do SetY object="FPSCounter" modification_sign="=" value=8
 do PrimitiveDrawing::Drawer::ClearShapes shape_painter_object="HudBars"
 
 @event
@@ -28,6 +29,7 @@ do Show object="HudVitals"
 do Show object="HudQuest"
 do Show object="HudCompanion"
 do Show object="HudClock"
+do SetY object="FPSCounter" modification_sign="=" value=expr(Variable(HudMargin) + 54 * Variable(HudScale))
 do Show object="HudContext"
 do Show object="HudBars"
 do Show object="HudHunger"
