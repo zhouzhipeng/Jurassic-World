@@ -50,6 +50,16 @@ name = "PressCommand"
 type = "number"
 value = 0
 
+[[variables]]
+name = "PressX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "PressY"
+type = "number"
+value = 0
+
 [[animations]]
 name = "Default"
 useMultipleDirections = false

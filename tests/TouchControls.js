@@ -45,4 +45,27 @@ try {
   harness.touchMove(51, menu.x-100, menu.y+150, 'Touch'); await harness.stepFrames(1);
   harness.touchEnd(51); await harness.stepFrames(2);
   harness.assert(n('Mode')===0, 'Dragging off a button cancels the tap instead of opening a menu');
+  // The entire right side accepts look gestures, including the former top dead zone.
+  for (const fy of [.02, .18, .5, .95]) {
+    const x = n('TouchWidth') * .60, y = n('TouchHeight') * fy;
+    const oldYaw = n('CameraYaw');
+    harness.touchStart(60, x, y, 'Touch'); await harness.stepFrames(1);
+    harness.touchMove(60, x + 50, y + 15, 'Touch'); await harness.stepFrames(2);
+    harness.assert(Math.abs(n('CameraYaw') - oldYaw) > 5, `Right-side drag rotates at height ${fy}`);
+    harness.touchEnd(60); await harness.stepFrames(2);
+  }
+  for (const command of [1, 2, 3, 4, 7, 90, 300+n('TouchContext')]) {
+    const b = button(command);
+    if (!b) throw new Error(`Missing right-side button ${command}`);
+    const oldYaw = n('CameraYaw');
+    harness.touchStart(61, b.centerX, b.centerY, 'Touch'); await harness.stepFrames(1);
+    harness.touchMove(61, b.centerX - 35*n('TouchScale'), b.centerY, 'Touch'); await harness.stepFrames(2);
+    harness.assert(Math.abs(n('CameraYaw') - oldYaw) > 5 && n('TouchLookId') === 61, `Dragging command ${command} hands off to the camera even inside the button`);
+    harness.touchMove(61, b.centerX, b.centerY, 'Touch'); await harness.stepFrames(1);
+    harness.touchEnd(61); await harness.stepFrames(2);
+    harness.assert(n('Mode') === 0 && n('TouchCommand') === 0 && n('TouchAttack') === 0, `Returning to command ${command} after dragging does not trigger a tap`);
+  }
+  await tap(1, 62);
+  harness.assert(n('Mode') === 2, 'A fresh menu tap still works after button drags');
+  await tap(8, 63);
 } finally { harness.releaseAllInputs(); }

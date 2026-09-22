@@ -53,6 +53,24 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 > for each "TouchButton"
 >> @event
 >> if NumberObjectVariable object="TouchButton" variable="TouchId" comparison_sign="!=" value=-999
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="TouchButton" variable="PressX" comparison_sign=">" value=expr(TouchWidth*0.42)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(TouchX(TouchButton.Variable(TouchId),"Touch",0)-TouchButton.Variable(PressX))+abs(TouchY(TouchButton.Variable(TouchId),"Touch",0)-TouchButton.Variable(PressY))) comparison_sign=">" second_expression=expr(12*TouchScale)
+>>> @event
+>>> if NumberVariable variable="TouchLookId" comparison_sign="=" value=-999
+>>> @instruction inverted=true
+>>> if HasTouchEnded touch_identifier=expr(TouchButton.Variable(TouchId))
+>>> do SetNumberVariable variable="TouchLookId" modification_sign="=" value=expr(TouchButton.Variable(TouchId))
+>>> do SetNumberVariable variable="TouchLookX" modification_sign="=" value=expr(TouchButton.Variable(PressX))
+>>> do SetNumberVariable variable="TouchLookY" modification_sign="=" value=expr(TouchButton.Variable(PressY))
+
+>>> @event
+>>> if NumberObjectVariable object="TouchButton" variable="TouchId" comparison_sign="!=" value=-999
+>>> do SetNumberObjectVariable object="TouchButton" variable="TouchId" modification_sign="=" value=-999
+
+>> @event
+>> if NumberObjectVariable object="TouchButton" variable="TouchId" comparison_sign="!=" value=-999
 >> if HasTouchEnded touch_identifier=expr(TouchButton.Variable(TouchId))
 >>> @event
 >>> if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=1
@@ -92,6 +110,8 @@ if HasAnyTouchOrMouseStarted
 >>> do SetNumberVariable variable="TouchConsumed" modification_sign="=" value=1
 >>> do SetNumberObjectVariable object="TouchButton" variable="TouchId" modification_sign="=" value=expr(TouchId)
 >>> do SetNumberObjectVariable object="TouchButton" variable="PressCommand" modification_sign="=" value=expr(TouchButton.Variable(Command))
+>>> do SetNumberObjectVariable object="TouchButton" variable="PressX" modification_sign="=" value=expr(TouchX(TouchId,"Touch",0))
+>>> do SetNumberObjectVariable object="TouchButton" variable="PressY" modification_sign="=" value=expr(TouchY(TouchId,"Touch",0))
 
 >> @event
 >> if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -111,7 +131,6 @@ if HasAnyTouchOrMouseStarted
 >> if NumberVariable variable="TouchConsumed" comparison_sign="=" value=0
 >> if NumberVariable variable="TouchLookId" comparison_sign="=" value=-999
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchX(TouchId,"Touch",0)) comparison_sign=">" second_expression=expr(TouchWidth*0.42)
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchY(TouchId,"Touch",0)) comparison_sign=">" second_expression=expr(TouchMargin+260*TouchScale)
 >> do SetNumberVariable variable="TouchLookId" modification_sign="=" value=expr(TouchId)
 >> do SetNumberVariable variable="TouchLookX" modification_sign="=" value=expr(TouchX(TouchId,"Touch",0))
 >> do SetNumberVariable variable="TouchLookY" modification_sign="=" value=expr(TouchY(TouchId,"Touch",0))
