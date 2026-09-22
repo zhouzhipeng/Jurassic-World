@@ -136,17 +136,14 @@ if (player) {
   // Island3D is static project scenery. Keep scalar hit distances for identical
   // rays while its transform and the camera pivot are unchanged. Moving actors
   // and player-built geometry always use current transforms.
-  // Query only spatial tiles intersecting the camera neighborhood. Hidden query
-  // meshes preserve the visible island's exact triangles without rendering twice.
-  const terrain = runtimeScene.getObjects("Island3D").some(object => object.isVisible()) ? runtimeScene.getObjectNamesInGroup("TerrainProbes")
-    .flatMap(name => runtimeScene.getObjects(name)).filter(object => {
-      const v = object.getVariables();
-      const margin = requestedDistance + 450;
-      return x + margin >= v.get("QueryMinX").getAsNumber() &&
-        x - margin <= v.get("QueryMaxX").getAsNumber() &&
-        y + margin >= v.get("QueryMinY").getAsNumber() &&
-        y - margin <= v.get("QueryMaxY").getAsNumber();
-    }) : [];
+  // Camera-only conservative bounds for disconnected scenery pieces. Keep
+  // player physics and rendered geometry unchanged; skip distant components.
+  const islandVisible=runtimeScene.getObjects("Island3D").some(object=>object.isVisible());
+  const scenery= islandVisible ? variables.get("CameraSceneryBounds").getAllChildrenArray()
+    .map(row=>row.getAllChildrenArray().map(value=>value.getAsNumber()))
+    .filter(box=>x+requestedDistance+450>=box[0] && x-requestedDistance-450<=box[3] &&
+      y+requestedDistance+450>=box[1] && y-requestedDistance-450<=box[4]) : [];
+  follow.getChild("NearSceneryBoxCount").setNumber(scenery.length);
   const actorNames = ["Dinosaur3D", "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur"];
   const liveBlockers = blockers.filter(object => object.getName() !== "Island3D" &&
     !actorNames.includes(object.getName()));
@@ -163,9 +160,7 @@ if (player) {
       halfX: object.getWidth() / 2 + 15, halfY: object.getHeight() / 2 + 15,
       depth: vars.get("CameraBoundsDepth").getAsNumber() + 15 };
   });
-  const terrainKey = [x, y, z, yaw, requestedDistance, ...terrain.flatMap(object =>
-    [object.getUniqueId(), object.getX(), object.getY(), object.getAngle(),
-      object.getWidth(), object.getHeight()])].join(":");
+  const terrainKey = [x,y,z,yaw,requestedDistance,islandVisible].join(":");
   const terrainCache = follow.getChild("TerrainRayCache");
   // Exact intersection with the authored 1 m triangular height grid. Traverse
   // only crossed cells, split at the triangle diagonal, solve each linear
@@ -195,9 +190,19 @@ if (player) {
     return vertexHeight(ix+1,iy+1)*(u+v-1)+vertexHeight(ix,iy+1)*(1-u)+vertexHeight(ix+1,iy)*(1-v);
   };
   const castGround = (ox=0,oy=0,oz=0,dx=0,dy=0,dz=0,far=0) => {
-    if (!runtimeScene.getObjects("Island3D").some(object=>object.isVisible())) return -1;
+    if (!islandVisible) return -1;
     let t=0;
     for (let cell=0;cell<128 && t<far;cell++) {
+      // Bound all hill contributions over a short ray rectangle. If its
+      // highest possible ground lies below the whole ray, skip those cells.
+      const span=Math.min(far,t+400),ax=ox+dx*t,ay=oy+dy*t,bx=ox+dx*span,by=oy+dy*span;
+      const minX=Math.min(ax,bx)-100,maxX=Math.max(ax,bx)+100,minY=Math.min(ay,by)-100,maxY=Math.max(ay,by)+100;
+      let upper=0;
+      for (const [hx,hy,rx,ry,a] of hills) {
+        const u=Math.max(minX-hx,0,hx-maxX)/rx,v=Math.max(minY-hy,0,hy-maxY)/ry;
+        const w=Math.max(0,1-u*u-v*v);upper+=a*w*w;
+      }
+      if (Math.min(oz+dz*t,oz+dz*span)>upper+.01) {t=span;continue;}
       const gx=Math.floor((ox+dx*(t+.000001))/100),gy=Math.floor((oy+dy*(t+.000001))/100);
       const tx=Math.abs(dx)<.0000001 ? far : ((gx+(dx>0?1:0))*100-ox)/dx;
       const ty=Math.abs(dy)<.0000001 ? far : ((gy+(dy>0?1:0))*100-oy)/dy;
@@ -255,13 +260,18 @@ if (player) {
           follow.getChild("GroundRay").getChild(name).setNumber(value);
         }
       }
-      const reached = terrain.filter(object => {
-        const v=object.getVariables();
-        return intersectsXY(ox,oy,dx,dy,far,v.get("QueryMinX").getAsNumber(),v.get("QueryMaxX").getAsNumber(),v.get("QueryMinY").getAsNumber(),v.get("QueryMaxY").getAsNumber());
-      });
-      const hits = reached.length ? gdjs.evtTools.scene3d.raycastObjects(
-        ox, oy, oz, dx, dy, dz, reached, 0, far, true) : [];
-      for (const hit of hits) cached.pushValue(hit.distance);
+      // Slab intersection avoids per-ray scene graph updates and triangle scans.
+      // Component boxes may retract slightly early near corners, never late.
+      for (const box of scenery) {
+        let enter=0,leave=far;
+        if (Math.abs(dx)<.0000001) {if(ox<box[0] || ox>box[3]) continue;}
+        else {const a=(box[0]-ox)/dx,b=(box[3]-ox)/dx;enter=Math.max(enter,Math.min(a,b));leave=Math.min(leave,Math.max(a,b));if(enter>leave)continue;}
+        if (Math.abs(dy)<.0000001) {if(oy<box[1] || oy>box[4]) continue;}
+        else {const a=(box[1]-oy)/dy,b=(box[4]-oy)/dy;enter=Math.max(enter,Math.min(a,b));leave=Math.min(leave,Math.max(a,b));if(enter>leave)continue;}
+        if (Math.abs(dz)<.0000001) {if(oz<box[2] || oz>box[5]) continue;}
+        else {const a=(box[2]-oz)/dz,b=(box[5]-oz)/dz;enter=Math.max(enter,Math.min(a,b));leave=Math.min(leave,Math.max(a,b));if(enter>leave)continue;}
+        cached.pushValue(enter);
+      }
     }
     for (const hit of terrainCache.getChild(key).getAllChildrenArray()) {
       distances.push(hit.getAsNumber());

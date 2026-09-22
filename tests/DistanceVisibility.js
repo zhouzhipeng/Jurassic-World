@@ -6,12 +6,6 @@ try {
   harness.setSceneVariable('Invulnerable',9999);
   const player=()=>harness.getObjects('Player3D')[0];
   const scene=harness.getCurrentRuntimeScene();
-  const probes=scene.getObjectNamesInGroup('TerrainProbes').flatMap(name=>scene.getObjects(name));
-  for (const [x,y] of [[650,200],[1700,-4100],[-3800,-3900],[4250,1800],[-2400,3900]]) {
-    const full=gdjs.evtTools.scene3d.raycastObjects(x,y,8000,0,0,-1,scene.getObjects('Island3D'),0,9000,true);
-    const tiles=gdjs.evtTools.scene3d.raycastObjects(x,y,8000,0,0,-1,probes,0,9000,true);
-    harness.assert(tiles.length>0 && tiles.every(t=>full.some(f=>Math.abs(f.distance-t.distance)<.01)),`Spatial scenery hits belong to the visible island at ${x},${y}`);
-  }
   harness.setObjectPosition(player().id,0,-1500,0);
   harness.setSceneVariable('CameraYaw',180);
   harness.setSceneVariable('CameraPitch',12);
