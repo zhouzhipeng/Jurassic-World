@@ -1,0 +1,48 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 365
+assetStoreId = ""
+name = "TerrainProbe15"
+type = "Scene3D::Model3DObject"
+
+effects = [ ]
+behaviors = [ ]
+folder = [ "Real-time 3D" ]
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 1401.8871307373047
+height = 948.4580993652344
+isCastingShadow = false
+isReceivingShadow = false
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "terrain-probe-15.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 1109.5394134521484
+sharedAnimationModelResources = [ ]
+animations = [ ]
+
+[[variables]]
+name = "QueryMinX"
+type = "number"
+value = -155.78746795654297
+
+[[variables]]
+name = "QueryMaxX"
+type = "number"
+value = 953.7519454956055
+
+[[variables]]
+name = "QueryMinY"
+type = "number"
+value = -5385.878753662109
+
+[[variables]]
+name = "QueryMaxY"
+type = "number"
+value = -4437.420654296875

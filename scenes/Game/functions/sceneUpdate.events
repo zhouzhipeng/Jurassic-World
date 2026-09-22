@@ -1,3 +1,5 @@
+link external "TerrainProbes"
+
 link external "FoliageLODRestore"
 
 @event

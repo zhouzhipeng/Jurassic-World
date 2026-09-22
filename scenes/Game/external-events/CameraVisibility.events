@@ -55,7 +55,7 @@ if (player) {
   const requestedPitch = number("CameraPitch");
   const requestedDistance = number("CameraDistance");
   // Island3D includes its trees, rocks and camp. Other entries cover dynamic geometry.
-  const names = ["Island3D", "BerryBush", "FiberFern", "WoodSapling", "StoneDeposit",
+  const names = ["BerryBush", "FiberFern", "WoodSapling", "StoneDeposit",
     "MetalDeposit", "SpringWater", "CampHearth", "CampForge", "BuiltShelter",
     "BuiltPalisade", "BuiltCampfire", "PartFoundation", "PartPillar", "PartWall",
     "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs", "Triceratops",
@@ -114,7 +114,17 @@ if (player) {
   // Island3D is static project scenery. Keep scalar hit distances for identical
   // rays while its transform and the camera pivot are unchanged. Moving actors
   // and player-built geometry always use current transforms.
-  const terrain = blockers.filter(object => object.getName() === "Island3D");
+  // Query only spatial tiles intersecting the camera neighborhood. Hidden query
+  // meshes preserve the visible island's exact triangles without rendering twice.
+  const terrain = runtimeScene.getObjectNamesInGroup("TerrainProbes")
+    .flatMap(name => runtimeScene.getObjects(name)).filter(object => {
+      const v = object.getVariables();
+      const margin = requestedDistance + 450;
+      return x + margin >= v.get("QueryMinX").getAsNumber() &&
+        x - margin <= v.get("QueryMaxX").getAsNumber() &&
+        y + margin >= v.get("QueryMinY").getAsNumber() &&
+        y - margin <= v.get("QueryMaxY").getAsNumber();
+    });
   const actorNames = ["Dinosaur3D", "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur"];
   const liveBlockers = blockers.filter(object => object.getName() !== "Island3D" &&
     !actorNames.includes(object.getName()));

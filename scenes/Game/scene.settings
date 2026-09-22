@@ -2100,6 +2100,7 @@ type = "number"
 value = 0
 
 [objectGroups]
+TerrainProbes = ["TerrainProbe00", "TerrainProbe01", "TerrainProbe02", "TerrainProbe03", "TerrainProbe04", "TerrainProbe05", "TerrainProbe06", "TerrainProbe07", "TerrainProbe08", "TerrainProbe09", "TerrainProbe10", "TerrainProbe11", "TerrainProbe12", "TerrainProbe13", "TerrainProbe14", "TerrainProbe15", "TerrainProbe16", "TerrainProbe17", "TerrainProbe18", "TerrainProbe19", "TerrainProbe20", "TerrainProbe21", "TerrainProbe22", "TerrainProbe23", "TerrainProbe24", "TerrainProbe25", "TerrainProbe26", "TerrainProbe27", "TerrainProbe28", "TerrainProbe29", "TerrainProbe30"]
 ModularParts = [
 "PartFoundation",
 "PartPillar",
@@ -3738,3 +3739,189 @@ object = "RadarInfo"
 layer = "performance"
 at = [0, 0, 0]
 z_order = 104
+
+[[layout.instances]]
+id = "3fe17921-6061-4005-a817-f273cd2109fe"
+object = "TerrainProbe00"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "afe3249e-5a48-481d-ba00-fc453cb8d658"
+object = "TerrainProbe01"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "117dcd86-5568-4ebd-9cbe-3fbb3a7a32a5"
+object = "TerrainProbe02"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "3853035c-8395-4ef6-8df4-d2cda42fa777"
+object = "TerrainProbe03"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "2121bf17-3f28-40a3-bbc1-a4fc71c83a53"
+object = "TerrainProbe04"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "f801e5ba-3205-417f-ab3c-04fec9484712"
+object = "TerrainProbe05"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "d374ed20-96ab-4e9f-a343-d7d6c0da51f9"
+object = "TerrainProbe06"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "8f715411-ba2a-459c-b917-ddca76dbc217"
+object = "TerrainProbe07"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "f2f53c46-3f9d-41af-baf2-0845ee87e201"
+object = "TerrainProbe08"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "f050845d-120e-4f9b-925b-fee49b21b973"
+object = "TerrainProbe09"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "61951db8-7fea-4fcf-a49b-a33869e6db1f"
+object = "TerrainProbe10"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "d09efa50-c712-438f-b2ec-01e0b032f9fa"
+object = "TerrainProbe11"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "419a8066-e545-41c7-9636-830ea350dd49"
+object = "TerrainProbe12"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "b83daa26-1050-464b-bc08-87777708fedd"
+object = "TerrainProbe13"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "197f2775-a462-4706-8ca2-00bfe72c6207"
+object = "TerrainProbe14"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "0df0cbd8-0ca7-4987-89b2-5fedeefe13dc"
+object = "TerrainProbe15"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "cb628149-9db3-4ba0-a813-65ce96bae1d0"
+object = "TerrainProbe16"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "1cf06213-4bde-4890-86e5-7bb7f1e1b760"
+object = "TerrainProbe17"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "3b6d10b9-1ca5-466f-b1ab-94a6740b94ea"
+object = "TerrainProbe18"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "d61aef1f-e237-4761-b775-8871df12137c"
+object = "TerrainProbe19"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "77d95260-3c59-420e-b238-407c0b3ad3a9"
+object = "TerrainProbe20"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "bc8b83d8-b81d-441b-90d5-a6caa0e09272"
+object = "TerrainProbe21"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "0b6b9853-7db3-47fa-9761-7a93c9c45c2e"
+object = "TerrainProbe22"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "512cd5d0-0ed7-4bf0-95df-5afbc7d07db5"
+object = "TerrainProbe23"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "5ddccad8-a9c0-4f19-9d60-085cb054dda8"
+object = "TerrainProbe24"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "186b9785-def0-4627-b69e-0c534574cccc"
+object = "TerrainProbe25"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "5cef4ce2-4ea8-45e1-946a-5df55a0fdc5d"
+object = "TerrainProbe26"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "3b5c5110-81e8-4d23-8a37-c13284c9c846"
+object = "TerrainProbe27"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "56215981-f635-4da9-8816-31dfda155d07"
+object = "TerrainProbe28"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "5c279f82-b108-4823-8f29-2e4ee25cd361"
+object = "TerrainProbe29"
+layer = "world3d"
+at = [0, 0]
+
+[[layout.instances]]
+id = "2d909b34-9b4c-4283-9cf3-78329178987f"
+object = "TerrainProbe30"
+layer = "world3d"
+at = [0, 0]

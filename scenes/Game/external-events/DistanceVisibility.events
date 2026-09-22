@@ -3,9 +3,13 @@
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each Triceratops
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Triceratops.X(),Triceratops.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
 >> do Hide object="Triceratops"
 >> do SetNumberObjectVariable object="Triceratops" variable="AnimationPlaying" modification_sign="=" value=0
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Triceratops.X(),Triceratops.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
 >> if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=0
 >> do Show object="Triceratops"
@@ -13,9 +17,13 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each Stegosaur
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Stegosaur.X(),Stegosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
 >> do Hide object="Stegosaur"
 >> do SetNumberObjectVariable object="Stegosaur" variable="AnimationPlaying" modification_sign="=" value=0
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Stegosaur.X(),Stegosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
 >> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
 >> do Show object="Stegosaur"
@@ -23,9 +31,13 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each Raptor
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
 >> do Hide object="Raptor"
 >> do SetNumberObjectVariable object="Raptor" variable="AnimationPlaying" modification_sign="=" value=0
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
 >> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
 >> do Show object="Raptor"
@@ -33,9 +45,13 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each Tyrannosaur
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
 >> do Hide object="Tyrannosaur"
 >> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationPlaying" modification_sign="=" value=0
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
 >> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
 >> do Show object="Tyrannosaur"
@@ -43,8 +59,12 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each WoodSapling
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(WoodSapling.X(),WoodSapling.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
 >> do Hide object="WoodSapling"
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(WoodSapling.X(),WoodSapling.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
 >> if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
 >> do Show object="WoodSapling"
@@ -52,8 +72,12 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each StoneDeposit
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(StoneDeposit.X(),StoneDeposit.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
 >> do Hide object="StoneDeposit"
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(StoneDeposit.X(),StoneDeposit.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
 >> if NumberObjectVariable object="StoneDeposit" variable="Cooldown" comparison_sign="<=" value=0
 >> do Show object="StoneDeposit"
@@ -61,8 +85,12 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each MetalDeposit
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(MetalDeposit.X(),MetalDeposit.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
 >> do Hide object="MetalDeposit"
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(MetalDeposit.X(),MetalDeposit.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
 >> if NumberObjectVariable object="MetalDeposit" variable="Cooldown" comparison_sign="<=" value=0
 >> do Show object="MetalDeposit"
@@ -70,7 +98,11 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each SpringWater
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(SpringWater.X(),SpringWater.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
 >> do Hide object="SpringWater"
+
+>> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(SpringWater.X(),SpringWater.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
 >> do Show object="SpringWater"
