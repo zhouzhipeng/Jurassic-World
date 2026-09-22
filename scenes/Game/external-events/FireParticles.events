@@ -1,0 +1,53 @@
+@comment "Native 3D embers: bounded lifetime/count, depth-tested in World3D, no saved cosmetic state." background=[255,230,109] text=[0,0,0]
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+> for each "FireGlow"
+>> if Visible object="FireGlow"
+>> do SetNumberObjectVariable object="FireGlow" variable="FlameTime" modification_sign="+" value=expr(TimeDelta())
+>> do SetNumberObjectVariable object="FireGlow" variable="EmitTime" modification_sign="+" value=expr(TimeDelta())
+>> do Scene3D::Base3DBehavior::SetScaleZ parameter_3d_object="FireGlow" behavior="Object3D" modification_sign="=" scale_1_by_default=expr(0.94+0.13*sin(FireGlow.Variable(FlameTime)*13+FireGlow.Variable(Slot))+0.07*sin(FireGlow.Variable(FlameTime)*23))
+>> do ScalableCapability::ScalableBehavior::SetX object="FireGlow" behavior="Scale" modification_sign="=" scale_1_by_default=expr(1+0.10*sin(FireGlow.Variable(FlameTime)*9))
+>> do ScalableCapability::ScalableBehavior::SetY object="FireGlow" behavior="Scale" modification_sign="=" scale_1_by_default=expr(1+0.09*cos(FireGlow.Variable(FlameTime)*11))
+>> do SetAngle object="FireGlow" modification_sign="=" angle_in_degrees=expr(FireGlow.Variable(Slot)*37+8*sin(FireGlow.Variable(FlameTime)*5))
+
+>>> if NumberObjectVariable object="FireGlow" variable="EmitTime" comparison_sign=">=" value=0.075
+>>> if SceneInstancesCount object="FireEmber" comparison_sign="<" value=96
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),FireGlow.X(),FireGlow.Y())) comparison_sign="<" second_expression=1800
+>>> do SetNumberObjectVariable object="FireGlow" variable="EmitTime" modification_sign="=" value=0
+>>> do Create object_to_create="FireEmber" x_position=expr(FireGlow.X()+RandomFloatInRange(-24,24)) y_position=expr(FireGlow.Y()+RandomFloatInRange(-24,24)) layer="World3D"
+>>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="FireEmber" behavior="Object3D" modification_sign="=" value=expr(FireGlow.Object3D::Z()+RandomFloatInRange(32,65))
+>>> do SetNumberObjectVariable object="FireEmber" variable="Lifetime" modification_sign="=" value=expr(RandomFloatInRange(0.8,1.65))
+>>> do SetNumberObjectVariable object="FireEmber" variable="VX" modification_sign="=" value=expr(RandomFloatInRange(-18,18))
+>>> do SetNumberObjectVariable object="FireEmber" variable="VY" modification_sign="=" value=expr(RandomFloatInRange(-18,18))
+>>> do SetNumberObjectVariable object="FireEmber" variable="VZ" modification_sign="=" value=expr(RandomFloatInRange(62,110))
+>>> do SetNumberObjectVariable object="FireEmber" variable="Size" modification_sign="=" value=expr(RandomFloatInRange(0.55,1.25))
+>>> do SetAngle object="FireEmber" modification_sign="=" angle_in_degrees=expr(RandomInRange(0,359))
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+> for each "FireEmber"
+>> if NumberObjectVariable object="FireEmber" variable="Life" comparison_sign="<" value=expr(FireEmber.Variable(Lifetime))
+>> do SetNumberObjectVariable object="FireEmber" variable="Life" modification_sign="+" value=expr(TimeDelta())
+>> do SetX object="FireEmber" modification_sign="+" value=expr(FireEmber.Variable(VX)*TimeDelta())
+>> do SetY object="FireEmber" modification_sign="+" value=expr(FireEmber.Variable(VY)*TimeDelta())
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="FireEmber" behavior="Object3D" modification_sign="+" value=expr(FireEmber.Variable(VZ)*TimeDelta())
+>> do SetAngle object="FireEmber" modification_sign="+" angle_in_degrees=expr(80*TimeDelta())
+>> do ScalableCapability::ScalableBehavior::SetValue object="FireEmber" behavior="Scale" modification_sign="=" scale_1_by_default=expr(FireEmber.Variable(Size)*max(0.01,1-FireEmber.Variable(Life)/FireEmber.Variable(Lifetime)))
+>> do Scene3D::Base3DBehavior::SetScaleZ parameter_3d_object="FireEmber" behavior="Object3D" modification_sign="=" scale_1_by_default=expr(FireEmber.Variable(Size)*max(0.01,1-FireEmber.Variable(Life)/FireEmber.Variable(Lifetime)))
+>> do Scene3D::Cube3DObject::SetTint parameter_3d_cube="FireEmber" tint=expr(ToString(round(255-150*FireEmber.Variable(Life)/FireEmber.Variable(Lifetime)))+";"+ToString(round(205-170*FireEmber.Variable(Life)/FireEmber.Variable(Lifetime)))+";15")
+
+>> if NumberObjectVariable object="FireEmber" variable="Life" comparison_sign=">=" value=expr(FireEmber.Variable(Lifetime))
+>> do Delete object="FireEmber"
+
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=0
+do Hide object="FireEmber"
+
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do Show object="FireEmber"

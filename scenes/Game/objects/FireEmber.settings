@@ -1,0 +1,69 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 332
+name = "FireEmber"
+type = "Scene3D::Cube3DObject"
+folder = [ "Survival" ]
+behaviors = [ ]
+effects = [ ]
+
+[[variables]]
+name = "Life"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Lifetime"
+type = "number"
+value = 1
+
+[[variables]]
+name = "VX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "VY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "VZ"
+type = "number"
+value = 80
+
+[[variables]]
+name = "Size"
+type = "number"
+value = 1
+
+[content]
+width = 4
+height = 4
+depth = 7
+tint = "255;190;55"
+materialType = "Basic"
+isCastingShadow = false
+isReceivingShadow = false
+enableTextureTransparency = true
+facesOrientation = "Y"
+tileScale = 1
+backFaceResourceName = ""
+backFaceResourceRepeat = false
+backFaceUpThroughWhichAxisRotation = "X"
+backFaceVisible = true
+bottomFaceResourceName = ""
+bottomFaceResourceRepeat = false
+bottomFaceVisible = true
+frontFaceResourceName = ""
+frontFaceResourceRepeat = false
+frontFaceVisible = true
+leftFaceResourceName = ""
+leftFaceResourceRepeat = false
+leftFaceVisible = true
+rightFaceResourceName = ""
+rightFaceResourceRepeat = false
+rightFaceVisible = true
+topFaceResourceName = ""
+topFaceResourceRepeat = false
+topFaceVisible = true

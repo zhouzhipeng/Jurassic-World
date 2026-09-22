@@ -304,3 +304,11 @@ name = "HeyinPersistence"
 type = "gameplay"
 description = "Real touch rescue and save/load of the companion across a fresh scene."
 file = "tests/HeyinPersistence.js"
+
+[[tests]]
+scope = "project"
+order = 38
+name = "FireParticles"
+type = "gameplay"
+description = "Lit-fire flicker, rising finite embers, pause, burnout, built-fire ownership and particle cap."
+file = "tests/FireParticles.js"

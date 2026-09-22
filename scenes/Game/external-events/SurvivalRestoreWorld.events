@@ -71,4 +71,5 @@ if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
 do SetNumberVariable variable="SurvivalLoadPending" modification_sign="=" value=0
 do SetNumberObjectVariable object="SurvivalFires" variable="VisualReady" modification_sign="=" value=0
 do Delete object="FireGlow"
+do Delete object="FireEmber"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1

@@ -18,15 +18,25 @@ name = "OwnerFound"
 type = "number"
 value = 0
 
+[[variables]]
+name = "FlameTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "EmitTime"
+type = "number"
+value = 0
+
 [content]
 centerLocation = "ModelOrigin"
 crossfadeDuration = 0.1
 depth = 91.00000858306885
 height = 65.47127366065979
-isCastingShadow = true
-isReceivingShadow = true
+isCastingShadow = false
+isReceivingShadow = false
 keepAspectRatio = true
-materialType = "StandardWithoutMetalness"
+materialType = "Basic"
 modelResourceName = "survival-flame.glb"
 originLocation = "ModelOrigin"
 rotationX = 90
