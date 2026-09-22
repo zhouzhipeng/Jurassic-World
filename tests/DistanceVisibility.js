@@ -10,7 +10,7 @@ try {
   for (const [x,y] of [[650,200],[1700,-4100],[-3800,-3900],[4250,1800],[-2400,3900]]) {
     const full=gdjs.evtTools.scene3d.raycastObjects(x,y,8000,0,0,-1,scene.getObjects('Island3D'),0,9000,true);
     const tiles=gdjs.evtTools.scene3d.raycastObjects(x,y,8000,0,0,-1,probes,0,9000,true);
-    harness.assert(full.length>0 && tiles.length>0 && Math.abs(Math.min(...full.map(h=>h.distance))-Math.min(...tiles.map(h=>h.distance)))<.01,`Spatial query tiles match island at ${x},${y}`);
+    harness.assert(full.length>0 && tiles.length>0 && Math.abs(Math.min(...full.map(h=>h.distance))-Math.min(...tiles.map(h=>h.distance)))<.01,`Spatial query tiles match island at ${x},${y}; full=${full.slice(0,4).map(h=>h.distance)} tiles=${tiles.slice(0,8).map(h=>h.distance)}`);
   }
   for (const name of ['Stegosaur','Raptor','Tyrannosaur','WoodSapling','StoneDeposit','MetalDeposit','SpringWater']) {
     const far=harness.getObjects(name).find(o=>Math.hypot(o.x-player().x,o.y-player().y)>4500);
