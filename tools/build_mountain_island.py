@@ -118,20 +118,7 @@ report={'triangles':triangles,'meshesAfterRoundTrip':len(meshes),'bytes':(OUT/'i
         'playableBounds':BOUNDS,'areaRatio':(BOUNDS[1]-BOUNDS[0])*(BOUNDS[3]-BOUNDS[2])/(5200*5100),
         'summitHeight':height(2200,-4450),'source':'sources/models/island-expanded-source.blend'}
 (OUT/'mountain-manifest.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
-# North-up map with height bands derived from the actual terrain function.
-svg=['<svg xmlns="http://www.w3.org/2000/svg" width="240" height="274" viewBox="0 0 240 274">',
-     '<rect x="1" y="1" width="238" height="272" rx="16" fill="#102a2b" fill-opacity=".95" stroke="#83b7a5" stroke-width="2"/>',
-     '<text x="16" y="22" font-family="sans-serif" font-size="12" fill="#dce9ce" letter-spacing="2">ISLAND / RADAR</text>',
-     '<rect x="14" y="32" width="212" height="212" rx="8" fill="#28505a"/>']
-colors=['#365c46','#4e7350','#6b8759','#8b986b','#a5a68a','#c4baa0']
-for j in range(100):
-    for i in range(100):
-        x=-6600+(i+.5)*132; y=-6900+(j+.5)*133
-        if -6350<x<6350 and -6650<y<6150:
-            z=height(x,y); color=colors[min(5,int(z/500))]
-            svg.append(f'<rect x="{14+i*2.12:.2f}" y="{32+j*2.12:.2f}" width="2.14" height="2.14" fill="{color}"/>')
-svg.extend(['<path d="M120 32V244M14 138H226" stroke="#b1cfad" stroke-opacity=".18"/>',
- '<g fill="#eef4df" font-family="sans-serif" font-size="11" text-anchor="middle"><text x="120" y="46">N</text><text x="120" y="240">S</text><text x="21" y="142">W</text><text x="218" y="142">E</text></g>',
- '<text x="16" y="261" font-family="sans-serif" font-size="10" fill="#d5e7d3">▲ YOU   ◆ CAMP   ● TARGET</text></svg>'])
-(OUT/'radar-map.svg').write_text(''.join(svg),encoding='utf-8')
+# Keep radar artwork reproducible without rebuilding the model.
+from render_radar import render_radar
+render_radar(OUT/'radar-map.svg')
 print('MOUNTAIN_RESULT',json.dumps(report))

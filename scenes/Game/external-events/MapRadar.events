@@ -31,22 +31,22 @@ do ResizableCapability::ResizableBehavior::SetSize object="RadarMap" behavior="R
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 do ResizableCapability::ResizableBehavior::SetSize object="RadarPlayer" behavior="Resizable" width=expr(16*RadarScale) height=expr(16*RadarScale)
-do SetX object="RadarPlayer" modification_sign="=" value=expr(RadarX+(14+clamp(((Player3D.X())+6600)/13200,0,1)*212)*RadarScale)
-do SetY object="RadarPlayer" modification_sign="=" value=expr(RadarY+(32+clamp(((Player3D.Y())+6900)/13300,0,1)*212)*RadarScale)
+do SetX object="RadarPlayer" modification_sign="=" value=expr(RadarX+(41.56+clamp(((Player3D.X())+6600)/13200,0,1)*156.88)*RadarScale)
+do SetY object="RadarPlayer" modification_sign="=" value=expr(RadarY+(59.56+clamp(((Player3D.Y())+6900)/13300,0,1)*156.88)*RadarScale)
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 do ResizableCapability::ResizableBehavior::SetSize object="RadarCamp" behavior="Resizable" width=expr(16*RadarScale) height=expr(16*RadarScale)
-do SetX object="RadarCamp" modification_sign="=" value=expr(RadarX+(14+clamp(((-650)+6600)/13200,0,1)*212)*RadarScale)
-do SetY object="RadarCamp" modification_sign="=" value=expr(RadarY+(32+clamp(((350)+6900)/13300,0,1)*212)*RadarScale)
+do SetX object="RadarCamp" modification_sign="=" value=expr(RadarX+(41.56+clamp(((-650)+6600)/13200,0,1)*156.88)*RadarScale)
+do SetY object="RadarCamp" modification_sign="=" value=expr(RadarY+(59.56+clamp(((350)+6900)/13300,0,1)*156.88)*RadarScale)
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 do ResizableCapability::ResizableBehavior::SetSize object="RadarTarget" behavior="Resizable" width=expr(16*RadarScale) height=expr(16*RadarScale)
-do SetX object="RadarTarget" modification_sign="=" value=expr(RadarX+(14+clamp(((NavX)+6600)/13200,0,1)*212)*RadarScale)
-do SetY object="RadarTarget" modification_sign="=" value=expr(RadarY+(32+clamp(((NavY)+6900)/13300,0,1)*212)*RadarScale)
+do SetX object="RadarTarget" modification_sign="=" value=expr(RadarX+(41.56+clamp(((NavX)+6600)/13200,0,1)*156.88)*RadarScale)
+do SetY object="RadarTarget" modification_sign="=" value=expr(RadarY+(59.56+clamp(((NavY)+6900)/13300,0,1)*156.88)*RadarScale)
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
