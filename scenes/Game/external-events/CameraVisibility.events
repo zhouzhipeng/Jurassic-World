@@ -223,13 +223,6 @@ if (player) {
   const castSolids = (ox = 0, oy = 0, oz = 0, dx = 0, dy = 0, dz = 0, far = 0) => {
     const distances = liveBlockers.length ? gdjs.evtTools.scene3d.raycastObjects(
       ox, oy, oz, dx, dy, dz, liveBlockers, 0, far, true).map(hit => hit.distance) : [];
-    const ground=castGround(ox,oy,oz,dx,dy,dz,far);
-    if (ground>=0) {
-      distances.push(ground);
-      for (const [key,value] of Object.entries({X:ox,Y:oy,Z:oz,DX:dx,DY:dy,DZ:dz,Distance:ground})) {
-        follow.getChild("GroundRay").getChild(key).setNumber(value);
-      }
-    }
     for (const box of actorBounds) {
       const rx = ox - box.x, ry = oy - box.y;
       const origins = [rx * box.c + ry * box.s, -rx * box.s + ry * box.c, oz - box.z];
@@ -250,12 +243,18 @@ if (player) {
       }
       if (enter <= leave) distances.push(enter);
     }
-    if (!terrain.length) return distances;
     const key = [ox, oy, oz, dx, dy, dz, far].join(":");
     if (!terrainCache.hasChild(key)) {
       // Bound storage during a gradual pitch adjustment or a long orbit.
       if (terrainCache.getChildrenCount() >= 256) terrainCache.clearChildren();
       const cached = terrainCache.getChild(key);
+      const ground=castGround(ox,oy,oz,dx,dy,dz,far);
+      if (ground>=0) {
+        cached.pushValue(ground);
+        for (const [name,value] of Object.entries({X:ox,Y:oy,Z:oz,DX:dx,DY:dy,DZ:dz,Distance:ground})) {
+          follow.getChild("GroundRay").getChild(name).setNumber(value);
+        }
+      }
       const reached = terrain.filter(object => {
         const v=object.getVariables();
         return intersectsXY(ox,oy,dx,dy,far,v.get("QueryMinX").getAsNumber(),v.get("QueryMaxX").getAsNumber(),v.get("QueryMinY").getAsNumber(),v.get("QueryMaxY").getAsNumber());
@@ -347,7 +346,13 @@ if (player) {
   if (requestedClearance < 700) {
     let best = requestedClearance;
     desiredPitch = requestedPitch;
-    for (let step = requestedPitch; step < 85; step += 5) {
+    // The previous resolved angle usually still clears the same approaching
+    // slope. Validate it first instead of repeating every lower failed angle.
+    if (oldPitch>requestedPitch+1) {
+      const available=clearance(oldPitch,0,best+20);
+      if (available>best+20) {desiredPitch=oldPitch;best=available;}
+    }
+    for (let step = requestedPitch; best<700 && step < 85; step += 5) {
       const candidate = Math.min(80, step);
       const available = clearance(candidate, 0, best + 20);
       if (available > best + 20) { desiredPitch = candidate; best = available; }
