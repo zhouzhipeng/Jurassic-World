@@ -65,13 +65,16 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 >> if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=1
 >> if NumberObjectVariable object="TouchLabel" variable="Slot" comparison_sign="=" value=expr(TouchButton.Variable(Slot))
 >> do Show object="TouchLabel"
->> do SetX object="TouchLabel" modification_sign="=" value=expr(TouchButton.X()+10*TouchScale)
->> do SetY object="TouchLabel" modification_sign="=" value=expr(TouchButton.Y()+8*TouchScale)
->> do TextObject::SetWrapping object="TouchLabel" wrapping=true
->> do TextObject::WrappingWidth object="TouchLabel" modification_sign="=" value=expr(TouchButton.Width()-20*TouchScale)
 >> do TextObject::Text::SetFontSize object="TouchLabel" modification_sign="=" value=expr(TouchButton.Variable(FontSize)*TouchScale)
 >> do TextContainerCapability::TextContainerBehavior::SetValue object="TouchLabel" behavior="Text" modification_sign="=" text=expr(TouchButton.VariableString(Label))
->> do SetY object="TouchLabel" modification_sign="=" value=expr(TouchButton.Y()+(TouchButton.Height()-TouchLabel.Height())/2)
+
+>>> @event
+>>> if NumberVariable variable="Mode" comparison_sign="!=" value=0
+>>> or NumberVariable variable="BuildMode" comparison_sign="=" value=1
+>>> do SetX object="TouchLabel" modification_sign="=" value=expr(TouchButton.X()+10*TouchScale)
+>>> do TextObject::SetWrapping object="TouchLabel" wrapping=true
+>>> do TextObject::WrappingWidth object="TouchLabel" modification_sign="=" value=expr(TouchButton.Width()-20*TouchScale)
+>>> do SetY object="TouchLabel" modification_sign="=" value=expr(TouchButton.Y()+(TouchButton.Height()-TouchLabel.Height())/2)
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
