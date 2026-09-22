@@ -17,7 +17,7 @@ try {
  const rescued=v('Heyin','HP');await harness.stepFrames(60);harness.assert(v('Heyin','HP')===rescued,'Rescue stops the wound permanently');
  await tap('y');harness.setObjectVariable('Heyin','HP',40);harness.setObjectVariable('Heyin','Energy',20);await tap('Num1');
  harness.assert(v('Heyin','HP')===65&&s('Fiber')===4,'Bandaging consumes two fibers and restores 25 HP');
- await touch('HeyinOption2');harness.assert(v('Heyin','Energy')===50&&v('Heyin','HP')===70&&s('Berries')===5,'Touch food choice restores independent stamina and health: '+v('Heyin','Energy')+','+v('Heyin','HP')+','+s('Berries'));
+ const energyBeforeFood=v('Heyin','Energy');await touch('HeyinOption2');harness.assert(v('Heyin','Energy')===energyBeforeFood+30&&v('Heyin','HP')===70&&s('Berries')===5,'Touch food choice restores independent stamina and health: '+v('Heyin','Energy')+','+v('Heyin','HP')+','+s('Berries'));
  await tap('Num3');await tap('Num3');harness.assert(v('Heyin','Promise')===1&&v('Heyin','Trust')===15,'Family dialogue commitment changes companion relationship');
  await tap('Num3');await tap('Num3');harness.assert(v('Heyin','Trust')===15,'Repeating the promise cannot farm trust');
  await tap('Num4');harness.assert(v('Heyin','Stay')===1,'Choice can ask the companion to wait');
