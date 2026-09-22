@@ -221,11 +221,19 @@ if (player) {
     }
     return -1;
   };
-  if (follow.getChild("TerrainRayKey").getAsString() !== terrainKey) {
+  const stationaryTerrain = follow.getChild("TerrainRayKey").getAsString() === terrainKey;
+  if (!stationaryTerrain) {
     terrainCache.clearChildren();
     follow.getChild("TerrainRayKey").setString(terrainKey);
   }
+  // Moving rays only need a frame-local cache. Avoid constructing and deleting
+  // a tree of scene Variables for every ray on every moving frame. All blockers
+  // are immutable for the duration of this solver, so identical full queries
+  // (including dynamic props and actors) can also be shared within this frame.
+  const solidFrameCache = new Map();
   const castSolids = (ox = 0, oy = 0, oz = 0, dx = 0, dy = 0, dz = 0, far = 0) => {
+    const key = [ox, oy, oz, dx, dy, dz, far].join(":");
+    if (solidFrameCache.has(key)) return solidFrameCache.get(key);
     // Reject unreachable props before invoking the scene-graph mesh raycaster.
     // The full diagonal covers centered and corner origins at any yaw.
     const reachable = liveBlockers.filter(object => {
@@ -255,14 +263,13 @@ if (player) {
       }
       if (enter <= leave) distances.push(enter);
     }
-    const key = [ox, oy, oz, dx, dy, dz, far].join(":");
-    if (!terrainCache.hasChild(key)) {
-      // Bound storage during a gradual pitch adjustment or a long orbit.
-      if (terrainCache.getChildrenCount() >= 256) terrainCache.clearChildren();
-      const cached = terrainCache.getChild(key);
+    const hasCachedTerrain = stationaryTerrain && terrainCache.hasChild(key);
+    const terrainDistances = hasCachedTerrain
+      ? terrainCache.getChild(key).getAllChildrenArray().map(hit => hit.getAsNumber()) : [];
+    if (!hasCachedTerrain) {
       const ground=castGround(ox,oy,oz,dx,dy,dz,far);
       if (ground>=0) {
-        cached.pushValue(ground);
+        terrainDistances.push(ground);
         for (const [name,value] of Object.entries({X:ox,Y:oy,Z:oz,DX:dx,DY:dy,DZ:dz,Distance:ground})) {
           follow.getChild("GroundRay").getChild(name).setNumber(value);
         }
@@ -277,12 +284,16 @@ if (player) {
         else {const a=(box[1]-oy)/dy,b=(box[4]-oy)/dy;enter=Math.max(enter,Math.min(a,b));leave=Math.min(leave,Math.max(a,b));if(enter>leave)continue;}
         if (Math.abs(dz)<.0000001) {if(oz<box[2] || oz>box[5]) continue;}
         else {const a=(box[2]-oz)/dz,b=(box[5]-oz)/dz;enter=Math.max(enter,Math.min(a,b));leave=Math.min(leave,Math.max(a,b));if(enter>leave)continue;}
-        cached.pushValue(enter);
+        terrainDistances.push(enter);
+      }
+      if (stationaryTerrain) {
+        if (terrainCache.getChildrenCount() >= 256) terrainCache.clearChildren();
+        const cached = terrainCache.getChild(key);
+        for (const hit of terrainDistances) cached.pushValue(hit);
       }
     }
-    for (const hit of terrainCache.getChild(key).getAllChildrenArray()) {
-      distances.push(hit.getAsNumber());
-    }
+    for (const hit of terrainDistances) distances.push(hit);
+    solidFrameCache.set(key, distances);
     return distances;
   };
   const velocityX = reset ? 0 : Math.max(-650, Math.min(650, (targetX - state("PlayerX")) / Math.max(dt, 0.001)));
