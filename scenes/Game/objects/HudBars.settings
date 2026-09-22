@@ -4,7 +4,6 @@ order = 355
 assetStoreId = ""
 name = "HudBars"
 type = "PrimitiveDrawing::Drawer"
-variables = [ ]
 effects = [ ]
 behaviors = [ ]
 fillOpacity = 255
@@ -14,6 +13,11 @@ absoluteCoordinates = true
 clearBetweenFrames = false
 antialiasing = "medium"
 folder = [ "Story" ]
+
+[[variables]]
+name = "DrawKey"
+type = "string"
+value = ""
 
 [fillColor]
 r = 205

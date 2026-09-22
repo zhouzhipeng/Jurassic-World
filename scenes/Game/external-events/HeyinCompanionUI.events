@@ -20,6 +20,7 @@ do SetNumberVariable variable="HeyinPanelY" modification_sign="=" value=expr(max
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do Show object="HeyinVitals"
 do PrimitiveDrawing::FillOpacity shape_painter_object="HeyinVitals" modification_sign="=" opacity_0_255=240
 do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="255;250;231"
@@ -43,6 +44,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
 if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 if NumberVariable variable="HeyinStage" comparison_sign="<=" value=expr(1)
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinTalkButton" behavior="Text" modification_sign="=" text=expr("伤口未处理 · "+ToString(ceil(Heyin.Variable(Grace)+Heyin.Variable(HP)/0.4))+"秒内救助")
 do SetX object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowWidth()-246+10)
 do SetY object="HeyinTalkButton" modification_sign="=" value=expr(107+300*RadarScale)
@@ -55,6 +57,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 if NumberVariable variable="HeyinNear" comparison_sign="=" value=expr(1)
 if NumberVariable variable="HeyinDanger" comparison_sign="=" value=expr(0)
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="255;250;231"
 do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246) top_y_position=expr(140+300*RadarScale) right_x_position=expr(SceneWindowWidth()-246+230) bottom_y_position=expr(176+300*RadarScale) radius_in_pixels=8
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinTalkButton" behavior="Text" modification_sign="=" text="与禾音交谈 [Y]"

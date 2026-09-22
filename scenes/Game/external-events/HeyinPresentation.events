@@ -32,6 +32,7 @@ do SetNumberVariable variable="HeyinTargetY" modification_sign="=" value=expr(He
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do Show object="HeyinStory"
 do TextObject::SetWrapping object="HeyinStory" wrapping=true
 do SetX object="HeyinStory" modification_sign="=" value=24

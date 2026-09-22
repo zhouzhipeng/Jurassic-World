@@ -19,7 +19,6 @@ do Hide object="HudContextTitle"
 do Hide object="HudContextDetail"
 do Show object="FPSCounter"
 do SetY object="FPSCounter" modification_sign="=" value=8
-do PrimitiveDrawing::Drawer::ClearShapes shape_painter_object="HudBars"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -378,6 +377,9 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDe
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
+if StringObjectVariable object="HudBars" variable="DrawKey" comparison_sign="!=" value=expr(ToString(round(Hunger))+":"+ToString(round(Water))+":"+ToString(round(Stamina))+":"+ToString(round(Heyin.Variable(HP)))+":"+ToString(round(Heyin.Variable(Energy)))+":"+ToString(HudMargin)+":"+ToString(HudScale))
+do SetStringObjectVariable object="HudBars" variable="DrawKey" modification_sign="=" value=expr(ToString(round(Hunger))+":"+ToString(round(Water))+":"+ToString(round(Stamina))+":"+ToString(round(Heyin.Variable(HP)))+":"+ToString(round(Heyin.Variable(Energy)))+":"+ToString(HudMargin)+":"+ToString(HudScale))
+do PrimitiveDrawing::Drawer::ClearShapes shape_painter_object="HudBars"
 do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="67;94;79"
 do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+65*HudScale) top_y_position=expr(HudMargin+87*HudScale) right_x_position=expr(HudMargin+65*HudScale+(126*HudScale)) bottom_y_position=expr(HudMargin+87*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
 do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="244;183;79"
