@@ -49,6 +49,7 @@ try {
   harness.assert(body()?.animation === 'JumpStart',
     'The silhouette source follows the real jump animation');
   await harness.stepFrames(65);
+  await harness.stepUntil(() => body()?.animation === 'Idle', { maxFrames: 60 });
   harness.assert(body()?.animation === 'Idle', 'Landing recovers the original body animation');
   harness.watch('Player3D');
 } finally {
