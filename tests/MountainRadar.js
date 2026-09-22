@@ -60,7 +60,8 @@ try {
     game.setGameResolutionSize(width,height);
     await harness.stepFrames(4);
     const map=obj('RadarMap');
-    harness.assert(!map.hidden && map.x>=0 && map.x+map.width<=width && map.y+map.height<=height,`Radar fits top-right at ${width}x${height}`);
+    const actualWidth=game.getGameResolutionWidth(), actualHeight=game.getGameResolutionHeight();
+    harness.assert(!map.hidden && map.x>=0 && map.x+map.width<=actualWidth && map.y+map.height<=actualHeight,`Radar fits top-right: requested ${width}x${height}, actual ${actualWidth}x${actualHeight}, map ${map.x},${map.y},${map.width},${map.height}`);
     const buttons=harness.getObjects('TouchButton').filter(b=>Number(harness.getObjectVariable(b.id,'Active')?.value)===1);
     harness.assert(buttons.every(b=>b.x+b.width<=map.x || b.y>=map.y+map.height || b.y+b.height<=map.y),`Radar does not overlap active touch buttons at ${width}x${height}`);
   }

@@ -148,3 +148,17 @@ do TextObject::SetWrapping object="HeyinMenuText" wrapping=true
 do TextObject::WrappingWidth object="HeyinMenuText" modification_sign="=" value=expr(HeyinPanelW-44)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinMenuText" behavior="Text" modification_sign="=" text=expr("禾音没能撑下去……"+NewLine()+"保护同伴失败。请及时救助、补给并击退捕食者。"+NewLine()+ToString(ceil(HeyinFailureTime))+" 秒后重新开始这段旅程。")
 
+@comment "Compact companion footer keeps the radar and touch controls clear on small screens." background=[90,150,120] text=[255,255,255]
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneWindowWidth()) comparison_sign="<=" second_expression=900
+do Hide object="HeyinVitals"
+do SetX object="HeyinVitalsText" modification_sign="=" value=12
+do SetY object="HeyinVitalsText" modification_sign="=" value=expr(SceneWindowHeight()-18)
+do TextObject::Text::SetFontSize object="HeyinVitalsText" modification_sign="=" value=11
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinVitalsText" behavior="Text" modification_sign="=" text=expr("禾音 · 生命 "+ToString(ceil(Heyin.Variable(HP)))+" · 体力 "+ToString(ceil(Heyin.Variable(Energy))))
+do SetX object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowWidth()-185)
+do SetY object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowHeight()-18)
+do TextObject::Text::SetFontSize object="HeyinTalkButton" modification_sign="=" value=11
+

@@ -1,7 +1,12 @@
 {
-  "triangles": 51590,
+  "triangles": 51018,
   "meshesAfterRoundTrip": 1,
-  "bytes": 2322732,
+  "bytes": 2284100,
+  "gdevelopSize": [
+    18000.0,
+    18000.0,
+    3054.203414916992
+  ],
   "playableBounds": [
     -5814,
     5814,

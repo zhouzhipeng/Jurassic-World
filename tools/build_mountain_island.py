@@ -36,6 +36,10 @@ for seed in bm.verts:
     names = {mats[f.material_index].name for f in faces}
     if ('grass' in names and max(xs)-min(xs)>40) or ('sand' in names and max(xs)-min(xs)>80):
         remove.extend(component); continue
+    # The old distant cliffs are now inside the expanded playable region.
+    # Replace that non-walkable backdrop with the continuous mountain surface.
+    if cy > 40 and names <= {'rockLight','leafLight','foam'}:
+        remove.extend(component); continue
     if names == {'water'}: continue
     ground_detail = names <= {'sand','grassLight'}
     for v in component:
@@ -98,6 +102,7 @@ bpy.context.scene.cursor.location=(0,0,0);bpy.ops.object.origin_set(type='ORIGIN
 bpy.ops.object.transform_apply(location=False,rotation=True,scale=True)
 bpy.context.view_layer.update()
 triangles=sum(len(p.vertices)-2 for p in old.data.polygons)
+dimensions=[float(v)*100 for v in old.dimensions]
 assert triangles<100000 and all(abs(v-1)<1e-6 for v in old.scale)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'island-mountain-source.blend'))
 raw=OUT/'island-unpartitioned.glb'
@@ -109,7 +114,7 @@ meshes=[o for o in bpy.context.scene.objects if o.type=='MESH']
 assert meshes and sum(len(o.data.polygons) for o in meshes)==triangles
 assert not [im for im in bpy.data.images if im.source=='FILE' and not im.packed_file and im.filepath]
 report={'triangles':triangles,'meshesAfterRoundTrip':len(meshes),'bytes':(OUT/'island.glb').stat().st_size,
-        'gdevelopSize':[18000,18000,4049.424362182617],
+        'gdevelopSize':dimensions,
         'playableBounds':BOUNDS,'areaRatio':(BOUNDS[1]-BOUNDS[0])*(BOUNDS[3]-BOUNDS[2])/(5200*5100),
         'summitHeight':height(2200,-4450),'source':'sources/models/island-expanded-source.blend'}
 (OUT/'mountain-manifest.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
