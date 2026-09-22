@@ -107,7 +107,7 @@ assert triangles<100000 and all(abs(v-1)<1e-6 for v in old.scale)
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'island-mountain-source.blend'))
 raw=OUT/'island-unpartitioned.glb'
 bpy.ops.export_scene.gltf(filepath=str(raw),export_format='GLB',use_selection=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False)
-partition(raw,OUT/'island.glb')
+partition(raw,OUT/'island.glb',4096)
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 bpy.ops.import_scene.gltf(filepath=str(OUT/'island.glb'))
 meshes=[o for o in bpy.context.scene.objects if o.type=='MESH']

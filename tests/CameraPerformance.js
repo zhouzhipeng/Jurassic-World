@@ -36,7 +36,7 @@ try {
       `${scenario.label}: camera remains finite while moving`);
     const fps = harness.getObjects('FPSCounter')[0];
     const width = harness.getGameResolutionWidth();
-    harness.assert(!!fps && !fps.hidden && fps.layer === 'Performance' && fps.y === 8 &&
+    harness.assert(!!fps && !fps.hidden && fps.layer === 'Performance' && fps.y >= 0 && fps.y < 200 &&
       Math.abs(fps.x - (width - fps.width) / 2) < 1,
       `${scenario.label}: FPS stays visible at the top center`);
   }

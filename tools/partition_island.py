@@ -1,7 +1,8 @@
 """Losslessly spatially partition the static island GLB (run with Blender).
 
-Usage: blender --background --python tools/partition_island.py -- INPUT OUTPUT
+Usage: blender --background --python tools/partition_island.py -- INPUT OUTPUT [MAX_TRIANGLES]
 Keeps triangle winding and every vertex attribute byte; only batches change.
+Use 4096 for the mountain island with separate camera query geometry.
 """
 import collections
 import copy
@@ -54,7 +55,9 @@ def signature(doc, binary):
     return result
 
 
-def partition(source, destination):
+def partition(source, destination, max_triangles=256):
+    max_triangles = int(max_triangles)
+    assert 1 <= max_triangles <= 16000
     doc, binary = read_glb(source)
     assert not doc.get('animations') and not doc.get('skins') and not doc.get('images')
     before = signature(doc, binary)
@@ -89,7 +92,7 @@ def partition(source, destination):
             leaves = []
 
             def split(ids):
-                if len(ids) <= 256:
+                if len(ids) <= max_triangles:
                     leaves.append(ids)
                     return
                 spans = [max(centers[i][axis] for i in ids) - min(centers[i][axis] for i in ids) for axis in range(3)]

@@ -226,8 +226,15 @@ if (player) {
     follow.getChild("TerrainRayKey").setString(terrainKey);
   }
   const castSolids = (ox = 0, oy = 0, oz = 0, dx = 0, dy = 0, dz = 0, far = 0) => {
-    const distances = liveBlockers.length ? gdjs.evtTools.scene3d.raycastObjects(
-      ox, oy, oz, dx, dy, dz, liveBlockers, 0, far, true).map(hit => hit.distance) : [];
+    // Reject unreachable props before invoking the scene-graph mesh raycaster.
+    // The full diagonal covers centered and corner origins at any yaw.
+    const reachable = liveBlockers.filter(object => {
+      const radius = Math.hypot(object.getWidth(), object.getHeight()) + 30;
+      return intersectsXY(ox, oy, dx, dy, far, object.getX() - radius,
+        object.getX() + radius, object.getY() - radius, object.getY() + radius);
+    });
+    const distances = reachable.length ? gdjs.evtTools.scene3d.raycastObjects(
+      ox, oy, oz, dx, dy, dz, reachable, 0, far, true).map(hit => hit.distance) : [];
     for (const box of actorBounds) {
       const rx = ox - box.x, ry = oy - box.y;
       const origins = [rx * box.c + ry * box.s, -rx * box.s + ry * box.c, oz - box.z];
