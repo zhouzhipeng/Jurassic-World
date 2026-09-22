@@ -13,6 +13,9 @@ try {
     harness.assert(full.length>0 && tiles.length>0 && Math.abs(Math.min(...full.map(h=>h.distance))-Math.min(...tiles.map(h=>h.distance)))<.01,`Spatial query tiles match island at ${x},${y}; full=${full.slice(0,4).map(h=>h.distance)} tiles=${tiles.slice(0,8).map(h=>h.distance)}`);
   }
   for (const name of ['Stegosaur','Raptor','Tyrannosaur','WoodSapling','StoneDeposit','MetalDeposit','SpringWater']) {
+    const away=name==='SpringWater' ? [-5500,5000] : [650,200];
+    harness.setObjectPosition(player().id,away[0],away[1],0);
+    await harness.stepFrames(3);
     const far=harness.getObjects(name).find(o=>Math.hypot(o.x-player().x,o.y-player().y)>4500);
     harness.assert(!!far,`${name}: outer exploration instance exists`);
     harness.assert(far.hidden,`${name}: distant instance is not drawn`);
@@ -22,10 +25,12 @@ try {
     const near=harness.getObjects(name).find(o=>o.id===identity);
     harness.assert(!!near && !near.hidden,`${name}: same instance returns when approached`);
     if (['Stegosaur','Raptor','Tyrannosaur'].includes(name)) harness.assert(number(near,'HP')===number(far,'HP'),`${name}: culling preserves health`);
-    harness.setObjectPosition(player().id,650,200,0);
+    harness.setObjectPosition(player().id,away[0],away[1],0);
     await harness.stepFrames(3);
     harness.assert(harness.getObjects(name).find(o=>o.id===identity)?.hidden,`${name}: leaving hides it again`);
   }
+  harness.setObjectPosition(player().id,650,200,0);
+  await harness.stepFrames(3);
   for (const name of ['BerryBush','FiberFern']) {
     const far=harness.getObjects(name).find(o=>Math.hypot(o.x-player().x,o.y-player().y)>6500);
     await harness.stepFrames(12);

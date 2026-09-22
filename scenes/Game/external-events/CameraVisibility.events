@@ -138,7 +138,7 @@ if (player) {
   // and player-built geometry always use current transforms.
   // Query only spatial tiles intersecting the camera neighborhood. Hidden query
   // meshes preserve the visible island's exact triangles without rendering twice.
-  const terrain = runtimeScene.getObjectNamesInGroup("TerrainProbes")
+  const terrain = runtimeScene.getObjects("Island3D").some(object => object.isVisible()) ? runtimeScene.getObjectNamesInGroup("TerrainProbes")
     .flatMap(name => runtimeScene.getObjects(name)).filter(object => {
       const v = object.getVariables();
       const margin = requestedDistance + 450;
@@ -146,7 +146,7 @@ if (player) {
         x - margin <= v.get("QueryMaxX").getAsNumber() &&
         y + margin >= v.get("QueryMinY").getAsNumber() &&
         y - margin <= v.get("QueryMaxY").getAsNumber();
-    });
+    }) : [];
   const actorNames = ["Dinosaur3D", "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur"];
   const liveBlockers = blockers.filter(object => object.getName() !== "Island3D" &&
     !actorNames.includes(object.getName()));
