@@ -5,9 +5,21 @@ assetStoreId = ""
 name = "Body"
 type = "Scene3D::Model3DObject"
 variables = [ ]
-effects = [ ]
 behaviors = [ ]
 folder = [ "Real-time 3D" ]
+
+[[effects]]
+name = "OcclusionSilhouette"
+effectType = "Scene3D::Silhouette"
+disabled = false
+booleanParameters = { }
+
+[effects.doubleParameters]
+thickness = 2
+opacity = 0
+
+[effects.stringParameters]
+color = "143;255;232"
 
 [content]
 centerLocation = "ModelOrigin"

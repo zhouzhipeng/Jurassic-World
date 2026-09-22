@@ -270,5 +270,5 @@ scope = "project"
 order = 33
 name = "PlayerOcclusionOutline"
 type = "gameplay"
-description = "Tree and solid obstruction highlighting, clear-view restoration, hidden blockers and skeletal animation synchronization."
+description = "Tree and solid obstruction silhouette triggers, clear-view restoration, hidden blockers and original-body animation without a duplicate model."
 file = "tests/PlayerOcclusionOutline.js"

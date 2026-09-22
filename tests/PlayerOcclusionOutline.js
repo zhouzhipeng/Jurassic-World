@@ -1,6 +1,6 @@
 const player = () => harness.getObjects('Player3D')[0];
 const amount = () => Number(harness.getObjectVariable(player().id, 'OcclusionAmount')?.value);
-const outline = () => player().children?.OcclusionOutline?.[0];
+const body = () => player().children?.Body?.[0];
 try {
   await harness.goToScene('Game');
   await harness.stepFrames(3);
@@ -16,19 +16,19 @@ try {
   harness.setSceneVariable('CameraPitch', 25);
   harness.setSceneVariable('CameraDistance', 1250);
   await harness.stepFrames(90);
-  harness.assert(amount() === 0 && outline()?.hidden, 'Clear view keeps the original character appearance');
+  harness.assert(amount() === 0, 'Clear view keeps the original character appearance');
+  harness.assert(!player().children?.OcclusionOutline?.length,
+    'The silhouette uses the real body rather than a second animated model');
   const plant = harness.spawn('WoodSapling', 2000, 1700, -60, 'World3D');
   await harness.stepFrames(30);
-  harness.assert(amount() > 0.95 && !outline()?.hidden,
+  harness.assert(amount() > 0.95,
     `Foreground tree reveals the outline even when foliage fades: ${amount()}`);
-  harness.assert(outline()?.animation === player().children?.Body?.[0]?.animation,
-    'Outline and body use the same paused skeletal animation');
-  const material = outline()?.behaviors?.OutlineMaterial;
-  harness.assert(!!material?.act, 'The outline TSL behavior is active');
+  harness.assert(!!body() && !body().hidden,
+    'Occlusion preserves the animated body that supplies the silhouette mask');
   harness.setObjectVariable(plant.id, 'Cooldown', 30);
   harness.getRuntimeObject(plant.id).hide(true);
   await harness.stepFrames(30);
-  harness.assert(amount() === 0 && outline()?.hidden, 'Hidden or harvested blockers do not retain an outline');
+  harness.assert(amount() === 0, 'Hidden or harvested blockers do not retain an outline');
   harness.setObjectVariable(plant.id, 'Cooldown', 0);
   harness.getRuntimeObject(plant.id).hide(false);
   harness.setObjectPosition(plant.id, 2200, 1700, -60);
@@ -46,12 +46,10 @@ try {
   harness.setKeyPressed('Space', true);
   await harness.stepFrames(5);
   harness.releaseAllInputs();
-  harness.assert(outline()?.animation === 'JumpStart' &&
-    outline()?.animation === player().children?.Body?.[0]?.animation,
-    'The outline tracks jump animation even while invisible');
+  harness.assert(body()?.animation === 'JumpStart',
+    'The silhouette source follows the real jump animation');
   await harness.stepFrames(65);
-  harness.assert(outline()?.animation === player().children?.Body?.[0]?.animation,
-    'Landing and locomotion recover together');
+  harness.assert(body()?.animation === 'Idle', 'Landing recovers the original body animation');
   harness.watch('Player3D');
 } finally {
   harness.releaseAllInputs();

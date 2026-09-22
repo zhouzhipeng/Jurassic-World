@@ -2,13 +2,6 @@ kind = "resources"
 settingsFormatVersion = 6
 
 [[resources]]
-kind = "tslMaterial"
-name = "PlayerOcclusionOutline"
-file = "materials/PlayerOcclusionOutline.tsl.ts"
-metadata = ""
-userAdded = true
-
-[[resources]]
 file = "assets/jump-platform-top.svg"
 kind = "image"
 name = "jump-platform-top.svg"
