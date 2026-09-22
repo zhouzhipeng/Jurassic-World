@@ -1,0 +1,252 @@
+{
+  "baselineRevision": "bd0fe34",
+  "finalSourceRevision": "caed437",
+  "baseline": {
+    "operation": "gameplay-tests-729db8df-ea59-4355-8992-ea563fb9872a",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 0,
+      "failed": 1,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": false
+    },
+    "tests": [
+      {
+        "file": "tests/CampHousePerformance.js",
+        "status": "failed",
+        "assertions": [
+          {
+            "message": "Indoor idle: mean/p95/max=17.16/21.4/24.6 ms",
+            "passed": true
+          },
+          {
+            "message": "Indoor idle: camera keeps finite framing",
+            "passed": true
+          },
+          {
+            "message": "Indoor idle: player remains on the floor",
+            "passed": true
+          },
+          {
+            "message": "Indoor movement: mean/p95/max=41.26/62.1/85.9 ms",
+            "passed": false
+          }
+        ],
+        "errors": [
+          "Assertion failed: Indoor movement: mean/p95/max=41.26/62.1/85.9 ms"
+        ],
+        "profiles": [
+          {
+            "avgStepTimeMs": 17.16,
+            "maxStepTimeMs": 24.6,
+            "sections": [
+              {
+                "name": "events",
+                "avgTimeMs": 9.58,
+                "maxTimeMs": 14.6
+              },
+              {
+                "name": "render",
+                "avgTimeMs": 6.13,
+                "maxTimeMs": 8.2
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.72,
+                "maxTimeMs": 2.5
+              }
+            ],
+            "p95": 21.4
+          },
+          {
+            "avgStepTimeMs": 41.26,
+            "maxStepTimeMs": 85.9,
+            "sections": [
+              {
+                "name": "events",
+                "avgTimeMs": 31.4,
+                "maxTimeMs": 60.9
+              },
+              {
+                "name": "render",
+                "avgTimeMs": 8.12,
+                "maxTimeMs": 52.1
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.9,
+                "maxTimeMs": 2.3
+              }
+            ],
+            "p95": 62.1
+          }
+        ]
+      }
+    ]
+  },
+  "final": {
+    "operation": "gameplay-tests-0291db7e-a3a2-401b-893b-b423f9703970",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "tests": [
+      {
+        "file": "tests/CampHousePerformance.js",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Indoor idle: mean/p95/max=11.78/14.6/16.1 ms",
+            "passed": true
+          },
+          {
+            "message": "Indoor idle: camera keeps finite framing",
+            "passed": true
+          },
+          {
+            "message": "Indoor idle: player remains on the floor",
+            "passed": true
+          },
+          {
+            "message": "Indoor movement: mean/p95/max=24.43/38/56.3 ms",
+            "passed": true
+          },
+          {
+            "message": "Indoor movement: camera keeps finite framing",
+            "passed": true
+          },
+          {
+            "message": "Indoor movement: player remains on the floor",
+            "passed": true
+          },
+          {
+            "message": "Indoor first orbit: mean/p95/max=23.03/45.1/113.7 ms",
+            "passed": true
+          },
+          {
+            "message": "Indoor first orbit: camera keeps finite framing",
+            "passed": true
+          },
+          {
+            "message": "Indoor first orbit: player remains on the floor",
+            "passed": true
+          },
+          {
+            "message": "Indoor warm orbit: mean/p95/max=21.46/27.1/33.2 ms",
+            "passed": true
+          },
+          {
+            "message": "Indoor warm orbit: camera keeps finite framing",
+            "passed": true
+          },
+          {
+            "message": "Indoor warm orbit: player remains on the floor",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "profiles": [
+          {
+            "avgStepTimeMs": 11.78,
+            "maxStepTimeMs": 16.1,
+            "sections": [
+              {
+                "name": "events",
+                "avgTimeMs": 5.51,
+                "maxTimeMs": 8
+              },
+              {
+                "name": "render",
+                "avgTimeMs": 5.2,
+                "maxTimeMs": 7.1
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.52,
+                "maxTimeMs": 1.4
+              }
+            ],
+            "p95": 14.6
+          },
+          {
+            "avgStepTimeMs": 24.43,
+            "maxStepTimeMs": 56.3,
+            "sections": [
+              {
+                "name": "events",
+                "avgTimeMs": 16.57,
+                "maxTimeMs": 27.9
+              },
+              {
+                "name": "render",
+                "avgTimeMs": 6.69,
+                "maxTimeMs": 43.9
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.58,
+                "maxTimeMs": 1.5
+              }
+            ],
+            "p95": 38
+          },
+          {
+            "avgStepTimeMs": 23.03,
+            "maxStepTimeMs": 113.7,
+            "sections": [
+              {
+                "name": "events",
+                "avgTimeMs": 13.18,
+                "maxTimeMs": 22.2
+              },
+              {
+                "name": "render",
+                "avgTimeMs": 8.7,
+                "maxTimeMs": 102.4
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.58,
+                "maxTimeMs": 4.2
+              }
+            ],
+            "p95": 45.1
+          },
+          {
+            "avgStepTimeMs": 21.46,
+            "maxStepTimeMs": 33.2,
+            "sections": [
+              {
+                "name": "events",
+                "avgTimeMs": 13.86,
+                "maxTimeMs": 25
+              },
+              {
+                "name": "render",
+                "avgTimeMs": 6.55,
+                "maxTimeMs": 10.4
+              },
+              {
+                "name": "objects (pre-render, effects update)",
+                "avgTimeMs": 0.54,
+                "maxTimeMs": 1.1
+              }
+            ],
+            "p95": 27.1
+          }
+        ]
+      }
+    ]
+  }
+}
