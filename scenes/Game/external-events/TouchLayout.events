@@ -214,16 +214,7 @@ do ResizableCapability::ResizableBehavior::SetSize object="TouchStick" behavior=
 do SetX object="TouchKnob" modification_sign="=" value=expr(TouchJoyX-40*TouchScale+TouchMoveX*TouchRadius)
 do SetY object="TouchKnob" modification_sign="=" value=expr(TouchJoyY-40*TouchScale+TouchMoveY*TouchRadius)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchKnob" behavior="Resizable" width=expr(80*TouchScale) height=expr(80*TouchScale)
-do Show object="TouchStatusBack"
-do SetX object="TouchStatusBack" modification_sign="=" value=expr(TouchMargin)
-do SetY object="TouchStatusBack" modification_sign="=" value=expr(TouchMargin)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchStatusBack" behavior="Resizable" width=expr(min(390*TouchScale,TouchWidth-2*TouchMargin-110*TouchScale)) height=expr(62*TouchScale)
 do Show object="TouchStatus"
-do SetX object="TouchStatus" modification_sign="=" value=expr(TouchMargin+12*TouchScale)
-do SetY object="TouchStatus" modification_sign="=" value=expr(TouchMargin+7*TouchScale)
-do TextObject::SetWrapping object="TouchStatus" wrapping=true
-do TextObject::WrappingWidth object="TouchStatus" modification_sign="=" value=expr(min(366*TouchScale,TouchWidth-2*TouchMargin-134*TouchScale))
-do TextObject::Text::SetFontSize object="TouchStatus" modification_sign="=" value=expr(20*TouchScale)
 do Show object="TouchQuest"
 do Show object="TouchHint"
 do SetX object="TouchHint" modification_sign="=" value=expr(TouchMargin)

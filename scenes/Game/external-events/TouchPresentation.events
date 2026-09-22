@@ -18,7 +18,6 @@ do HideLayer layer="Touch"
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
-do TextContainerCapability::TextContainerBehavior::SetValue object="TouchStatus" behavior="Text" modification_sign="=" text=expr("生命 "+ToString(round(Health))+"   饥饿 "+ToString(round(Hunger))+"   水分 "+ToString(round(Water))+NewLine()+"第 "+ToString(WorldDay)+" 天  "+ToString(floor(WorldMinutes/60))+":"+ToString(floor(mod(WorldMinutes,60)/10))+ToString(floor(mod(WorldMinutes,10)))+"  "+WeatherName+"  体力 "+ToString(round(Stamina)))
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchQuest" behavior="Text" modification_sign="=" text=expr("前往 "+NavName+" · "+NavDirection+NewLine()+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),NavX,NavY)/100))+" 米")
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchHint" behavior="Text" modification_sign="=" text=expr(TouchContextHint)
 do SetX object="TouchKnob" modification_sign="=" value=expr(TouchJoyX-40*TouchScale+TouchMoveX*TouchRadius)
@@ -80,12 +79,14 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchToastTime" comparison_sign=">" value=0
 do Show object="TouchToastText"
-do SetX object="TouchToastText" modification_sign="=" value=expr(TouchMenuX+25*TouchScale)
-do SetY object="TouchToastText" modification_sign="=" value=expr(TouchHeight-TouchMargin-62*TouchScale)
-do TextObject::SetWrapping object="TouchToastText" wrapping=true
-do TextObject::WrappingWidth object="TouchToastText" modification_sign="=" value=expr(TouchMenuWidth-50*TouchScale)
-do TextObject::Text::SetFontSize object="TouchToastText" modification_sign="=" value=expr(24*TouchScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchToastText" behavior="Text" modification_sign="=" text=expr(TouchToast)
+
+> @event aiGeneratedEventId="touch-toast-menu-style"
+> if NumberVariable variable="Mode" comparison_sign="!=" value=0
+> do SetX object="TouchToastText" modification_sign="=" value=expr(TouchMenuX+25*TouchScale)
+> do TextObject::SetWrapping object="TouchToastText" wrapping=true
+> do TextObject::WrappingWidth object="TouchToastText" modification_sign="=" value=expr(TouchMenuWidth-50*TouchScale)
+> do TextObject::Text::SetFontSize object="TouchToastText" modification_sign="=" value=expr(24*TouchScale)
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -99,14 +100,6 @@ if StringVariable variable="TouchLastNotice" comparison_sign="!=" value=expr(Not
 do SetStringVariable variable="TouchLastNotice" modification_sign="=" value=expr(NoticeMessage)
 do SetStringVariable variable="TouchToast" modification_sign="=" value=expr(NoticeMessage)
 do SetNumberVariable variable="TouchToastTime" modification_sign="=" value=3
-
-@event
-if NumberVariable variable="TouchMode" comparison_sign="=" value=1
-if NumberVariable variable="TouchToastTime" comparison_sign=">" value=0
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-do SetX object="TouchToastText" modification_sign="=" value=expr(TouchMargin+8*TouchScale)
-do SetY object="TouchToastText" modification_sign="=" value=expr(TouchMargin+280*TouchScale)
-do TextObject::WrappingWidth object="TouchToastText" modification_sign="=" value=expr(min(680*TouchScale,TouchWidth-2*TouchMargin-110*TouchScale))
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
