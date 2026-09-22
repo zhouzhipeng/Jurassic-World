@@ -1,0 +1,207 @@
+{
+  "sourceCommit": "b8fd3b4",
+  "engineCommit": "32beb54b01",
+  "runtimeVerified": true,
+  "completionReady": true,
+  "assertions": [
+    {
+      "index": 0,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "CoastalSky"
+    },
+    {
+      "index": 1,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "CoastalOcean"
+    },
+    {
+      "index": 2,
+      "type": "runtime_error_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq"
+    },
+    {
+      "index": 3,
+      "type": "renderer_visible_mesh_count",
+      "passed": true,
+      "actual": 298,
+      "expected": 0,
+      "operator": "gt",
+      "layerName": "World3D"
+    },
+    {
+      "index": 4,
+      "type": "renderer_failed_texture_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 5,
+      "type": "renderer_rejected_object_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    }
+  ],
+  "oceanMaterial": {
+    "success": true,
+    "valid": true,
+    "activation_ready": true,
+    "source_mode": "disk",
+    "file_path": "materials/CoastalOcean.tsl.ts",
+    "registered_resource_name": "CoastalOcean",
+    "editor_memory_may_differ": false,
+    "source_sha256": "f2f58d6d25fb9b267781e848e3d7d7228a9211efd1236c360843c3f5f1bbf9fb",
+    "requested_target": "current",
+    "target": "webgl2-node-compat",
+    "validation_level": "model",
+    "completed_stages": [
+      "parse",
+      "policy",
+      "types",
+      "manifest",
+      "graph",
+      "nodeBuilder",
+      "gpu",
+      "model"
+    ],
+    "structurally_valid": true,
+    "graph_validated": true,
+    "node_builder_validated": true,
+    "gpu_validated": true,
+    "model_validated": true,
+    "validation_id": "e9100c4429b703fc13402c8798cf28eb647fa1258f0c89d1b969a7f38e3ed757",
+    "catalogs": {
+      "source": "disk",
+      "project_api_sha256": "741a572a2be931c87acb99600c71142c8a78bbe4e5b9f6e73749d2e8ef0d05a9",
+      "tsl_api_sha256": "4ba2f3f063c05a604e50dafa2e83a311e648169a7c62e88c60c3bccdc47af6c4",
+      "tsl_catalog_sha256": "368efdbc62dd84c0eefb58cf155e99c4a04a8d602e384e3252748fb0adbf9a20",
+      "authoring_api_version": "1",
+      "portable_profile_version": "1",
+      "three_revision": "185"
+    },
+    "fixture": {
+      "base_material": "standard",
+      "geometry_features": [],
+      "model_file_path": "assets/environment/coastal-ocean.glb",
+      "model_sha256": "c45b01da9aea83022570d8646bdc7488d9c458125faa74b8018a9ec541b6f7b8"
+    },
+    "capabilities": [
+      "mesh-standard-material",
+      "mesh-basic-material",
+      "mesh-physical-material-without-transmission",
+      "skinning",
+      "morph-targets",
+      "material-arrays-and-geometry-groups",
+      "vertex-deformation-portable-subset",
+      "pbr-node-fields-portable-subset",
+      "alpha-blend-and-alpha-test",
+      "standard-shadows-excluding-vsm",
+      "fog-and-environment-explicit-invalidation",
+      "legacy-effect-composer-unchanged",
+      "inherited-pbr-inputs",
+      "uniform-parameters",
+      "vertex-position-node",
+      "fragment-output-node",
+      "webgl2-node-compat"
+    ],
+    "metrics": {
+      "source_bytes": 3981,
+      "ast_node_count": 1058,
+      "parse_milliseconds": 1,
+      "compilation_cache_hit": false,
+      "tsl_node_count": 203,
+      "graph_build_milliseconds": 0.5,
+      "shader_build_milliseconds": 265.60000002384186,
+      "gpu_draw_milliseconds": 51.60000002384186
+    },
+    "diagnostics": [],
+    "diagnostics_truncated": false,
+    "next_action": "Run validate_project_files for any related project edits, then verify the visual result in a paused preview.",
+    "manifest": {
+      "apiVersion": 1,
+      "base": "custom",
+      "parameters": {
+        "clock": {
+          "type": "number",
+          "default": 0
+        },
+        "daylight": {
+          "type": "number",
+          "default": 1,
+          "min": 0,
+          "max": 1
+        },
+        "cloud": {
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 1
+        },
+        "twilight": {
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 1
+        },
+        "flash": {
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 1
+        },
+        "camera": {
+          "type": "vec3",
+          "default": [
+            0,
+            -1000,
+            500
+          ]
+        },
+        "sun": {
+          "type": "vec3",
+          "default": [
+            -0.5,
+            -0.5,
+            0.7
+          ]
+        },
+        "horizon": {
+          "type": "color",
+          "default": "#72bbdd"
+        },
+        "fogNear": {
+          "type": "number",
+          "default": 6500
+        },
+        "fogFar": {
+          "type": "number",
+          "default": 26000
+        }
+      },
+      "assignedMaterialFields": [
+        "depthWrite",
+        "fragmentNode",
+        "outputNode",
+        "positionNode",
+        "side"
+      ],
+      "label": "Coastal ocean — moving swells, Fresnel sky and sun glints"
+    }
+  }
+}
