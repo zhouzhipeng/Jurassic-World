@@ -1185,1063 +1185,1081 @@ for each "Triceratops"
 @event
 for each "Stegosaur"
 > @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Stegosaur" variable="PX" modification_sign="=" value=expr(Stegosaur.X())
-> do SetNumberObjectVariable object="Stegosaur" variable="PY" modification_sign="=" value=expr(Stegosaur.Y())
-> do SetNumberObjectVariable object="Stegosaur" variable="PA" modification_sign="=" value=expr(Stegosaur.Angle())
-> do SetNumberObjectVariable object="Stegosaur" variable="Clock" modification_sign="=" value=expr(Stegosaur.Variable(Clock) + TimeDelta())
-> do SetNumberObjectVariable object="Stegosaur" variable="AIClock" modification_sign="=" value=expr(Stegosaur.Variable(AIClock) + TimeDelta())
-> do SetNumberObjectVariable object="Stegosaur" variable="Cooldown" modification_sign="=" value=expr(max(0, Stegosaur.Variable(Cooldown) - TimeDelta()))
-> do SetNumberObjectVariable object="Stegosaur" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Stegosaur.X(), Stegosaur.Y(), Player3D.X(), Player3D.Y()))
-> do SetNumberObjectVariable object="Stegosaur" variable="Travel" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Stegosaur" variable="State" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="!=" value=3
-> if NumberObjectVariable object="Stegosaur" variable="AIClock" comparison_sign=">" value=4
-> do SetNumberObjectVariable object="Stegosaur" variable="State" modification_sign="=" value=1
-> do SetNumberObjectVariable object="Stegosaur" variable="TargetX" modification_sign="=" value=expr(Stegosaur.Variable(HomeX) + cos(Stegosaur.Variable(Clock) * 0.23) * 145)
-> do SetNumberObjectVariable object="Stegosaur" variable="TargetY" modification_sign="=" value=expr(Stegosaur.Variable(HomeY) + sin(Stegosaur.Variable(Clock) * 0.23) * 110)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Stegosaur" variable="AIClock" comparison_sign=">" value=9
-> do SetNumberObjectVariable object="Stegosaur" variable="AIClock" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Stegosaur" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Stegosaur.X(), Stegosaur.Y(), Stegosaur.Variable(TargetX), Stegosaur.Variable(TargetY)))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="=" value=1
-> if NumberObjectVariable object="Stegosaur" variable="Travel" comparison_sign=">" value=8
-> do SetAngle object="Stegosaur" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Stegosaur.X(), Stegosaur.Y(), Stegosaur.Variable(TargetX), Stegosaur.Variable(TargetY)) - 90)
-> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.X() - sin(ToRad(Stegosaur.Angle())) * Stegosaur.Variable(Speed) * 0.30 * TimeDelta())
-> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Y() + cos(ToRad(Stegosaur.Angle())) * Stegosaur.Variable(Speed) * 0.30 * TimeDelta())
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if PosX object="Stegosaur" comparison_sign="<" value=-5384
-> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
-> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if PosX object="Stegosaur" comparison_sign=">" value=5384
-> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
-> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if PosY object="Stegosaur" comparison_sign="<" value=-5522
-> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
-> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if PosY object="Stegosaur" comparison_sign=">" value=5022
-> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
-> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if PosX object="Stegosaur" comparison_sign=">" value=expr(-1250 - Stegosaur.Variable(Radius))
-> if PosX object="Stegosaur" comparison_sign="<" value=expr(-550 + Stegosaur.Variable(Radius))
-> if PosY object="Stegosaur" comparison_sign=">" value=expr(-1010 - Stegosaur.Variable(Radius))
-> if PosY object="Stegosaur" comparison_sign="<" value=expr(-380 + Stegosaur.Variable(Radius))
-> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
-> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=0
-> do SetNumberObjectVariable object="Stegosaur" variable="LocalX" modification_sign="=" value=expr((Player3D.X() - Stegosaur.X()) * cos(ToRad(Stegosaur.Angle())) + (Player3D.Y() - Stegosaur.Y()) * sin(ToRad(Stegosaur.Angle())))
-> do SetNumberObjectVariable object="Stegosaur" variable="LocalY" modification_sign="=" value=expr(-(Player3D.X() - Stegosaur.X()) * sin(ToRad(Stegosaur.Angle())) + (Player3D.Y() - Stegosaur.Y()) * cos(ToRad(Stegosaur.Angle())))
-> do SetNumberObjectVariable object="Stegosaur" variable="NearY" modification_sign="=" value=expr(clamp(Stegosaur.Variable(LocalY), -Stegosaur.Variable(HalfLength) + Stegosaur.Variable(Radius), 200 - Stegosaur.Variable(Radius)))
-> do SetNumberObjectVariable object="Stegosaur" variable="Separation" modification_sign="=" value=expr(max(0.001, sqrt(Stegosaur.Variable(LocalX) * Stegosaur.Variable(LocalX) + pow(Stegosaur.Variable(LocalY) - Stegosaur.Variable(NearY), 2))))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="Separation" comparison_sign="<=" value=0.001
-> do SetNumberObjectVariable object="Stegosaur" variable="LocalX" modification_sign="=" value=expr(Stegosaur.Variable(Radius) + 45)
-> do SetNumberObjectVariable object="Stegosaur" variable="Separation" modification_sign="=" value=expr(Stegosaur.Variable(Radius) + 45)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="Separation" comparison_sign="<" value=expr(Stegosaur.Variable(Radius) + 45)
-> do SetNumberObjectVariable object="Stegosaur" variable="LocalX" modification_sign="=" value=expr(Stegosaur.Variable(LocalX) * (Stegosaur.Variable(Radius) + 45) / Stegosaur.Variable(Separation))
-> do SetNumberObjectVariable object="Stegosaur" variable="LocalY" modification_sign="=" value=expr(Stegosaur.Variable(NearY) + (Stegosaur.Variable(LocalY) - Stegosaur.Variable(NearY)) * (Stegosaur.Variable(Radius) + 45) / Stegosaur.Variable(Separation))
-> do SetX object="Player3D" modification_sign="=" value=expr(Stegosaur.X() + Stegosaur.Variable(LocalX) * cos(ToRad(Stegosaur.Angle())) - Stegosaur.Variable(LocalY) * sin(ToRad(Stegosaur.Angle())))
-> do SetY object="Player3D" modification_sign="=" value=expr(Stegosaur.Y() + Stegosaur.Variable(LocalX) * sin(ToRad(Stegosaur.Angle())) + Stegosaur.Variable(LocalY) * cos(ToRad(Stegosaur.Angle())))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if Distance object="Stegosaur" object_2="Dinosaur3D" distance=expr(Stegosaur.Variable(HalfLength) + 390)
-> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
-> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=1
-> if Distance object="Stegosaur" object_2="Dinosaur3D" distance=expr(Stegosaur.Variable(HalfLength) + 380)
-> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
-> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Stegosaur" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Stegosaur.Variable(PX), Stegosaur.Variable(PY), Stegosaur.X(), Stegosaur.Y()))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Stegosaur" variable="Travel" comparison_sign=">" value=0.01
-> if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Stegosaur" variable="AnimationState" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Stegosaur" variable="Travel" comparison_sign="<=" value=0.01
-> if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Stegosaur" variable="AnimationState" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Stegosaur" variable="AnimationPlaying" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="!=" value=0
+> if Distance object="Stegosaur" object_2="Player3D" distance=3600
+> or Distance object="Stegosaur" object_2="Heyin" distance=1800
+> or NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign="<=" value=0
+> or NumberVariable variable="Mode" comparison_sign="!=" value=0
 > or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
-> do SetNumberObjectVariable object="Stegosaur" variable="AnimationPlaying" modification_sign="=" value=0
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Stegosaur" variable="PX" modification_sign="=" value=expr(Stegosaur.X())
+>> do SetNumberObjectVariable object="Stegosaur" variable="PY" modification_sign="=" value=expr(Stegosaur.Y())
+>> do SetNumberObjectVariable object="Stegosaur" variable="PA" modification_sign="=" value=expr(Stegosaur.Angle())
+>> do SetNumberObjectVariable object="Stegosaur" variable="Clock" modification_sign="=" value=expr(Stegosaur.Variable(Clock) + TimeDelta())
+>> do SetNumberObjectVariable object="Stegosaur" variable="AIClock" modification_sign="=" value=expr(Stegosaur.Variable(AIClock) + TimeDelta())
+>> do SetNumberObjectVariable object="Stegosaur" variable="Cooldown" modification_sign="=" value=expr(max(0, Stegosaur.Variable(Cooldown) - TimeDelta()))
+>> do SetNumberObjectVariable object="Stegosaur" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Stegosaur.X(), Stegosaur.Y(), Player3D.X(), Player3D.Y()))
+>> do SetNumberObjectVariable object="Stegosaur" variable="Travel" modification_sign="=" value=0
 
-> @event
-> link "HUDStegosaurHint"
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Stegosaur" variable="State" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="!=" value=3
+>> if NumberObjectVariable object="Stegosaur" variable="AIClock" comparison_sign=">" value=4
+>> do SetNumberObjectVariable object="Stegosaur" variable="State" modification_sign="=" value=1
+>> do SetNumberObjectVariable object="Stegosaur" variable="TargetX" modification_sign="=" value=expr(Stegosaur.Variable(HomeX) + cos(Stegosaur.Variable(Clock) * 0.23) * 145)
+>> do SetNumberObjectVariable object="Stegosaur" variable="TargetY" modification_sign="=" value=expr(Stegosaur.Variable(HomeY) + sin(Stegosaur.Variable(Clock) * 0.23) * 110)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="AIClock" comparison_sign=">" value=9
+>> do SetNumberObjectVariable object="Stegosaur" variable="AIClock" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Stegosaur" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Stegosaur.X(), Stegosaur.Y(), Stegosaur.Variable(TargetX), Stegosaur.Variable(TargetY)))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="=" value=1
+>> if NumberObjectVariable object="Stegosaur" variable="Travel" comparison_sign=">" value=8
+>> do SetAngle object="Stegosaur" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Stegosaur.X(), Stegosaur.Y(), Stegosaur.Variable(TargetX), Stegosaur.Variable(TargetY)) - 90)
+>> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.X() - sin(ToRad(Stegosaur.Angle())) * Stegosaur.Variable(Speed) * 0.30 * TimeDelta())
+>> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Y() + cos(ToRad(Stegosaur.Angle())) * Stegosaur.Variable(Speed) * 0.30 * TimeDelta())
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if PosX object="Stegosaur" comparison_sign="<" value=-5384
+>> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
+>> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if PosX object="Stegosaur" comparison_sign=">" value=5384
+>> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
+>> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if PosY object="Stegosaur" comparison_sign="<" value=-5522
+>> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
+>> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if PosY object="Stegosaur" comparison_sign=">" value=5022
+>> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
+>> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if PosX object="Stegosaur" comparison_sign=">" value=expr(-1250 - Stegosaur.Variable(Radius))
+>> if PosX object="Stegosaur" comparison_sign="<" value=expr(-550 + Stegosaur.Variable(Radius))
+>> if PosY object="Stegosaur" comparison_sign=">" value=expr(-1010 - Stegosaur.Variable(Radius))
+>> if PosY object="Stegosaur" comparison_sign="<" value=expr(-380 + Stegosaur.Variable(Radius))
+>> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
+>> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=0
+>> do SetNumberObjectVariable object="Stegosaur" variable="LocalX" modification_sign="=" value=expr((Player3D.X() - Stegosaur.X()) * cos(ToRad(Stegosaur.Angle())) + (Player3D.Y() - Stegosaur.Y()) * sin(ToRad(Stegosaur.Angle())))
+>> do SetNumberObjectVariable object="Stegosaur" variable="LocalY" modification_sign="=" value=expr(-(Player3D.X() - Stegosaur.X()) * sin(ToRad(Stegosaur.Angle())) + (Player3D.Y() - Stegosaur.Y()) * cos(ToRad(Stegosaur.Angle())))
+>> do SetNumberObjectVariable object="Stegosaur" variable="NearY" modification_sign="=" value=expr(clamp(Stegosaur.Variable(LocalY), -Stegosaur.Variable(HalfLength) + Stegosaur.Variable(Radius), 200 - Stegosaur.Variable(Radius)))
+>> do SetNumberObjectVariable object="Stegosaur" variable="Separation" modification_sign="=" value=expr(max(0.001, sqrt(Stegosaur.Variable(LocalX) * Stegosaur.Variable(LocalX) + pow(Stegosaur.Variable(LocalY) - Stegosaur.Variable(NearY), 2))))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="Separation" comparison_sign="<=" value=0.001
+>> do SetNumberObjectVariable object="Stegosaur" variable="LocalX" modification_sign="=" value=expr(Stegosaur.Variable(Radius) + 45)
+>> do SetNumberObjectVariable object="Stegosaur" variable="Separation" modification_sign="=" value=expr(Stegosaur.Variable(Radius) + 45)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="Separation" comparison_sign="<" value=expr(Stegosaur.Variable(Radius) + 45)
+>> do SetNumberObjectVariable object="Stegosaur" variable="LocalX" modification_sign="=" value=expr(Stegosaur.Variable(LocalX) * (Stegosaur.Variable(Radius) + 45) / Stegosaur.Variable(Separation))
+>> do SetNumberObjectVariable object="Stegosaur" variable="LocalY" modification_sign="=" value=expr(Stegosaur.Variable(NearY) + (Stegosaur.Variable(LocalY) - Stegosaur.Variable(NearY)) * (Stegosaur.Variable(Radius) + 45) / Stegosaur.Variable(Separation))
+>> do SetX object="Player3D" modification_sign="=" value=expr(Stegosaur.X() + Stegosaur.Variable(LocalX) * cos(ToRad(Stegosaur.Angle())) - Stegosaur.Variable(LocalY) * sin(ToRad(Stegosaur.Angle())))
+>> do SetY object="Player3D" modification_sign="=" value=expr(Stegosaur.Y() + Stegosaur.Variable(LocalX) * sin(ToRad(Stegosaur.Angle())) + Stegosaur.Variable(LocalY) * cos(ToRad(Stegosaur.Angle())))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if Distance object="Stegosaur" object_2="Dinosaur3D" distance=expr(Stegosaur.Variable(HalfLength) + 390)
+>> do SetX object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PX))
+>> do SetY object="Stegosaur" modification_sign="=" value=expr(Stegosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=1
+>> if Distance object="Stegosaur" object_2="Dinosaur3D" distance=expr(Stegosaur.Variable(HalfLength) + 380)
+>> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+>> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Stegosaur" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Stegosaur.Variable(PX), Stegosaur.Variable(PY), Stegosaur.X(), Stegosaur.Y()))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="Travel" comparison_sign=">" value=0.01
+>> if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Stegosaur" variable="AnimationState" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="Travel" comparison_sign="<=" value=0.01
+>> if NumberObjectVariable object="Stegosaur" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Stegosaur" variable="AnimationState" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Stegosaur" variable="AnimationPlaying" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="!=" value=0
+>> or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
+>> do SetNumberObjectVariable object="Stegosaur" variable="AnimationPlaying" modification_sign="=" value=0
+
+>> @event
+>> link "HUDStegosaurHint"
 
 @event
 for each "Raptor"
 > @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Raptor" variable="PX" modification_sign="=" value=expr(Raptor.X())
-> do SetNumberObjectVariable object="Raptor" variable="PY" modification_sign="=" value=expr(Raptor.Y())
-> do SetNumberObjectVariable object="Raptor" variable="PA" modification_sign="=" value=expr(Raptor.Angle())
-> do SetNumberObjectVariable object="Raptor" variable="Clock" modification_sign="=" value=expr(Raptor.Variable(Clock) + TimeDelta())
-> do SetNumberObjectVariable object="Raptor" variable="AIClock" modification_sign="=" value=expr(Raptor.Variable(AIClock) + TimeDelta())
-> do SetNumberObjectVariable object="Raptor" variable="Cooldown" modification_sign="=" value=expr(max(0, Raptor.Variable(Cooldown) - TimeDelta()))
-> do SetNumberObjectVariable object="Raptor" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Raptor.X(), Raptor.Y(), Player3D.X(), Player3D.Y()))
-> do SetNumberObjectVariable object="Raptor" variable="Travel" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=expr(3)
-> do SetNumberObjectVariable object="Raptor" variable="TargetHeyin" modification_sign="=" value=expr(0)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=expr(3)
-> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
-> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=expr(720)
-> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=expr(Raptor.Variable(Distance))
-> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Heyin.X(),Heyin.Y(),-650,350)) comparison_sign=">" second_expression=expr(300)
-> do SetNumberObjectVariable object="Raptor" variable="TargetHeyin" modification_sign="=" value=expr(1)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=expr(1)
-> do SetNumberObjectVariable object="Raptor" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Heyin.X(),Heyin.Y()))
-> do SetNumberObjectVariable object="Raptor" variable="TargetX" modification_sign="=" value=expr(Heyin.X())
-> do SetNumberObjectVariable object="Raptor" variable="TargetY" modification_sign="=" value=expr(Heyin.Y())
-
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
-> if NumberObjectVariable object="Raptor" variable="AIClock" comparison_sign=">" value=4
-> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=1
-> do SetNumberObjectVariable object="Raptor" variable="TargetX" modification_sign="=" value=expr(Raptor.Variable(HomeX) + cos(Raptor.Variable(Clock) * 0.23) * 145)
-> do SetNumberObjectVariable object="Raptor" variable="TargetY" modification_sign="=" value=expr(Raptor.Variable(HomeY) + sin(Raptor.Variable(Clock) * 0.23) * 110)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="AIClock" comparison_sign=">" value=9
-> do SetNumberObjectVariable object="Raptor" variable="AIClock" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<" value=720
-> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=0
-> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=2
-> do SetNumberObjectVariable object="Raptor" variable="TargetX" modification_sign="=" value=expr(Player3D.X())
-> do SetNumberObjectVariable object="Raptor" variable="TargetY" modification_sign="=" value=expr(Player3D.Y())
-> do SetNumberVariable variable="Threat" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=expr(1)
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=expr(3)
-> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
-> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=expr(2)
-> do SetNumberVariable variable="Threat" modification_sign="=" value=expr(1)
-
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign=">=" value=2
-> do SetNumberVariable variable="Threat" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=2
-> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<=" value=expr(255 + Riding * (1-Raptor.Variable(TargetHeyin)) * 420)
-> if NumberObjectVariable object="Raptor" variable="Cooldown" comparison_sign="<=" value=0
-> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=3
-> do SetNumberObjectVariable object="Raptor" variable="Windup" modification_sign="=" value=0.85
-> do SetNumberObjectVariable object="Raptor" variable="DamageDone" modification_sign="=" value=0
-> do SetNumberObjectVariable object="Raptor" variable="Cooldown" modification_sign="=" value=2.2
-> do PlaySound audio_file_or_audio_resource_name="raptor-call.wav" repeat_the_sound=false volume=45 pitch_speed=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
-> do SetNumberObjectVariable object="Raptor" variable="Windup" modification_sign="=" value=expr(Raptor.Variable(Windup) - TimeDelta())
-> do SetAngle object="Raptor" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Raptor.X(), Raptor.Y(), Raptor.Variable(TargetX), Raptor.Variable(TargetY)) - 90)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
-> if NumberObjectVariable object="Raptor" variable="Windup" comparison_sign="<=" value=0.3
-> if NumberObjectVariable object="Raptor" variable="DamageDone" comparison_sign="=" value=0
-> do SetNumberObjectVariable object="Raptor" variable="DamageDone" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=expr(3)
-> if NumberObjectVariable object="Raptor" variable="DamageDone" comparison_sign="=" value=expr(1)
-> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=expr(1)
-> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<=" value=expr(275)
-> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Heyin" variable="Invulnerable" comparison_sign="<=" value=expr(0)
-> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Heyin.Object3D::Z()-Raptor.Object3D::Z())) comparison_sign="<" second_expression=expr(80)
-> do SetNumberObjectVariable object="Heyin" variable="HP" modification_sign="=" value=expr(max(0,Heyin.Variable(HP)-12))
-> do SetNumberObjectVariable object="Heyin" variable="Energy" modification_sign="=" value=expr(max(0,Heyin.Variable(Energy)-8))
-> do SetNumberObjectVariable object="Heyin" variable="Invulnerable" modification_sign="=" value=expr(1)
-> do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：小心！它在追我……请帮我引开它！"
-> do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=expr(6)
-> do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
-> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=65 pitch_speed=1
-
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
-> if NumberObjectVariable object="Raptor" variable="DamageDone" comparison_sign="=" value=1
-> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<=" value=expr(275 + Riding * (1-Raptor.Variable(TargetHeyin)) * 420)
-> if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
-> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=0
-> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
-> do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0, Health - 12 + Riding * 6.0))
-> do SetNumberVariable variable="Invulnerable" modification_sign="=" value=1
-> do SetNumberVariable variable="HitFlash" modification_sign="=" value=0.35
-> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="迅猛龙撕咬！拉开距离，K 反击或骑乘撤离。"
-> do PlaySound audio_file_or_audio_resource_name="hurt.wav" repeat_the_sound=false volume=75 pitch_speed=1
-> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=65 pitch_speed=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="DamageDone" comparison_sign="=" value=1
-> do SetNumberObjectVariable object="Raptor" variable="DamageDone" modification_sign="=" value=2
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
-> if NumberObjectVariable object="Raptor" variable="Windup" comparison_sign="<=" value=0
-> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Raptor" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Raptor.X(), Raptor.Y(), Raptor.Variable(TargetX), Raptor.Variable(TargetY)))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=1
-> if NumberObjectVariable object="Raptor" variable="Travel" comparison_sign=">" value=8
-> do SetAngle object="Raptor" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Raptor.X(), Raptor.Y(), Raptor.Variable(TargetX), Raptor.Variable(TargetY)) - 90)
-> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.X() - sin(ToRad(Raptor.Angle())) * Raptor.Variable(Speed) * 0.30 * TimeDelta())
-> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Y() + cos(ToRad(Raptor.Angle())) * Raptor.Variable(Speed) * 0.30 * TimeDelta())
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=2
-> if NumberObjectVariable object="Raptor" variable="Travel" comparison_sign=">" value=8
-> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign=">" value=expr(240 + Riding * (1-Raptor.Variable(TargetHeyin)) * 420)
-> do SetAngle object="Raptor" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Raptor.X(), Raptor.Y(), Raptor.Variable(TargetX), Raptor.Variable(TargetY)) - 90)
-> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.X() - sin(ToRad(Raptor.Angle())) * Raptor.Variable(Speed) * TimeDelta())
-> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Y() + cos(ToRad(Raptor.Angle())) * Raptor.Variable(Speed) * TimeDelta())
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if PosX object="Raptor" comparison_sign="<" value=-5384
-> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
-> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if PosX object="Raptor" comparison_sign=">" value=5384
-> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
-> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if PosY object="Raptor" comparison_sign="<" value=-5522
-> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
-> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if PosY object="Raptor" comparison_sign=">" value=5022
-> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
-> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if PosX object="Raptor" comparison_sign=">" value=expr(-1250 - Raptor.Variable(Radius))
-> if PosX object="Raptor" comparison_sign="<" value=expr(-550 + Raptor.Variable(Radius))
-> if PosY object="Raptor" comparison_sign=">" value=expr(-1010 - Raptor.Variable(Radius))
-> if PosY object="Raptor" comparison_sign="<" value=expr(-380 + Raptor.Variable(Radius))
-> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
-> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=0
-> do SetNumberObjectVariable object="Raptor" variable="LocalX" modification_sign="=" value=expr((Player3D.X() - Raptor.X()) * cos(ToRad(Raptor.Angle())) + (Player3D.Y() - Raptor.Y()) * sin(ToRad(Raptor.Angle())))
-> do SetNumberObjectVariable object="Raptor" variable="LocalY" modification_sign="=" value=expr(-(Player3D.X() - Raptor.X()) * sin(ToRad(Raptor.Angle())) + (Player3D.Y() - Raptor.Y()) * cos(ToRad(Raptor.Angle())))
-> do SetNumberObjectVariable object="Raptor" variable="NearY" modification_sign="=" value=expr(clamp(Raptor.Variable(LocalY), -Raptor.Variable(HalfLength) + Raptor.Variable(Radius), 190 - Raptor.Variable(Radius)))
-> do SetNumberObjectVariable object="Raptor" variable="Separation" modification_sign="=" value=expr(max(0.001, sqrt(Raptor.Variable(LocalX) * Raptor.Variable(LocalX) + pow(Raptor.Variable(LocalY) - Raptor.Variable(NearY), 2))))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="Separation" comparison_sign="<=" value=0.001
-> do SetNumberObjectVariable object="Raptor" variable="LocalX" modification_sign="=" value=expr(Raptor.Variable(Radius) + 45)
-> do SetNumberObjectVariable object="Raptor" variable="Separation" modification_sign="=" value=expr(Raptor.Variable(Radius) + 45)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="Separation" comparison_sign="<" value=expr(Raptor.Variable(Radius) + 45)
-> do SetNumberObjectVariable object="Raptor" variable="LocalX" modification_sign="=" value=expr(Raptor.Variable(LocalX) * (Raptor.Variable(Radius) + 45) / Raptor.Variable(Separation))
-> do SetNumberObjectVariable object="Raptor" variable="LocalY" modification_sign="=" value=expr(Raptor.Variable(NearY) + (Raptor.Variable(LocalY) - Raptor.Variable(NearY)) * (Raptor.Variable(Radius) + 45) / Raptor.Variable(Separation))
-> do SetX object="Player3D" modification_sign="=" value=expr(Raptor.X() + Raptor.Variable(LocalX) * cos(ToRad(Raptor.Angle())) - Raptor.Variable(LocalY) * sin(ToRad(Raptor.Angle())))
-> do SetY object="Player3D" modification_sign="=" value=expr(Raptor.Y() + Raptor.Variable(LocalX) * sin(ToRad(Raptor.Angle())) + Raptor.Variable(LocalY) * cos(ToRad(Raptor.Angle())))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if Distance object="Raptor" object_2="Dinosaur3D" distance=expr(Raptor.Variable(HalfLength) + 390)
-> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
-> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=1
-> if Distance object="Raptor" object_2="Dinosaur3D" distance=expr(Raptor.Variable(HalfLength) + 380)
-> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
-> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="CombatHit" comparison_sign="=" value=1
-> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<" value=expr(Raptor.Variable(HalfLength) + 200)
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=4
-> do SetNumberObjectVariable object="Raptor" variable="HP" modification_sign="=" value=expr(Raptor.Variable(HP) - (12 + min(1, Spear) * 23 + MetalTools*(10+10*min(1,Spear))))
-> do SetNumberVariable variable="CombatHit" modification_sign="=" value=0
-> do SetNumberVariable variable="CombatLesson" modification_sign="=" value=1
-> do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Player3D.X(), Player3D.Y(), Raptor.X(), Raptor.Y()) - 90)
-> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=60 pitch_speed=1
-> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="命中迅猛龙！继续保持距离。"
-> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign="<=" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=4
-> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=4
-> do SetNumberObjectVariable object="Raptor" variable="Respawn" modification_sign="=" value=45
-> do Hide object="Raptor"
-> do SetNumberVariable variable="Kills" modification_sign="+" value=1
-> do SetNumberVariable variable="Meat" modification_sign="+" value=3
-> do SetNumberVariable variable="Hide" modification_sign="+" value=2
-> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="击退迅猛龙：生肉 +3、兽皮 +2。"
-> do PlaySound audio_file_or_audio_resource_name="pickup.wav" repeat_the_sound=false volume=70 pitch_speed=1
-> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=4
-> do SetNumberObjectVariable object="Raptor" variable="Respawn" modification_sign="=" value=expr(Raptor.Variable(Respawn) - TimeDelta())
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=4
-> if NumberObjectVariable object="Raptor" variable="Respawn" comparison_sign="<=" value=0
-> @instruction inverted=true
-> if Distance object="Raptor" object_2="Player3D" distance=900
-> do SetNumberObjectVariable object="Raptor" variable="HP" modification_sign="=" value=expr(Raptor.Variable(MaxHP))
-> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=0
-> do SetNumberObjectVariable object="Raptor" variable="Cooldown" modification_sign="=" value=3
-> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(HomeX))
-> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(HomeY))
-> do Show object="Raptor"
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Raptor" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Raptor.Variable(PX), Raptor.Variable(PY), Raptor.X(), Raptor.Y()))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="Travel" comparison_sign=">" value=0.01
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Raptor" variable="AnimationState" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="Travel" comparison_sign="<=" value=0.01
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Raptor" variable="AnimationState" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
-> do SetNumberObjectVariable object="Raptor" variable="AnimationState" modification_sign="=" value=2
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Raptor" variable="AnimationPlaying" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="!=" value=0
+> if Distance object="Raptor" object_2="Player3D" distance=3600
+> or Distance object="Raptor" object_2="Heyin" distance=1800
+> or NumberObjectVariable object="Raptor" variable="HP" comparison_sign="<=" value=0
+> or NumberVariable variable="Mode" comparison_sign="!=" value=0
 > or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
-> do SetNumberObjectVariable object="Raptor" variable="AnimationPlaying" modification_sign="=" value=0
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Raptor" variable="PX" modification_sign="=" value=expr(Raptor.X())
+>> do SetNumberObjectVariable object="Raptor" variable="PY" modification_sign="=" value=expr(Raptor.Y())
+>> do SetNumberObjectVariable object="Raptor" variable="PA" modification_sign="=" value=expr(Raptor.Angle())
+>> do SetNumberObjectVariable object="Raptor" variable="Clock" modification_sign="=" value=expr(Raptor.Variable(Clock) + TimeDelta())
+>> do SetNumberObjectVariable object="Raptor" variable="AIClock" modification_sign="=" value=expr(Raptor.Variable(AIClock) + TimeDelta())
+>> do SetNumberObjectVariable object="Raptor" variable="Cooldown" modification_sign="=" value=expr(max(0, Raptor.Variable(Cooldown) - TimeDelta()))
+>> do SetNumberObjectVariable object="Raptor" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Raptor.X(), Raptor.Y(), Player3D.X(), Player3D.Y()))
+>> do SetNumberObjectVariable object="Raptor" variable="Travel" modification_sign="=" value=0
 
-> @event
-> link "HUDRaptorHint"
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=expr(3)
+>> do SetNumberObjectVariable object="Raptor" variable="TargetHeyin" modification_sign="=" value=expr(0)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=expr(3)
+>> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=expr(720)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=expr(Raptor.Variable(Distance))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Heyin.X(),Heyin.Y(),-650,350)) comparison_sign=">" second_expression=expr(300)
+>> do SetNumberObjectVariable object="Raptor" variable="TargetHeyin" modification_sign="=" value=expr(1)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=expr(1)
+>> do SetNumberObjectVariable object="Raptor" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Heyin.X(),Heyin.Y()))
+>> do SetNumberObjectVariable object="Raptor" variable="TargetX" modification_sign="=" value=expr(Heyin.X())
+>> do SetNumberObjectVariable object="Raptor" variable="TargetY" modification_sign="=" value=expr(Heyin.Y())
+
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
+>> if NumberObjectVariable object="Raptor" variable="AIClock" comparison_sign=">" value=4
+>> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=1
+>> do SetNumberObjectVariable object="Raptor" variable="TargetX" modification_sign="=" value=expr(Raptor.Variable(HomeX) + cos(Raptor.Variable(Clock) * 0.23) * 145)
+>> do SetNumberObjectVariable object="Raptor" variable="TargetY" modification_sign="=" value=expr(Raptor.Variable(HomeY) + sin(Raptor.Variable(Clock) * 0.23) * 110)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="AIClock" comparison_sign=">" value=9
+>> do SetNumberObjectVariable object="Raptor" variable="AIClock" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<" value=720
+>> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=0
+>> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=2
+>> do SetNumberObjectVariable object="Raptor" variable="TargetX" modification_sign="=" value=expr(Player3D.X())
+>> do SetNumberObjectVariable object="Raptor" variable="TargetY" modification_sign="=" value=expr(Player3D.Y())
+>> do SetNumberVariable variable="Threat" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=expr(1)
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=expr(3)
+>> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
+>> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=expr(2)
+>> do SetNumberVariable variable="Threat" modification_sign="=" value=expr(1)
+
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign=">=" value=2
+>> do SetNumberVariable variable="Threat" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=2
+>> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<=" value=expr(255 + Riding * (1-Raptor.Variable(TargetHeyin)) * 420)
+>> if NumberObjectVariable object="Raptor" variable="Cooldown" comparison_sign="<=" value=0
+>> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=3
+>> do SetNumberObjectVariable object="Raptor" variable="Windup" modification_sign="=" value=0.85
+>> do SetNumberObjectVariable object="Raptor" variable="DamageDone" modification_sign="=" value=0
+>> do SetNumberObjectVariable object="Raptor" variable="Cooldown" modification_sign="=" value=2.2
+>> do PlaySound audio_file_or_audio_resource_name="raptor-call.wav" repeat_the_sound=false volume=45 pitch_speed=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
+>> do SetNumberObjectVariable object="Raptor" variable="Windup" modification_sign="=" value=expr(Raptor.Variable(Windup) - TimeDelta())
+>> do SetAngle object="Raptor" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Raptor.X(), Raptor.Y(), Raptor.Variable(TargetX), Raptor.Variable(TargetY)) - 90)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
+>> if NumberObjectVariable object="Raptor" variable="Windup" comparison_sign="<=" value=0.3
+>> if NumberObjectVariable object="Raptor" variable="DamageDone" comparison_sign="=" value=0
+>> do SetNumberObjectVariable object="Raptor" variable="DamageDone" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=expr(3)
+>> if NumberObjectVariable object="Raptor" variable="DamageDone" comparison_sign="=" value=expr(1)
+>> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=expr(1)
+>> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<=" value=expr(275)
+>> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Heyin" variable="Invulnerable" comparison_sign="<=" value=expr(0)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Heyin.Object3D::Z()-Raptor.Object3D::Z())) comparison_sign="<" second_expression=expr(80)
+>> do SetNumberObjectVariable object="Heyin" variable="HP" modification_sign="=" value=expr(max(0,Heyin.Variable(HP)-12))
+>> do SetNumberObjectVariable object="Heyin" variable="Energy" modification_sign="=" value=expr(max(0,Heyin.Variable(Energy)-8))
+>> do SetNumberObjectVariable object="Heyin" variable="Invulnerable" modification_sign="=" value=expr(1)
+>> do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：小心！它在追我……请帮我引开它！"
+>> do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=expr(6)
+>> do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+>> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=65 pitch_speed=1
+
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
+>> if NumberObjectVariable object="Raptor" variable="DamageDone" comparison_sign="=" value=1
+>> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<=" value=expr(275 + Riding * (1-Raptor.Variable(TargetHeyin)) * 420)
+>> if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
+>> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=0
+>> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
+>> do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0, Health - 12 + Riding * 6.0))
+>> do SetNumberVariable variable="Invulnerable" modification_sign="=" value=1
+>> do SetNumberVariable variable="HitFlash" modification_sign="=" value=0.35
+>> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+>> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="迅猛龙撕咬！拉开距离，K 反击或骑乘撤离。"
+>> do PlaySound audio_file_or_audio_resource_name="hurt.wav" repeat_the_sound=false volume=75 pitch_speed=1
+>> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=65 pitch_speed=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="DamageDone" comparison_sign="=" value=1
+>> do SetNumberObjectVariable object="Raptor" variable="DamageDone" modification_sign="=" value=2
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
+>> if NumberObjectVariable object="Raptor" variable="Windup" comparison_sign="<=" value=0
+>> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Raptor" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Raptor.X(), Raptor.Y(), Raptor.Variable(TargetX), Raptor.Variable(TargetY)))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=1
+>> if NumberObjectVariable object="Raptor" variable="Travel" comparison_sign=">" value=8
+>> do SetAngle object="Raptor" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Raptor.X(), Raptor.Y(), Raptor.Variable(TargetX), Raptor.Variable(TargetY)) - 90)
+>> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.X() - sin(ToRad(Raptor.Angle())) * Raptor.Variable(Speed) * 0.30 * TimeDelta())
+>> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Y() + cos(ToRad(Raptor.Angle())) * Raptor.Variable(Speed) * 0.30 * TimeDelta())
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=2
+>> if NumberObjectVariable object="Raptor" variable="Travel" comparison_sign=">" value=8
+>> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign=">" value=expr(240 + Riding * (1-Raptor.Variable(TargetHeyin)) * 420)
+>> do SetAngle object="Raptor" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Raptor.X(), Raptor.Y(), Raptor.Variable(TargetX), Raptor.Variable(TargetY)) - 90)
+>> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.X() - sin(ToRad(Raptor.Angle())) * Raptor.Variable(Speed) * TimeDelta())
+>> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Y() + cos(ToRad(Raptor.Angle())) * Raptor.Variable(Speed) * TimeDelta())
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if PosX object="Raptor" comparison_sign="<" value=-5384
+>> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
+>> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if PosX object="Raptor" comparison_sign=">" value=5384
+>> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
+>> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if PosY object="Raptor" comparison_sign="<" value=-5522
+>> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
+>> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if PosY object="Raptor" comparison_sign=">" value=5022
+>> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
+>> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if PosX object="Raptor" comparison_sign=">" value=expr(-1250 - Raptor.Variable(Radius))
+>> if PosX object="Raptor" comparison_sign="<" value=expr(-550 + Raptor.Variable(Radius))
+>> if PosY object="Raptor" comparison_sign=">" value=expr(-1010 - Raptor.Variable(Radius))
+>> if PosY object="Raptor" comparison_sign="<" value=expr(-380 + Raptor.Variable(Radius))
+>> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
+>> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=0
+>> do SetNumberObjectVariable object="Raptor" variable="LocalX" modification_sign="=" value=expr((Player3D.X() - Raptor.X()) * cos(ToRad(Raptor.Angle())) + (Player3D.Y() - Raptor.Y()) * sin(ToRad(Raptor.Angle())))
+>> do SetNumberObjectVariable object="Raptor" variable="LocalY" modification_sign="=" value=expr(-(Player3D.X() - Raptor.X()) * sin(ToRad(Raptor.Angle())) + (Player3D.Y() - Raptor.Y()) * cos(ToRad(Raptor.Angle())))
+>> do SetNumberObjectVariable object="Raptor" variable="NearY" modification_sign="=" value=expr(clamp(Raptor.Variable(LocalY), -Raptor.Variable(HalfLength) + Raptor.Variable(Radius), 190 - Raptor.Variable(Radius)))
+>> do SetNumberObjectVariable object="Raptor" variable="Separation" modification_sign="=" value=expr(max(0.001, sqrt(Raptor.Variable(LocalX) * Raptor.Variable(LocalX) + pow(Raptor.Variable(LocalY) - Raptor.Variable(NearY), 2))))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="Separation" comparison_sign="<=" value=0.001
+>> do SetNumberObjectVariable object="Raptor" variable="LocalX" modification_sign="=" value=expr(Raptor.Variable(Radius) + 45)
+>> do SetNumberObjectVariable object="Raptor" variable="Separation" modification_sign="=" value=expr(Raptor.Variable(Radius) + 45)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="Separation" comparison_sign="<" value=expr(Raptor.Variable(Radius) + 45)
+>> do SetNumberObjectVariable object="Raptor" variable="LocalX" modification_sign="=" value=expr(Raptor.Variable(LocalX) * (Raptor.Variable(Radius) + 45) / Raptor.Variable(Separation))
+>> do SetNumberObjectVariable object="Raptor" variable="LocalY" modification_sign="=" value=expr(Raptor.Variable(NearY) + (Raptor.Variable(LocalY) - Raptor.Variable(NearY)) * (Raptor.Variable(Radius) + 45) / Raptor.Variable(Separation))
+>> do SetX object="Player3D" modification_sign="=" value=expr(Raptor.X() + Raptor.Variable(LocalX) * cos(ToRad(Raptor.Angle())) - Raptor.Variable(LocalY) * sin(ToRad(Raptor.Angle())))
+>> do SetY object="Player3D" modification_sign="=" value=expr(Raptor.Y() + Raptor.Variable(LocalX) * sin(ToRad(Raptor.Angle())) + Raptor.Variable(LocalY) * cos(ToRad(Raptor.Angle())))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if Distance object="Raptor" object_2="Dinosaur3D" distance=expr(Raptor.Variable(HalfLength) + 390)
+>> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PX))
+>> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=1
+>> if Distance object="Raptor" object_2="Dinosaur3D" distance=expr(Raptor.Variable(HalfLength) + 380)
+>> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+>> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="CombatHit" comparison_sign="=" value=1
+>> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<" value=expr(Raptor.Variable(HalfLength) + 200)
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=4
+>> do SetNumberObjectVariable object="Raptor" variable="HP" modification_sign="=" value=expr(Raptor.Variable(HP) - (12 + min(1, Spear) * 23 + MetalTools*(10+10*min(1,Spear))))
+>> do SetNumberVariable variable="CombatHit" modification_sign="=" value=0
+>> do SetNumberVariable variable="CombatLesson" modification_sign="=" value=1
+>> do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Player3D.X(), Player3D.Y(), Raptor.X(), Raptor.Y()) - 90)
+>> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=60 pitch_speed=1
+>> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="命中迅猛龙！继续保持距离。"
+>> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign="<=" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=4
+>> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=4
+>> do SetNumberObjectVariable object="Raptor" variable="Respawn" modification_sign="=" value=45
+>> do Hide object="Raptor"
+>> do SetNumberVariable variable="Kills" modification_sign="+" value=1
+>> do SetNumberVariable variable="Meat" modification_sign="+" value=3
+>> do SetNumberVariable variable="Hide" modification_sign="+" value=2
+>> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="击退迅猛龙：生肉 +3、兽皮 +2。"
+>> do PlaySound audio_file_or_audio_resource_name="pickup.wav" repeat_the_sound=false volume=70 pitch_speed=1
+>> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=4
+>> do SetNumberObjectVariable object="Raptor" variable="Respawn" modification_sign="=" value=expr(Raptor.Variable(Respawn) - TimeDelta())
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=4
+>> if NumberObjectVariable object="Raptor" variable="Respawn" comparison_sign="<=" value=0
+>> @instruction inverted=true
+>> if Distance object="Raptor" object_2="Player3D" distance=900
+>> do SetNumberObjectVariable object="Raptor" variable="HP" modification_sign="=" value=expr(Raptor.Variable(MaxHP))
+>> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=0
+>> do SetNumberObjectVariable object="Raptor" variable="Cooldown" modification_sign="=" value=3
+>> do SetX object="Raptor" modification_sign="=" value=expr(Raptor.Variable(HomeX))
+>> do SetY object="Raptor" modification_sign="=" value=expr(Raptor.Variable(HomeY))
+>> do Show object="Raptor"
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Raptor" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Raptor.Variable(PX), Raptor.Variable(PY), Raptor.X(), Raptor.Y()))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="Travel" comparison_sign=">" value=0.01
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Raptor" variable="AnimationState" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="Travel" comparison_sign="<=" value=0.01
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Raptor" variable="AnimationState" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
+>> do SetNumberObjectVariable object="Raptor" variable="AnimationState" modification_sign="=" value=2
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Raptor" variable="AnimationPlaying" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="!=" value=0
+>> or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
+>> do SetNumberObjectVariable object="Raptor" variable="AnimationPlaying" modification_sign="=" value=0
+
+>> @event
+>> link "HUDRaptorHint"
 
 @event
 for each "Tyrannosaur"
 > @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Tyrannosaur" variable="PX" modification_sign="=" value=expr(Tyrannosaur.X())
-> do SetNumberObjectVariable object="Tyrannosaur" variable="PY" modification_sign="=" value=expr(Tyrannosaur.Y())
-> do SetNumberObjectVariable object="Tyrannosaur" variable="PA" modification_sign="=" value=expr(Tyrannosaur.Angle())
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Clock" modification_sign="=" value=expr(Tyrannosaur.Variable(Clock) + TimeDelta())
-> do SetNumberObjectVariable object="Tyrannosaur" variable="AIClock" modification_sign="=" value=expr(Tyrannosaur.Variable(AIClock) + TimeDelta())
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Cooldown" modification_sign="=" value=expr(max(0, Tyrannosaur.Variable(Cooldown) - TimeDelta()))
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Tyrannosaur.X(), Tyrannosaur.Y(), Player3D.X(), Player3D.Y()))
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Travel" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=expr(3)
-> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" modification_sign="=" value=expr(0)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=expr(3)
-> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
-> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=expr(650)
-> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=expr(Tyrannosaur.Variable(Distance))
-> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Heyin.X(),Heyin.Y(),-650,350)) comparison_sign=">" second_expression=expr(300)
-> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" modification_sign="=" value=expr(1)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=expr(1)
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Heyin.X(),Heyin.Y()))
-> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetX" modification_sign="=" value=expr(Heyin.X())
-> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetY" modification_sign="=" value=expr(Heyin.Y())
-
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
-> if NumberObjectVariable object="Tyrannosaur" variable="AIClock" comparison_sign=">" value=4
-> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=1
-> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetX" modification_sign="=" value=expr(Tyrannosaur.Variable(HomeX) + cos(Tyrannosaur.Variable(Clock) * 0.23) * 145)
-> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetY" modification_sign="=" value=expr(Tyrannosaur.Variable(HomeY) + sin(Tyrannosaur.Variable(Clock) * 0.23) * 110)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="AIClock" comparison_sign=">" value=9
-> do SetNumberObjectVariable object="Tyrannosaur" variable="AIClock" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<" value=650
-> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=0
-> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=2
-> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetX" modification_sign="=" value=expr(Player3D.X())
-> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetY" modification_sign="=" value=expr(Player3D.Y())
-> do SetNumberVariable variable="Threat" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=expr(1)
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=expr(3)
-> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
-> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=expr(2)
-> do SetNumberVariable variable="Threat" modification_sign="=" value=expr(1)
-
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign=">=" value=2
-> do SetNumberVariable variable="Threat" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=2
-> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<=" value=expr(390 + Riding * (1-Tyrannosaur.Variable(TargetHeyin)) * 420)
-> if NumberObjectVariable object="Tyrannosaur" variable="Cooldown" comparison_sign="<=" value=0
-> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=3
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Windup" modification_sign="=" value=0.85
-> do SetNumberObjectVariable object="Tyrannosaur" variable="DamageDone" modification_sign="=" value=0
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Cooldown" modification_sign="=" value=2.2
-> do PlaySound audio_file_or_audio_resource_name="rex-roar.wav" repeat_the_sound=false volume=45 pitch_speed=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Windup" modification_sign="=" value=expr(Tyrannosaur.Variable(Windup) - TimeDelta())
-> do SetAngle object="Tyrannosaur" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Tyrannosaur.X(), Tyrannosaur.Y(), Tyrannosaur.Variable(TargetX), Tyrannosaur.Variable(TargetY)) - 90)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
-> if NumberObjectVariable object="Tyrannosaur" variable="Windup" comparison_sign="<=" value=0.3
-> if NumberObjectVariable object="Tyrannosaur" variable="DamageDone" comparison_sign="=" value=0
-> do SetNumberObjectVariable object="Tyrannosaur" variable="DamageDone" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
-> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=expr(3)
-> if NumberObjectVariable object="Tyrannosaur" variable="DamageDone" comparison_sign="=" value=expr(1)
-> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=expr(1)
-> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<=" value=expr(410)
-> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
-> if NumberObjectVariable object="Heyin" variable="Invulnerable" comparison_sign="<=" value=expr(0)
-> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Heyin.Object3D::Z()-Tyrannosaur.Object3D::Z())) comparison_sign="<" second_expression=expr(80)
-> do SetNumberObjectVariable object="Heyin" variable="HP" modification_sign="=" value=expr(max(0,Heyin.Variable(HP)-24))
-> do SetNumberObjectVariable object="Heyin" variable="Energy" modification_sign="=" value=expr(max(0,Heyin.Variable(Energy)-8))
-> do SetNumberObjectVariable object="Heyin" variable="Invulnerable" modification_sign="=" value=expr(1)
-> do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：小心！它在追我……请帮我引开它！"
-> do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=expr(6)
-> do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
-> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=65 pitch_speed=1
-
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
-> if NumberObjectVariable object="Tyrannosaur" variable="DamageDone" comparison_sign="=" value=1
-> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<=" value=expr(410 + Riding * (1-Tyrannosaur.Variable(TargetHeyin)) * 420)
-> if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=0
-> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
-> do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0, Health - 24 + Riding * 12.0))
-> do SetNumberVariable variable="Invulnerable" modification_sign="=" value=1
-> do SetNumberVariable variable="HitFlash" modification_sign="=" value=0.35
-> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="霸王龙撕咬！拉开距离，K 反击或骑乘撤离。"
-> do PlaySound audio_file_or_audio_resource_name="hurt.wav" repeat_the_sound=false volume=75 pitch_speed=1
-> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=65 pitch_speed=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="DamageDone" comparison_sign="=" value=1
-> do SetNumberObjectVariable object="Tyrannosaur" variable="DamageDone" modification_sign="=" value=2
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
-> if NumberObjectVariable object="Tyrannosaur" variable="Windup" comparison_sign="<=" value=0
-> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Tyrannosaur.X(), Tyrannosaur.Y(), Tyrannosaur.Variable(TargetX), Tyrannosaur.Variable(TargetY)))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=1
-> if NumberObjectVariable object="Tyrannosaur" variable="Travel" comparison_sign=">" value=8
-> do SetAngle object="Tyrannosaur" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Tyrannosaur.X(), Tyrannosaur.Y(), Tyrannosaur.Variable(TargetX), Tyrannosaur.Variable(TargetY)) - 90)
-> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.X() - sin(ToRad(Tyrannosaur.Angle())) * Tyrannosaur.Variable(Speed) * 0.30 * TimeDelta())
-> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Y() + cos(ToRad(Tyrannosaur.Angle())) * Tyrannosaur.Variable(Speed) * 0.30 * TimeDelta())
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=2
-> if NumberObjectVariable object="Tyrannosaur" variable="Travel" comparison_sign=">" value=8
-> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign=">" value=expr(375 + Riding * (1-Tyrannosaur.Variable(TargetHeyin)) * 420)
-> do SetAngle object="Tyrannosaur" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Tyrannosaur.X(), Tyrannosaur.Y(), Tyrannosaur.Variable(TargetX), Tyrannosaur.Variable(TargetY)) - 90)
-> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.X() - sin(ToRad(Tyrannosaur.Angle())) * Tyrannosaur.Variable(Speed) * TimeDelta())
-> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Y() + cos(ToRad(Tyrannosaur.Angle())) * Tyrannosaur.Variable(Speed) * TimeDelta())
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if PosX object="Tyrannosaur" comparison_sign="<" value=-5384
-> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
-> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if PosX object="Tyrannosaur" comparison_sign=">" value=5384
-> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
-> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if PosY object="Tyrannosaur" comparison_sign="<" value=-5522
-> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
-> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if PosY object="Tyrannosaur" comparison_sign=">" value=5022
-> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
-> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if PosX object="Tyrannosaur" comparison_sign=">" value=expr(-1250 - Tyrannosaur.Variable(Radius))
-> if PosX object="Tyrannosaur" comparison_sign="<" value=expr(-550 + Tyrannosaur.Variable(Radius))
-> if PosY object="Tyrannosaur" comparison_sign=">" value=expr(-1010 - Tyrannosaur.Variable(Radius))
-> if PosY object="Tyrannosaur" comparison_sign="<" value=expr(-380 + Tyrannosaur.Variable(Radius))
-> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
-> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=0
-> do SetNumberObjectVariable object="Tyrannosaur" variable="LocalX" modification_sign="=" value=expr((Player3D.X() - Tyrannosaur.X()) * cos(ToRad(Tyrannosaur.Angle())) + (Player3D.Y() - Tyrannosaur.Y()) * sin(ToRad(Tyrannosaur.Angle())))
-> do SetNumberObjectVariable object="Tyrannosaur" variable="LocalY" modification_sign="=" value=expr(-(Player3D.X() - Tyrannosaur.X()) * sin(ToRad(Tyrannosaur.Angle())) + (Player3D.Y() - Tyrannosaur.Y()) * cos(ToRad(Tyrannosaur.Angle())))
-> do SetNumberObjectVariable object="Tyrannosaur" variable="NearY" modification_sign="=" value=expr(clamp(Tyrannosaur.Variable(LocalY), -Tyrannosaur.Variable(HalfLength) + Tyrannosaur.Variable(Radius), 325 - Tyrannosaur.Variable(Radius)))
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Separation" modification_sign="=" value=expr(max(0.001, sqrt(Tyrannosaur.Variable(LocalX) * Tyrannosaur.Variable(LocalX) + pow(Tyrannosaur.Variable(LocalY) - Tyrannosaur.Variable(NearY), 2))))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="Separation" comparison_sign="<=" value=0.001
-> do SetNumberObjectVariable object="Tyrannosaur" variable="LocalX" modification_sign="=" value=expr(Tyrannosaur.Variable(Radius) + 45)
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Separation" modification_sign="=" value=expr(Tyrannosaur.Variable(Radius) + 45)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="Separation" comparison_sign="<" value=expr(Tyrannosaur.Variable(Radius) + 45)
-> do SetNumberObjectVariable object="Tyrannosaur" variable="LocalX" modification_sign="=" value=expr(Tyrannosaur.Variable(LocalX) * (Tyrannosaur.Variable(Radius) + 45) / Tyrannosaur.Variable(Separation))
-> do SetNumberObjectVariable object="Tyrannosaur" variable="LocalY" modification_sign="=" value=expr(Tyrannosaur.Variable(NearY) + (Tyrannosaur.Variable(LocalY) - Tyrannosaur.Variable(NearY)) * (Tyrannosaur.Variable(Radius) + 45) / Tyrannosaur.Variable(Separation))
-> do SetX object="Player3D" modification_sign="=" value=expr(Tyrannosaur.X() + Tyrannosaur.Variable(LocalX) * cos(ToRad(Tyrannosaur.Angle())) - Tyrannosaur.Variable(LocalY) * sin(ToRad(Tyrannosaur.Angle())))
-> do SetY object="Player3D" modification_sign="=" value=expr(Tyrannosaur.Y() + Tyrannosaur.Variable(LocalX) * sin(ToRad(Tyrannosaur.Angle())) + Tyrannosaur.Variable(LocalY) * cos(ToRad(Tyrannosaur.Angle())))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if Distance object="Tyrannosaur" object_2="Dinosaur3D" distance=expr(Tyrannosaur.Variable(HalfLength) + 390)
-> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
-> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="Riding" comparison_sign="=" value=1
-> if Distance object="Tyrannosaur" object_2="Dinosaur3D" distance=expr(Tyrannosaur.Variable(HalfLength) + 380)
-> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
-> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberVariable variable="CombatHit" comparison_sign="=" value=1
-> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<" value=expr(Tyrannosaur.Variable(HalfLength) + 200)
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=4
-> do SetNumberObjectVariable object="Tyrannosaur" variable="HP" modification_sign="=" value=expr(Tyrannosaur.Variable(HP) - (12 + min(1, Spear) * 23 + MetalTools*(10+10*min(1,Spear))))
-> do SetNumberVariable variable="CombatHit" modification_sign="=" value=0
-> do SetNumberVariable variable="CombatLesson" modification_sign="=" value=1
-> do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Player3D.X(), Player3D.Y(), Tyrannosaur.X(), Tyrannosaur.Y()) - 90)
-> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=60 pitch_speed=1
-> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="命中霸王龙！继续保持距离。"
-> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign="<=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=4
-> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=4
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Respawn" modification_sign="=" value=45
-> do Hide object="Tyrannosaur"
-> do SetNumberVariable variable="Kills" modification_sign="+" value=1
-> do SetNumberVariable variable="Meat" modification_sign="+" value=3
-> do SetNumberVariable variable="Hide" modification_sign="+" value=2
-> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="击退霸王龙：生肉 +3、兽皮 +2。"
-> do PlaySound audio_file_or_audio_resource_name="pickup.wav" repeat_the_sound=false volume=70 pitch_speed=1
-> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=4
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Respawn" modification_sign="=" value=expr(Tyrannosaur.Variable(Respawn) - TimeDelta())
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=4
-> if NumberObjectVariable object="Tyrannosaur" variable="Respawn" comparison_sign="<=" value=0
-> @instruction inverted=true
-> if Distance object="Tyrannosaur" object_2="Player3D" distance=900
-> do SetNumberObjectVariable object="Tyrannosaur" variable="HP" modification_sign="=" value=expr(Tyrannosaur.Variable(MaxHP))
-> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=0
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Cooldown" modification_sign="=" value=3
-> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(HomeX))
-> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(HomeY))
-> do Show object="Tyrannosaur"
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Tyrannosaur" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Tyrannosaur.Variable(PX), Tyrannosaur.Variable(PY), Tyrannosaur.X(), Tyrannosaur.Y()))
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="Travel" comparison_sign=">" value=0.01
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationState" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="Travel" comparison_sign="<=" value=0.01
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
-> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationState" modification_sign="=" value=0
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
-> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationState" modification_sign="=" value=2
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="=" value=0
-> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> if NumberVariable variable="Dead" comparison_sign="=" value=0
-> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
-> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationPlaying" modification_sign="=" value=1
-
-> @event
-> if NumberVariable variable="Mode" comparison_sign="!=" value=0
+> if Distance object="Tyrannosaur" object_2="Player3D" distance=3600
+> or Distance object="Tyrannosaur" object_2="Heyin" distance=1800
+> or NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign="<=" value=0
+> or NumberVariable variable="Mode" comparison_sign="!=" value=0
 > or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
-> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationPlaying" modification_sign="=" value=0
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="PX" modification_sign="=" value=expr(Tyrannosaur.X())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="PY" modification_sign="=" value=expr(Tyrannosaur.Y())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="PA" modification_sign="=" value=expr(Tyrannosaur.Angle())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Clock" modification_sign="=" value=expr(Tyrannosaur.Variable(Clock) + TimeDelta())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="AIClock" modification_sign="=" value=expr(Tyrannosaur.Variable(AIClock) + TimeDelta())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Cooldown" modification_sign="=" value=expr(max(0, Tyrannosaur.Variable(Cooldown) - TimeDelta()))
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Tyrannosaur.X(), Tyrannosaur.Y(), Player3D.X(), Player3D.Y()))
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Travel" modification_sign="=" value=0
 
-> @event
-> link "HUDTyrannosaurHint"
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=expr(3)
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" modification_sign="=" value=expr(0)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=expr(3)
+>> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=expr(650)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=expr(Tyrannosaur.Variable(Distance))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Heyin.X(),Heyin.Y(),-650,350)) comparison_sign=">" second_expression=expr(300)
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" modification_sign="=" value=expr(1)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=expr(1)
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Distance" modification_sign="=" value=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Heyin.X(),Heyin.Y()))
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetX" modification_sign="=" value=expr(Heyin.X())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetY" modification_sign="=" value=expr(Heyin.Y())
+
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
+>> if NumberObjectVariable object="Tyrannosaur" variable="AIClock" comparison_sign=">" value=4
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=1
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetX" modification_sign="=" value=expr(Tyrannosaur.Variable(HomeX) + cos(Tyrannosaur.Variable(Clock) * 0.23) * 145)
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetY" modification_sign="=" value=expr(Tyrannosaur.Variable(HomeY) + sin(Tyrannosaur.Variable(Clock) * 0.23) * 110)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="AIClock" comparison_sign=">" value=9
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="AIClock" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<" value=650
+>> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=0
+>> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=2
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetX" modification_sign="=" value=expr(Player3D.X())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetY" modification_sign="=" value=expr(Player3D.Y())
+>> do SetNumberVariable variable="Threat" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=expr(1)
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=expr(3)
+>> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=expr(2)
+>> do SetNumberVariable variable="Threat" modification_sign="=" value=expr(1)
+
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign=">=" value=2
+>> do SetNumberVariable variable="Threat" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=2
+>> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<=" value=expr(390 + Riding * (1-Tyrannosaur.Variable(TargetHeyin)) * 420)
+>> if NumberObjectVariable object="Tyrannosaur" variable="Cooldown" comparison_sign="<=" value=0
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=3
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Windup" modification_sign="=" value=0.85
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="DamageDone" modification_sign="=" value=0
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Cooldown" modification_sign="=" value=2.2
+>> do PlaySound audio_file_or_audio_resource_name="rex-roar.wav" repeat_the_sound=false volume=45 pitch_speed=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Windup" modification_sign="=" value=expr(Tyrannosaur.Variable(Windup) - TimeDelta())
+>> do SetAngle object="Tyrannosaur" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Tyrannosaur.X(), Tyrannosaur.Y(), Tyrannosaur.Variable(TargetX), Tyrannosaur.Variable(TargetY)) - 90)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
+>> if NumberObjectVariable object="Tyrannosaur" variable="Windup" comparison_sign="<=" value=0.3
+>> if NumberObjectVariable object="Tyrannosaur" variable="DamageDone" comparison_sign="=" value=0
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="DamageDone" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+>> if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=expr(3)
+>> if NumberObjectVariable object="Tyrannosaur" variable="DamageDone" comparison_sign="=" value=expr(1)
+>> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=expr(1)
+>> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<=" value=expr(410)
+>> if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
+>> if NumberObjectVariable object="Heyin" variable="Invulnerable" comparison_sign="<=" value=expr(0)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Heyin.Object3D::Z()-Tyrannosaur.Object3D::Z())) comparison_sign="<" second_expression=expr(80)
+>> do SetNumberObjectVariable object="Heyin" variable="HP" modification_sign="=" value=expr(max(0,Heyin.Variable(HP)-24))
+>> do SetNumberObjectVariable object="Heyin" variable="Energy" modification_sign="=" value=expr(max(0,Heyin.Variable(Energy)-8))
+>> do SetNumberObjectVariable object="Heyin" variable="Invulnerable" modification_sign="=" value=expr(1)
+>> do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：小心！它在追我……请帮我引开它！"
+>> do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=expr(6)
+>> do SetNumberVariable variable="Dirty" modification_sign="=" value=expr(1)
+>> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=65 pitch_speed=1
+
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
+>> if NumberObjectVariable object="Tyrannosaur" variable="DamageDone" comparison_sign="=" value=1
+>> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<=" value=expr(410 + Riding * (1-Tyrannosaur.Variable(TargetHeyin)) * 420)
+>> if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=0
+>> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
+>> do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0, Health - 24 + Riding * 12.0))
+>> do SetNumberVariable variable="Invulnerable" modification_sign="=" value=1
+>> do SetNumberVariable variable="HitFlash" modification_sign="=" value=0.35
+>> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+>> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="霸王龙撕咬！拉开距离，K 反击或骑乘撤离。"
+>> do PlaySound audio_file_or_audio_resource_name="hurt.wav" repeat_the_sound=false volume=75 pitch_speed=1
+>> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=65 pitch_speed=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="DamageDone" comparison_sign="=" value=1
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="DamageDone" modification_sign="=" value=2
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
+>> if NumberObjectVariable object="Tyrannosaur" variable="Windup" comparison_sign="<=" value=0
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Tyrannosaur.X(), Tyrannosaur.Y(), Tyrannosaur.Variable(TargetX), Tyrannosaur.Variable(TargetY)))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=1
+>> if NumberObjectVariable object="Tyrannosaur" variable="Travel" comparison_sign=">" value=8
+>> do SetAngle object="Tyrannosaur" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Tyrannosaur.X(), Tyrannosaur.Y(), Tyrannosaur.Variable(TargetX), Tyrannosaur.Variable(TargetY)) - 90)
+>> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.X() - sin(ToRad(Tyrannosaur.Angle())) * Tyrannosaur.Variable(Speed) * 0.30 * TimeDelta())
+>> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Y() + cos(ToRad(Tyrannosaur.Angle())) * Tyrannosaur.Variable(Speed) * 0.30 * TimeDelta())
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=2
+>> if NumberObjectVariable object="Tyrannosaur" variable="Travel" comparison_sign=">" value=8
+>> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign=">" value=expr(375 + Riding * (1-Tyrannosaur.Variable(TargetHeyin)) * 420)
+>> do SetAngle object="Tyrannosaur" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Tyrannosaur.X(), Tyrannosaur.Y(), Tyrannosaur.Variable(TargetX), Tyrannosaur.Variable(TargetY)) - 90)
+>> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.X() - sin(ToRad(Tyrannosaur.Angle())) * Tyrannosaur.Variable(Speed) * TimeDelta())
+>> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Y() + cos(ToRad(Tyrannosaur.Angle())) * Tyrannosaur.Variable(Speed) * TimeDelta())
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if PosX object="Tyrannosaur" comparison_sign="<" value=-5384
+>> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
+>> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if PosX object="Tyrannosaur" comparison_sign=">" value=5384
+>> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
+>> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if PosY object="Tyrannosaur" comparison_sign="<" value=-5522
+>> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
+>> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if PosY object="Tyrannosaur" comparison_sign=">" value=5022
+>> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
+>> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if PosX object="Tyrannosaur" comparison_sign=">" value=expr(-1250 - Tyrannosaur.Variable(Radius))
+>> if PosX object="Tyrannosaur" comparison_sign="<" value=expr(-550 + Tyrannosaur.Variable(Radius))
+>> if PosY object="Tyrannosaur" comparison_sign=">" value=expr(-1010 - Tyrannosaur.Variable(Radius))
+>> if PosY object="Tyrannosaur" comparison_sign="<" value=expr(-380 + Tyrannosaur.Variable(Radius))
+>> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
+>> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=0
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="LocalX" modification_sign="=" value=expr((Player3D.X() - Tyrannosaur.X()) * cos(ToRad(Tyrannosaur.Angle())) + (Player3D.Y() - Tyrannosaur.Y()) * sin(ToRad(Tyrannosaur.Angle())))
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="LocalY" modification_sign="=" value=expr(-(Player3D.X() - Tyrannosaur.X()) * sin(ToRad(Tyrannosaur.Angle())) + (Player3D.Y() - Tyrannosaur.Y()) * cos(ToRad(Tyrannosaur.Angle())))
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="NearY" modification_sign="=" value=expr(clamp(Tyrannosaur.Variable(LocalY), -Tyrannosaur.Variable(HalfLength) + Tyrannosaur.Variable(Radius), 325 - Tyrannosaur.Variable(Radius)))
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Separation" modification_sign="=" value=expr(max(0.001, sqrt(Tyrannosaur.Variable(LocalX) * Tyrannosaur.Variable(LocalX) + pow(Tyrannosaur.Variable(LocalY) - Tyrannosaur.Variable(NearY), 2))))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="Separation" comparison_sign="<=" value=0.001
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="LocalX" modification_sign="=" value=expr(Tyrannosaur.Variable(Radius) + 45)
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Separation" modification_sign="=" value=expr(Tyrannosaur.Variable(Radius) + 45)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="Separation" comparison_sign="<" value=expr(Tyrannosaur.Variable(Radius) + 45)
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="LocalX" modification_sign="=" value=expr(Tyrannosaur.Variable(LocalX) * (Tyrannosaur.Variable(Radius) + 45) / Tyrannosaur.Variable(Separation))
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="LocalY" modification_sign="=" value=expr(Tyrannosaur.Variable(NearY) + (Tyrannosaur.Variable(LocalY) - Tyrannosaur.Variable(NearY)) * (Tyrannosaur.Variable(Radius) + 45) / Tyrannosaur.Variable(Separation))
+>> do SetX object="Player3D" modification_sign="=" value=expr(Tyrannosaur.X() + Tyrannosaur.Variable(LocalX) * cos(ToRad(Tyrannosaur.Angle())) - Tyrannosaur.Variable(LocalY) * sin(ToRad(Tyrannosaur.Angle())))
+>> do SetY object="Player3D" modification_sign="=" value=expr(Tyrannosaur.Y() + Tyrannosaur.Variable(LocalX) * sin(ToRad(Tyrannosaur.Angle())) + Tyrannosaur.Variable(LocalY) * cos(ToRad(Tyrannosaur.Angle())))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if Distance object="Tyrannosaur" object_2="Dinosaur3D" distance=expr(Tyrannosaur.Variable(HalfLength) + 390)
+>> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PX))
+>> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(PY))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="Riding" comparison_sign="=" value=1
+>> if Distance object="Tyrannosaur" object_2="Dinosaur3D" distance=expr(Tyrannosaur.Variable(HalfLength) + 380)
+>> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+>> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberVariable variable="CombatHit" comparison_sign="=" value=1
+>> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<" value=expr(Tyrannosaur.Variable(HalfLength) + 200)
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=4
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="HP" modification_sign="=" value=expr(Tyrannosaur.Variable(HP) - (12 + min(1, Spear) * 23 + MetalTools*(10+10*min(1,Spear))))
+>> do SetNumberVariable variable="CombatHit" modification_sign="=" value=0
+>> do SetNumberVariable variable="CombatLesson" modification_sign="=" value=1
+>> do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(Player3D.X(), Player3D.Y(), Tyrannosaur.X(), Tyrannosaur.Y()) - 90)
+>> do PlaySound audio_file_or_audio_resource_name="bite.wav" repeat_the_sound=false volume=60 pitch_speed=1
+>> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="命中霸王龙！继续保持距离。"
+>> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign="<=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=4
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=4
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Respawn" modification_sign="=" value=45
+>> do Hide object="Tyrannosaur"
+>> do SetNumberVariable variable="Kills" modification_sign="+" value=1
+>> do SetNumberVariable variable="Meat" modification_sign="+" value=3
+>> do SetNumberVariable variable="Hide" modification_sign="+" value=2
+>> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="击退霸王龙：生肉 +3、兽皮 +2。"
+>> do PlaySound audio_file_or_audio_resource_name="pickup.wav" repeat_the_sound=false volume=70 pitch_speed=1
+>> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=4
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Respawn" modification_sign="=" value=expr(Tyrannosaur.Variable(Respawn) - TimeDelta())
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=4
+>> if NumberObjectVariable object="Tyrannosaur" variable="Respawn" comparison_sign="<=" value=0
+>> @instruction inverted=true
+>> if Distance object="Tyrannosaur" object_2="Player3D" distance=900
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="HP" modification_sign="=" value=expr(Tyrannosaur.Variable(MaxHP))
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=0
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Cooldown" modification_sign="=" value=3
+>> do SetX object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(HomeX))
+>> do SetY object="Tyrannosaur" modification_sign="=" value=expr(Tyrannosaur.Variable(HomeY))
+>> do Show object="Tyrannosaur"
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(Tyrannosaur.Variable(PX), Tyrannosaur.Variable(PY), Tyrannosaur.X(), Tyrannosaur.Y()))
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="Travel" comparison_sign=">" value=0.01
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationState" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="Travel" comparison_sign="<=" value=0.01
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="!=" value=3
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationState" modification_sign="=" value=0
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationState" modification_sign="=" value=2
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="=" value=0
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> if NumberVariable variable="Dead" comparison_sign="=" value=0
+>> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationPlaying" modification_sign="=" value=1
+
+>> @event
+>> if NumberVariable variable="Mode" comparison_sign="!=" value=0
+>> or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationPlaying" modification_sign="=" value=0
+
+>> @event
+>> link "HUDTyrannosaurHint"
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
