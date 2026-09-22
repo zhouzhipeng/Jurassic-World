@@ -283,6 +283,8 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
+if NumberVariable variable="TouchContext" comparison_sign="=" value=11
+or NumberVariable variable="TouchContext" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextTitle" behavior="Text" modification_sign="=" text=expr("与禾音同行")
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr(HeyinObjective)
 
