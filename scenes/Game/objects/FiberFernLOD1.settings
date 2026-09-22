@@ -30,3 +30,8 @@ rotationZ = 0
 width = 206
 sharedAnimationModelResources = [ ]
 animations = [ ]
+
+[[variables]]
+name = "TerrainReady"
+type = "number"
+value = 0

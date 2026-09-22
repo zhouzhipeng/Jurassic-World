@@ -54,13 +54,13 @@ def material(name, color):
 terrain_mats=[material('Valley moss',(.29,.43,.14)),material('Fern slopes',(.38,.49,.19)),
               material('Mountain heath',(.43,.48,.24)),material('Exposed granite',(.46,.49,.44)),
               material('Summit stone',(.62,.62,.53)),material('Coastal sand',(.72,.64,.43))]
-# A 1 m triangulated grid gives a continuous walkable surface, with <= 1 game
-# unit interpolation error for most slopes. Terrain meets ocean outside bounds.
-verts=[]; faces=[]; nx=129; ny=130
+# A 2 m grid keeps the smooth mountain profile while avoiding four times as
+# many ground triangles in every camera-obstruction query. Preserve the coast.
+verts=[]; faces=[]; nx=65; ny=66
 for j in range(ny):
-    y=-62+j
+    y=min(67,-62+j*2)
     for i in range(nx):
-        x=-64+i
+        x=-64+i*2
         edge=min(64-abs(x),y+62,67-y)
         z=height(x*100,-y*100)/100 - max(0,3-edge)*.8
         verts.append((x,y,z))

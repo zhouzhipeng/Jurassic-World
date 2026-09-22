@@ -713,7 +713,7 @@ do SetNumberVariable variable="Elapsed" modification_sign="+" value=expr(TimeDel
 @event
 link "HUDPanels"
 
-@comment "Right drag orbits; wheel zooms; UI cancels drag" background=[90,150,180] text=[255,255,255]
+@comment "Right drag orbits; fixed requested distance; UI cancels drag" background=[90,150,180] text=[255,255,255]
 
 @event
 if NumberVariable variable="Mode" comparison_sign="!=" value=0
@@ -742,18 +742,6 @@ if MouseButtonFromTextPressed button_to_check="Right"
 do SetNumberVariable variable="CameraDragging" modification_sign="=" value=1
 do SetNumberVariable variable="CameraMouseX" modification_sign="=" value=expr(CursorX("HUD", 0))
 do SetNumberVariable variable="CameraMouseY" modification_sign="=" value=expr(CursorY("HUD", 0))
-
-@event
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if IsMouseWheelScrollingUp
-do SetNumberVariable variable="CameraDistance" modification_sign="=" value=expr(clamp(CameraDistance + (-100), 500, 2000))
-
-@event
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if IsMouseWheelScrollingDown
-do SetNumberVariable variable="CameraDistance" modification_sign="=" value=expr(clamp(CameraDistance + (100), 500, 2000))
 
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -2553,3 +2541,5 @@ link external "FireParticles"
 link external "HeyinCompanionUI"
 
 link external "MapRadar"
+
+link external "DistanceVisibility"
