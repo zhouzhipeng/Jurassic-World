@@ -1,5 +1,5 @@
 {
-  "sourceRevision": "418a26e",
+  "sourceRevision": "c09b2c0",
   "baseline": "a8e63b6",
   "validation": {
     "success": true,
@@ -134,7 +134,7 @@
       "reconstructedInMemory": true,
       "writtenToDisk": false,
       "targetPath": ".gdevelop/game.json",
-      "byteLength": 2299119
+      "byteLength": 2301425
     },
     "nextAction": "RUNTIME VERIFICATION REQUIRED BEFORE COMPLETION: valid:true establishes structural and code-generation validity only; it does not verify runtime gameplay semantics. Call reload_project, then launch a paused preview and use run_frames for every behavior-sensitive change.",
     "note": "STRUCTURAL VALIDATION ONLY — RUNTIME NOT VERIFIED. Regenerated all project source catalogs and JavaScript declaration files, loaded every referenced multi-file source again using the fresh instruction catalog, type-checked JavaScript event blocks against the generated public API, and reconstructed the legacy game.json representation in memory. Project source files and editor memory were not modified. valid:true proves parsing, reconstruction, project validation, JavaScript authoring-API validation, and extension generated-code preflight only; it does not prove object picking or action side effects at runtime and must not be reported as proof that the game works."
@@ -378,7 +378,7 @@
     ]
   },
   "journey": {
-    "operation_id": "gameplay-tests-2179143a-5748-47d9-8099-ba0c6c4f6514",
+    "operation_id": "gameplay-tests-860f0305-6e6d-4d53-94d0-89151ea1a34e",
     "status": "completed",
     "summary": {
       "total": 1,
@@ -395,7 +395,7 @@
         "file": "tests/HeyinJourney.js",
         "status": "passed",
         "framesExecuted": 2452,
-        "durationMs": 65075,
+        "durationMs": 70343,
         "assertions": [
           {
             "message": "Approach discovers the injured woman; missing supplies cannot complete rescue",
@@ -448,14 +448,14 @@
         ],
         "errors": [],
         "performance": {
-          "avgStepMs": 14.65,
-          "worstStepMs": 2037
+          "avgStepMs": 16.33,
+          "worstStepMs": 2220
         }
       }
     ]
   },
   "persistence": {
-    "operation_id": "gameplay-tests-50db8488-38c5-4427-982c-ca65086f5fb7",
+    "operation_id": "gameplay-tests-2b8fa1c9-938d-4266-b28a-505432332a15",
     "status": "completed",
     "summary": {
       "total": 1,
@@ -472,7 +472,7 @@
         "file": "tests/HeyinPersistence.js",
         "status": "passed",
         "framesExecuted": 44,
-        "durationMs": 8186,
+        "durationMs": 9993,
         "assertions": [
           {
             "message": "The real touch rescue button uses the same material and story rules",
@@ -501,8 +501,81 @@
         ],
         "errors": [],
         "performance": {
-          "avgStepMs": 121.07,
-          "worstStepMs": 2249
+          "avgStepMs": 108.61,
+          "worstStepMs": 1735
+        }
+      }
+    ]
+  },
+  "regression": {
+    "operation_id": "gameplay-tests-d30fbab9-80f2-4f4d-95fd-a0cf4d96c832",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "results": [
+      {
+        "file": "tests/SurvivalPersistence.js",
+        "status": "passed",
+        "framesExecuted": 707,
+        "durationMs": 25789,
+        "assertions": [
+          {
+            "message": "The persistence fixture can place a real campfire",
+            "passed": true
+          },
+          {
+            "message": "The pause menu stores survival data in an isolated slot",
+            "passed": true
+          },
+          {
+            "message": "A fresh scene starts with fresh survival defaults",
+            "passed": true
+          },
+          {
+            "message": "Loading restores exact supplies, environment, forge queue and chapter progress",
+            "passed": true
+          },
+          {
+            "message": "Both placed and permanent fires restore their own fuel and cooking jobs",
+            "passed": true
+          },
+          {
+            "message": "A partly tamed companion retains its own trust, feeding wait, command and position",
+            "passed": true
+          },
+          {
+            "message": "The depleted ore seam retains its cooldown by site identity",
+            "passed": true
+          },
+          {
+            "message": "Loading returns the player to the saved location",
+            "passed": true
+          },
+          {
+            "message": "The riding companion remains at its saved expedition position instead of returning to spawn",
+            "passed": true
+          },
+          {
+            "message": "Restored production remains frozen while the menu stays open",
+            "passed": true
+          },
+          {
+            "message": "Resuming finishes both retained meals and the ingot exactly once",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "performance": {
+          "avgStepMs": 19.34,
+          "worstStepMs": 1996
         }
       }
     ]
