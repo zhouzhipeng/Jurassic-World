@@ -18,7 +18,7 @@ try {
  await move(stay.x+100,stay.y);await tap('g');await move(900,900);await harness.stepFrames(45);
  harness.assert(obj('Heyin').x>stay.x+90 && obj('Heyin').x<stay.x+140 && obj('Heyin').animation==='Walk','Follow resumes with the actual GLB walk animation');
  const walking=obj('Heyin');const bearing=Math.atan2(obj('Player3D').y-walking.y,obj('Player3D').x-walking.x)*180/Math.PI;
- harness.assert(Math.abs(((walking.angle-bearing-90+540)%360)-180)<2,'The model faces forward along its movement instead of walking backwards');
+ harness.assert(Math.abs(((walking.angle-bearing+90+540)%360)-180)<2,'The model uses the forward heading confirmed by the game side-view preview');
  await tap('Escape');const paused=obj('Heyin');const energy=n('HeyinEnergy');await harness.stepFrames(90);
  harness.assert(obj('Heyin').x===paused.x && n('HeyinEnergy')===energy,'Pause freezes companion movement and fatigue');await tap('Escape');
  // Reachable ground-plane waypoints: only move the player; the NPC must walk.
@@ -29,7 +29,7 @@ try {
  await harness.stepFrames(760);harness.assert(n('HeyinResting')===0,'Rest automatically recovers with a separate resume threshold');
  // Pass north of the four jump platforms; a follower should not cross them.
  for(const [x,y] of [[0,0],[650,-50],[1350,-50],[1580,680]]){await move(x,y);await harness.stepFrames(350);}
- await tap('g');harness.assert(n('HeyinStage')===4,'Arriving together and interacting identifies the mother鈥檚 knot');
+ await tap('g');harness.assert(n('HeyinStage')===4,'Arriving together and interacting identifies the maternal knot');
  const f=n('Fiber'),b=n('Berries');await tap('g');harness.assert(n('HeyinStage')===4&&n('Fiber')===f&&n('Berries')===b,'Repeated conversation cannot duplicate rescue costs or clue progress');
  // Arrange a blocked approach after verifying the entire quest by input.
  harness.setSceneVariable('HeyinStay',0);harness.setObjectPosition(obj('Heyin').id,-450,-700,0);await move(-900,-700);await harness.stepFrames(80);

@@ -198,7 +198,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinMoving" comparison_sign="=" value=1
 do SetNumberVariable variable="HeyinEnergy" modification_sign="=" value=expr(max(0,HeyinEnergy-TimeDelta()*0.7))
-do SetAngle object="Heyin" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(HeyinPX,HeyinPY,Heyin.X(),Heyin.Y())+90)
+do SetAngle object="Heyin" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(HeyinPX,HeyinPY,Heyin.X(),Heyin.Y())-90)
 
 > if AnimatableCapability::AnimatableBehavior::Name object="Heyin" behavior="Animation" comparison_sign="!=" animation_name="Walk"
 > do AnimatableCapability::AnimatableBehavior::SetName object="Heyin" behavior="Animation" modification_sign="=" animation_name="Walk"
