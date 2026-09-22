@@ -22,7 +22,7 @@ do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_materia
 do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="twilight" value=expr(Twilight)
 do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="cloud" value=expr(WeatherCloud)
 do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="flash" value=expr(WeatherFlash)
-do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="clock" value=expr(TimeFromStart())
+do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="clock" value=expr(WeatherMotion)
 do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="fogNear" value=expr(max(800,6500-WeatherCloud*4500-WeatherMist*5700))
 do TSLMaterial::SetNumberParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="fogFar" value=expr(max(3500,26000-WeatherCloud*19500-WeatherMist*18500))
 do TSLMaterial::SetColorParameter parameter_3d_model="CoastalOcean" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment" parameter_name="horizon" color=expr(WeatherSky)

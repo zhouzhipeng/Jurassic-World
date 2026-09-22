@@ -23,13 +23,16 @@ export default defineMaterial({
     const world = positionWorld.mul(100);
     const x = world.x;
     const y = world.y;
-    const a = x.mul(0.012).add(y.mul(0.007)).add(t.mul(0.8));
-    const b = x.mul(-0.009).add(y.mul(0.019)).sub(t.mul(1.15));
-    const c = x.mul(0.062).add(y.mul(0.041)).add(sin(y.mul(0.025))).add(t.mul(1.7));
-    const d = x.mul(-0.11).add(y.mul(0.083)).sub(t.mul(2.2));
+    const warp = sin(x.mul(0.0023).add(y.mul(0.0031))).mul(3)
+      .add(cos(x.mul(-0.0041).add(y.mul(0.0017))).mul(2));
+    const a = x.mul(0.012).add(y.mul(0.007)).add(warp).add(t.mul(0.8));
+    const b = x.mul(-0.009).add(y.mul(0.019)).add(warp.mul(1.7)).sub(t.mul(1.15));
+    const c = x.mul(0.062).add(y.mul(0.041)).add(sin(y.mul(0.025)).mul(3)).add(warp).add(t.mul(1.7));
+    const d = x.mul(-0.11).add(y.mul(0.083)).add(warp.mul(2.3)).sub(t.mul(2.2));
+    const detail = smoothstep(1200, 9000, positionView.z.abs().mul(100)).oneMinus();
     const strength = parameters.cloud.mul(0.6).add(1);
-    const nx = cos(a).mul(-0.045).add(cos(b).mul(0.025)).add(cos(c).mul(-0.038)).add(cos(d).mul(0.021));
-    const ny = cos(a).mul(-0.026).add(cos(b).mul(-0.053)).add(cos(c).mul(-0.025)).add(cos(d).mul(-0.016));
+    const nx = cos(a).mul(-0.028).add(cos(b).mul(0.018)).add(cos(c).mul(-0.025).mul(detail)).add(cos(d).mul(0.014).mul(detail));
+    const ny = cos(a).mul(-0.019).add(cos(b).mul(-0.033)).add(cos(c).mul(-0.017).mul(detail)).add(cos(d).mul(-0.01).mul(detail));
     const n = vec3(nx.mul(strength), ny.mul(strength), 1).normalize();
     const view = parameters.camera.sub(world).normalize();
     const facing = dot(n, view).max(0);
