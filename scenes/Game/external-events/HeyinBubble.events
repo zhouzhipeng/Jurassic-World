@@ -30,4 +30,4 @@ do SetNumberVariable variable="HeyinBubbleVisible" modification_sign="=" value=1
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneInstancesCount(Heyin)) comparison_sign=">" second_expression=0
-do JurassicActors::Heyin::UpdateDialogue object="Heyin" background="HeyinBubble" caption="HeyinBubbleText" message=expr(HeyinDialogueLine) visible=expr(HeyinBubbleVisible)
+do JurassicActors::Heyin::UpdateDialogue object="Heyin" background="HeyinBubble" caption="HeyinBubbleText" message=expr(HeyinDialogueLine) visible=expr(HeyinBubbleVisible) cx=expr(CameraX("World3D",0)) cy=expr(CameraY("World3D",0)) cz=expr(Scene3D::CameraZ("World3D",0)) fov=expr(Scene3D::CameraFov("World3D",0)) fx=expr(Scene3D::CameraForwardX("World3D",0)) rx=expr(Scene3D::CameraRightX("World3D",0)) ux=expr(Scene3D::CameraUpX("World3D",0)) fy=expr(Scene3D::CameraForwardY("World3D",0)) ry=expr(Scene3D::CameraRightY("World3D",0)) uy=expr(Scene3D::CameraUpY("World3D",0)) fz=expr(Scene3D::CameraForwardZ("World3D",0)) rz=expr(Scene3D::CameraRightZ("World3D",0)) uz=expr(Scene3D::CameraUpZ("World3D",0))

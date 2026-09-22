@@ -38,3 +38,81 @@ description = "Visible"
 name = "Visible"
 supplementaryInformation = ""
 type = "expression"
+
+[[parameters]]
+description = "CX"
+name = "CX"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "CY"
+name = "CY"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "CZ"
+name = "CZ"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "FX"
+name = "FX"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "FY"
+name = "FY"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "FZ"
+name = "FZ"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "RX"
+name = "RX"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "RY"
+name = "RY"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "RZ"
+name = "RZ"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "UX"
+name = "UX"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "UY"
+name = "UY"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "UZ"
+name = "UZ"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "Fov"
+name = "Fov"
+supplementaryInformation = ""
+type = "expression"

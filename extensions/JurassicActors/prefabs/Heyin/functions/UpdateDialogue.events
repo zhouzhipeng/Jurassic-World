@@ -7,13 +7,13 @@ do ModVarObjet object="Background" variable="Shown" modification_sign="=" value=
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Visible) comparison_sign="=" second_expression=1
-do ModVarObjet object="Background" variable="DX" modification_sign="=" value=expr(Object.X()-CameraX("World3D",0))
-do ModVarObjet object="Background" variable="DY" modification_sign="=" value=expr(Object.Y()-CameraY("World3D",0))
-do ModVarObjet object="Background" variable="DZ" modification_sign="=" value=expr(Object.Object3D::Z()+Object.Object3D::Depth()+16-Scene3D::CameraZ("World3D",0))
-do ModVarObjet object="Background" variable="Forward" modification_sign="=" value=expr(Background.Variable(DX)*Scene3D::CameraForwardX("World3D",0)+Background.Variable(DY)*Scene3D::CameraForwardY("World3D",0)+Background.Variable(DZ)*Scene3D::CameraForwardZ("World3D",0))
-do ModVarObjet object="Background" variable="Right" modification_sign="=" value=expr(Background.Variable(DX)*Scene3D::CameraRightX("World3D",0)+Background.Variable(DY)*Scene3D::CameraRightY("World3D",0)+Background.Variable(DZ)*Scene3D::CameraRightZ("World3D",0))
-do ModVarObjet object="Background" variable="Up" modification_sign="=" value=expr(Background.Variable(DX)*Scene3D::CameraUpX("World3D",0)+Background.Variable(DY)*Scene3D::CameraUpY("World3D",0)+Background.Variable(DZ)*Scene3D::CameraUpZ("World3D",0))
-do ModVarObjet object="Background" variable="Focal" modification_sign="=" value=expr(SceneWindowHeight()/2/tan(ToRad(Scene3D::CameraFov("World3D",0)/2)))
+do ModVarObjet object="Background" variable="DX" modification_sign="=" value=expr(Object.X()-CX)
+do ModVarObjet object="Background" variable="DY" modification_sign="=" value=expr(Object.Y()-CY)
+do ModVarObjet object="Background" variable="DZ" modification_sign="=" value=expr(Object.Object3D::Z()+Object.Object3D::Depth()+16-CZ)
+do ModVarObjet object="Background" variable="Forward" modification_sign="=" value=expr(Background.Variable(DX)*FX+Background.Variable(DY)*FY+Background.Variable(DZ)*FZ)
+do ModVarObjet object="Background" variable="Right" modification_sign="=" value=expr(Background.Variable(DX)*RX+Background.Variable(DY)*RY+Background.Variable(DZ)*RZ)
+do ModVarObjet object="Background" variable="Up" modification_sign="=" value=expr(Background.Variable(DX)*UX+Background.Variable(DY)*UY+Background.Variable(DZ)*UZ)
+do ModVarObjet object="Background" variable="Focal" modification_sign="=" value=expr(SceneWindowHeight()/2/tan(ToRad(Fov/2)))
 
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Visible) comparison_sign="=" second_expression=1
