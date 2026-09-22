@@ -223,9 +223,9 @@ if NumberVariable variable="HeyinDanger" comparison_sign="=" value=expr(0)
 if NumberObjectVariable object="Heyin" variable="HP" comparison_sign=">" value=expr(0)
 if HasAnyTouchOrMouseStarted
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchX(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign=">=" second_expression=expr(HeyinTalkButton.X()-8)
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchX(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign="<=" second_expression=expr(HeyinTalkButton.X()+160)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchX(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign="<=" second_expression=expr(HeyinTalkButton.X()+max(70,90*HudScale))
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchY(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign=">=" second_expression=expr(HeyinTalkButton.Y()-4)
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchY(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign="<=" second_expression=expr(HeyinTalkButton.Y()+32)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchY(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign="<=" second_expression=expr(HeyinTalkButton.Y()+max(32,34*HudScale))
 do SetNumberVariable variable="HeyinOpen" modification_sign="=" value=expr(1)
 
 @event
@@ -242,4 +242,3 @@ do SetNumberVariable variable="TouchMoveId" modification_sign="=" value=expr(-99
 do SetNumberVariable variable="TouchLookId" modification_sign="=" value=expr(-999)
 do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=expr(0)
 do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：你来了。我们先照顾好彼此，再去找家人的踪迹，好吗？"
-

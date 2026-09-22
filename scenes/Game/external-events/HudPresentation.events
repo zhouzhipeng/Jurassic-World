@@ -1,0 +1,480 @@
+@event
+if NumberVariable variable="TouchMode" comparison_sign=">=" value=0
+do Hide object="HudVitals"
+do Hide object="HudQuest"
+do Hide object="HudCompanion"
+do Hide object="HudClock"
+do Hide object="HudContext"
+do Hide object="HudBars"
+do Hide object="HudHunger"
+do Hide object="HudWater"
+do Hide object="HudStamina"
+do Hide object="HudTime"
+do Hide object="HudQuestHeader"
+do Hide object="HudQuestName"
+do Hide object="HudCompanionName"
+do Hide object="HudCompanionHP"
+do Hide object="HudCompanionEnergy"
+do Hide object="HudContextTitle"
+do Hide object="HudContextDetail"
+do Hide object="FPSCounter"
+do PrimitiveDrawing::Drawer::ClearShapes shape_painter_object="HudBars"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do Show object="HudVitals"
+do Show object="HudQuest"
+do Show object="HudCompanion"
+do Show object="HudClock"
+do Show object="HudContext"
+do Show object="HudBars"
+do Show object="HudHunger"
+do Show object="HudWater"
+do Show object="HudStamina"
+do Show object="HudTime"
+do Show object="HudQuestHeader"
+do Show object="HudQuestName"
+do Show object="HudCompanionName"
+do Show object="HudCompanionHP"
+do Show object="HudCompanionEnergy"
+do Show object="HudContextTitle"
+do Show object="HudContextDetail"
+do Hide object="TouchStatusBack"
+do Hide object="TouchHint"
+do Hide object="HeyinStory"
+do Hide object="HeyinVitals"
+do Hide object="HeyinVitalsText"
+do Hide object="RadarInfo"
+do SetX object="TouchKnob" modification_sign="=" value=expr(TouchJoyX-41*HudScale+TouchMoveX*TouchRadius)
+do SetY object="TouchKnob" modification_sign="=" value=expr(TouchJoyY-41*HudScale+TouchMoveY*TouchRadius)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudVitals" modification_sign="=" value=expr(HudMargin)
+do SetY object="HudVitals" modification_sign="=" value=expr(HudMargin)
+do ResizableCapability::ResizableBehavior::SetSize object="HudVitals" behavior="Resizable" width=expr(400*HudScale) height=expr(145*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudQuest" modification_sign="=" value=expr(HudMargin)
+do SetY object="HudQuest" modification_sign="=" value=expr(HudMargin+162*HudScale)
+do ResizableCapability::ResizableBehavior::SetSize object="HudQuest" behavior="Resizable" width=expr(400*HudScale) height=expr(110*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudCompanion" modification_sign="=" value=expr(HudMargin)
+do SetY object="HudCompanion" modification_sign="=" value=expr(HudMargin+288*HudScale)
+do ResizableCapability::ResizableBehavior::SetSize object="HudCompanion" behavior="Resizable" width=expr(380*HudScale) height=expr(128*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudClock" modification_sign="=" value=expr((TouchWidth-310*HudScale)/2)
+do SetY object="HudClock" modification_sign="=" value=expr(HudMargin)
+do ResizableCapability::ResizableBehavior::SetSize object="HudClock" behavior="Resizable" width=expr(310*HudScale) height=expr(48*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudContext" modification_sign="=" value=expr(HudContextX)
+do SetY object="HudContext" modification_sign="=" value=expr(HudContextY)
+do ResizableCapability::ResizableBehavior::SetSize object="HudContext" behavior="Resizable" width=expr(560*HudScale) height=expr(120*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="TouchStatus" modification_sign="=" value=expr(HudMargin+65*HudScale)
+do SetY object="TouchStatus" modification_sign="=" value=expr(HudMargin+16*HudScale)
+do TextObject::Text::SetFontSize object="TouchStatus" modification_sign="=" value=expr(26*HudScale)
+do TextObject::SetWrapping object="TouchStatus" wrapping=true
+do TextObject::WrappingWidth object="TouchStatus" modification_sign="=" value=expr(320*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="TouchStatus" behavior="Text" modification_sign="=" text=expr("生命  "+ToString(round(Health)))
+do TextObject::ChangeColor object="TouchStatus" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudHunger" modification_sign="=" value=expr(HudMargin+65*HudScale)
+do SetY object="HudHunger" modification_sign="=" value=expr(HudMargin+61*HudScale)
+do TextObject::Text::SetFontSize object="HudHunger" modification_sign="=" value=expr(20*HudScale)
+do TextObject::SetWrapping object="HudHunger" wrapping=true
+do TextObject::WrappingWidth object="HudHunger" modification_sign="=" value=expr(136*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudHunger" behavior="Text" modification_sign="=" text=expr("饥饿       "+ToString(round(Hunger)))
+do TextObject::ChangeColor object="HudHunger" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudWater" modification_sign="=" value=expr(HudMargin+259*HudScale)
+do SetY object="HudWater" modification_sign="=" value=expr(HudMargin+61*HudScale)
+do TextObject::Text::SetFontSize object="HudWater" modification_sign="=" value=expr(20*HudScale)
+do TextObject::SetWrapping object="HudWater" wrapping=true
+do TextObject::WrappingWidth object="HudWater" modification_sign="=" value=expr(136*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudWater" behavior="Text" modification_sign="=" text=expr("水分       "+ToString(round(Water)))
+do TextObject::ChangeColor object="HudWater" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudStamina" modification_sign="=" value=expr(HudMargin+65*HudScale)
+do SetY object="HudStamina" modification_sign="=" value=expr(HudMargin+99*HudScale)
+do TextObject::Text::SetFontSize object="HudStamina" modification_sign="=" value=expr(20*HudScale)
+do TextObject::SetWrapping object="HudStamina" wrapping=true
+do TextObject::WrappingWidth object="HudStamina" modification_sign="=" value=expr(300*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudStamina" behavior="Text" modification_sign="=" text=expr("体力       "+ToString(round(Stamina)))
+do TextObject::ChangeColor object="HudStamina" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudTime" modification_sign="=" value=expr((TouchWidth-310*HudScale)/2+58*HudScale)
+do SetY object="HudTime" modification_sign="=" value=expr(HudMargin+10*HudScale)
+do TextObject::Text::SetFontSize object="HudTime" modification_sign="=" value=expr(20*HudScale)
+do TextObject::SetWrapping object="HudTime" wrapping=true
+do TextObject::WrappingWidth object="HudTime" modification_sign="=" value=expr(242*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudTime" behavior="Text" modification_sign="=" text=expr("第 "+ToString(WorldDay)+" 天  |  "+ToString(floor(WorldMinutes/60))+":"+ToString(floor(mod(WorldMinutes,60)/10))+ToString(floor(mod(WorldMinutes,10)))+"  |  "+WeatherName)
+do TextObject::ChangeColor object="HudTime" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudQuestHeader" modification_sign="=" value=expr(HudMargin+86*HudScale)
+do SetY object="HudQuestHeader" modification_sign="=" value=expr(HudMargin+175*HudScale)
+do TextObject::Text::SetFontSize object="HudQuestHeader" modification_sign="=" value=expr(18*HudScale)
+do TextObject::SetWrapping object="HudQuestHeader" wrapping=true
+do TextObject::WrappingWidth object="HudQuestHeader" modification_sign="=" value=expr(290*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudQuestHeader" behavior="Text" modification_sign="=" text=expr("当前目标  "+ToString(QuestStage+1)+"/12")
+do TextObject::ChangeColor object="HudQuestHeader" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudQuestName" modification_sign="=" value=expr(HudMargin+86*HudScale)
+do SetY object="HudQuestName" modification_sign="=" value=expr(HudMargin+201*HudScale)
+do TextObject::Text::SetFontSize object="HudQuestName" modification_sign="=" value=expr(25*HudScale)
+do TextObject::SetWrapping object="HudQuestName" wrapping=true
+do TextObject::WrappingWidth object="HudQuestName" modification_sign="=" value=expr(275*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudQuestName" behavior="Text" modification_sign="=" text=expr(QuestName)
+do TextObject::ChangeColor object="HudQuestName" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="TouchQuest" modification_sign="=" value=expr(HudMargin+107*HudScale)
+do SetY object="TouchQuest" modification_sign="=" value=expr(HudMargin+239*HudScale)
+do TextObject::Text::SetFontSize object="TouchQuest" modification_sign="=" value=expr(17*HudScale)
+do TextObject::SetWrapping object="TouchQuest" wrapping=true
+do TextObject::WrappingWidth object="TouchQuest" modification_sign="=" value=expr(275*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="TouchQuest" behavior="Text" modification_sign="=" text=expr(QuestTargetName+" · "+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),QuestTargetX,QuestTargetY)/100))+" 米")
+do TextObject::ChangeColor object="TouchQuest" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="NavMode" comparison_sign=">" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="TouchQuest" behavior="Text" modification_sign="=" text=expr(NavName+" · "+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),NavX,NavY)/100))+" 米")
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudCompanionName" modification_sign="=" value=expr(HudMargin+112*HudScale)
+do SetY object="HudCompanionName" modification_sign="=" value=expr(HudMargin+300*HudScale)
+do TextObject::Text::SetFontSize object="HudCompanionName" modification_sign="=" value=expr(23*HudScale)
+do TextObject::SetWrapping object="HudCompanionName" wrapping=true
+do TextObject::WrappingWidth object="HudCompanionName" modification_sign="=" value=expr(250*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudCompanionName" behavior="Text" modification_sign="=" text=expr("禾音")
+do TextObject::ChangeColor object="HudCompanionName" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudCompanionHP" modification_sign="=" value=expr(HudMargin+140*HudScale)
+do SetY object="HudCompanionHP" modification_sign="=" value=expr(HudMargin+336*HudScale)
+do TextObject::Text::SetFontSize object="HudCompanionHP" modification_sign="=" value=expr(17*HudScale)
+do TextObject::SetWrapping object="HudCompanionHP" wrapping=true
+do TextObject::WrappingWidth object="HudCompanionHP" modification_sign="=" value=expr(222*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudCompanionHP" behavior="Text" modification_sign="=" text=expr("生命  "+ToString(ceil(Heyin.Variable(HP)))+"/100")
+do TextObject::ChangeColor object="HudCompanionHP" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudCompanionEnergy" modification_sign="=" value=expr(HudMargin+140*HudScale)
+do SetY object="HudCompanionEnergy" modification_sign="=" value=expr(HudMargin+371*HudScale)
+do TextObject::Text::SetFontSize object="HudCompanionEnergy" modification_sign="=" value=expr(17*HudScale)
+do TextObject::SetWrapping object="HudCompanionEnergy" wrapping=true
+do TextObject::WrappingWidth object="HudCompanionEnergy" modification_sign="=" value=expr(222*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudCompanionEnergy" behavior="Text" modification_sign="=" text=expr("体力  "+ToString(ceil(Heyin.Variable(Energy)))+"/100")
+do TextObject::ChangeColor object="HudCompanionEnergy" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudContextTitle" modification_sign="=" value=expr(HudContextX+112*HudScale)
+do SetY object="HudContextTitle" modification_sign="=" value=expr(HudContextY+21*HudScale)
+do TextObject::Text::SetFontSize object="HudContextTitle" modification_sign="=" value=expr(25*HudScale)
+do TextObject::SetWrapping object="HudContextTitle" wrapping=true
+do TextObject::WrappingWidth object="HudContextTitle" modification_sign="=" value=expr(300*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextTitle" behavior="Text" modification_sign="=" text=expr(TouchContextLabel)
+do TextObject::ChangeColor object="HudContextTitle" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetX object="HudContextDetail" modification_sign="=" value=expr(HudContextX+112*HudScale)
+do SetY object="HudContextDetail" modification_sign="=" value=expr(HudContextY+62*HudScale)
+do TextObject::Text::SetFontSize object="HudContextDetail" modification_sign="=" value=expr(16*HudScale)
+do TextObject::SetWrapping object="HudContextDetail" wrapping=true
+do TextObject::WrappingWidth object="HudContextDetail" modification_sign="=" value=expr(298*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr(TouchContextHint)
+do TextObject::ChangeColor object="HudContextDetail" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="TouchContext" comparison_sign="=" value=11
+if NumberVariable variable="HeyinStage" comparison_sign="<=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextTitle" behavior="Text" modification_sign="=" text=expr("救助禾音")
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr("需要 4 纤维 · 3 浆果")
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="TouchContext" comparison_sign="=" value=11
+if NumberVariable variable="HeyinDanger" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr("附近有捕食者，先确保安全")
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="TouchContext" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextTitle" behavior="Text" modification_sign="=" text=expr("探索岛屿")
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr(HeyinObjective)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextTitle" behavior="Text" modification_sign="=" text=expr("与禾音同行")
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr(HeyinObjective)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="HeyinDanger" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr("附近有捕食者，先确保安全")
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="HeyinDistance" comparison_sign=">=" value=1800
+if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr("禾音掉队了，请返回接她")
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="Heyin" variable="Blocked" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr("前方有建筑阻挡，请绕行")
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="Heyin" variable="Resting" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr("禾音正在休息，稍等片刻")
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="Heyin" variable="Stay" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr("禾音在原地等候，交谈可继续同行")
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="67;94;79"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+65*HudScale) top_y_position=expr(HudMargin+87*HudScale) right_x_position=expr(HudMargin+65*HudScale+(126*HudScale)) bottom_y_position=expr(HudMargin+87*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
+do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="244;183;79"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+65*HudScale) top_y_position=expr(HudMargin+87*HudScale) right_x_position=expr(HudMargin+65*HudScale+(126*HudScale*clamp(Hunger,0,100)/100)) bottom_y_position=expr(HudMargin+87*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
+do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="67;94;79"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+259*HudScale) top_y_position=expr(HudMargin+87*HudScale) right_x_position=expr(HudMargin+259*HudScale+(118*HudScale)) bottom_y_position=expr(HudMargin+87*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
+do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="89;202;226"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+259*HudScale) top_y_position=expr(HudMargin+87*HudScale) right_x_position=expr(HudMargin+259*HudScale+(118*HudScale*clamp(Water,0,100)/100)) bottom_y_position=expr(HudMargin+87*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
+do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="67;94;79"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+65*HudScale) top_y_position=expr(HudMargin+126*HudScale) right_x_position=expr(HudMargin+65*HudScale+(312*HudScale)) bottom_y_position=expr(HudMargin+126*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
+do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="129;221;155"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+65*HudScale) top_y_position=expr(HudMargin+126*HudScale) right_x_position=expr(HudMargin+65*HudScale+(312*HudScale*clamp(Stamina,0,100)/100)) bottom_y_position=expr(HudMargin+126*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
+do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="67;94;79"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+140*HudScale) top_y_position=expr(HudMargin+360*HudScale) right_x_position=expr(HudMargin+140*HudScale+(215*HudScale)) bottom_y_position=expr(HudMargin+360*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
+do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="236;104;110"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+140*HudScale) top_y_position=expr(HudMargin+360*HudScale) right_x_position=expr(HudMargin+140*HudScale+(215*HudScale*clamp(Heyin.Variable(HP),0,100)/100)) bottom_y_position=expr(HudMargin+360*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
+do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="67;94;79"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+140*HudScale) top_y_position=expr(HudMargin+395*HudScale) right_x_position=expr(HudMargin+140*HudScale+(215*HudScale)) bottom_y_position=expr(HudMargin+395*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
+do PrimitiveDrawing::FillColor shape_painter_object="HudBars" fill_color="99;205;179"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HudBars" left_x_position=expr(HudMargin+140*HudScale) top_y_position=expr(HudMargin+395*HudScale) right_x_position=expr(HudMargin+140*HudScale+(215*HudScale*clamp(Heyin.Variable(Energy),0,100)/100)) bottom_y_position=expr(HudMargin+395*HudScale+(7*HudScale)) radius_in_pixels=expr(3*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=4
+do OpacityCapability::OpacityBehavior::SetValue object="TouchButton" behavior="Opacity" modification_sign="=" opacity_0_255=0
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchLabel" variable="Slot" comparison_sign="=" value=1
+do Hide object="TouchLabel"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchLabel" variable="Slot" comparison_sign="=" value=4
+do Hide object="TouchLabel"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=2
+if NumberObjectVariable object="TouchLabel" variable="Slot" comparison_sign="=" value=2
+do SetX object="TouchLabel" modification_sign="=" value=expr(TouchButton.X()+6*HudScale)
+do SetY object="TouchLabel" modification_sign="=" value=expr(TouchButton.Y()+55*HudScale)
+do TextObject::SetWrapping object="TouchLabel" wrapping=true
+do TextObject::WrappingWidth object="TouchLabel" modification_sign="=" value=expr(TouchButton.Width()-12*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=3
+if NumberObjectVariable object="TouchLabel" variable="Slot" comparison_sign="=" value=3
+do SetX object="TouchLabel" modification_sign="=" value=expr(TouchButton.X()+6*HudScale)
+do SetY object="TouchLabel" modification_sign="=" value=expr(TouchButton.Y()+55*HudScale)
+do TextObject::SetWrapping object="TouchLabel" wrapping=true
+do TextObject::WrappingWidth object="TouchLabel" modification_sign="=" value=expr(TouchButton.Width()-12*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=5
+if NumberObjectVariable object="TouchLabel" variable="Slot" comparison_sign="=" value=5
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do SetX object="TouchLabel" modification_sign="=" value=expr(TouchButton.X()+6*HudScale)
+do SetY object="TouchLabel" modification_sign="=" value=expr(TouchButton.Y()+55*HudScale)
+do TextObject::SetWrapping object="TouchLabel" wrapping=true
+do TextObject::WrappingWidth object="TouchLabel" modification_sign="=" value=expr(TouchButton.Width()-12*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=6
+if NumberObjectVariable object="TouchLabel" variable="Slot" comparison_sign="=" value=6
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do SetX object="TouchLabel" modification_sign="=" value=expr(TouchButton.X()+6*HudScale)
+do SetY object="TouchLabel" modification_sign="=" value=expr(TouchButton.Y()+125*HudScale)
+do TextObject::SetWrapping object="TouchLabel" wrapping=true
+do TextObject::WrappingWidth object="TouchLabel" modification_sign="=" value=expr(TouchButton.Width()-12*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=7
+if NumberObjectVariable object="TouchLabel" variable="Slot" comparison_sign="=" value=7
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do SetX object="TouchLabel" modification_sign="=" value=expr(TouchButton.X()+6*HudScale)
+do SetY object="TouchLabel" modification_sign="=" value=expr(TouchButton.Y()+88*HudScale)
+do TextObject::SetWrapping object="TouchLabel" wrapping=true
+do TextObject::WrappingWidth object="TouchLabel" modification_sign="=" value=expr(TouchButton.Width()-12*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=12
+if NumberObjectVariable object="TouchLabel" variable="Slot" comparison_sign="=" value=12
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do SetX object="TouchLabel" modification_sign="=" value=expr(TouchButton.X()+6*HudScale)
+do SetY object="TouchLabel" modification_sign="=" value=expr(TouchButton.Y()+88*HudScale)
+do TextObject::SetWrapping object="TouchLabel" wrapping=true
+do TextObject::WrappingWidth object="TouchLabel" modification_sign="=" value=expr(TouchButton.Width()-12*HudScale)
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do Hide object="HeyinTalkButton"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="HeyinNear" comparison_sign="=" value=1
+if NumberVariable variable="HeyinDanger" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do Show object="HeyinTalkButton"
+do SetX object="HeyinTalkButton" modification_sign="=" value=expr(HudContextX+446*HudScale)
+do SetY object="HeyinTalkButton" modification_sign="=" value=expr(HudContextY+48*HudScale)
+do TextObject::Text::SetFontSize object="HeyinTalkButton" modification_sign="=" value=expr(20*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinTalkButton" behavior="Text" modification_sign="=" text=expr("交谈 Y")
+do TextObject::ChangeColor object="HeyinTalkButton" color="249;244;221"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+do Hide object="HudContext"
+do Hide object="HudContextTitle"
+do Hide object="HudContextDetail"
+do Show object="TouchHint"
+
+@event
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="TouchToastTime" comparison_sign=">" value=0
+do SetX object="TouchToastText" modification_sign="=" value=expr(HudContextX)
+do SetY object="TouchToastText" modification_sign="=" value=expr(HudContextY-44*HudScale)
+do TextObject::Text::SetFontSize object="TouchToastText" modification_sign="=" value=expr(20*HudScale)
+do TextObject::SetWrapping object="TouchToastText" wrapping=true
+do TextObject::WrappingWidth object="TouchToastText" modification_sign="=" value=expr(560*HudScale)

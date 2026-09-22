@@ -11,9 +11,9 @@ do Hide object="RadarInfo"
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-do SetNumberVariable variable="RadarScale" modification_sign="=" value=expr(clamp(SceneWindowHeight()/1000,0.55,0.85))
-do SetNumberVariable variable="RadarX" modification_sign="=" value=expr(SceneWindowWidth()-240*RadarScale-16)
-do SetNumberVariable variable="RadarY" modification_sign="=" value=expr(16)
+do SetNumberVariable variable="RadarScale" modification_sign="=" value=expr(clamp(min(SceneWindowWidth()/1600,SceneWindowHeight()/900),0.4,1.6)*0.9)
+do SetNumberVariable variable="RadarX" modification_sign="=" value=expr(SceneWindowWidth()-300*RadarScale-32)
+do SetNumberVariable variable="RadarY" modification_sign="=" value=expr(12*RadarScale)
 do Show object="RadarMap"
 do Show object="RadarPlayer"
 do Show object="RadarCamp"
@@ -83,4 +83,3 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do SetX object="QuestBody" modification_sign="=" value=expr(SceneWindowWidth()-380)
 do SetY object="QuestBody" modification_sign="=" value=expr(66+315*RadarScale)
-

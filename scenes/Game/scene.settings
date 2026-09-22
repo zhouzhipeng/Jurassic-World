@@ -2180,6 +2180,27 @@ name = "JumpLandTime"
 type = "number"
 value = 0
 
+
+[[variables]]
+name = "HudScale"
+type = "number"
+value = 1
+
+[[variables]]
+name = "HudMargin"
+type = "number"
+value = 1
+
+[[variables]]
+name = "HudContextX"
+type = "number"
+value = 1
+
+[[variables]]
+name = "HudContextY"
+type = "number"
+value = 1
+
 [layout]
 version = 1
 background = "#72BBDD"
@@ -3743,53 +3764,3 @@ object = "RadarInfo"
 layer = "performance"
 at = [0, 0, 0]
 z_order = 104
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

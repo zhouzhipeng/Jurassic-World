@@ -123,3 +123,121 @@ points = [ ]
 originPoint = { name = "Origin", x = 0, y = 0 }
 centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
 customCollisionMask = [ ]
+
+[[animations]]
+name = "Menu"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "hud-button-menu.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+
+[[animations]]
+name = "Pack"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "hud-button-pack.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+
+[[animations]]
+name = "Build"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "hud-button-build.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+
+[[animations]]
+name = "Supply"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "hud-button-supply.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+
+[[animations]]
+name = "Primary"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "hud-button-primary.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+
+[[animations]]
+name = "Attack"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "hud-button-attack.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
+
+
+[[animations]]
+name = "Jump"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "hud-button-jump.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]

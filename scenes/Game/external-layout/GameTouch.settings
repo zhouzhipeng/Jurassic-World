@@ -531,6 +531,143 @@ z_order = 7
 size = [100, 100]
 keep_ratio = false
 
+
+[[layout.instances]]
+id = "dc6344ce-06dc-4bcd-8301-8c60cb8ae060"
+object = "HudVitals"
+layer = "touch"
+at = [0, 0]
+z_order = 2
+hidden = true
+
+[[layout.instances]]
+id = "e373e993-6639-45a3-9c31-268b1f4a3a0e"
+object = "HudQuest"
+layer = "touch"
+at = [0, 0]
+z_order = 2
+hidden = true
+
+[[layout.instances]]
+id = "6c440ab3-f636-47d2-be3f-b710b784bf3a"
+object = "HudCompanion"
+layer = "touch"
+at = [0, 0]
+z_order = 2
+hidden = true
+
+[[layout.instances]]
+id = "a6065218-256a-4d44-9034-036f7c5928f8"
+object = "HudClock"
+layer = "touch"
+at = [0, 0]
+z_order = 2
+hidden = true
+
+[[layout.instances]]
+id = "6189b671-00c1-45b9-91dd-279e08396994"
+object = "HudContext"
+layer = "touch"
+at = [0, 0]
+z_order = 2
+hidden = true
+
+[[layout.instances]]
+id = "b6798c7b-5c2b-4ff4-9afb-a9e9a3076059"
+object = "HudBars"
+layer = "touch"
+at = [0, 0]
+z_order = 4
+hidden = true
+
+[[layout.instances]]
+id = "2aab8e1f-3624-4b7d-a62a-dd8156e000ca"
+object = "HudHunger"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
+[[layout.instances]]
+id = "0716d28c-c4be-441e-ba2c-9f1b238977c9"
+object = "HudWater"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
+[[layout.instances]]
+id = "53e6fe70-5751-4c6e-966e-6c6cc19f67b6"
+object = "HudStamina"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
+[[layout.instances]]
+id = "5d821a0d-3201-40dc-8751-beb1a495ddf9"
+object = "HudTime"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
+[[layout.instances]]
+id = "4324e10c-794d-4ec3-bf34-2fb2b90f49c8"
+object = "HudQuestHeader"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
+[[layout.instances]]
+id = "46aa48e4-ce19-4119-986e-e3ecdf10b999"
+object = "HudQuestName"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
+[[layout.instances]]
+id = "d9698b8f-82dd-4028-b520-9cad45ecb4ed"
+object = "HudCompanionName"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
+[[layout.instances]]
+id = "f99ca91b-e116-4502-b614-05dbd5898668"
+object = "HudCompanionHP"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
+[[layout.instances]]
+id = "048e114d-84f8-434f-9897-7be7e161f975"
+object = "HudCompanionEnergy"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
+[[layout.instances]]
+id = "c9df4dbf-d5b2-4d40-81d9-653f091e6287"
+object = "HudContextTitle"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
+[[layout.instances]]
+id = "48730510-0b71-412f-95db-d8127c92d044"
+object = "HudContextDetail"
+layer = "touch"
+at = [0, 0]
+z_order = 8
+hidden = true
+
 [[layout.variables]]
 instance = "8b36fff6-53a4-47f2-b6af-0aaa6887f31c"
 name = "Slot"

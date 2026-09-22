@@ -13,6 +13,8 @@ link external "HeyinContext"
 @event
 link "TouchLayout"
 
+link external "HudLayout"
+
 @event
 link "TouchInput"
 
@@ -2543,3 +2545,5 @@ link external "HeyinCompanionUI"
 link external "MapRadar"
 
 link external "DistanceVisibility"
+
+link external "HudPresentation"

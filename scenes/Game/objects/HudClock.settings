@@ -1,0 +1,28 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 353
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
+name = "HudClock"
+type = "Sprite"
+updateIfNotVisible = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "UI", "Touch" ]
+
+[[animations]]
+name = "Default"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "hud-clock.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]

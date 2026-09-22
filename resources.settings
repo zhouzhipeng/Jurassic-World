@@ -1594,3 +1594,99 @@ userAdded = true
 
 
 
+
+[[resources]]
+kind = "image"
+name = "hud-vitals.svg"
+file = "assets/ui/hud-vitals.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-quest.svg"
+file = "assets/ui/hud-quest.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-companion.svg"
+file = "assets/ui/hud-companion.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-clock.svg"
+file = "assets/ui/hud-clock.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-context.svg"
+file = "assets/ui/hud-context.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-button-menu.svg"
+file = "assets/ui/hud-button-menu.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-button-pack.svg"
+file = "assets/ui/hud-button-pack.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-button-build.svg"
+file = "assets/ui/hud-button-build.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-button-supply.svg"
+file = "assets/ui/hud-button-supply.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-button-primary.svg"
+file = "assets/ui/hud-button-primary.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-button-attack.svg"
+file = "assets/ui/hud-button-attack.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "hud-button-jump.svg"
+file = "assets/ui/hud-button-jump.svg"
+metadata = ""
+smoothed = true
+userAdded = true
