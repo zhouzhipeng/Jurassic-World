@@ -1185,8 +1185,8 @@ for each "Triceratops"
 @event
 for each "Stegosaur"
 > @event
-> if Distance object="Stegosaur" object_2="Player3D" distance=3600
-> or Distance object="Stegosaur" object_2="Heyin" distance=1800
+> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Stegosaur.X(),Stegosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3600
+> or BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Stegosaur.X(),Stegosaur.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=1800
 > or NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign="<=" value=0
 > or NumberVariable variable="Mode" comparison_sign="!=" value=0
 > or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
@@ -1392,8 +1392,8 @@ for each "Stegosaur"
 @event
 for each "Raptor"
 > @event
-> if Distance object="Raptor" object_2="Player3D" distance=3600
-> or Distance object="Raptor" object_2="Heyin" distance=1800
+> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3600
+> or BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=1800
 > or NumberObjectVariable object="Raptor" variable="HP" comparison_sign="<=" value=0
 > or NumberVariable variable="Mode" comparison_sign="!=" value=0
 > or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
@@ -1828,8 +1828,8 @@ for each "Raptor"
 @event
 for each "Tyrannosaur"
 > @event
-> if Distance object="Tyrannosaur" object_2="Player3D" distance=3600
-> or Distance object="Tyrannosaur" object_2="Heyin" distance=1800
+> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3600
+> or BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Heyin.X(),Heyin.Y())) comparison_sign="<" second_expression=1800
 > or NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign="<=" value=0
 > or NumberVariable variable="Mode" comparison_sign="!=" value=0
 > or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
