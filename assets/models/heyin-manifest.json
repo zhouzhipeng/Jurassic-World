@@ -1,0 +1,35 @@
+{
+  "dimensions": [
+    0.7080000638961792,
+    0.3410000205039978,
+    1.713175654411316
+  ],
+  "triangles": 26052,
+  "bones": [
+    "Root",
+    "Hips",
+    "Spine",
+    "Head",
+    "ThighR",
+    "ShinR",
+    "FootR",
+    "ArmR",
+    "ForearmR",
+    "HandR",
+    "ThighL",
+    "ShinL",
+    "FootL",
+    "ArmL",
+    "ForearmL",
+    "HandL"
+  ],
+  "clips": {
+    "Idle": 72,
+    "Walk": 36,
+    "Rest": 90,
+    "Talk": 80,
+    "Injured": 80
+  },
+  "glbBytes": 807332,
+  "originalAsset": true
+}

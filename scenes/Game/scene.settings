@@ -11,6 +11,126 @@ title = "(No title)"
 behaviorsSharedData = [ ]
 
 [[variables]]
+name = "HeyinStage"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinStay"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinEnergy"
+type = "number"
+value = 100
+
+[[variables]]
+name = "HeyinResting"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinDanger"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinNear"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinRequest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinPX"
+type = "number"
+value = 350
+
+[[variables]]
+name = "HeyinPY"
+type = "number"
+value = 900
+
+[[variables]]
+name = "HeyinDistance"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinMoving"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinBlocked"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinLX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinLY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinStep"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinTargetX"
+type = "number"
+value = 350
+
+[[variables]]
+name = "HeyinTargetY"
+type = "number"
+value = 900
+
+[[variables]]
+name = "HeyinLoadX"
+type = "number"
+value = 350
+
+[[variables]]
+name = "HeyinLoadY"
+type = "number"
+value = 900
+
+[[variables]]
+name = "HeyinLoadAngle"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinMessageTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinAidReady"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinMessage"
+type = "string"
+value = ""
+
+[[variables]]
+name = "HeyinObjective"
+type = "string"
+value = ""
+
+[[variables]]
 name = "PackSelected"
 persistentUuid = "45096ad2-7197-4a4c-827f-99c9d9271e59"
 type = "number"
@@ -2715,4 +2835,16 @@ layer = "world3d"
 at = [930, 1320, 0]
 size = [240, 240]
 depth = 360
+
+[[layout.instances]]
+id = "fa2eef99-51e3-4e36-aec8-b1aaa944e58c"
+object = "Heyin"
+layer = "world3d"
+at = [350, 900, 0]
+
+[[layout.instances]]
+id = "1ba83ff8-4507-47ce-816d-a91fcf22b7b8"
+object = "HeyinStory"
+layer = "performance"
+at = [42, 200]
 

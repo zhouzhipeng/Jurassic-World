@@ -1,0 +1,68 @@
+@event
+if NumberVariable variable="HeyinStage" comparison_sign=">=" value=0
+do SetNumberVariable variable="HeyinNear" modification_sign="=" value=0
+do SetNumberVariable variable="HeyinDanger" modification_sign="=" value=0
+do SetNumberVariable variable="HeyinDistance" modification_sign="=" value=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),Heyin.X(),Heyin.Y()))
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+
+> for each "Predators"
+>> if NumberObjectVariable object="Predators" variable="HP" comparison_sign=">" value=0
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(min(DistanceBetweenPositions(Predators.X(),Predators.Y(),Heyin.X(),Heyin.Y()),DistanceBetweenPositions(Predators.X(),Predators.Y(),Player3D.X(),Player3D.Y()))) comparison_sign="<" second_expression=650
+>> do SetNumberVariable variable="HeyinDanger" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-Heyin.Object3D::Z())) comparison_sign="<" second_expression=55
+if NumberVariable variable="HeyinDistance" comparison_sign="<" value=230
+do SetNumberVariable variable="HeyinNear" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-Heyin.Object3D::Z())) comparison_sign="<" second_expression=55
+if NumberVariable variable="HeyinNear" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+do SetNumberVariable variable="TouchContext" modification_sign="=" value=11
+do SetNumberVariable variable="TouchContextDistance" modification_sign="=" value=expr(HeyinDistance)
+do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="交谈 / G"
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value="禾音：交谈；结伴后切换跟随与等候"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-Heyin.Object3D::Z())) comparison_sign="<" second_expression=55
+if NumberVariable variable="HeyinNear" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="HeyinStage" comparison_sign="<=" value=1
+do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="救助"
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value="安全后救助禾音：需要 4 纤维、3 浆果（键盘 G）"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-Heyin.Object3D::Z())) comparison_sign="<" second_expression=55
+if NumberVariable variable="HeyinStage" comparison_sign="=" value=3
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),1580,680)) comparison_sign="<" second_expression=290
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Heyin.X(),Heyin.Y(),1580,680)) comparison_sign="<" second_expression=450
+do SetNumberVariable variable="TouchContext" modification_sign="=" value=12
+do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="辨认绳结"
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value="与禾音查看清泉边的迁徙痕迹（键盘 G）"
+

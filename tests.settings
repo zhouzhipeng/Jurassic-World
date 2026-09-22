@@ -288,3 +288,19 @@ name = "CampHousePerformance"
 type = "gameplay"
 description = "Profile the reported indoor view, movement and camera rotation while retaining doorway traversal."
 file = "tests/CampHousePerformance.js"
+
+[[tests]]
+scope = "project"
+order = 36
+name = "HeyinJourney"
+type = "gameplay"
+description = "Rescue costs, danger, following, waiting, pause, physical escort, rest and first family clue."
+file = "tests/HeyinJourney.js"
+
+[[tests]]
+scope = "project"
+order = 37
+name = "HeyinPersistence"
+type = "gameplay"
+description = "Real touch rescue and save/load of the companion across a fresh scene."
+file = "tests/HeyinPersistence.js"

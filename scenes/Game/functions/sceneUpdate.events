@@ -6,6 +6,8 @@ link "HUDBootstrap"
 @event
 link "TouchContext"
 
+link external "HeyinContext"
+
 @event
 link "TouchLayout"
 
@@ -2398,3 +2400,7 @@ link external "FoliageLOD"
 link external "FPSDisplay"
 
 link external "CoastalEnvironment"
+
+link external "HeyinJourney"
+
+link external "HeyinPresentation"

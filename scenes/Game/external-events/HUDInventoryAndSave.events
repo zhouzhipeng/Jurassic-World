@@ -159,6 +159,8 @@ do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
 @event
 link "SurvivalSave"
 
+link external "HeyinSave"
+
 @event
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
 do EcrireFichierTxt storage_name=expr(SaveStorage) group="BuildingsV2" text=expr(ToJSON(BuildingRecords))

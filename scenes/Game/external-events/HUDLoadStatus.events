@@ -7,6 +7,8 @@ link "TimeRestore"
 @event
 link "SurvivalRestore"
 
+link external "HeyinRestore"
+
 @event
 if NumberVariable variable="Action" comparison_sign="=" value=10
 if GroupExists storage_name=expr(SaveStorage) group="Version"

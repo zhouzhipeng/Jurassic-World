@@ -38,6 +38,8 @@
 
 ## 音频制作
 
+`build_heyin.py`：原创禾音角色，使用 Blender 5.1 后台进程，参数 `-- <绝对输出目录>`；生成 `heyin.glb`、`heyin-source.blend`、模型清单及两张展示图，仅覆盖指定目录中的同名产物。先输出到 `tmp/heyin/` 检查，再将 GLB/清单安装到 `assets/models/`，源文件到 `sources/models/`，展示图到 `artifacts/previews/`。可重复制作，不修改已打开的 Blender 会话。
+
 `compose_audio.py` 使用 Python、NumPy 合成音乐和音效，`compose_weather_audio.py` 合成天气声音；均输出到 `assets/audio/`，前者同时更新音频清单。以 Python 运行对应绝对脚本路径即可。设计见 `docs/AUDIO-DESIGN.md`。
 
 ## 历史工程修改脚本

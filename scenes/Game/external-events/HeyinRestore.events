@@ -1,0 +1,32 @@
+@event
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do SetNumberVariable variable="HeyinStage" modification_sign="=" value=0
+do SetNumberVariable variable="HeyinStay" modification_sign="=" value=0
+do SetNumberVariable variable="HeyinEnergy" modification_sign="=" value=100
+do SetNumberVariable variable="HeyinResting" modification_sign="=" value=0
+do SetNumberVariable variable="HeyinLoadX" modification_sign="=" value=350
+do SetNumberVariable variable="HeyinLoadY" modification_sign="=" value=900
+do SetNumberVariable variable="HeyinLoadAngle" modification_sign="=" value=0
+do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=0
+do SetNumberVariable variable="HeyinBlocked" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+if GroupExists storage_name=expr(SaveStorage) group="HeyinVersion"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinStage" variable="HeyinStage"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinStay" variable="HeyinStay"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinEnergy" variable="HeyinEnergy"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinResting" variable="HeyinResting"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinX" variable="HeyinLoadX"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinY" variable="HeyinLoadY"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinAngle" variable="HeyinLoadAngle"
+
+@event
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do SetX object="Heyin" modification_sign="=" value=expr(HeyinLoadX)
+do SetY object="Heyin" modification_sign="=" value=expr(HeyinLoadY)
+do SetAngle object="Heyin" modification_sign="=" angle_in_degrees=expr(HeyinLoadAngle)
+

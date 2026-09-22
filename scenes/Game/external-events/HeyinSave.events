@@ -1,0 +1,11 @@
+@event
+if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
+do EcrireFichierExp storage_name=expr(SaveStorage) group="HeyinVersion" expression=1
+do EcrireFichierExp storage_name=expr(SaveStorage) group="HeyinStage" expression=expr(HeyinStage)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="HeyinStay" expression=expr(HeyinStay)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="HeyinEnergy" expression=expr(HeyinEnergy)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="HeyinResting" expression=expr(HeyinResting)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="HeyinX" expression=expr(Heyin.X())
+do EcrireFichierExp storage_name=expr(SaveStorage) group="HeyinY" expression=expr(Heyin.Y())
+do EcrireFichierExp storage_name=expr(SaveStorage) group="HeyinAngle" expression=expr(Heyin.Angle())
+

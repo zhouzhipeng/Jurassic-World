@@ -1505,3 +1505,10 @@ kind = "model3D"
 metadata = ""
 name = "berry-bush-lod2.glb"
 userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "heyin.glb"
+file = "assets/models/heyin.glb"
+metadata = ""
+userAdded = true
