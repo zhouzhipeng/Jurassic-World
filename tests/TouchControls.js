@@ -59,8 +59,9 @@ try {
     if (!b) throw new Error(`Missing right-side button ${command}`);
     const oldYaw = n('CameraYaw');
     harness.touchStart(61, b.centerX, b.centerY, 'Touch'); await harness.stepFrames(1);
+    const capturedId = val(b, 'TouchId');
     harness.touchMove(61, b.centerX - 35*n('TouchScale'), b.centerY, 'Touch'); await harness.stepFrames(2);
-    harness.assert(Math.abs(n('CameraYaw') - oldYaw) > 5 && n('TouchLookId') === 61, `Dragging command ${command} hands off to the camera even inside the button`);
+    harness.assert(Math.abs(n('CameraYaw') - oldYaw) > 5 && capturedId !== -999 && n('TouchLookId') === capturedId, `Dragging command ${command} hands off to the camera even inside the button`);
     harness.touchMove(61, b.centerX, b.centerY, 'Touch'); await harness.stepFrames(1);
     harness.touchEnd(61); await harness.stepFrames(2);
     harness.assert(n('Mode') === 0 && n('TouchCommand') === 0 && n('TouchAttack') === 0, `Returning to command ${command} after dragging does not trigger a tap`);
