@@ -67,6 +67,28 @@ if (player) {
   blockers = blockers.filter(object => Math.hypot(object.getX() - targetX, object.getY() - targetY)
     <= requestedDistance + Math.hypot(object.getWidth(), object.getHeight()) + 300);
   const rightX = Math.cos(yaw), rightY = -Math.sin(yaw);
+  // Conservative XY slab test before entering the mesh raycaster. This does
+  // not approximate hits: it only rejects geometry a ray cannot reach.
+  const intersectsXY = (ox=0, oy=0, dx=0, dy=0, far=0, minX=0, maxX=0, minY=0, maxY=0) => {
+    let enter=0, leave=far;
+    for (const [origin,direction,lower,upper] of [[ox,dx,minX,maxX],[oy,dy,minY,maxY]]) {
+      if (Math.abs(direction)<0.000001) {
+        if (origin<lower || origin>upper) return false;
+      } else {
+        const a=(lower-origin)/direction, b=(upper-origin)/direction;
+        enter=Math.max(enter,Math.min(a,b)); leave=Math.min(leave,Math.max(a,b));
+        if (enter>leave) return false;
+      }
+    }
+    return true;
+  };
+  const castPlants = (ox=0,oy=0,oz=0,dx=0,dy=0,dz=0,far=0,plants=viewFoliage) => {
+    const nearby=plants.filter(object => {
+      const radius=Math.hypot(object.getWidth(),object.getHeight())+30;
+      return intersectsXY(ox,oy,dx,dy,far,object.getX()-radius,object.getX()+radius,object.getY()-radius,object.getY()+radius);
+    });
+    return nearby.length ? gdjs.evtTools.scene3d.raycastObjects(ox,oy,oz,dx,dy,dz,nearby,0,far,true) : [];
+  };
   // Probe the body corridor, distinguishing nearby waist-high scenery from
   // obstructions that cover the head or occupy the camera's travel path.
   const offsets = [[0, 0], [-65, 0], [65, 0], [0, -80], [0, 80],
@@ -82,9 +104,9 @@ if (player) {
   for (const offset of offsets) {
     if (viewFoliage.length === 0) break;
     const r = oldPitch * Math.PI / 180;
-    const hits = gdjs.evtTools.scene3d.raycastObjects(x + rightX * offset[0],
+    const hits = castPlants(x + rightX * offset[0],
       y + rightY * offset[0], z + offset[1],
-      Math.sin(yaw) * Math.cos(r), Math.cos(yaw) * Math.cos(r), Math.sin(r), viewFoliage, 0, requestedDistance + 30, true);
+      Math.sin(yaw) * Math.cos(r), Math.cos(yaw) * Math.cos(r), Math.sin(r), requestedDistance + 30, viewFoliage);
     for (const hit of hits) {
       if (foliage.includes(hit.object.getName())) obscuring.add(String(hit.object.getUniqueId()));
     }
@@ -178,8 +200,12 @@ if (player) {
       // Bound storage during a gradual pitch adjustment or a long orbit.
       if (terrainCache.getChildrenCount() >= 256) terrainCache.clearChildren();
       const cached = terrainCache.getChild(key);
-      const hits = gdjs.evtTools.scene3d.raycastObjects(
-        ox, oy, oz, dx, dy, dz, terrain, 0, far, true);
+      const reached = terrain.filter(object => {
+        const v=object.getVariables();
+        return intersectsXY(ox,oy,dx,dy,far,v.get("QueryMinX").getAsNumber(),v.get("QueryMaxX").getAsNumber(),v.get("QueryMinY").getAsNumber(),v.get("QueryMaxY").getAsNumber());
+      });
+      const hits = reached.length ? gdjs.evtTools.scene3d.raycastObjects(
+        ox, oy, oz, dx, dy, dz, reached, 0, far, true) : [];
       for (const hit of hits) cached.pushValue(hit.distance);
     }
     for (const hit of terrainCache.getChild(key).getAllChildrenArray()) {
@@ -317,8 +343,8 @@ if (player) {
       const length = Math.hypot(dx, dy, dz);
       if (length <= 8) continue;
       if (castSolids(ox, oy, oz, dx / length, dy / length, dz / length, length - 5).length ||
-        (outlinePlants.length && gdjs.evtTools.scene3d.raycastObjects(ox, oy, oz,
-          dx / length, dy / length, dz / length, outlinePlants, 0, length - 5, true).length)) {
+        (outlinePlants.length && castPlants(ox, oy, oz,
+          dx / length, dy / length, dz / length, length - 5, outlinePlants).length)) {
         occluded = true;
         break;
       }
