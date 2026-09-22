@@ -320,3 +320,11 @@ name = "HeyinAI"
 type = "gameplay"
 description = "Idle and Talk continuity, proximity hysteresis, smooth facing, pause and independent prefab instances."
 file = "tests/HeyinAI.js"
+
+[[tests]]
+scope = "project"
+order = 40
+name = "HeyinBubble"
+type = "gameplay"
+description = "Head projection, orbit, zoom, dialogue fallback, pause, wrapping and narrow-screen bounds."
+file = "tests/HeyinBubble.js"

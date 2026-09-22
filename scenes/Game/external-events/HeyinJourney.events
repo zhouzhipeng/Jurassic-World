@@ -24,7 +24,7 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinStage" comparison_sign="=" value=0
 if NumberVariable variable="HeyinDistance" comparison_sign="<" value=650
 do SetNumberVariable variable="HeyinStage" modification_sign="=" value=1
-do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：有人吗……我和家人走散了。能帮我看看附近安全吗？"
+do SetStringVariable variable="HeyinMessage" modification_sign="=" value=expr("禾音：有人吗……"+NewLine()+"我和家人走散了。"+NewLine()+"能帮我看看附近安全吗？")
 do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=12
 
 @event
