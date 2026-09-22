@@ -368,3 +368,11 @@ name = "DistanceVisibility"
 type = "gameplay"
 description = "Distant actors and resources hide, return on approach and retain identity and health."
 file = "tests/DistanceVisibility.js"
+
+[[tests]]
+scope = "project"
+order = 46
+name = "FrameCostBreakdown"
+type = "gameplay"
+description = "Diagnostic comparison of UI update costs; alternate modes are not acceptance evidence."
+file = "tests/FrameCostBreakdown.js"
