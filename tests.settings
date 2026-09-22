@@ -376,3 +376,19 @@ name = "FrameCostBreakdown"
 type = "gameplay"
 description = "Diagnostic comparison of UI update costs; alternate modes are not acceptance evidence."
 file = "tests/FrameCostBreakdown.js"
+
+[[tests]]
+scope = "project"
+order = 47
+name = "WildlifeActivation"
+type = "gameplay"
+description = "Distance activation preserves companion threats, health, identity, death and respawning."
+file = "tests/WildlifeActivation.js"
+
+[[tests]]
+scope = "project"
+order = 48
+name = "FrameBudget60"
+type = "gameplay"
+description = "Strict 60 FPS frame-cost budget across full-scene movement and camera rotation."
+file = "tests/FrameBudget60.js"
