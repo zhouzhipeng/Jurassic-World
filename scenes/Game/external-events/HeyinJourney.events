@@ -136,7 +136,7 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="PlayerFloor" comparison_sign="<=" value=40
 if NumberVariable variable="HeyinDistance" comparison_sign=">" value=180
 if NumberVariable variable="HeyinDistance" comparison_sign="<" value=1800
-do SetNumberVariable variable="HeyinStep" modification_sign="=" value=expr(min(285*TimeDelta(),HeyinDistance-180))
+do SetNumberVariable variable="HeyinStep" modification_sign="=" value=expr(min(160.68*TimeDelta(),HeyinDistance-180))
 do SetX object="Heyin" modification_sign="=" value=expr(Heyin.X()+(Player3D.X()-Heyin.X())/max(1,HeyinDistance)*HeyinStep)
 do SetY object="Heyin" modification_sign="=" value=expr(Heyin.Y()+(Player3D.Y()-Heyin.Y())/max(1,HeyinDistance)*HeyinStep)
 do SetNumberVariable variable="HeyinMoving" modification_sign="=" value=1
@@ -198,8 +198,10 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinMoving" comparison_sign="=" value=1
 do SetNumberVariable variable="HeyinEnergy" modification_sign="=" value=expr(max(0,HeyinEnergy-TimeDelta()*0.7))
-do SetAngle object="Heyin" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(HeyinPX,HeyinPY,Heyin.X(),Heyin.Y())-90)
-do AnimatableCapability::AnimatableBehavior::SetName object="Heyin" behavior="Animation" modification_sign="=" animation_name="Walk"
+do SetAngle object="Heyin" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(HeyinPX,HeyinPY,Heyin.X(),Heyin.Y())+90)
+
+> if AnimatableCapability::AnimatableBehavior::Name object="Heyin" behavior="Animation" comparison_sign="!=" animation_name="Walk"
+> do AnimatableCapability::AnimatableBehavior::SetName object="Heyin" behavior="Animation" modification_sign="=" animation_name="Walk"
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -208,7 +210,12 @@ if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinMoving" comparison_sign="=" value=0
 if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
 do SetNumberVariable variable="HeyinEnergy" modification_sign="=" value=expr(min(100,HeyinEnergy+TimeDelta()*5))
-do AnimatableCapability::AnimatableBehavior::SetName object="Heyin" behavior="Animation" modification_sign="=" animation_name="Idle"
+
+> if NumberVariable variable="HeyinResting" comparison_sign="=" value=0
+> if NumberVariable variable="HeyinMessageTime" comparison_sign="<=" value=0
+> or NumberVariable variable="HeyinNear" comparison_sign="=" value=0
+> if AnimatableCapability::AnimatableBehavior::Name object="Heyin" behavior="Animation" comparison_sign="!=" animation_name="Idle"
+> do AnimatableCapability::AnimatableBehavior::SetName object="Heyin" behavior="Animation" modification_sign="=" animation_name="Idle"
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -216,6 +223,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
 if NumberVariable variable="HeyinResting" comparison_sign="=" value=1
+if AnimatableCapability::AnimatableBehavior::Name object="Heyin" behavior="Animation" comparison_sign="!=" animation_name="Rest"
 do AnimatableCapability::AnimatableBehavior::SetName object="Heyin" behavior="Animation" modification_sign="=" animation_name="Rest"
 
 @event
@@ -227,6 +235,7 @@ if NumberVariable variable="HeyinMoving" comparison_sign="=" value=0
 if NumberVariable variable="HeyinResting" comparison_sign="=" value=0
 if NumberVariable variable="HeyinMessageTime" comparison_sign=">" value=0
 if NumberVariable variable="HeyinNear" comparison_sign="=" value=1
+if AnimatableCapability::AnimatableBehavior::Name object="Heyin" behavior="Animation" comparison_sign="!=" animation_name="Talk"
 do AnimatableCapability::AnimatableBehavior::SetName object="Heyin" behavior="Animation" modification_sign="=" animation_name="Talk"
 
 @event
@@ -234,6 +243,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinStage" comparison_sign="<=" value=1
+if AnimatableCapability::AnimatableBehavior::Name object="Heyin" behavior="Animation" comparison_sign="!=" animation_name="Injured"
 do AnimatableCapability::AnimatableBehavior::SetName object="Heyin" behavior="Animation" modification_sign="=" animation_name="Injured"
 
 @event

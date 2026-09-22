@@ -134,6 +134,13 @@ bpy.ops.object.select_all(action='DESELECT')
 for p in parts:p.select_set(True)
 bpy.context.view_layer.objects.active=parts[0];bpy.ops.object.join();body=bpy.context.object;body.name='HeyinSkin'
 bpy.context.scene.cursor.location=(0,0,0);bpy.ops.object.origin_set(type='ORIGIN_CURSOR')
+# Match the survivor's stylized proportions while retaining an adult silhouette.
+head_group=body.vertex_groups['Head'].index
+for v in body.data.vertices:
+ if any(g.group==head_group and g.weight>.99 for g in v.groups):
+  v.co=Vector((0,0,1.39))+(v.co-Vector((0,0,1.39)))*1.06
+ v.co.x*=1.10
+bones=[(n,(p[0]*1.10,p[1],p[2]),parent) for n,p,parent in bones]
 ad=bpy.data.armatures.new('HeyinRig');arm=bpy.data.objects.new('HeyinRig',ad);bpy.context.collection.objects.link(arm)
 body.select_set(False);arm.select_set(True);bpy.context.view_layer.objects.active=arm;bpy.ops.object.mode_set(mode='EDIT')
 for n,p,parent in bones:
@@ -143,21 +150,42 @@ bpy.ops.object.mode_set(mode='OBJECT');body.parent=arm;mod=body.modifiers.new('S
 def reset():
  for pb in arm.pose.bones:pb.rotation_mode='XYZ';pb.rotation_euler=(0,0,0);pb.location=(0,0,0);pb.scale=(1,1,1)
 def rot(n,x=0,y=0,z=0):arm.pose.bones[n].rotation_euler=(x,y,z)
-clips={'Idle':72,'Walk':36,'Rest':90,'Talk':80,'Injured':80}
+def plant_leg(side,foot_y=0,foot_lift=0,hip_drop=0):
+ # Analytic two-bone IK baked to rotations; ankles stay level on the floor.
+ upper=math.hypot(.005,.36);lower=math.hypot(.005,.385)
+ dy=foot_y;down=.745+hip_drop-foot_lift
+ distance=min(upper+lower-.00001,math.hypot(dy,down))
+ bend=math.acos(max(-1,min(1,(distance*distance-upper*upper-lower*lower)/(2*upper*lower))))
+ thigh=math.atan2(dy,down)-math.atan2(lower*math.sin(bend),upper+lower*math.cos(bend))
+ a0=math.atan2(-.005,.36);b0=math.atan2(.005,.385)
+ rot('Thigh'+side,thigh-a0);rot('Shin'+side,bend+a0-b0);rot('Foot'+side,-thigh-bend+b0)
+
+clips={'Idle':72,'Walk':24,'Rest':90,'Talk':80,'Injured':80}
 for clip,length in clips.items():
  arm.animation_data_create();arm.animation_data.action=None
- for f in range(0,length+1,2):
+ for f in range(0,length+1):
   reset();p=f/length*math.tau;rot('Spine',.012*math.sin(p),0,.008*math.sin(p));rot('Head',0,.018*math.sin(p))
   if clip=='Walk':
+   drop=-.045-.035*math.cos(2*p);arm.pose.bones['Hips'].location.y=drop
    for side,phase in [('R',p),('L',p+math.pi)]:
-    swing=math.sin(phase);rot('Thigh'+side,-.33*swing);rot('Shin'+side,max(0,swing)*.45);rot('Arm'+side,.24*swing);rot('Forearm'+side,-.14-.05*swing)
+    cycle=(phase/math.tau)%1
+    # Half-cycle planted: linear backward travel cancels forward actor speed.
+    if cycle<.5:fy=-.29+1.16*cycle;lift=0
+    else:
+     t=(cycle-.5)*2;fy=.29-.58*t;lift=.095*math.sin(math.pi*t)
+    plant_leg(side,fy,lift,drop)
+    swing=math.cos(phase);rot('Arm'+side,.20*swing);rot('Forearm'+side,-.12-.04*swing)
   if clip in ['Rest','Injured']:
-   arm.pose.bones['Hips'].location.y=-.33;rot('ThighR',-1.0);rot('ThighL',-1.0);rot('ShinR',2.0);rot('ShinL',2.0);rot('FootR',-1.0);rot('FootL',-1.0)
-   rot('Spine',.16+.018*math.sin(p));rot('Head',.12);rot('ArmR',-.38);rot('ArmL',-.38);rot('ForearmR',-.6);rot('ForearmL',-.6)
+   # Supported standing recovery, not an unsupported deep squat.
+   drop=-.035 if clip=='Injured' else -.012
+   arm.pose.bones['Hips'].location.y=drop
+   plant_leg('R',0,0,drop);plant_leg('L',-.10 if clip=='Injured' else 0,0,drop)
+   rot('Spine',.09+.012*math.sin(p));rot('Head',.08)
+   rot('ArmR',-.10);rot('ArmL',-.12);rot('ForearmR',-.48);rot('ForearmL',-.54)
   if clip=='Talk':rot('Head',.025*math.sin(p),0,.05*math.sin(p));rot('ArmL',-.3-.12*math.sin(p));rot('ForearmL',-.55-.12*math.sin(p))
   for pb in arm.pose.bones:
    pb.keyframe_insert(data_path='rotation_euler',frame=f+1,group=pb.name);pb.keyframe_insert(data_path='location',frame=f+1,group=pb.name)
- action=arm.animation_data.action;action.name=clip;tr=arm.animation_data.nla_tracks.new();tr.name=clip;tr.strips.new(clip,1,action);arm.animation_data.action=None
+ action=arm.animation_data.action;action.name=clip;tr=arm.animation_data.nla_tracks.new();tr.name=clip;tr.strips.new(clip,1,action);tr.mute=True;arm.animation_data.action=None
 for tr in arm.animation_data.nla_tracks:tr.mute=True
 reset();bpy.context.view_layer.update();dims=list(body.dimensions)
 bpy.ops.object.select_all(action='DESELECT');body.select_set(True);arm.select_set(True)

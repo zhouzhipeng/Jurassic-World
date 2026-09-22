@@ -47,3 +47,5 @@
 `author_*.py`、`setup_*.py`、`add_mount_events.py` 和 `refine_modular_construction.py` 是特定历史版本的工程修改脚本，会写入 `.settings`、`.events` 或资源表。它们不属于资源重建流水线，不应批量执行；部分已有旧版本保护检查。保留原位置便于追溯，不将它们当作当前工程的初始化入口。
 
 编辑当前游戏应遵守 `skills/gdevelop-project-files/SKILL.md`。新增工具应声明用途、依赖、输入、输出、覆盖范围及是否支持重复执行；临时输出统一到 `tmp/`。
+
+`check_heyin_asset.py`：通过 Blender 后台运行，参数 `-- <绝对模型目录> <绝对报告目录>`，读取该目录的 `heyin.glb` 与 `heyin-source.blend`，检查五个动作、骨架、贴图依赖和 19 个姿态的脚部支撑，输出 JSON 与姿态渲染，不改模型。
