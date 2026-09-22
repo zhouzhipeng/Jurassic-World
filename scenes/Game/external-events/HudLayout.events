@@ -22,10 +22,10 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=1
+do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Menu"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-HudMargin-56*HudScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(HudMargin)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(56*HudScale) height=expr(56*HudScale)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Menu"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(0*HudScale/TouchScale)
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=""
 
@@ -34,10 +34,10 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=2
+do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Pack"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-HudMargin-280*HudScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(HudMargin+250*HudScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(84*HudScale) height=expr(84*HudScale)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Pack"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(19*HudScale/TouchScale)
 
 @event
@@ -45,10 +45,10 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=3
+do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Build"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-HudMargin-186*HudScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(HudMargin+250*HudScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(84*HudScale) height=expr(84*HudScale)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Build"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(19*HudScale/TouchScale)
 
 @event
@@ -57,10 +57,10 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=5
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Supply"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-HudMargin-92*HudScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(HudMargin+250*HudScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(84*HudScale) height=expr(84*HudScale)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Supply"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(19*HudScale/TouchScale)
 
 @event
@@ -68,10 +68,10 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=4
+do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetX object="TouchButton" modification_sign="=" value=expr(HudMargin)
 do SetY object="TouchButton" modification_sign="=" value=expr(HudMargin+162*HudScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(400*HudScale) height=expr(110*HudScale)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(20*HudScale/TouchScale)
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=""
 
@@ -81,10 +81,10 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=6
+do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Primary"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-HudMargin-196*HudScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchHeight-HudMargin-206*HudScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(196*HudScale) height=expr(196*HudScale)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Primary"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(26*HudScale/TouchScale)
 
 @event
@@ -93,10 +93,10 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=7
+do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Attack"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-HudMargin-372*HudScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchHeight-HudMargin-136*HudScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(136*HudScale) height=expr(136*HudScale)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Attack"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(23*HudScale/TouchScale)
 
 @event
@@ -105,8 +105,9 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=12
+do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Jump"
 do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-HudMargin-362*HudScale)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchHeight-HudMargin-284*HudScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(136*HudScale) height=expr(136*HudScale)
-do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Jump"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(23*HudScale/TouchScale)
+
