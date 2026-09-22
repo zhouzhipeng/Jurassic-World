@@ -19,8 +19,8 @@ export default defineMaterial({
   },
   build({ material, parameters }) {
     const t = parameters.clock;
-    // This scene uses 100 game units per renderer metre.
-    const world = positionWorld.mul(100);
+    // This scene uses 100 game units per renderer metre and inverted renderer Y.
+    const world = vec3(positionWorld.x.mul(100), positionWorld.y.mul(-100), positionWorld.z.mul(100));
     const x = world.x;
     const y = world.y;
     const warp = sin(x.mul(0.0023).add(y.mul(0.0031))).mul(3)
@@ -41,7 +41,7 @@ export default defineMaterial({
     const radius = x.mul(x).add(y.sub(300).mul(y.sub(300))).pow(0.5);
     const offshore = smoothstep(3200, 7000, radius);
     const water = mix(color('#269e9c'), color('#073a59'), offshore);
-    const light = parameters.daylight.mul(0.83).add(0.055).mul(parameters.cloud.mul(-0.4).add(1));
+    const light = parameters.daylight.mul(0.83).add(0.1).mul(parameters.cloud.mul(-0.4).add(1));
     const sky = mix(parameters.horizon, color('#267bb7').mul(light), reflected.z.max(0).pow(0.45));
     const glint = dot(reflected, parameters.sun.normalize()).max(0).pow(420).mul(parameters.daylight).mul(parameters.cloud.oneMinus());
     const glow = dot(reflected, parameters.sun.normalize()).max(0).pow(24).mul(0.15).mul(parameters.daylight);
