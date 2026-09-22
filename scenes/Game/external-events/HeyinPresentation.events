@@ -89,7 +89,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
-if NumberVariable variable="HeyinBlocked" comparison_sign="=" value=1
+if NumberObjectVariable object="Heyin" variable="Blocked" comparison_sign="=" value=1
 if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"前方被建筑挡住：请绕到开阔处带路。")
 

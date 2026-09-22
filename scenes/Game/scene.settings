@@ -46,42 +46,7 @@ type = "number"
 value = 0
 
 [[variables]]
-name = "HeyinPX"
-type = "number"
-value = 350
-
-[[variables]]
-name = "HeyinPY"
-type = "number"
-value = 900
-
-[[variables]]
 name = "HeyinDistance"
-type = "number"
-value = 0
-
-[[variables]]
-name = "HeyinMoving"
-type = "number"
-value = 0
-
-[[variables]]
-name = "HeyinBlocked"
-type = "number"
-value = 0
-
-[[variables]]
-name = "HeyinLX"
-type = "number"
-value = 0
-
-[[variables]]
-name = "HeyinLY"
-type = "number"
-value = 0
-
-[[variables]]
-name = "HeyinStep"
 type = "number"
 value = 0
 

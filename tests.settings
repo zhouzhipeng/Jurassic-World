@@ -312,3 +312,11 @@ name = "FireParticles"
 type = "gameplay"
 description = "Lit-fire flicker, rising finite embers, pause, burnout, built-fire ownership and particle cap."
 file = "tests/FireParticles.js"
+
+[[tests]]
+scope = "project"
+order = 39
+name = "HeyinAI"
+type = "gameplay"
+description = "Idle and Talk continuity, proximity hysteresis, smooth facing, pause and independent prefab instances."
+file = "tests/HeyinAI.js"

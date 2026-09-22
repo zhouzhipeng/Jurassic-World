@@ -9,7 +9,7 @@ do SetNumberVariable variable="HeyinLoadX" modification_sign="=" value=350
 do SetNumberVariable variable="HeyinLoadY" modification_sign="=" value=900
 do SetNumberVariable variable="HeyinLoadAngle" modification_sign="=" value=0
 do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=0
-do SetNumberVariable variable="HeyinBlocked" modification_sign="=" value=0
+do SetNumberObjectVariable object="Heyin" variable="Blocked" modification_sign="=" value=0
 
 @event
 if NumberVariable variable="Action" comparison_sign="=" value=10

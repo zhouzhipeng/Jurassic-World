@@ -1,0 +1,41 @@
+const obj = name => harness.getObjects(name)[0];
+const npc = () => obj('Heyin');
+const v = (key, id = npc().id) => Number(harness.getObjectVariable(id, key)?.value);
+const anim = (o = npc()) => o.children?.Body?.[0]?.animation;
+const angleError = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
+async function move(x,y){harness.setObjectPosition(obj('Player3D').id,x,y,0);await harness.stepFrames(1);}
+try {
+ await harness.goToScene('Game');harness.setSceneVariable('TouchMode',0);await harness.stepFrames(5);
+ harness.watch('Heyin');
+ harness.assert(anim()==='Idle' && v('Resting')===0,'Unrescued companion starts upright in Idle, not Injured');
+ const t0=v('AnimationTime');await harness.stepFrames(30);
+ harness.assert(anim()==='Idle' && v('AnimationTime')>t0+0.4,'Idle clip advances instead of being restarted each frame');
+ const initial=npc().angle;await move(450,900);await harness.stepFrames(4);
+ harness.assert(anim()==='Talk' && v('Attention')===1,'Approach automatically starts Talk before rescue and without pressing G');
+ harness.assert(angleError(npc().angle,initial)>1 && angleError(npc().angle,initial)<=16,'Turning uses a bounded smooth angular speed');
+ await harness.stepFrames(40);
+ harness.assert(angleError(npc().angle,270)<1,'Companion faces the approaching player with the model forward axis');
+ const talkTime=v('AnimationTime');await harness.stepFrames(20);
+ harness.assert(v('AnimationTime')>talkTime+0.25,'Talk clip keeps progressing while the player remains close');
+ await move(350,1000);await harness.stepFrames(40);
+ harness.assert(angleError(npc().angle,0)<1,'Conversation tracks the player as they move around the NPC');
+ await move(600,900);await harness.stepFrames(3);
+ harness.assert(anim()==='Talk','250-unit buffer retains conversation without boundary flicker');
+ await move(670,900);await harness.stepFrames(3);
+ harness.assert(anim()==='Idle' && v('Attention')===0,'Leaving the 280-unit radius restores Idle before rescue');
+ await move(600,900);await harness.stepFrames(3);
+ harness.assert(anim()==='Idle','Entering the buffer from outside does not prematurely start conversation');
+ await move(450,900);await harness.stepFrames(35);
+ const beforePause=npc().angle;const clock=v('AnimationTime');harness.setSceneVariable('Mode',2);await harness.stepFrames(30);
+ harness.assert(npc().angle===beforePause && v('AnimationTime')===clock,'Pause freezes NPC facing and animation clock');
+ harness.setSceneVariable('Mode',0);await harness.stepFrames(3);
+ harness.assert(anim()==='Talk' && v('AnimationTime')>clock,'Unpause resumes the current conversation');
+ const clone=harness.spawn('Heyin',1050,1400,0,'World3D');await harness.stepFrames(5);
+ const other=()=>harness.getObjects('Heyin').find(o=>o.id===clone.id);
+ harness.assert(anim()==='Talk' && anim(other())==='Idle','Two prefab instances keep independent attention and child animation');
+ harness.setObjectVariable(clone.id,'Energy',23);harness.setObjectVariable(clone.id,'Stay',1);await harness.stepFrames(3);
+ harness.assert(v('Energy')===100 && v('Stay')===0 && v('Energy',clone.id)===23 && v('Stay',clone.id)===1,'AI state belongs to each prefab instance');
+ harness.removeObject(clone.id);await harness.stepFrames(2);harness.assert(harness.getObjects('Heyin').length===1,'Deleting another companion leaves the original running');
+ await harness.goToScene('Game');await harness.stepFrames(5);
+ harness.assert(anim()==='Idle' && v('Energy')===100 && v('Attention')===0,'Fresh scene reconstructs clean prefab defaults');
+} finally {harness.releaseAllInputs();}
