@@ -1,0 +1,274 @@
+{
+  "sourceRevision": "d469e0dfbdfda730cce913df823589bb08cc0a38",
+  "tests": [
+    {
+      "sourceRevision": "d469e0d",
+      "file": "tests/TouchResponsive.js",
+      "operation_id": "gameplay-tests-5b1bf3ba-d4c3-4def-b6f9-16adb08c088e",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "status": "passed",
+          "assertions": [
+            {
+              "message": "All play controls fit 1600 x 900",
+              "passed": true
+            },
+            {
+              "message": "Joystick and touch targets remain usable at 1600 x 900",
+              "passed": true
+            },
+            {
+              "message": "All eight building cards and the close button fit 1600 x 900",
+              "passed": true
+            },
+            {
+              "message": "Cards do not overlap at 1600 x 900",
+              "passed": true
+            },
+            {
+              "message": "Building controls fit without overlap at 1600 x 900",
+              "passed": true
+            },
+            {
+              "message": "Twenty square inventory targets fit 1600 x 900",
+              "passed": true
+            },
+            {
+              "message": "Inventory slots, actions and close button do not overlap at 1600 x 900",
+              "passed": true
+            },
+            {
+              "message": "Inventory labels and details stay on screen at 1600 x 900",
+              "passed": true
+            },
+            {
+              "message": "All play controls fit 1155.5555555555557 x 650",
+              "passed": true
+            },
+            {
+              "message": "Joystick and touch targets remain usable at 1155.5555555555557 x 650",
+              "passed": true
+            },
+            {
+              "message": "All eight building cards and the close button fit 1155.5555555555557 x 650",
+              "passed": true
+            },
+            {
+              "message": "Cards do not overlap at 1155.5555555555557 x 650",
+              "passed": true
+            },
+            {
+              "message": "Building controls fit without overlap at 1155.5555555555557 x 650",
+              "passed": true
+            },
+            {
+              "message": "Twenty square inventory targets fit 1155.5555555555557 x 650",
+              "passed": true
+            },
+            {
+              "message": "Inventory slots, actions and close button do not overlap at 1155.5555555555557 x 650",
+              "passed": true
+            },
+            {
+              "message": "Inventory labels and details stay on screen at 1155.5555555555557 x 650",
+              "passed": true
+            },
+            {
+              "message": "All play controls fit 2133.3333333333335 x 1200",
+              "passed": true
+            },
+            {
+              "message": "Joystick and touch targets remain usable at 2133.3333333333335 x 1200",
+              "passed": true
+            },
+            {
+              "message": "All eight building cards and the close button fit 2133.3333333333335 x 1200",
+              "passed": true
+            },
+            {
+              "message": "Cards do not overlap at 2133.3333333333335 x 1200",
+              "passed": true
+            },
+            {
+              "message": "Building controls fit without overlap at 2133.3333333333335 x 1200",
+              "passed": true
+            },
+            {
+              "message": "Twenty square inventory targets fit 2133.3333333333335 x 1200",
+              "passed": true
+            },
+            {
+              "message": "Inventory slots, actions and close button do not overlap at 2133.3333333333335 x 1200",
+              "passed": true
+            },
+            {
+              "message": "Inventory labels and details stay on screen at 2133.3333333333335 x 1200",
+              "passed": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "sourceRevision": "d469e0d",
+      "file": "tests/TouchControls.js",
+      "operation_id": "gameplay-tests-66a54ff7-810d-45ea-876f-23fb3ecc221e",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "results": [
+        {
+          "status": "passed",
+          "assertions": [
+            {
+              "message": "The game starts with the phone HUD and hides the old desktop panels",
+              "passed": true
+            },
+            {
+              "message": "The joystick moves the player while other fingers remain down",
+              "passed": true
+            },
+            {
+              "message": "A second finger turns the camera without taking over movement",
+              "passed": true
+            },
+            {
+              "message": "A third finger attacks through the native combat cooldown",
+              "passed": true
+            },
+            {
+              "message": "Releasing movement and attack stops both while the look finger remains active",
+              "passed": true
+            },
+            {
+              "message": "Opening the menu cancels held gestures and pauses the world",
+              "passed": true
+            },
+            {
+              "message": "Closing the menu requires a fresh movement touch",
+              "passed": true
+            },
+            {
+              "message": "Dragging off a button cancels the tap instead of opening a menu",
+              "passed": true
+            },
+            {
+              "message": "Right-side drag rotates at height 0.02",
+              "passed": true
+            },
+            {
+              "message": "Right-side drag rotates at height 0.18",
+              "passed": true
+            },
+            {
+              "message": "Right-side drag rotates at height 0.5",
+              "passed": true
+            },
+            {
+              "message": "Right-side drag rotates at height 0.95",
+              "passed": true
+            },
+            {
+              "message": "Dragging command 1 hands off to the camera even inside the button",
+              "passed": true
+            },
+            {
+              "message": "Returning to command 1 after dragging does not trigger a tap",
+              "passed": true
+            },
+            {
+              "message": "Dragging command 2 hands off to the camera even inside the button",
+              "passed": true
+            },
+            {
+              "message": "Returning to command 2 after dragging does not trigger a tap",
+              "passed": true
+            },
+            {
+              "message": "Dragging command 3 hands off to the camera even inside the button",
+              "passed": true
+            },
+            {
+              "message": "Returning to command 3 after dragging does not trigger a tap",
+              "passed": true
+            },
+            {
+              "message": "Dragging command 5 hands off to the camera even inside the button",
+              "passed": true
+            },
+            {
+              "message": "Returning to command 5 after dragging does not trigger a tap",
+              "passed": true
+            },
+            {
+              "message": "Dragging command 7 hands off to the camera even inside the button",
+              "passed": true
+            },
+            {
+              "message": "Returning to command 7 after dragging does not trigger a tap",
+              "passed": true
+            },
+            {
+              "message": "Dragging command 90 hands off to the camera even inside the button",
+              "passed": true
+            },
+            {
+              "message": "Returning to command 90 after dragging does not trigger a tap",
+              "passed": true
+            },
+            {
+              "message": "Dragging command 300 hands off to the camera even inside the button",
+              "passed": true
+            },
+            {
+              "message": "Returning to command 300 after dragging does not trigger a tap",
+              "passed": true
+            },
+            {
+              "message": "A fresh menu tap still works after button drags",
+              "passed": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "manual": [
+    {
+      "check": "Backpack touch opens inventory",
+      "passed": true
+    },
+    {
+      "check": "Bottom talk button opens companion dialogue",
+      "passed": true
+    },
+    {
+      "check": "Gold rescue touch progresses companion from stage 1 to 2",
+      "passed": true,
+      "stage": 2,
+      "rescued": 1,
+      "hp": 100
+    }
+  ]
+}

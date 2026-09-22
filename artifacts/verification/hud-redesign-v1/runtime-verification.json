@@ -1,0 +1,64 @@
+{
+  "sourceRevision": "d469e0d",
+  "success": true,
+  "runtimeVerified": true,
+  "completionReady": true,
+  "assertions": [
+    {
+      "index": 0,
+      "type": "runtime_error_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq"
+    },
+    {
+      "index": 1,
+      "type": "renderer_failed_texture_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 2,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "HudVitals"
+    }
+  ],
+  "stages": [
+    {
+      "stage": "validation",
+      "success": true,
+      "valid": true
+    },
+    {
+      "stage": "close-previews",
+      "success": true
+    },
+    {
+      "stage": "reload",
+      "success": true
+    },
+    {
+      "stage": "launch",
+      "success": true
+    },
+    {
+      "stage": "frames",
+      "success": true
+    },
+    {
+      "stage": "inspect",
+      "success": true
+    },
+    {
+      "stage": "assertions"
+    }
+  ]
+}
