@@ -9,6 +9,32 @@ behaviors = []
 effects = []
 content = {}
 
+
+[[variables]]
+name = "HP"
+type = "number"
+value = 70
+
+[[variables]]
+name = "Grace"
+type = "number"
+value = 90
+
+[[variables]]
+name = "Invulnerable"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Trust"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Promise"
+type = "number"
+value = 0
+
 [[variables]]
 name = "Initialized"
 type = "number"

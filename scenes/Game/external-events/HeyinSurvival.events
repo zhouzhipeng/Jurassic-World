@@ -1,0 +1,22 @@
+@event
+if NumberObjectVariable object="Heyin" variable="Initialized" comparison_sign="=" value=expr(1)
+do JurassicActors::Heyin::UpdateVitals object="Heyin" active=expr(Heyin.Variable(Active)) rescued=expr(Heyin.Variable(Rescued))
+
+@event
+if NumberObjectVariable object="Heyin" variable="HP" comparison_sign="<=" value=expr(0)
+if NumberVariable variable="HeyinFailureTime" comparison_sign="<=" value=expr(0)
+do SetNumberVariable variable="HeyinFailureTime" modification_sign="=" value=expr(5)
+do SetNumberVariable variable="Mode" modification_sign="=" value=expr(10)
+do SetNumberVariable variable="HeyinOpen" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="TouchMoveX" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="TouchMoveY" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(10)
+do SetNumberVariable variable="HeyinFailureTime" modification_sign="=" value=expr(max(0,HeyinFailureTime-TimeDelta()))
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(10)
+if NumberVariable variable="HeyinFailureTime" comparison_sign="<=" value=expr(0)
+do Scene name_of_the_new_scene="Game" stop_any_other_paused_scenes=true
+

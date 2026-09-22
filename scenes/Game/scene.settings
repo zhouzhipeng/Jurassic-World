@@ -10,6 +10,67 @@ stopSoundsOnStartup = true
 title = "(No title)"
 behaviorsSharedData = [ ]
 
+
+[[variables]]
+name = "HeyinChoice"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinNode"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinOpen"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinAidRequest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinFailureTime"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinPanelX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinPanelY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinPanelW"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinLoadHP"
+type = "number"
+value = 70
+
+[[variables]]
+name = "HeyinLoadGrace"
+type = "number"
+value = 90
+
+[[variables]]
+name = "HeyinLoadTrust"
+type = "number"
+value = 0
+
+[[variables]]
+name = "HeyinLoadPromise"
+type = "number"
+value = 0
+
 [[variables]]
 name = "HeyinDialogueLine"
 type = "string"
@@ -2837,3 +2898,73 @@ object = "HeyinBubbleText"
 layer = "performance"
 at = [0, 0]
 z_order = 21
+
+[[layout.instances]]
+id = "b238a741-76c4-4dbd-9447-6047017129e2"
+object = "HeyinVitals"
+layer = "performance"
+at = [0, 0]
+z_order = 25
+
+[[layout.instances]]
+id = "6887bc64-fc30-48df-8184-3b8489eab139"
+object = "HeyinVitalsText"
+layer = "performance"
+at = [0, 0]
+z_order = 25
+
+[[layout.instances]]
+id = "e7c14427-0055-4cd6-aca8-1e58501f45cb"
+object = "HeyinMenu"
+layer = "performance"
+at = [0, 0]
+z_order = 40
+
+[[layout.instances]]
+id = "a4c5239f-fabe-42cf-a6b8-0e8eb0087e82"
+object = "HeyinMenuText"
+layer = "performance"
+at = [0, 0]
+z_order = 41
+
+[[layout.instances]]
+id = "f1341511-1804-4dcd-92bd-4619f219198e"
+object = "HeyinTalkButton"
+layer = "performance"
+at = [0, 0]
+z_order = 25
+
+[[layout.instances]]
+id = "73458588-cf5a-4cf4-abe3-7fa6b05f6832"
+object = "HeyinOption1"
+layer = "performance"
+at = [0, 0]
+z_order = 41
+
+[[layout.instances]]
+id = "ac28654b-fa65-4298-a1c5-2f70298a921d"
+object = "HeyinOption2"
+layer = "performance"
+at = [0, 0]
+z_order = 41
+
+[[layout.instances]]
+id = "6aeaff6c-e2bc-4873-9656-672535b1ac2c"
+object = "HeyinOption3"
+layer = "performance"
+at = [0, 0]
+z_order = 41
+
+[[layout.instances]]
+id = "ce22d697-23e6-4cf2-a9f8-844f5c4d7e9e"
+object = "HeyinOption4"
+layer = "performance"
+at = [0, 0]
+z_order = 41
+
+[[layout.instances]]
+id = "fe53a4c3-f9fd-49eb-90a2-5ed5292258e1"
+object = "HeyinOption5"
+layer = "performance"
+at = [0, 0]
+z_order = 41

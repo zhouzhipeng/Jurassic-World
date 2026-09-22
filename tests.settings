@@ -328,3 +328,11 @@ name = "HeyinBubble"
 type = "gameplay"
 description = "Head projection, orbit, zoom, dialogue fallback, pause, wrapping and narrow-screen bounds."
 file = "tests/HeyinBubble.js"
+
+[[tests]]
+scope = "project"
+order = 41
+name = "HeyinSurvival"
+type = "gameplay"
+description = "Companion health, neglect, choices, predator targeting and full restart."
+file = "tests/HeyinSurvival.js"

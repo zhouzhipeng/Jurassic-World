@@ -34,3 +34,32 @@ do SetNumberObjectVariable object="Heyin" variable="Energy" modification_sign="=
 do SetNumberObjectVariable object="Heyin" variable="Resting" modification_sign="=" value=expr(HeyinResting)
 do SetNumberObjectVariable object="Heyin" variable="Attention" modification_sign="=" value=0
 do SetNumberObjectVariable object="Heyin" variable="Moving" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="Action" comparison_sign="=" value=expr(10)
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do SetNumberVariable variable="HeyinLoadHP" modification_sign="=" value=expr(70)
+do SetNumberVariable variable="HeyinLoadGrace" modification_sign="=" value=expr(90)
+do SetNumberVariable variable="HeyinLoadTrust" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="HeyinLoadPromise" modification_sign="=" value=expr(0)
+
+@event
+if NumberVariable variable="Action" comparison_sign="=" value=expr(10)
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+if GroupExists storage_name=expr(SaveStorage) group="HeyinHP"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinHP" variable="HeyinLoadHP"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinGrace" variable="HeyinLoadGrace"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinTrust" variable="HeyinLoadTrust"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="HeyinPromise" variable="HeyinLoadPromise"
+
+@event
+if NumberVariable variable="Action" comparison_sign="=" value=expr(10)
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do SetNumberObjectVariable object="Heyin" variable="HP" modification_sign="=" value=expr(clamp(HeyinLoadHP,0,100))
+do SetNumberObjectVariable object="Heyin" variable="Grace" modification_sign="=" value=expr(clamp(HeyinLoadGrace,0,90))
+do SetNumberObjectVariable object="Heyin" variable="Trust" modification_sign="=" value=expr(clamp(HeyinLoadTrust,0,100))
+do SetNumberObjectVariable object="Heyin" variable="Promise" modification_sign="=" value=expr(clamp(HeyinLoadPromise,0,1))
+do SetNumberObjectVariable object="Heyin" variable="Invulnerable" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="HeyinFailureTime" modification_sign="=" value=expr(0)
+do SetNumberVariable variable="HeyinOpen" modification_sign="=" value=expr(0)
+

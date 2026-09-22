@@ -1,0 +1,150 @@
+@event
+if NumberVariable variable="Mode" comparison_sign=">=" value=expr(0)
+do Hide object="HeyinVitals"
+do Hide object="HeyinVitalsText"
+do Hide object="HeyinMenu"
+do Hide object="HeyinMenuText"
+do Hide object="HeyinTalkButton"
+do Hide object="HeyinOption1"
+do Hide object="HeyinOption2"
+do Hide object="HeyinOption3"
+do Hide object="HeyinOption4"
+do Hide object="HeyinOption5"
+do PrimitiveDrawing::Drawer::ClearShapes shape_painter_object="HeyinVitals"
+do PrimitiveDrawing::Drawer::ClearShapes shape_painter_object="HeyinMenu"
+do SetNumberVariable variable="HeyinPanelW" modification_sign="=" value=expr(min(620,SceneWindowWidth()-32))
+do SetNumberVariable variable="HeyinPanelX" modification_sign="=" value=expr((SceneWindowWidth()-HeyinPanelW)/2)
+do SetNumberVariable variable="HeyinPanelY" modification_sign="=" value=expr(max(12,(SceneWindowHeight()-290)/2))
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+do Show object="HeyinVitals"
+do PrimitiveDrawing::FillOpacity shape_painter_object="HeyinVitals" modification_sign="=" opacity_0_255=240
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="255;250;231"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246) top_y_position=expr(50) right_x_position=expr(SceneWindowWidth()-246+230) bottom_y_position=expr(50+116) radius_in_pixels=8
+do SetX object="HeyinVitalsText" modification_sign="=" value=expr(SceneWindowWidth()-246+12)
+do SetY object="HeyinVitalsText" modification_sign="=" value=expr(50+8)
+do TextObject::Text::SetFontSize object="HeyinVitalsText" modification_sign="=" value=expr(16)
+do Show object="HeyinVitalsText"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinVitalsText" behavior="Text" modification_sign="=" text=expr("禾音  生命 "+ToString(ceil(Heyin.Variable(HP)))+" / 100"+NewLine()+NewLine()+"体力 "+ToString(ceil(Heyin.Variable(Energy)))+" / 100")
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="214;216;193"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246+12) top_y_position=expr(86) right_x_position=expr(SceneWindowWidth()-246+12+206) bottom_y_position=expr(86+8) radius_in_pixels=4
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="197;75;67"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246+12) top_y_position=expr(86) right_x_position=expr(SceneWindowWidth()-246+12+206*Heyin.Variable(HP)/100) bottom_y_position=expr(86+8) radius_in_pixels=3
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="214;216;193"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246+12) top_y_position=expr(126) right_x_position=expr(SceneWindowWidth()-246+12+206) bottom_y_position=expr(126+8) radius_in_pixels=4
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="65;145;133"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246+12) top_y_position=expr(126) right_x_position=expr(SceneWindowWidth()-246+12+206*Heyin.Variable(Energy)/100) bottom_y_position=expr(126+8) radius_in_pixels=3
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="HeyinStage" comparison_sign="<=" value=expr(1)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinTalkButton" behavior="Text" modification_sign="=" text=expr("伤口未处理 · "+ToString(ceil(Heyin.Variable(Grace)+Heyin.Variable(HP)/0.4))+"秒内救助")
+do SetX object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowWidth()-246+10)
+do SetY object="HeyinTalkButton" modification_sign="=" value=expr(50+91)
+do TextObject::Text::SetFontSize object="HeyinTalkButton" modification_sign="=" value=expr(13)
+do Show object="HeyinTalkButton"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
+if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
+if NumberVariable variable="HeyinNear" comparison_sign="=" value=expr(1)
+if NumberVariable variable="HeyinDanger" comparison_sign="=" value=expr(0)
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="255;250;231"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246) top_y_position=expr(174) right_x_position=expr(SceneWindowWidth()-246+230) bottom_y_position=expr(174+36) radius_in_pixels=8
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinTalkButton" behavior="Text" modification_sign="=" text="与禾音交谈 [Y]"
+do SetX object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowWidth()-246+18)
+do SetY object="HeyinTalkButton" modification_sign="=" value=expr(180)
+do TextObject::Text::SetFontSize object="HeyinTalkButton" modification_sign="=" value=expr(18)
+do Show object="HeyinTalkButton"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(9)
+do Show object="HeyinMenu"
+do PrimitiveDrawing::FillOpacity shape_painter_object="HeyinMenu" modification_sign="=" opacity_0_255=170
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinMenu" fill_color="15;30;27"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinMenu" left_x_position=expr(0) top_y_position=expr(0) right_x_position=expr(0+SceneWindowWidth()) bottom_y_position=expr(0+SceneWindowHeight()) radius_in_pixels=0
+do PrimitiveDrawing::FillOpacity shape_painter_object="HeyinMenu" modification_sign="=" opacity_0_255=255
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinMenu" fill_color="255;250;231"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinMenu" left_x_position=expr(HeyinPanelX) top_y_position=expr(HeyinPanelY) right_x_position=expr(HeyinPanelX+HeyinPanelW) bottom_y_position=expr(HeyinPanelY+290) radius_in_pixels=14
+do SetX object="HeyinMenuText" modification_sign="=" value=expr(HeyinPanelX+18)
+do SetY object="HeyinMenuText" modification_sign="=" value=expr(HeyinPanelY+14)
+do TextObject::Text::SetFontSize object="HeyinMenuText" modification_sign="=" value=expr(18)
+do Show object="HeyinMenuText"
+do TextObject::SetWrapping object="HeyinMenuText" wrapping=true
+do TextObject::WrappingWidth object="HeyinMenuText" modification_sign="=" value=expr(HeyinPanelW-36)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinMenuText" behavior="Text" modification_sign="=" text=expr(HeyinMessage)
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinMenu" fill_color="229;235;211"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinMenu" left_x_position=expr(HeyinPanelX+12) top_y_position=expr(HeyinPanelY+110-3) right_x_position=expr(HeyinPanelX+12+HeyinPanelW-24) bottom_y_position=expr(HeyinPanelY+110-3+31) radius_in_pixels=6
+do SetX object="HeyinOption1" modification_sign="=" value=expr(HeyinPanelX+22)
+do SetY object="HeyinOption1" modification_sign="=" value=expr(HeyinPanelY+110)
+do TextObject::Text::SetFontSize object="HeyinOption1" modification_sign="=" value=expr(17)
+do Show object="HeyinOption1"
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinMenu" fill_color="229;235;211"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinMenu" left_x_position=expr(HeyinPanelX+12) top_y_position=expr(HeyinPanelY+144-3) right_x_position=expr(HeyinPanelX+12+HeyinPanelW-24) bottom_y_position=expr(HeyinPanelY+144-3+31) radius_in_pixels=6
+do SetX object="HeyinOption2" modification_sign="=" value=expr(HeyinPanelX+22)
+do SetY object="HeyinOption2" modification_sign="=" value=expr(HeyinPanelY+144)
+do TextObject::Text::SetFontSize object="HeyinOption2" modification_sign="=" value=expr(17)
+do Show object="HeyinOption2"
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinMenu" fill_color="229;235;211"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinMenu" left_x_position=expr(HeyinPanelX+12) top_y_position=expr(HeyinPanelY+178-3) right_x_position=expr(HeyinPanelX+12+HeyinPanelW-24) bottom_y_position=expr(HeyinPanelY+178-3+31) radius_in_pixels=6
+do SetX object="HeyinOption3" modification_sign="=" value=expr(HeyinPanelX+22)
+do SetY object="HeyinOption3" modification_sign="=" value=expr(HeyinPanelY+178)
+do TextObject::Text::SetFontSize object="HeyinOption3" modification_sign="=" value=expr(17)
+do Show object="HeyinOption3"
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinMenu" fill_color="229;235;211"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinMenu" left_x_position=expr(HeyinPanelX+12) top_y_position=expr(HeyinPanelY+212-3) right_x_position=expr(HeyinPanelX+12+HeyinPanelW-24) bottom_y_position=expr(HeyinPanelY+212-3+31) radius_in_pixels=6
+do SetX object="HeyinOption4" modification_sign="=" value=expr(HeyinPanelX+22)
+do SetY object="HeyinOption4" modification_sign="=" value=expr(HeyinPanelY+212)
+do TextObject::Text::SetFontSize object="HeyinOption4" modification_sign="=" value=expr(17)
+do Show object="HeyinOption4"
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinMenu" fill_color="229;235;211"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinMenu" left_x_position=expr(HeyinPanelX+12) top_y_position=expr(HeyinPanelY+246-3) right_x_position=expr(HeyinPanelX+12+HeyinPanelW-24) bottom_y_position=expr(HeyinPanelY+246-3+31) radius_in_pixels=6
+do SetX object="HeyinOption5" modification_sign="=" value=expr(HeyinPanelX+22)
+do SetY object="HeyinOption5" modification_sign="=" value=expr(HeyinPanelY+246)
+do TextObject::Text::SetFontSize object="HeyinOption5" modification_sign="=" value=expr(17)
+do Show object="HeyinOption5"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(9)
+if NumberVariable variable="HeyinNode" comparison_sign="=" value=expr(0)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption1" behavior="Text" modification_sign="=" text="1  包扎伤口（2 纤维 / +25 生命）"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption2" behavior="Text" modification_sign="=" text="2  分享食物（2 浆果 / +30 体力）"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption3" behavior="Text" modification_sign="=" text="3  聊聊你的家人"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption4" behavior="Text" modification_sign="=" text="4  切换等候 / 同行"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption5" behavior="Text" modification_sign="=" text="5  结束交谈"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(9)
+if NumberVariable variable="HeyinNode" comparison_sign="=" value=expr(0)
+if NumberVariable variable="HeyinStage" comparison_sign="<=" value=expr(1)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption1" behavior="Text" modification_sign="=" text="1  救助她（4 纤维 + 3 浆果）"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(9)
+if NumberVariable variable="HeyinNode" comparison_sign="=" value=expr(1)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption1" behavior="Text" modification_sign="=" text="1  你们是怎么走散的？"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption2" behavior="Text" modification_sign="=" text="2  说说家人的名字和留下的记号"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption3" behavior="Text" modification_sign="=" text="3  我答应陪你寻找家人（首次信任 +15）"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption4" behavior="Text" modification_sign="=" text="4  不用着急，我们先确保安全"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption5" behavior="Text" modification_sign="=" text="5  结束交谈"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=expr(10)
+do Show object="HeyinMenu"
+do PrimitiveDrawing::FillOpacity shape_painter_object="HeyinMenu" modification_sign="=" opacity_0_255=250
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinMenu" fill_color="255;250;231"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinMenu" left_x_position=expr(HeyinPanelX) top_y_position=expr(HeyinPanelY) right_x_position=expr(HeyinPanelX+HeyinPanelW) bottom_y_position=expr(HeyinPanelY+200) radius_in_pixels=14
+do SetX object="HeyinMenuText" modification_sign="=" value=expr(HeyinPanelX+22)
+do SetY object="HeyinMenuText" modification_sign="=" value=expr(HeyinPanelY+32)
+do TextObject::Text::SetFontSize object="HeyinMenuText" modification_sign="=" value=expr(22)
+do Show object="HeyinMenuText"
+do TextObject::SetWrapping object="HeyinMenuText" wrapping=true
+do TextObject::WrappingWidth object="HeyinMenuText" modification_sign="=" value=expr(HeyinPanelW-44)
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinMenuText" behavior="Text" modification_sign="=" text=expr("禾音没能撑下去……"+NewLine()+"保护同伴失败。请及时救助、补给并击退捕食者。"+NewLine()+ToString(ceil(HeyinFailureTime))+" 秒后重新开始这段旅程。")
+

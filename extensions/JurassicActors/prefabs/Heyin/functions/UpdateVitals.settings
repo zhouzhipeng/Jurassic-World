@@ -1,0 +1,29 @@
+kind = "function"
+settingsFormatVersion = 6
+order = 3
+description = "Update one companion: attention, following, collision, fatigue and animation."
+fullName = "UpdateVitals"
+functionType = "Action"
+name = "UpdateVitals"
+sentence = ""
+folder = [ ]
+objectGroups = { }
+
+[[parameters]]
+description = "Object"
+name = "Object"
+supplementaryInformation = "JurassicActors::Heyin"
+type = "object"
+
+[[parameters]]
+description = "Active"
+name = "Active"
+supplementaryInformation = ""
+type = "expression"
+
+[[parameters]]
+description = "Rescued"
+name = "Rescued"
+supplementaryInformation = ""
+type = "expression"
+

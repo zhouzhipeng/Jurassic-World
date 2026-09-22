@@ -1,0 +1,21 @@
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(HP)) comparison_sign=">" second_expression=0
+do ModVarObjet object="Object" variable="Invulnerable" modification_sign="=" value=expr(max(0,Object.Variable(Invulnerable)-TimeDelta()))
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rescued) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(HP)) comparison_sign=">" second_expression=0
+do ModVarObjet object="Object" variable="Grace" modification_sign="=" value=expr(max(0,Object.Variable(Grace)-TimeDelta()))
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rescued) comparison_sign="=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Grace)) comparison_sign="<=" second_expression=0
+do ModVarObjet object="Object" variable="HP" modification_sign="=" value=expr(max(0,Object.Variable(HP)-0.4*TimeDelta()))
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign=">=" second_expression=0
+do ModVarObjet object="Object" variable="HP" modification_sign="=" value=expr(clamp(Object.Variable(HP),0,100))
+do ModVarObjet object="Object" variable="Energy" modification_sign="=" value=expr(clamp(Object.Variable(Energy),0,100))

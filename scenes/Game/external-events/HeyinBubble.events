@@ -16,6 +16,34 @@ if NumberObjectVariable object="Heyin" variable="Resting" comparison_sign="=" va
 do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：让我歇一会儿，很快就能继续走了。"
 
 @event
+if NumberVariable variable="HeyinStage" comparison_sign="=" value=expr(2)
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：营地的火光能让我们休息。你走慢一点，我会努力跟上。"
+
+@event
+if NumberVariable variable="HeyinStage" comparison_sign="=" value=expr(3)
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：母亲会在清泉留下结绳。我们去东边看看，好吗？"
+
+@event
+if NumberVariable variable="HeyinStage" comparison_sign=">=" value=expr(4)
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：双反结还很新。他们或许平安到了北方，我们终于有方向了。"
+
+@event
+if NumberObjectVariable object="Heyin" variable="Promise" comparison_sign="=" value=expr(1)
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：我记得你的承诺。有你陪着，这条路没有那么可怕了。"
+
+@event
+if NumberObjectVariable object="Heyin" variable="Energy" comparison_sign="<" value=expr(25)
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：腿有些发软……能分我一点浆果，或让我休息一下吗？"
+
+@event
+if NumberObjectVariable object="Heyin" variable="HP" comparison_sign="<" value=expr(35)
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：伤口又疼起来了……请别走远，我需要包扎。"
+
+@event
+if NumberVariable variable="HeyinDanger" comparison_sign="=" value=expr(1)
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：那边有动静！别让捕食者靠近，我们互相照应。"
+
+@event
 if NumberVariable variable="HeyinMessageTime" comparison_sign=">" value=0
 do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value=expr(HeyinMessage)
 

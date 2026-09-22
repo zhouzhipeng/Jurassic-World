@@ -15,6 +15,7 @@ if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFlo
 if KeyFromTextReleased key_to_check="g"
 or NumberVariable variable="TouchCommand" comparison_sign="=" value=311
 or NumberVariable variable="TouchCommand" comparison_sign="=" value=312
+or NumberVariable variable="HeyinAidRequest" comparison_sign="=" value=1
 do SetNumberVariable variable="HeyinRequest" modification_sign="=" value=1
 
 @event
@@ -88,6 +89,7 @@ do SetNumberVariable variable="Fiber" modification_sign="-" value=4
 do SetNumberVariable variable="Berries" modification_sign="-" value=3
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do SetNumberVariable variable="HeyinStage" modification_sign="=" value=2
+do SetNumberObjectVariable object="Heyin" variable="HP" modification_sign="=" value=expr(min(100,Heyin.Variable(HP)+30))
 do SetNumberVariable variable="HeyinRequest" modification_sign="=" value=0
 do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：谢谢你。我叫禾音，来自苇河部落。我的脚能慢慢走了……能带我去营地吗？"
 do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=12
@@ -158,4 +160,8 @@ if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneInstance
 > for each "Heyin"
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Heyin.Variable(Initialized)) comparison_sign="=" second_expression=1
 >> do JurassicActors::Heyin::UpdateAI object="Heyin" player="Player3D" buildings="AllBuildings" platforms="JumpPlatform" active=expr(Heyin.Variable(Active)) rescued=expr(Heyin.Variable(Rescued)) danger=expr(HeyinDanger) canfollow=expr(Heyin.Variable(CanFollow)) cantalk=expr(Heyin.Variable(CanTalk))
+
+@event
+if NumberVariable variable="HeyinAidRequest" comparison_sign="=" value=expr(1)
+do SetNumberVariable variable="HeyinAidRequest" modification_sign="=" value=expr(0)
 

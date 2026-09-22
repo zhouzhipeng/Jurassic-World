@@ -10,6 +10,12 @@ behaviors = [ ]
 content = { }
 folder = [ "Actors" ]
 
+
+[[variables]]
+name = "TargetHeyin"
+type = "number"
+value = 0
+
 [[variables]]
 name = "CameraBoundsZ"
 type = "number"

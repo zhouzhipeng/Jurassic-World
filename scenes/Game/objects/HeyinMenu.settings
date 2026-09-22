@@ -1,0 +1,26 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 337
+assetStoreId = ""
+name = "HeyinMenu"
+type = "PrimitiveDrawing::Drawer"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+fillOpacity = 255
+outlineSize = 0
+outlineOpacity = 0
+absoluteCoordinates = true
+clearBetweenFrames = false
+antialiasing = "medium"
+folder = [ "Story" ]
+
+[fillColor]
+r = 205
+g = 225
+b = 240
+
+[outlineColor]
+r = 205
+g = 225
+b = 240

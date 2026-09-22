@@ -20,3 +20,8 @@ do ModVarObjet object="Object" variable="CanTalk" modification_sign="=" value=ex
 do JurassicActors::Heyin::SetRotationCenter object="Object" x_position=0 y_position=0 z_position=0
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Idle"
 
+do ModVarObjet object="Object" variable="HP" modification_sign="=" value=expr(70)
+do ModVarObjet object="Object" variable="Grace" modification_sign="=" value=expr(90)
+do ModVarObjet object="Object" variable="Invulnerable" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Trust" modification_sign="=" value=expr(0)
+do ModVarObjet object="Object" variable="Promise" modification_sign="=" value=expr(0)
