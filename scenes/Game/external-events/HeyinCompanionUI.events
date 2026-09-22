@@ -23,20 +23,20 @@ if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 do Show object="HeyinVitals"
 do PrimitiveDrawing::FillOpacity shape_painter_object="HeyinVitals" modification_sign="=" opacity_0_255=240
 do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="255;250;231"
-do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246) top_y_position=expr(50) right_x_position=expr(SceneWindowWidth()-246+230) bottom_y_position=expr(50+116) radius_in_pixels=8
-do SetX object="HeyinVitalsText" modification_sign="=" value=expr(SceneWindowWidth()-246+12)
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)) top_y_position=expr(50) right_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+230) bottom_y_position=expr(50+116) radius_in_pixels=8
+do SetX object="HeyinVitalsText" modification_sign="=" value=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+12)
 do SetY object="HeyinVitalsText" modification_sign="=" value=expr(50+8)
 do TextObject::Text::SetFontSize object="HeyinVitalsText" modification_sign="=" value=expr(16)
 do Show object="HeyinVitalsText"
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinVitalsText" behavior="Text" modification_sign="=" text=expr("禾音  生命 "+ToString(ceil(Heyin.Variable(HP)))+" / 100"+NewLine()+NewLine()+"体力 "+ToString(ceil(Heyin.Variable(Energy)))+" / 100")
 do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="214;216;193"
-do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246+12) top_y_position=expr(86) right_x_position=expr(SceneWindowWidth()-246+12+206) bottom_y_position=expr(86+8) radius_in_pixels=4
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+12) top_y_position=expr(86) right_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+12+206) bottom_y_position=expr(86+8) radius_in_pixels=4
 do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="197;75;67"
-do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246+12) top_y_position=expr(86) right_x_position=expr(SceneWindowWidth()-246+12+206*Heyin.Variable(HP)/100) bottom_y_position=expr(86+8) radius_in_pixels=3
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+12) top_y_position=expr(86) right_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+12+206*Heyin.Variable(HP)/100) bottom_y_position=expr(86+8) radius_in_pixels=3
 do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="214;216;193"
-do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246+12) top_y_position=expr(126) right_x_position=expr(SceneWindowWidth()-246+12+206) bottom_y_position=expr(126+8) radius_in_pixels=4
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+12) top_y_position=expr(126) right_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+12+206) bottom_y_position=expr(126+8) radius_in_pixels=4
 do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="65;145;133"
-do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246+12) top_y_position=expr(126) right_x_position=expr(SceneWindowWidth()-246+12+206*Heyin.Variable(Energy)/100) bottom_y_position=expr(126+8) radius_in_pixels=3
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+12) top_y_position=expr(126) right_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+12+206*Heyin.Variable(Energy)/100) bottom_y_position=expr(126+8) radius_in_pixels=3
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(0)
@@ -44,7 +44,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=expr(1)
 if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 if NumberVariable variable="HeyinStage" comparison_sign="<=" value=expr(1)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinTalkButton" behavior="Text" modification_sign="=" text=expr("伤口未处理 · "+ToString(ceil(Heyin.Variable(Grace)+Heyin.Variable(HP)/0.4))+"秒内救助")
-do SetX object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowWidth()-246+10)
+do SetX object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+10)
 do SetY object="HeyinTalkButton" modification_sign="=" value=expr(50+91)
 do TextObject::Text::SetFontSize object="HeyinTalkButton" modification_sign="=" value=expr(13)
 do Show object="HeyinTalkButton"
@@ -56,9 +56,9 @@ if NumberVariable variable="Dead" comparison_sign="=" value=expr(0)
 if NumberVariable variable="HeyinNear" comparison_sign="=" value=expr(1)
 if NumberVariable variable="HeyinDanger" comparison_sign="=" value=expr(0)
 do PrimitiveDrawing::FillColor shape_painter_object="HeyinVitals" fill_color="255;250;231"
-do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246) top_y_position=expr(174) right_x_position=expr(SceneWindowWidth()-246+230) bottom_y_position=expr(174+36) radius_in_pixels=8
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinVitals" left_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)) top_y_position=expr(174) right_x_position=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+230) bottom_y_position=expr(174+36) radius_in_pixels=8
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinTalkButton" behavior="Text" modification_sign="=" text="与禾音交谈 [Y]"
-do SetX object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowWidth()-246+18)
+do SetX object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowWidth()-246-TouchMode*(110*TouchScale+14)+18)
 do SetY object="HeyinTalkButton" modification_sign="=" value=expr(180)
 do TextObject::Text::SetFontSize object="HeyinTalkButton" modification_sign="=" value=expr(18)
 do Show object="HeyinTalkButton"

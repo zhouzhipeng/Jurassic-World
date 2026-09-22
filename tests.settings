@@ -336,3 +336,11 @@ name = "HeyinSurvival"
 type = "gameplay"
 description = "Companion health, neglect, choices, predator targeting and full restart."
 file = "tests/HeyinSurvival.js"
+
+[[tests]]
+scope = "project"
+order = 42
+name = "HeyinCompanionUI"
+type = "gameplay"
+description = "Companion status and touch conversation layout at desktop and narrow landscape sizes."
+file = "tests/HeyinCompanionUI.js"

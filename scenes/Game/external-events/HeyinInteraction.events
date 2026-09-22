@@ -75,6 +75,7 @@ do SetNumberVariable variable="HeyinChoice" modification_sign="=" value=expr(5)
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=expr(9)
 if KeyFromTextReleased key_to_check="y"
+or KeyFromTextReleased key_to_check="Escape"
 do SetNumberVariable variable="HeyinChoice" modification_sign="=" value=expr(5)
 
 @event

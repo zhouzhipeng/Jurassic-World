@@ -46,7 +46,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneWindowWidth()) comparison_sign=">" second_expression=expr(SceneWindowHeight()*1.3)
 do SetX object="HeyinStory" modification_sign="=" value=expr(SceneWindowWidth()*0.44)
 do SetY object="HeyinStory" modification_sign="=" value=70
-do TextObject::WrappingWidth object="HeyinStory" modification_sign="=" value=expr(SceneWindowWidth()*0.36)
+do TextObject::WrappingWidth object="HeyinStory" modification_sign="=" value=expr(SceneWindowWidth()*0.28)
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -107,3 +107,11 @@ or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
 or NumberVariable variable="Dead" comparison_sign="!=" value=0
 do Hide object="HeyinStory"
 
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneWindowWidth()) comparison_sign="<=" second_expression=900
+do SetX object="HeyinStory" modification_sign="=" value=24
+do SetY object="HeyinStory" modification_sign="=" value=expr(max(140,TouchHint.Y()+TouchHint.Height()+8))
+do TextObject::WrappingWidth object="HeyinStory" modification_sign="=" value=expr(max(180,min(360,SceneWindowWidth()-298-TouchMode*(110*TouchScale+14))))
+do TextObject::Text::SetFontSize object="HeyinStory" modification_sign="=" value=14
