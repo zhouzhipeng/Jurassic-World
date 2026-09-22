@@ -98,6 +98,70 @@ z_order = 10
 size = [260, 125]
 keep_ratio = false
 
+
+[[layout.instances]]
+id = "f633980c-fca4-43dc-8525-6516e53d7c78"
+object = "SpringWater"
+layer = "world3d"
+at = [-3600, 1300, 0]
+z_order = 0
+
+[[layout.instances]]
+id = "ade189ef-e201-4a9f-a205-a2693dd279f0"
+object = "SpringWater"
+layer = "world3d"
+at = [3200, 3500, 0]
+z_order = 0
+
+[[layout.instances]]
+id = "4a7b3249-00c0-4628-af94-8361e51d02a0"
+object = "SpringWater"
+layer = "world3d"
+at = [-500, -3500, 0]
+z_order = 0
+
+[[layout.instances]]
+id = "40e30341-1936-4ed6-826f-65879a1f1a7d"
+object = "MetalDeposit"
+layer = "world3d"
+at = [-4100.0, -4000.0, 2335.6077]
+z_order = 0
+
+[[layout.instances]]
+id = "b819205a-73c9-4d52-a9a8-a51d6cbcbd08"
+object = "MetalDeposit"
+layer = "world3d"
+at = [-4400.0, -4500.0, 2094.5318]
+z_order = 0
+
+[[layout.instances]]
+id = "54a6f44e-69f0-4c22-b3d7-cf1aea59ffdb"
+object = "MetalDeposit"
+layer = "world3d"
+at = [2100.0, -4250.0, 2705.0351]
+z_order = 0
+
+[[layout.instances]]
+id = "5cc54e5d-7ae0-4443-9b2d-053461400858"
+object = "MetalDeposit"
+layer = "world3d"
+at = [2650.0, -4600.0, 2587.233]
+z_order = 0
+
+[[layout.instances]]
+id = "70d2ff6f-181c-4ea8-b9f5-7f06a60c4eda"
+object = "MetalDeposit"
+layer = "world3d"
+at = [4550.0, 1250.0, 1827.231]
+z_order = 0
+
+[[layout.instances]]
+id = "b1383fa9-73fe-4ca3-9e3d-80643d7b33d6"
+object = "MetalDeposit"
+layer = "world3d"
+at = [4350.0, 1800.0, 1758.5325]
+z_order = 0
+
 [[layout.variables]]
 instance = "d0002104-a8e2-4347-ab47-cc684baa8440"
 name = "SiteId"
@@ -133,3 +197,39 @@ instance = "e955bcc6-8d80-44c6-855a-fc4f813f15d5"
 name = "SiteId"
 type = "number"
 value = 5
+
+[[layout.variables]]
+instance = "40e30341-1936-4ed6-826f-65879a1f1a7d"
+name = "SiteId"
+type = "number"
+value = 6
+
+[[layout.variables]]
+instance = "b819205a-73c9-4d52-a9a8-a51d6cbcbd08"
+name = "SiteId"
+type = "number"
+value = 7
+
+[[layout.variables]]
+instance = "54a6f44e-69f0-4c22-b3d7-cf1aea59ffdb"
+name = "SiteId"
+type = "number"
+value = 8
+
+[[layout.variables]]
+instance = "5cc54e5d-7ae0-4443-9b2d-053461400858"
+name = "SiteId"
+type = "number"
+value = 9
+
+[[layout.variables]]
+instance = "70d2ff6f-181c-4ea8-b9f5-7f06a60c4eda"
+name = "SiteId"
+type = "number"
+value = 10
+
+[[layout.variables]]
+instance = "b1383fa9-73fe-4ca3-9e3d-80643d7b33d6"
+name = "SiteId"
+type = "number"
+value = 11

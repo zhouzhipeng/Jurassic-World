@@ -1,5 +1,10 @@
 # 项目工具
 
+`build_mountain_island.py`：Blender 5.1 后台执行，`--` 后传入绝对输出目录。
+读取 `sources/models/island-expanded-source.blend` 和 `mountain_profile.py`，
+仅向指定目录生成山地 GLB、新 `.blend`、雷达底图和核验清单。保留原始模型源，
+安装到工程前进行 GLB 往返检查与预览验收。详见 `docs/MOUNTAIN_WORLD.md`。
+
 这些脚本不由游戏运行时加载。路径以项目根目录为基准；普通资源制作脚本仍会写入已有资源，因此运行前应阅读脚本并保存工作。
 
 ## Blender 资源制作

@@ -1,0 +1,14 @@
+{
+  "triangles": 51590,
+  "meshesAfterRoundTrip": 1,
+  "bytes": 2322732,
+  "playableBounds": [
+    -5814,
+    5814,
+    -5952,
+    5452
+  ],
+  "areaRatio": 5.000215384615385,
+  "summitHeight": 2800.0,
+  "source": "sources/models/island-expanded-source.blend"
+}

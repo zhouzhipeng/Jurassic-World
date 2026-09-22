@@ -1,0 +1,40 @@
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Dinosaur3D
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Dinosaur3D" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((Dinosaur3D.X())-(800))/2000,2)-pow(((Dinosaur3D.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((Dinosaur3D.X())-(-2250))/1100,2)-pow(((Dinosaur3D.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((Dinosaur3D.X())-(2350))/1200,2)-pow(((Dinosaur3D.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((Dinosaur3D.X())-(-2050))/1400,2)-pow(((Dinosaur3D.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((Dinosaur3D.X())-(-4200))/2000,2)-pow(((Dinosaur3D.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((Dinosaur3D.X())-(2200))/2600,2)-pow(((Dinosaur3D.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((Dinosaur3D.X())-(4450))/1800,2)-pow(((Dinosaur3D.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((Dinosaur3D.X())-(-2900))/2500,2)-pow(((Dinosaur3D.Y())-(3950))/1500,2)),2))
+
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Triceratops
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Triceratops" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((Triceratops.X())-(800))/2000,2)-pow(((Triceratops.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((Triceratops.X())-(-2250))/1100,2)-pow(((Triceratops.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((Triceratops.X())-(2350))/1200,2)-pow(((Triceratops.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((Triceratops.X())-(-2050))/1400,2)-pow(((Triceratops.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((Triceratops.X())-(-4200))/2000,2)-pow(((Triceratops.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((Triceratops.X())-(2200))/2600,2)-pow(((Triceratops.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((Triceratops.X())-(4450))/1800,2)-pow(((Triceratops.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((Triceratops.X())-(-2900))/2500,2)-pow(((Triceratops.Y())-(3950))/1500,2)),2))
+
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Stegosaur
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Stegosaur" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((Stegosaur.X())-(800))/2000,2)-pow(((Stegosaur.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((Stegosaur.X())-(-2250))/1100,2)-pow(((Stegosaur.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((Stegosaur.X())-(2350))/1200,2)-pow(((Stegosaur.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((Stegosaur.X())-(-2050))/1400,2)-pow(((Stegosaur.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((Stegosaur.X())-(-4200))/2000,2)-pow(((Stegosaur.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((Stegosaur.X())-(2200))/2600,2)-pow(((Stegosaur.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((Stegosaur.X())-(4450))/1800,2)-pow(((Stegosaur.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((Stegosaur.X())-(-2900))/2500,2)-pow(((Stegosaur.Y())-(3950))/1500,2)),2))
+
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Raptor
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Raptor" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((Raptor.X())-(800))/2000,2)-pow(((Raptor.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((Raptor.X())-(-2250))/1100,2)-pow(((Raptor.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((Raptor.X())-(2350))/1200,2)-pow(((Raptor.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((Raptor.X())-(-2050))/1400,2)-pow(((Raptor.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((Raptor.X())-(-4200))/2000,2)-pow(((Raptor.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((Raptor.X())-(2200))/2600,2)-pow(((Raptor.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((Raptor.X())-(4450))/1800,2)-pow(((Raptor.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((Raptor.X())-(-2900))/2500,2)-pow(((Raptor.Y())-(3950))/1500,2)),2))
+
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Tyrannosaur
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Tyrannosaur" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((Tyrannosaur.X())-(800))/2000,2)-pow(((Tyrannosaur.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((Tyrannosaur.X())-(-2250))/1100,2)-pow(((Tyrannosaur.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((Tyrannosaur.X())-(2350))/1200,2)-pow(((Tyrannosaur.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((Tyrannosaur.X())-(-2050))/1400,2)-pow(((Tyrannosaur.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((Tyrannosaur.X())-(-4200))/2000,2)-pow(((Tyrannosaur.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((Tyrannosaur.X())-(2200))/2600,2)-pow(((Tyrannosaur.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((Tyrannosaur.X())-(4450))/1800,2)-pow(((Tyrannosaur.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((Tyrannosaur.X())-(-2900))/2500,2)-pow(((Tyrannosaur.Y())-(3950))/1500,2)),2))
+
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Heyin
+>> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Heyin" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((Heyin.X())-(800))/2000,2)-pow(((Heyin.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((Heyin.X())-(-2250))/1100,2)-pow(((Heyin.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((Heyin.X())-(2350))/1200,2)-pow(((Heyin.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((Heyin.X())-(-2050))/1400,2)-pow(((Heyin.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((Heyin.X())-(-4200))/2000,2)-pow(((Heyin.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((Heyin.X())-(2200))/2600,2)-pow(((Heyin.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((Heyin.X())-(4450))/1800,2)-pow(((Heyin.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((Heyin.X())-(-2900))/2500,2)-pow(((Heyin.Y())-(3950))/1500,2)),2))
+
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetNumberVariable variable="TerrainFloor" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((Player3D.X())-(800))/2000,2)-pow(((Player3D.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((Player3D.X())-(-2250))/1100,2)-pow(((Player3D.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((Player3D.X())-(2350))/1200,2)-pow(((Player3D.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((Player3D.X())-(-2050))/1400,2)-pow(((Player3D.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((Player3D.X())-(-4200))/2000,2)-pow(((Player3D.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((Player3D.X())-(2200))/2600,2)-pow(((Player3D.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((Player3D.X())-(4450))/1800,2)-pow(((Player3D.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((Player3D.X())-(-2900))/2500,2)-pow(((Player3D.Y())-(3950))/1500,2)),2))
+

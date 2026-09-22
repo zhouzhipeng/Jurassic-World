@@ -1,0 +1,86 @@
+@comment "North-up terrain radar, player facing, camp and selected Q navigation target." background=[90,150,120] text=[255,255,255]
+
+@event
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do Hide object="RadarMap"
+do Hide object="RadarPlayer"
+do Hide object="RadarCamp"
+do Hide object="RadarTarget"
+do Hide object="RadarInfo"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetNumberVariable variable="RadarScale" modification_sign="=" value=expr(clamp(SceneWindowHeight()/1000,0.55,0.85))
+do SetNumberVariable variable="RadarX" modification_sign="=" value=expr(SceneWindowWidth()-240*RadarScale-16)
+do SetNumberVariable variable="RadarY" modification_sign="=" value=expr(16)
+do Show object="RadarMap"
+do Show object="RadarPlayer"
+do Show object="RadarCamp"
+do Show object="RadarTarget"
+do Show object="RadarInfo"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetX object="RadarMap" modification_sign="=" value=expr(RadarX)
+do SetY object="RadarMap" modification_sign="=" value=expr(RadarY)
+do ResizableCapability::ResizableBehavior::SetSize object="RadarMap" behavior="Resizable" width=expr(240*RadarScale) height=expr(274*RadarScale)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do ResizableCapability::ResizableBehavior::SetSize object="RadarPlayer" behavior="Resizable" width=expr(16*RadarScale) height=expr(16*RadarScale)
+do SetX object="RadarPlayer" modification_sign="=" value=expr(RadarX+(14+clamp(((Player3D.X())+6600)/13200,0,1)*212)*RadarScale)
+do SetY object="RadarPlayer" modification_sign="=" value=expr(RadarY+(32+clamp(((Player3D.Y())+6900)/13300,0,1)*212)*RadarScale)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do ResizableCapability::ResizableBehavior::SetSize object="RadarCamp" behavior="Resizable" width=expr(16*RadarScale) height=expr(16*RadarScale)
+do SetX object="RadarCamp" modification_sign="=" value=expr(RadarX+(14+clamp(((-650)+6600)/13200,0,1)*212)*RadarScale)
+do SetY object="RadarCamp" modification_sign="=" value=expr(RadarY+(32+clamp(((350)+6900)/13300,0,1)*212)*RadarScale)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do ResizableCapability::ResizableBehavior::SetSize object="RadarTarget" behavior="Resizable" width=expr(16*RadarScale) height=expr(16*RadarScale)
+do SetX object="RadarTarget" modification_sign="=" value=expr(RadarX+(14+clamp(((NavX)+6600)/13200,0,1)*212)*RadarScale)
+do SetY object="RadarTarget" modification_sign="=" value=expr(RadarY+(32+clamp(((NavY)+6900)/13300,0,1)*212)*RadarScale)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetAngle object="RadarPlayer" modification_sign="=" angle_in_degrees=expr(Player3D.Angle()+180)
+do SetX object="RadarInfo" modification_sign="=" value=expr(RadarX+8*RadarScale)
+do SetY object="RadarInfo" modification_sign="=" value=expr(RadarY+280*RadarScale)
+do TextObject::Text::SetFontSize object="RadarInfo" modification_sign="=" value=expr(max(11,14*RadarScale))
+do TextContainerCapability::TextContainerBehavior::SetValue object="RadarInfo" behavior="Text" modification_sign="=" text=expr("海拔 "+ToString(round(PlayerFloor/100))+"m · 北向固定")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="NavMode" comparison_sign="<=" value=0
+do Hide object="RadarTarget"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
+do SetX object="QuestPanel" modification_sign="=" value=expr(SceneWindowWidth()-380)
+do SetY object="QuestPanel" modification_sign="=" value=expr(22+315*RadarScale)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
+do SetX object="QuestTitle" modification_sign="=" value=expr(SceneWindowWidth()-380)
+do SetY object="QuestTitle" modification_sign="=" value=expr(34+315*RadarScale)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
+do SetX object="QuestBody" modification_sign="=" value=expr(SceneWindowWidth()-380)
+do SetY object="QuestBody" modification_sign="=" value=expr(66+315*RadarScale)
+

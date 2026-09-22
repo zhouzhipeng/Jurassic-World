@@ -344,3 +344,11 @@ name = "HeyinCompanionUI"
 type = "gameplay"
 description = "Companion status and touch conversation layout at desktop and narrow landscape sizes."
 file = "tests/HeyinCompanionUI.js"
+
+[[tests]]
+scope = "project"
+order = 43
+name = "MountainRadar"
+type = "gameplay"
+description = "Expanded-world movement, mesh-ground agreement, mountain jumps, riding, wildlife and responsive north-up radar."
+file = "tests/MountainRadar.js"

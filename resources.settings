@@ -1512,3 +1512,35 @@ name = "heyin.glb"
 file = "assets/models/heyin.glb"
 metadata = ""
 userAdded = true
+
+[[resources]]
+kind = "image"
+name = "radar-map.svg"
+file = "assets/ui/radar-map.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "radar-player.svg"
+file = "assets/ui/radar-player.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "radar-camp.svg"
+file = "assets/ui/radar-camp.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "radar-target.svg"
+file = "assets/ui/radar-target.svg"
+metadata = ""
+smoothed = true
+userAdded = true

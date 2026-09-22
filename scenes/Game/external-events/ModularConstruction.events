@@ -743,6 +743,36 @@ if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildY-Pl
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
 do SetStringVariable variable="BuildReason" modification_sign="=" value="此处会卡住角色，请退开再建造"
 
+@comment "Grid foundations require level valley ground; hills remain traversable." background=[90,150,120] text=[255,255,255]
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(1100*pow(max(0,1-pow(((BuildX-BuildHX)-(800))/2000,2)-pow(((BuildY-BuildHY)-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((BuildX-BuildHX)-(-2250))/1100,2)-pow(((BuildY-BuildHY)-(600))/1700,2)),2)+950*pow(max(0,1-pow(((BuildX-BuildHX)-(2350))/1200,2)-pow(((BuildY-BuildHY)-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((BuildX-BuildHX)-(-2050))/1400,2)-pow(((BuildY-BuildHY)-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((BuildX-BuildHX)-(-4200))/2000,2)-pow(((BuildY-BuildHY)-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((BuildX-BuildHX)-(2200))/2600,2)-pow(((BuildY-BuildHY)-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((BuildX-BuildHX)-(4450))/1800,2)-pow(((BuildY-BuildHY)-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((BuildX-BuildHX)-(-2900))/2500,2)-pow(((BuildY-BuildHY)-(3950))/1500,2)),2)) comparison_sign=">" second_expression=1
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(0)
+do SetStringVariable variable="BuildReason" modification_sign="=" value="山坡无法放置平地建筑，请到山谷或营地平地建造"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(1100*pow(max(0,1-pow(((BuildX-BuildHX)-(800))/2000,2)-pow(((BuildY+BuildHY)-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((BuildX-BuildHX)-(-2250))/1100,2)-pow(((BuildY+BuildHY)-(600))/1700,2)),2)+950*pow(max(0,1-pow(((BuildX-BuildHX)-(2350))/1200,2)-pow(((BuildY+BuildHY)-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((BuildX-BuildHX)-(-2050))/1400,2)-pow(((BuildY+BuildHY)-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((BuildX-BuildHX)-(-4200))/2000,2)-pow(((BuildY+BuildHY)-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((BuildX-BuildHX)-(2200))/2600,2)-pow(((BuildY+BuildHY)-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((BuildX-BuildHX)-(4450))/1800,2)-pow(((BuildY+BuildHY)-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((BuildX-BuildHX)-(-2900))/2500,2)-pow(((BuildY+BuildHY)-(3950))/1500,2)),2)) comparison_sign=">" second_expression=1
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(0)
+do SetStringVariable variable="BuildReason" modification_sign="=" value="山坡无法放置平地建筑，请到山谷或营地平地建造"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(1100*pow(max(0,1-pow(((BuildX+BuildHX)-(800))/2000,2)-pow(((BuildY-BuildHY)-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((BuildX+BuildHX)-(-2250))/1100,2)-pow(((BuildY-BuildHY)-(600))/1700,2)),2)+950*pow(max(0,1-pow(((BuildX+BuildHX)-(2350))/1200,2)-pow(((BuildY-BuildHY)-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((BuildX+BuildHX)-(-2050))/1400,2)-pow(((BuildY-BuildHY)-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((BuildX+BuildHX)-(-4200))/2000,2)-pow(((BuildY-BuildHY)-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((BuildX+BuildHX)-(2200))/2600,2)-pow(((BuildY-BuildHY)-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((BuildX+BuildHX)-(4450))/1800,2)-pow(((BuildY-BuildHY)-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((BuildX+BuildHX)-(-2900))/2500,2)-pow(((BuildY-BuildHY)-(3950))/1500,2)),2)) comparison_sign=">" second_expression=1
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(0)
+do SetStringVariable variable="BuildReason" modification_sign="=" value="山坡无法放置平地建筑，请到山谷或营地平地建造"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(1100*pow(max(0,1-pow(((BuildX+BuildHX)-(800))/2000,2)-pow(((BuildY+BuildHY)-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((BuildX+BuildHX)-(-2250))/1100,2)-pow(((BuildY+BuildHY)-(600))/1700,2)),2)+950*pow(max(0,1-pow(((BuildX+BuildHX)-(2350))/1200,2)-pow(((BuildY+BuildHY)-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((BuildX+BuildHX)-(-2050))/1400,2)-pow(((BuildY+BuildHY)-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((BuildX+BuildHX)-(-4200))/2000,2)-pow(((BuildY+BuildHY)-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((BuildX+BuildHX)-(2200))/2600,2)-pow(((BuildY+BuildHY)-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((BuildX+BuildHX)-(4450))/1800,2)-pow(((BuildY+BuildHY)-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((BuildX+BuildHX)-(-2900))/2500,2)-pow(((BuildY+BuildHY)-(3950))/1500,2)),2)) comparison_sign=">" second_expression=1
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(0)
+do SetStringVariable variable="BuildReason" modification_sign="=" value="山坡无法放置平地建筑，请到山谷或营地平地建造"
+
+
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
@@ -1321,7 +1351,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
-do SetNumberVariable variable="FloorTarget" modification_sign="=" value=0
+do SetNumberVariable variable="FloorTarget" modification_sign="=" value=expr(TerrainFloor)
 
 @event aiGeneratedEventId="camp-house-step-support"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -1416,8 +1446,8 @@ link external "PlayerJump"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=1
-do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
-do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=0
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(Dinosaur3D.Object3D::Z())
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=expr(PlayerFloor)
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0

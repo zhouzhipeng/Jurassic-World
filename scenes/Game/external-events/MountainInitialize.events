@@ -1,0 +1,74 @@
+@comment "Mountain profile generated from tools/mountain_profile.py; native elevation follows the visual mesh." background=[90,150,120] text=[255,255,255]
+
+@event
+if SceneJustBegins
+> for each BerryBush
+>> if SceneJustBegins
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="BerryBush" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((BerryBush.X())-(800))/2000,2)-pow(((BerryBush.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((BerryBush.X())-(-2250))/1100,2)-pow(((BerryBush.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((BerryBush.X())-(2350))/1200,2)-pow(((BerryBush.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((BerryBush.X())-(-2050))/1400,2)-pow(((BerryBush.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((BerryBush.X())-(-4200))/2000,2)-pow(((BerryBush.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((BerryBush.X())-(2200))/2600,2)-pow(((BerryBush.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((BerryBush.X())-(4450))/1800,2)-pow(((BerryBush.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((BerryBush.X())-(-2900))/2500,2)-pow(((BerryBush.Y())-(3950))/1500,2)),2))
+
+@event
+if SceneJustBegins
+> for each FiberFern
+>> if SceneJustBegins
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="FiberFern" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((FiberFern.X())-(800))/2000,2)-pow(((FiberFern.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((FiberFern.X())-(-2250))/1100,2)-pow(((FiberFern.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((FiberFern.X())-(2350))/1200,2)-pow(((FiberFern.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((FiberFern.X())-(-2050))/1400,2)-pow(((FiberFern.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((FiberFern.X())-(-4200))/2000,2)-pow(((FiberFern.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((FiberFern.X())-(2200))/2600,2)-pow(((FiberFern.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((FiberFern.X())-(4450))/1800,2)-pow(((FiberFern.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((FiberFern.X())-(-2900))/2500,2)-pow(((FiberFern.Y())-(3950))/1500,2)),2))
+
+@event
+if SceneJustBegins
+> for each WoodSapling
+>> if SceneJustBegins
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="WoodSapling" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((WoodSapling.X())-(800))/2000,2)-pow(((WoodSapling.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((WoodSapling.X())-(-2250))/1100,2)-pow(((WoodSapling.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((WoodSapling.X())-(2350))/1200,2)-pow(((WoodSapling.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((WoodSapling.X())-(-2050))/1400,2)-pow(((WoodSapling.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((WoodSapling.X())-(-4200))/2000,2)-pow(((WoodSapling.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((WoodSapling.X())-(2200))/2600,2)-pow(((WoodSapling.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((WoodSapling.X())-(4450))/1800,2)-pow(((WoodSapling.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((WoodSapling.X())-(-2900))/2500,2)-pow(((WoodSapling.Y())-(3950))/1500,2)),2))
+
+@event
+if SceneJustBegins
+> for each StoneDeposit
+>> if SceneJustBegins
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="StoneDeposit" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((StoneDeposit.X())-(800))/2000,2)-pow(((StoneDeposit.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((StoneDeposit.X())-(-2250))/1100,2)-pow(((StoneDeposit.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((StoneDeposit.X())-(2350))/1200,2)-pow(((StoneDeposit.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((StoneDeposit.X())-(-2050))/1400,2)-pow(((StoneDeposit.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((StoneDeposit.X())-(-4200))/2000,2)-pow(((StoneDeposit.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((StoneDeposit.X())-(2200))/2600,2)-pow(((StoneDeposit.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((StoneDeposit.X())-(4450))/1800,2)-pow(((StoneDeposit.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((StoneDeposit.X())-(-2900))/2500,2)-pow(((StoneDeposit.Y())-(3950))/1500,2)),2))
+
+@event
+if SceneJustBegins
+> for each SpringWater
+>> if SceneJustBegins
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="SpringWater" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((SpringWater.X())-(800))/2000,2)-pow(((SpringWater.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((SpringWater.X())-(-2250))/1100,2)-pow(((SpringWater.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((SpringWater.X())-(2350))/1200,2)-pow(((SpringWater.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((SpringWater.X())-(-2050))/1400,2)-pow(((SpringWater.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((SpringWater.X())-(-4200))/2000,2)-pow(((SpringWater.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((SpringWater.X())-(2200))/2600,2)-pow(((SpringWater.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((SpringWater.X())-(4450))/1800,2)-pow(((SpringWater.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((SpringWater.X())-(-2900))/2500,2)-pow(((SpringWater.Y())-(3950))/1500,2)),2))
+
+@event
+if SceneJustBegins
+> for each MetalDeposit
+>> if SceneJustBegins
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="MetalDeposit" behavior="Object3D" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((MetalDeposit.X())-(800))/2000,2)-pow(((MetalDeposit.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((MetalDeposit.X())-(-2250))/1100,2)-pow(((MetalDeposit.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((MetalDeposit.X())-(2350))/1200,2)-pow(((MetalDeposit.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((MetalDeposit.X())-(-2050))/1400,2)-pow(((MetalDeposit.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((MetalDeposit.X())-(-4200))/2000,2)-pow(((MetalDeposit.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((MetalDeposit.X())-(2200))/2600,2)-pow(((MetalDeposit.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((MetalDeposit.X())-(4450))/1800,2)-pow(((MetalDeposit.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((MetalDeposit.X())-(-2900))/2500,2)-pow(((MetalDeposit.Y())-(3950))/1500,2)),2))
+
+@event
+if SceneJustBegins
+> for each Triceratops
+>> if SceneJustBegins
+>> do SetNumberObjectVariable object="Triceratops" variable="HomeX" modification_sign="=" value=expr(Triceratops.X())
+>> do SetNumberObjectVariable object="Triceratops" variable="HomeY" modification_sign="=" value=expr(Triceratops.Y())
+>> do SetNumberObjectVariable object="Triceratops" variable="TargetX" modification_sign="=" value=expr(Triceratops.X())
+>> do SetNumberObjectVariable object="Triceratops" variable="TargetY" modification_sign="=" value=expr(Triceratops.Y())
+
+@event
+if SceneJustBegins
+> for each Stegosaur
+>> if SceneJustBegins
+>> do SetNumberObjectVariable object="Stegosaur" variable="HomeX" modification_sign="=" value=expr(Stegosaur.X())
+>> do SetNumberObjectVariable object="Stegosaur" variable="HomeY" modification_sign="=" value=expr(Stegosaur.Y())
+>> do SetNumberObjectVariable object="Stegosaur" variable="TargetX" modification_sign="=" value=expr(Stegosaur.X())
+>> do SetNumberObjectVariable object="Stegosaur" variable="TargetY" modification_sign="=" value=expr(Stegosaur.Y())
+
+@event
+if SceneJustBegins
+> for each Raptor
+>> if SceneJustBegins
+>> do SetNumberObjectVariable object="Raptor" variable="HomeX" modification_sign="=" value=expr(Raptor.X())
+>> do SetNumberObjectVariable object="Raptor" variable="HomeY" modification_sign="=" value=expr(Raptor.Y())
+>> do SetNumberObjectVariable object="Raptor" variable="TargetX" modification_sign="=" value=expr(Raptor.X())
+>> do SetNumberObjectVariable object="Raptor" variable="TargetY" modification_sign="=" value=expr(Raptor.Y())
+
+@event
+if SceneJustBegins
+> for each Tyrannosaur
+>> if SceneJustBegins
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="HomeX" modification_sign="=" value=expr(Tyrannosaur.X())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="HomeY" modification_sign="=" value=expr(Tyrannosaur.Y())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetX" modification_sign="=" value=expr(Tyrannosaur.X())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="TargetY" modification_sign="=" value=expr(Tyrannosaur.Y())
+

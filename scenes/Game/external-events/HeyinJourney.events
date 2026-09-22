@@ -146,7 +146,7 @@ do SetNumberObjectVariable object="Heyin" variable="Rescued" modification_sign="
 
 @event
 if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="PlayerFloor" comparison_sign="<=" value=40
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(PlayerFloor-TerrainFloor) comparison_sign="<=" second_expression=40
 do SetNumberObjectVariable object="Heyin" variable="CanFollow" modification_sign="=" value=1
 
 @event

@@ -57,7 +57,7 @@ do SetNumberObjectVariable object="TouchButton" variable="Command" modification_
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="菜单"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=23
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-max(44,72*TouchScale))
+do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-max(44,72*TouchScale)-240*clamp(SceneWindowHeight()/1000,0.55,0.85)-10)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchMargin)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(max(44,72*TouchScale)) height=expr(max(44,60*TouchScale))
 
@@ -71,7 +71,7 @@ do SetNumberObjectVariable object="TouchButton" variable="Command" modification_
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="背包"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=23
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-max(44,72*TouchScale))
+do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-max(44,72*TouchScale)-240*clamp(SceneWindowHeight()/1000,0.55,0.85)-10)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchMargin+max(44,60*TouchScale)+10*TouchScale)
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(max(44,72*TouchScale)) height=expr(max(44,60*TouchScale))
 
@@ -87,7 +87,7 @@ do SetNumberObjectVariable object="TouchButton" variable="Command" modification_
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="建造"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=23
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-max(44,72*TouchScale))
+do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-max(44,72*TouchScale)-240*clamp(SceneWindowHeight()/1000,0.55,0.85)-10)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchMargin+2*(max(44,60*TouchScale)+10*TouchScale))
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(max(44,72*TouchScale)) height=expr(max(44,60*TouchScale))
 
@@ -116,7 +116,7 @@ do SetNumberObjectVariable object="TouchButton" variable="Command" modification_
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="补给"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=23
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Default"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-max(44,72*TouchScale))
+do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-TouchMargin-max(44,72*TouchScale)-240*clamp(SceneWindowHeight()/1000,0.55,0.85)-10)
 do SetY object="TouchButton" modification_sign="=" value=expr(TouchMargin+3*(max(44,60*TouchScale)+10*TouchScale))
 do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(max(44,72*TouchScale)) height=expr(max(44,60*TouchScale))
 

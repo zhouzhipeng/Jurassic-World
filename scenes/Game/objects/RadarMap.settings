@@ -1,0 +1,28 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 345
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
+name = "RadarMap"
+type = "Sprite"
+updateIfNotVisible = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "UI", "External Layouts" ]
+
+[[animations]]
+name = "Default"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "radar-map.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]
