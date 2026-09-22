@@ -163,5 +163,6 @@ if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneInstance
 
 @event
 if NumberVariable variable="HeyinAidRequest" comparison_sign="=" value=expr(1)
+if NumberVariable variable="HeyinNear" comparison_sign="=" value=1
 do SetNumberVariable variable="HeyinAidRequest" modification_sign="=" value=expr(0)
 
