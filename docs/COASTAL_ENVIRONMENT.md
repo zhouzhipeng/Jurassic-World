@@ -29,7 +29,7 @@ Verification: both materials passed model-level WebGL validation. Final fresh
 preview passed six assertions: one sky, one sea, visible 3D meshes, zero runtime
 errors, zero World3D texture failures and zero World3D rejected objects.
 Day, night, rain and two camera headings were visually inspected. Screenshots
-are in artifacts/coastal-*.png; coastal-final.png is the final source revision.
+are in artifacts/verification/coastal/coastal-*.png; coastal-final.png is the final source revision.
 
 An engine bug found by this scene was fixed in D:/code/GDevelop, commit
 32beb54b01 (Preserve RGB type for inherited TSL base color inputs). The runtime

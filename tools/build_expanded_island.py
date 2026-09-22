@@ -1,5 +1,7 @@
 import bpy, math, random, json
 from pathlib import Path
+SOURCE_DIR = Path(__file__).resolve().parents[1] / 'sources/models'
+SOURCE_DIR.mkdir(parents=True, exist_ok=True)
 from mathutils import Vector
 random.seed(18)
 P=Path(__file__).resolve().parents[1]/'assets/models';P.mkdir(parents=True,exist_ok=True)
@@ -115,7 +117,7 @@ assert abs(env.dimensions.x-180)<.01 and abs(env.dimensions.y-180)<.01
 assert envinfo['triangles'] < 60000
 pending=P/'island-pending.glb'
 assert pending.read_bytes()[:4]==b'glTF' and pending.stat().st_size>10000
-bpy.ops.wm.save_as_mainfile(filepath=str(P/'island-expanded-source.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE_DIR/'island-expanded-source.blend'))
 pending.replace(P/'island.glb')
 (P/'island-expanded-manifest.json').write_text(json.dumps(envinfo,indent=2),encoding='utf-8')
 print('EXPANDED_ISLAND',json.dumps(envinfo))

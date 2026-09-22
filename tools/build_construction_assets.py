@@ -1,6 +1,8 @@
 """Original low-poly building kit, including translucent placement silhouettes."""
 import bpy, math, json
 from pathlib import Path
+SOURCE_DIR = Path(__file__).resolve().parents[1] / 'sources/models'
+SOURCE_DIR.mkdir(parents=True, exist_ok=True)
 from mathutils import Vector
 P=Path(__file__).resolve().parents[1]/'assets/models'
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
@@ -40,7 +42,7 @@ for name in ['shelter','palisade','campfire']:
   for x,y,h in [(0,0,.95),(.2,.12,.65),(-.17,-.15,.72)]:beam('Flame',(x,y,.24),(x+.08,y,h),.20,'fire',.01)
  bpy.ops.object.select_all(action='SELECT');bpy.context.view_layer.objects.active=bpy.context.selected_objects[0];bpy.ops.object.convert(target='MESH');bpy.ops.object.join();o=bpy.context.object;o.name='Build_'+name
  bpy.context.scene.cursor.location=(0,0,0);bpy.ops.object.origin_set(type='ORIGIN_CURSOR');bpy.ops.object.transform_apply(location=False,rotation=True,scale=True);bpy.context.view_layer.update()
- dims=list(o.dimensions);bpy.ops.wm.save_as_mainfile(filepath=str(P/('build-'+name+'-source.blend')))
+ dims=list(o.dimensions);bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE_DIR/('build-'+name+'-source.blend')))
  def export(suffix):bpy.ops.export_scene.gltf(filepath=str(P/('build-'+name+suffix+'.glb')),export_format='GLB',use_selection=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False)
  export('');original=list(o.data.materials)
  for suffix,c in [('-valid',(.16,.85,.52)),('-invalid',(.95,.19,.12))]:

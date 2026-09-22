@@ -48,7 +48,7 @@
 
 ## 实现与验证
 
-玩法使用原生 IfDo 事件；不包含 JavaScript 游戏事件。模型由 `tools/build_survival_assets.py` 通过 Blender 生成，`assets/models/survival-*-source.blend` 保留源文件，每个 GLB 都经过重新导入检查。
+玩法使用原生 IfDo 事件；不包含 JavaScript 游戏事件。模型由 `tools/build_survival_assets.py` 通过 Blender 生成，`sources/models/survival-*-source.blend` 保留源文件，每个 GLB 都经过重新导入检查。
 
 已检查官方扩展缓存中的 ExtraInventory 与 Health：前者已废弃，后者会与现有角色生命、无敌时间和伤害流程重复。因此新增功能沿用本项目已有的库存变量和原生生命流程。
 
@@ -56,4 +56,4 @@
 
 触屏层同样使用原生 IfDo，复用现有移动、生产、战斗与存档。已检索 reviewed 中的 SpriteMultitouchJoystick 1.9.2；其多套行为映射对本项目自定义 3D 移动过于宽泛，本次使用引擎原生触点标识作场景适配。TouchControls、TouchSurvival、TouchMenus、TouchResponsive 覆盖多点触控、自动采集、补给、建造、存档和自适应分辨率。横竖屏还通过实际调整预览窗口检查。
 
-网格背包使用 `TouchInventoryLayout.events`、`TouchInventoryInput.events` 和 `GameTouchInventory.settings`，复用现有物品图集和库存，不另建库存系统。`TouchInventoryGrid` 验证点选、滑出取消、食物选择、空格、数量、装备及材料扣除；`TouchResponsive` 另检查网格与按钮边界。2026-09-21 全部 19 项测试、232 条断言通过，记录在 `artifacts/inventory-grid-verification.json`，横竖屏预览在 `preview/pack-grid-landscape.png`、`preview/pack-grid-portrait.png`。
+网格背包使用 `TouchInventoryLayout.events`、`TouchInventoryInput.events` 和 `GameTouchInventory.settings`，复用现有物品图集和库存，不另建库存系统。`TouchInventoryGrid` 验证点选、滑出取消、食物选择、空格、数量、装备及材料扣除；`TouchResponsive` 另检查网格与按钮边界。2026-09-21 全部 19 项测试、232 条断言通过，记录在 `artifacts/verification/inventory/inventory-grid-verification.json`，横竖屏预览在 `artifacts/previews/pack-grid-landscape.png`、`artifacts/previews/pack-grid-portrait.png`。

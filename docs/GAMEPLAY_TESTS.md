@@ -1,6 +1,6 @@
 # Gameplay tests
 
-这批原生 GDevelop 测试覆盖模块化建造系统。清单位于 `tests.settings`，每条测试的独立异步脚本位于 `tests/`。
+原生 GDevelop 测试覆盖建造、天气、昼夜、生存、触屏、背包和性能等行为。下表保留最初建造测试的详细说明；完整当前清单以 `tests.settings` 为准。清单位于 `tests.settings`，每条测试的独立异步脚本位于 `tests/`。
 
 | 测试 | 覆盖行为 |
 | --- | --- |
@@ -29,4 +29,43 @@
 
 本次批量测试发现历史按键的释放事件会进入下一条测试，误触发建造快捷键。引擎提交 `275dfbc106` 修复 `InputManager.releaseAllPressedKeys` 仅释放仍按住的键，并在测试收尾时清除释放事件而不推进游戏逻辑。输入管理器及测试运行器的 52 条回归测试全部通过。使用较旧的引擎时需要包含此修复，否则批量测试可能不稳定。
 
-最近一次实际运行的批次编号、各用例结果和断言数量见 `docs/verification/verification-gameplay-tests.json`。这些测试验证玩法状态，不覆盖画面质量、全部生存系统或性能预算。
+早期建造批次编号、各用例结果和断言数量见 `artifacts/verification/legacy/verification-gameplay-tests.json`。这些测试验证玩法状态，不覆盖画面质量、全部生存系统或性能预算。
+
+## 当前测试清单
+
+清单来自目录整理时的 `tests.settings`，未在本次目录整理中重新执行。新增测试保持 `tests/<名称>.js` 平铺；验证报告放 `artifacts/verification/<任务或版本>/`。
+
+- `tests/ConstructionPlacement.js`：Foundation snapping, adjacent placement, exact costs and rejected placement.
+- `tests/ConstructionSupport.js`：Floating rejection, stacked floors, dependent demolition and refunds.
+- `tests/ConstructionDoors.js`：Door socket placement, closed collision, E interaction and open traversal.
+- `tests/ConstructionStairs.js`：Build stairs, preserve headroom, ascend, stand on an upper floor and descend.
+- `tests/ConstructionPersistence.js`：Save and load through the pause menu across a fresh scene using a dedicated test slot.
+- `tests/WeatherCycle.js`：Weather cycling, smooth transitions, automatic timer, pause/photo/reference modes, shelter and delayed thunder.
+- `tests/WeatherPersistence.js`：Save and restore weather type and timing through the pause menu in an isolated test slot.
+- `tests/DayNightCycle.js`：World clock, frame-independent speed, day phases, continuous sunset, midnight, full daily cycle and paused menus.
+- `tests/DayNightPersistence.js`：Save and restore day, time, speed and weather together through the native pause menu in an isolated slot.
+- `tests/SurvivalSupplies.js`：Verify native survival gameplay, costs, state and input-driven progression.
+- `tests/CompanionGathering.js`：Verify native survival gameplay, costs, state and input-driven progression.
+- `tests/MetalProgression.js`：Verify native survival gameplay, costs, state and input-driven progression.
+- `tests/SurvivalExposure.js`：Verify native survival gameplay, costs, state and input-driven progression.
+- `tests/SurvivalPersistence.js`：Verify native survival gameplay, costs, state and input-driven progression.
+- `tests/TouchControls.js`：Simultaneous move, camera, attack and menu cancellation.
+- `tests/TouchSurvival.js`：One-tap supplies, gathering, cooking and riding.
+- `tests/TouchMenus.js`：Touch crafting, construction, quests, navigation and persistence.
+- `tests/TouchResponsive.js`：Touch control bounds and card layout at multiple logical resolutions; aspect ratios checked in preview.
+- `tests/TouchInventoryGrid.js`：Touch inventory selection, drag cancellation, quantities, food, equipment and crafting.
+- `tests/SprintExhaustion.js`：Held Shift and full joystick remain in walk during stamina recovery, then resume running without animation flicker or stacked speed.
+- `tests/ConstructionWildlife.js`：Reported adjacent foundation placement, oriented dinosaur clearance, overlap rejection and exact material costs.
+- `tests/CameraVisibility.js`：Camera clears walls, hidden blockers, close obstacles and island foliage; restores zoom and follows elevated and mounted targets.
+- `tests/CameraSmoothFollow.js`：Reported near-bush view, bounded angle and zoom recovery, foliage restoration and stable follow while moving.
+- `tests/CameraTableFollow.js`：Recorded camp table approach keeps a usable view without entering the survivor.
+- `tests/CameraWallApproach.js`：Approaching and pressing against the camp wall must not zoom toward a predicted target inside it.
+- `tests/CameraFenceFollow.js`：Crossing the camp fence at the reported low viewing angle must not collapse or pump the camera.
+- `tests/CameraPerformance.js`：Profile real movement at the reported camp view and fence, with a host-calibrated frame budget and top-center FPS check.
+- `tests/CameraOrbitPerformance.js`：Profile first-use and warmed full camera rotations while the player stays still.
+- `tests/FoliageLOD.js`：Distance detail selection, hysteresis, near interaction, harvest regrowth and proxy lifecycle.
+- `tests/CameraDinosaurPerformance.js`：Reported dinosaur obstruction, animated orbit frame costs and restored camera clearance.
+- `tests/PlayerJump.js`：Keyboard and simultaneous touch jumping, four platform landings, side collision, falling, pause and combat separation.
+- `tests/PlayerJumpAnimation.js`：Actual child GLB clips, skeletal movement, equipment attachment, pause, apex, contact and locomotion recovery.
+- `tests/IdleResponsiveness.js`：Reported platform view stays responsive after prolonged idle, including keyboard and touch input.
+- `tests/PlayerOcclusionOutline.js`：Tree and solid obstruction silhouette triggers, clear-view restoration, hidden blockers and original-body animation without a duplicate model.

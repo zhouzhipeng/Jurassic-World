@@ -1,6 +1,8 @@
 """Original survivor rig. Run with Blender in a fresh background process."""
 import bpy, math, json
 from pathlib import Path
+SOURCE_DIR = Path(__file__).resolve().parents[1] / 'sources/models'
+SOURCE_DIR.mkdir(parents=True, exist_ok=True)
 from mathutils import Vector
 P = Path(__file__).resolve().parents[1] / 'assets/models'
 bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
@@ -96,6 +98,6 @@ bpy.context.view_layer.update();dims=list(mesh.dimensions)
 for tr in arm.animation_data.nla_tracks:tr.mute=False
 bpy.context.scene.frame_set(1);mesh.select_set(True);arm.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str(P/'survivor-animated.glb'),export_format='GLB',use_selection=True,export_apply=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_cameras=False,export_lights=False)
-bpy.ops.wm.save_as_mainfile(filepath=str(P/'survivor-animated-source.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE_DIR/'survivor-animated-source.blend'))
 report={'dimensions':dims,'clips':clips,'bones':[x[0] for x in bones],'triangles':sum(len(p.vertices)-2 for p in mesh.data.polygons),'bytes':(P/'survivor-animated.glb').stat().st_size}
 (P/'survivor-animation-manifest.json').write_text(json.dumps(report,indent=2));print(json.dumps(report))

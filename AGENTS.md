@@ -1,3 +1,5 @@
 Any GDevelop project work must obey the bundled skill: read ./skills/gdevelop-project-files/SKILL.md in full before doing anything, and follow it as the source of truth.
 
 For Blender, glTF/GLB, or Blender-to-GDevelop work, also read ./skills/blender-workflow/SKILL.md in full and use the Blender execution method appropriate to the task. Run the bundled Blender scripts through the Blender executable as described there.
+
+Read docs/PROJECT_STRUCTURE.md for project directory and output conventions. Keep runtime assets in assets/, editable art sources in sources/, maintained documentation in docs/, and reviewed evidence in artifacts/verification/<task-or-version>/. Use artifacts/previews/ for standalone screenshots and tmp/ or artifacts/local/ for disposable outputs. Never change canonical GDevelop component paths to match these auxiliary-directory conventions. Reports must identify their source revision and use project-relative paths; historical evidence is not verification of the current revision.

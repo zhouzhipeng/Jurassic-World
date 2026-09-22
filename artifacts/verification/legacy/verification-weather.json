@@ -529,8 +529,8 @@
     ]
   },
   "visualQA": {
-    "storm": "preview/weather-storm-preview.png",
-    "fog": "preview/weather-fog-preview.png",
+    "storm": "artifacts/previews/weather-storm-preview.png",
+    "fog": "artifacts/previews/weather-fog-preview.png",
     "checked": [
       "Weather card does not overlap the compass or wilderness hints.",
       "Rain strokes are visible below the HUD.",
@@ -540,7 +540,7 @@
     "fogCapture": {
       "success": true,
       "running": true,
-      "filePath": "preview/weather-fog-preview.png",
+      "filePath": "artifacts/previews/weather-fog-preview.png",
       "width": 1600,
       "height": 900,
       "source": "renderer-canvas",

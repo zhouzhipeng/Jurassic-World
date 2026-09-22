@@ -9,6 +9,8 @@ import json
 import math
 import random
 from pathlib import Path
+SOURCE_DIR = Path(__file__).resolve().parents[1] / 'sources/models'
+SOURCE_DIR.mkdir(parents=True, exist_ok=True)
 
 OUT = Path(__file__).resolve().parents[1] / 'assets/models'
 random.seed(91)
@@ -106,7 +108,7 @@ for asset in ['spring', 'ore', 'hearth', 'flame', 'forge']:
     dimensions=list(obj.dimensions)
     triangles=sum(len(p.vertices)-2 for p in obj.data.polygons)
     assert all(v > 0 for v in dimensions)
-    bpy.ops.wm.save_as_mainfile(filepath=str(OUT/f'survival-{asset}-source.blend'))
+    bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE_DIR/f'survival-{asset}-source.blend'))
     destination=OUT/f'survival-{asset}.glb'
     bpy.ops.export_scene.gltf(filepath=str(destination), export_format='GLB',use_selection=True,
         export_apply=True,export_animations=False,export_cameras=False,export_lights=False)

@@ -1,8 +1,10 @@
 import bpy, math, random, json
 from pathlib import Path
+SOURCE_DIR = Path(__file__).resolve().parents[1] / 'sources/models'
+SOURCE_DIR.mkdir(parents=True, exist_ok=True)
 from mathutils import Vector
 random.seed(18)
-P=Path(r'C:/Users/Administrator/Documents/Codex/2026-09-18/new-chat/outputs/JurassicWorld/assets/models');P.mkdir(parents=True,exist_ok=True)
+P=Path(__file__).resolve().parents[1]/'assets/models';P.mkdir(parents=True,exist_ok=True)
 # This script runs in a fresh background Blender process, never the user's open file.
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 bpy.context.scene.unit_settings.system='METRIC'
@@ -109,7 +111,7 @@ bpy.context.view_layer.update();dims=list(meshobj.dimensions)
 for tr in arm.animation_data.nla_tracks:tr.mute=False
 bpy.context.scene.frame_set(1);bpy.ops.object.select_all(action='DESELECT');arm.select_set(True);meshobj.select_set(True)
 bpy.ops.export_scene.gltf(filepath=str(P/'parasaur-animated.glb'),export_format='GLB',use_selection=True,export_apply=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_cameras=False,export_lights=False)
-bpy.ops.wm.save_as_mainfile(filepath=str(P/'parasaur-animated-source.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE_DIR/'parasaur-animated-source.blend'))
 # Seated rider is a separate mesh with leg clearance around saddle bags.
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 for side in [-1,1]:
@@ -127,6 +129,6 @@ ell('Hair',(0,.015,1.18),(.23,.21,.15),'hair',2)
 for side in [-1,1]:ell('Eye',(side*.075,-.2,1.06),(.025,.02,.025),'eye',1)
 box('Backpack',(0,.29,.51),(.46,.22,.54),'canvas',.07)
 rider,info=join_export('seated-rider',list(bpy.context.scene.objects))
-bpy.ops.wm.save_as_mainfile(filepath=str(P/'seated-rider-source.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE_DIR/'seated-rider-source.blend'))
 (P/'mount-manifest.json').write_text(json.dumps({'dinosaurDimensions':dims,'rider':info,'clips':['Idle','Walk']},indent=2))
 print('MOUNT_ASSETS',json.dumps({'dinosaurDimensions':dims,'rider':info}))

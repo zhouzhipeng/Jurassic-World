@@ -412,31 +412,31 @@
   },
   "visualReview": [
     {
-      "file": "preview/daytime-preview.png",
+      "file": "artifacts/previews/daytime-preview.png",
       "time": "08:00",
       "weather": "晴朗",
       "confirmed": "明亮日光；时钟位于罗盘与任务面板之间，无重叠。"
     },
     {
-      "file": "preview/sunset-preview.png",
+      "file": "artifacts/previews/sunset-preview.png",
       "time": "18:00",
       "weather": "晴朗",
       "confirmed": "暖色天空、低角度日光及连续亮度过渡。"
     },
     {
-      "file": "preview/nighttime-preview.png",
+      "file": "artifacts/previews/nighttime-preview.png",
       "time": "22:00",
       "weather": "晴朗",
       "confirmed": "冷色月光；角色、恐龙、道路与营地可辨认。"
     },
     {
-      "file": "preview/night-storm-preview.png",
+      "file": "artifacts/previews/night-storm-preview.png",
       "time": "22:14",
       "weather": "雷暴",
       "confirmed": "夜间雨丝可见，界面保持清晰，远景变暗。"
     },
     {
-      "file": "preview/night-fog-preview.png",
+      "file": "artifacts/previews/night-fog-preview.png",
       "time": "22:30",
       "weather": "雾天",
       "confirmed": "夜间雾色与天空一致，远景被浓雾遮蔽，近处仍可探索。"

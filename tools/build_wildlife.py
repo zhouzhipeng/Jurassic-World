@@ -1,6 +1,8 @@
 """Run with Blender --background --factory-startup --python. Original low-poly fauna."""
 import bpy, math, json
 from pathlib import Path
+SOURCE_DIR = Path(__file__).resolve().parents[1] / 'sources/models'
+SOURCE_DIR.mkdir(parents=True, exist_ok=True)
 from mathutils import Vector
 P=Path(__file__).resolve().parents[1]/'assets/models'
 def material(name,c):
@@ -104,7 +106,7 @@ def build(species,scale,color):
  for tr in arm.animation_data.nla_tracks:tr.mute=False
  bpy.context.scene.frame_set(1);bpy.ops.object.select_all(action='DESELECT');arm.select_set(True);mesh.select_set(True)
  bpy.ops.export_scene.gltf(filepath=str(P/(species+'.glb')),export_format='GLB',use_selection=True,export_apply=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_cameras=False,export_lights=False)
- bpy.ops.wm.save_as_mainfile(filepath=str(P/(species+'-source.blend')))
+ bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE_DIR/(species+'-source.blend')))
  return {'species':species,'dimensions':dims,'clips':clips,'triangles':sum(len(f.vertices)-2 for f in mesh.data.polygons)}
 results=[build('triceratops',.95,(.46,.40,.22)),build('stegosaur',1,(.37,.42,.25)),build('raptor',.75,(.52,.20,.105)),build('tyrannosaur',1.35,(.25,.33,.17))]
 (P/'wildlife-manifest.json').write_text(json.dumps(results,indent=2));print('WILDLIFE',json.dumps(results))

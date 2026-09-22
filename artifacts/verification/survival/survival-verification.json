@@ -257,7 +257,7 @@
   "visuals": {
     "screenshots": [
       {
-        "file": "C:/Users/Administrator/Documents/Codex/2026-09-18/new-chat/outputs/JurassicWorld/artifacts/survival-overview.png",
+        "file": "artifacts/verification/survival/survival-overview.png",
         "width": 1600,
         "height": 900,
         "quality": {
@@ -272,7 +272,7 @@
         "scene": "Game"
       },
       {
-        "file": "C:/Users/Administrator/Documents/Codex/2026-09-18/new-chat/outputs/JurassicWorld/artifacts/survival-night-camp.png",
+        "file": "artifacts/verification/survival/survival-night-camp.png",
         "width": 1600,
         "height": 900,
         "quality": {
@@ -287,7 +287,7 @@
         "scene": "Game"
       },
       {
-        "file": "C:/Users/Administrator/Documents/Codex/2026-09-18/new-chat/outputs/JurassicWorld/artifacts/survival-journal.png",
+        "file": "artifacts/verification/survival/survival-journal.png",
         "width": 1600,
         "height": 900,
         "quality": {

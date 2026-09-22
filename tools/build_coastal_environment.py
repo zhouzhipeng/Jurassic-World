@@ -8,6 +8,8 @@ import json
 import math
 import numpy as np
 from pathlib import Path
+SOURCE_DIR = Path(__file__).resolve().parents[1] / 'sources/environment'
+SOURCE_DIR.mkdir(parents=True, exist_ok=True)
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'assets/environment'
@@ -82,7 +84,7 @@ water.node_tree.nodes.get('Principled BSDF').inputs['Base Color'].default_value 
 water.node_tree.nodes.get('Principled BSDF').inputs['Roughness'].default_value = 0.18
 ocean.data.materials.append(water)
 manifest.append(export(ocean, 'coastal-ocean.glb'))
-bpy.ops.wm.save_as_mainfile(filepath=str(OUT / 'coastal-environment.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE_DIR / 'coastal-environment.blend'))
 for entry in manifest:
     assert entry['bytes'] > 1000
     bpy.ops.wm.read_factory_settings(use_empty=True)

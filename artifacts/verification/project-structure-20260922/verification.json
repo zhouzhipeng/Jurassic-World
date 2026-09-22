@@ -1,0 +1,338 @@
+{
+  "sourceCommit": "e45ed9e0689357225d96a6925151c3389c87e284",
+  "scope": "Auxiliary directory organization only; no gameplay, resource registration, runtime asset, TSL or test source edits by this task.",
+  "movedFiles": {
+    "artifacts/TOUCH_VALIDATION.md": "artifacts/verification/touch/TOUCH_VALIDATION.md",
+    "artifacts/coastal-final.png": "artifacts/verification/coastal/coastal-final.png",
+    "artifacts/coastal-night.png": "artifacts/verification/coastal/coastal-night.png",
+    "artifacts/coastal-rain.png": "artifacts/verification/coastal/coastal-rain.png",
+    "artifacts/coastal-verification.json": "artifacts/verification/coastal/coastal-verification.json",
+    "artifacts/inventory-grid-verification.json": "artifacts/verification/inventory/inventory-grid-verification.json",
+    "artifacts/survival-journal.png": "artifacts/verification/survival/survival-journal.png",
+    "artifacts/survival-night-camp.png": "artifacts/verification/survival/survival-night-camp.png",
+    "artifacts/survival-overview.png": "artifacts/verification/survival/survival-overview.png",
+    "artifacts/survival-verification.json": "artifacts/verification/survival/survival-verification.json",
+    "artifacts/touch-backpack.png": "artifacts/verification/touch/touch-backpack.png",
+    "artifacts/touch-building-menu.png": "artifacts/verification/touch/touch-building-menu.png",
+    "artifacts/touch-landscape.png": "artifacts/verification/touch/touch-landscape.png",
+    "artifacts/touch-portrait.png": "artifacts/verification/touch/touch-portrait.png",
+    "artifacts/touch-verification.json": "artifacts/verification/touch/touch-verification.json",
+    "assets/environment/coastal-environment.blend": "sources/environment/coastal-environment.blend",
+    "assets/models/axe-source.blend": "sources/models/axe-source.blend",
+    "assets/models/build-campfire-source.blend": "sources/models/build-campfire-source.blend",
+    "assets/models/build-palisade-source.blend": "sources/models/build-palisade-source.blend",
+    "assets/models/build-shelter-source.blend": "sources/models/build-shelter-source.blend",
+    "assets/models/combat-spear-source.blend": "sources/models/combat-spear-source.blend",
+    "assets/models/gathering-source.blend": "sources/models/gathering-source.blend",
+    "assets/models/island-expanded-source.blend": "sources/models/island-expanded-source.blend",
+    "assets/models/island-source.blend": "sources/models/island-source.blend",
+    "assets/models/modular-ceiling-source.blend": "sources/models/modular-ceiling-source.blend",
+    "assets/models/modular-door-source.blend": "sources/models/modular-door-source.blend",
+    "assets/models/modular-doorframe-source.blend": "sources/models/modular-doorframe-source.blend",
+    "assets/models/modular-foundation-source.blend": "sources/models/modular-foundation-source.blend",
+    "assets/models/modular-pillar-source.blend": "sources/models/modular-pillar-source.blend",
+    "assets/models/modular-stairs-source.blend": "sources/models/modular-stairs-source.blend",
+    "assets/models/modular-wall-source.blend": "sources/models/modular-wall-source.blend",
+    "assets/models/parasaur-animated-source.blend": "sources/models/parasaur-animated-source.blend",
+    "assets/models/raptor-source.blend": "sources/models/raptor-source.blend",
+    "assets/models/seated-rider-source.blend": "sources/models/seated-rider-source.blend",
+    "assets/models/stegosaur-source.blend": "sources/models/stegosaur-source.blend",
+    "assets/models/survival-flame-source.blend": "sources/models/survival-flame-source.blend",
+    "assets/models/survival-forge-source.blend": "sources/models/survival-forge-source.blend",
+    "assets/models/survival-hearth-source.blend": "sources/models/survival-hearth-source.blend",
+    "assets/models/survival-ore-source.blend": "sources/models/survival-ore-source.blend",
+    "assets/models/survival-spring-source.blend": "sources/models/survival-spring-source.blend",
+    "assets/models/survivor-animated-source.blend": "sources/models/survivor-animated-source.blend",
+    "assets/models/survivor-jump-source.blend": "sources/models/survivor-jump-source.blend",
+    "assets/models/triceratops-source.blend": "sources/models/triceratops-source.blend",
+    "assets/models/tyrannosaur-source.blend": "sources/models/tyrannosaur-source.blend",
+    "docs/verification/camera-orbit-stutter.md": "artifacts/verification/legacy/camera-orbit-stutter.md",
+    "docs/verification/camera-orbit-stutter.png": "artifacts/verification/legacy/camera-orbit-stutter.png",
+    "docs/verification/idle-preview-acceptance.json": "artifacts/verification/legacy/idle-preview-acceptance.json",
+    "docs/verification/idle-responsiveness-after.json": "artifacts/verification/legacy/idle-responsiveness-after.json",
+    "docs/verification/idle-responsiveness-before.json": "artifacts/verification/legacy/idle-responsiveness-before.json",
+    "docs/verification/idle-responsiveness.md": "artifacts/verification/legacy/idle-responsiveness.md",
+    "docs/verification/idle-weather-after.json": "artifacts/verification/legacy/idle-weather-after.json",
+    "docs/verification/verification-3d.json": "artifacts/verification/legacy/verification-3d.json",
+    "docs/verification/verification-axe.json": "artifacts/verification/legacy/verification-axe.json",
+    "docs/verification/verification-camera-orbit-preview.json": "artifacts/verification/legacy/verification-camera-orbit-preview.json",
+    "docs/verification/verification-camera-orbit-stutter.json": "artifacts/verification/legacy/verification-camera-orbit-stutter.json",
+    "docs/verification/verification-construction.json": "artifacts/verification/legacy/verification-construction.json",
+    "docs/verification/verification-day-night.json": "artifacts/verification/legacy/verification-day-night.json",
+    "docs/verification/verification-gameplay-tests.json": "artifacts/verification/legacy/verification-gameplay-tests.json",
+    "docs/verification/verification-harvesting.json": "artifacts/verification/legacy/verification-harvesting.json",
+    "docs/verification/verification-hud-prefabs.json": "artifacts/verification/legacy/verification-hud-prefabs.json",
+    "docs/verification/verification-map-expansion.json": "artifacts/verification/legacy/verification-map-expansion.json",
+    "docs/verification/verification-modular-construction.json": "artifacts/verification/legacy/verification-modular-construction.json",
+    "docs/verification/verification-mount.json": "artifacts/verification/legacy/verification-mount.json",
+    "docs/verification/verification-player-animation.json": "artifacts/verification/legacy/verification-player-animation.json",
+    "docs/verification/verification-quests.json": "artifacts/verification/legacy/verification-quests.json",
+    "docs/verification/verification-survival.json": "artifacts/verification/legacy/verification-survival.json",
+    "docs/verification/verification-weather.json": "artifacts/verification/legacy/verification-weather.json",
+    "docs/verification/verification.json": "artifacts/verification/legacy/verification.json",
+    "preview/construction-preview.png": "artifacts/previews/construction-preview.png",
+    "preview/daytime-preview.png": "artifacts/previews/daytime-preview.png",
+    "preview/death-preview.png": "artifacts/previews/death-preview.png",
+    "preview/herbivores-preview.png": "artifacts/previews/herbivores-preview.png",
+    "preview/map-east-preview.png": "artifacts/previews/map-east-preview.png",
+    "preview/map-expanded-overview.png": "artifacts/previews/map-expanded-overview.png",
+    "preview/modular-build-preview.png": "artifacts/previews/modular-build-preview.png",
+    "preview/modular-upstairs-preview.png": "artifacts/previews/modular-upstairs-preview.png",
+    "preview/mount-preview.png": "artifacts/previews/mount-preview.png",
+    "preview/night-fog-preview.png": "artifacts/previews/night-fog-preview.png",
+    "preview/night-storm-preview.png": "artifacts/previews/night-storm-preview.png",
+    "preview/nighttime-preview.png": "artifacts/previews/nighttime-preview.png",
+    "preview/pack-grid-landscape.png": "artifacts/previews/pack-grid-landscape.png",
+    "preview/pack-grid-portrait.png": "artifacts/previews/pack-grid-portrait.png",
+    "preview/player-chop.png": "artifacts/previews/player-chop.png",
+    "preview/player-run.png": "artifacts/previews/player-run.png",
+    "preview/player-thrust.png": "artifacts/previews/player-thrust.png",
+    "preview/prefab-preview.png": "artifacts/previews/prefab-preview.png",
+    "preview/prefab-riding-preview.png": "artifacts/previews/prefab-riding-preview.png",
+    "preview/sunset-preview.png": "artifacts/previews/sunset-preview.png",
+    "preview/weather-fog-preview.png": "artifacts/previews/weather-fog-preview.png",
+    "preview/weather-storm-preview.png": "artifacts/previews/weather-storm-preview.png",
+    "preview/wildlife-preview.png": "artifacts/previews/wildlife-preview.png"
+  },
+  "checks": {
+    "registeredResourcesExist": 190,
+    "pythonToolSyntax": "passed",
+    "evidenceJsonSyntax": "passed",
+    "markdownLinks": "passed",
+    "gdevelopValidation": {
+      "valid": true,
+      "structurallyValid": true,
+      "eventCodeGenerationValid": true,
+      "extensionGeneratedCodeValid": true,
+      "javascriptAuthoringValid": true,
+      "semanticLintPassed": true,
+      "runtimeVerified": false
+    }
+  },
+  "blenderSources": [
+    {
+      "file": "sources/environment/coastal-environment.blend",
+      "objects": 2,
+      "actions": 0,
+      "repairedReferences": [
+        {
+          "image": "coastal-sky.png",
+          "old": "//coastal-sky.png",
+          "new": "//..\\..\\assets\\environment\\coastal-sky.png"
+        }
+      ],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/axe-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/build-campfire-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/build-palisade-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/build-shelter-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/combat-spear-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/gathering-source.blend",
+      "objects": 4,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/island-expanded-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/island-source.blend",
+      "objects": 3,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/modular-ceiling-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/modular-door-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/modular-doorframe-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/modular-foundation-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/modular-pillar-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/modular-stairs-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/modular-wall-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/parasaur-animated-source.blend",
+      "objects": 2,
+      "actions": 2,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/raptor-source.blend",
+      "objects": 2,
+      "actions": 3,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/seated-rider-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/stegosaur-source.blend",
+      "objects": 2,
+      "actions": 2,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/survival-flame-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/survival-forge-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/survival-hearth-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/survival-ore-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/survival-spring-source.blend",
+      "objects": 1,
+      "actions": 0,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/survivor-animated-source.blend",
+      "objects": 2,
+      "actions": 8,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/survivor-jump-source.blend",
+      "objects": 2,
+      "actions": 12,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/triceratops-source.blend",
+      "objects": 2,
+      "actions": 2,
+      "repairedReferences": [],
+      "missingDependencies": []
+    },
+    {
+      "file": "sources/models/tyrannosaur-source.blend",
+      "objects": 2,
+      "actions": 3,
+      "repairedReferences": [],
+      "missingDependencies": []
+    }
+  ],
+  "concurrentChanges": {
+    "commits": [
+      "090f047",
+      "56bf8a5"
+    ],
+    "paths": [
+      "scenes/Game/external-events/TouchInput.events",
+      "tests/TouchControls.js"
+    ],
+    "note": "Separate touch-input work committed during organization; preserved and excluded from the directory change."
+  },
+  "limitations": [
+    "No gameplay test or preview rerun for this auxiliary-only change. Historical reports were moved, not re-executed.",
+    "Existing asset manifests and HDR inputs stay beside runtime assets. Source-generation scripts were syntax checked, not re-executed."
+  ]
+}

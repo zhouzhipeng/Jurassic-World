@@ -1,6 +1,8 @@
 """Original timber kit: 3 m sockets, 3 m stories, model origins at socket base."""
 import bpy, json
 from pathlib import Path
+SOURCE_DIR = Path(__file__).resolve().parents[1] / 'sources/models'
+SOURCE_DIR.mkdir(parents=True, exist_ok=True)
 P=Path(__file__).resolve().parents[1]/'assets/models'
 bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
 def mat(n,c,a=1):
@@ -50,7 +52,7 @@ for name in ['foundation','pillar','wall','doorframe','ceiling','door','stairs']
  bpy.ops.object.select_all(action='SELECT'); bpy.context.view_layer.objects.active=bpy.context.selected_objects[0]; bpy.ops.object.join(); o=bpy.context.object; o.name='Modular_'+name
  bpy.context.scene.cursor.location=(0,0,0); bpy.ops.object.origin_set(type='ORIGIN_CURSOR'); bpy.ops.object.transform_apply(location=False,rotation=True,scale=True); bpy.context.view_layer.update()
  dims=list(o.dimensions); triangles=sum(len(p.vertices)-2 for p in o.data.polygons)
- bpy.ops.wm.save_as_mainfile(filepath=str(P/f'modular-{name}-source.blend'))
+ bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE_DIR/f'modular-{name}-source.blend'))
  for suffix,color in [('',None),('-valid',(.12,.85,.52)),('-invalid',(.95,.16,.10))]:
   if color:
    o.data.materials.clear(); o.data.materials.append(mat(name+suffix,color,.38))

@@ -67,7 +67,7 @@
   "screenshot": {
     "success": true,
     "running": true,
-    "filePath": "C:/Users/Administrator/Documents/Codex/2026-09-18/new-chat/outputs/JurassicWorld/docs/verification/camera-orbit-stutter.png",
+    "filePath": "artifacts/verification/legacy/camera-orbit-stutter.png",
     "width": 3014,
     "height": 1800,
     "source": "renderer-canvas",

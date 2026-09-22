@@ -1,11 +1,9 @@
 {
-  "sourceCommit": "448d2ab",
-  "sourceCommitMessage": "Separate building controls on short touch screens",
+  "sourceCommit": "96349d8",
+  "sourceCommitMessage": "Keep selected food distinct from automatic supplies",
   "implementationCommits": [
-    "9084191 Add mobile-first touch controls and responsive survival menus",
-    "5834a6c Refine touch feedback and enable building placement",
-    "b42ce6b Polish portrait touch targets and construction feedback",
-    "448d2ab Separate building controls on short touch screens"
+    "f5eb6fb Restore touch backpack with item icon grid and explicit actions",
+    "96349d8 Keep selected food distinct from automatic supplies"
   ],
   "validation": {
     "valid": true,
@@ -24,8 +22,8 @@
         "index": 0,
         "type": "object_count",
         "passed": true,
-        "actual": 24,
-        "expected": 24,
+        "actual": 44,
+        "expected": 44,
         "operator": "eq",
         "objectName": "TouchButton"
       },
@@ -33,28 +31,13 @@
         "index": 1,
         "type": "object_count",
         "passed": true,
-        "actual": 1,
-        "expected": 1,
+        "actual": 14,
+        "expected": 14,
         "operator": "eq",
-        "objectName": "TouchStick"
+        "objectName": "PackIcon"
       },
       {
         "index": 2,
-        "type": "instance_position_finite",
-        "passed": true,
-        "actual": {
-          "x": 650,
-          "y": 200,
-          "z": 0,
-          "angle": 180,
-          "layer": "World3D",
-          "zOrder": 0
-        },
-        "expected": "finite x/y/z (when z is present)",
-        "objectName": "Player3D"
-      },
-      {
-        "index": 3,
         "type": "runtime_error_count",
         "passed": true,
         "actual": 0,
@@ -63,23 +46,44 @@
       }
     ]
   },
+  "preview": {
+    "portrait": {
+      "path": "artifacts/previews/pack-grid-portrait.png",
+      "width": 843,
+      "height": 1800,
+      "reviewed": true
+    },
+    "landscape": {
+      "path": "artifacts/previews/pack-grid-landscape.png",
+      "width": 3196,
+      "height": 1800,
+      "reviewed": true,
+      "pixelHash": "86db9f14fa674b3563deb15cd4f7406301f3c104b31d1ae1235506a45ec98668"
+    }
+  },
+  "notes": [
+    "Native IfDo inventory UI reuses existing stock, consumption, recipe, input and persistence systems.",
+    "No new inventory extension was needed for this project-specific UI.",
+    "Gameplay tests simulate touch input; screenshots use actual resized preview windows. No physical mobile device run."
+  ],
   "gameplay": {
-    "operationId": "gameplay-tests-1291d1f2-f0a3-4fd3-bcdd-ee2bf97bc7a2",
+    "operationId": "gameplay-tests-0c51d0e7-2ff8-40c5-9a44-8f7b68cf9328",
     "status": "completed",
     "summary": {
-      "total": 18,
-      "completed": 18,
-      "passed": 18,
+      "total": 19,
+      "completed": 19,
+      "passed": 19,
       "failed": 0,
       "error": 0,
       "stopped": 0,
       "timeout": 0,
       "all_passed": true
     },
-    "totalAssertions": 206,
-    "tests": [
+    "assertionCount": 232,
+    "results": [
       {
         "name": "ConstructionPlacement",
+        "file": "tests/ConstructionPlacement.js",
         "status": "passed",
         "assertions": [
           {
@@ -115,10 +119,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 34
       },
       {
         "name": "ConstructionSupport",
+        "file": "tests/ConstructionSupport.js",
         "status": "passed",
         "assertions": [
           {
@@ -170,10 +176,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 75
       },
       {
         "name": "ConstructionDoors",
+        "file": "tests/ConstructionDoors.js",
         "status": "passed",
         "assertions": [
           {
@@ -209,10 +217,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 209
       },
       {
         "name": "ConstructionStairs",
+        "file": "tests/ConstructionStairs.js",
         "status": "passed",
         "assertions": [
           {
@@ -256,10 +266,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 250
       },
       {
         "name": "ConstructionPersistence",
+        "file": "tests/ConstructionPersistence.js",
         "status": "passed",
         "assertions": [
           {
@@ -319,10 +331,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 59
       },
       {
         "name": "WeatherCycle",
+        "file": "tests/WeatherCycle.js",
         "status": "passed",
         "assertions": [
           {
@@ -386,10 +400,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 1439
       },
       {
         "name": "WeatherPersistence",
+        "file": "tests/WeatherPersistence.js",
         "status": "passed",
         "assertions": [
           {
@@ -413,10 +429,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 142
       },
       {
         "name": "DayNightCycle",
+        "file": "tests/DayNightCycle.js",
         "status": "passed",
         "assertions": [
           {
@@ -524,10 +542,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 2142
       },
       {
         "name": "DayNightPersistence",
+        "file": "tests/DayNightPersistence.js",
         "status": "passed",
         "assertions": [
           {
@@ -555,10 +575,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 172
       },
       {
         "name": "SurvivalSupplies",
+        "file": "tests/SurvivalSupplies.js",
         "status": "passed",
         "assertions": [
           {
@@ -626,10 +648,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 729
       },
       {
         "name": "CompanionGathering",
+        "file": "tests/CompanionGathering.js",
         "status": "passed",
         "assertions": [
           {
@@ -661,10 +685,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 1372
       },
       {
         "name": "MetalProgression",
+        "file": "tests/MetalProgression.js",
         "status": "passed",
         "assertions": [
           {
@@ -732,10 +758,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 2435
       },
       {
         "name": "SurvivalExposure",
+        "file": "tests/SurvivalExposure.js",
         "status": "passed",
         "assertions": [
           {
@@ -771,10 +799,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 2737
       },
       {
         "name": "SurvivalPersistence",
+        "file": "tests/SurvivalPersistence.js",
         "status": "passed",
         "assertions": [
           {
@@ -822,10 +852,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 707
       },
       {
         "name": "TouchControls",
+        "file": "tests/TouchControls.js",
         "status": "passed",
         "assertions": [
           {
@@ -861,10 +893,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 94
       },
       {
         "name": "TouchSurvival",
+        "file": "tests/TouchSurvival.js",
         "status": "passed",
         "assertions": [
           {
@@ -908,10 +942,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 799
       },
       {
         "name": "TouchMenus",
+        "file": "tests/TouchMenus.js",
         "status": "passed",
         "assertions": [
           {
@@ -959,10 +995,12 @@
             "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 116
       },
       {
         "name": "TouchResponsive",
+        "file": "tests/TouchResponsive.js",
         "status": "passed",
         "assertions": [
           {
@@ -986,6 +1024,18 @@
             "passed": true
           },
           {
+            "message": "Twenty square inventory targets fit 1600 x 900",
+            "passed": true
+          },
+          {
+            "message": "Inventory slots, actions and close button do not overlap at 1600 x 900",
+            "passed": true
+          },
+          {
+            "message": "Inventory labels and details stay on screen at 1600 x 900",
+            "passed": true
+          },
+          {
             "message": "All play controls fit 1155.5555555555557 x 650",
             "passed": true
           },
@@ -1003,6 +1053,18 @@
           },
           {
             "message": "Building controls fit without overlap at 1155.5555555555557 x 650",
+            "passed": true
+          },
+          {
+            "message": "Twenty square inventory targets fit 1155.5555555555557 x 650",
+            "passed": true
+          },
+          {
+            "message": "Inventory slots, actions and close button do not overlap at 1155.5555555555557 x 650",
+            "passed": true
+          },
+          {
+            "message": "Inventory labels and details stay on screen at 1155.5555555555557 x 650",
             "passed": true
           },
           {
@@ -1024,84 +1086,100 @@
           {
             "message": "Building controls fit without overlap at 2133.3333333333335 x 1200",
             "passed": true
+          },
+          {
+            "message": "Twenty square inventory targets fit 2133.3333333333335 x 1200",
+            "passed": true
+          },
+          {
+            "message": "Inventory slots, actions and close button do not overlap at 2133.3333333333335 x 1200",
+            "passed": true
+          },
+          {
+            "message": "Inventory labels and details stay on screen at 2133.3333333333335 x 1200",
+            "passed": true
           }
         ],
-        "errors": []
+        "errors": [],
+        "framesExecuted": 76
+      },
+      {
+        "name": "TouchInventoryGrid",
+        "file": "tests/TouchInventoryGrid.js",
+        "status": "passed",
+        "assertions": [
+          {
+            "message": "Opening the backpack shows twenty slots with fourteen item icons",
+            "passed": true
+          },
+          {
+            "message": "Tapping the berry icon selects details without eating or closing the backpack",
+            "passed": true
+          },
+          {
+            "message": "Only the selected slot has a highlight and the badge reflects the actual stock",
+            "passed": true
+          },
+          {
+            "message": "Dragging out of a slot cancels the selection and does not rotate the camera",
+            "passed": true
+          },
+          {
+            "message": "Empty slots consume the touch without triggering an action",
+            "passed": true
+          },
+          {
+            "message": "The explicit eat button consumes exactly one berry and returns to play",
+            "passed": true
+          },
+          {
+            "message": "Reopening the inventory refreshes the quantity after use",
+            "passed": true
+          },
+          {
+            "message": "The food action is disabled when already full",
+            "passed": true
+          },
+          {
+            "message": "Selecting cooked meat uses its separate food action",
+            "passed": true
+          },
+          {
+            "message": "An exhausted stack stays visible with zero quantity and cannot be consumed",
+            "passed": true
+          },
+          {
+            "message": "Equipping the axe preserves the item and the open backpack",
+            "passed": true
+          },
+          {
+            "message": "The spear has its own explicit equip action",
+            "passed": true
+          },
+          {
+            "message": "Quick crafting updates the stock badges and charges the native recipe once",
+            "passed": true
+          },
+          {
+            "message": "Crafting is disabled when materials are missing",
+            "passed": true
+          },
+          {
+            "message": "The water bag shows remaining drinks instead of the character water stat",
+            "passed": true
+          },
+          {
+            "message": "Closing the backpack hides all inventory contents",
+            "passed": true
+          },
+          {
+            "message": "Quick supplies still choose cooked meat while explicit inventory selection uses the chosen food",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "framesExecuted": 175
       }
     ]
-  },
-  "screenshots": [
-    {
-      "file": "artifacts/touch-landscape.png",
-      "width": 3196,
-      "height": 1800,
-      "source": "renderer-canvas",
-      "exactGameResolution": true,
-      "quality": {
-        "analyzed": true,
-        "dimensionsMatch": true,
-        "blackRatio": 0,
-        "transparentRatio": 0,
-        "suspicious": false,
-        "pixelHash": "ace50d389c2b61de3f6e586d92f1fc388f7248f5abd07ac97857950324d46e09"
-      },
-      "capturedAt": 1789899791738
-    },
-    {
-      "file": "artifacts/touch-portrait.png",
-      "width": 843,
-      "height": 1800,
-      "source": "renderer-canvas",
-      "exactGameResolution": true,
-      "quality": {
-        "analyzed": true,
-        "dimensionsMatch": true,
-        "blackRatio": 0,
-        "transparentRatio": 0,
-        "suspicious": false,
-        "pixelHash": "e8a2468a12127df9be37944e12c77dffb51307f413fca2c1fb1d930a3ece5068"
-      },
-      "capturedAt": 1789899856158
-    },
-    {
-      "file": "artifacts/touch-backpack.png",
-      "width": 843,
-      "height": 1800,
-      "source": "renderer-canvas",
-      "exactGameResolution": true,
-      "quality": {
-        "analyzed": true,
-        "dimensionsMatch": true,
-        "blackRatio": 0,
-        "transparentRatio": 0,
-        "suspicious": false,
-        "pixelHash": "c4d61d0fe265add19f815fbb969ac5426f3c457a7de81d3dec0012b9d2d1f6f3"
-      },
-      "capturedAt": 1789899869516
-    },
-    {
-      "file": "artifacts/touch-building-menu.png",
-      "width": 843,
-      "height": 1800,
-      "source": "renderer-canvas",
-      "exactGameResolution": true,
-      "quality": {
-        "analyzed": true,
-        "dimensionsMatch": true,
-        "blackRatio": 0,
-        "transparentRatio": 0,
-        "suspicious": false,
-        "pixelHash": "b20feabe9988bbd442e571fc834e09c0e074463472599590bd8aac5f8db9c8f6"
-      },
-      "capturedAt": 1789899869828
-    }
-  ],
-  "visualQA": {
-    "method": "Resized the actual Electron preview with Computer Use. Stepped paused runtime after each resize, then inspected intrinsic game canvas captures.",
-    "landscapeAspect": 1.7755555555555556,
-    "portraitAspect": 0.4683333333333333,
-    "menus": "Menu states arranged with set_runtime_state for screenshots; actual touch interactions separately verified by authored gameplay tests.",
-    "observed": "Landscape play controls, portrait play controls, single-column backpack and all eight building cards fit visibly; labels were inspected.",
-    "physicalMobileBrowsersTested": false
   }
 }
