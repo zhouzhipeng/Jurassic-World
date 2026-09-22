@@ -4,7 +4,7 @@
     0.3410000205039978,
     1.713175654411316
   ],
-  "triangles": 26052,
+  "triangles": 26932,
   "bones": [
     "Root",
     "Hips",
@@ -30,6 +30,6 @@
     "Talk": 80,
     "Injured": 80
   },
-  "glbBytes": 807332,
+  "glbBytes": 831736,
   "originalAsset": true
 }

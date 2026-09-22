@@ -54,8 +54,16 @@ def rings(n,levels,c,b,sides=32):
 bones=[('Root',(0,0,0),None),('Hips',(0,0,.86),'Root'),('Spine',(0,0,1.03),'Hips'),('Head',(0,0,1.39),'Spine')]
 # Tailored silhouette: layered wrap tunic, narrow belt and split walking skirt.
 rings('WovenTunic',[(.86,.225,.125,0),(.95,.175,.105,0),(1.07,.165,.11,0),(1.19,.21,.135,-.005),(1.30,.235,.115,0),(1.35,.18,.09,0),(1.38,.08,.065,0)],'cloth','Spine')
-rings('WrapSkirt',[(.60,.285,.165,0),(.70,.27,.155,0),(.86,.232,.14,0),(.94,.185,.115,0)],'teal','Hips')
-rings('Hem',[(.60,.289,.168,0),(.625,.285,.168,0)],'trim','Hips')
+skirt=rings('WrapSkirt',[(.60,.285,.165,0),(.70,.27,.155,0),(.86,.232,.14,0),(.94,.185,.115,0)],'teal','Hips')
+hem=rings('Hem',[(.60,.289,.168,0),(.625,.285,.168,0)],'trim','Hips')
+for garment in [skirt,hem]:
+ for side in ['L','R']:garment.vertex_groups.new(name='Thigh'+side)
+ for v in garment.data.vertices:
+  w=max(0,min(1,(.88-v.co.z)/.20))
+  garment.vertex_groups['Hips'].add([v.index],1-w,'REPLACE')
+  left=max(0,min(1,(v.co.x+.06)/.12))
+  garment.vertex_groups['ThighL'].add([v.index],w*left,'REPLACE')
+  garment.vertex_groups['ThighR'].add([v.index],w*(1-left),'REPLACE')
 rings('Belt',[(.91,.193,.122,0),(.96,.183,.12,0)],'leather','Hips')
 ell('Buckle',(0,-.13,.935),(.036,.015,.03),'ivory','Hips')
 for s,side in [(-1,'R'),(1,'L')]:
@@ -64,6 +72,7 @@ for s,side in [(-1,'R'),(1,'L')]:
  bones += [('Thigh'+side,hip,'Hips'),('Shin'+side,knee,'Thigh'+side),('Foot'+side,ankle,'Shin'+side),('Arm'+side,shoulder,'Spine'),('Forearm'+side,elbow,'Arm'+side),('Hand'+side,wrist,'Forearm'+side)]
  tube('LegUpper'+side,[hip,(s*.12,0,.64),knee],[.085,.084,.059],'cloth','Thigh'+side)
  tube('LegLower'+side,[knee,(s*.12,.005,.31),ankle],[.062,.055,.035],'skin','Shin'+side)
+ ell('Knee'+side,knee,(.06,.06,.062),'skin','Shin'+side)
  ell('Boot'+side,(s*.12,-.045,.058),(.065,.128,.057),'leather','Foot'+side)
  tube('BootCuff'+side,[(s*.12,0,.07),(s*.12,0,.21)],[.049,.053],'leather','Shin'+side)
  for z in [.10,.145,.19]:tube('Laces'+side,[(s*.12-.042,-.032,z),(s*.12,-.058,z+.008),(s*.12+.042,-.032,z)],[.006]*3,'cloth','Shin'+side,6)
@@ -143,7 +152,7 @@ for clip,length in clips.items():
    for side,phase in [('R',p),('L',p+math.pi)]:
     swing=math.sin(phase);rot('Thigh'+side,-.33*swing);rot('Shin'+side,max(0,swing)*.45);rot('Arm'+side,.24*swing);rot('Forearm'+side,-.14-.05*swing)
   if clip in ['Rest','Injured']:
-   arm.pose.bones['Hips'].location.y=-.49;rot('ThighR',-1.15);rot('ThighL',-1.1);rot('ShinR',1.5);rot('ShinL',1.5)
+   arm.pose.bones['Hips'].location.y=-.33;rot('ThighR',-1.0);rot('ThighL',-1.0);rot('ShinR',2.0);rot('ShinL',2.0);rot('FootR',-1.0);rot('FootL',-1.0)
    rot('Spine',.16+.018*math.sin(p));rot('Head',.12);rot('ArmR',-.38);rot('ArmL',-.38);rot('ForearmR',-.6);rot('ForearmL',-.6)
   if clip=='Talk':rot('Head',.025*math.sin(p),0,.05*math.sin(p));rot('ArmL',-.3-.12*math.sin(p));rot('ForearmL',-.55-.12*math.sin(p))
   for pb in arm.pose.bones:

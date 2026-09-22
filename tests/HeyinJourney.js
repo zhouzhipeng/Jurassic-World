@@ -24,7 +24,8 @@ try {
  harness.setSceneVariable('HeyinEnergy',4);await harness.stepFrames(3);
  harness.assert(n('HeyinResting')===1 && obj('Heyin').animation==='Rest','Low energy triggers the authored rest pose');
  await harness.stepFrames(760);harness.assert(n('HeyinResting')===0,'Rest automatically recovers with a separate resume threshold');
- for(const [x,y] of [[0,900],[700,950],[1300,850],[1580,680]]){await move(x,y);await harness.stepFrames(190);}
+ // Pass north of the four jump platforms; a follower should not cross them.
+ for(const [x,y] of [[0,0],[650,-50],[1350,-50],[1580,680]]){await move(x,y);await harness.stepFrames(190);}
  await tap('g');harness.assert(n('HeyinStage')===4,'Arriving together and interacting identifies the mother’s knot');
  const f=n('Fiber'),b=n('Berries');await tap('g');harness.assert(n('HeyinStage')===4&&n('Fiber')===f&&n('Berries')===b,'Repeated conversation cannot duplicate rescue costs or clue progress');
  // Arrange a blocked approach after verifying the entire quest by input.

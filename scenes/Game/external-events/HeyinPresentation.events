@@ -33,6 +33,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do Show object="HeyinStory"
+do TextObject::SetWrapping object="HeyinStory" wrapping=true
 do SetX object="HeyinStory" modification_sign="=" value=24
 do SetY object="HeyinStory" modification_sign="=" value=expr(min(SceneWindowHeight()*0.28,210))
 do TextObject::WrappingWidth object="HeyinStory" modification_sign="=" value=expr(min(620,SceneWindowWidth()-48))
