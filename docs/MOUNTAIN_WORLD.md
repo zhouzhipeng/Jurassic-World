@@ -27,3 +27,5 @@ GLB、雷达 SVG 与新 blend。网格分块调用现有 `partition_island.py`�
 验收测试：`tests/MountainRadar.js`，包含实际模型射线高度比对、爬坡、跳跃、
 旧边界外移动、骑乘高度、资源身份、恐龙数量、三种尺寸雷达及菜单显隐。
 本轮运行结果与源码提交号见 `artifacts/verification/mountain-radar-v1/`。
+
+后续性能与镜头控制调整见 `docs/WORLD_PERFORMANCE.md`。

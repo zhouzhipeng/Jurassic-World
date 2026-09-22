@@ -53,4 +53,6 @@
 
 编辑当前游戏应遵守 `skills/gdevelop-project-files/SKILL.md`。新增工具应声明用途、依赖、输入、输出、覆盖范围及是否支持重复执行；临时输出统一到 `tmp/`。
 
+`build_camera_bounds.py`：通过 Blender 后台执行，参数 `-- <绝对输出 JSON 路径>`。只读山地 blend，排除规则地面网格，输出各连通景物部件的相机包围盒；可重复运行，仅覆盖指定 JSON。安装时同步 `scene.settings` 的 `CameraSceneryBounds`，然后校验与验收。详见 `docs/WORLD_PERFORMANCE.md`。
+
 `check_heyin_asset.py`：通过 Blender 后台运行，参数 `-- <绝对模型目录> <绝对报告目录>`，读取该目录的 `heyin.glb` 与 `heyin-source.blend`，检查五个动作、骨架、贴图依赖和 19 个姿态的脚部支撑，输出 JSON 与姿态渲染，不改模型。

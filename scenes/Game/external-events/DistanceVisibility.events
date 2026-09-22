@@ -5,12 +5,12 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each Triceratops
 
 >> @event
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Triceratops.X(),Triceratops.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Triceratops.X(),Triceratops.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=3200
 >> do Hide object="Triceratops"
 >> do SetNumberObjectVariable object="Triceratops" variable="AnimationPlaying" modification_sign="=" value=0
 
 >> @event
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Triceratops.X(),Triceratops.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Triceratops.X(),Triceratops.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=2800
 >> if NumberObjectVariable object="Triceratops" variable="HP" comparison_sign=">" value=0
 >> do Show object="Triceratops"
 
@@ -19,12 +19,12 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each Stegosaur
 
 >> @event
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Stegosaur.X(),Stegosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Stegosaur.X(),Stegosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=3200
 >> do Hide object="Stegosaur"
 >> do SetNumberObjectVariable object="Stegosaur" variable="AnimationPlaying" modification_sign="=" value=0
 
 >> @event
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Stegosaur.X(),Stegosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Stegosaur.X(),Stegosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=2800
 >> if NumberObjectVariable object="Stegosaur" variable="HP" comparison_sign=">" value=0
 >> do Show object="Stegosaur"
 
@@ -33,12 +33,12 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each Raptor
 
 >> @event
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=3200
 >> do Hide object="Raptor"
 >> do SetNumberObjectVariable object="Raptor" variable="AnimationPlaying" modification_sign="=" value=0
 
 >> @event
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Raptor.X(),Raptor.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=2800
 >> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
 >> do Show object="Raptor"
 
@@ -47,12 +47,12 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each Tyrannosaur
 
 >> @event
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=4200
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign=">" second_expression=3200
 >> do Hide object="Tyrannosaur"
 >> do SetNumberObjectVariable object="Tyrannosaur" variable="AnimationPlaying" modification_sign="=" value=0
 
 >> @event
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=3800
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Tyrannosaur.X(),Tyrannosaur.Y(),Player3D.X(),Player3D.Y())) comparison_sign="<" second_expression=2800
 >> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
 >> do Show object="Tyrannosaur"
 
