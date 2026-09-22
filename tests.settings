@@ -272,3 +272,11 @@ name = "PlayerOcclusionOutline"
 type = "gameplay"
 description = "Tree and solid obstruction silhouette triggers, clear-view restoration, hidden blockers and original-body animation without a duplicate model."
 file = "tests/PlayerOcclusionOutline.js"
+
+[[tests]]
+scope = "project"
+order = 34
+name = "CampHouseEntry"
+type = "gameplay"
+description = "Walk and touch through the camp doorway, stand on the floor, exit and retain solid walls."
+file = "tests/CampHouseEntry.js"

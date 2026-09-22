@@ -1323,6 +1323,27 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 do SetNumberVariable variable="FloorTarget" modification_sign="=" value=0
 
+@event aiGeneratedEventId="camp-house-step-support"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">=" value=-1000
+if PosX object="Player3D" comparison_sign="<=" value=-800
+if PosY object="Player3D" comparison_sign=">=" value=-400
+if PosY object="Player3D" comparison_sign="<=" value=-335
+do SetNumberVariable variable="FloorTarget" modification_sign="=" value=10
+
+@event aiGeneratedEventId="camp-house-floor-support"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">=" value=-1200
+if PosX object="Player3D" comparison_sign="<=" value=-600
+if PosY object="Player3D" comparison_sign=">=" value=-960
+if PosY object="Player3D" comparison_sign="<=" value=-400
+do SetNumberVariable variable="FloorTarget" modification_sign="=" value=30.5
+
+
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1

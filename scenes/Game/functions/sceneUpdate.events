@@ -120,13 +120,60 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 do SetX object="Player3D" modification_sign="+" value=expr((MoveX * cos(ToRad(CameraYaw)) + MoveY * sin(ToRad(CameraYaw))) * MoveSpeed * TimeDelta())
 do SetY object="Player3D" modification_sign="+" value=expr((MoveY * cos(ToRad(CameraYaw)) - MoveX * sin(ToRad(CameraYaw))) * MoveSpeed * TimeDelta())
 
-@event
+@comment "Camp house walls follow island geometry at 100 units/metre, with 35 units of player clearance. The front opening stays walkable." background=[90,150,180] text=[255,255,255]
+
+@event aiGeneratedEventId="camp-house-left"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
-if PosX object="Player3D" comparison_sign=">" value=-1250
-if PosX object="Player3D" comparison_sign="<" value=-550
-if PosY object="Player3D" comparison_sign=">" value=-1010
-if PosY object="Player3D" comparison_sign="<" value=-380
+if PosX object="Player3D" comparison_sign=">" value=-1244
+if PosX object="Player3D" comparison_sign="<" value=-1156
+if PosY object="Player3D" comparison_sign=">" value=-1004
+if PosY object="Player3D" comparison_sign="<" value=-396
+do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@event aiGeneratedEventId="camp-house-right"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">" value=-644
+if PosX object="Player3D" comparison_sign="<" value=-556
+if PosY object="Player3D" comparison_sign=">" value=-1004
+if PosY object="Player3D" comparison_sign="<" value=-396
+do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@event aiGeneratedEventId="camp-house-rear"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">" value=-1244
+if PosX object="Player3D" comparison_sign="<" value=-556
+if PosY object="Player3D" comparison_sign=">" value=-1004
+if PosY object="Player3D" comparison_sign="<" value=-916
+do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@event aiGeneratedEventId="camp-house-front-left"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">" value=-1244
+if PosX object="Player3D" comparison_sign="<" value=-995
+if PosY object="Player3D" comparison_sign=">" value=-484
+if PosY object="Player3D" comparison_sign="<" value=-396
+do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@event aiGeneratedEventId="camp-house-front-right"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">" value=-805
+if PosX object="Player3D" comparison_sign="<" value=-556
+if PosY object="Player3D" comparison_sign=">" value=-484
+if PosY object="Player3D" comparison_sign="<" value=-396
 do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
