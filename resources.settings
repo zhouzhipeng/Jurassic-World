@@ -1709,121 +1709,19 @@ file = "assets/models/terrain-probes/terrain-probe-18.glb"
 metadata = ""
 userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-19.glb"
-file = "assets/models/terrain-probes/terrain-probe-19.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-20.glb"
-file = "assets/models/terrain-probes/terrain-probe-20.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-21.glb"
-file = "assets/models/terrain-probes/terrain-probe-21.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-22.glb"
-file = "assets/models/terrain-probes/terrain-probe-22.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-23.glb"
-file = "assets/models/terrain-probes/terrain-probe-23.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-24.glb"
-file = "assets/models/terrain-probes/terrain-probe-24.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-25.glb"
-file = "assets/models/terrain-probes/terrain-probe-25.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-26.glb"
-file = "assets/models/terrain-probes/terrain-probe-26.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-27.glb"
-file = "assets/models/terrain-probes/terrain-probe-27.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-28.glb"
-file = "assets/models/terrain-probes/terrain-probe-28.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-29.glb"
-file = "assets/models/terrain-probes/terrain-probe-29.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-30.glb"
-file = "assets/models/terrain-probes/terrain-probe-30.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-31.glb"
-file = "assets/models/terrain-probes/terrain-probe-31.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-32.glb"
-file = "assets/models/terrain-probes/terrain-probe-32.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-33.glb"
-file = "assets/models/terrain-probes/terrain-probe-33.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-34.glb"
-file = "assets/models/terrain-probes/terrain-probe-34.glb"
-metadata = ""
-userAdded = true
 
-[[resources]]
-kind = "model3D"
-name = "terrain-probe-35.glb"
-file = "assets/models/terrain-probes/terrain-probe-35.glb"
-metadata = ""
-userAdded = true

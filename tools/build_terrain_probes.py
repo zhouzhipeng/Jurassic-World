@@ -7,10 +7,11 @@ import copy, json, math, struct, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
-from partition_island import read_glb, signature
+from partition_island import read_glb, signature, partition
 outdir=Path(sys.argv[sys.argv.index('--')+1]).resolve()
 outdir.mkdir(parents=True,exist_ok=True)
-doc,binary=read_glb(ROOT/'assets/models/island.glb')
+partition(ROOT/'assets/models/island-camera-scenery.glb',outdir/'scenery-partitioned.glb')
+doc,binary=read_glb(outdir/'scenery-partitioned.glb')
 assert len(doc['meshes'])==1 and len(doc['nodes'])==1
 groups={}
 for p in doc['meshes'][0]['primitives']:

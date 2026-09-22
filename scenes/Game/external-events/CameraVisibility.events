@@ -167,6 +167,55 @@ if (player) {
     [object.getUniqueId(), object.getX(), object.getY(), object.getAngle(),
       object.getWidth(), object.getHeight()])].join(":");
   const terrainCache = follow.getChild("TerrainRayCache");
+  // Exact intersection with the authored 1 m triangular height grid. Traverse
+  // only crossed cells, split at the triangle diagonal, solve each linear
+  // interval, and cache immutable grid vertices across frames.
+  const groundVertices = follow.getChild("GroundVertices");
+  const hills = [[800,-2100,2000,1700,1100],[-2250,600,1100,1700,650],
+    [2350,300,1200,1800,950],[-2050,-2400,1400,1300,1000],
+    [-4200,-4050,2000,2100,2350],[2200,-4450,2600,1600,2800],
+    [4450,1400,1800,2700,1850],[-2900,3950,2500,1500,1250]];
+  const vertexHeight = (ix=0,iy=0) => {
+    const key=ix+":"+iy;
+    if (!groundVertices.hasChild(key)) {
+      const px=ix*100,py=iy*100;
+      let height=0;
+      for (const [hx,hy,rx,ry,a] of hills) {
+        const u=(px-hx)/rx,v=(py-hy)/ry,w=Math.max(0,1-u*u-v*v);
+        height+=a*w*w;
+      }
+      height-=Math.max(0,300-Math.min(6400-Math.abs(px),6200-py,py+6700))*.8;
+      groundVertices.getChild(key).setNumber(height);
+    }
+    return groundVertices.getChild(key).getAsNumber();
+  };
+  const groundHeight = (px=0,py=0) => {
+    const ix=Math.floor(px/100),iy=Math.floor(py/100),u=px/100-ix,v=py/100-iy;
+    if (u+v<=1) return vertexHeight(ix,iy)*(1-u-v)+vertexHeight(ix+1,iy)*u+vertexHeight(ix,iy+1)*v;
+    return vertexHeight(ix+1,iy+1)*(u+v-1)+vertexHeight(ix,iy+1)*(1-u)+vertexHeight(ix+1,iy)*(1-v);
+  };
+  const castGround = (ox=0,oy=0,oz=0,dx=0,dy=0,dz=0,far=0) => {
+    if (!runtimeScene.getObjects("Island3D").some(object=>object.isVisible())) return -1;
+    let t=0;
+    for (let cell=0;cell<128 && t<far;cell++) {
+      const gx=Math.floor((ox+dx*(t+.000001))/100),gy=Math.floor((oy+dy*(t+.000001))/100);
+      const tx=Math.abs(dx)<.0000001 ? far : ((gx+(dx>0?1:0))*100-ox)/dx;
+      const ty=Math.abs(dy)<.0000001 ? far : ((gy+(dy>0?1:0))*100-oy)/dy;
+      let end=Math.min(far,tx,ty);
+      if (Math.abs(dx+dy)>.0000001) {
+        const diagonal=((gx+gy+1)*100-ox-oy)/(dx+dy);
+        if (diagonal>t+.000001 && diagonal<end) end=diagonal;
+      }
+      if (end<=t+.0000001) {t+=.000001;continue;}
+      if (gx>=-64 && gx<64 && gy>=-67 && gy<62) {
+        const a=oz+dz*t-groundHeight(ox+dx*t,oy+dy*t);
+        const b=oz+dz*end-groundHeight(ox+dx*end,oy+dy*end);
+        if (a>=0 && b<=0 && a>b) return t+(end-t)*a/(a-b);
+      }
+      t=end;
+    }
+    return -1;
+  };
   if (follow.getChild("TerrainRayKey").getAsString() !== terrainKey) {
     terrainCache.clearChildren();
     follow.getChild("TerrainRayKey").setString(terrainKey);
@@ -174,6 +223,13 @@ if (player) {
   const castSolids = (ox = 0, oy = 0, oz = 0, dx = 0, dy = 0, dz = 0, far = 0) => {
     const distances = liveBlockers.length ? gdjs.evtTools.scene3d.raycastObjects(
       ox, oy, oz, dx, dy, dz, liveBlockers, 0, far, true).map(hit => hit.distance) : [];
+    const ground=castGround(ox,oy,oz,dx,dy,dz,far);
+    if (ground>=0) {
+      distances.push(ground);
+      for (const [key,value] of Object.entries({X:ox,Y:oy,Z:oz,DX:dx,DY:dy,DZ:dz,Distance:ground})) {
+        follow.getChild("GroundRay").getChild(key).setNumber(value);
+      }
+    }
     for (const box of actorBounds) {
       const rx = ox - box.x, ry = oy - box.y;
       const origins = [rx * box.c + ry * box.s, -rx * box.s + ry * box.c, oz - box.z];

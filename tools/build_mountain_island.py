@@ -96,6 +96,14 @@ for n in range(90):
     bpy.context.object.name='Outer woodland trunk';bpy.context.object.data.materials.append(wood)
     ico('Outer woodland crown',(x,y,z+4*s),(1.9*s,1.6*s,1.35*s),leaf,2)
 
+# Export exact scenery separately from the regular height grid for camera
+# queries. The grid is intersected mathematically in CameraVisibility.events.
+bpy.ops.object.select_all(action='SELECT');terrain.select_set(False)
+bpy.context.view_layer.objects.active=old
+bpy.ops.object.convert(target='MESH');bpy.ops.object.join()
+bpy.context.scene.cursor.location=(0,0,0);bpy.ops.object.origin_set(type='ORIGIN_CURSOR')
+bpy.ops.object.transform_apply(location=False,rotation=True,scale=True)
+bpy.ops.export_scene.gltf(filepath=str(OUT/'island-camera-scenery.glb'),export_format='GLB',use_selection=True,export_apply=True,export_animations=False,export_cameras=False,export_lights=False)
 bpy.ops.object.select_all(action='SELECT');bpy.context.view_layer.objects.active=old
 bpy.ops.object.convert(target='MESH');bpy.ops.object.join();old.name='island'
 bpy.context.scene.cursor.location=(0,0,0);bpy.ops.object.origin_set(type='ORIGIN_CURSOR')

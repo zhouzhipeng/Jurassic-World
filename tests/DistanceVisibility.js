@@ -10,8 +10,17 @@ try {
   for (const [x,y] of [[650,200],[1700,-4100],[-3800,-3900],[4250,1800],[-2400,3900]]) {
     const full=gdjs.evtTools.scene3d.raycastObjects(x,y,8000,0,0,-1,scene.getObjects('Island3D'),0,9000,true);
     const tiles=gdjs.evtTools.scene3d.raycastObjects(x,y,8000,0,0,-1,probes,0,9000,true);
-    harness.assert(full.length>0 && tiles.length>0 && Math.abs(Math.min(...full.map(h=>h.distance))-Math.min(...tiles.map(h=>h.distance)))<.01,`Spatial query tiles match island at ${x},${y}; full=${full.slice(0,4).map(h=>h.distance)} tiles=${tiles.slice(0,8).map(h=>h.distance)}`);
+    harness.assert(tiles.length>0 && tiles.every(t=>full.some(f=>Math.abs(f.distance-t.distance)<.01)),`Spatial scenery hits belong to the visible island at ${x},${y}`);
   }
+  harness.setObjectPosition(player().id,0,-1500,0);
+  harness.setSceneVariable('CameraYaw',180);
+  harness.setSceneVariable('CameraPitch',12);
+  await harness.stepFrames(5);
+  const ray=harness.getSceneVariable('CameraFollow')?.children?.find(v=>v.name==='GroundRay');
+  const g=Object.fromEntries((ray?.children||[]).map(v=>[v.name,Number(v.value)]));
+  harness.assert(g.Distance>0,'Uphill camera exercises grid intersection');
+  const meshHits=gdjs.evtTools.scene3d.raycastObjects(g.X,g.Y,g.Z,g.DX,g.DY,g.DZ,scene.getObjects('Island3D'),0,g.Distance+1,true);
+  harness.assert(meshHits.some(h=>Math.abs(h.distance-g.Distance)<.05),'Direct height-grid intersection matches the rendered mountain triangles');
   for (const name of ['Stegosaur','Raptor','Tyrannosaur','WoodSapling','StoneDeposit','MetalDeposit','SpringWater']) {
     const away=name==='SpringWater' ? [-5500,5000] : [650,200];
     harness.setObjectPosition(player().id,away[0],away[1],0);
