@@ -110,11 +110,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudHunger" modification_sign="=" value=expr(HudMargin+65*HudScale)
 do SetY object="HudHunger" modification_sign="=" value=expr(HudMargin+61*HudScale)
-do TextObject::Text::SetFontSize object="HudHunger" modification_sign="=" value=expr(20*HudScale)
-do TextObject::SetWrapping object="HudHunger" wrapping=true
-do TextObject::WrappingWidth object="HudHunger" modification_sign="=" value=expr(136*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudHunger" behavior="Text" modification_sign="=" text=expr("饥饿       "+ToString(round(Hunger)))
-do TextObject::ChangeColor object="HudHunger" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudHunger" comparison_sign="!=" value=expr(20*HudScale)
+> or TextObject::WrappingWidth object="HudHunger" comparison_sign="!=" value=expr(136*HudScale)
+> do TextObject::Text::SetFontSize object="HudHunger" modification_sign="=" value=expr(20*HudScale)
+> do TextObject::SetWrapping object="HudHunger" wrapping=true
+> do TextObject::WrappingWidth object="HudHunger" modification_sign="=" value=expr(136*HudScale)
+> do TextObject::ChangeColor object="HudHunger" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -122,11 +126,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudWater" modification_sign="=" value=expr(HudMargin+259*HudScale)
 do SetY object="HudWater" modification_sign="=" value=expr(HudMargin+61*HudScale)
-do TextObject::Text::SetFontSize object="HudWater" modification_sign="=" value=expr(20*HudScale)
-do TextObject::SetWrapping object="HudWater" wrapping=true
-do TextObject::WrappingWidth object="HudWater" modification_sign="=" value=expr(136*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudWater" behavior="Text" modification_sign="=" text=expr("水分       "+ToString(round(Water)))
-do TextObject::ChangeColor object="HudWater" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudWater" comparison_sign="!=" value=expr(20*HudScale)
+> or TextObject::WrappingWidth object="HudWater" comparison_sign="!=" value=expr(136*HudScale)
+> do TextObject::Text::SetFontSize object="HudWater" modification_sign="=" value=expr(20*HudScale)
+> do TextObject::SetWrapping object="HudWater" wrapping=true
+> do TextObject::WrappingWidth object="HudWater" modification_sign="=" value=expr(136*HudScale)
+> do TextObject::ChangeColor object="HudWater" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -134,11 +142,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudStamina" modification_sign="=" value=expr(HudMargin+65*HudScale)
 do SetY object="HudStamina" modification_sign="=" value=expr(HudMargin+99*HudScale)
-do TextObject::Text::SetFontSize object="HudStamina" modification_sign="=" value=expr(20*HudScale)
-do TextObject::SetWrapping object="HudStamina" wrapping=true
-do TextObject::WrappingWidth object="HudStamina" modification_sign="=" value=expr(300*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudStamina" behavior="Text" modification_sign="=" text=expr("体力       "+ToString(round(Stamina)))
-do TextObject::ChangeColor object="HudStamina" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudStamina" comparison_sign="!=" value=expr(20*HudScale)
+> or TextObject::WrappingWidth object="HudStamina" comparison_sign="!=" value=expr(300*HudScale)
+> do TextObject::Text::SetFontSize object="HudStamina" modification_sign="=" value=expr(20*HudScale)
+> do TextObject::SetWrapping object="HudStamina" wrapping=true
+> do TextObject::WrappingWidth object="HudStamina" modification_sign="=" value=expr(300*HudScale)
+> do TextObject::ChangeColor object="HudStamina" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -146,11 +158,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudTime" modification_sign="=" value=expr((TouchWidth-310*HudScale)/2+58*HudScale)
 do SetY object="HudTime" modification_sign="=" value=expr(HudMargin+10*HudScale)
-do TextObject::Text::SetFontSize object="HudTime" modification_sign="=" value=expr(20*HudScale)
-do TextObject::SetWrapping object="HudTime" wrapping=true
-do TextObject::WrappingWidth object="HudTime" modification_sign="=" value=expr(242*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudTime" behavior="Text" modification_sign="=" text=expr("第 "+ToString(WorldDay)+" 天  |  "+ToString(floor(WorldMinutes/60))+":"+ToString(floor(mod(WorldMinutes,60)/10))+ToString(floor(mod(WorldMinutes,10)))+"  |  "+WeatherName)
-do TextObject::ChangeColor object="HudTime" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudTime" comparison_sign="!=" value=expr(20*HudScale)
+> or TextObject::WrappingWidth object="HudTime" comparison_sign="!=" value=expr(242*HudScale)
+> do TextObject::Text::SetFontSize object="HudTime" modification_sign="=" value=expr(20*HudScale)
+> do TextObject::SetWrapping object="HudTime" wrapping=true
+> do TextObject::WrappingWidth object="HudTime" modification_sign="=" value=expr(242*HudScale)
+> do TextObject::ChangeColor object="HudTime" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -158,11 +174,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudQuestHeader" modification_sign="=" value=expr(HudMargin+86*HudScale)
 do SetY object="HudQuestHeader" modification_sign="=" value=expr(HudMargin+175*HudScale)
-do TextObject::Text::SetFontSize object="HudQuestHeader" modification_sign="=" value=expr(18*HudScale)
-do TextObject::SetWrapping object="HudQuestHeader" wrapping=true
-do TextObject::WrappingWidth object="HudQuestHeader" modification_sign="=" value=expr(290*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudQuestHeader" behavior="Text" modification_sign="=" text=expr("当前目标  "+ToString(QuestStage+1)+"/12")
-do TextObject::ChangeColor object="HudQuestHeader" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudQuestHeader" comparison_sign="!=" value=expr(18*HudScale)
+> or TextObject::WrappingWidth object="HudQuestHeader" comparison_sign="!=" value=expr(290*HudScale)
+> do TextObject::Text::SetFontSize object="HudQuestHeader" modification_sign="=" value=expr(18*HudScale)
+> do TextObject::SetWrapping object="HudQuestHeader" wrapping=true
+> do TextObject::WrappingWidth object="HudQuestHeader" modification_sign="=" value=expr(290*HudScale)
+> do TextObject::ChangeColor object="HudQuestHeader" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -170,11 +190,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudQuestName" modification_sign="=" value=expr(HudMargin+86*HudScale)
 do SetY object="HudQuestName" modification_sign="=" value=expr(HudMargin+201*HudScale)
-do TextObject::Text::SetFontSize object="HudQuestName" modification_sign="=" value=expr(25*HudScale)
-do TextObject::SetWrapping object="HudQuestName" wrapping=true
-do TextObject::WrappingWidth object="HudQuestName" modification_sign="=" value=expr(275*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudQuestName" behavior="Text" modification_sign="=" text=expr(QuestName)
-do TextObject::ChangeColor object="HudQuestName" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudQuestName" comparison_sign="!=" value=expr(25*HudScale)
+> or TextObject::WrappingWidth object="HudQuestName" comparison_sign="!=" value=expr(275*HudScale)
+> do TextObject::Text::SetFontSize object="HudQuestName" modification_sign="=" value=expr(25*HudScale)
+> do TextObject::SetWrapping object="HudQuestName" wrapping=true
+> do TextObject::WrappingWidth object="HudQuestName" modification_sign="=" value=expr(275*HudScale)
+> do TextObject::ChangeColor object="HudQuestName" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -182,11 +206,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="TouchQuest" modification_sign="=" value=expr(HudMargin+107*HudScale)
 do SetY object="TouchQuest" modification_sign="=" value=expr(HudMargin+239*HudScale)
-do TextObject::Text::SetFontSize object="TouchQuest" modification_sign="=" value=expr(17*HudScale)
-do TextObject::SetWrapping object="TouchQuest" wrapping=true
-do TextObject::WrappingWidth object="TouchQuest" modification_sign="=" value=expr(275*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="TouchQuest" behavior="Text" modification_sign="=" text=expr(QuestTargetName+" · "+ToString(round(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),QuestTargetX,QuestTargetY)/100))+" 米")
-do TextObject::ChangeColor object="TouchQuest" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="TouchQuest" comparison_sign="!=" value=expr(17*HudScale)
+> or TextObject::WrappingWidth object="TouchQuest" comparison_sign="!=" value=expr(275*HudScale)
+> do TextObject::Text::SetFontSize object="TouchQuest" modification_sign="=" value=expr(17*HudScale)
+> do TextObject::SetWrapping object="TouchQuest" wrapping=true
+> do TextObject::WrappingWidth object="TouchQuest" modification_sign="=" value=expr(275*HudScale)
+> do TextObject::ChangeColor object="TouchQuest" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -201,11 +229,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudCompanionName" modification_sign="=" value=expr(HudMargin+112*HudScale)
 do SetY object="HudCompanionName" modification_sign="=" value=expr(HudMargin+300*HudScale)
-do TextObject::Text::SetFontSize object="HudCompanionName" modification_sign="=" value=expr(23*HudScale)
-do TextObject::SetWrapping object="HudCompanionName" wrapping=true
-do TextObject::WrappingWidth object="HudCompanionName" modification_sign="=" value=expr(250*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudCompanionName" behavior="Text" modification_sign="=" text=expr("禾音")
-do TextObject::ChangeColor object="HudCompanionName" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudCompanionName" comparison_sign="!=" value=expr(23*HudScale)
+> or TextObject::WrappingWidth object="HudCompanionName" comparison_sign="!=" value=expr(250*HudScale)
+> do TextObject::Text::SetFontSize object="HudCompanionName" modification_sign="=" value=expr(23*HudScale)
+> do TextObject::SetWrapping object="HudCompanionName" wrapping=true
+> do TextObject::WrappingWidth object="HudCompanionName" modification_sign="=" value=expr(250*HudScale)
+> do TextObject::ChangeColor object="HudCompanionName" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -213,11 +245,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudCompanionHP" modification_sign="=" value=expr(HudMargin+140*HudScale)
 do SetY object="HudCompanionHP" modification_sign="=" value=expr(HudMargin+336*HudScale)
-do TextObject::Text::SetFontSize object="HudCompanionHP" modification_sign="=" value=expr(17*HudScale)
-do TextObject::SetWrapping object="HudCompanionHP" wrapping=true
-do TextObject::WrappingWidth object="HudCompanionHP" modification_sign="=" value=expr(222*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudCompanionHP" behavior="Text" modification_sign="=" text=expr("生命  "+ToString(ceil(Heyin.Variable(HP)))+"/100")
-do TextObject::ChangeColor object="HudCompanionHP" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudCompanionHP" comparison_sign="!=" value=expr(17*HudScale)
+> or TextObject::WrappingWidth object="HudCompanionHP" comparison_sign="!=" value=expr(222*HudScale)
+> do TextObject::Text::SetFontSize object="HudCompanionHP" modification_sign="=" value=expr(17*HudScale)
+> do TextObject::SetWrapping object="HudCompanionHP" wrapping=true
+> do TextObject::WrappingWidth object="HudCompanionHP" modification_sign="=" value=expr(222*HudScale)
+> do TextObject::ChangeColor object="HudCompanionHP" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -225,11 +261,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudCompanionEnergy" modification_sign="=" value=expr(HudMargin+140*HudScale)
 do SetY object="HudCompanionEnergy" modification_sign="=" value=expr(HudMargin+371*HudScale)
-do TextObject::Text::SetFontSize object="HudCompanionEnergy" modification_sign="=" value=expr(17*HudScale)
-do TextObject::SetWrapping object="HudCompanionEnergy" wrapping=true
-do TextObject::WrappingWidth object="HudCompanionEnergy" modification_sign="=" value=expr(222*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudCompanionEnergy" behavior="Text" modification_sign="=" text=expr("体力  "+ToString(ceil(Heyin.Variable(Energy)))+"/100")
-do TextObject::ChangeColor object="HudCompanionEnergy" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudCompanionEnergy" comparison_sign="!=" value=expr(17*HudScale)
+> or TextObject::WrappingWidth object="HudCompanionEnergy" comparison_sign="!=" value=expr(222*HudScale)
+> do TextObject::Text::SetFontSize object="HudCompanionEnergy" modification_sign="=" value=expr(17*HudScale)
+> do TextObject::SetWrapping object="HudCompanionEnergy" wrapping=true
+> do TextObject::WrappingWidth object="HudCompanionEnergy" modification_sign="=" value=expr(222*HudScale)
+> do TextObject::ChangeColor object="HudCompanionEnergy" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -237,11 +277,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudContextTitle" modification_sign="=" value=expr(HudContextX+112*HudScale)
 do SetY object="HudContextTitle" modification_sign="=" value=expr(HudContextY+21*HudScale)
-do TextObject::Text::SetFontSize object="HudContextTitle" modification_sign="=" value=expr(25*HudScale)
-do TextObject::SetWrapping object="HudContextTitle" wrapping=true
-do TextObject::WrappingWidth object="HudContextTitle" modification_sign="=" value=expr(300*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextTitle" behavior="Text" modification_sign="=" text=expr(TouchContextLabel)
-do TextObject::ChangeColor object="HudContextTitle" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudContextTitle" comparison_sign="!=" value=expr(25*HudScale)
+> or TextObject::WrappingWidth object="HudContextTitle" comparison_sign="!=" value=expr(300*HudScale)
+> do TextObject::Text::SetFontSize object="HudContextTitle" modification_sign="=" value=expr(25*HudScale)
+> do TextObject::SetWrapping object="HudContextTitle" wrapping=true
+> do TextObject::WrappingWidth object="HudContextTitle" modification_sign="=" value=expr(300*HudScale)
+> do TextObject::ChangeColor object="HudContextTitle" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
@@ -249,11 +293,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetX object="HudContextDetail" modification_sign="=" value=expr(HudContextX+112*HudScale)
 do SetY object="HudContextDetail" modification_sign="=" value=expr(HudContextY+62*HudScale)
-do TextObject::Text::SetFontSize object="HudContextDetail" modification_sign="=" value=expr(16*HudScale)
-do TextObject::SetWrapping object="HudContextDetail" wrapping=true
-do TextObject::WrappingWidth object="HudContextDetail" modification_sign="=" value=expr(298*HudScale)
 do TextContainerCapability::TextContainerBehavior::SetValue object="HudContextDetail" behavior="Text" modification_sign="=" text=expr(TouchContextHint)
-do TextObject::ChangeColor object="HudContextDetail" color="249;244;221"
+
+> @event
+> if TextObject::Text::FontSize object="HudContextDetail" comparison_sign="!=" value=expr(16*HudScale)
+> or TextObject::WrappingWidth object="HudContextDetail" comparison_sign="!=" value=expr(298*HudScale)
+> do TextObject::Text::SetFontSize object="HudContextDetail" modification_sign="=" value=expr(16*HudScale)
+> do TextObject::SetWrapping object="HudContextDetail" wrapping=true
+> do TextObject::WrappingWidth object="HudContextDetail" modification_sign="=" value=expr(298*HudScale)
+> do TextObject::ChangeColor object="HudContextDetail" color="249;244;221"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1

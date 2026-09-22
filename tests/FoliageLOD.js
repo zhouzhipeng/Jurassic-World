@@ -24,10 +24,10 @@ try {
     harness.setObjectPosition(original.id, camera.x + 4200, camera.y, 0);
     await harness.stepFrames(12);
     check(2, 'far distance selects the lightest mesh');
-    harness.setObjectPosition(original.id, camera.x + 2400, camera.y, 0);
+    harness.setObjectPosition(original.id, camera.x + 1600, camera.y, 0);
     await harness.stepFrames(12);
     check(1, 'medium distance selects the middle mesh');
-    harness.setObjectPosition(original.id, camera.x + 1550, camera.y, 0);
+    harness.setObjectPosition(original.id, camera.x + 950, camera.y, 0);
     await harness.stepFrames(12);
     check(1, 'hysteresis retains middle detail inside the transition band');
     harness.setObjectPosition(original.id, player.x + 100, player.y, 0);
