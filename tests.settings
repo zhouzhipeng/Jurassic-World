@@ -408,3 +408,11 @@ name = "DamageCostBreakdown"
 type = "gameplay"
 description = "Diagnostic isolation at the reported mountain view; alternate modes are not acceptance."
 file = "tests/DamageCostBreakdown.js"
+
+[[tests]]
+scope = "project"
+order = 51
+name = "DamageFeedback"
+type = "gameplay"
+description = "Real bite damage, hurt animation, health and notification text, input-mode switching, resize, pause and recovery."
+file = "tests/DamageFeedback.js"

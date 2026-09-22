@@ -52,6 +52,14 @@ try {
   harness.setSceneVariable('Invulnerable', 9999);
   await measure('damage recovery', 180);
   harness.assert(harness.getObjects('DamageFlash')[0].hidden, 'Overlay clears after attacks stop');
+  // Reproduce the report's mountain position and camera without deleting scenery.
+  harness.setObjectPosition(harness.getObjects('Player3D')[0].id, 4687.91, 545.62, 1440.46);
+  harness.setSceneVariable('CameraYaw', 80.97561);
+  harness.setSceneVariable('CameraPitch', 12.23651);
+  await harness.stepFrames(90);
+  harness.setSceneVariable('HitFlash', 3);
+  harness.setSceneVariable('NoticeMessage', '受击性能回归：迅猛龙撕咬，请拉开距离。');
+  await measure('reported mountain attack feedback', 120);
   harness.assert(observations.every(o => o.max <= 1000 / 60),
     'Every sampled frame <= 16.67 ms: ' + JSON.stringify(observations));
 } finally { harness.releaseAllInputs(); }
