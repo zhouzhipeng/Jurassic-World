@@ -1,0 +1,510 @@
+{
+  "sourceRevision": "418a26e",
+  "baseline": "a8e63b6",
+  "validation": {
+    "success": true,
+    "valid": true,
+    "validMeaning": "pre-runtime-validation-passed",
+    "structurallyValid": true,
+    "eventCodeGenerationValid": true,
+    "extensionGeneratedCodeValid": true,
+    "javascriptAuthoringValid": true,
+    "semanticLintStatus": "checked",
+    "semanticLintPassed": true,
+    "runtimeVerified": false,
+    "readyForRuntimeVerification": true,
+    "completionReady": false,
+    "validationResultKind": "structural-validation",
+    "completionStatus": "runtime-verification-required",
+    "runtimeVerificationRequired": true,
+    "completionWarning": "RUNTIME VERIFICATION REQUIRED: valid:true does not prove that the game works. Do not report runtime correctness or task completion until a paused preview verifies behavior-sensitive changes.",
+    "projectName": "侏罗纪世界",
+    "projectUuid": "45b828fa-b1d4-49e3-8042-4789f1a906b2",
+    "sceneNames": [
+      "Game"
+    ],
+    "projectValidationErrors": [],
+    "structuralProjectValidationErrors": [],
+    "semanticDiagnostics": [],
+    "extensionLintFailures": [],
+    "javascriptAuthoring": {
+      "checked": true,
+      "valid": true,
+      "blocks": 3,
+      "strictBlocks": 3,
+      "checkedBlocks": 3,
+      "typescriptAvailable": true,
+      "typescriptVersion": "4.9.5",
+      "runtimeApiHash": "f380c54a2b274a0dddd4e0c03c89166059649194d8209751e60bb8051f9bc374",
+      "projectApiHash": "ae1e79de6cf235a5c329e4595de11e03432482c965816d8c65a6dc9847793372",
+      "environmentDiagnostics": [],
+      "sourceDiagnostics": [],
+      "errors": [],
+      "warnings": [],
+      "diagnostics": []
+    },
+    "environmentDiagnostics": [],
+    "sourceDiagnostics": [],
+    "diagnostics": [],
+    "errors": [],
+    "generatedCodePreflight": "checked",
+    "validationScope": {
+      "projectUnserialization": "checked",
+      "projectSerializationRoundTrip": "checked",
+      "projectValidation": "checked",
+      "eventCodeGeneration": "checked",
+      "extensionGeneratedCode": "checked",
+      "javascriptAuthoringApi": "checked",
+      "semanticLint": "checked",
+      "runtimeGameplaySemantics": "not-verified"
+    },
+    "runtimeSemanticsVerified": false,
+    "runtimeVerificationRecommendation": "Runtime verification is required for extension actions that create, delete, pick, or mutate objects. Launch a paused preview and use run_frames with targeted object inspection.",
+    "validationMode": "multi-file-disk-sources",
+    "projectFile": "project.gdevelop",
+    "catalogsRegenerated": true,
+    "javascriptApiRegenerated": true,
+    "catalogs": {
+      "instructions": {
+        "actions": 864,
+        "conditions": 573,
+        "expressions": 584
+      },
+      "settings": {
+        "fileKinds": 17,
+        "settingsOwners": 84,
+        "objectTypes": 24,
+        "behaviorTypes": 23,
+        "effectTypes": 46,
+        "layoutTables": 8,
+        "layoutContexts": 19,
+        "behaviorOverrideSchemas": 23
+      },
+      "javascript": {
+        "counts": {
+          "scenes": 1,
+          "globalObjects": 0,
+          "resources": 191,
+          "functions": 17
+        },
+        "hashes": {
+          "runtimeApi": "f380c54a2b274a0dddd4e0c03c89166059649194d8209751e60bb8051f9bc374",
+          "projectApi": "931f5686eeb8989a960ff3731b90d748006d3b9d91d0b0ac7a8a35e2e2d77d7c",
+          "harnessApi": "ae027a8a1888cbe50961061f9f53c9fa1ac4d331d67d942bba202961502a1f46"
+        },
+        "paths": {
+          "runtimeApi": ".gdevelop/runtime-api.d.ts",
+          "projectApi": ".gdevelop/project-api.d.ts",
+          "harnessApi": ".gdevelop/harness-api.d.ts"
+        }
+      },
+      "tslMaterial": {
+        "counts": {
+          "symbols": 32,
+          "examples": 6,
+          "parameterTypes": 7
+        },
+        "hashes": {
+          "projectApi": "931f5686eeb8989a960ff3731b90d748006d3b9d91d0b0ac7a8a35e2e2d77d7c",
+          "tslApi": "4ba2f3f063c05a604e50dafa2e83a311e648169a7c62e88c60c3bccdc47af6c4",
+          "tslCatalog": "b406ce853d56d47366fe09d0a836afae5ea98f1ee49f0e1ad5a8cd3a6c4825d2",
+          "tslApiFile": "8c6df2f188bebcf4c345685942a92afe8eb4ea47b721f39f67a5625c98298c85",
+          "tslCatalogFile": "50aabf9ec5aea8d586f03c82eea69dfe0c212a53d82b0937065c6af461529b2f"
+        },
+        "identity": {
+          "packVersion": "1",
+          "authoringApiVersion": "1",
+          "compilerVersion": "1",
+          "validatorVersion": "1",
+          "diagnosticCatalogVersion": "1",
+          "threeRevision": "185",
+          "portableProfileVersion": "1",
+          "target": "webgl2-node-compat",
+          "projectApiSha256": "931f5686eeb8989a960ff3731b90d748006d3b9d91d0b0ac7a8a35e2e2d77d7c",
+          "examplesSha256": "e27d7442b6e2f0db5cb222caa01aa9dd618fe841423243986423588f833b3fab",
+          "diagnosticCatalogSha256": "2ba457ccca695f3fd4f14acb789a5127ffc6594d34ecfc65761540107eb46d3b"
+        },
+        "paths": {
+          "tslApi": ".gdevelop/tsl-api.d.ts",
+          "tslCatalog": ".gdevelop/tsl-catalog.json"
+        }
+      }
+    },
+    "generatedGameJson": {
+      "reconstructedInMemory": true,
+      "writtenToDisk": false,
+      "targetPath": ".gdevelop/game.json",
+      "byteLength": 2299119
+    },
+    "nextAction": "RUNTIME VERIFICATION REQUIRED BEFORE COMPLETION: valid:true establishes structural and code-generation validity only; it does not verify runtime gameplay semantics. Call reload_project, then launch a paused preview and use run_frames for every behavior-sensitive change.",
+    "note": "STRUCTURAL VALIDATION ONLY — RUNTIME NOT VERIFIED. Regenerated all project source catalogs and JavaScript declaration files, loaded every referenced multi-file source again using the fresh instruction catalog, type-checked JavaScript event blocks against the generated public API, and reconstructed the legacy game.json representation in memory. Project source files and editor memory were not modified. valid:true proves parsing, reconstruction, project validation, JavaScript authoring-API validation, and extension generated-code preflight only; it does not prove object picking or action side effects at runtime and must not be reported as proof that the game works."
+  },
+  "glb": {
+    "success": true,
+    "filePath": "assets/models/heyin.glb",
+    "resolvedFilePath": "assets/models/heyin.glb",
+    "animationNames": [
+      "Idle",
+      "Walk",
+      "Rest",
+      "Talk",
+      "Injured"
+    ],
+    "boneNames": [
+      "ArmL",
+      "ArmR",
+      "FootL",
+      "FootR",
+      "ForearmL",
+      "ForearmR",
+      "HandL",
+      "HandR",
+      "Head",
+      "Hips",
+      "Root",
+      "ShinL",
+      "ShinR",
+      "Spine",
+      "ThighL",
+      "ThighR"
+    ],
+    "meshCount": 12,
+    "materialSlotCount": 12,
+    "meshes": [
+      {
+        "name": "WovenTunic",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_cloth",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_1",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_teal",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_2",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_trim",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_3",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_leather",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_4",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_ivory",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_5",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_skin",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_6",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_white",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_7",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_eye",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_8",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_dark",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_9",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_hair",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_10",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_lip",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      },
+      {
+        "name": "WovenTunic_11",
+        "skinned": true,
+        "morphTargets": false,
+        "materialArray": false,
+        "materials": [
+          {
+            "slot": 0,
+            "name": "Heyin_hairlight",
+            "kind": "standard",
+            "transparent": false,
+            "alphaTest": 0,
+            "transmission": 0,
+            "textureChannels": []
+          }
+        ]
+      }
+    ]
+  },
+  "journey": {
+    "operation_id": "gameplay-tests-2179143a-5748-47d9-8099-ba0c6c4f6514",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "results": [
+      {
+        "file": "tests/HeyinJourney.js",
+        "status": "passed",
+        "framesExecuted": 2452,
+        "durationMs": 65075,
+        "assertions": [
+          {
+            "message": "Approach discovers the injured woman; missing supplies cannot complete rescue",
+            "passed": true
+          },
+          {
+            "message": "A nearby living predator blocks rescue without charging materials",
+            "passed": true
+          },
+          {
+            "message": "Safe rescue consumes exactly four fiber and three berries",
+            "passed": true
+          },
+          {
+            "message": "G switches to waiting without repeating the rescue cost",
+            "passed": true
+          },
+          {
+            "message": "Follow resumes with the actual GLB walk animation",
+            "passed": true
+          },
+          {
+            "message": "Pause freezes companion movement and fatigue",
+            "passed": true
+          },
+          {
+            "message": "The NPC physically reaches the camp before the escort chapter completes",
+            "passed": true
+          },
+          {
+            "message": "Low energy triggers the authored rest pose",
+            "passed": true
+          },
+          {
+            "message": "Rest automatically recovers with a separate resume threshold",
+            "passed": true
+          },
+          {
+            "message": "Arriving together and interacting identifies the mother’s knot",
+            "passed": true
+          },
+          {
+            "message": "Repeated conversation cannot duplicate rescue costs or clue progress",
+            "passed": true
+          },
+          {
+            "message": "The follower stops outside the static house rather than walking through its wall",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "performance": {
+          "avgStepMs": 14.65,
+          "worstStepMs": 2037
+        }
+      }
+    ]
+  },
+  "persistence": {
+    "operation_id": "gameplay-tests-50db8488-38c5-4427-982c-ca65086f5fb7",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "results": [
+      {
+        "file": "tests/HeyinPersistence.js",
+        "status": "passed",
+        "framesExecuted": 44,
+        "durationMs": 8186,
+        "assertions": [
+          {
+            "message": "The real touch rescue button uses the same material and story rules",
+            "passed": true
+          },
+          {
+            "message": "The rescued companion can be left waiting",
+            "passed": true
+          },
+          {
+            "message": "The normal menu saves to an isolated companion test slot",
+            "passed": true
+          },
+          {
+            "message": "A fresh scene restores rescue progress, waiting command and fatigue",
+            "passed": true
+          },
+          {
+            "message": "Load restores the companion’s exact saved world position and heading",
+            "passed": true
+          },
+          {
+            "message": "Loaded companion resumes following without repeating rescue",
+            "passed": true
+          }
+        ],
+        "errors": [],
+        "performance": {
+          "avgStepMs": 121.07,
+          "worstStepMs": 2249
+        }
+      }
+    ]
+  }
+}

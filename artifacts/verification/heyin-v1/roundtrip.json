@@ -1,0 +1,13 @@
+{
+  "roundTrip": true,
+  "armatures": 1,
+  "meshes": 2,
+  "actions": [
+    "Idle",
+    "Injured",
+    "Rest",
+    "Talk",
+    "Walk"
+  ],
+  "missingImages": []
+}

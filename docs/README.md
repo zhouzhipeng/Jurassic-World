@@ -2,6 +2,8 @@
 
 - [项目目录约定](PROJECT_STRUCTURE.md)
 - [生存与当前操作](SURVIVAL.md)
+- [禾音：完整故事与后续线索](HEYIN_STORY.md)
+- [禾音：当前可玩开篇与操作](HEYIN_GAMEPLAY.md)
 - [海岸环境](COASTAL_ENVIRONMENT.md)
 - [性能说明](PERFORMANCE.md)
 - [玩法测试](GAMEPLAY_TESTS.md)
