@@ -23,9 +23,9 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=1
 do AnimatableCapability::AnimatableBehavior::SetName object="TouchButton" behavior="Animation" modification_sign="=" animation_name="Menu"
-do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-HudMargin-56*HudScale)
+do SetX object="TouchButton" modification_sign="=" value=expr(TouchWidth-HudMargin-max(44,56*HudScale))
 do SetY object="TouchButton" modification_sign="=" value=expr(HudMargin)
-do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(56*HudScale) height=expr(56*HudScale)
+do ResizableCapability::ResizableBehavior::SetSize object="TouchButton" behavior="Resizable" width=expr(max(44,56*HudScale)) height=expr(max(44,56*HudScale))
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=expr(0*HudScale/TouchScale)
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value=""
 
