@@ -19,8 +19,10 @@ export default defineMaterial({
   },
   build({ material, parameters }) {
     const t = parameters.clock;
-    const x = positionWorld.x;
-    const y = positionWorld.y;
+    // This scene uses 100 game units per renderer metre.
+    const world = positionWorld.mul(100);
+    const x = world.x;
+    const y = world.y;
     const a = x.mul(0.012).add(y.mul(0.007)).add(t.mul(0.8));
     const b = x.mul(-0.009).add(y.mul(0.019)).sub(t.mul(1.15));
     const c = x.mul(0.062).add(y.mul(0.041)).add(sin(y.mul(0.025))).add(t.mul(1.7));
@@ -29,7 +31,7 @@ export default defineMaterial({
     const nx = cos(a).mul(-0.045).add(cos(b).mul(0.025)).add(cos(c).mul(-0.038)).add(cos(d).mul(0.021));
     const ny = cos(a).mul(-0.026).add(cos(b).mul(-0.053)).add(cos(c).mul(-0.025)).add(cos(d).mul(-0.016));
     const n = vec3(nx.mul(strength), ny.mul(strength), 1).normalize();
-    const view = parameters.camera.sub(positionWorld).normalize();
+    const view = parameters.camera.sub(world).normalize();
     const facing = dot(n, view).max(0);
     const reflected = n.mul(facing.mul(2)).sub(view).normalize();
     const fresnel = facing.oneMinus().pow(5).mul(0.96).add(0.04);
@@ -43,7 +45,7 @@ export default defineMaterial({
     const sunColor = mix(color('#fff3cb'), color('#ffac64'), parameters.twilight);
     const surface = mix(water.mul(light), sky, fresnel.mul(0.85)).add(sunColor.mul(glint.mul(1.4).add(glow)));
     const crest = sin(c).mul(sin(d)).mul(0.5).add(0.5).pow(14).mul(0.045).mul(light);
-    const fog = smoothstep(parameters.fogNear, parameters.fogFar, positionView.z.abs());
+    const fog = smoothstep(parameters.fogNear, parameters.fogFar, positionView.z.abs().mul(100));
     const finalColor = surface.add(vec3(crest)).add(vec3(parameters.flash.mul(0.18)));
     material.fragmentNode = vec4(mix(finalColor, parameters.horizon, fog), 1);
     material.outputNode = vec4(mix(finalColor, parameters.horizon, fog), 1);
