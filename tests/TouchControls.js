@@ -54,7 +54,7 @@ try {
     harness.assert(Math.abs(n('CameraYaw') - oldYaw) > 5, `Right-side drag rotates at height ${fy}`);
     harness.touchEnd(60); await harness.stepFrames(2);
   }
-  for (const command of [1, 2, 3, 4, 7, 90, 300+n('TouchContext')]) {
+  for (const command of [1, 2, 3, 5, 7, 90, 300+n('TouchContext')]) {
     const b = button(command);
     if (!b) throw new Error(`Missing right-side button ${command}`);
     const oldYaw = n('CameraYaw');
