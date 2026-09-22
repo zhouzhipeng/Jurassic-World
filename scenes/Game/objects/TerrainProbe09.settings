@@ -12,8 +12,8 @@ folder = [ "Real-time 3D" ]
 [content]
 centerLocation = "ModelOrigin"
 crossfadeDuration = 0.1
-depth = 612.210750579834
-height = 2209.4268798828125
+depth = 1743.3752536773682
+height = 4471.563339233398
 isCastingShadow = false
 isReceivingShadow = false
 keepAspectRatio = true
@@ -23,26 +23,26 @@ originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-width = 2400.0
+width = 3758.0297470092773
 sharedAnimationModelResources = [ ]
 animations = [ ]
 
 [[variables]]
 name = "QueryMinX"
 type = "number"
-value = -2400.0
+value = -5848.029708862305
 
 [[variables]]
 name = "QueryMaxX"
 type = "number"
-value = 0.0
+value = -2089.9999618530273
 
 [[variables]]
 name = "QueryMinY"
 type = "number"
-value = -6400.0
+value = -1116.552734375
 
 [[variables]]
 name = "QueryMaxY"
 type = "number"
-value = -4190.5731201171875
+value = 3355.0106048583984

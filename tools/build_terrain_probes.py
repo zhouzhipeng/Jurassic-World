@@ -20,6 +20,11 @@ for p in doc['meshes'][0]['primitives']:
 manifest=[]
 total=0
 for index,(key,primitives) in enumerate(sorted(groups.items())):
+    positions=[doc['accessors'][p['attributes']['POSITION']] for p in primitives]
+    lo=[min(a['min'][i] for a in positions) for i in range(3)]
+    hi=[max(a['max'][i] for a in positions) for i in range(3)]
+    origin=[(lo[0]+hi[0])/2,lo[1],(lo[2]+hi[2])/2]
+    position_ids={p['attributes']['POSITION'] for p in primitives}
     out=copy.deepcopy(doc);out['accessors']=[];out['bufferViews']=[];buffer=bytearray()
     remap={}
     for p in primitives:
@@ -27,7 +32,18 @@ for index,(key,primitives) in enumerate(sorted(groups.items())):
             if ai in remap:continue
             a=copy.deepcopy(doc['accessors'][ai]);v=copy.deepcopy(doc['bufferViews'][a['bufferView']])
             while len(buffer)%4:buffer.append(0)
-            offset=len(buffer);buffer.extend(binary[v.get('byteOffset',0):v.get('byteOffset',0)+v['byteLength']])
+            offset=len(buffer);data=bytearray(binary[v.get('byteOffset',0):v.get('byteOffset',0)+v['byteLength']])
+            if ai in position_ids:
+                assert a['componentType']==5126 and a['type']=='VEC3'
+                for vertex in range(a['count']):
+                    at=a.get('byteOffset',0)+vertex*v.get('byteStride',12)
+                    before=struct.unpack_from('<fff',data,at)
+                    struct.pack_into('<fff',data,at,*(before[j]-origin[j] for j in range(3)))
+                    after=struct.unpack_from('<fff',data,at)
+                    assert max(abs(after[j]+origin[j]-before[j]) for j in range(3))<.00002
+                a['min']=[a['min'][j]-origin[j] for j in range(3)]
+                a['max']=[a['max'][j]-origin[j] for j in range(3)]
+            buffer.extend(data)
             v['byteOffset']=offset;a['bufferView']=len(out['bufferViews'])
             out['bufferViews'].append(v);remap[ai]=len(out['accessors']);out['accessors'].append(a)
     selected=[]
@@ -41,10 +57,7 @@ for index,(key,primitives) in enumerate(sorted(groups.items())):
     payload=struct.pack('<III',0x46546C67,2,28+len(encoded)+len(buffer))+struct.pack('<II',len(encoded),0x4E4F534A)+encoded+struct.pack('<II',len(buffer),0x004E4942)+buffer
     (outdir/filename).write_bytes(payload)
     check,blob=read_glb(outdir/filename);count=signature(check,blob).total();total+=count
-    positions=[doc['accessors'][p['attributes']['POSITION']] for p in primitives]
-    lo=[min(a['min'][i] for a in positions)*100 for i in range(3)]
-    hi=[max(a['max'][i] for a in positions)*100 for i in range(3)]
-    manifest.append(dict(name=f'TerrainProbe{index:02}',file=filename,min=lo,max=hi,triangles=count))
+    manifest.append(dict(name=f'TerrainProbe{index:02}',file=filename,min=[v*100 for v in lo],max=[v*100 for v in hi],origin=[v*100 for v in origin],triangles=count))
 assert total==signature(doc,binary).total()
 (outdir/'manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
 print(json.dumps({'tiles':len(manifest),'triangles':total,'exactTriangleAttributesPreserved':True}))

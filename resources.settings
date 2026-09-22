@@ -1545,6 +1545,37 @@ metadata = ""
 smoothed = true
 userAdded = true
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [[resources]]
 kind = "model3D"
 name = "terrain-probe-00.glb"
@@ -1759,5 +1790,40 @@ userAdded = true
 kind = "model3D"
 name = "terrain-probe-30.glb"
 file = "assets/models/terrain-probes/terrain-probe-30.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-31.glb"
+file = "assets/models/terrain-probes/terrain-probe-31.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-32.glb"
+file = "assets/models/terrain-probes/terrain-probe-32.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-33.glb"
+file = "assets/models/terrain-probes/terrain-probe-33.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-34.glb"
+file = "assets/models/terrain-probes/terrain-probe-34.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "terrain-probe-35.glb"
+file = "assets/models/terrain-probes/terrain-probe-35.glb"
 metadata = ""
 userAdded = true
