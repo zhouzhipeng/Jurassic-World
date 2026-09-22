@@ -1,0 +1,138 @@
+{
+  "sourceRevision": "1b4bae0",
+  "validation": {
+    "valid": true,
+    "structurallyValid": true,
+    "eventCodeGenerationValid": true,
+    "extensionGeneratedCodeValid": true,
+    "javascriptAuthoringValid": true,
+    "semanticLintPassed": true,
+    "runtimeVerified": false
+  },
+  "reload": {
+    "operation": "reload-project-80",
+    "reloaded": true
+  },
+  "test": {
+    "operation": "gameplay-tests-d5cdef42-53b8-46fe-a8b5-ede22d40f81f",
+    "status": "completed",
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "passed": 1,
+      "failed": 0,
+      "error": 0,
+      "stopped": 0,
+      "timeout": 0,
+      "all_passed": true
+    },
+    "assertions": [
+      {
+        "message": "Walk through doorway onto timber floor: y=-679.1666666666671, z=30.5",
+        "passed": true
+      },
+      {
+        "message": "Rear wall stops walking from inside",
+        "passed": true
+      },
+      {
+        "message": "Left wall stays solid from inside",
+        "passed": true
+      },
+      {
+        "message": "Right wall stays solid from inside",
+        "passed": true
+      },
+      {
+        "message": "Front wall beside the doorway stays solid",
+        "passed": true
+      },
+      {
+        "message": "Exit returns naturally to ground height",
+        "passed": true
+      },
+      {
+        "message": "Outside wall blocks d from -1350,-700",
+        "passed": true
+      },
+      {
+        "message": "Outside wall blocks a from -450,-700",
+        "passed": true
+      },
+      {
+        "message": "Outside wall blocks s from -900,-1100",
+        "passed": true
+      },
+      {
+        "message": "Outside wall blocks w from -1100,-300",
+        "passed": true
+      },
+      {
+        "message": "Outside wall blocks w from -700,-300",
+        "passed": true
+      },
+      {
+        "message": "Touch joystick enters the same house: y=-679.1666666666661, z=30.5",
+        "passed": true
+      },
+      {
+        "message": "Jump lands back on the house floor",
+        "passed": true
+      }
+    ],
+    "frames": 903
+  },
+  "preview": {
+    "debugger": "preview-ws-9",
+    "frames": 65,
+    "position": {
+      "x": -900,
+      "y": -679.1666666666671,
+      "z": 30.5,
+      "layer": "World3D",
+      "zOrder": 0
+    },
+    "renderer": {
+      "layerName": "World3D",
+      "renderingType": "3d",
+      "configuredLightingLayer": false,
+      "effectiveLightingLayer": false,
+      "hasThreeScene": true,
+      "hasThreeGroup": true,
+      "hasThreeCamera": true,
+      "threeSceneChildCount": 6,
+      "threeGroupChildCount": 159,
+      "threeMeshCount": 512,
+      "visibleThreeMeshCount": 298,
+      "rejected3DRendererObjectCount": 0,
+      "failedTextureCount": 0,
+      "textureFailures": [],
+      "textureFailureRegistryTruncated": false,
+      "effectCount": 4,
+      "effectComposerPassCount": 3,
+      "camera": {
+        "type": "PerspectiveCamera",
+        "position": [
+          -9,
+          -4.759147163400116,
+          6.787728271758744
+        ],
+        "rotationDegrees": [
+          64.99999999999997,
+          0,
+          0
+        ],
+        "forward": [
+          0,
+          0.9063077870366498,
+          -0.42261826174069983
+        ],
+        "near": 0.05,
+        "far": 600,
+        "fov": 58
+      },
+      "traversedNodeCount": 1201,
+      "truncated": false
+    }
+  }
+}
