@@ -352,3 +352,11 @@ name = "MountainRadar"
 type = "gameplay"
 description = "Expanded-world movement, mesh-ground agreement, mountain jumps, riding, wildlife and responsive north-up radar."
 file = "tests/MountainRadar.js"
+
+[[tests]]
+scope = "project"
+order = 44
+name = "SceneryCostBreakdown"
+type = "gameplay"
+description = "Diagnostic cost isolation; incomplete scenes are not acceptance evidence."
+file = "tests/SceneryCostBreakdown.js"
