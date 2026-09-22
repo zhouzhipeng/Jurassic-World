@@ -8,7 +8,8 @@ try {
  for(const size of [[1600,900],[568,320]]){
   game.setGameResolutionSize(size[0],size[1]);await harness.stepFrames(5);
   harness.assert(!obj('HeyinVitalsText').hidden&&obj('HeyinVitalsText').x>=0&&obj('HeyinVitalsText').x+206<size[0],`Companion bars and values stay on screen at ${size}`);
-  harness.assert(obj('HeyinStory').x+obj('HeyinStory').width<obj('HeyinVitalsText').x||obj('HeyinStory').y>obj('HeyinVitalsText').y+100,`Quest and companion status do not overlap at ${size}`);
+  const story=obj('HeyinStory'), vitals=obj('HeyinVitalsText');
+  harness.assert(story.x+story.width<vitals.x||story.y>vitals.y+vitals.height||story.y+story.height<vitals.y,`Quest and companion status do not overlap at ${size}`);
   const b=obj('HeyinTalkButton');harness.touchStart(81,b.x+30,b.y+10,b.layer);await harness.stepFrames(1);harness.touchEnd(81);await harness.stepFrames(3);
   harness.assert(scene('Mode')===9&&obj('HeyinMenuText').y+obj('HeyinMenuText').height<obj('HeyinOption1').y,`Touch opens a readable conversation at ${size}`);
   await tap('Num3');
