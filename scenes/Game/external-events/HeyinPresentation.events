@@ -102,13 +102,6 @@ if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"禾音掉队了：请按距离提示返回接她。")
 
 @event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Dead" comparison_sign="=" value=0
-if NumberVariable variable="HeyinMessageTime" comparison_sign=">" value=0
-do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="=" text=expr(HeyinMessage)
-
-@event
 if NumberVariable variable="Mode" comparison_sign="!=" value=0
 or NumberVariable variable="RenderMode" comparison_sign="!=" value=1
 or NumberVariable variable="Dead" comparison_sign="!=" value=0

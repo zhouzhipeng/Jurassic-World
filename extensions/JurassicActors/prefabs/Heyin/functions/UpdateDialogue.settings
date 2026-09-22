@@ -1,0 +1,40 @@
+kind = "function"
+settingsFormatVersion = 6
+order = 2
+description = "Project a dialogue bubble above this companion using the current 3D camera."
+fullName = "UpdateDialogue"
+functionType = "Action"
+name = "UpdateDialogue"
+sentence = ""
+folder = [ ]
+objectGroups = { }
+
+[[parameters]]
+description = "Object"
+name = "Object"
+supplementaryInformation = "JurassicActors::Heyin"
+type = "object"
+
+[[parameters]]
+description = "Background"
+name = "Background"
+supplementaryInformation = "PrimitiveDrawing::Drawer"
+type = "object"
+
+[[parameters]]
+description = "Caption"
+name = "Caption"
+supplementaryInformation = "TextObject::Text"
+type = "object"
+
+[[parameters]]
+description = "Message"
+name = "Message"
+supplementaryInformation = ""
+type = "string"
+
+[[parameters]]
+description = "Visible"
+name = "Visible"
+supplementaryInformation = ""
+type = "expression"

@@ -1,0 +1,56 @@
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Visible) comparison_sign=">=" second_expression=0
+do Hide object="Background"
+do Hide object="Caption"
+do PrimitiveDrawing::Drawer::ClearShapes shape_painter_object="Background"
+do ModVarObjet object="Background" variable="Shown" modification_sign="=" value=expr(0)
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Visible) comparison_sign="=" second_expression=1
+do ModVarObjet object="Background" variable="DX" modification_sign="=" value=expr(Object.X()-CameraX("World3D",0))
+do ModVarObjet object="Background" variable="DY" modification_sign="=" value=expr(Object.Y()-CameraY("World3D",0))
+do ModVarObjet object="Background" variable="DZ" modification_sign="=" value=expr(Object.Object3D::Z()+Object.Object3D::Depth()+16-Scene3D::CameraZ("World3D",0))
+do ModVarObjet object="Background" variable="Forward" modification_sign="=" value=expr(Background.Variable(DX)*Scene3D::CameraForwardX("World3D",0)+Background.Variable(DY)*Scene3D::CameraForwardY("World3D",0)+Background.Variable(DZ)*Scene3D::CameraForwardZ("World3D",0))
+do ModVarObjet object="Background" variable="Right" modification_sign="=" value=expr(Background.Variable(DX)*Scene3D::CameraRightX("World3D",0)+Background.Variable(DY)*Scene3D::CameraRightY("World3D",0)+Background.Variable(DZ)*Scene3D::CameraRightZ("World3D",0))
+do ModVarObjet object="Background" variable="Up" modification_sign="=" value=expr(Background.Variable(DX)*Scene3D::CameraUpX("World3D",0)+Background.Variable(DY)*Scene3D::CameraUpY("World3D",0)+Background.Variable(DZ)*Scene3D::CameraUpZ("World3D",0))
+do ModVarObjet object="Background" variable="Focal" modification_sign="=" value=expr(SceneWindowHeight()/2/tan(ToRad(Scene3D::CameraFov("World3D",0)/2)))
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Visible) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Background.Variable(Forward)) comparison_sign=">" second_expression=5
+do ModVarObjet object="Background" variable="HeadX" modification_sign="=" value=expr(SceneWindowWidth()/2+Background.Variable(Right)*Background.Variable(Focal)/Background.Variable(Forward))
+do ModVarObjet object="Background" variable="HeadY" modification_sign="=" value=expr(SceneWindowHeight()/2-Background.Variable(Up)*Background.Variable(Focal)/Background.Variable(Forward))
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Visible) comparison_sign="=" second_expression=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Background.Variable(Forward)) comparison_sign=">" second_expression=5
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Background.Variable(HeadX)) comparison_sign=">" second_expression=12
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Background.Variable(HeadX)) comparison_sign="<" second_expression=expr(SceneWindowWidth()-12)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Background.Variable(HeadY)) comparison_sign=">" second_expression=40
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Background.Variable(HeadY)) comparison_sign="<" second_expression=expr(SceneWindowHeight()-12)
+do ModVarObjet object="Background" variable="W" modification_sign="=" value=expr(min(min(360,max(240,SceneWindowWidth()*0.30)),SceneWindowWidth()-32))
+do TextObject::SetWrapping object="Caption" wrapping=true
+do TextObject::WrappingWidth object="Caption" modification_sign="=" value=expr(Background.Variable(W)-32)
+do TextObject::Text::SetFontSize object="Caption" modification_sign="=" value=expr(clamp(SceneWindowWidth()/65,18,22))
+do TextContainerCapability::TextContainerBehavior::SetValue object="Caption" behavior="Text" modification_sign="=" text=expr(Message)
+do ModVarObjet object="Background" variable="H" modification_sign="=" value=expr(Caption.Height()+28)
+do ModVarObjet object="Background" variable="X" modification_sign="=" value=expr(clamp(Background.Variable(HeadX)-Background.Variable(W)/2,16,SceneWindowWidth()-Background.Variable(W)-16))
+do ModVarObjet object="Background" variable="Y" modification_sign="=" value=expr(max(12,Background.Variable(HeadY)-Background.Variable(H)-24))
+do ModVarObjet object="Background" variable="TailX" modification_sign="=" value=expr(clamp(Background.Variable(HeadX),Background.Variable(X)+22,Background.Variable(X)+Background.Variable(W)-22))
+do SetX object="Caption" modification_sign="=" value=expr(Background.Variable(X)+16)
+do SetY object="Caption" modification_sign="=" value=expr(Background.Variable(Y)+14)
+do PrimitiveDrawing::OutlineSize shape_painter_object="Background" modification_sign="=" value=0
+do PrimitiveDrawing::FillColor shape_painter_object="Background" fill_color="25;53;46"
+do PrimitiveDrawing::FillOpacity shape_painter_object="Background" modification_sign="=" opacity_0_255=65
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="Background" left_x_position=expr(Background.Variable(X)+4) top_y_position=expr(Background.Variable(Y)+4) right_x_position=expr(Background.Variable(X)+Background.Variable(W)+4) bottom_y_position=expr(Background.Variable(Y)+Background.Variable(H)+4) radius_in_pixels=14
+do PrimitiveDrawing::FillOpacity shape_painter_object="Background" modification_sign="=" opacity_0_255=250
+do PrimitiveDrawing::FillColor shape_painter_object="Background" fill_color="255;250;231"
+do PrimitiveDrawing::OutlineSize shape_painter_object="Background" modification_sign="=" value=2
+do PrimitiveDrawing::OutlineOpacity shape_painter_object="Background" modification_sign="=" opacity_0_255=255
+do PrimitiveDrawing::OutlineColor shape_painter_object="Background" color="71;104;84"
+do PrimitiveDrawing::RegularPolygon shape_painter_object="Background" x_position_of_center=expr(Background.Variable(TailX)) y_position_of_center=expr(Background.Variable(Y)+Background.Variable(H)+3) number_of_sides_of_the_polygon_minimum_3=3 radius_in_pixels=13 rotation_in_degrees=90
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="Background" left_x_position=expr(Background.Variable(X)+0) top_y_position=expr(Background.Variable(Y)+0) right_x_position=expr(Background.Variable(X)+Background.Variable(W)+0) bottom_y_position=expr(Background.Variable(Y)+Background.Variable(H)+0) radius_in_pixels=14
+do Show object="Background"
+do Show object="Caption"
+do ModVarObjet object="Background" variable="Shown" modification_sign="=" value=expr(1)
+

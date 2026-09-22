@@ -1,0 +1,33 @@
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneInstancesCount(Heyin)) comparison_sign=">" second_expression=0
+do SetNumberVariable variable="HeyinBubbleVisible" modification_sign="=" value=0
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：谢谢你愿意陪我。我们一起找家人吧。"
+
+@event
+if NumberVariable variable="HeyinStage" comparison_sign="<=" value=1
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：我和家人走散了……你能帮帮我吗？"
+
+@event
+if NumberObjectVariable object="Heyin" variable="Stay" comparison_sign="=" value=1
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：我在这里等你，路上小心。"
+
+@event
+if NumberObjectVariable object="Heyin" variable="Resting" comparison_sign="=" value=1
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value="禾音：让我歇一会儿，很快就能继续走了。"
+
+@event
+if NumberVariable variable="HeyinMessageTime" comparison_sign=">" value=0
+do SetStringVariable variable="HeyinDialogueLine" modification_sign="=" value=expr(HeyinMessage)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="HeyinDistance" comparison_sign="<" value=650
+if NumberObjectVariable object="Heyin" variable="Attention" comparison_sign="=" value=1
+or NumberVariable variable="HeyinMessageTime" comparison_sign=">" value=0
+do SetNumberVariable variable="HeyinBubbleVisible" modification_sign="=" value=1
+
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneInstancesCount(Heyin)) comparison_sign=">" second_expression=0
+do JurassicActors::Heyin::UpdateDialogue object="Heyin" background="HeyinBubble" caption="HeyinBubbleText" message=expr(HeyinDialogueLine) visible=expr(HeyinBubbleVisible)

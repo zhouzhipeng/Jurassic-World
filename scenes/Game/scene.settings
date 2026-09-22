@@ -11,6 +11,16 @@ title = "(No title)"
 behaviorsSharedData = [ ]
 
 [[variables]]
+name = "HeyinDialogueLine"
+type = "string"
+value = ""
+
+[[variables]]
+name = "HeyinBubbleVisible"
+type = "number"
+value = 0
+
+[[variables]]
 name = "HeyinStage"
 type = "number"
 value = 0
@@ -2813,3 +2823,17 @@ object = "HeyinStory"
 layer = "performance"
 at = [42, 200]
 
+
+[[layout.instances]]
+id = "550f4238-fae5-4bb8-9337-5cd60396ca3c"
+object = "HeyinBubble"
+layer = "performance"
+at = [0, 0]
+z_order = 20
+
+[[layout.instances]]
+id = "c5a50176-7b86-4d07-b9c3-4f844567ee8f"
+object = "HeyinBubbleText"
+layer = "performance"
+at = [0, 0]
+z_order = 21
