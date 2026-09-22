@@ -1,0 +1,240 @@
+{
+  "sourceRevision": "8fbe962",
+  "tests": [
+    {
+      "operationId": "gameplay-tests-d1d266c7-ce2d-4969-b37f-e081be083c1f",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "tests": [
+        {
+          "file": "tests/HeyinBubble.js",
+          "status": "passed",
+          "assertions": [
+            {
+              "message": "No floating dialogue when the player is far away",
+              "passed": true
+            },
+            {
+              "message": "Approach shows both dialogue and bubble background",
+              "passed": true
+            },
+            {
+              "message": "Bubble displays the current story dialogue",
+              "passed": true
+            },
+            {
+              "message": "Head projection is finite and in front of the world camera",
+              "passed": true
+            },
+            {
+              "message": "Bubble stays above the projected head",
+              "passed": true
+            },
+            {
+              "message": "Bubble follows the head when orbiting the camera",
+              "passed": true
+            },
+            {
+              "message": "Zooming out preserves the head anchor",
+              "passed": true
+            },
+            {
+              "message": "Ongoing Talk has a readable fallback after the timed message ends",
+              "passed": true
+            },
+            {
+              "message": "Menu hides text and background together",
+              "passed": true
+            },
+            {
+              "message": "Long dialogue grows the rounded panel without overflowing its padding",
+              "passed": true
+            },
+            {
+              "message": "Narrow landscape keeps the full bubble inside screen edges",
+              "passed": true
+            },
+            {
+              "message": "Leaving dialogue range hides both bubble objects",
+              "passed": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "operationId": "gameplay-tests-6fd92628-aed0-400e-a350-60672de37c2a",
+      "status": "completed",
+      "summary": {
+        "total": 1,
+        "completed": 1,
+        "passed": 1,
+        "failed": 0,
+        "error": 0,
+        "stopped": 0,
+        "timeout": 0,
+        "all_passed": true
+      },
+      "tests": [
+        {
+          "file": "tests/HeyinAI.js",
+          "status": "passed",
+          "assertions": [
+            {
+              "message": "Unrescued companion starts upright in Idle, not Injured",
+              "passed": true
+            },
+            {
+              "message": "Idle clip advances instead of being restarted each frame",
+              "passed": true
+            },
+            {
+              "message": "Approach automatically starts Talk before rescue and without pressing G",
+              "passed": true
+            },
+            {
+              "message": "Turning uses a bounded smooth angular speed",
+              "passed": true
+            },
+            {
+              "message": "Companion faces the approaching player with the model forward axis",
+              "passed": true
+            },
+            {
+              "message": "Talk clip keeps progressing while the player remains close",
+              "passed": true
+            },
+            {
+              "message": "Conversation tracks the player as they move around the NPC",
+              "passed": true
+            },
+            {
+              "message": "250-unit buffer retains conversation without boundary flicker",
+              "passed": true
+            },
+            {
+              "message": "Leaving the 280-unit radius restores Idle before rescue",
+              "passed": true
+            },
+            {
+              "message": "Entering the buffer from outside does not prematurely start conversation",
+              "passed": true
+            },
+            {
+              "message": "Pause freezes NPC facing and animation clock",
+              "passed": true
+            },
+            {
+              "message": "Unpause resumes the current conversation",
+              "passed": true
+            },
+            {
+              "message": "Two prefab instances keep independent attention and child animation",
+              "passed": true
+            },
+            {
+              "message": "AI state belongs to each prefab instance",
+              "passed": true
+            },
+            {
+              "message": "Deleting another companion leaves the original running",
+              "passed": true
+            },
+            {
+              "message": "Fresh scene reconstructs clean prefab defaults",
+              "passed": true
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "runtime": {
+    "success": true,
+    "runtimeVerified": true,
+    "completionReady": true,
+    "assertions": [
+      {
+        "index": 0,
+        "type": "object_count",
+        "passed": true,
+        "actual": 1,
+        "expected": 1,
+        "operator": "eq",
+        "objectName": "HeyinBubbleText"
+      },
+      {
+        "index": 1,
+        "type": "runtime_error_count",
+        "passed": true,
+        "actual": 0,
+        "expected": 0,
+        "operator": "eq"
+      }
+    ]
+  },
+  "visual": {
+    "debuggerId": "preview-ws-28",
+    "states": [
+      {
+        "HeyinBubble": [
+          {
+            "index": 0,
+            "id": 103,
+            "persistentUuid": "550f4238-fae5-4bb8-9337-5cd60396ca3c",
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 0,
+              "layer": "Performance",
+              "zOrder": 20
+            },
+            "variables": {
+              "Shown": 1,
+              "DX": -470.3406040522415,
+              "DY": 500.33823535803725,
+              "DZ": -134.31309316168466,
+              "Forward": 684.5804927508318,
+              "Right": 98.29824531467898,
+              "Up": 106.2339140254412,
+              "Focal": 811.8214898721407,
+              "HeadX": 915.7926027840425,
+              "HeadY": 324.02069548821834,
+              "W": 360,
+              "H": 109,
+              "X": 735.7926027840425,
+              "Y": 191.02069548821834,
+              "TailX": 915.7926027840425
+            }
+          }
+        ],
+        "HeyinBubbleText": [
+          {
+            "index": 0,
+            "id": 104,
+            "persistentUuid": "c5a50176-7b86-4d07-b9c3-4f844567ee8f",
+            "picked": false,
+            "position": {
+              "x": 751.7926027840425,
+              "y": 205.02069548821834,
+              "layer": "Performance",
+              "zOrder": 21
+            },
+            "variables": {}
+          }
+        ]
+      }
+    ]
+  }
+}
