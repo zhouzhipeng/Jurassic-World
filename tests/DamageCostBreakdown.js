@@ -2,6 +2,7 @@
 const cases = [
   { label: 'reported view', mode: 0, distance: 1250, flash: 0 },
   { label: 'reported hurt', mode: 0, distance: 1250, flash: 2 },
+  { label: 'hurt notification', mode: 0, distance: 1250, flash: 2, notice: '迅猛龙撕咬！拉开距离，K 反击或骑乘撤离。' },
   { label: 'paused gameplay', mode: 2, distance: 1250, flash: 0 },
   { label: 'short camera queries', mode: 0, distance: 300, flash: 2 },
 ];
@@ -17,6 +18,7 @@ try {
     harness.setSceneVariable('Mode', c.mode);
     harness.setSceneVariable('CameraDistance', c.distance);
     harness.setSceneVariable('HitFlash', c.flash);
+    if (c.notice) harness.setSceneVariable('NoticeMessage', c.notice);
     await harness.stepFrames(10);
     harness.startProfiling();
     await harness.stepFrames(60);
