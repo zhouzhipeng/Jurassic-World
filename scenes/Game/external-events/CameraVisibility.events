@@ -310,6 +310,24 @@ if (player) {
   }
   const clearanceCache = new Map();
   const headRoomCache = new Map();
+  // When the head probe starts inside a conservative solid box, every pitch
+  // has a zero-distance hit. This proves the minimum clearance without mesh
+  // raycasts or repeating the terrain search for every candidate angle.
+  const enclosedHeadCache = new Map();
+  const headIsEnclosed = (lookAhead = 0) => {
+    if (enclosedHeadCache.has(lookAhead)) return enclosedHeadCache.get(lookAhead);
+    const hx = x + lookAhead * velocityX, hy = y + lookAhead * velocityY, hz = z + 80;
+    const enclosed = scenery.some(box => hx >= box[0] && hx <= box[3] &&
+      hy >= box[1] && hy <= box[4] && hz >= box[2] && hz <= box[5]) ||
+      actorBounds.some(box => {
+        const rx = hx - box.x, ry = hy - box.y;
+        const bx = rx * box.c + ry * box.s, by = -rx * box.s + ry * box.c;
+        return Math.abs(bx) <= box.halfX && Math.abs(by) <= box.halfY &&
+          hz - box.z >= -15 && hz - box.z <= box.depth;
+      });
+    enclosedHeadCache.set(lookAhead, enclosed);
+    return enclosed;
+  };
   // Near-wall probes are only needed to classify a close body hit. Defer them
   // until then, and short-circuit the same center-or-both-sides predicate.
   const hasHeadRoom = (lookAhead = 0) => {
@@ -331,6 +349,10 @@ if (player) {
     lookAhead = Math.min(lookAhead, predictionTime);
     const key = pitch.toFixed(3) + ":" + lookAhead;
     if (clearanceCache.has(key)) return clearanceCache.get(key);
+    if (headIsEnclosed(lookAhead)) {
+      clearanceCache.set(key, 10);
+      return 10;
+    }
     const radians = pitch * Math.PI / 180;
     const dx = Math.sin(yaw) * Math.cos(radians);
     const dy = Math.cos(yaw) * Math.cos(radians);
@@ -345,6 +367,10 @@ if (player) {
       headClearance = Math.min(headClearance, Math.max(10, hit - 30));
     }
     let distance = headClearance;
+    if (distance <= 10) {
+      clearanceCache.set(key, distance);
+      return distance;
+    }
     if (distance <= rejectAt) return distance;
     for (const offset of offsets) {
       if (offset[0] === 0 && offset[1] === 80) continue;
