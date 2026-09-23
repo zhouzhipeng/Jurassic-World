@@ -1,0 +1,48 @@
+
+> GDJS-tests@0.0.0 test
+> karma start --browsers ChromeHeadless --single-run --port 9881
+
+[33m23 09 2026 08:29:40.804:WARN [watcher]: [39mAll files matched by "D:/code/GDevelop/newIDE/app/resources/GDJS/Runtime/debugger-client/abstract-debugger-client.js" were excluded or matched by prior matchers.
+[32m23 09 2026 08:29:40.851:INFO [karma]: [39mKarma v1.7.1 server started at http://127.0.0.1:9881/
+[32m23 09 2026 08:29:40.851:INFO [launcher]: [39mLaunching browser ChromeHeadless with unlimited concurrency
+[32m23 09 2026 08:29:40.866:INFO [launcher]: [39mStarting browser ChromeHeadless
+(node:31784) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[32m23 09 2026 08:29:41.331:INFO [HeadlessChrome 153.0.0 (Windows 10.0.0)]: [39mConnected on socket Cq_raWlGJxHByzukAAAA with id 22389267
+HeadlessChrome 153.0.0 (Windows 10.0.0) INFO: [36m'Box2D wasm file is being loaded from path "Box2D_v2.3.1_min.wasm.wasm" with prefix "http://127.0.0.1:9881/base/newIDE/app/resources/GDJS/Runtime/Extensions/Physics2Behavior/". Resolved URL: "http://127.0.0.1:9881/base/newIDE/app/resources/GDJS/Runtime/Extensions/Physics2Behavior/Box2D_v2.3.1_min.wasm.wasm".'[39m
+
+
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 0 of 2[32m SUCCESS[39m (0 secs / 0 secs)
+[1A[2K[31mHeadlessChrome 153.0.0 (Windows 10.0.0) Scene render profiling boundaries can redraw a paused scene before its first profiled step FAILED[39m
+	Error: Impossible to call Profiler.begin() when not profiling a frame!
+	    at o.begin (newIDE/app/resources/GDJS/Runtime/profiler.js:1:1007)
+	    at g.render (newIDE/app/resources/GDJS/Runtime/runtimescene.js:1:7620)
+	    at context.<anonymous> (GDJS/tests/tests/scene-render-profiling.js:20:11)
+HeadlessChrome 153.0.0 (Windows 10.0.0): Executed 1 of 2[31m (1 FAILED)[39m (0 secs / 0 secs)
+[1A[2K[31mHeadlessChrome 153.0.0 (Windows 10.0.0) Scene render profiling boundaries does not mutate a completed frame when the paused preview redraws FAILED[39m
+	Error: expected { time: 5,
+	  subsections: 
+	   { 'asynchronous actions (wait action, etc...)': { time: 0, subsections: {} },
+	     'objects (pre-events)': { time: 0, subsections: {} },
+	     'callbacks and extensions (pre-events)': { time: 0, subsections: {} },
+	     events: { time: 2, subsections: {} },
+	     'objects (post-events)': { time: 0, subsections: {} },
+	     'callbacks and extensions (post-events)': { time: 0, subsections: {} },
+	     'objects (pre-render, effects update)': { time: 0, subsections: {} },
+	     'layers (effects update)': { time: 0, subsections: {} },
+	     render: { time: 3, subsections: [Object] } } } to sort of equal { time: 5,
+	  subsections: 
+	   { 'asynchronous actions (wait action, etc...)': { time: 0, subsections: {} },
+	     'objects (pre-events)': { time: 0, subsections: {} },
+	     'callbacks and extensions (pre-events)': { time: 0, subsections: {} },
+	     events: { time: 2, subsections: {} },
+	     'objects (post-events)': { time: 0, subsections: {} },
+	     'callbacks and extensions (post-events)': { time: 0, subsections: {} },
+	     'objects (pre-render, effects update)': { time: 0, subsections: {} },
+	     'layers (effects update)': { time: 0, subsections: {} },
+	     render: { time: 3, subsections: {} } } }
+	    at Assertion.assert (GDJS/tests/node_modules/expect.js/index.js:96:13)
+	    at Assertion.eql (GDJS/tests/node_modules/expect.js/index.js:230:10)
+	    at context.<anonymous> (GDJS/tests/tests/scene-render-profiling.js:29:52)
+HeadlessChrome 153.0.0 (Windows 10.0.0): Executed 2 of 2[31m (2 FAILED)[39m (0 secs / 0.002 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 2 of 2[31m (2 FAILED)[39m[31m ERROR[39m (0.047 secs / 0.002 secs)

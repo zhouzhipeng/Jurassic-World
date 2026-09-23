@@ -1,0 +1,221 @@
+{
+  "sourceRevision": "a28ac33784c140657521ca4fdf838630254110d5",
+  "engineRevision": "113d5cb046547ee1e98ea903a917201554b6a6ee",
+  "operation_id": "gameplay-tests-5c01b7b3-30b7-466b-8c47-3a88cce46991",
+  "status": "completed",
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "passed": 1,
+    "failed": 0,
+    "error": 0,
+    "stopped": 0,
+    "timeout": 0,
+    "all_passed": true
+  },
+  "results": [
+    {
+      "file": "tests/CameraSmoothFollow.js",
+      "scope": "project",
+      "name": "CameraSmoothFollow",
+      "status": "passed",
+      "framesExecuted": 1534,
+      "durationMs": 48621,
+      "loadingMs": 2512,
+      "timeoutMs": 300000,
+      "hiddenStallMs": 0,
+      "gameTimeMs": 25567,
+      "assertions": [
+        {
+          "message": "The exact reported bush never pushes the camera into the character: 1250",
+          "passed": true
+        },
+        {
+          "message": "No preset-angle or zoom reset jumps: pitch step=0.27008448983142586, zoom-out step=0",
+          "passed": true
+        },
+        {
+          "message": "Foreground foliage remains visible at half opacity in the reported close-up",
+          "passed": true
+        },
+        {
+          "message": "Obscuring plants settle at 50 percent opacity",
+          "passed": true
+        },
+        {
+          "message": "Visible faded bushes have a successfully installed transparent material",
+          "passed": true
+        },
+        {
+          "message": "Harvested foliage stays hidden while its camera fade is cleared",
+          "passed": true
+        },
+        {
+          "message": "No opaque island geometry blocks the final reported camera view",
+          "passed": true
+        },
+        {
+          "message": "Faded bushes regain full opacity after moving away",
+          "passed": true
+        },
+        {
+          "message": "Repeated foliage crossings remain gradual: angle=0, recovery=0",
+          "passed": true
+        },
+        {
+          "message": "A large orbit input is blended over multiple frames: 446.49093910608536",
+          "passed": true
+        },
+        {
+          "message": "Recorded spring route keeps the camera outside the character: minimum=1250, at=",
+          "passed": true
+        },
+        {
+          "message": "Low scenery never causes a sudden close-up: largest inward step=0",
+          "passed": true
+        },
+        {
+          "message": "Follow keeps a stable horizon through starts, stops and reversals: drift=2.842170943040401e-14",
+          "passed": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "consoleLogs": [],
+      "eventLog": [
+        {
+          "frame": 1,
+          "event": "sceneChanged",
+          "sceneName": "Game",
+          "cause": "harness"
+        },
+        {
+          "frame": 517,
+          "event": "sceneReset",
+          "sceneName": "Game",
+          "cause": "harness"
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "Island3D",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "Dinosaur3D",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "BerryBush",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "FiberFern",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "WoodSapling",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "StoneDeposit",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "Triceratops",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "Stegosaur",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "Raptor",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "Tyrannosaur",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "SpringWater",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "MetalDeposit",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "CampHearth",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "FireGlow",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "CampForge",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "FiberFernLOD1",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "FiberFernLOD2",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "BerryBushLOD1",
+          "count": 0
+        },
+        {
+          "frame": 1115,
+          "event": "removed",
+          "object": "BerryBushLOD2",
+          "count": 0
+        }
+      ],
+      "profiles": [],
+      "performance": {
+        "avgStepMs": 15.61,
+        "worstStepMs": 2777
+      },
+      "screenshots": []
+    }
+  ]
+}

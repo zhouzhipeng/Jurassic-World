@@ -1,0 +1,107 @@
+{
+  "sourceRevision": "a28ac33784c140657521ca4fdf838630254110d5",
+  "engineRevision": "a1f76cc5aae42807cf43cf617eed3fd52ca17f51",
+  "success": true,
+  "runtimeVerified": true,
+  "completionReady": true,
+  "scope": "Basic runtime and renderer only; does not establish 60 FPS",
+  "assertions": [
+    {
+      "index": 0,
+      "type": "object_count",
+      "passed": true,
+      "actual": 1,
+      "expected": 1,
+      "operator": "eq",
+      "objectName": "Player3D"
+    },
+    {
+      "index": 1,
+      "type": "instance_position_finite",
+      "passed": true,
+      "actual": {
+        "x": 650,
+        "y": 200,
+        "z": 0,
+        "angle": 180,
+        "layer": "World3D",
+        "zOrder": 0
+      },
+      "expected": "finite x/y/z (when z is present)",
+      "objectName": "Player3D"
+    },
+    {
+      "index": 2,
+      "type": "runtime_error_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq"
+    },
+    {
+      "index": 3,
+      "type": "renderer_has_three_group",
+      "passed": true,
+      "actual": true,
+      "expected": true,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 4,
+      "type": "renderer_visible_mesh_count",
+      "passed": true,
+      "actual": 308,
+      "expected": 0,
+      "operator": "gt",
+      "layerName": "World3D"
+    },
+    {
+      "index": 5,
+      "type": "renderer_failed_texture_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    },
+    {
+      "index": 6,
+      "type": "renderer_rejected_object_count",
+      "passed": true,
+      "actual": 0,
+      "expected": 0,
+      "operator": "eq",
+      "layerName": "World3D"
+    }
+  ],
+  "stages": [
+    {
+      "stage": "validation",
+      "success": true
+    },
+    {
+      "stage": "close-previews",
+      "success": true
+    },
+    {
+      "stage": "reload",
+      "success": true
+    },
+    {
+      "stage": "launch",
+      "success": true
+    },
+    {
+      "stage": "frames",
+      "success": true
+    },
+    {
+      "stage": "inspect",
+      "success": true
+    },
+    {
+      "stage": "assertions"
+    }
+  ]
+}

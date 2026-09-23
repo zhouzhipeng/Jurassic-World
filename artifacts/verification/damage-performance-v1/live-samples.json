@@ -1,0 +1,116 @@
+{
+  "sourceRevision": "a28ac33784c140657521ca4fdf838630254110d5",
+  "engineRevision": "a1f76cc5aae42807cf43cf617eed3fd52ca17f51",
+  "canvas": [
+    3014,
+    1800
+  ],
+  "method": "Normal playback, invulnerable, synthetic sustained HitFlash at reported mountain position. Sparse debugger inspections perturb timing; not a frame-time distribution.",
+  "runs": [
+    {
+      "label": "live15",
+      "sceneSeconds": 21.253,
+      "instances": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 9,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 4687.91,
+              "y": 545.62,
+              "z": 1440.458869921167,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "variables": {
+              "OcclusionAmount": 0,
+              "OcclusionHold": 0,
+              "AnimationState": 6,
+              "Sprinting": 0,
+              "SprintExhausted": 0,
+              "Travel": 0,
+              "HandZ": 78.00000152611551,
+              "FootZ": 15.999999428150204,
+              "AttachmentReady": 1,
+              "HandRX": 2.1517117098560342e-14,
+              "AnimationPlaying": 1,
+              "HeldAxeVisible": 0,
+              "CombatSpearVisible": 0,
+              "ActorConfigured": 1
+            }
+          }
+        ],
+        "DamageFlash": [
+          {
+            "index": 0,
+            "id": 469,
+            "picked": false,
+            "position": {
+              "x": 0,
+              "y": 0,
+              "layer": "Touch",
+              "zOrder": 20
+            },
+            "variables": {}
+          }
+        ],
+        "FPSCounter": [
+          {
+            "index": 0,
+            "id": 95,
+            "persistentUuid": "efbdd2e7-1b1e-4a6a-82fd-1ceec07b972a",
+            "picked": false,
+            "position": {
+              "x": 683.7037037037037,
+              "y": 81.02314814814815,
+              "layer": "Performance",
+              "zOrder": 100
+            },
+            "variables": {
+              "MeasuredFPS": 21.696252465483234
+            }
+          }
+        ]
+      },
+      "errors": [],
+      "inputState": {
+        "pressedKeyCodes": [],
+        "lastPressedKey": 0,
+        "mouseX": 0,
+        "mouseY": 0,
+        "pressedMouseButtons": [],
+        "error": null,
+        "anyKeyPressed": false
+      }
+    },
+    {
+      "label": "liveFocused",
+      "sceneSeconds": 63.081,
+      "instances": {
+        "FPSCounter": [
+          {
+            "index": 0,
+            "id": 95,
+            "persistentUuid": "efbdd2e7-1b1e-4a6a-82fd-1ceec07b972a",
+            "picked": false,
+            "variables": {
+              "MeasuredFPS": 9.87166831194472
+            }
+          }
+        ]
+      },
+      "errors": [],
+      "inputState": {
+        "pressedKeyCodes": [],
+        "lastPressedKey": 0,
+        "mouseX": 0,
+        "mouseY": 0,
+        "pressedMouseButtons": [],
+        "error": null,
+        "anyKeyPressed": false
+      }
+    }
+  ]
+}

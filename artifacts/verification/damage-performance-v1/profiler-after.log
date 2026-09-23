@@ -1,0 +1,38 @@
+
+> GDJS-tests@0.0.0 test
+> karma start --browsers ChromeHeadless --single-run --port 9881
+
+[33m23 09 2026 08:30:14.658:WARN [watcher]: [39mAll files matched by "D:/code/GDevelop/newIDE/app/resources/GDJS/Runtime/debugger-client/abstract-debugger-client.js" were excluded or matched by prior matchers.
+[32m23 09 2026 08:30:14.702:INFO [karma]: [39mKarma v1.7.1 server started at http://127.0.0.1:9881/
+[32m23 09 2026 08:30:14.703:INFO [launcher]: [39mLaunching browser ChromeHeadless with unlimited concurrency
+[32m23 09 2026 08:30:14.722:INFO [launcher]: [39mStarting browser ChromeHeadless
+(node:54980) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[32m23 09 2026 08:30:15.148:INFO [HeadlessChrome 153.0.0 (Windows 10.0.0)]: [39mConnected on socket pkd_VSgnVVM3v6UeAAAA with id 58629246
+HeadlessChrome 153.0.0 (Windows 10.0.0) INFO: [36m'Box2D wasm file is being loaded from path "Box2D_v2.3.1_min.wasm.wasm" with prefix "http://127.0.0.1:9881/base/newIDE/app/resources/GDJS/Runtime/Extensions/Physics2Behavior/". Resolved URL: "http://127.0.0.1:9881/base/newIDE/app/resources/GDJS/Runtime/Extensions/Physics2Behavior/Box2D_v2.3.1_min.wasm.wasm".'[39m
+
+
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 0 of 10[32m SUCCESS[39m (0 secs / 0 secs)
+[1A[2KERROR: [36m'[RuntimeScene] An error occurred in the scene unload lifecycle function: Error: Expected author event failure
+    at runtimeScene._sceneUnloadLifecycleFunction (http://127.0.0.1:9881/base/GDJS/tests/tests/runtimescene.js?51df4bf268ac75bd29de31869b4f37092acd6f85:18:15)
+    at TestRuntimeScene.unloadScene (http://127.0.0.1:9881/base/newIDE/app/resources/GDJS/Runtime/runtimescene.js?30229d3d487aad68297d13b6cb1a605908715ea5:1:4516)
+    at context.<anonymous> (http://127.0.0.1:9881/base/GDJS/tests/tests/runtimescene.js?51df4bf268ac75bd29de31869b4f37092acd6f85:21:20)
+    at callFn (http://127.0.0.1:9881/base/GDJS/tests/node_modules/mocha/mocha.js?96813de967764a9d6d127cf66eec77c592f05b06:4452:21)
+    at Runnable.run (http://127.0.0.1:9881/base/GDJS/tests/node_modules/mocha/mocha.js?96813de967764a9d6d127cf66eec77c592f05b06:4445:7)
+    at Runner.runTest (http://127.0.0.1:9881/base/GDJS/tests/node_modules/mocha/mocha.js?96813de967764a9d6d127cf66eec77c592f05b06:4847:10)
+    at http://127.0.0.1:9881/base/GDJS/tests/node_modules/mocha/mocha.js?96813de967764a9d6d127cf66eec77c592f05b06:4925:12
+    at next (http://127.0.0.1:9881/base/GDJS/tests/node_modules/mocha/mocha.js?96813de967764a9d6d127cf66eec77c592f05b06:4772:14)
+    at http://127.0.0.1:9881/base/GDJS/tests/node_modules/mocha/mocha.js?96813de967764a9d6d127cf66eec77c592f05b06:4782:7
+    at next (http://127.0.0.1:9881/base/GDJS/tests/node_modules/mocha/mocha.js?96813de967764a9d6d127cf66eec77c592f05b06:4720:23)'[39m
+HeadlessChrome 153.0.0 (Windows 10.0.0): Executed 0 of 10[32m SUCCESS[39m (0 secs / 0 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 1 of 10[32m SUCCESS[39m (0 secs / 0.002 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 2 of 10[32m SUCCESS[39m (0 secs / 0.002 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 3 of 10[32m SUCCESS[39m (0 secs / 0.003 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 4 of 10[32m SUCCESS[39m (0 secs / 0.003 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 5 of 10[32m SUCCESS[39m (0 secs / 0.005 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 6 of 10[32m SUCCESS[39m (0 secs / 0.006 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 7 of 10[32m SUCCESS[39m (0 secs / 0.007 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 8 of 10[32m SUCCESS[39m (0 secs / 0.007 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 9 of 10[32m SUCCESS[39m (0 secs / 0.009 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 10 of 10[32m SUCCESS[39m (0 secs / 0.013 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 10 of 10[32m SUCCESS[39m (0.07 secs / 0.013 secs)

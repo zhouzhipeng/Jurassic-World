@@ -1,0 +1,24 @@
+
+> GDJS-tests@0.0.0 test
+> karma start --browsers ChromeHeadless --single-run --port 9881
+
+[33m22 09 2026 16:52:24.860:WARN [watcher]: [39mAll files matched by "D:/code/GDevelop/newIDE/app/resources/GDJS/Runtime/debugger-client/abstract-debugger-client.js" were excluded or matched by prior matchers.
+[32m22 09 2026 16:52:24.907:INFO [karma]: [39mKarma v1.7.1 server started at http://127.0.0.1:9881/
+[32m22 09 2026 16:52:24.907:INFO [launcher]: [39mLaunching browser ChromeHeadless with unlimited concurrency
+[32m22 09 2026 16:52:24.919:INFO [launcher]: [39mStarting browser ChromeHeadless
+[32m22 09 2026 16:52:25.309:INFO [HeadlessChrome 153.0.0 (Windows 10.0.0)]: [39mConnected on socket VJtLF8wOsRbwnAwXAAAA with id 18690458
+(node:74136) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+HeadlessChrome 153.0.0 (Windows 10.0.0) INFO: [36m'Box2D wasm file is being loaded from path "Box2D_v2.3.1_min.wasm.wasm" with prefix "http://127.0.0.1:9881/base/newIDE/app/resources/GDJS/Runtime/Extensions/Physics2Behavior/". Resolved URL: "http://127.0.0.1:9881/base/newIDE/app/resources/GDJS/Runtime/Extensions/Physics2Behavior/Box2D_v2.3.1_min.wasm.wasm".'[39m
+
+
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 0 of 2[32m SUCCESS[39m (0 secs / 0 secs)
+[1A[2K[31mHeadlessChrome 153.0.0 (Windows 10.0.0) Text Pixi style invalidation does not rasterize unchanged HUD styles or positions again FAILED[39m
+	Error: expected 300 to equal 0
+	    at Assertion.assert (GDJS/tests/node_modules/expect.js/index.js:96:13)
+	    at Assertion.be.Assertion.equal (GDJS/tests/node_modules/expect.js/index.js:216:10)
+	    at Assertion.be (GDJS/tests/node_modules/expect.js/index.js:69:24)
+	    at context.<anonymous> (GDJS/tests/tests/text-pixi-invalidation.js:42:32)
+HeadlessChrome 153.0.0 (Windows 10.0.0): Executed 1 of 2[31m (1 FAILED)[39m (0 secs / 0.017 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 2 of 2[31m (1 FAILED)[39m (0 secs / 0.021 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 2 of 2[31m (1 FAILED)[39m (0.074 secs / 0.021 secs)

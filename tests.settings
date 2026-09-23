@@ -416,3 +416,11 @@ name = "DamageFeedback"
 type = "gameplay"
 description = "Real bite damage, hurt animation, health and notification text, input-mode switching, resize, pause and recovery."
 file = "tests/DamageFeedback.js"
+
+[[tests]]
+scope = "project"
+order = 52
+name = "DamageStoryBounds"
+type = "gameplay"
+description = "Hidden companion story text stays bounded over time and across touch/desktop transitions."
+file = "tests/DamageStoryBounds.js"

@@ -1,0 +1,18 @@
+
+> GDJS-tests@0.0.0 test
+> karma start --browsers ChromeHeadless --single-run --port 9881
+
+[33m22 09 2026 16:52:41.868:WARN [watcher]: [39mAll files matched by "D:/code/GDevelop/newIDE/app/resources/GDJS/Runtime/debugger-client/abstract-debugger-client.js" were excluded or matched by prior matchers.
+[32m22 09 2026 16:52:41.911:INFO [karma]: [39mKarma v1.7.1 server started at http://127.0.0.1:9881/
+[32m22 09 2026 16:52:41.911:INFO [launcher]: [39mLaunching browser ChromeHeadless with unlimited concurrency
+[32m22 09 2026 16:52:41.933:INFO [launcher]: [39mStarting browser ChromeHeadless
+(node:70196) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[32m22 09 2026 16:52:42.325:INFO [HeadlessChrome 153.0.0 (Windows 10.0.0)]: [39mConnected on socket lrVGeWiEpBxFsrJnAAAA with id 78745233
+HeadlessChrome 153.0.0 (Windows 10.0.0) INFO: [36m'Box2D wasm file is being loaded from path "Box2D_v2.3.1_min.wasm.wasm" with prefix "http://127.0.0.1:9881/base/newIDE/app/resources/GDJS/Runtime/Extensions/Physics2Behavior/". Resolved URL: "http://127.0.0.1:9881/base/newIDE/app/resources/GDJS/Runtime/Extensions/Physics2Behavior/Box2D_v2.3.1_min.wasm.wasm".'[39m
+
+
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 0 of 2[32m SUCCESS[39m (0 secs / 0 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 1 of 2[32m SUCCESS[39m (0 secs / 0.002 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 2 of 2[32m SUCCESS[39m (0 secs / 0.007 secs)
+[1A[2KHeadlessChrome 153.0.0 (Windows 10.0.0): Executed 2 of 2[32m SUCCESS[39m (0.057 secs / 0.007 secs)
