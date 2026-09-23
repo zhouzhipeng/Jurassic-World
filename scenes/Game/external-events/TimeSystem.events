@@ -1,9 +1,5 @@
 @comment "Island calendar: one day = DayLengthSeconds real seconds. Run before WeatherSystem so weather and daylight share one environment writer." background=[90,150,180] text=[255,255,255]
 
-@event aiGeneratedEventId="time-initialize"
-if SceneJustBegins
-do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GameTime" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0
-
 @event aiGeneratedEventId="time-advance"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1

@@ -1,7 +1,3 @@
-@event aiGeneratedEventId="fps-start-display-timer"
-if SceneJustBegins
-do ResetTimer timer_name="FPSDisplayRefresh"
-
 @event aiGeneratedEventId="fps-refresh-quarter-second"
 if CompareTimer timer_name="FPSDisplayRefresh" comparison_sign=">=" time_in_seconds=0.25
 do SetNumberObjectVariable object="FPSCounter" variable="MeasuredFPS" modification_sign="=" value=expr(FPS::FPS())

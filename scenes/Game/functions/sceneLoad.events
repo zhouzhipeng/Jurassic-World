@@ -1,5 +1,4 @@
 @event
-if SceneJustBegins
 do TouchSimulateMouse activate_yes_by_default_when_game_is_launched=false
 do SetStringVariable variable="TouchLastNotice" modification_sign="=" value=expr(NoticeMessage)
 do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GameTouch" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0
@@ -12,3 +11,38 @@ do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_
 do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GamePhoto" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0
 do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GameQuests" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0
 do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GameSurvival" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0
+
+link "MountainInitialize"
+
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=0
+do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
+do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y() + 550)
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="StationIndex" comparison_sign="=" value=1
+do SetX object="Player3D" modification_sign="=" value=-650
+do SetY object="Player3D" modification_sign="=" value=350
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
+
+@event
+do ResetTimer timer_name="survival"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text="Local save available. Choose Load Game."
+
+@event aiGeneratedEventId="time-initialize"
+do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GameTime" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0
+
+@event aiGeneratedEventId="weather-initialize"
+do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GameWeather" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0
+
+@event aiGeneratedEventId="fps-start-display-timer"
+do ResetTimer timer_name="FPSDisplayRefresh"

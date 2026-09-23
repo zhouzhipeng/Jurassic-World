@@ -1,11 +1,6 @@
 link "FoliageLODRestore"
 
 @event
-link "HUDBootstrap"
-
-link "MountainInitialize"
-
-@event
 link "TouchContext"
 
 link "HeyinContext"
@@ -30,24 +25,6 @@ do SetNumberVariable variable="RenderMode" modification_sign="=" value=expr(1 - 
 
 @event
 link "HUDViewMode"
-
-@event
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="StationIndex" comparison_sign="=" value=0
-if SceneJustBegins
-do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
-do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y() + 550)
-do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
-do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
-
-@event
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-if SceneJustBegins
-do SetX object="Player3D" modification_sign="=" value=-650
-do SetY object="Player3D" modification_sign="=" value=350
-do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
-do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -534,14 +511,6 @@ do SetNumberVariable variable="CanFeed" modification_sign="=" value=0
 @event
 if Distance object="Player3D" object_2="Dinosaur3D" distance=650
 do SetNumberVariable variable="CanFeed" modification_sign="=" value=1
-
-@event
-if SceneJustBegins
-do ResetTimer timer_name="survival"
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-
-@event
-link "HUDSaveAvailability"
 
 @event
 if NumberVariable variable="Mode" comparison_sign=">=" value=0

@@ -1,9 +1,5 @@
 @comment "Native island weather: 0 clear, 1 cloudy, 2 rain, 3 thunderstorm, 4 fog. Weather time freezes with gameplay." background=[90,150,180] text=[255,255,255]
 
-@event aiGeneratedEventId="weather-initialize"
-if SceneJustBegins
-do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GameWeather" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0
-
 @event aiGeneratedEventId="weather-manual-cycle"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
