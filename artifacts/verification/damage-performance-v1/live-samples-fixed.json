@@ -1,0 +1,167 @@
+{
+  "sourceRevision": "f2dd6a6f1f95fd215833095a14863e5cd107678a",
+  "engineRevision": "a1f76cc5aae42807cf43cf617eed3fd52ca17f51",
+  "canvas": [
+    3196,
+    1800
+  ],
+  "method": "Normal focused playback, invulnerable, synthetic sustained HitFlash at reported mountain view. Sparse debugger snapshots perturb timing and are not a frame-time distribution. Canvas differs slightly from the earlier 3014x1800 capture.",
+  "runs": [
+    {
+      "sceneSeconds": 24.1,
+      "instanceStates": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 9,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 4688.176258920098,
+              "y": 545.4453952099856,
+              "z": 1440.1975113862236,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "variables": {
+              "OcclusionAmount": 0,
+              "OcclusionHold": 0,
+              "AnimationState": 6,
+              "Sprinting": 0,
+              "SprintExhausted": 0,
+              "Travel": 0,
+              "HandZ": 78.00000152611551,
+              "FootZ": 15.999999428150431,
+              "AttachmentReady": 1,
+              "HandRX": 2.1517117098560342e-14,
+              "AnimationPlaying": 1,
+              "HeldAxeVisible": 0,
+              "CombatSpearVisible": 0,
+              "ActorConfigured": 1
+            }
+          }
+        ],
+        "FPSCounter": [
+          {
+            "index": 0,
+            "id": 95,
+            "persistentUuid": "efbdd2e7-1b1e-4a6a-82fd-1ceec07b972a",
+            "picked": false,
+            "position": {
+              "x": 729.2239467849224,
+              "y": 85.91657427937915,
+              "layer": "Performance",
+              "zOrder": 100
+            },
+            "variables": {
+              "MeasuredFPS": 60.098522167487694
+            }
+          }
+        ],
+        "HeyinStory": [
+          {
+            "index": 0,
+            "id": 102,
+            "persistentUuid": "1ba83ff8-4507-47ce-816d-a91fcf22b7b8",
+            "picked": false,
+            "position": {
+              "x": 42,
+              "y": 200,
+              "layer": "Performance",
+              "zOrder": 0
+            },
+            "variables": {}
+          }
+        ]
+      },
+      "errors": [],
+      "inputState": {
+        "pressedKeyCodes": [],
+        "lastPressedKey": 0,
+        "mouseX": 315.29933481152995,
+        "mouseY": 896.008869179601,
+        "pressedMouseButtons": [],
+        "error": null,
+        "anyKeyPressed": false
+      }
+    },
+    {
+      "sceneSeconds": 49.387,
+      "instanceStates": {
+        "Player3D": [
+          {
+            "index": 0,
+            "id": 9,
+            "persistentUuid": "2ddc1b04-4355-41e0-912a-16c9c3ac59e5",
+            "picked": true,
+            "position": {
+              "x": 4688.176258920098,
+              "y": 545.4453952099856,
+              "z": 1440.1975113862236,
+              "layer": "World3D",
+              "zOrder": 0
+            },
+            "variables": {
+              "OcclusionAmount": 0,
+              "OcclusionHold": 0,
+              "AnimationState": 6,
+              "Sprinting": 0,
+              "SprintExhausted": 0,
+              "Travel": 0,
+              "HandZ": 78.00000152611551,
+              "FootZ": 15.999999428150431,
+              "AttachmentReady": 1,
+              "HandRX": 2.1517117098560342e-14,
+              "AnimationPlaying": 1,
+              "HeldAxeVisible": 0,
+              "CombatSpearVisible": 0,
+              "ActorConfigured": 1
+            }
+          }
+        ],
+        "FPSCounter": [
+          {
+            "index": 0,
+            "id": 95,
+            "persistentUuid": "efbdd2e7-1b1e-4a6a-82fd-1ceec07b972a",
+            "picked": false,
+            "position": {
+              "x": 729.2239467849224,
+              "y": 85.91657427937915,
+              "layer": "Performance",
+              "zOrder": 100
+            },
+            "variables": {
+              "MeasuredFPS": 59.171597633136095
+            }
+          }
+        ],
+        "HeyinStory": [
+          {
+            "index": 0,
+            "id": 102,
+            "persistentUuid": "1ba83ff8-4507-47ce-816d-a91fcf22b7b8",
+            "picked": false,
+            "position": {
+              "x": 42,
+              "y": 200,
+              "layer": "Performance",
+              "zOrder": 0
+            },
+            "variables": {}
+          }
+        ]
+      },
+      "errors": [],
+      "inputState": {
+        "pressedKeyCodes": [],
+        "lastPressedKey": 0,
+        "mouseX": 315.29933481152995,
+        "mouseY": 896.008869179601,
+        "pressedMouseButtons": [],
+        "error": null,
+        "anyKeyPressed": false
+      }
+    }
+  ]
+}

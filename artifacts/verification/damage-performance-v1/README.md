@@ -55,7 +55,7 @@
 
 最终引擎的 10 项相关单元/集成测试通过，见 `profiler-after.log`，包含文字回归、剖析边界和 RuntimeScene 集成测试。`profiler-before.log` 保留两个计时回归在修复前失败的记录；`engine-before.log` / `engine-after.log` 为文字失效修复的先失败后通过证据。
 
-`runtime-verification.json` 对应最终游戏/引擎组合，校验和重新载入成功，7 项运行断言通过：玩家坐标有限、有可见 3D 网格、无运行错误、无失败纹理或被拒绝对象。工具的 completionReady 仅表示该组基础运行断言通过，不表示性能验收通过。
+`runtime-verification.json` 对应隐藏文本修复前的游戏源码；最终源码证据是 `runtime-post-story.json`。后者校验和重新载入成功，7 项运行断言通过：玩家坐标有限、有可见 3D 网格、无运行错误、无失败纹理或被拒绝对象。工具的 completionReady 仅表示该组基础运行断言通过，不表示性能验收通过。
 
 ## 性能证据的解释
 
@@ -72,3 +72,7 @@
 **隐藏文本修复前**，`a28ac33` / 最终引擎在 3014×1800 原始画布、原报告位置/视角正常播放，设置无敌并持续 HitFlash，以隔离反馈显示；这不是自然攻击次数或伤害测试。两次稀疏 FPSCounter.MeasuredFPS 读数约 21.70、9.87；截图显示 13 FPS，见 `live-samples.json` 和 `live-attack.png`。调试器序列化和窗口焦点会影响测量，这些不是逐帧分布。截图已查看：人物、山地、HUD、红色受击蒙版正常显示；通知已经自然到期。预览截图超时一次，暂停并聚焦后重拍成功。
 
 临时引擎调用计时将根因收敛到 `Text.setText@HeyinStory`：恢复阶段 180 次调用累计约 6875 ms（约 38.2 ms/帧），镜头 JavaScript 同期约 1.9 ms/帧。见 `event-diagnostic-summary.json`。该诊断批次因附加计时开销达到超时，只有已结束的剖析窗口可用，不作为验收。临时插桩已全部撤销，引擎重新构建，随后才执行 `post-story-*` 最终回归。仍不得把功能通过或短测改善当作每帧 60 FPS 达标。
+
+**修复后正常播放：** `live-samples-fixed.json` 对应 `f2dd6a6` / `a1f76cc5aa`，聚焦的预览在原报告视角持续显示受击反馈。场景时间 24.10 和 49.39 秒时，FPSCounter 的读数分别为 60.10 和 59.17；49.70 秒暂停后捕获的 `live-attack-fixed.png` 显示 51 FPS。这些结果说明没有复现此前持续降至约 10 FPS 的退化，但仍存在波动，不能以两次读数证明持续 60 FPS。此次画布为 3196×1800，与此前 3014×1800 略有差异，不作精确 FPS 倍率比较。截图已查看，人物、山地、HUD 与蒙版正常。采样后清除了临时无敌和持续 HitFlash 状态、释放输入，预览留在暂停状态。
+
+![修复后的原报告视角与受击反馈](live-attack-fixed.png)
