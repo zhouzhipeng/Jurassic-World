@@ -34,7 +34,9 @@ try {
   await place('Num1', 0, 750);
   harness.assert(harness.getObjects('PartFoundation').length === 1,
     `Foundation placement completes through the construction signal: count=${harness.getObjects('PartFoundation').length}, mode=${number('BuildMode')}, valid=${number('BuildValid')}, sent=${harness.getSceneVariable('BuildMessage')?.value}, seen=${harness.getObjectVariable(harness.getObjects('ConstructionController')[0].id, 'PlaceSeen')?.value}`);
+  harness.assert(number('BuildLevel') === 0, `Foundation placement keeps ground level: ${number('BuildLevel')}`);
   await tap('r');
+  harness.assert(number('BuildLevel') === 0, `Rotation keeps ground level: ${number('BuildLevel')}`);
   await place('Num3', 150, 750);
   await place('Num5', 0, 750);
   await tap('PageUp');
