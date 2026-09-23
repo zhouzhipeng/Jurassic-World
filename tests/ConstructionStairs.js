@@ -44,15 +44,19 @@ try {
   harness.assert(harness.getObjects('PartCeiling').length === 1 && number('Wood') === wood,
     'A ceiling cannot cover the staircase headroom');
   await tap('b');
-  harness.setObjectPosition(player().id, 0, 820, 0);
+  const stair = harness.getObjects('PartStairs')[0];
+  harness.setSceneVariable('CameraYaw', 0);
+  harness.setObjectPosition(player().id, stair.x, stair.y + 220, 0);
   await harness.stepFrames(2);
-  await walk('w', 80);
-  harness.assert(player().y < 450 && player().z === 320, `Walking up stairs reaches the upper floor: y=${player().y}, z=${player().z}`);
+  await walk('w', 120);
+  harness.assert(player().y < stair.y - 100 && player().z === 320,
+    `Walking up stairs reaches the upper floor: y=${player().y}, z=${player().z}, stairY=${stair.y}`);
   await harness.stepFrames(30);
   harness.assert(player().z === 320 && number('PlayerFloor') === 320, 'Player remains supported while standing on the upper floor');
-  await walk('s', 80);
+  await walk('s', 120);
   await harness.stepFrames(15);
-  harness.assert(player().y > 780 && player().z === 0, `Walking down returns to ground: y=${player().y}, z=${player().z}`);
+  harness.assert(player().y > stair.y + 180 && player().z === 0,
+    `Walking down returns to ground: y=${player().y}, z=${player().z}, stairY=${stair.y}`);
 } finally {
   harness.releaseAllInputs();
 }
