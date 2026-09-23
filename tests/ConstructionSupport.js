@@ -6,7 +6,7 @@ async function tap(key) {
   await harness.stepFrames(1);
   harness.setKeyPressed(key, false);
   await harness.stepFrames(1);
-  if (/^(b|Num[1-8]|r|PageUp|PageDown)$/.test(key)) await harness.stepFrames(3);
+  if (/^(b|Num[1-8]|r|PageUp|PageDown)$/.test(key)) await harness.stepFrames(6);
   if (key === 'Delete') await harness.stepFrames(3);
 }
 async function aim(x, y) {
