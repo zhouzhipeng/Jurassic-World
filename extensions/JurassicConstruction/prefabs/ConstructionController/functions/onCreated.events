@@ -1,2 +1,3 @@
 @event
 do SubscribeSceneSignal signal_name="Construction.Restore"
+do SubscribeSceneSignal signal_name="Construction.Save"

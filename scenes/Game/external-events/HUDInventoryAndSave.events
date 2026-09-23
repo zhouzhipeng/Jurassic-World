@@ -163,7 +163,7 @@ link "HeyinSave"
 
 @event
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
-do EcrireFichierTxt storage_name=expr(SaveStorage) group="BuildingsV2" text=expr(ToJSON(BuildingRecords))
+do EmitSceneSignal signal_name="Construction.Save" payload=expr(SaveStorage)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Trust" expression=expr(Trust)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Berries" expression=expr(Berries)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Wood" expression=expr(Wood)
