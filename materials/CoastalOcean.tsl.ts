@@ -48,8 +48,9 @@ export default defineMaterial({
     const sunColor = mix(color('#fff3cb'), color('#ffac64'), parameters.twilight);
     const surface = mix(water.mul(light), sky, fresnel.mul(0.85)).add(sunColor.mul(glint.mul(1.4).add(glow)));
     const crest = sin(c).mul(sin(d)).mul(0.5).add(0.5).pow(10).mul(0.075).mul(light);
+    const movingSheen = sin(a).mul(0.5).add(sin(b).mul(0.25)).add(0.5).saturate().mul(0.07).mul(light);
     const fog = smoothstep(parameters.fogNear, parameters.fogFar, positionView.z.abs().mul(100));
-    const finalColor = surface.add(vec3(crest)).add(vec3(parameters.flash.mul(0.18)));
+    const finalColor = surface.add(vec3(crest.add(movingSheen))).add(vec3(parameters.flash.mul(0.18)));
     material.fragmentNode = vec4(mix(finalColor, parameters.horizon, fog), 1);
     material.outputNode = vec4(mix(finalColor, parameters.horizon, fog), 1);
     // Blender GLB is Y-up locally; object rotation converts the vertical wave to world Z.
