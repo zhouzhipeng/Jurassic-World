@@ -105,8 +105,6 @@ do EmitSceneSignal signal_name="Construction.Restore" payload=expr(ConstructionL
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Place"
 > @js objects=Object strict=true
-for (const controller of objects) controller.getVariables().get("PlaceSeen")
-  .setNumber(controller.getVariables().get("PlaceSeen").getAsNumber() + 1);
 const world = objects[0] ? objects[0].getRuntimeScene() : runtimeScene;
 const types = new Map([[3, "BuiltCampfire"], [10, "PartFoundation"],
   [11, "PartPillar"], [12, "PartWall"], [13, "PartDoorframe"],
@@ -132,8 +130,8 @@ vars.get("Slot").setNumber(slot);
 vars.get("WorldHX").setNumber(Number(request.WorldHX) || 0);
 vars.get("WorldHY").setNumber(Number(request.WorldHY) || 0);
 vars.get("BaseZ").setNumber(Number(request.Z) || 0);
-vars.get("Level").setNumber(Number(request.Level) || 0);
-vars.get("Parent").setNumber(Number(request.Parent) || -1);
+vars.get("Level").setNumber((Number(request.Level) || 0) + (Number(request.Kind) === 14 ? 1 : 0));
+vars.get("Parent").setNumber(Number.isFinite(Number(request.Parent)) ? Number(request.Parent) : -1);
 vars.get("BaseAngle").setNumber(Number(request.Angle) || 0);
 vars.get("Open").setNumber(0);
 > @end js

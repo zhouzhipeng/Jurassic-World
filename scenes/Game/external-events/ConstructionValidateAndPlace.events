@@ -278,4 +278,3 @@ do SetNumberVariable variable="ConstructionRequest.WoodCost" modification_sign="
 do SetNumberVariable variable="ConstructionRequest.StoneCost" modification_sign="=" value=expr(BuildStone)
 do SetNumberVariable variable="ConstructionRequest.FiberCost" modification_sign="=" value=expr(BuildFiber)
 do EmitSceneSignal signal_name="Construction.Place" payload=expr(ToJSON(ConstructionRequest))
-do SetStringVariable variable="BuildMessage" modification_sign="=" value="PLACE_SENT"

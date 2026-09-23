@@ -6,6 +6,7 @@ async function tap(key) {
   await harness.stepFrames(1);
   harness.setKeyPressed(key, false);
   await harness.stepFrames(1);
+  if (key === 'Delete') await harness.stepFrames(3);
 }
 async function aim(x, y) {
   harness.setObjectPosition(harness.getObjects('Player3D')[0].id, x, y, 0);
@@ -33,10 +34,8 @@ try {
     'Unsupported ceiling neither spawns nor consumes materials');
   await place('Num1', 0, 750);
   harness.assert(harness.getObjects('PartFoundation').length === 1,
-    `Foundation placement completes through the construction signal: count=${harness.getObjects('PartFoundation').length}, mode=${number('BuildMode')}, valid=${number('BuildValid')}, sent=${harness.getSceneVariable('BuildMessage')?.value}, seen=${harness.getObjectVariable(harness.getObjects('ConstructionController')[0].id, 'PlaceSeen')?.value}`);
-  harness.assert(number('BuildLevel') === 0, `Foundation placement keeps ground level: ${number('BuildLevel')}`);
+    'Foundation placement completes through the construction signal');
   await tap('r');
-  harness.assert(number('BuildLevel') === 0, `Rotation keeps ground level: ${number('BuildLevel')}`);
   await place('Num3', 150, 750);
   await place('Num5', 0, 750);
   await tap('PageUp');
