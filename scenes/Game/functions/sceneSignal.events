@@ -30,6 +30,12 @@ do SetStringVariable variable="BuildMessage" modification_sign="=" value="已搭
 do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1
 
 @event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.DoorToggled"
+do JSONToVariableStructure2 json_string=expr(Payload) variable_where_to_store_the_json_object="ConstructionDoorToggled"
+do SetNumberVariable variable="BuildingRecords[ConstructionDoorToggled.Slot].Open" modification_sign="=" value=expr(ConstructionDoorToggled.Open)
+do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1
+
+@event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Placed"
 if NumberVariable variable="ConstructionPlaced.Kind" comparison_sign="=" value=14
 do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Level" modification_sign="+" value=1

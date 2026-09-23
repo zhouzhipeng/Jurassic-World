@@ -1,3 +1,20 @@
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Object3D::Z()) comparison_sign="!=" second_expression=expr(Object.Variable(BaseZ))
 do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Object" behavior="Object3D" modification_sign="=" value=expr(Object.Variable(BaseZ))
+
+@js objects=Object strict=true
+for (const door of objects) {
+  const vars = door.getVariables();
+  if (vars.get("Slot").getAsNumber() < 0) continue;
+  const open = vars.get("Open").getAsNumber();
+  const baseAngle = vars.get("BaseAngle").getAsNumber();
+  const radians = baseAngle * Math.PI / 180;
+  const angle = baseAngle + open * 90;
+  const angleRadians = angle * Math.PI / 180;
+  door.setAngle(angle);
+  vars.get("WorldHX").setNumber(Math.abs(Math.cos(angleRadians)) * 78 + Math.abs(Math.sin(angleRadians)) * 12);
+  vars.get("WorldHY").setNumber(Math.abs(Math.sin(angleRadians)) * 78 + Math.abs(Math.cos(angleRadians)) * 12);
+  door.setPosition(vars.get("BaseX").getAsNumber() + open * (-78 * Math.cos(radians) - 78 * Math.sin(radians)),
+    vars.get("BaseY").getAsNumber() + open * (-78 * Math.sin(radians) + 78 * Math.cos(radians)));
+}
+@end js

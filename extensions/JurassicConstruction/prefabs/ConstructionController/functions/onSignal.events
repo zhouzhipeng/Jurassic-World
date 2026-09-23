@@ -33,6 +33,8 @@ for (let slot = 0; slot < Math.min(128, records.length); slot++) {
   instance.setAngle(angle);
   const variables = instance.getVariables();
   variables.get("Slot").setNumber(slot);
+  variables.get("BaseX").setNumber(x);
+  variables.get("BaseY").setNumber(y);
   if (Number(record.Kind) >= 10) {
     variables.get("BaseZ").setNumber(z);
     variables.get("Level").setNumber(Number(record.Level) || 0);
@@ -71,8 +73,11 @@ for (const { kind, name } of names) {
     const vars = instance.getVariables();
     const slot = vars.get("Slot").getAsNumber();
     if (!Number.isInteger(slot) || slot < 0 || slot >= records.length) continue;
-    records[slot] = { Kind: kind, X: instance.getX(), Y: instance.getY(),
-      Z: vars.get("BaseZ").getAsNumber(), Angle: instance.getAngle(),
+    records[slot] = { Kind: kind,
+      X: kind === 15 ? vars.get("BaseX").getAsNumber() : instance.getX(),
+      Y: kind === 15 ? vars.get("BaseY").getAsNumber() : instance.getY(),
+      Z: vars.get("BaseZ").getAsNumber(),
+      Angle: kind === 15 ? vars.get("BaseAngle").getAsNumber() : instance.getAngle(),
       Level: vars.get("Level").getAsNumber(), Parent: vars.get("Parent").getAsNumber(),
       Open: vars.get("Open").getAsNumber() };
   }
@@ -127,6 +132,8 @@ item.setPosition(Number(request.X) || 0, Number(request.Y) || 0);
 item.setAngle(Number(request.Angle) || 0);
 const vars = item.getVariables();
 vars.get("Slot").setNumber(slot);
+vars.get("BaseX").setNumber(Number(request.X) || 0);
+vars.get("BaseY").setNumber(Number(request.Y) || 0);
 vars.get("WorldHX").setNumber(Number(request.WorldHX) || 0);
 vars.get("WorldHY").setNumber(Number(request.WorldHY) || 0);
 vars.get("BaseZ").setNumber(Number(request.Z) || 0);
@@ -175,3 +182,21 @@ for (const controller of objects) controller.getVariables().get("RemoveJSON")
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Remove"
 do EmitSceneSignal signal_name="Construction.Removed" payload=expr(Object.VariableString(RemoveJSON))
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.ToggleDoor"
+> @js objects=Object strict=true
+const world = objects[0] ? objects[0].getRuntimeScene() : runtimeScene;
+const slot = Number(eventsFunctionContext.getArgument("Payload"));
+const door = world.getObjects("PartDoor").find(item =>
+  item.getVariables().get("Slot").getAsNumber() === slot);
+if (!door) return;
+const state = 1 - door.getVariables().get("Open").getAsNumber();
+door.getVariables().get("Open").setNumber(state);
+for (const controller of objects) controller.getVariables().get("DoorJSON")
+  .setString(JSON.stringify({ Slot: slot, Open: state }));
+> @end js
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.ToggleDoor"
+do EmitSceneSignal signal_name="Construction.DoorToggled" payload=expr(Object.VariableString(DoorJSON))

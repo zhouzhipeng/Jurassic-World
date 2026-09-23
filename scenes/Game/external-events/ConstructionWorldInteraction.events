@@ -26,23 +26,7 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="e"
 or NumberVariable variable="TouchDoor" comparison_sign="=" value=1
 if NumberVariable variable="DoorSlot" comparison_sign=">=" value=0
-if NumberObjectVariable object="PartDoor" variable="Slot" comparison_sign="=" value=expr(DoorSlot)
-do SetNumberObjectVariable object="PartDoor" variable="Open" modification_sign="=" value=expr(1-PartDoor.Variable(Open))
-do SetNumberVariable variable="BuildingRecords[DoorSlot].Open" modification_sign="=" value=expr(PartDoor.Variable(Open))
-do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-> @event
-> for each "PartDoor"
->> @event
->> if NumberObjectVariable object="PartDoor" variable="Slot" comparison_sign=">=" value=0
->> do SetAngle object="PartDoor" modification_sign="=" angle_in_degrees=expr(PartDoor.Variable(BaseAngle)+PartDoor.Variable(Open)*90)
->> do SetNumberObjectVariable object="PartDoor" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(PartDoor.Angle())))*78+abs(sin(ToRad(PartDoor.Angle())))*12)
->> do SetNumberObjectVariable object="PartDoor" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(PartDoor.Angle())))*78+abs(cos(ToRad(PartDoor.Angle())))*12)
->> do SetX object="PartDoor" modification_sign="=" value=expr(BuildingRecords[PartDoor.Variable(Slot)].X+PartDoor.Variable(Open)*(-78*cos(ToRad(PartDoor.Variable(BaseAngle)))-78*sin(ToRad(PartDoor.Variable(BaseAngle)))))
->> do SetY object="PartDoor" modification_sign="=" value=expr(BuildingRecords[PartDoor.Variable(Slot)].Y+PartDoor.Variable(Open)*(-78*sin(ToRad(PartDoor.Variable(BaseAngle)))+78*cos(ToRad(PartDoor.Variable(BaseAngle)))))
+do EmitSceneSignal signal_name="Construction.ToggleDoor" payload=expr(ToString(DoorSlot))
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0

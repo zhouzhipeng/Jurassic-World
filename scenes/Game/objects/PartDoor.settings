@@ -66,6 +66,16 @@ type = "number"
 value = 0
 
 [[variables]]
+name = "BaseX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseY"
+type = "number"
+value = 0
+
+[[variables]]
 name = "CostWood"
 type = "number"
 value = 3
