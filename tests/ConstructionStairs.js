@@ -48,11 +48,12 @@ try {
   harness.setSceneVariable('CameraYaw', 0);
   harness.setObjectPosition(player().id, stair.x, stair.y + 220, 0);
   await harness.stepFrames(2);
-  await walk('w', 120);
+  await walk('w', 100);
   harness.assert(player().y < stair.y - 100 && player().z >= 300 && player().z <= 320,
     `Walking up stairs reaches the upper floor: y=${player().y}, z=${player().z}, stairY=${stair.y}`);
   await harness.stepFrames(30);
-  harness.assert(player().z === 320 && number('PlayerFloor') === 320, 'Player remains supported while standing on the upper floor');
+  harness.assert(player().z === 320 && number('PlayerFloor') === 320,
+    `Player remains supported while standing on the upper floor: z=${player().z}, floor=${number('PlayerFloor')}, y=${player().y}`);
   await walk('s', 120);
   await harness.stepFrames(15);
   harness.assert(player().y > stair.y + 180 && player().z === 0,
