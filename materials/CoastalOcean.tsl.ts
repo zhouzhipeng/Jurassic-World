@@ -40,7 +40,7 @@ export default defineMaterial({
     const fresnel = facing.oneMinus().pow(5).mul(0.96).add(0.04);
     const radius = x.mul(x).add(y.sub(300).mul(y.sub(300))).pow(0.5);
     const offshore = smoothstep(3200, 7000, radius);
-    const water = mix(color('#269e9c'), color('#073a59'), offshore);
+    const water = mix(color('#247eaf'), color('#0b619c'), offshore);
     const light = parameters.daylight.mul(0.83).add(0.1).mul(parameters.cloud.mul(-0.4).add(1));
     const sky = mix(parameters.horizon, color('#267bb7').mul(light), reflected.z.max(0).pow(0.45));
     const glint = dot(reflected, parameters.sun.normalize()).max(0).pow(420).mul(parameters.daylight).mul(parameters.cloud.oneMinus());
