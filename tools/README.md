@@ -33,6 +33,7 @@
 特殊工具：
 
 - `add_player_jump_animation.py`：先加载 `sources/models/survivor-animated-source.blend`，再传入一个临时输出目录；该目录同时产生 `.blend`、GLB 和清单。验收后分别安装到 `sources/models/`、`assets/models/`，不要直接对生产资源目录执行。
+- `add_rowboat_seating.py`：分别加载 `sources/models/survivor-jump-source.blend` 和 `sources/environment/coastal-rowboat-source.blend`，通过 `-- character|boat <绝对临时输出目录>` 生成坐姿、划桨与船桨动画的 GLB、可编辑 `.blend` 和清单。仅覆盖指定临时输出目录，检查动画与模型后再安装到现有运行资源路径；可对原始输入重复执行。
 - `partition_island.py`：显式传入输入 GLB 和临时输出 GLB，保持原模型供比较。
 - `generate_foliage_lods.py`：传入项目绝对路径，读取原植被 GLB，写入 `assets/models/` 的 LOD GLB。
 

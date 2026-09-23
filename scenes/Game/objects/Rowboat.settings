@@ -11,8 +11,8 @@ folder = [ "Environment" ]
 [content]
 centerLocation = "ModelOrigin"
 crossfadeDuration = 0.1
-depth = 110
-height = 540
+depth = 143
+height = 702
 isCastingShadow = true
 isReceivingShadow = true
 keepAspectRatio = true
@@ -22,6 +22,19 @@ originLocation = "ModelOrigin"
 rotationX = 90
 rotationY = 0
 rotationZ = 0
-width = 220
+width = 286
 sharedAnimationModelResources = [ ]
-animations = [ ]
+
+[[content.animations]]
+loop = true
+name = "OarsRest"
+source = "OarsRest"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = true
+name = "OarsRow"
+source = "OarsRow"
+sourceModelResourceName = ""
+useRootMotion = false

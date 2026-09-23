@@ -121,3 +121,17 @@ name = "JumpLand"
 source = "JumpLand"
 sourceModelResourceName = ""
 useRootMotion = false
+
+[[content.animations]]
+loop = true
+name = "BoatSit"
+source = "BoatSit"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = true
+name = "BoatRow"
+source = "BoatRow"
+sourceModelResourceName = ""
+useRootMotion = false

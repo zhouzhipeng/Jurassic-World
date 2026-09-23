@@ -84,3 +84,11 @@ do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Ani
 @event aiGeneratedEventId="survivor-update-occlusion-silhouette"
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(OcclusionAmount)) comparison_sign=">=" second_expression=0
 do EffectCapability::EffectBehavior::SetEffectDoubleParameter object="Body" behavior="Effect" effect_name="OcclusionSilhouette" property_name="opacity" new_value=expr(Object.Variable(OcclusionAmount))
+
+@event aiGeneratedEventId="survivor-boat-sit"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=12
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="BoatSit"
+
+@event aiGeneratedEventId="survivor-boat-row"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=13
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="BoatRow"
