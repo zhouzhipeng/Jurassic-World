@@ -27,7 +27,7 @@ def pose(frame, clip):
     # Positive rig-X pitches the face and chest toward the swimming direction.
     # Keep the pelvis in place so the gameplay object still controls buoyancy.
     b["Hips"].rotation_euler.x = 1.06 if clip == "Swim" else 1.30
-    b["Hips"].location.z = 0.04 * math.sin(phase)
+    b["Hips"].location.z = (0.16 if clip == "Swim" else 0) + 0.04 * math.sin(phase)
     b["Spine"].rotation_euler.x = -0.10 + 0.045 * math.sin(phase)
     b["Head"].rotation_euler.x = -0.55 if clip == "Swim" else -0.10
     if clip == "Swim":

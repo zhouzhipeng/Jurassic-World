@@ -57,7 +57,8 @@ if (player) {
   // Keep the dive lens below the sea surface so the seabed is not hidden by
   // the water plane. A shorter, nearly level orbit frames the underwater view.
   const requestedPitch = submerged ? -8 : number("CameraPitch");
-  const requestedDistance = submerged ? Math.min(650, number("CameraDistance"))
+  const requestedDistance = number("SwimMode") > 0
+    ? Math.min(submerged ? 650 : 850, number("CameraDistance"))
     : number("CameraDistance");
   // Island3D includes its trees, rocks and camp. Other entries cover dynamic geometry.
   const names = ["BerryBush", "FiberFern", "WoodSapling", "StoneDeposit",
