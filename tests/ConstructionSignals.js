@@ -34,7 +34,7 @@ try {
   harness.setSceneVariable('Action', 10);
   await harness.stepFrames(9);
   harness.assert(harness.getObjects('PartFoundation').length === 1 && harness.getObjects('PartWall').length === 1,
-    'The extension saved and reloaded the building records through signals');
+    `The extension saved and reloaded the building records through signals: loads=${objectNumber(harness.getObjects('ConstructionController')[0], 'LoadRequests')}, storage=${harness.getObjectVariable(harness.getObjects('ConstructionController')[0].id, 'LastLoadStorage')?.value}, savedLength=${String(harness.getObjectVariable(harness.getObjects('ConstructionController')[0].id, 'SaveJSON')?.value).length}, loadedJSON=${String(harness.getSceneVariable('BuildJSON')?.value).slice(0,70)}`);
 } finally {
   harness.releaseAllInputs();
 }

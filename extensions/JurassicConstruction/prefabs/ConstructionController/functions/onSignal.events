@@ -91,6 +91,13 @@ do EcrireFichierTxt storage_name=expr(Payload) group="BuildingsV2" text=expr(Obj
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Load"
 do SetStringVariable variable="ConstructionLoadedJSON" modification_sign="=" value="[]"
+> @js objects=Object strict=true
+for (const controller of objects) {
+  const variables = controller.getVariables();
+  variables.get("LoadRequests").add(1);
+  variables.get("LastLoadStorage").setString(String(eventsFunctionContext.getArgument("Payload")));
+}
+> @end js
 
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Load"
