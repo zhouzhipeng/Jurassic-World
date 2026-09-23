@@ -40,8 +40,8 @@ export default defineMaterial({
     const offshore = smoothstep(3200, 7000, radius);
     const clearWater = mix(color('#99d8cd'), color('#bcdbef'), offshore);
     const depthShade = sin(a).add(sin(b)).mul(0.25).add(0.5);
-    const fineRipple = sin(x.mul(0.085).add(y.mul(0.059)).add(warp).add(t.mul(4.8)))
-      .mul(sin(x.mul(-0.11).add(y.mul(0.074)).sub(t.mul(4.1)))).mul(0.5).add(0.5);
+    const fineRipple = sin(x.mul(0.042).add(y.mul(0.025)).add(warp).add(t.mul(3.2)))
+      .add(sin(x.mul(-0.021).add(y.mul(0.051)).sub(t.mul(2.7)))).mul(0.25).add(0.5);
     const water = mix(color('#6bb2dc'), clearWater,
       depthShade.mul(0.35).add(fineRipple.mul(0.15)).add(0.5));
     const light = parameters.daylight.mul(0.83).add(0.1).mul(parameters.cloud.mul(-0.4).add(1));
