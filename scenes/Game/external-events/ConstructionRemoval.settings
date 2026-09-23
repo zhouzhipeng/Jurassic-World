@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "ConstructionRemoval"
+description = "Select and remove construction modules"
+eventsLogic = "Resolve a removable target and process keyboard or touch deletion while updating build records."

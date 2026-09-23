@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "ConstructionRestore"
+description = "Restore saved construction objects and records"
+eventsLogic = "When BuildRestore is set, rebuild saved structures, restore their geometry and state, then clear the restore request."

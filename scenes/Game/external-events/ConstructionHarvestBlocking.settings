@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "ConstructionHarvestBlocking"
+description = "Keep harvest nodes clear of placed structures"
+eventsLogic = "Update harvest node cooldown where an existing building overlaps a harvestable node."

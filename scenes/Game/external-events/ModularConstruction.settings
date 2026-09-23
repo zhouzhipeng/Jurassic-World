@@ -1,5 +1,5 @@
 kind = "externalEvents"
 settingsFormatVersion = 7
 name = "ModularConstruction"
-description = "Manage modular construction and saved building state"
-eventsLogic = "Restore building records, validate placement footprints and costs, place or remove modules, and update build state."
+description = "Run modular construction phases in their original execution order"
+eventsLogic = "Link restoration, selection, preview, validation and placement, removal, world interactions, presentation, and harvest blocking."

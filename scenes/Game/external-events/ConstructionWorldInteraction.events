@@ -1,0 +1,351 @@
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+do SetNumberVariable variable="DoorSlot" modification_sign="=" value=-1
+do SetNumberVariable variable="DoorDistance" modification_sign="=" value=210
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+> @event
+> for each "PartDoor"
+>> @event
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PartDoor.Variable(BaseZ)-PlayerFloor)) comparison_sign="<" second_expression=100
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),PartDoor.X(),PartDoor.Y())) comparison_sign="<" second_expression=expr(DoorDistance)
+>> do SetNumberVariable variable="DoorDistance" modification_sign="=" value=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),PartDoor.X(),PartDoor.Y()))
+>> do SetNumberVariable variable="DoorSlot" modification_sign="=" value=expr(PartDoor.Variable(Slot))
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="e"
+or NumberVariable variable="TouchDoor" comparison_sign="=" value=1
+if NumberVariable variable="DoorSlot" comparison_sign=">=" value=0
+if NumberObjectVariable object="PartDoor" variable="Slot" comparison_sign="=" value=expr(DoorSlot)
+do SetNumberObjectVariable object="PartDoor" variable="Open" modification_sign="=" value=expr(1-PartDoor.Variable(Open))
+do SetNumberVariable variable="BuildingRecords[DoorSlot].Open" modification_sign="=" value=expr(PartDoor.Variable(Open))
+do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> @event
+> for each "PartDoor"
+>> @event
+>> if NumberObjectVariable object="PartDoor" variable="Slot" comparison_sign=">=" value=0
+>> do SetAngle object="PartDoor" modification_sign="=" angle_in_degrees=expr(PartDoor.Variable(BaseAngle)+PartDoor.Variable(Open)*90)
+>> do SetNumberObjectVariable object="PartDoor" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(PartDoor.Angle())))*78+abs(sin(ToRad(PartDoor.Angle())))*12)
+>> do SetNumberObjectVariable object="PartDoor" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(PartDoor.Angle())))*78+abs(cos(ToRad(PartDoor.Angle())))*12)
+>> do SetX object="PartDoor" modification_sign="=" value=expr(BuildingRecords[PartDoor.Variable(Slot)].X+PartDoor.Variable(Open)*(-78*cos(ToRad(PartDoor.Variable(BaseAngle)))-78*sin(ToRad(PartDoor.Variable(BaseAngle)))))
+>> do SetY object="PartDoor" modification_sign="=" value=expr(BuildingRecords[PartDoor.Variable(Slot)].Y+PartDoor.Variable(Open)*(-78*sin(ToRad(PartDoor.Variable(BaseAngle)))+78*cos(ToRad(PartDoor.Variable(BaseAngle)))))
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+do SetNumberVariable variable="FloorTarget" modification_sign="=" value=expr(TerrainFloor)
+
+@event aiGeneratedEventId="islet-walkable-ground"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=1
+do SetNumberVariable variable="FloorTarget" modification_sign="=" value=25
+
+@event aiGeneratedEventId="camp-house-step-support"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">=" value=-1000
+if PosX object="Player3D" comparison_sign="<=" value=-800
+if PosY object="Player3D" comparison_sign=">=" value=-400
+if PosY object="Player3D" comparison_sign="<=" value=-335
+do SetNumberVariable variable="FloorTarget" modification_sign="=" value=10
+
+@event aiGeneratedEventId="camp-house-floor-support"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">=" value=-1200
+if PosX object="Player3D" comparison_sign="<=" value=-600
+if PosY object="Player3D" comparison_sign=">=" value=-960
+if PosY object="Player3D" comparison_sign="<=" value=-400
+do SetNumberVariable variable="FloorTarget" modification_sign="=" value=30.5
+
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+> @event
+> for each "ModularParts"
+>> @event
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=10
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.X()-ModularParts.X())) comparison_sign="<=" second_expression=150
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.Y()-ModularParts.Y())) comparison_sign="<=" second_expression=150
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=20 comparison_sign="<=" second_expression=expr(PlayerFloor+30)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=20 comparison_sign=">" second_expression=expr(FloorTarget)
+>> do SetNumberVariable variable="FloorTarget" modification_sign="=" value=20
+
+>> @event
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=14
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.X()-ModularParts.X())) comparison_sign="<=" second_expression=150
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.Y()-ModularParts.Y())) comparison_sign="<=" second_expression=150
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(ModularParts.Variable(BaseZ)) comparison_sign="<=" second_expression=expr(PlayerFloor+30)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(ModularParts.Variable(BaseZ)) comparison_sign=">" second_expression=expr(FloorTarget)
+>> do SetNumberVariable variable="FloorTarget" modification_sign="=" value=expr(ModularParts.Variable(BaseZ))
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+> @event
+> for each "PartStairs"
+>> @event
+>> if NumberObjectVariable object="PartStairs" variable="Kind" comparison_sign="=" value=16
+>> do SetNumberVariable variable="BuildLX" modification_sign="=" value=expr((Player3D.X()-PartStairs.X())*cos(ToRad(PartStairs.Angle()))+(Player3D.Y()-PartStairs.Y())*sin(ToRad(PartStairs.Angle())))
+>> do SetNumberVariable variable="BuildLY" modification_sign="=" value=expr(-(Player3D.X()-PartStairs.X())*sin(ToRad(PartStairs.Angle()))+(Player3D.Y()-PartStairs.Y())*cos(ToRad(PartStairs.Angle())))
+>> do SetNumberVariable variable="FloorCandidate" modification_sign="=" value=expr(PartStairs.Variable(BaseZ)+clamp(150-BuildLY,0,300))
+>>> @event
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildLX)) comparison_sign="<" second_expression=105
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildLY)) comparison_sign="<=" second_expression=160
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(FloorCandidate-PlayerFloor)) comparison_sign="<" second_expression=40
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(FloorCandidate) comparison_sign=">" second_expression=expr(FloorTarget)
+>>> do SetNumberVariable variable="FloorTarget" modification_sign="=" value=expr(FloorCandidate)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+> for each JumpPlatform
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.X()) comparison_sign=">=" second_expression=expr(JumpPlatform.X()-24)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.X()) comparison_sign="<=" second_expression=expr(JumpPlatform.X()+JumpPlatform.Width()+24)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.Y()) comparison_sign=">=" second_expression=expr(JumpPlatform.Y()-24)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.Y()) comparison_sign="<=" second_expression=expr(JumpPlatform.Y()+JumpPlatform.Height()+24)
+>> if NumberVariable variable="PlayerFloor" comparison_sign="<" value=expr(JumpPlatform.Object3D::Z()+JumpPlatform.Object3D::Depth()-1)
+>> do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+>> do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+> for each JumpPlatform
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.X()) comparison_sign=">=" second_expression=expr(JumpPlatform.X()-16)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.X()) comparison_sign="<=" second_expression=expr(JumpPlatform.X()+JumpPlatform.Width()+16)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.Y()) comparison_sign=">=" second_expression=expr(JumpPlatform.Y()-16)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Player3D.Y()) comparison_sign="<=" second_expression=expr(JumpPlatform.Y()+JumpPlatform.Height()+16)
+>> if NumberVariable variable="PlayerFloor" comparison_sign=">=" value=expr(JumpPlatform.Object3D::Z()+JumpPlatform.Object3D::Depth()-1)
+>> if NumberVariable variable="FloorTarget" comparison_sign="<" value=expr(JumpPlatform.Object3D::Z()+JumpPlatform.Object3D::Depth())
+>> do SetNumberVariable variable="FloorTarget" modification_sign="=" value=expr(JumpPlatform.Object3D::Z()+JumpPlatform.Object3D::Depth())
+
+link "PlayerJump"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=1
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(Dinosaur3D.Object3D::Z())
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=expr(PlayerFloor)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+> @event
+> for each "ModularParts"
+>> @event
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="!=" value=10
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="!=" value=14
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="!=" value=16
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(PlayerFloor) comparison_sign="<" second_expression=expr(ModularParts.Variable(BaseZ)+285)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(PlayerFloor+180) comparison_sign=">" second_expression=expr(ModularParts.Variable(BaseZ))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.X()-ModularParts.X())) comparison_sign="<" second_expression=expr(ModularParts.Variable(WorldHX)+32)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.Y()-ModularParts.Y())) comparison_sign="<" second_expression=expr(ModularParts.Variable(WorldHY)+32)
+>> do SetNumberVariable variable="BuildBlocked" modification_sign="=" value=1
+>> do SetNumberVariable variable="BuildLX" modification_sign="=" value=expr((Player3D.X()-ModularParts.X())*cos(ToRad(ModularParts.Angle()))+(Player3D.Y()-ModularParts.Y())*sin(ToRad(ModularParts.Angle())))
+>>> @event
+>>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=13
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildLX)) comparison_sign="<" second_expression=50
+>>> do SetNumberVariable variable="BuildBlocked" modification_sign="=" value=0
+
+>>> @event
+>>> if NumberVariable variable="BuildBlocked" comparison_sign="=" value=1
+>>> do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+>>> do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> @event
+> for each "ModularParts"
+>> @event
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="!=" value=10
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="!=" value=14
+>> if NumberObjectVariable object="ModularParts" variable="BaseZ" comparison_sign="<" value=300
+>>> @event
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Dinosaur3D.X()-ModularParts.X())) comparison_sign="<" second_expression=expr(ModularParts.Variable(WorldHX)+150+abs(sin(ToRad(Dinosaur3D.Angle())))*260)
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Dinosaur3D.Y()-ModularParts.Y())) comparison_sign="<" second_expression=expr(ModularParts.Variable(WorldHY)+150+abs(cos(ToRad(Dinosaur3D.Angle())))*260)
+>>> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+>>> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+>>> do SetNumberObjectVariable object="Dinosaur3D" variable="AnimationState" modification_sign="=" value=0
+>>>> @event
+>>>> if NumberVariable variable="Riding" comparison_sign="=" value=1
+>>>> do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
+>>>> do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y())
+
+>>> @event
+>>> for each "Wildlife"
+>>>> @event
+>>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Wildlife.X()-ModularParts.X())) comparison_sign="<" second_expression=expr(ModularParts.Variable(WorldHX)+Wildlife.Variable(Radius)+abs(sin(ToRad(Wildlife.Angle())))*Wildlife.Variable(HalfLength))
+>>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Wildlife.Y()-ModularParts.Y())) comparison_sign="<" second_expression=expr(ModularParts.Variable(WorldHY)+Wildlife.Variable(Radius)+abs(cos(ToRad(Wildlife.Angle())))*Wildlife.Variable(HalfLength))
+>>>> do SetX object="Wildlife" modification_sign="=" value=expr(Wildlife.Variable(PX))
+>>>> do SetY object="Wildlife" modification_sign="=" value=expr(Wildlife.Variable(PY))
+>>>> do SetNumberObjectVariable object="Wildlife" variable="AnimationState" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildFloorCount" modification_sign="=" value=0
+do SetNumberVariable variable="BuildWallCount" modification_sign="=" value=0
+do SetNumberVariable variable="BuildRoofCount" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> @event
+> for each "ModularParts"
+>> @event
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=10
+>> do SetNumberVariable variable="BuildFloorCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=12
+>> do SetNumberVariable variable="BuildWallCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=13
+>> do SetNumberVariable variable="BuildWallCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=14
+>> do SetNumberVariable variable="BuildRoofCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberObjectVariable object="ModularParts" variable="Kind" comparison_sign="=" value=14
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.X()-ModularParts.X())) comparison_sign="<" second_expression=140
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.Y()-ModularParts.Y())) comparison_sign="<" second_expression=140
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(ModularParts.Variable(BaseZ)-PlayerFloor) comparison_sign=">" second_expression=180
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(ModularParts.Variable(BaseZ)-PlayerFloor) comparison_sign="<" second_expression=350
+>> do SetNumberVariable variable="BuildRest" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="BuildFloorCount" comparison_sign=">=" value=1
+if NumberVariable variable="BuildWallCount" comparison_sign=">=" value=3
+if NumberVariable variable="BuildRoofCount" comparison_sign=">=" value=1
+do SetNumberVariable variable="Built" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+> @event
+> for each "Buildings"
+>> @event
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.X()-Buildings.X())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHX)+(36))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+(36))
+>> do SetNumberVariable variable="BuildLX" modification_sign="=" value=expr((Player3D.X()-Buildings.X())*cos(ToRad(Buildings.Angle()))+(Player3D.Y()-Buildings.Y())*sin(ToRad(Buildings.Angle())))
+>> do SetNumberVariable variable="BuildLY" modification_sign="=" value=expr(-(Player3D.X()-Buildings.X())*sin(ToRad(Buildings.Angle()))+(Player3D.Y()-Buildings.Y())*cos(ToRad(Buildings.Angle())))
+>>> @event
+>>> if NumberObjectVariable object="Buildings" variable="Kind" comparison_sign="!=" value=1
+>>> do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+>>> do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+>>> @event
+>>> if NumberObjectVariable object="Buildings" variable="Kind" comparison_sign="=" value=1
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildLX)) comparison_sign=">" second_expression=145
+>>> or BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildLY) comparison_sign="<" second_expression=-130
+>>> do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+>>> do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> @event
+> for each "Buildings"
+>> @event
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Dinosaur3D.X()-Buildings.X())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHX)+(150 + abs(sin(ToRad(Dinosaur3D.Angle()))) * 260))
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Dinosaur3D.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+(150 + abs(cos(ToRad(Dinosaur3D.Angle()))) * 260))
+>> do SetX object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousX)
+>> do SetY object="Dinosaur3D" modification_sign="=" value=expr(DinoPreviousY)
+>> do SetNumberObjectVariable object="Dinosaur3D" variable="AnimationState" modification_sign="=" value=0
+>>> @event
+>>> if NumberVariable variable="Riding" comparison_sign="=" value=1
+>>> do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X())
+>>> do SetY object="Player3D" modification_sign="=" value=expr(Dinosaur3D.Y())
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> @event
+> for each "Buildings"
+>> @event
+>> for each "Wildlife"
+>>> @event
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Wildlife.X()-Buildings.X())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHX)+(Wildlife.Variable(Radius) + abs(sin(ToRad(Wildlife.Angle()))) * Wildlife.Variable(HalfLength)))
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Wildlife.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+(Wildlife.Variable(Radius) + abs(cos(ToRad(Wildlife.Angle()))) * Wildlife.Variable(HalfLength)))
+>>> do SetX object="Wildlife" modification_sign="=" value=expr(Wildlife.Variable(PX))
+>>> do SetY object="Wildlife" modification_sign="=" value=expr(Wildlife.Variable(PY))
+>>> do SetNumberObjectVariable object="Wildlife" variable="AnimationState" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+> @event
+> for each "BuiltCampfire"
+>> @event
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),BuiltCampfire.X(),BuiltCampfire.Y())) comparison_sign="<" second_expression=230
+>> if NumberObjectVariable object="BuiltCampfire" variable="Fuel" comparison_sign=">" value=0
+>> do SetNumberVariable variable="BuildWarm" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+> @event
+> for each "BuiltShelter"
+>> @event
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),BuiltShelter.X(),BuiltShelter.Y())) comparison_sign="<" second_expression=140
+>> do SetNumberVariable variable="BuildRest" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildWarm" comparison_sign="=" value=1
+if NumberVariable variable="Hunger" comparison_sign=">" value=20
+if NumberVariable variable="Water" comparison_sign=">" value=20
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+do SetNumberVariable variable="Health" modification_sign="=" value=expr(min(100,Health+2*TimeDelta()))
+do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(min(100,Stamina+5*TimeDelta()))
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildRest" comparison_sign="=" value=1
+if NumberVariable variable="Threat" comparison_sign="=" value=0
+do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(min(100,Stamina+8*TimeDelta()))
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1

@@ -1,0 +1,143 @@
+@event
+if NumberVariable variable="BuildRestore" comparison_sign="=" value=1
+do Delete object="AllBuildings"
+do JSONToVariableStructure2 json_string=expr(BuildJSON) variable_where_to_store_the_json_object="BuildingRecords"
+do SetNumberVariable variable="BuildCount" modification_sign="=" value=0
+> @event
+> local i = var(type="number",value=0,persistentUuid="",folded=false,hasMixedValues=false)
+> repeat "128" index="i"
+>> @event
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=1
+>> do Create object_to_create="BuiltShelter" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="BuiltShelter" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="BuiltShelter" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="BuiltShelter" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltShelter.Variable(HX) + abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltShelter.Variable(HY))
+>> do SetNumberObjectVariable object="BuiltShelter" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltShelter.Variable(HX) + abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltShelter.Variable(HY))
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=2
+>> do Create object_to_create="BuiltPalisade" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="BuiltPalisade" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="BuiltPalisade" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="BuiltPalisade" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltPalisade.Variable(HX) + abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltPalisade.Variable(HY))
+>> do SetNumberObjectVariable object="BuiltPalisade" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltPalisade.Variable(HX) + abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltPalisade.Variable(HY))
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=3
+>> do Create object_to_create="BuiltCampfire" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="BuiltCampfire" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="BuiltCampfire" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="BuiltCampfire" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltCampfire.Variable(HX) + abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltCampfire.Variable(HY))
+>> do SetNumberObjectVariable object="BuiltCampfire" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle))) * BuiltCampfire.Variable(HX) + abs(cos(ToRad(BuildingRecords[i].Angle))) * BuiltCampfire.Variable(HY))
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=10
+>> do Create object_to_create="PartFoundation" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="PartFoundation" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartFoundation" behavior="Object3D" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartFoundation" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="PartFoundation" variable="BaseZ" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartFoundation" variable="Level" modification_sign="=" value=expr(BuildingRecords[i].Level)
+>> do SetNumberObjectVariable object="PartFoundation" variable="Parent" modification_sign="=" value=expr(BuildingRecords[i].Parent)
+>> do SetNumberObjectVariable object="PartFoundation" variable="Open" modification_sign="=" value=expr(BuildingRecords[i].Open)
+>> do SetNumberObjectVariable object="PartFoundation" variable="BaseAngle" modification_sign="=" value=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="PartFoundation" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle)))*150+abs(sin(ToRad(BuildingRecords[i].Angle)))*150)
+>> do SetNumberObjectVariable object="PartFoundation" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle)))*150+abs(cos(ToRad(BuildingRecords[i].Angle)))*150)
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=11
+>> do Create object_to_create="PartPillar" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="PartPillar" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartPillar" behavior="Object3D" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartPillar" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="PartPillar" variable="BaseZ" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartPillar" variable="Level" modification_sign="=" value=expr(BuildingRecords[i].Level)
+>> do SetNumberObjectVariable object="PartPillar" variable="Parent" modification_sign="=" value=expr(BuildingRecords[i].Parent)
+>> do SetNumberObjectVariable object="PartPillar" variable="Open" modification_sign="=" value=expr(BuildingRecords[i].Open)
+>> do SetNumberObjectVariable object="PartPillar" variable="BaseAngle" modification_sign="=" value=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="PartPillar" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle)))*20+abs(sin(ToRad(BuildingRecords[i].Angle)))*20)
+>> do SetNumberObjectVariable object="PartPillar" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle)))*20+abs(cos(ToRad(BuildingRecords[i].Angle)))*20)
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=12
+>> do Create object_to_create="PartWall" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="PartWall" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartWall" behavior="Object3D" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartWall" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="PartWall" variable="BaseZ" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartWall" variable="Level" modification_sign="=" value=expr(BuildingRecords[i].Level)
+>> do SetNumberObjectVariable object="PartWall" variable="Parent" modification_sign="=" value=expr(BuildingRecords[i].Parent)
+>> do SetNumberObjectVariable object="PartWall" variable="Open" modification_sign="=" value=expr(BuildingRecords[i].Open)
+>> do SetNumberObjectVariable object="PartWall" variable="BaseAngle" modification_sign="=" value=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="PartWall" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle)))*150+abs(sin(ToRad(BuildingRecords[i].Angle)))*14)
+>> do SetNumberObjectVariable object="PartWall" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle)))*150+abs(cos(ToRad(BuildingRecords[i].Angle)))*14)
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=13
+>> do Create object_to_create="PartDoorframe" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="PartDoorframe" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartDoorframe" behavior="Object3D" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartDoorframe" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="PartDoorframe" variable="BaseZ" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartDoorframe" variable="Level" modification_sign="=" value=expr(BuildingRecords[i].Level)
+>> do SetNumberObjectVariable object="PartDoorframe" variable="Parent" modification_sign="=" value=expr(BuildingRecords[i].Parent)
+>> do SetNumberObjectVariable object="PartDoorframe" variable="Open" modification_sign="=" value=expr(BuildingRecords[i].Open)
+>> do SetNumberObjectVariable object="PartDoorframe" variable="BaseAngle" modification_sign="=" value=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="PartDoorframe" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle)))*150+abs(sin(ToRad(BuildingRecords[i].Angle)))*14)
+>> do SetNumberObjectVariable object="PartDoorframe" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle)))*150+abs(cos(ToRad(BuildingRecords[i].Angle)))*14)
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=14
+>> do Create object_to_create="PartCeiling" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="PartCeiling" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartCeiling" behavior="Object3D" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartCeiling" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="PartCeiling" variable="BaseZ" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartCeiling" variable="Level" modification_sign="=" value=expr(BuildingRecords[i].Level)
+>> do SetNumberObjectVariable object="PartCeiling" variable="Parent" modification_sign="=" value=expr(BuildingRecords[i].Parent)
+>> do SetNumberObjectVariable object="PartCeiling" variable="Open" modification_sign="=" value=expr(BuildingRecords[i].Open)
+>> do SetNumberObjectVariable object="PartCeiling" variable="BaseAngle" modification_sign="=" value=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="PartCeiling" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle)))*150+abs(sin(ToRad(BuildingRecords[i].Angle)))*150)
+>> do SetNumberObjectVariable object="PartCeiling" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle)))*150+abs(cos(ToRad(BuildingRecords[i].Angle)))*150)
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=15
+>> do Create object_to_create="PartDoor" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="PartDoor" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartDoor" behavior="Object3D" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartDoor" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="PartDoor" variable="BaseZ" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartDoor" variable="Level" modification_sign="=" value=expr(BuildingRecords[i].Level)
+>> do SetNumberObjectVariable object="PartDoor" variable="Parent" modification_sign="=" value=expr(BuildingRecords[i].Parent)
+>> do SetNumberObjectVariable object="PartDoor" variable="Open" modification_sign="=" value=expr(BuildingRecords[i].Open)
+>> do SetNumberObjectVariable object="PartDoor" variable="BaseAngle" modification_sign="=" value=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="PartDoor" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle)))*78+abs(sin(ToRad(BuildingRecords[i].Angle)))*12)
+>> do SetNumberObjectVariable object="PartDoor" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle)))*78+abs(cos(ToRad(BuildingRecords[i].Angle)))*12)
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+>> @event
+>> if NumberVariable variable="BuildingRecords[i].Kind" comparison_sign="=" value=16
+>> do Create object_to_create="PartStairs" x_position=expr(BuildingRecords[i].X) y_position=expr(BuildingRecords[i].Y) layer="World3D"
+>> do SetAngle object="PartStairs" modification_sign="=" angle_in_degrees=expr(BuildingRecords[i].Angle)
+>> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartStairs" behavior="Object3D" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartStairs" variable="Slot" modification_sign="=" value=expr(i)
+>> do SetNumberObjectVariable object="PartStairs" variable="BaseZ" modification_sign="=" value=expr(BuildingRecords[i].Z)
+>> do SetNumberObjectVariable object="PartStairs" variable="Level" modification_sign="=" value=expr(BuildingRecords[i].Level)
+>> do SetNumberObjectVariable object="PartStairs" variable="Parent" modification_sign="=" value=expr(BuildingRecords[i].Parent)
+>> do SetNumberObjectVariable object="PartStairs" variable="Open" modification_sign="=" value=expr(BuildingRecords[i].Open)
+>> do SetNumberObjectVariable object="PartStairs" variable="BaseAngle" modification_sign="=" value=expr(BuildingRecords[i].Angle)
+>> do SetNumberObjectVariable object="PartStairs" variable="WorldHX" modification_sign="=" value=expr(abs(cos(ToRad(BuildingRecords[i].Angle)))*120+abs(sin(ToRad(BuildingRecords[i].Angle)))*152)
+>> do SetNumberObjectVariable object="PartStairs" variable="WorldHY" modification_sign="=" value=expr(abs(sin(ToRad(BuildingRecords[i].Angle)))*120+abs(cos(ToRad(BuildingRecords[i].Angle)))*152)
+>> do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+
+@event
+if NumberVariable variable="BuildRestore" comparison_sign="=" value=1
+do SetNumberVariable variable="BuildRestore" modification_sign="=" value=0

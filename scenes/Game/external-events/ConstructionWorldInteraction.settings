@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "ConstructionWorldInteraction"
+description = "Apply construction effects in the world"
+eventsLogic = "Handle doors, walkable floors, platform support, shelter and campfire benefits, and nearby structure state."

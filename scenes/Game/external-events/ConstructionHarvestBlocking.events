@@ -1,0 +1,13 @@
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+> @event
+> for each "AllBuildings"
+>> @event
+>> for each "HarvestNodes"
+>>> @event
+>>> if NumberObjectVariable object="AllBuildings" variable="Kind" comparison_sign="=" value=10
+>>> or NumberObjectVariable object="AllBuildings" variable="Kind" comparison_sign="=" value=1
+>>> or NumberObjectVariable object="AllBuildings" variable="Kind" comparison_sign="=" value=3
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(HarvestNodes.X()-AllBuildings.X())) comparison_sign="<" second_expression=expr(AllBuildings.Variable(WorldHX)+50)
+>>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(HarvestNodes.Y()-AllBuildings.Y())) comparison_sign="<" second_expression=expr(AllBuildings.Variable(WorldHY)+50)
+>>> do SetNumberObjectVariable object="HarvestNodes" variable="Cooldown" modification_sign="=" value=expr(max(1,HarvestNodes.Variable(Cooldown)))
