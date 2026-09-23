@@ -1,0 +1,9 @@
+@event
+local FeedbackTimerScratch = 0
+local PlacementResultScratch = 0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) comparison_sign=">=" second_expression=0
+do CopyArgumentToVariable2 parameter_name="MessageTime" variable="FeedbackTimerScratch"
+do SetNumberVariable variable="FeedbackTimerScratch" modification_sign="=" value=expr(max(0,FeedbackTimerScratch-TimeDelta()))
+do CopyVariableToArgument2 parameter_name="MessageTime" variable="FeedbackTimerScratch"
+do SetNumberVariable variable="PlacementResultScratch" modification_sign="=" value=0
+do CopyVariableToArgument2 parameter_name="PlacementResult" variable="PlacementResultScratch"

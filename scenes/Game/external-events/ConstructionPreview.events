@@ -1,7 +1,6 @@
 @event
 if NumberVariable variable="Mode" comparison_sign=">=" value=0
-do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=expr(max(0,BuildMessageTime-TimeDelta()))
-do SetNumberVariable variable="BuildSuccess" modification_sign="=" value=0
+do JurassicConstruction::ResetFeedback scene_variable_holding_the_feedback_message_time="BuildMessageTime" scene_variable_holding_the_placement_result="BuildSuccess" current_scene_mode=expr(Mode)
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0

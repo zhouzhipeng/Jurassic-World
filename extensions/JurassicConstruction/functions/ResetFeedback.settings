@@ -1,0 +1,29 @@
+kind = "function"
+settingsFormatVersion = 7
+order = 0
+folder = [ "Construction", "Frame" ]
+name = "ResetFeedback"
+extension = "JurassicConstruction"
+functionType = "Action"
+fullName = "Reset build feedback"
+description = "Advance feedback timing and clear the last placement result through caller scene variables."
+sentence = "Reset construction feedback"
+group = "Construction"
+private = false
+async = false
+objectGroups = { }
+
+[[parameters]]
+name = "MessageTime"
+description = "Scene variable holding the feedback message time"
+type = "scenevar"
+
+[[parameters]]
+name = "PlacementResult"
+description = "Scene variable holding the placement result"
+type = "scenevar"
+
+[[parameters]]
+name = "Active"
+description = "Current scene mode"
+type = "expression"
