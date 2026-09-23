@@ -44,6 +44,16 @@ name = "InputLevel"
 type = "number"
 value = 0
 
+[[variables]]
+name = "RemoveSlot"
+type = "number"
+value = -1
+
+[[variables]]
+name = "RemoveBlocked"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 bounds = { min = [0, 0, 0], max = [1, 1, 1] }

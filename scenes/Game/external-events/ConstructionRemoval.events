@@ -1,49 +1,4 @@
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-> @event
-> for each "AllBuildings"
->> @event
->> if NumberObjectVariable object="AllBuildings" variable="Kind" comparison_sign="=" value=expr(BuildKind)
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildingRecords[AllBuildings.Variable(Slot)].Z-BuildZ)) comparison_sign="<" second_expression=1
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX,BuildY,BuildingRecords[AllBuildings.Variable(Slot)].X,BuildingRecords[AllBuildings.Variable(Slot)].Y)) comparison_sign="<" second_expression=expr(BuildDeleteDistance)
->> do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=expr(AllBuildings.Variable(Slot))
->> do SetNumberVariable variable="BuildDeleteDistance" modification_sign="=" value=expr(DistanceBetweenPositions(BuildX,BuildY,BuildingRecords[AllBuildings.Variable(Slot)].X,BuildingRecords[AllBuildings.Variable(Slot)].Y))
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if NumberVariable variable="BuildDeleteSlot" comparison_sign="<" value=0
-> @event
-> for each "Buildings"
->> @event
->> if NumberObjectVariable object="Buildings" variable="Kind" comparison_sign="<=" value=2
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(BuildX,BuildY,Buildings.X(),Buildings.Y())) comparison_sign="<" second_expression=200
->> do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=expr(Buildings.Variable(Slot))
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
-if NumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" comparison_sign=">=" value=10
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildingRecords[BuildDeleteSlot].Z-BuildZ)) comparison_sign=">" second_expression=1
-do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=-1
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
-> @event
-> for each "ModularParts"
->> @event
->> if NumberObjectVariable object="ModularParts" variable="Parent" comparison_sign="=" value=expr(BuildDeleteSlot)
->> do SetNumberVariable variable="BuildDeleteBlocked" modification_sign="=" value=1
+@comment "Scene input adapter; extension selects and removes the target." background=[90,150,120] text=[255,255,255]
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -52,18 +7,4 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Delete"
 or NumberVariable variable="TouchDelete" comparison_sign="=" value=1
-if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
-if NumberVariable variable="BuildDeleteBlocked" comparison_sign="=" value=1
-do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=3
-do SetStringVariable variable="BuildMessage" modification_sign="=" value="仍在承重：请先拆门、楼板或上方构件"
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Delete"
-or NumberVariable variable="TouchDelete" comparison_sign="=" value=1
-if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
-if NumberVariable variable="BuildDeleteBlocked" comparison_sign="=" value=0
-do EmitSceneSignal signal_name="Construction.Remove" payload=expr(ToString(BuildDeleteSlot))
+do EmitSceneSignal signal_name="Construction.RemoveAt" payload=""

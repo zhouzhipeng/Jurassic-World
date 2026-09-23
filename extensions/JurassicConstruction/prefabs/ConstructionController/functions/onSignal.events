@@ -376,12 +376,51 @@ for (const sx of [-1, 1]) for (const sy of [-1, 1]) {
   }
   if (height > 1) reject("山坡无法放置平地建筑，请到山谷或营地平地建造");
 }
+let deleteSlot = -1;
+let deleteDistance = 200;
+for (const part of buildings) {
+  const distance = Math.hypot(x - part.x, y - part.y);
+  if (part.kind === kind && Math.abs(part.z - z) < 1 && distance < deleteDistance) {
+    deleteSlot = part.slot;
+    deleteDistance = distance;
+  }
+}
+if (deleteSlot < 0) for (const part of buildings) {
+  if (part.kind <= 2 && Math.hypot(x - part.x, y - part.y) < 200) deleteSlot = part.slot;
+}
+const deleteBlocked = deleteSlot >= 0 && modular.some(part => part.parent === deleteSlot) ? 1 : 0;
 state.get("PreviewJSON").setString(JSON.stringify({ Kind: kind, X: x, Y: y, Z: z,
   RawX: rawX, RawY: rawY, HX: hx, HY: hy, WorldHX: worldHX, WorldHY: worldHY,
   Wood: wood, Stone: stone, Fiber: fiber, Parent: parent, Slot: slot,
-  Valid: valid, Reason: reason }));
+  Valid: valid, Reason: reason, DeleteSlot: deleteSlot, DeleteDistance: deleteDistance,
+  DeleteBlocked: deleteBlocked }));
 > @end js
 
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Preview"
 do EmitSceneSignal signal_name="Construction.PreviewReady" payload=expr(Object.VariableString(PreviewJSON))
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.RemoveAt"
+> @js objects=Object strict=true
+for (const controller of objects) {
+  const vars = controller.getVariables();
+  let preview;
+  try { preview = JSON.parse(vars.get("PreviewJSON").getAsString()); }
+  catch (error) { preview = null; }
+  vars.get("RemoveSlot").setNumber(preview ? Number(preview.DeleteSlot) : -1);
+  vars.get("RemoveBlocked").setNumber(preview ? Number(preview.DeleteBlocked) : 0);
+}
+> @end js
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.RemoveAt"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(RemoveSlot)) comparison_sign=">=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(RemoveBlocked)) comparison_sign="=" second_expression=0
+do EmitSceneSignal signal_name="Construction.Remove" payload=expr(ToString(Object.Variable(RemoveSlot)))
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.RemoveAt"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(RemoveSlot)) comparison_sign=">=" second_expression=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(RemoveBlocked)) comparison_sign="=" second_expression=1
+do EmitSceneSignal signal_name="Construction.RemovalBlocked" payload=""

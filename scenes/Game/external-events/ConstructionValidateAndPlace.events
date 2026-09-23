@@ -224,15 +224,6 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=-1
-do SetNumberVariable variable="BuildDeleteDistance" modification_sign="=" value=200
-do SetNumberVariable variable="BuildDeleteBlocked" modification_sign="=" value=0
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Return"
 or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildValid" comparison_sign="=" value=1

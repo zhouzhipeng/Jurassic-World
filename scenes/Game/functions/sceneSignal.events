@@ -62,6 +62,9 @@ do SetNumberVariable variable="BuildParent" modification_sign="=" value=expr(Con
 do SetNumberVariable variable="BuildSlot" modification_sign="=" value=expr(ConstructionPreviewState.Slot)
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(ConstructionPreviewState.Valid)
 do SetStringVariable variable="BuildReason" modification_sign="=" value=expr(ConstructionPreviewState.Reason)
+do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=expr(ConstructionPreviewState.DeleteSlot)
+do SetNumberVariable variable="BuildDeleteDistance" modification_sign="=" value=expr(ConstructionPreviewState.DeleteDistance)
+do SetNumberVariable variable="BuildDeleteBlocked" modification_sign="=" value=expr(ConstructionPreviewState.DeleteBlocked)
 
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.PreviewReady"
@@ -85,3 +88,8 @@ do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=3
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do SetStringVariable variable="BuildMessage" modification_sign="=" value="已拆除选中构件 · 返还一半材料"
 do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.RemovalBlocked"
+do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=3
+do SetStringVariable variable="BuildMessage" modification_sign="=" value="仍在承重：请先拆门、楼板或上方构件"
