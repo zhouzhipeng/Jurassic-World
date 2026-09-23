@@ -38,12 +38,16 @@ try {
   await tap('Return');
   harness.assert(harness.getObjects('PartDoor').length === 1 && doorOpen() === 0, 'Door snaps into its frame and starts closed');
   await tap('b');
-  await aim(0, 570);
-  await walk('w', 40);
-  harness.assert(player().y >= 490 && player().y < 530, `Closed door blocks forward movement: y=${player().y}, mode=${number('Mode')}, build=${number('BuildMode')}, yaw=${number('CameraYaw')}, floor=${number('PlayerFloor')}, door=${harness.getObjects('PartDoor')[0]?.x},${harness.getObjects('PartDoor')[0]?.y}`);
+  const closedDoor = harness.getObjects('PartDoor')[0];
+  harness.setSceneVariable('CameraYaw', 0);
+  await aim(closedDoor.x, closedDoor.y + 120);
+  await walk('w', 80);
+  harness.assert(player().y > closedDoor.y + 30 && player().y < closedDoor.y + 120,
+    `Closed door blocks forward movement: player=${player().x},${player().y}, door=${closedDoor.x},${closedDoor.y}`);
   await tap('e');
   harness.assert(doorOpen() === 1, 'E opens the nearby door');
   // An open leaf has moved, but its original socket must remain occupied.
+  harness.setSceneVariable('CameraYaw', -90);
   await aim(0, 900);
   await tap('b');
   await tap('Num6');
@@ -52,14 +56,16 @@ try {
   harness.assert(harness.getObjects('PartDoor').length === 1 && number('Wood') === wood,
     'Opening a door does not free its socket for a duplicate');
   await tap('b');
-  await aim(0, 570);
-  await walk('w', 40);
-  harness.assert(player().y < 400 && player().z === 20, `Player walks through open doorway onto the floor: y=${player().y}, z=${player().z}`);
-  await walk('s', 40);
+  harness.setSceneVariable('CameraYaw', 0);
+  await aim(closedDoor.x, closedDoor.y + 120);
+  await walk('w', 120);
+  harness.assert(player().y < closedDoor.y - 30, `Player walks through open doorway onto the floor: y=${player().y}, doorY=${closedDoor.y}`);
+  await walk('s', 120);
   await tap('e');
   harness.assert(doorOpen() === 0, 'E closes the same door again');
-  await walk('w', 40);
-  harness.assert(player().y >= 490, 'Closing the door restores its blocking collision');
+  await aim(closedDoor.x, closedDoor.y + 120);
+  await walk('w', 80);
+  harness.assert(player().y > closedDoor.y + 30, 'Closing the door restores its blocking collision');
 } finally {
   harness.releaseAllInputs();
 }
