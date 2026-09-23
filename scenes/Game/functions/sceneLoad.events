@@ -1,4 +1,5 @@
 @event
+do JSONToVariableStructure2 json_string=expr(CameraSceneryBounds) variable_where_to_store_the_json_object="CameraSceneryBounds"
 do TouchSimulateMouse activate_yes_by_default_when_game_is_launched=false
 do SetStringVariable variable="TouchLastNotice" modification_sign="=" value=expr(NoticeMessage)
 do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_layout="GameTouch" x_position_of_the_origin=0 y_position_of_the_origin=0 z_position_of_the_origin=0

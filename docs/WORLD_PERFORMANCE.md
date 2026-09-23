@@ -15,7 +15,7 @@
 - 可交互植被仍精确检测模型，先排除射线无法经过的范围；恐龙继续使用原有朝向包围盒。
 - 复用已验证的镜头角度和静态查询结果，静态植被高度只在创建或移动后计算。太阳阴影质量改为 medium，阴影范围集中在附近 45 米，保留阴影。
 
-`tools/build_camera_bounds.py` 通过 Blender 后台运行，读取 `sources/environment/island-mountain-source.blend`，输出 `assets/models/camera-scenery-bounds.json` 格式的数据，不修改原模型。`scenes/Game/scene.settings` 中的 `CameraSceneryBounds` 是同批数据的运行时副本；修改岛屿景物后须同步更新。修改山地高度参数时须同步 `tools/mountain_profile.py`、原生高度事件和 `CameraVisibility.events` 中的网格查询参数。
+`tools/build_camera_bounds.py` 通过 Blender 后台运行，读取 `sources/environment/island-mountain-source.blend`，将 JSON 中间结果输出到 `tmp/`，不修改原模型。包围盒的唯一维护数据位于 `constants.toml` 的 `camera.sceneryBounds`；`scenes/Game/scene.settings` 中的 `CameraSceneryBounds` 引用该常量，并在场景加载时转换为数组。修改岛屿景物后须重新生成并更新常量。修改山地高度参数时须同步 `tools/mountain_profile.py`、原生高度事件和 `CameraVisibility.events` 中的网格查询参数。
 
 镜头射线先以保守范围排除不可命中的物体，同帧相同查询复用完整结果；移动时使用普通数组，避免重复构建场景变量树。
 
