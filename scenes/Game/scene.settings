@@ -2499,7 +2499,7 @@ at = [650, -350]
 id = "2ddc1b04-4355-41e0-912a-16c9c3ac59e5"
 object = "Player3D"
 layer = "world3d"
-at = [5650, 2500]
+at = [5000, 2500]
 
 [[layout.instances]]
 id = "760746b1-229c-4011-aa8d-3825c7328486"
