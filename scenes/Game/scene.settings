@@ -2214,7 +2214,7 @@ value = 0
 [[variables]]
 name = "BoatPreviousX"
 type = "number"
-value = 6150
+value = 6460
 
 [[variables]]
 name = "BoatPreviousY"
@@ -2441,7 +2441,7 @@ at = [9500, -1000, 0]
 id = "e893f24b-fd35-4b74-acb2-b14740804a44"
 object = "Rowboat"
 layer = "world3d"
-at = [6150, -1000, -50]
+at = [6460, -1000, -50]
 rotation = -90
 
 [[layout.instances]]

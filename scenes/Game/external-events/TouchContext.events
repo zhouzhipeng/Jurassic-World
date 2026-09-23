@@ -213,7 +213,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="Sailing" comparison_sign="=" value=0
-if Distance object="Player3D" object_2="Rowboat" distance=420
+if Distance object="Player3D" object_2="Rowboat" distance=750
 do SetNumberVariable variable="TouchContext" modification_sign="=" value=11
 do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="上船"
 do SetStringVariable variable="TouchContextHint" modification_sign="=" value="划船前往近海小岛；摇杆控制航向"

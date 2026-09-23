@@ -674,7 +674,7 @@ if GroupExists storage_name=expr(SaveStorage) group="Version"
 do SetNumberVariable variable="Riding" modification_sign="=" value=0
 do SetNumberVariable variable="Sailing" modification_sign="=" value=0
 do SetNumberVariable variable="IsletVisit" modification_sign="=" value=0
-do SetX object="Rowboat" modification_sign="=" value=6150
+do SetX object="Rowboat" modification_sign="=" value=6460
 do SetY object="Rowboat" modification_sign="=" value=-1000
 do SetAngle object="Rowboat" modification_sign="=" angle_in_degrees=-90
 do SetX object="Player3D" modification_sign="=" value=expr(Dinosaur3D.X() + 240)
@@ -2409,7 +2409,7 @@ do SetNumberVariable variable="Dead" modification_sign="=" value=0
 do SetNumberVariable variable="Mode" modification_sign="=" value=0
 do SetNumberVariable variable="Sailing" modification_sign="=" value=0
 do SetNumberVariable variable="IsletVisit" modification_sign="=" value=0
-do SetX object="Rowboat" modification_sign="=" value=6150
+do SetX object="Rowboat" modification_sign="=" value=6460
 do SetY object="Rowboat" modification_sign="=" value=-1000
 do SetAngle object="Rowboat" modification_sign="=" angle_in_degrees=-90
 do SetNumberVariable variable="Health" modification_sign="=" value=100
