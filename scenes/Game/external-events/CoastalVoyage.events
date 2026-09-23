@@ -14,12 +14,12 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Sailing" comparison_sign="=" value=1
 if NumberVariable variable="BoatToggleRequest" comparison_sign="=" value=1
 if NumberVariable variable="BoatCooldown" comparison_sign="<=" value=0
-if PosX object="Rowboat" comparison_sign="<=" value=6080
+if PosX object="Rowboat" comparison_sign="<=" value=6200
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Rowboat.Y()+1000)) comparison_sign="<=" second_expression=500
 do SetNumberVariable variable="Sailing" modification_sign="=" value=0
 do SetNumberVariable variable="IsletVisit" modification_sign="=" value=0
 do SetNumberVariable variable="BoatCooldown" modification_sign="=" value=0.45
-do SetX object="Player3D" modification_sign="=" value=expr(Rowboat.X()-300)
+do SetX object="Player3D" modification_sign="=" value=expr(Rowboat.X()-450)
 do SetY object="Player3D" modification_sign="=" value=expr(Rowboat.Y())
 do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
 do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=0
@@ -100,7 +100,7 @@ do SetY object="Rowboat" modification_sign="+" value=expr(sin(ToRad(Rowboat.Angl
 
 @event aiGeneratedEventId="boat-deep-water-limits"
 if NumberVariable variable="Sailing" comparison_sign="=" value=1
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.X()) comparison_sign="<" second_expression=5750
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.X()) comparison_sign="<" second_expression=6150
 or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.X()) comparison_sign=">" second_expression=11000
 or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.Y()) comparison_sign="<" second_expression=-4500
 or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.Y()) comparison_sign=">" second_expression=3000
