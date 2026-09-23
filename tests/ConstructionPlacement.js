@@ -28,7 +28,7 @@ try {
   await tap('Return');
   harness.assert(harness.getObjects('PartFoundation').length === 1 && materials() === '94,98,97',
     'Idle frames and duplicate placement neither create another part nor charge materials');
-  harness.setObjectPosition(player().id, 320, 740, 0);
+  harness.setObjectPosition(player().id, 20, 1040, 0);
   await harness.stepFrames(5);
   harness.assert(number('BuildValid') === 1,
     `Adjacent foundation socket is valid: target=${number('BuildX')},${number('BuildY')}, reason=${harness.getSceneVariable('BuildReason')?.value}`);
@@ -36,7 +36,7 @@ try {
   harness.assert(harness.getObjects('PartFoundation').length === 2 && materials() === '88,96,94',
     'Adjacent foundation is created and charged exactly once');
   // A separate empty site isolates material rejection from overlap rejection.
-  harness.setObjectPosition(player().id, 20, 1040, 0);
+  harness.setObjectPosition(player().id, 20, 1340, 0);
   harness.setSceneVariable('Wood', 0);
   await harness.stepFrames(5);
   const before = materials();
