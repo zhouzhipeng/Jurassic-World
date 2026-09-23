@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "ConstructionRemovalInput"
+description = "Forward construction removal input"
+eventsLogic = "Capture keyboard or touch deletion and ask the extension to resolve and remove the target."

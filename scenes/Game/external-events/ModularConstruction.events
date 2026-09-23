@@ -5,13 +5,13 @@ link "ConstructionRestore"
 link "HUDBuildSelection"
 
 @event
-link "ConstructionPreview"
+link "ConstructionPreviewContext"
 
 @event
-link "ConstructionValidateAndPlace"
+link "ConstructionGhostAndPlacementInput"
 
 @event
-link "ConstructionRemoval"
+link "ConstructionRemovalInput"
 
 @event
 link "ConstructionWorldInteraction"

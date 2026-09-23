@@ -1,5 +1,5 @@
 kind = "externalEvents"
 settingsFormatVersion = 7
 name = "ModularConstruction"
-description = "Run modular construction phases in their original execution order"
-eventsLogic = "Link restoration, selection, preview, validation and placement, removal, world interactions, presentation, and harvest blocking."
+description = "Run construction scene adapters in execution order"
+eventsLogic = "Link signal input and context adapters, ghost presentation, world physics integration, HUD, and resource response. JurassicConstruction owns the building rules and state."

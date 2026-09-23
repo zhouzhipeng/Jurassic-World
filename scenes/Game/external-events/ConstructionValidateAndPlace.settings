@@ -1,5 +1,0 @@
-kind = "externalEvents"
-settingsFormatVersion = 7
-name = "ConstructionValidateAndPlace"
-description = "Validate and place construction modules"
-eventsLogic = "Check terrain, overlap, support, inventory costs, then place a valid module and update build records."

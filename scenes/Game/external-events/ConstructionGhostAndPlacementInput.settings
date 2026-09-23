@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "ConstructionGhostAndPlacementInput"
+description = "Display construction ghosts and forward placement input"
+eventsLogic = "Position valid or invalid ghost objects from the extension preview mirror and emit a placement command."

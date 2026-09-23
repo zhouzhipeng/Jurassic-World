@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "ConstructionPreviewContext"
+description = "Send construction input and world context"
+eventsLogic = "Capture keyboard input and package player, resource, wildlife, and harvest context for extension preview signals."

@@ -1,5 +1,0 @@
-kind = "externalEvents"
-settingsFormatVersion = 7
-name = "ConstructionPreview"
-description = "Prepare construction selection and preview state"
-eventsLogic = "Update build controls, costs, dimensions, snapping, and preview candidates before placement validation."
