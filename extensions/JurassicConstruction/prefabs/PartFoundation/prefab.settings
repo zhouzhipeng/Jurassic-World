@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 0
+name = "PartFoundation"
+fullName = "Foundation"
+defaultName = "PartFoundation"
+description = "A reusable modular foundation with a 3D model and construction state."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-150, -150, 0], max = [150, 150, 300] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "ecf63247-21ef-4866-b7ec-b6d4cdd38b27"
+object = "Body"
+layer = "base"
+at = [0, 0]

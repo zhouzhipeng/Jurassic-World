@@ -24,7 +24,7 @@ type = "object"
 [[parameters]]
 description = "Buildings"
 name = "Buildings"
-supplementaryInformation = "Scene3D::Model3DObject"
+supplementaryInformation = ""
 type = "object"
 
 [[parameters]]

@@ -1,14 +1,12 @@
 kind = "object"
 settingsFormatVersion = 7
-order = 261
+order = 0
 assetStoreId = ""
-name = "PartFoundation"
-type = "JurassicConstruction::PartFoundation"
-variant = ""
-content = { }
+name = "Body"
+type = "Scene3D::Model3DObject"
 effects = [ ]
 behaviors = [ ]
-folder = [ "Construction" ]
+folder = [ ]
 
 [[variables]]
 name = "Kind"
@@ -80,3 +78,20 @@ name = "CostFiber"
 type = "number"
 value = 3
 
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 57
+height = 300
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "modular-foundation.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 300
+sharedAnimationModelResources = [ ]
+animations = [ ]

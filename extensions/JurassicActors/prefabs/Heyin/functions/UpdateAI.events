@@ -74,7 +74,7 @@ if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Active) compa
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(Moving)) comparison_sign="=" second_expression=1
 
 > for each "Buildings"
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Buildings.Object3D::Z()) comparison_sign="<" second_expression=180
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Buildings.Variable(BaseZ)) comparison_sign="<" second_expression=180
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Object.X()-Buildings.X())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHX)+40)
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Object.Y()-Buildings.Y())) comparison_sign="<" second_expression=expr(Buildings.Variable(WorldHY)+40)
 >> do ModVarObjet object="Object" variable="Blocked" modification_sign="=" value=1
