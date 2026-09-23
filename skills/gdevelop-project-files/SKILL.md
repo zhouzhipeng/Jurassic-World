@@ -14,6 +14,18 @@ into canonical multi-file sources. Continue by editing generated sources directl
 There are no dedicated Constants MCP tools. Read and modify `constants.toml`
 directly.
 
+
+## Navigate project event logic
+
+Read `.gdevelop/project-module-map.json` first when locating project logic.
+`scenes[].events[]`, `externalEvents[]`, and `extensions[].events[]` provide
+`settingsPath`, `eventsPath`, and an authored `purpose`. Fragment entries also
+provide `eventsLogic` and `linkedFrom`. `links` contains statically found Link
+target names; `linkPaths` gives their resolved event paths. Check `diagnostics`
+for unresolved targets. A Link may be conditional, so read the caller `.events`
+body before reasoning about execution. The map is generated with the catalogs;
+never edit it directly. Regenerate catalogs after source edits.
+
 ## Create a new game
 
 When no project exists, call `create_project` with `project_directory` (an
@@ -55,7 +67,9 @@ Read, in order:
    for semantic configuration, object definitions, and embedded `[layout]`
    subtrees, including instances, layers, spatial bounds, background, and
    editor-canvas state.
-6. Relevant `.events` files for IfDo event logic.
+6. `.gdevelop/project-module-map.json` to locate scene, external-fragment, and
+   extension event sources and their static Link relationships; then read the
+   referenced `.settings` and `.events` files for current logic.
 7. `.gdevelop/instructions-catalog.json` before adding or changing
    instructions.
 8. `.gdevelop/runtime-api.d.ts` and `.gdevelop/project-api.d.ts` before adding
@@ -260,10 +274,13 @@ Give each real scene, extension, prefab, or behavior function one same-stem
 settings never contain an events URI. Scenes use the reserved lifecycle roles
 `sceneLoad`, `sceneSignal`, `sceneUpdate`, and `sceneUnload`; infer their presence
 from settings/events pairs, never from a `sceneLifecycleFunctions` settings key.
-External Events are plain event fragments, not functions. Each has a same-stem
+External Events are plain event fragments, not functions. Each uses a same-stem
 `scenes/<Scene>/external-events/<Fragment>.settings` and `.events` pair. Read
-`eventFileKinds` in `settings-catalog.json` for this source contract. Never create
-function folders, parameter declarations, or a registration manifest.
+`eventFileKinds` in `settings-catalog.json` for this source contract. The
+settings root contains `kind = "externalEvents"`, `settingsFormatVersion = 7`,
+`name`, `description`, and `eventsLogic`; the last two describe purpose and
+event flow without changing runtime behavior. Never create function folders,
+parameter declarations, or a registration manifest for a fragment.
 Store editable prefab/behavior grouping in the function settings `folder` array.
 Lifecycle function names, order, roles, types, and parameters are fixed and must
 not be edited.
