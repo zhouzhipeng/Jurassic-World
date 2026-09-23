@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
-from mountain_profile import height
+from mountain_profile import coast_edge as coast_edge_game, floor_height
 from partition_island import partition
 
 OUT = Path(sys.argv[sys.argv.index("--") + 1]).resolve()
@@ -64,20 +64,10 @@ mats = [
 ]
 
 def coast_edge(x, y):
-    game_y = -y * 100
-    game_x = x * 100
-    east_west = 64 - abs(x) + 2.8 * math.sin(math.radians(game_y * 0.08)) + 1.6 * math.sin(math.radians(game_y * 0.21))
-    north = y + 62 + 2.5 * math.sin(math.radians(game_x * 0.09)) + 1.2 * math.sin(math.radians(game_x * 0.23))
-    south = 67 - y + 2.5 * math.sin(math.radians(game_x * 0.08)) + 1.4 * math.sin(math.radians(game_x * 0.20))
-    return min(east_west, north, south)
+    return coast_edge_game(x * 100, -y * 100) / 100
 
 def floor_metres(x, y):
-    edge = coast_edge(x, y)
-    # Keep the full sand band gentle; blend mountain relief in farther inland.
-    t = min(1.0, max(0.0, (edge - 12.0) / 12.0))
-    land = height(x * 100, -y * 100) / 100 * t
-    beach = -1.4 + 1.4 * min(1.0, max(0.0, edge / 6.0)) + 0.16 * min(0.0, edge)
-    return land + beach
+    return floor_height(x * 100, -y * 100) / 100
 
 xs = range(-81, 82)
 ys = range(-79, 85)

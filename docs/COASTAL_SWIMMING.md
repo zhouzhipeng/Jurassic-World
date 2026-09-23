@@ -15,8 +15,9 @@
 `sources/models/survivor-swim-source.blend`，由 `tools/add_swim_animations.py`
 从钓鱼版本角色源生成。运行资源分别为 `assets/models/island.glb` 与
 `assets/models/survivor-animated.glb`。两个脚本只写指定的临时输出目录；
-检查后再安装到工程。岸线高度参数修改时，需同步地形脚本与
-`scenes/Game/external-events/MountainActors.events` 的高度表达式。
+检查后再安装到工程。岸线及地面高度统一定义于 `tools/mountain_profile.py`；
+修改参数后须同步 `MountainActors.events`、`MountainInitialize.events` 和
+`MountainFoliage.events` 中的原生高度表达式。
 
 行为验收：`tests/CoastalSwimming.js`，覆盖沙滩入海、游泳、潜水耗氧、
 海底限深、上浮及返回岸边。
