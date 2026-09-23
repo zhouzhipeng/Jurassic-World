@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
-from mountain_profile import coast_edge as coast_edge_game, floor_height
+from mountain_profile import coast_edge as coast_edge_game, floor_height, height
 from partition_island import partition
 
 OUT = Path(sys.argv[sys.argv.index("--") + 1]).resolve()
@@ -23,6 +23,9 @@ bm = bmesh.new()
 bm.from_mesh(island.data)
 seen = set()
 remove = []
+shifted = 0
+max_drop = 0.0
+materials = list(island.data.materials)
 for seed in bm.verts:
     if seed in seen:
         continue
@@ -39,6 +42,30 @@ for seed in bm.verts:
                 stack.append(other)
     if len(component) == 16770:
         remove = component
+        continue
+    faces = {face for vertex in component for face in vertex.link_faces}
+    names = {materials[face.material_index].name for face in faces}
+    if names == {"water"}:
+        continue
+    ground_detail = names <= {"sand", "grassLight"}
+    if ground_detail:
+        drops = [
+            (height(vertex.co.x * 100, -vertex.co.y * 100)
+             - floor_height(vertex.co.x * 100, -vertex.co.y * 100)) / 100
+            for vertex in component
+        ]
+    else:
+        xs = [vertex.co.x for vertex in component]
+        ys = [vertex.co.y for vertex in component]
+        x = (min(xs) + max(xs)) / 2
+        y = (min(ys) + max(ys)) / 2
+        drop = (height(x * 100, -y * 100) - floor_height(x * 100, -y * 100)) / 100
+        drops = [drop] * len(component)
+    if any(abs(drop) > 1e-6 for drop in drops):
+        shifted += 1
+        max_drop = max(max_drop, *map(abs, drops))
+        for vertex, drop in zip(component, drops):
+            vertex.co.z -= drop
 assert len(remove) == 16770, "Mountain grid changed; review before rebuilding"
 bmesh.ops.delete(bm, geom=remove, context="VERTS")
 bm.to_mesh(island.data)
@@ -127,6 +154,8 @@ report = {
     "beachWidthMetres": 12,
     "seafloorExtentMetres": [-81, 81, -79, 84],
     "sampleFloorsMetres": {str(e): floor_metres(64 - e, 0) for e in (12, 6, 4, 2, 0, -5, -10, -16)},
+    "sceneryComponentsReseated": shifted,
+    "maxSceneryHeightCorrectionMetres": max_drop,
 }
 (OUT / "coast-manifest.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
 print("COAST_RESULT", json.dumps(report))
