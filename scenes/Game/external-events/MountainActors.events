@@ -47,5 +47,5 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="IsletVisit" comparison_sign="=" value=0
 if NumberVariable variable="Sailing" comparison_sign="=" value=0
 if NumberVariable variable="CoastEdge" comparison_sign="<" value=1200
-do SetNumberVariable variable="TerrainFloor" modification_sign="=" value=expr(TerrainFloor*pow(max(0,min(1,CoastEdge/1200)),2)*(3-2*max(0,min(1,CoastEdge/1200)))-140+140*max(0,min(1,CoastEdge/600))+0.16*min(0,CoastEdge))
+do SetNumberVariable variable="TerrainFloor" modification_sign="=" value=expr(TerrainFloor*max(0,min(1,CoastEdge/1200))-140+140*max(0,min(1,CoastEdge/600))+0.16*min(0,CoastEdge))
 

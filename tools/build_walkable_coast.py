@@ -56,7 +56,7 @@ def material(name, color, roughness):
 mats = [
     material("Coast dry shell sand", (0.74, 0.65, 0.45), 0.96),
     material("Coast pale sand", (0.83, 0.75, 0.56), 0.98),
-    material("Coast wet sand", (0.49, 0.43, 0.32), 0.66),
+    material("Coast wet sand", (0.64, 0.57, 0.43), 0.66),
     material("Coast shallow sand", (0.54, 0.56, 0.48), 0.9),
     material("Coast seafloor", (0.32, 0.43, 0.39), 1.0),
     material("Coast foam edge", (0.88, 0.88, 0.76), 0.82),
@@ -69,7 +69,7 @@ def coast_edge(x, y):
 def floor_metres(x, y):
     edge = coast_edge(x, y)
     t = min(1.0, max(0.0, edge / 12.0))
-    land = height(x * 100, -y * 100) / 100 * t * t * (3 - 2 * t)
+    land = height(x * 100, -y * 100) / 100 * t
     beach = -1.4 + 1.4 * min(1.0, max(0.0, edge / 6.0)) + 0.16 * min(0.0, edge)
     return land + beach
 
@@ -90,7 +90,9 @@ bpy.context.collection.objects.link(coast)
 for mat in mats:
     mesh.materials.append(mat)
 for poly in mesh.polygons:
-    x, y = poly.center.x, poly.center.y
+    cell = poly.index // 2
+    x = xs[cell % (width - 1)] + 0.5
+    y = ys[cell // (width - 1)] + 0.5
     edge = coast_edge(x, y)
     if edge < -2:
         index = 4
