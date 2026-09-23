@@ -12,7 +12,7 @@ if NumberVariable variable="Sailing" comparison_sign="=" value=0
 if NumberVariable variable="IsletVisit" comparison_sign="=" value=0
 if NumberVariable variable="SwimMode" comparison_sign="=" value=0
 if NumberVariable variable="CoastEdge" comparison_sign="<" value=0
-if NumberVariable variable="TerrainFloor" comparison_sign="<" value=-210
+if NumberVariable variable="TerrainFloor" comparison_sign="<" value=-160
 do SetNumberVariable variable="SwimMode" modification_sign="=" value=1
 do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=0
 do SetNumberVariable variable="JumpStartTime" modification_sign="=" value=0
@@ -22,7 +22,7 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 @event aiGeneratedEventId="coast-leave-swim"
 if NumberVariable variable="SwimMode" comparison_sign=">" value=0
-if NumberVariable variable="TerrainFloor" comparison_sign=">" value=-190
+if NumberVariable variable="TerrainFloor" comparison_sign=">" value=-130
 or NumberVariable variable="Sailing" comparison_sign="=" value=1
 or NumberVariable variable="Riding" comparison_sign="=" value=1
 or NumberVariable variable="IsletVisit" comparison_sign="=" value=1

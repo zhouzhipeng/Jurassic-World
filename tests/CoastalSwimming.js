@@ -9,6 +9,14 @@ try {
   await harness.stepFrames(3);
   harness.assert(n('SwimMode') === 0 && n('CoastEdge') > 600 && Math.abs(n('TerrainFloor')) < 2,
     `Dry sand is walkable: mode=${n('SwimMode')}, edge=${n('CoastEdge')}, floor=${n('TerrainFloor')}`);
+  harness.setObjectPosition(player().id, 6300, 2500, 0);
+  await harness.stepFrames(3);
+  harness.assert(n('SwimMode') === 0 && n('TerrainFloor') > -130,
+    `Shallow shoreline remains walkable: mode=${n('SwimMode')}, floor=${n('TerrainFloor')}`);
+  harness.setObjectPosition(player().id, 6500, 2500, 0);
+  await harness.stepFrames(3);
+  harness.assert(n('SwimMode') === 1 && n('TerrainFloor') < -160,
+    `Swimming starts before deep-water walking: mode=${n('SwimMode')}, floor=${n('TerrainFloor')}`);
   harness.setObjectPosition(player().id, 6200, 2500, 0);
   await harness.stepFrames(3);
   harness.setKeyPressed('d', true);
@@ -37,7 +45,7 @@ try {
   await harness.stepFrames(60);
   harness.assert(n('SwimMode') === 1 && n('PlayerFloor') >= surface - 2,
     `Space returns to the surface: mode=${n('SwimMode')}, z=${n('PlayerFloor')}`);
-  harness.setObjectPosition(player().id, 6300, 2500, 0);
+  harness.setObjectPosition(player().id, 6200, 2500, 0);
   await harness.stepFrames(3);
   harness.assert(n('SwimMode') === 0 && n('PlayerFloor') >= n('TerrainFloor') - 1,
     'Returning to shallow shore restores land movement and ground support');
