@@ -42,7 +42,9 @@ if (player) {
   const dt = Math.min(0.05, runtimeScene.getElapsedTime() / 1000);
   const previous = number("CameraResolvedDistance");
   const targetX = player.getX(), targetY = player.getY();
-  const targetZ = 120 + number("PlayerFloor") + number("Riding") * 220;
+  const submerged = number("SwimMode") === 2;
+  const targetZ = submerged ? Math.min(-130, number("PlayerFloor") + 65)
+    : 120 + number("PlayerFloor") + number("Riding") * 220;
   const reset = previous <= 0 || Math.hypot(targetX - state("PlayerX"), targetY - state("PlayerY")) > 600;
   const blend = 1 - Math.exp(-14 * dt);
   const x = reset ? targetX : state("X") + (targetX - state("X")) * blend;
@@ -52,8 +54,11 @@ if (player) {
   const yawDelta = ((number("CameraYaw") - state("Yaw") + 540) % 360 + 360) % 360 - 180;
   const yawDegrees = reset ? number("CameraYaw") : state("Yaw") + yawDelta * (1 - Math.exp(-18 * dt));
   const yaw = yawDegrees * Math.PI / 180;
-  const requestedPitch = number("CameraPitch");
-  const requestedDistance = number("CameraDistance");
+  // Keep the dive lens below the sea surface so the seabed is not hidden by
+  // the water plane. A shorter, nearly level orbit frames the underwater view.
+  const requestedPitch = submerged ? -8 : number("CameraPitch");
+  const requestedDistance = submerged ? Math.min(650, number("CameraDistance"))
+    : number("CameraDistance");
   // Island3D includes its trees, rocks and camp. Other entries cover dynamic geometry.
   const names = ["BerryBush", "FiberFern", "WoodSapling", "StoneDeposit",
     "MetalDeposit", "SpringWater", "CampHearth", "CampForge", "BuiltShelter",

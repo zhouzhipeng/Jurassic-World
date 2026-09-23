@@ -39,12 +39,18 @@ try {
     `C dives under the surface: z=${n('PlayerFloor')}, depth=${n('DiveDepth')}`);
   harness.assert(n('Breath') < 100 && n('PlayerFloor') >= n('TerrainFloor') + 19,
     `Diving consumes breath and stays above the seabed: breath=${n('Breath')}, floor=${n('TerrainFloor')}`);
+  const diveCamera = harness.getCameraState('World3D');
+  harness.assert(!!diveCamera && diveCamera.z < -100,
+    `Dive camera stays below the sea surface: cameraZ=${diveCamera?.z}`);
   harness.setKeyPressed('Space', true);
   await harness.stepFrames(1);
   harness.releaseAllInputs();
   await harness.stepFrames(60);
   harness.assert(n('SwimMode') === 1 && n('PlayerFloor') >= surface - 2,
     `Space returns to the surface: mode=${n('SwimMode')}, z=${n('PlayerFloor')}`);
+  const surfaceCamera = harness.getCameraState('World3D');
+  harness.assert(!!surfaceCamera && surfaceCamera.z > -80,
+    `Surface camera clears the sea: cameraZ=${surfaceCamera?.z}`);
   harness.setObjectPosition(player().id, 6200, 2500, 0);
   await harness.stepFrames(3);
   harness.assert(n('SwimMode') === 0 && n('PlayerFloor') >= n('TerrainFloor') - 1,

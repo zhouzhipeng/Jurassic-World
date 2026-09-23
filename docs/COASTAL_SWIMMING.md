@@ -10,6 +10,9 @@
 切换为「潜水」或「上浮」。潜水时氧气下降，浮出水面后恢复；耗尽后生命值
 下降。近海底部限制潜入深度，返回浅滩恢复步行与跳跃。
 
+潜水时第三人称镜头降到海面以下，视角转为近距离的水平观察；海面从水下观看时
+降低遮挡，玩家可看到海底坡面。上浮后镜头恢复通常的水面视角。
+
 可编辑地形源：`sources/environment/island-coast-source.blend`，由
 `tools/build_walkable_coast.py` 从保留的山地源生成。可编辑角色源：
 `sources/models/survivor-swim-source.blend`，由 `tools/add_swim_animations.py`
@@ -20,4 +23,4 @@
 `MountainFoliage.events` 中的原生高度表达式。
 
 行为验收：`tests/CoastalSwimming.js`，覆盖沙滩入海、游泳、潜水耗氧、
-海底限深、上浮及返回岸边。
+海底限深、水下与水面镜头高度、上浮及返回岸边。
