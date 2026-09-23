@@ -13,6 +13,11 @@
 潜水时第三人称镜头降到海面以下，视角转为近距离的水平观察；海面从水下观看时
 降低遮挡，玩家可看到海底坡面。上浮后镜头恢复通常的水面视角。
 
+游泳动作由同一角色骨架中的 `Swim` 和 `Dive` 循环片段驱动：水面采用俯身交替
+划臂和轻幅打腿，潜水采用双臂前伸的水下划动。动作源保存在
+`sources/models/survivor-swim-source.blend`，可用 `tools/add_swim_animations.py`
+从 `sources/models/survivor-fishing-source.blend` 重新生成。
+
 可编辑地形源：`sources/environment/island-coast-source.blend`，由
 `tools/build_walkable_coast.py` 从保留的山地源生成。可编辑角色源：
 `sources/models/survivor-swim-source.blend`，由 `tools/add_swim_animations.py`

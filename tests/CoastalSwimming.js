@@ -27,6 +27,8 @@ try {
     `Player crosses the beach into swim: x=${atSea.x}, edge=${n('CoastEdge')}, mode=${n('SwimMode')}`);
   harness.assert(n('Breath') > 95 && n('JumpVelocity') === 0,
     'Surface swimming replenishes air and does not apply jump gravity');
+  harness.assert(atSea.children?.Body?.[0]?.animation === 'Swim',
+    `Surface swimming plays the rebuilt Swim clip: ${atSea.children?.Body?.[0]?.animation}`);
   // Arrange deeper water within the reachable nearshore zone.
   harness.setObjectPosition(atSea.id, 7850, 2500, -245);
   await harness.stepFrames(3);
@@ -37,6 +39,8 @@ try {
   await harness.stepFrames(44);
   harness.assert(n('SwimMode') === 2 && n('PlayerFloor') < surface - 40 && n('DiveDepth') > 0,
     `C dives under the surface: z=${n('PlayerFloor')}, depth=${n('DiveDepth')}`);
+  harness.assert(player().children?.Body?.[0]?.animation === 'Dive',
+    `Diving plays the rebuilt Dive clip: ${player().children?.Body?.[0]?.animation}`);
   harness.assert(n('Breath') < 100 && n('PlayerFloor') >= n('TerrainFloor') + 19,
     `Diving consumes breath and stays above the seabed: breath=${n('Breath')}, floor=${n('TerrainFloor')}`);
   const diveCamera = harness.getCameraState('World3D');
@@ -48,6 +52,8 @@ try {
   await harness.stepFrames(60);
   harness.assert(n('SwimMode') === 1 && n('PlayerFloor') >= surface - 2,
     `Space returns to the surface: mode=${n('SwimMode')}, z=${n('PlayerFloor')}`);
+  harness.assert(player().children?.Body?.[0]?.animation === 'Swim',
+    'Surfacing resumes the Swim clip');
   const surfaceCamera = harness.getCameraState('World3D');
   harness.assert(!!surfaceCamera && surfaceCamera.z > -80,
     `Surface camera clears the sea: cameraZ=${surfaceCamera?.z}`);

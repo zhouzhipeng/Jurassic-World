@@ -1,4 +1,4 @@
-"""Add looping surface-swim and underwater-dive clips to the survivor rig.
+"""Add prone surface-crawl and underwater-dive clips to the survivor rig.
 
 Run Blender with sources/models/survivor-fishing-source.blend and this script;
 pass an absolute disposable output directory after --. Production files stay intact.
@@ -17,36 +17,47 @@ assert not {"Swim", "Dive"} & {action.name for action in bpy.data.actions}
 bpy.context.scene.render.fps = 30
 
 def pose(frame, clip):
-    t = (frame - 1) / 30
-    phase = 2 * math.pi * t
+    phase = 2 * math.pi * (frame - 1) / 40
     for bone in arm.pose.bones:
         bone.rotation_mode = "XYZ"
         bone.rotation_euler = (0, 0, 0)
         bone.location = (0, 0, 0)
         bone.scale = (1, 1, 1)
     b = arm.pose.bones
-    # The rig's X pitch brings the chest forward while preserving the world root.
-    b["Hips"].rotation_euler.x = -0.85 if clip == "Swim" else -1.08
-    b["Hips"].location.z = 0.22 if clip == "Swim" else 0.12
-    b["Spine"].rotation_euler.x = -0.20 + 0.04 * math.sin(phase)
-    b["Head"].rotation_euler.x = 0.25 if clip == "Swim" else 0.03
-    b["ArmL"].rotation_euler = (-0.92 + 0.55 * math.sin(phase), 0, 0.35)
-    b["ArmR"].rotation_euler = (-0.92 - 0.55 * math.sin(phase), 0, -0.35)
-    b["ForearmL"].rotation_euler.x = -0.35 - 0.45 * max(0, math.sin(phase))
-    b["ForearmR"].rotation_euler.x = -0.35 + 0.45 * min(0, math.sin(phase))
-    b["ThighL"].rotation_euler.x = 0.24 * math.sin(phase + math.pi)
-    b["ThighR"].rotation_euler.x = 0.24 * math.sin(phase)
-    b["ShinL"].rotation_euler.x = 0.28 + 0.18 * math.sin(phase)
-    b["ShinR"].rotation_euler.x = 0.28 - 0.18 * math.sin(phase)
-    if clip == "Dive":
-        b["ArmL"].rotation_euler.x -= 0.35
-        b["ArmR"].rotation_euler.x -= 0.35
-        b["Spine"].rotation_euler.x -= 0.10
+    # Positive rig-X pitches the face and chest toward the swimming direction.
+    # Keep the pelvis in place so the gameplay object still controls buoyancy.
+    b["Hips"].rotation_euler.x = 1.06 if clip == "Swim" else 1.30
+    b["Hips"].location.z = 0.04 * math.sin(phase)
+    b["Spine"].rotation_euler.x = -0.10 + 0.045 * math.sin(phase)
+    b["Head"].rotation_euler.x = -0.55 if clip == "Swim" else -0.10
+    if clip == "Swim":
+        # Alternating reach, pull and recovery; elbows bend during the pull.
+        left = math.sin(phase)
+        right = math.sin(phase + math.pi)
+        b["ArmL"].rotation_euler = (-1.80 - 0.88 * left, 0.08, 0.20)
+        b["ArmR"].rotation_euler = (-1.80 - 0.88 * right, -0.08, -0.20)
+        b["ForearmL"].rotation_euler.x = -0.16 - 0.55 * max(0, -left)
+        b["ForearmR"].rotation_euler.x = -0.16 - 0.55 * max(0, -right)
+        b["ThighL"].rotation_euler.x = -0.20 + 0.24 * left
+        b["ThighR"].rotation_euler.x = -0.20 + 0.24 * right
+        b["ShinL"].rotation_euler.x = 0.10 + 0.24 * max(0, left)
+        b["ShinR"].rotation_euler.x = 0.10 + 0.24 * max(0, right)
+    else:
+        # A calmer underwater pull with both hands together and a dolphin kick.
+        pull = (1 - math.cos(phase)) / 2
+        b["ArmL"].rotation_euler = (-2.48 + 0.55 * pull, 0, 0.12 + 0.18 * pull)
+        b["ArmR"].rotation_euler = (-2.48 + 0.55 * pull, 0, -0.12 - 0.18 * pull)
+        b["ForearmL"].rotation_euler.x = -0.14 - 0.42 * pull
+        b["ForearmR"].rotation_euler.x = -0.14 - 0.42 * pull
+        b["ThighL"].rotation_euler.x = -0.10 + 0.20 * math.sin(phase)
+        b["ThighR"].rotation_euler.x = -0.10 + 0.20 * math.sin(phase)
+        b["ShinL"].rotation_euler.x = 0.18 + 0.22 * math.sin(phase + 0.9)
+        b["ShinR"].rotation_euler.x = 0.18 + 0.22 * math.sin(phase + 0.9)
 
 for clip in ("Swim", "Dive"):
     arm.animation_data_create()
     arm.animation_data.action = None
-    for frame in range(1, 32):
+    for frame in range(1, 42):
         pose(frame, clip)
         for bone in arm.pose.bones:
             bone.keyframe_insert(data_path="rotation_euler", frame=frame, group=bone.name)
