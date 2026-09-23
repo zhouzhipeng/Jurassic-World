@@ -229,3 +229,159 @@ for (const controller of objects) {
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Input"
 do EmitSceneSignal signal_name="Construction.InputState" payload=expr(Object.VariableString(InputStateJSON))
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Preview"
+> @js objects=Object strict=true
+let context;
+try { context = JSON.parse(String(eventsFunctionContext.getArgument("Payload"))); }
+catch (error) { return; }
+if (!context || !objects[0]) return;
+const controller = objects[0];
+const state = controller.getVariables();
+if (state.get("InputMode").getAsNumber() !== 1) return;
+const world = controller.getRuntimeScene();
+const kind = state.get("InputKind").getAsNumber();
+const angle = state.get("InputAngle").getAsNumber();
+const level = state.get("InputLevel").getAsNumber();
+const radians = angle * Math.PI / 180;
+const rawX = Number(context.PlayerX) - Math.sin(Number(context.CameraYaw) * Math.PI / 180) * 450;
+const rawY = Number(context.PlayerY) - Math.cos(Number(context.CameraYaw) * Math.PI / 180) * 450;
+let x = Math.round(rawX / 300) * 300;
+let y = Math.round(rawY / 300) * 300;
+let z = 20 + level * 300;
+let parent = -1;
+let valid = 1;
+let reason = "吸附就绪 · 点「放置」";
+/** @param {string} message */
+const reject = message => { valid = 0; reason = message; };
+/** @type {Map<number, number[]>} */
+const sizes = new Map([[10, [6, 2, 3, 150, 150]], [11, [3, 0, 1, 20, 20]],
+  [12, [4, 0, 2, 150, 14]], [13, [4, 0, 2, 150, 14]],
+  [14, [5, 0, 3, 150, 150]], [15, [3, 0, 1, 78, 12]],
+  [16, [6, 0, 3, 120, 152]], [3, [3, 3, 0, 80, 80]]]);
+const dimensions = sizes.get(kind);
+if (!dimensions) return;
+const [wood, stone, fiber, hx, hy] = dimensions;
+if (kind === 10 || kind === 3) { z = 0; parent = -2; }
+if (kind === 14) z = 320 + level * 300;
+if (kind === 11) {
+  x = Math.round((rawX - 150) / 300) * 300 + 150;
+  y = Math.round((rawY - 150) / 300) * 300 + 150;
+}
+if ([12, 13, 15].includes(kind)) {
+  if (angle % 180 === 0) y = Math.round((rawY - 150) / 300) * 300 + 150;
+  if (angle % 180 === 90) x = Math.round((rawX - 150) / 300) * 300 + 150;
+}
+const worldHX = Math.abs(Math.cos(radians)) * hx + Math.abs(Math.sin(radians)) * hy;
+const worldHY = Math.abs(Math.sin(radians)) * hx + Math.abs(Math.cos(radians)) * hy;
+/** @type {Array<{kind:number,x:number,y:number,z:number,slot:number,level:number,angle:number,hx:number,hy:number,parent:number}>} */
+const buildings = [];
+/** @type {Array<[number, string]>} */
+const names = [[1, "BuiltShelter"], [2, "BuiltPalisade"], [3, "BuiltCampfire"],
+  [10, "PartFoundation"], [11, "PartPillar"], [12, "PartWall"],
+  [13, "PartDoorframe"], [14, "PartCeiling"], [15, "PartDoor"], [16, "PartStairs"]];
+for (const [type, name] of names) {
+  for (const item of world.getObjects(name)) {
+    const vars = item.getVariables();
+    buildings.push({ kind: type,
+      x: type === 15 ? vars.get("BaseX").getAsNumber() : item.getX(),
+      y: type === 15 ? vars.get("BaseY").getAsNumber() : item.getY(),
+      z: vars.get("BaseZ").getAsNumber(), slot: vars.get("Slot").getAsNumber(),
+      level: vars.get("Level").getAsNumber(), angle: vars.get("BaseAngle").getAsNumber(),
+      hx: vars.get("WorldHX").getAsNumber(), hy: vars.get("WorldHY").getAsNumber(),
+      parent: vars.get("Parent").getAsNumber() });
+  }
+}
+const modular = buildings.filter(item => item.kind >= 10);
+for (const part of modular) {
+  const near = Math.abs(x - part.x) <= 151 && Math.abs(y - part.y) <= 151;
+  const exact = Math.abs(x - part.x) + Math.abs(y - part.y) < 1;
+  if (near && part.level === level) {
+    if ([10, 14].includes(part.kind) && [11, 12, 13].includes(kind)) parent = part.slot;
+    if ([10, 14].includes(part.kind) && kind === 16 && exact) parent = part.slot;
+    if ([11, 12, 13].includes(part.kind) && kind === 14) parent = part.slot;
+  }
+  if (kind === 11 && part.kind === 11 && part.level === level - 1 && exact) parent = part.slot;
+  if (kind === 15 && part.kind === 13 && part.level === level && exact &&
+      part.angle % 180 === angle % 180) parent = part.slot;
+}
+if (parent === -1) reject("缺少支撑：墙/柱/楼梯接地板；楼板接墙/柱；木门接门框");
+if ((kind === 10 || kind === 3) && level > 0) reject("地基和篝火请点「层 −」切回第 1 层");
+for (const part of modular) {
+  const exact = Math.abs(x - part.x) + Math.abs(y - part.y) < 1;
+  if (!exact || part.z !== z) continue;
+  if (part.kind === kind) reject("这个构件位置已被占用");
+  if ((kind === 12 && part.kind === 13) || (kind === 13 && part.kind === 12))
+    reject("此边缘已有墙体或门框");
+}
+let slot = -1;
+const used = new Set(buildings.map(item => item.slot));
+for (let index = 0; index < 128; index++) if (!used.has(index)) { slot = index; break; }
+for (const part of modular) {
+  const exact = Math.abs(x - part.x) + Math.abs(y - part.y) < 1;
+  if (!exact) continue;
+  if (kind === 14 && part.kind === 16 && z - part.z === 300)
+    reject("楼梯上方需留洞口，请把楼板接在楼梯尽头");
+  if (kind === 16 && part.kind === 14 && z - part.z === -300)
+    reject("楼梯上方需留洞口，请把楼板接在楼梯尽头");
+}
+if (Number(context.Wood) < wood || Number(context.Stone) < stone || Number(context.Fiber) < fiber)
+  reject(`材料不足，还缺：木 ${Math.max(0, wood - Number(context.Wood))} / 石 ${Math.max(0, stone - Number(context.Stone))} / 纤维 ${Math.max(0, fiber - Number(context.Fiber))}`);
+if (slot < 0) reject("最多保留 128 个构件，请先拆除");
+if (Math.abs(x) + worldHX > 5950 || y + worldHY > 5600 || -y + worldHY > 6100)
+  reject("越过陆地范围，向岛内移动");
+if (x + worldHX > -1300 && x - worldHX < -500 &&
+    y + worldHY > -1060 && y - worldHY < -330) reject("与现有木屋重叠");
+if (Math.hypot(x + 650, y - 350) < Math.hypot(hx, hy) + 180)
+  reject("请留出营地重生区");
+for (const part of buildings) if (part.kind <= 3 &&
+    Math.abs(x - part.x) < worldHX + part.hx - 1 &&
+    Math.abs(y - part.y) < worldHY + part.hy - 1) reject("与已有建筑重叠");
+for (const node of Array.isArray(context.Harvest) ? context.Harvest : [])
+  if (Number(node.Cooldown) <= 0 && Math.abs(x - Number(node.X)) < worldHX + 80 &&
+      Math.abs(y - Number(node.Y)) < worldHY + 80) reject("此处有资源，请换一块空地");
+if (Math.hypot(x - Number(context.DinoX), y - Number(context.DinoY)) < Math.hypot(hx, hy) + 380)
+  reject("坐骑占用此处，请先移开");
+for (const beast of Array.isArray(context.Wildlife) ? context.Wildlife : []) {
+  if (Number(beast.HP) <= 0) continue;
+  const dx = x - Number(beast.X);
+  const dy = y - Number(beast.Y);
+  const ca = Math.cos(Number(beast.Angle) * Math.PI / 180);
+  const sa = Math.sin(Number(beast.Angle) * Math.PI / 180);
+  const radius = Number(beast.Radius);
+  const length = Number(beast.HalfLength);
+  if (Math.abs(dx) < worldHX + Math.abs(ca) * radius + Math.abs(sa) * length &&
+      Math.abs(dy) < worldHY + Math.abs(sa) * radius + Math.abs(ca) * length &&
+      Math.abs(dx * ca + dy * sa) < radius + worldHX * Math.abs(ca) + worldHY * Math.abs(sa) &&
+      Math.abs(-dx * sa + dy * ca) < length + worldHX * Math.abs(sa) + worldHY * Math.abs(ca))
+    reject("恐龙占用此处，请保持距离");
+}
+if (kind !== 10 && kind !== 14 && Math.abs(z - Number(context.PlayerFloor)) < 180 &&
+    Math.abs(x - Number(context.PlayerX)) < worldHX + 40 &&
+    Math.abs(y - Number(context.PlayerY)) < worldHY + 40)
+  reject("此处会卡住角色，请退开再建造");
+/** @type {Array<[number,number,number,number,number]>} */
+const hills = [[1100, 800, -2100, 2000, 1700], [650, -2250, 600, 1100, 1700],
+  [950, 2350, 300, 1200, 1800], [1000, -2050, -2400, 1400, 1300],
+  [2350, -4200, -4050, 2000, 2100], [2800, 2200, -4450, 2600, 1600],
+  [1850, 4450, 1400, 1800, 2700], [1250, -2900, 3950, 2500, 1500]];
+for (const sx of [-1, 1]) for (const sy of [-1, 1]) {
+  const px = x + sx * hx;
+  const py = y + sy * hy;
+  let height = 0;
+  for (const [amplitude, cx, cy, rx, ry] of hills) {
+    const peak = Math.max(0, 1 - ((px - cx) / rx) ** 2 - ((py - cy) / ry) ** 2);
+    height += amplitude * peak * peak;
+  }
+  if (height > 1) reject("山坡无法放置平地建筑，请到山谷或营地平地建造");
+}
+state.get("PreviewJSON").setString(JSON.stringify({ Kind: kind, X: x, Y: y, Z: z,
+  RawX: rawX, RawY: rawY, HX: hx, HY: hy, WorldHX: worldHX, WorldHY: worldHY,
+  Wood: wood, Stone: stone, Fiber: fiber, Parent: parent, Slot: slot,
+  Valid: valid, Reason: reason }));
+> @end js
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Preview"
+do EmitSceneSignal signal_name="Construction.PreviewReady" payload=expr(Object.VariableString(PreviewJSON))

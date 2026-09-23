@@ -44,6 +44,31 @@ do SetNumberVariable variable="BuildAngle" modification_sign="=" value=expr(Cons
 do SetNumberVariable variable="BuildLevel" modification_sign="=" value=expr(ConstructionInputState.Level)
 
 @event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.PreviewReady"
+do JSONToVariableStructure2 json_string=expr(Payload) variable_where_to_store_the_json_object="ConstructionPreviewState"
+do SetNumberVariable variable="BuildRawX" modification_sign="=" value=expr(ConstructionPreviewState.RawX)
+do SetNumberVariable variable="BuildRawY" modification_sign="=" value=expr(ConstructionPreviewState.RawY)
+do SetNumberVariable variable="BuildX" modification_sign="=" value=expr(ConstructionPreviewState.X)
+do SetNumberVariable variable="BuildY" modification_sign="=" value=expr(ConstructionPreviewState.Y)
+do SetNumberVariable variable="BuildZ" modification_sign="=" value=expr(ConstructionPreviewState.Z)
+do SetNumberVariable variable="BuildHX" modification_sign="=" value=expr(ConstructionPreviewState.HX)
+do SetNumberVariable variable="BuildHY" modification_sign="=" value=expr(ConstructionPreviewState.HY)
+do SetNumberVariable variable="BuildWorldHX" modification_sign="=" value=expr(ConstructionPreviewState.WorldHX)
+do SetNumberVariable variable="BuildWorldHY" modification_sign="=" value=expr(ConstructionPreviewState.WorldHY)
+do SetNumberVariable variable="BuildWood" modification_sign="=" value=expr(ConstructionPreviewState.Wood)
+do SetNumberVariable variable="BuildStone" modification_sign="=" value=expr(ConstructionPreviewState.Stone)
+do SetNumberVariable variable="BuildFiber" modification_sign="=" value=expr(ConstructionPreviewState.Fiber)
+do SetNumberVariable variable="BuildParent" modification_sign="=" value=expr(ConstructionPreviewState.Parent)
+do SetNumberVariable variable="BuildSlot" modification_sign="=" value=expr(ConstructionPreviewState.Slot)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=expr(ConstructionPreviewState.Valid)
+do SetStringVariable variable="BuildReason" modification_sign="=" value=expr(ConstructionPreviewState.Reason)
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.PreviewReady"
+if NumberVariable variable="ConstructionPreviewState.Kind" comparison_sign="!=" value=expr(BuildKind)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+
+@event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Placed"
 if NumberVariable variable="ConstructionPlaced.Kind" comparison_sign="=" value=14
 do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Level" modification_sign="+" value=1

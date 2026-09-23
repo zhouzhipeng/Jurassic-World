@@ -609,6 +609,16 @@ type = "structure"
 children = [{ name = "Mode", type = "number", value = 0 }, { name = "Kind", type = "number", value = 10 }, { name = "Angle", type = "number", value = 0 }, { name = "Level", type = "number", value = 0 }]
 
 [[variables]]
+name = "ConstructionContext"
+type = "structure"
+children = [{ name = "PlayerX", type = "number", value = 0 }, { name = "PlayerY", type = "number", value = 0 }, { name = "PlayerFloor", type = "number", value = 0 }, { name = "CameraYaw", type = "number", value = 0 }, { name = "Wood", type = "number", value = 0 }, { name = "Stone", type = "number", value = 0 }, { name = "Fiber", type = "number", value = 0 }, { name = "DinoX", type = "number", value = 0 }, { name = "DinoY", type = "number", value = 0 }, { name = "HarvestCount", type = "number", value = 0 }, { name = "WildlifeCount", type = "number", value = 0 }, { name = "Harvest", type = "array", children = [] }, { name = "Wildlife", type = "array", children = [] }]
+
+[[variables]]
+name = "ConstructionPreviewState"
+type = "structure"
+children = [{ name = "Kind", type = "number", value = 10 }, { name = "X", type = "number", value = 0 }, { name = "Y", type = "number", value = 0 }, { name = "Z", type = "number", value = 0 }, { name = "RawX", type = "number", value = 0 }, { name = "RawY", type = "number", value = 0 }, { name = "HX", type = "number", value = 0 }, { name = "HY", type = "number", value = 0 }, { name = "WorldHX", type = "number", value = 0 }, { name = "WorldHY", type = "number", value = 0 }, { name = "Wood", type = "number", value = 0 }, { name = "Stone", type = "number", value = 0 }, { name = "Fiber", type = "number", value = 0 }, { name = "Parent", type = "number", value = -1 }, { name = "Slot", type = "number", value = -1 }, { name = "Valid", type = "number", value = 0 }, { name = "Reason", type = "string", value = "" }]
+
+[[variables]]
 name = "ConstructionPlaced"
 type = "structure"
 children = [{ name = "Kind", type = "number", value = 0 }, { name = "Slot", type = "number", value = 0 }, { name = "X", type = "number", value = 0 }, { name = "Y", type = "number", value = 0 }, { name = "Z", type = "number", value = 0 }, { name = "Angle", type = "number", value = 0 }, { name = "Level", type = "number", value = 0 }, { name = "Parent", type = "number", value = 0 }, { name = "WorldHX", type = "number", value = 0 }, { name = "WorldHY", type = "number", value = 0 }, { name = "WoodCost", type = "number", value = 0 }, { name = "StoneCost", type = "number", value = 0 }, { name = "FiberCost", type = "number", value = 0 }, { name = "Wood", type = "number", value = 0 }, { name = "Stone", type = "number", value = 0 }, { name = "Fiber", type = "number", value = 0 }]
