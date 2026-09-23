@@ -101,3 +101,77 @@ do ReadStringFromStorage storage_name=expr(Payload) group="BuildingsV2" variable
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Load"
 do EmitSceneSignal signal_name="Construction.Restore" payload=expr(ConstructionLoadedJSON)
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Place"
+> @js objects=Object strict=true
+const world = objects[0] ? objects[0].getRuntimeScene() : runtimeScene;
+const types = new Map([[3, "BuiltCampfire"], [10, "PartFoundation"],
+  [11, "PartPillar"], [12, "PartWall"], [13, "PartDoorframe"],
+  [14, "PartCeiling"], [15, "PartDoor"], [16, "PartStairs"]]);
+let request;
+try { request = JSON.parse(String(eventsFunctionContext.getArgument("Payload"))); }
+catch (error) { request = null; }
+if (!request || !types.has(Number(request.Kind))) return;
+const slot = Number(request.Slot);
+if (!Number.isInteger(slot) || slot < 0 || slot >= 128) return;
+for (const name of ["BuiltShelter", "BuiltPalisade", ...types.values()]) {
+  if (world.getObjects(name).some(item => item.getVariables().get("Slot").getAsNumber() === slot)) return;
+}
+const name = types.get(Number(request.Kind));
+if (!name) return;
+const item = world.createObject(name);
+if (!item) return;
+item.setLayer("World3D");
+item.setPosition(Number(request.X) || 0, Number(request.Y) || 0);
+item.setAngle(Number(request.Angle) || 0);
+const vars = item.getVariables();
+vars.get("Slot").setNumber(slot);
+vars.get("WorldHX").setNumber(Number(request.WorldHX) || 0);
+vars.get("WorldHY").setNumber(Number(request.WorldHY) || 0);
+vars.get("BaseZ").setNumber(Number(request.Z) || 0);
+vars.get("Level").setNumber(Number(request.Level) || 0);
+vars.get("Parent").setNumber(Number(request.Parent) || -1);
+vars.get("BaseAngle").setNumber(Number(request.Angle) || 0);
+vars.get("Open").setNumber(0);
+> @end js
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Place"
+do EmitSceneSignal signal_name="Construction.Placed" payload=expr(Payload)
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Remove"
+> @js objects=Object strict=true
+const world = objects[0] ? objects[0].getRuntimeScene() : runtimeScene;
+const slot = Number(eventsFunctionContext.getArgument("Payload"));
+if (!Number.isInteger(slot) || slot < 0 || slot >= 128) return;
+/** @type {Array<[number, string]>} */
+const types = [[1, "BuiltShelter"], [2, "BuiltPalisade"], [3, "BuiltCampfire"],
+  [10, "PartFoundation"], [11, "PartPillar"], [12, "PartWall"],
+  [13, "PartDoorframe"], [14, "PartCeiling"], [15, "PartDoor"], [16, "PartStairs"]];
+let target = null;
+let kind = 0;
+for (const [type, name] of types) {
+  target = world.getObjects(name).find(item => item.getVariables().get("Slot").getAsNumber() === slot);
+  if (target) { kind = type; break; }
+}
+if (!target) return;
+for (const name of ["PartFoundation", "PartPillar", "PartWall", "PartDoorframe",
+  "PartCeiling", "PartDoor", "PartStairs"]) {
+  if (world.getObjects(name).some(item => item.getVariables().get("Parent").getAsNumber() === slot)) return;
+}
+target.deleteFromScene();
+/** @type {Record<number, number[]>} */
+const costs = { 1: [10, 5, 8], 2: [4, 0, 2], 3: [3, 3, 0],
+  10: [6, 2, 3], 11: [3, 0, 1], 12: [4, 0, 2], 13: [4, 0, 2],
+  14: [5, 0, 3], 15: [3, 0, 1], 16: [6, 0, 3] };
+const refund = costs[kind].map(value => Math.floor(value / 2));
+for (const controller of objects) controller.getVariables().get("RemoveJSON")
+  .setString(JSON.stringify({ Slot: slot, Kind: kind, Wood: refund[0],
+    Stone: refund[1], Fiber: refund[2] }));
+> @end js
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Remove"
+do EmitSceneSignal signal_name="Construction.Removed" payload=expr(Object.VariableString(RemoveJSON))

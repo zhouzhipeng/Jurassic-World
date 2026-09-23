@@ -59,27 +59,6 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Return"
-or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
-if NumberVariable variable="BuildValid" comparison_sign="=" value=1
-if NumberVariable variable="BuildKind" comparison_sign="=" value=10
-do Create object_to_create="PartFoundation" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
-do SetAngle object="PartFoundation" modification_sign="=" angle_in_degrees=expr(BuildAngle)
-do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartFoundation" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartFoundation" variable="Slot" modification_sign="=" value=expr(BuildSlot)
-do SetNumberObjectVariable object="PartFoundation" variable="WorldHX" modification_sign="=" value=expr(BuildWorldHX)
-do SetNumberObjectVariable object="PartFoundation" variable="WorldHY" modification_sign="=" value=expr(BuildWorldHY)
-do SetNumberObjectVariable object="PartFoundation" variable="BaseZ" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartFoundation" variable="Level" modification_sign="=" value=expr(BuildLevel)
-do SetNumberObjectVariable object="PartFoundation" variable="Parent" modification_sign="=" value=expr(BuildParent)
-do SetNumberObjectVariable object="PartFoundation" variable="BaseAngle" modification_sign="=" value=expr(BuildAngle)
-do SetNumberVariable variable="BuildSuccess" modification_sign="=" value=1
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="BuildKind" comparison_sign="=" value=11
 if NumberVariable variable="BuildValid" comparison_sign="=" value=1
 do SetX object="PartPillarValid" modification_sign="=" value=expr(BuildX)
@@ -100,27 +79,6 @@ do SetY object="PartPillarInvalid" modification_sign="=" value=expr(BuildY)
 do SetAngle object="PartPillarInvalid" modification_sign="=" angle_in_degrees=expr(BuildAngle)
 do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartPillarInvalid" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
 do Show object="PartPillarInvalid"
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Return"
-or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
-if NumberVariable variable="BuildValid" comparison_sign="=" value=1
-if NumberVariable variable="BuildKind" comparison_sign="=" value=11
-do Create object_to_create="PartPillar" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
-do SetAngle object="PartPillar" modification_sign="=" angle_in_degrees=expr(BuildAngle)
-do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartPillar" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartPillar" variable="Slot" modification_sign="=" value=expr(BuildSlot)
-do SetNumberObjectVariable object="PartPillar" variable="WorldHX" modification_sign="=" value=expr(BuildWorldHX)
-do SetNumberObjectVariable object="PartPillar" variable="WorldHY" modification_sign="=" value=expr(BuildWorldHY)
-do SetNumberObjectVariable object="PartPillar" variable="BaseZ" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartPillar" variable="Level" modification_sign="=" value=expr(BuildLevel)
-do SetNumberObjectVariable object="PartPillar" variable="Parent" modification_sign="=" value=expr(BuildParent)
-do SetNumberObjectVariable object="PartPillar" variable="BaseAngle" modification_sign="=" value=expr(BuildAngle)
-do SetNumberVariable variable="BuildSuccess" modification_sign="=" value=1
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -153,27 +111,6 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Return"
-or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
-if NumberVariable variable="BuildValid" comparison_sign="=" value=1
-if NumberVariable variable="BuildKind" comparison_sign="=" value=12
-do Create object_to_create="PartWall" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
-do SetAngle object="PartWall" modification_sign="=" angle_in_degrees=expr(BuildAngle)
-do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartWall" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartWall" variable="Slot" modification_sign="=" value=expr(BuildSlot)
-do SetNumberObjectVariable object="PartWall" variable="WorldHX" modification_sign="=" value=expr(BuildWorldHX)
-do SetNumberObjectVariable object="PartWall" variable="WorldHY" modification_sign="=" value=expr(BuildWorldHY)
-do SetNumberObjectVariable object="PartWall" variable="BaseZ" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartWall" variable="Level" modification_sign="=" value=expr(BuildLevel)
-do SetNumberObjectVariable object="PartWall" variable="Parent" modification_sign="=" value=expr(BuildParent)
-do SetNumberObjectVariable object="PartWall" variable="BaseAngle" modification_sign="=" value=expr(BuildAngle)
-do SetNumberVariable variable="BuildSuccess" modification_sign="=" value=1
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="BuildKind" comparison_sign="=" value=13
 if NumberVariable variable="BuildValid" comparison_sign="=" value=1
 do SetX object="PartDoorframeValid" modification_sign="=" value=expr(BuildX)
@@ -194,27 +131,6 @@ do SetY object="PartDoorframeInvalid" modification_sign="=" value=expr(BuildY)
 do SetAngle object="PartDoorframeInvalid" modification_sign="=" angle_in_degrees=expr(BuildAngle)
 do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartDoorframeInvalid" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
 do Show object="PartDoorframeInvalid"
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Return"
-or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
-if NumberVariable variable="BuildValid" comparison_sign="=" value=1
-if NumberVariable variable="BuildKind" comparison_sign="=" value=13
-do Create object_to_create="PartDoorframe" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
-do SetAngle object="PartDoorframe" modification_sign="=" angle_in_degrees=expr(BuildAngle)
-do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartDoorframe" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartDoorframe" variable="Slot" modification_sign="=" value=expr(BuildSlot)
-do SetNumberObjectVariable object="PartDoorframe" variable="WorldHX" modification_sign="=" value=expr(BuildWorldHX)
-do SetNumberObjectVariable object="PartDoorframe" variable="WorldHY" modification_sign="=" value=expr(BuildWorldHY)
-do SetNumberObjectVariable object="PartDoorframe" variable="BaseZ" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartDoorframe" variable="Level" modification_sign="=" value=expr(BuildLevel)
-do SetNumberObjectVariable object="PartDoorframe" variable="Parent" modification_sign="=" value=expr(BuildParent)
-do SetNumberObjectVariable object="PartDoorframe" variable="BaseAngle" modification_sign="=" value=expr(BuildAngle)
-do SetNumberVariable variable="BuildSuccess" modification_sign="=" value=1
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -247,27 +163,6 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Return"
-or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
-if NumberVariable variable="BuildValid" comparison_sign="=" value=1
-if NumberVariable variable="BuildKind" comparison_sign="=" value=14
-do Create object_to_create="PartCeiling" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
-do SetAngle object="PartCeiling" modification_sign="=" angle_in_degrees=expr(BuildAngle)
-do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartCeiling" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartCeiling" variable="Slot" modification_sign="=" value=expr(BuildSlot)
-do SetNumberObjectVariable object="PartCeiling" variable="WorldHX" modification_sign="=" value=expr(BuildWorldHX)
-do SetNumberObjectVariable object="PartCeiling" variable="WorldHY" modification_sign="=" value=expr(BuildWorldHY)
-do SetNumberObjectVariable object="PartCeiling" variable="BaseZ" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartCeiling" variable="Level" modification_sign="=" value=expr(BuildLevel+1)
-do SetNumberObjectVariable object="PartCeiling" variable="Parent" modification_sign="=" value=expr(BuildParent)
-do SetNumberObjectVariable object="PartCeiling" variable="BaseAngle" modification_sign="=" value=expr(BuildAngle)
-do SetNumberVariable variable="BuildSuccess" modification_sign="=" value=1
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="BuildKind" comparison_sign="=" value=15
 if NumberVariable variable="BuildValid" comparison_sign="=" value=1
 do SetX object="PartDoorValid" modification_sign="=" value=expr(BuildX)
@@ -294,27 +189,6 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Return"
-or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
-if NumberVariable variable="BuildValid" comparison_sign="=" value=1
-if NumberVariable variable="BuildKind" comparison_sign="=" value=15
-do Create object_to_create="PartDoor" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
-do SetAngle object="PartDoor" modification_sign="=" angle_in_degrees=expr(BuildAngle)
-do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartDoor" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartDoor" variable="Slot" modification_sign="=" value=expr(BuildSlot)
-do SetNumberObjectVariable object="PartDoor" variable="WorldHX" modification_sign="=" value=expr(BuildWorldHX)
-do SetNumberObjectVariable object="PartDoor" variable="WorldHY" modification_sign="=" value=expr(BuildWorldHY)
-do SetNumberObjectVariable object="PartDoor" variable="BaseZ" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartDoor" variable="Level" modification_sign="=" value=expr(BuildLevel)
-do SetNumberObjectVariable object="PartDoor" variable="Parent" modification_sign="=" value=expr(BuildParent)
-do SetNumberObjectVariable object="PartDoor" variable="BaseAngle" modification_sign="=" value=expr(BuildAngle)
-do SetNumberVariable variable="BuildSuccess" modification_sign="=" value=1
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if NumberVariable variable="BuildKind" comparison_sign="=" value=16
 if NumberVariable variable="BuildValid" comparison_sign="=" value=1
 do SetX object="PartStairsValid" modification_sign="=" value=expr(BuildX)
@@ -335,27 +209,6 @@ do SetY object="PartStairsInvalid" modification_sign="=" value=expr(BuildY)
 do SetAngle object="PartStairsInvalid" modification_sign="=" angle_in_degrees=expr(BuildAngle)
 do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartStairsInvalid" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
 do Show object="PartStairsInvalid"
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Return"
-or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
-if NumberVariable variable="BuildValid" comparison_sign="=" value=1
-if NumberVariable variable="BuildKind" comparison_sign="=" value=16
-do Create object_to_create="PartStairs" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
-do SetAngle object="PartStairs" modification_sign="=" angle_in_degrees=expr(BuildAngle)
-do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PartStairs" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartStairs" variable="Slot" modification_sign="=" value=expr(BuildSlot)
-do SetNumberObjectVariable object="PartStairs" variable="WorldHX" modification_sign="=" value=expr(BuildWorldHX)
-do SetNumberObjectVariable object="PartStairs" variable="WorldHY" modification_sign="=" value=expr(BuildWorldHY)
-do SetNumberObjectVariable object="PartStairs" variable="BaseZ" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="PartStairs" variable="Level" modification_sign="=" value=expr(BuildLevel)
-do SetNumberObjectVariable object="PartStairs" variable="Parent" modification_sign="=" value=expr(BuildParent)
-do SetNumberObjectVariable object="PartStairs" variable="BaseAngle" modification_sign="=" value=expr(BuildAngle)
-do SetNumberVariable variable="BuildSuccess" modification_sign="=" value=1
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -390,57 +243,6 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Return"
 or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
-if NumberVariable variable="BuildValid" comparison_sign="=" value=1
-if NumberVariable variable="BuildKind" comparison_sign="=" value=3
-do Create object_to_create="BuiltCampfire" x_position=expr(BuildX) y_position=expr(BuildY) layer="World3D"
-do SetAngle object="BuiltCampfire" modification_sign="=" angle_in_degrees=expr(BuildAngle)
-do Scene3D::Base3DBehavior::SetZ parameter_3d_object="BuiltCampfire" behavior="Object3D" modification_sign="=" value=expr(BuildZ)
-do SetNumberObjectVariable object="BuiltCampfire" variable="Slot" modification_sign="=" value=expr(BuildSlot)
-do SetNumberObjectVariable object="BuiltCampfire" variable="WorldHX" modification_sign="=" value=expr(BuildWorldHX)
-do SetNumberObjectVariable object="BuiltCampfire" variable="WorldHY" modification_sign="=" value=expr(BuildWorldHY)
-do SetNumberVariable variable="BuildSuccess" modification_sign="=" value=1
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if NumberVariable variable="BuildSuccess" comparison_sign="=" value=1
-do SetNumberVariable variable="BuildingRecords[BuildSlot].Kind" modification_sign="=" value=expr(BuildKind)
-do SetNumberVariable variable="BuildingRecords[BuildSlot].X" modification_sign="=" value=expr(BuildX)
-do SetNumberVariable variable="BuildingRecords[BuildSlot].Y" modification_sign="=" value=expr(BuildY)
-do SetNumberVariable variable="BuildingRecords[BuildSlot].Z" modification_sign="=" value=expr(BuildZ)
-do SetNumberVariable variable="BuildingRecords[BuildSlot].Angle" modification_sign="=" value=expr(BuildAngle)
-do SetNumberVariable variable="BuildingRecords[BuildSlot].Level" modification_sign="=" value=expr(BuildLevel)
-do SetNumberVariable variable="BuildingRecords[BuildSlot].Parent" modification_sign="=" value=expr(BuildParent)
-do SetNumberVariable variable="BuildingRecords[BuildSlot].Open" modification_sign="=" value=0
-do SetNumberVariable variable="Wood" modification_sign="-" value=expr(BuildWood)
-do SetNumberVariable variable="Stone" modification_sign="-" value=expr(BuildStone)
-do SetNumberVariable variable="Fiber" modification_sign="-" value=expr(BuildFiber)
-do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
-do SetNumberVariable variable="BuildPlacedKind" modification_sign="=" value=expr(BuildKind)
-do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=2.5
-do SetStringVariable variable="BuildMessage" modification_sign="=" value="已搭建 · 继续拼接相邻构件"
-do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if NumberVariable variable="BuildSuccess" comparison_sign="=" value=1
-if NumberVariable variable="BuildKind" comparison_sign="=" value=14
-do SetNumberVariable variable="BuildingRecords[BuildSlot].Level" modification_sign="=" value=expr(BuildLevel+1)
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="Riding" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Return"
-or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildSuccess" comparison_sign="=" value=0
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=2.5
 do SetStringVariable variable="BuildMessage" modification_sign="=" value=expr(BuildReason)
@@ -453,3 +255,26 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 do SetNumberVariable variable="BuildDeleteSlot" modification_sign="=" value=-1
 do SetNumberVariable variable="BuildDeleteDistance" modification_sign="=" value=200
 do SetNumberVariable variable="BuildDeleteBlocked" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if KeyFromTextReleased key_to_check="Return"
+or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
+if NumberVariable variable="BuildValid" comparison_sign="=" value=1
+do SetNumberVariable variable="ConstructionRequest.Kind" modification_sign="=" value=expr(BuildKind)
+do SetNumberVariable variable="ConstructionRequest.Slot" modification_sign="=" value=expr(BuildSlot)
+do SetNumberVariable variable="ConstructionRequest.X" modification_sign="=" value=expr(BuildX)
+do SetNumberVariable variable="ConstructionRequest.Y" modification_sign="=" value=expr(BuildY)
+do SetNumberVariable variable="ConstructionRequest.Z" modification_sign="=" value=expr(BuildZ)
+do SetNumberVariable variable="ConstructionRequest.Angle" modification_sign="=" value=expr(BuildAngle)
+do SetNumberVariable variable="ConstructionRequest.Level" modification_sign="=" value=expr(BuildLevel)
+do SetNumberVariable variable="ConstructionRequest.Parent" modification_sign="=" value=expr(BuildParent)
+do SetNumberVariable variable="ConstructionRequest.WorldHX" modification_sign="=" value=expr(BuildWorldHX)
+do SetNumberVariable variable="ConstructionRequest.WorldHY" modification_sign="=" value=expr(BuildWorldHY)
+do SetNumberVariable variable="ConstructionRequest.WoodCost" modification_sign="=" value=expr(BuildWood)
+do SetNumberVariable variable="ConstructionRequest.StoneCost" modification_sign="=" value=expr(BuildStone)
+do SetNumberVariable variable="ConstructionRequest.FiberCost" modification_sign="=" value=expr(BuildFiber)
+do EmitSceneSignal signal_name="Construction.Place" payload=expr(ToJSON(ConstructionRequest))

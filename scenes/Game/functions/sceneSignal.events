@@ -6,3 +6,43 @@ do SetNumberVariable variable="BuildCount" modification_sign="=" value=expr(ToNu
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.RecordsRestored"
 do SetStringVariable variable="BuildJSON" modification_sign="=" value=expr(Payload)
 do JSONToVariableStructure2 json_string=expr(Payload) variable_where_to_store_the_json_object="BuildingRecords"
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Placed"
+do JSONToVariableStructure2 json_string=expr(Payload) variable_where_to_store_the_json_object="ConstructionPlaced"
+do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Kind" modification_sign="=" value=expr(ConstructionPlaced.Kind)
+do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].X" modification_sign="=" value=expr(ConstructionPlaced.X)
+do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Y" modification_sign="=" value=expr(ConstructionPlaced.Y)
+do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Z" modification_sign="=" value=expr(ConstructionPlaced.Z)
+do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Angle" modification_sign="=" value=expr(ConstructionPlaced.Angle)
+do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Level" modification_sign="=" value=expr(ConstructionPlaced.Level)
+do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Parent" modification_sign="=" value=expr(ConstructionPlaced.Parent)
+do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Open" modification_sign="=" value=0
+do SetNumberVariable variable="Wood" modification_sign="-" value=expr(ConstructionPlaced.WoodCost)
+do SetNumberVariable variable="Stone" modification_sign="-" value=expr(ConstructionPlaced.StoneCost)
+do SetNumberVariable variable="Fiber" modification_sign="-" value=expr(ConstructionPlaced.FiberCost)
+do SetNumberVariable variable="BuildCount" modification_sign="+" value=1
+do SetNumberVariable variable="BuildPlacedKind" modification_sign="=" value=expr(ConstructionPlaced.Kind)
+do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=2.5
+do SetStringVariable variable="BuildMessage" modification_sign="=" value="已搭建 · 继续拼接相邻构件"
+do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Placed"
+if NumberVariable variable="ConstructionPlaced.Kind" comparison_sign="=" value=14
+do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Level" modification_sign="+" value=1
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Removed"
+do JSONToVariableStructure2 json_string=expr(Payload) variable_where_to_store_the_json_object="ConstructionRemoved"
+do SetNumberVariable variable="BuildingRecords[ConstructionRemoved.Slot].Kind" modification_sign="=" value=0
+do SetNumberVariable variable="BuildCount" modification_sign="-" value=1
+do SetNumberVariable variable="Wood" modification_sign="+" value=expr(ConstructionRemoved.Wood)
+do SetNumberVariable variable="Stone" modification_sign="+" value=expr(ConstructionRemoved.Stone)
+do SetNumberVariable variable="Fiber" modification_sign="+" value=expr(ConstructionRemoved.Fiber)
+do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=3
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetStringVariable variable="BuildMessage" modification_sign="=" value="已拆除选中构件 · 返还一半材料"
+do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1

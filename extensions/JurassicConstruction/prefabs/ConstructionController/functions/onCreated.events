@@ -2,3 +2,5 @@
 do SubscribeSceneSignal signal_name="Construction.Restore"
 do SubscribeSceneSignal signal_name="Construction.Save"
 do SubscribeSceneSignal signal_name="Construction.Load"
+do SubscribeSceneSignal signal_name="Construction.Place"
+do SubscribeSceneSignal signal_name="Construction.Remove"

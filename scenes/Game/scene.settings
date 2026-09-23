@@ -594,6 +594,21 @@ type = "string"
 value = "[]"
 
 [[variables]]
+name = "ConstructionRequest"
+type = "structure"
+children = [{ name = "Kind", type = "number", value = 0 }, { name = "Slot", type = "number", value = 0 }, { name = "X", type = "number", value = 0 }, { name = "Y", type = "number", value = 0 }, { name = "Z", type = "number", value = 0 }, { name = "Angle", type = "number", value = 0 }, { name = "Level", type = "number", value = 0 }, { name = "Parent", type = "number", value = 0 }, { name = "WorldHX", type = "number", value = 0 }, { name = "WorldHY", type = "number", value = 0 }, { name = "WoodCost", type = "number", value = 0 }, { name = "StoneCost", type = "number", value = 0 }, { name = "FiberCost", type = "number", value = 0 }, { name = "Wood", type = "number", value = 0 }, { name = "Stone", type = "number", value = 0 }, { name = "Fiber", type = "number", value = 0 }]
+
+[[variables]]
+name = "ConstructionPlaced"
+type = "structure"
+children = [{ name = "Kind", type = "number", value = 0 }, { name = "Slot", type = "number", value = 0 }, { name = "X", type = "number", value = 0 }, { name = "Y", type = "number", value = 0 }, { name = "Z", type = "number", value = 0 }, { name = "Angle", type = "number", value = 0 }, { name = "Level", type = "number", value = 0 }, { name = "Parent", type = "number", value = 0 }, { name = "WorldHX", type = "number", value = 0 }, { name = "WorldHY", type = "number", value = 0 }, { name = "WoodCost", type = "number", value = 0 }, { name = "StoneCost", type = "number", value = 0 }, { name = "FiberCost", type = "number", value = 0 }, { name = "Wood", type = "number", value = 0 }, { name = "Stone", type = "number", value = 0 }, { name = "Fiber", type = "number", value = 0 }]
+
+[[variables]]
+name = "ConstructionRemoved"
+type = "structure"
+children = [{ name = "Kind", type = "number", value = 0 }, { name = "Slot", type = "number", value = 0 }, { name = "X", type = "number", value = 0 }, { name = "Y", type = "number", value = 0 }, { name = "Z", type = "number", value = 0 }, { name = "Angle", type = "number", value = 0 }, { name = "Level", type = "number", value = 0 }, { name = "Parent", type = "number", value = 0 }, { name = "WorldHX", type = "number", value = 0 }, { name = "WorldHY", type = "number", value = 0 }, { name = "WoodCost", type = "number", value = 0 }, { name = "StoneCost", type = "number", value = 0 }, { name = "FiberCost", type = "number", value = 0 }, { name = "Wood", type = "number", value = 0 }, { name = "Stone", type = "number", value = 0 }, { name = "Fiber", type = "number", value = 0 }]
+
+[[variables]]
 name = "BuildingRecords"
 persistentUuid = "1abb303b-0b25-4655-bbb2-133b4fcd726f"
 type = "array"

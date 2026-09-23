@@ -59,28 +59,6 @@ do SetStringVariable variable="BuildMessage" modification_sign="=" value="仍在
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Delete"
-or NumberVariable variable="TouchDelete" comparison_sign="=" value=1
-if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
-if NumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" comparison_sign="=" value=1
-do SetNumberVariable variable="BuildWood" modification_sign="=" value=10
-do SetNumberVariable variable="BuildStone" modification_sign="=" value=5
-do SetNumberVariable variable="BuildFiber" modification_sign="=" value=8
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if KeyFromTextReleased key_to_check="Delete"
-or NumberVariable variable="TouchDelete" comparison_sign="=" value=1
-if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
-if NumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" comparison_sign="=" value=2
-do SetNumberVariable variable="BuildWood" modification_sign="=" value=4
-do SetNumberVariable variable="BuildStone" modification_sign="=" value=0
-do SetNumberVariable variable="BuildFiber" modification_sign="=" value=2
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
@@ -88,14 +66,4 @@ if KeyFromTextReleased key_to_check="Delete"
 or NumberVariable variable="TouchDelete" comparison_sign="=" value=1
 if NumberVariable variable="BuildDeleteSlot" comparison_sign=">=" value=0
 if NumberVariable variable="BuildDeleteBlocked" comparison_sign="=" value=0
-if NumberObjectVariable object="AllBuildings" variable="Slot" comparison_sign="=" value=expr(BuildDeleteSlot)
-do SetNumberVariable variable="BuildingRecords[BuildDeleteSlot].Kind" modification_sign="=" value=0
-do Delete object="AllBuildings"
-do SetNumberVariable variable="BuildCount" modification_sign="-" value=1
-do SetNumberVariable variable="Wood" modification_sign="+" value=expr(floor(BuildWood/2))
-do SetNumberVariable variable="Stone" modification_sign="+" value=expr(floor(BuildStone/2))
-do SetNumberVariable variable="Fiber" modification_sign="+" value=expr(floor(BuildFiber/2))
-do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=3
-do SetNumberVariable variable="Dirty" modification_sign="=" value=1
-do SetStringVariable variable="BuildMessage" modification_sign="=" value="已拆除选中构件 · 返还一半材料"
-do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1
+do EmitSceneSignal signal_name="Construction.Remove" payload=expr(ToString(BuildDeleteSlot))
