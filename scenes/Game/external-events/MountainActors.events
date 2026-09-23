@@ -40,7 +40,7 @@ do SetNumberVariable variable="TerrainFloor" modification_sign="=" value=expr(11
 
 @event aiGeneratedEventId="coast-distance-from-island-edge"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-do SetNumberVariable variable="CoastEdge" modification_sign="=" value=expr(min(min(6400-abs(Player3D.X()),6200-Player3D.Y()),6700+Player3D.Y()))
+do SetNumberVariable variable="CoastEdge" modification_sign="=" value=expr(min(min(6400-abs(Player3D.X())+280*sin(ToRad(Player3D.Y()*0.08))+160*sin(ToRad(Player3D.Y()*0.21)),6200-Player3D.Y()+250*sin(ToRad(Player3D.X()*0.09))+120*sin(ToRad(Player3D.X()*0.23))),6700+Player3D.Y()+250*sin(ToRad(Player3D.X()*0.08))+140*sin(ToRad(Player3D.X()*0.20))))
 
 @event aiGeneratedEventId="coast-ground-matches-mesh"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1

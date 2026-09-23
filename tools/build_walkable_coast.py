@@ -57,14 +57,19 @@ mats = [
     material("Coast dry shell sand", (0.74, 0.65, 0.45), 0.96),
     material("Coast pale sand", (0.83, 0.75, 0.56), 0.98),
     material("Coast wet sand", (0.64, 0.57, 0.43), 0.66),
-    material("Coast shallow sand", (0.54, 0.56, 0.48), 0.9),
-    material("Coast seafloor", (0.32, 0.43, 0.39), 1.0),
+    material("Coast shallow sand", (0.72, 0.68, 0.53), 0.9),
+    material("Coast seafloor", (0.49, 0.55, 0.46), 1.0),
     material("Coast foam edge", (0.88, 0.88, 0.76), 0.82),
     *[bpy.data.materials[name] for name in ("Valley moss", "Fern slopes", "Mountain heath", "Exposed granite", "Summit stone")],
 ]
 
 def coast_edge(x, y):
-    return min(64 - abs(x), y + 62, 67 - y)
+    game_y = -y * 100
+    game_x = x * 100
+    east_west = 64 - abs(x) + 2.8 * math.sin(math.radians(game_y * 0.08)) + 1.6 * math.sin(math.radians(game_y * 0.21))
+    north = y + 62 + 2.5 * math.sin(math.radians(game_x * 0.09)) + 1.2 * math.sin(math.radians(game_x * 0.23))
+    south = 67 - y + 2.5 * math.sin(math.radians(game_x * 0.08)) + 1.4 * math.sin(math.radians(game_x * 0.20))
+    return min(east_west, north, south)
 
 def floor_metres(x, y):
     edge = coast_edge(x, y)
