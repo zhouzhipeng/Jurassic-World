@@ -26,6 +26,7 @@
 | `build_spear.py` | 程序参数 | 长矛 |
 | `build_survival_assets.py` | 程序参数 | 生存道具 |
 | `build_coastal_environment.py` | `assets/environment/` 的 HDR | 海岸天空、海面和天空贴图 |
+| `create_coastal_voyage_assets.py` | 无外部输入；Blender 5.1 | `sources/environment/coastal-rowboat-source.blend`、`sources/environment/nearshore-islet-source.blend` 及对应的 `assets/environment/*.glb`；重跑会覆盖这四个文件 |
 
 以上模型脚本的 Blender 源输出已统一为 `sources/models/` 或 `sources/environment/`；GLB、配套清单和贴图仍输出到原 `assets/` 子目录。脚本可重复执行，但会覆盖其输出，且部分脚本代表历史制作阶段，不保证重建当前全部人工修改。此次目录整理没有重新运行这些生成器。
 
