@@ -1,0 +1,12 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 374
+assetStoreId = ""
+name = "ConstructionController"
+type = "JurassicConstruction::ConstructionController"
+variant = ""
+content = { }
+effects = [ ]
+behaviors = [ ]
+variables = [ ]
+folder = [ "Construction" ]

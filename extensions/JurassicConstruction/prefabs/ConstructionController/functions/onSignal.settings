@@ -1,0 +1,28 @@
+kind = "function"
+settingsFormatVersion = 7
+order = 1
+folder = [ "Lifecycle" ]
+name = "onSignal"
+functionType = "Action"
+fullName = "On signal"
+description = "Handle construction commands."
+sentence = ""
+private = false
+async = false
+objectGroups = { }
+
+[[parameters]]
+name = "Object"
+description = "Object"
+type = "object"
+supplementaryInformation = "JurassicConstruction::ConstructionController"
+
+[[parameters]]
+name = "SignalName"
+description = "Signal name"
+type = "string"
+
+[[parameters]]
+name = "Payload"
+description = "Payload"
+type = "string"

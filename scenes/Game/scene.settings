@@ -3862,3 +3862,10 @@ object = "RadarInfo"
 layer = "performance"
 at = [0, 0, 0]
 z_order = 104
+
+[[layout.instances]]
+id = "04e3655d-e88c-475d-a269-bddf703174c0"
+object = "ConstructionController"
+layer = "base"
+at = [0, 0]
+z_order = 0

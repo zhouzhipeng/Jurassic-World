@@ -1,0 +1,18 @@
+kind = "function"
+settingsFormatVersion = 7
+order = 0
+folder = [ "Construction" ]
+name = "doStepPostEvents"
+functionType = "Action"
+fullName = "Apply elevation"
+description = "Keep the 3D elevation in sync with the building state."
+sentence = ""
+private = false
+async = false
+objectGroups = { }
+
+[[parameters]]
+name = "Object"
+description = "Object"
+type = "object"
+supplementaryInformation = "JurassicConstruction::PartCeiling"

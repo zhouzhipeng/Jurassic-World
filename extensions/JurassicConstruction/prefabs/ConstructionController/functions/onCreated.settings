@@ -1,0 +1,18 @@
+kind = "function"
+settingsFormatVersion = 7
+order = 0
+folder = [ "Lifecycle" ]
+name = "onCreated"
+functionType = "Action"
+fullName = "On created"
+description = "Subscribe to construction commands."
+sentence = ""
+private = false
+async = false
+objectGroups = { }
+
+[[parameters]]
+name = "Object"
+description = "Object"
+type = "object"
+supplementaryInformation = "JurassicConstruction::ConstructionController"

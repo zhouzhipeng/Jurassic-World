@@ -1,0 +1,29 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 30
+name = "ConstructionController"
+fullName = "Construction controller"
+defaultName = "ConstructionController"
+description = "Owns construction commands and persistence through scene signals."
+is3D = false
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[[variables]]
+name = "RestoreCount"
+type = "number"
+value = 0
+
+[layout]
+version = 1
+bounds = { min = [0, 0, 0], max = [1, 1, 1] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "2d"

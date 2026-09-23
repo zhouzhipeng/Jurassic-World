@@ -1,0 +1,3 @@
+@event
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Object3D::Z()) comparison_sign="!=" second_expression=expr(Object.Variable(BaseZ))
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Object" behavior="Object3D" modification_sign="=" value=expr(Object.Variable(BaseZ))

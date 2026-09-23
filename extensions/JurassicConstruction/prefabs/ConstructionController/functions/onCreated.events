@@ -1,0 +1,2 @@
+@event
+do SubscribeSceneSignal signal_name="Construction.Restore"
