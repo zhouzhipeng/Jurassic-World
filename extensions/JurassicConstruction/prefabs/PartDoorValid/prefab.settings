@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 18
+name = "PartDoorValid"
+fullName = "PartDoorValid"
+defaultName = "PartDoorValid"
+description = "Construction model and instance state for PartDoorValid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-78, -121, 0], max = [78, 121, 24] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "bb6882e0-bd8d-4253-97d5-b2656b765efd"
+object = "Body"
+layer = "base"
+at = [0, 0]

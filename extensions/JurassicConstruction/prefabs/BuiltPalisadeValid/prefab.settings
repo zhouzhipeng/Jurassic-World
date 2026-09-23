@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 6
+name = "BuiltPalisadeValid"
+fullName = "BuiltPalisadeValid"
+defaultName = "BuiltPalisadeValid"
+description = "Construction model and instance state for BuiltPalisadeValid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-200, -133, 0], max = [200, 133, 43] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "6db48f6b-ed63-4c19-ac3d-5b7c07b8b04f"
+object = "Body"
+layer = "base"
+at = [0, 0]

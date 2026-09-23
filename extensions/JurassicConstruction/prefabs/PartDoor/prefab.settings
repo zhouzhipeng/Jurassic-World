@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 13
+name = "PartDoor"
+fullName = "PartDoor"
+defaultName = "PartDoor"
+description = "Construction model and instance state for PartDoor."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-78, -121, 0], max = [78, 121, 24] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "83535571-17eb-4b5a-8c9d-d0e67564bb99"
+object = "Body"
+layer = "base"
+at = [0, 0]

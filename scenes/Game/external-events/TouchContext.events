@@ -54,7 +54,7 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 >> @event
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),SurvivalFires.X(),SurvivalFires.Y())) comparison_sign="<" second_expression=255
 >> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),SurvivalFires.X(),SurvivalFires.Y())) comparison_sign="<" second_expression=expr(TouchContextDistance)
->> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(SurvivalFires.Z()-PlayerFloor)) comparison_sign="<" second_expression=180
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(SurvivalFires.Variable(BaseZ)-PlayerFloor)) comparison_sign="<" second_expression=180
 >> do SetNumberVariable variable="TouchContext" modification_sign="=" value=3
 >> do SetNumberVariable variable="TouchContextDistance" modification_sign="=" value=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),SurvivalFires.X(),SurvivalFires.Y()))
 >> do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="烤肉"

@@ -1,0 +1,97 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 0
+assetStoreId = ""
+name = "Body"
+type = "Scene3D::Model3DObject"
+effects = [ ]
+behaviors = [ ]
+folder = [ ]
+
+[[variables]]
+name = "Kind"
+type = "number"
+value = 12
+
+[[variables]]
+name = "Slot"
+type = "number"
+value = -1
+
+[[variables]]
+name = "HX"
+type = "number"
+value = 150
+
+[[variables]]
+name = "HY"
+type = "number"
+value = 14
+
+[[variables]]
+name = "WorldHX"
+type = "number"
+value = 150
+
+[[variables]]
+name = "WorldHY"
+type = "number"
+value = 14
+
+[[variables]]
+name = "BaseZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Level"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Parent"
+type = "number"
+value = -1
+
+[[variables]]
+name = "Open"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BaseAngle"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CostWood"
+type = "number"
+value = 4
+
+[[variables]]
+name = "CostStone"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CostFiber"
+type = "number"
+value = 2
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 300
+height = 27
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "modular-wall.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 300
+sharedAnimationModelResources = [ ]
+animations = [ ]

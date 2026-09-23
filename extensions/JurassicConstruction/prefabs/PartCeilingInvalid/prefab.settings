@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 11
+name = "PartCeilingInvalid"
+fullName = "PartCeilingInvalid"
+defaultName = "PartCeilingInvalid"
+description = "Construction model and instance state for PartCeilingInvalid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-150, -14, 0], max = [150, 14, 300] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "a3a633f1-cf26-4914-bac9-63f166a85c9f"
+object = "Body"
+layer = "base"
+at = [0, 0]

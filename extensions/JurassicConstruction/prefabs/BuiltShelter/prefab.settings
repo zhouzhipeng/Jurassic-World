@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 7
+name = "BuiltShelter"
+fullName = "BuiltShelter"
+defaultName = "BuiltShelter"
+description = "Construction model and instance state for BuiltShelter."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-233, -171, 0], max = [233, 171, 408] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "1943be8f-adc3-401e-98a0-4acfa1ba5a88"
+object = "Body"
+layer = "base"
+at = [0, 0]

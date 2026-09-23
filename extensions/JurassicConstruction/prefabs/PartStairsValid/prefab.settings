@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 26
+name = "PartStairsValid"
+fullName = "PartStairsValid"
+defaultName = "PartStairsValid"
+description = "Construction model and instance state for PartStairsValid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-121, -156, 0], max = [121, 156, 303] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "d97f5fa2-a735-4ef1-9ecb-de17949bbd86"
+object = "Body"
+layer = "base"
+at = [0, 0]

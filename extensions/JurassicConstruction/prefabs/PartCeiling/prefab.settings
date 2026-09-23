@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 10
+name = "PartCeiling"
+fullName = "PartCeiling"
+defaultName = "PartCeiling"
+description = "Construction model and instance state for PartCeiling."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-150, -14, 0], max = [150, 14, 300] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "87385194-278d-4b1b-95e1-34e598e39739"
+object = "Body"
+layer = "base"
+at = [0, 0]

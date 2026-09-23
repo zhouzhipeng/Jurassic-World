@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 5
+name = "BuiltPalisadeInvalid"
+fullName = "BuiltPalisadeInvalid"
+defaultName = "BuiltPalisadeInvalid"
+description = "Construction model and instance state for BuiltPalisadeInvalid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-200, -133, 0], max = [200, 133, 43] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "90018ab3-37af-44ea-862a-f7002f0ab280"
+object = "Body"
+layer = "base"
+at = [0, 0]

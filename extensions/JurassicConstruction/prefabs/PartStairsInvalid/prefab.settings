@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 25
+name = "PartStairsInvalid"
+fullName = "PartStairsInvalid"
+defaultName = "PartStairsInvalid"
+description = "Construction model and instance state for PartStairsInvalid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-121, -156, 0], max = [121, 156, 303] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "2ff0ebd9-aae3-4e55-a94c-6a374966cd44"
+object = "Body"
+layer = "base"
+at = [0, 0]

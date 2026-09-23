@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 23
+name = "PartPillarValid"
+fullName = "PartPillarValid"
+defaultName = "PartPillarValid"
+description = "Construction model and instance state for PartPillarValid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-20, -150, 0], max = [20, 150, 40] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "c321cc7c-fd4c-4fed-bb3b-841dbfa8068a"
+object = "Body"
+layer = "base"
+at = [0, 0]

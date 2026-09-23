@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 17
+name = "PartDoorInvalid"
+fullName = "PartDoorInvalid"
+defaultName = "PartDoorInvalid"
+description = "Construction model and instance state for PartDoorInvalid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-78, -121, 0], max = [78, 121, 24] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "8255f46b-f47b-4d52-8aea-7891b6098b50"
+object = "Body"
+layer = "base"
+at = [0, 0]

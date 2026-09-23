@@ -33,6 +33,11 @@ name = "Slot"
 type = "number"
 value = -1
 
+[[variables]]
+name = "BaseZ"
+type = "number"
+value = 0
+
 [content]
 centerLocation = "ModelOrigin"
 crossfadeDuration = 0.1

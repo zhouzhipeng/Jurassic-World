@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 20
+name = "PartFoundationValid"
+fullName = "PartFoundationValid"
+defaultName = "PartFoundationValid"
+description = "Construction model and instance state for PartFoundationValid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-150, -29, 0], max = [150, 29, 300] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "dd94b632-b8de-4a24-96b1-ec405de67786"
+object = "Body"
+layer = "base"
+at = [0, 0]

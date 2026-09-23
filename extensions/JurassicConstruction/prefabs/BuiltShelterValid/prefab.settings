@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 9
+name = "BuiltShelterValid"
+fullName = "BuiltShelterValid"
+defaultName = "BuiltShelterValid"
+description = "Construction model and instance state for BuiltShelterValid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-233, -171, 0], max = [233, 171, 408] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "9d55574c-d205-448d-9734-6e606f39606b"
+object = "Body"
+layer = "base"
+at = [0, 0]

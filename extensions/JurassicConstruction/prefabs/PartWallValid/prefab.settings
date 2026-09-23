@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 29
+name = "PartWallValid"
+fullName = "PartWallValid"
+defaultName = "PartWallValid"
+description = "Construction model and instance state for PartWallValid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-150, -150, 0], max = [150, 150, 27] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "c40f852f-4150-40d4-8352-9455eab7fa5d"
+object = "Body"
+layer = "base"
+at = [0, 0]

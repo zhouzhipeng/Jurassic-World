@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 22
+name = "PartPillarInvalid"
+fullName = "PartPillarInvalid"
+defaultName = "PartPillarInvalid"
+description = "Construction model and instance state for PartPillarInvalid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-20, -150, 0], max = [20, 150, 40] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "101bcd7d-2f3c-42ff-8d92-ca68366f05db"
+object = "Body"
+layer = "base"
+at = [0, 0]

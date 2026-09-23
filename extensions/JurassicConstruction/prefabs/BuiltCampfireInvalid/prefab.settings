@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 2
+name = "BuiltCampfireInvalid"
+fullName = "BuiltCampfireInvalid"
+defaultName = "BuiltCampfireInvalid"
+description = "Construction model and instance state for BuiltCampfireInvalid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-79, -49, 0], max = [79, 49, 157] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "8c8376db-8c84-4190-96ee-b038bc88b489"
+object = "Body"
+layer = "base"
+at = [0, 0]

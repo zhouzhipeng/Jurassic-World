@@ -3,7 +3,9 @@ settingsFormatVersion = 7
 order = 247
 assetStoreId = ""
 name = "BuiltCampfire"
-type = "Scene3D::Model3DObject"
+type = "JurassicConstruction::BuiltCampfire"
+variant = ""
+content = { }
 effects = [ ]
 behaviors = [ ]
 folder = [ "Construction" ]
@@ -58,20 +60,7 @@ name = "VisualReady"
 type = "number"
 value = 0
 
-[content]
-centerLocation = "ModelOrigin"
-crossfadeDuration = 0.1
-depth = 33.49999785423279
-height = 158.92175436019897
-isCastingShadow = true
-isReceivingShadow = true
-keepAspectRatio = true
-materialType = "StandardWithoutMetalness"
-modelResourceName = "survival-hearth.glb"
-originLocation = "ModelOrigin"
-rotationX = 90
-rotationY = 0
-rotationZ = 0
-width = 162.1992826461792
-sharedAnimationModelResources = [ ]
-animations = [ ]
+[[variables]]
+name = "BaseZ"
+type = "number"
+value = 0

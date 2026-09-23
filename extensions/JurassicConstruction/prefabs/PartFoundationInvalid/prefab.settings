@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 19
+name = "PartFoundationInvalid"
+fullName = "PartFoundationInvalid"
+defaultName = "PartFoundationInvalid"
+description = "Construction model and instance state for PartFoundationInvalid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-150, -29, 0], max = [150, 29, 300] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "edc5a1fc-cbfd-4e99-8159-0a7236f3b469"
+object = "Body"
+layer = "base"
+at = [0, 0]

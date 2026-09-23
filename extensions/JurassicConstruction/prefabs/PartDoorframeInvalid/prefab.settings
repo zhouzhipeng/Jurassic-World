@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 15
+name = "PartDoorframeInvalid"
+fullName = "PartDoorframeInvalid"
+defaultName = "PartDoorframeInvalid"
+description = "Construction model and instance state for PartDoorframeInvalid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-150, -150, 0], max = [150, 150, 25] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "dcb99d5b-48e9-419c-9148-b999c6d67d45"
+object = "Body"
+layer = "base"
+at = [0, 0]

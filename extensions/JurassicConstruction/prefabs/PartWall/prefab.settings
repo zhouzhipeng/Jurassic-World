@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 27
+name = "PartWall"
+fullName = "PartWall"
+defaultName = "PartWall"
+description = "Construction model and instance state for PartWall."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-150, -150, 0], max = [150, 150, 27] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "f76ebd86-7fbe-4788-b84d-684e0733adba"
+object = "Body"
+layer = "base"
+at = [0, 0]

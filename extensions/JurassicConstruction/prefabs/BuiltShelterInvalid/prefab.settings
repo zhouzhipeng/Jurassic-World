@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 8
+name = "BuiltShelterInvalid"
+fullName = "BuiltShelterInvalid"
+defaultName = "BuiltShelterInvalid"
+description = "Construction model and instance state for BuiltShelterInvalid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-233, -171, 0], max = [233, 171, 408] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "ada95e8d-df2f-4f18-8953-7f3d927683af"
+object = "Body"
+layer = "base"
+at = [0, 0]

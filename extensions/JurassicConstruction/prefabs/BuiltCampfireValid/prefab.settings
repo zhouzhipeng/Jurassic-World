@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 3
+name = "BuiltCampfireValid"
+fullName = "BuiltCampfireValid"
+defaultName = "BuiltCampfireValid"
+description = "Construction model and instance state for BuiltCampfireValid."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-79, -49, 0], max = [79, 49, 157] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "75565f79-11b4-4363-a4bc-cccbffb0774e"
+object = "Body"
+layer = "base"
+at = [0, 0]

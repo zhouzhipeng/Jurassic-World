@@ -1,0 +1,31 @@
+kind = "prefab"
+settingsFormatVersion = 7
+order = 1
+name = "BuiltCampfire"
+fullName = "BuiltCampfire"
+defaultName = "BuiltCampfire"
+description = "Construction model and instance state for BuiltCampfire."
+is3D = true
+isUsingLegacyInstancesRenderer = false
+previewIconUrl = ""
+iconUrl = ""
+helpPath = ""
+behaviors = [ ]
+variables = [ ]
+propertyDescriptors = [ ]
+objectGroups = { }
+
+[layout]
+version = 1
+bounds = { min = [-82, -17, 0], max = [82, 17, 159] }
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "3d"
+
+[[layout.instances]]
+id = "b2690b33-2f66-4f06-9581-30d76bb774c8"
+object = "Body"
+layer = "base"
+at = [0, 0]
