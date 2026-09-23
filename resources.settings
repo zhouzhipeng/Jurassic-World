@@ -3,6 +3,20 @@ settingsFormatVersion = 6
 
 [[resources]]
 kind = "model3D"
+name = "coastal-rowboat.glb"
+file = "assets/environment/coastal-rowboat.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "nearshore-islet.glb"
+file = "assets/environment/nearshore-islet.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
 name = "coastal-sky.glb"
 file = "assets/environment/coastal-sky.glb"
 metadata = ""

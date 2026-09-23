@@ -123,6 +123,7 @@ do SetNumberVariable variable="MoveSpeed" modification_sign="*" value=expr(500 /
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
 do SetX object="Player3D" modification_sign="+" value=expr((MoveX * cos(ToRad(CameraYaw)) + MoveY * sin(ToRad(CameraYaw))) * MoveSpeed * TimeDelta())
 do SetY object="Player3D" modification_sign="+" value=expr((MoveY * cos(ToRad(CameraYaw)) - MoveX * sin(ToRad(CameraYaw))) * MoveSpeed * TimeDelta())
 
@@ -187,24 +188,29 @@ do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if PosX object="Player3D" comparison_sign=">" value=5814
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=0
 do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if PosX object="Player3D" comparison_sign="<" value=-5814
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
 do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if PosY object="Player3D" comparison_sign=">" value=5452
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if PosY object="Player3D" comparison_sign="<" value=-5952
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
 @comment "Mount state, safe side dismount, rotated capsule separation" background=[95,150,175] text=[255,255,255]
@@ -2565,3 +2571,5 @@ link "MapRadar"
 link "DistanceVisibility"
 
 link "HudPresentation"
+
+link "CoastalVoyage"

@@ -1,7 +1,7 @@
 # 可编辑制作源
 
 - `models/`：角色、恐龙、道具、建筑和地形的 Blender 源文件。
-- `environment/`：海岸天空和海面 Blender 源文件。
+- `environment/`：海岸天空、海面、近海小岛和划艇的 Blender 源文件。
 
 运行用模型和贴图仍位于 `assets/`。模型制作脚本见 [tools/README.md](../tools/README.md)。制作源参与 Git/LFS 版本管理，不是可删除的缓存。
 

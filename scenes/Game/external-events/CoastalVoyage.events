@@ -1,0 +1,146 @@
+@comment "A rowboat links the eastern beach to a small explorable islet. F or the context button boards and disembarks." background=[68,135,157] text=[255,255,255]
+
+@event aiGeneratedEventId="boat-cooldown"
+if NumberVariable variable="BoatCooldown" comparison_sign=">" value=0
+do SetNumberVariable variable="BoatCooldown" modification_sign="=" value=expr(max(0,BoatCooldown-TimeDelta()))
+
+@event aiGeneratedEventId="boat-key-toggle"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if KeyFromTextJustPressed key_to_check="f"
+do SetNumberVariable variable="BoatToggleRequest" modification_sign="=" value=1
+
+@event aiGeneratedEventId="boat-mainland-landfall"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="BoatToggleRequest" comparison_sign="=" value=1
+if NumberVariable variable="BoatCooldown" comparison_sign="<=" value=0
+if PosX object="Rowboat" comparison_sign="<=" value=6080
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Rowboat.Y()+1000)) comparison_sign="<=" second_expression=500
+do SetNumberVariable variable="Sailing" modification_sign="=" value=0
+do SetNumberVariable variable="IsletVisit" modification_sign="=" value=0
+do SetNumberVariable variable="BoatCooldown" modification_sign="=" value=0.45
+do SetX object="Player3D" modification_sign="=" value=expr(Rowboat.X()-300)
+do SetY object="Player3D" modification_sign="=" value=expr(Rowboat.Y())
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已回到海岸。靠近小船按 F 再次出航。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event aiGeneratedEventId="boat-islet-landfall"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="BoatToggleRequest" comparison_sign="=" value=1
+if NumberVariable variable="BoatCooldown" comparison_sign="<=" value=0
+if PosX object="Rowboat" comparison_sign=">=" value=6850
+if PosX object="Rowboat" comparison_sign="<=" value=6920
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Rowboat.Y()+1000)) comparison_sign="<=" second_expression=280
+do SetNumberVariable variable="Sailing" modification_sign="=" value=0
+do SetNumberVariable variable="IsletVisit" modification_sign="=" value=1
+do SetNumberVariable variable="BoatCooldown" modification_sign="=" value=0.45
+do SetX object="Player3D" modification_sign="=" value=expr(Rowboat.X()+300)
+do SetY object="Player3D" modification_sign="=" value=expr(Rowboat.Y())
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=25
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=25
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已登上近海小岛。探索棕榈林，回到西岸乘船返航。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event aiGeneratedEventId="boat-cannot-land-offshore"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="BoatToggleRequest" comparison_sign="=" value=1
+if NumberVariable variable="BoatCooldown" comparison_sign="<=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="这里水深，驶到主岛岸边或小岛西侧浅滩再下船。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="BoatCooldown" modification_sign="=" value=0.45
+
+@event aiGeneratedEventId="boat-board"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="BoatToggleRequest" comparison_sign="=" value=1
+if NumberVariable variable="BoatCooldown" comparison_sign="<=" value=0
+if Distance object="Player3D" object_2="Rowboat" distance=420
+do SetNumberVariable variable="Sailing" modification_sign="=" value=1
+do SetNumberVariable variable="IsletVisit" modification_sign="=" value=0
+do SetNumberVariable variable="BoatCooldown" modification_sign="=" value=0.45
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已上船：WASD 或摇杆航行，靠岸后按 F /「靠岸」下船。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event aiGeneratedEventId="boat-consume-toggle"
+if NumberVariable variable="BoatToggleRequest" comparison_sign="=" value=1
+do SetNumberVariable variable="BoatToggleRequest" modification_sign="=" value=0
+
+@event aiGeneratedEventId="boat-near-prompt"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BoatPromptSeen" comparison_sign="=" value=0
+if Distance object="Player3D" object_2="Rowboat" distance=580
+do SetNumberVariable variable="BoatPromptSeen" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="岸边的小船：靠近后按 F 上船，驶往东面的近海小岛。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event aiGeneratedEventId="boat-remember-position"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+do SetNumberVariable variable="BoatPreviousX" modification_sign="=" value=expr(Rowboat.X())
+do SetNumberVariable variable="BoatPreviousY" modification_sign="=" value=expr(Rowboat.Y())
+
+@event aiGeneratedEventId="boat-rowing"
+local boatHeading = 0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="MoveX" comparison_sign="!=" value=0
+or NumberVariable variable="MoveY" comparison_sign="!=" value=0
+do SetNumberVariable variable="boatHeading" modification_sign="=" value=expr(AngleBetweenPositions(0,0,MoveX,MoveY)-CameraYaw-90)
+do RotateTowardAngle object="Rowboat" angle_to_rotate_towards_in_degrees=expr(boatHeading) angular_speed_in_degrees_per_second=180
+do SetX object="Rowboat" modification_sign="+" value=expr(cos(ToRad(Rowboat.Angle()+90))*620*TimeDelta()*max(0,cos(ToRad(AngleDifference(Rowboat.Angle(),boatHeading)))))
+do SetY object="Rowboat" modification_sign="+" value=expr(sin(ToRad(Rowboat.Angle()+90))*620*TimeDelta()*max(0,cos(ToRad(AngleDifference(Rowboat.Angle(),boatHeading)))))
+
+@event aiGeneratedEventId="boat-deep-water-limits"
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.X()) comparison_sign="<" second_expression=5750
+or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.X()) comparison_sign=">" second_expression=11000
+or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.Y()) comparison_sign="<" second_expression=-4500
+or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.Y()) comparison_sign=">" second_expression=3000
+or BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Rowboat.X(),Rowboat.Y(),7700,-1000)) comparison_sign="<" second_expression=780
+do SetX object="Rowboat" modification_sign="=" value=expr(BoatPreviousX)
+do SetY object="Rowboat" modification_sign="=" value=expr(BoatPreviousY)
+
+@event aiGeneratedEventId="boat-player-follows"
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+do SetX object="Player3D" modification_sign="=" value=expr(Rowboat.X())
+do SetY object="Player3D" modification_sign="=" value=expr(Rowboat.Y())
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(Rowboat.Angle())
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=0
+do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=0
+
+@event aiGeneratedEventId="islet-shore-boundary"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),7700,-1000)) comparison_sign=">" second_expression=580
+do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@event aiGeneratedEventId="islet-discovery"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=1
+if NumberVariable variable="IsletExplored" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),7700,-1000)) comparison_sign="<" second_expression=250
+do SetNumberVariable variable="IsletExplored" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="发现近海小岛的棕榈林！西侧停着小船，可随时返航。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event aiGeneratedEventId="islet-restore-boat"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">" value=7000
+if PosX object="Player3D" comparison_sign="<" value=8300
+if PosY object="Player3D" comparison_sign=">" value=-1600
+if PosY object="Player3D" comparison_sign="<" value=-400
+do SetNumberVariable variable="IsletVisit" modification_sign="=" value=1
+do SetX object="Rowboat" modification_sign="=" value=6900
+do SetY object="Rowboat" modification_sign="=" value=-1000

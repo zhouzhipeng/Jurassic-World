@@ -1353,6 +1353,14 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 do SetNumberVariable variable="FloorTarget" modification_sign="=" value=expr(TerrainFloor)
 
+@event aiGeneratedEventId="islet-walkable-ground"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=1
+do SetNumberVariable variable="FloorTarget" modification_sign="=" value=25
+
 @event aiGeneratedEventId="camp-house-step-support"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1

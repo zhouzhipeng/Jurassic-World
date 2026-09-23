@@ -858,6 +858,12 @@ if NumberVariable variable="TouchCommand" comparison_sign="=" value=310
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 do SetNumberVariable variable="TouchDoor" modification_sign="=" value=1
 
+@event aiGeneratedEventId="touch-boat-toggle"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchCommand" comparison_sign="=" value=311
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+do SetNumberVariable variable="BoatToggleRequest" modification_sign="=" value=1
+
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="!=" value=0

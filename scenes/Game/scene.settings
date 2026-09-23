@@ -2201,6 +2201,46 @@ name = "HudContextY"
 type = "number"
 value = 1
 
+[[variables]]
+name = "Sailing"
+type = "number"
+value = 0
+
+[[variables]]
+name = "IsletVisit"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BoatPreviousX"
+type = "number"
+value = 5850
+
+[[variables]]
+name = "BoatPreviousY"
+type = "number"
+value = -1000
+
+[[variables]]
+name = "BoatPromptSeen"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BoatToggleRequest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "BoatCooldown"
+type = "number"
+value = 0
+
+[[variables]]
+name = "IsletExplored"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 background = "#72BBDD"
@@ -2390,6 +2430,19 @@ id = "5c79f7dc-6a0a-40d0-a345-5cd0e732bf23"
 object = "CoastalOcean"
 layer = "world3d"
 at = [0, 0, -80]
+
+[[layout.instances]]
+id = "64ed3921-c29c-4a6f-b95b-49c727b8939a"
+object = "NearshoreIslet"
+layer = "world3d"
+at = [7700, -1000, 0]
+
+[[layout.instances]]
+id = "e893f24b-fd35-4b74-acb2-b14740804a44"
+object = "Rowboat"
+layer = "world3d"
+at = [5850, -1000, -50]
+rotation = -90
 
 [[layout.instances]]
 id = "d0563fcc-89ad-4ddc-8fba-9774ed679417"

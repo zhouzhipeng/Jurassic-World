@@ -1,0 +1,27 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 367
+name = "Rowboat"
+type = "Scene3D::Model3DObject"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "Environment" ]
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 110
+height = 540
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "coastal-rowboat.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 220
+sharedAnimationModelResources = [ ]
+animations = [ ]

@@ -207,3 +207,21 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchContext" comparison_sign="=" value=8
 if PickNearest object="Triceratops" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
 do SetStringVariable variable="TouchContextHint" modification_sign="=" value=expr("三角龙信任 "+ToString(Triceratops.Variable(Bond))+" / 100 · 再等 "+ToString(ceil(Triceratops.Variable(FeedWait)))+" 秒 · 3 浆果")
+
+@event aiGeneratedEventId="boat-touch-board-context"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if Distance object="Player3D" object_2="Rowboat" distance=420
+do SetNumberVariable variable="TouchContext" modification_sign="=" value=11
+do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="上船"
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value="划船前往近海小岛；摇杆控制航向"
+
+@event aiGeneratedEventId="boat-touch-disembark-context"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+do SetNumberVariable variable="TouchContext" modification_sign="=" value=11
+do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="靠岸"
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value="驶到海岸或小岛西侧，再点此下船"

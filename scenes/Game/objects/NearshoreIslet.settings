@@ -1,0 +1,27 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 368
+name = "NearshoreIslet"
+type = "Scene3D::Model3DObject"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "Environment" ]
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 390
+height = 1440
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "nearshore-islet.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 1440
+sharedAnimationModelResources = [ ]
+animations = [ ]
