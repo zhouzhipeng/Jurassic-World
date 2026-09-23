@@ -16,6 +16,7 @@ async function place(key, x, y) {
   await tap(key);
   harness.assert(number('BuildValid') === 1, `Supported ${key} placement is valid: ${harness.getSceneVariable('BuildReason')?.value}`);
   await tap('Return');
+  await harness.stepFrames(3);
 }
 try {
   await harness.goToScene('Game');
