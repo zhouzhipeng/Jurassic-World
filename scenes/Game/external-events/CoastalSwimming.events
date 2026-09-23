@@ -56,7 +56,7 @@ do SetNumberVariable variable="SwimInputConsumed" modification_sign="=" value=1
 @event aiGeneratedEventId="coast-swim-surface"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="SwimMode" comparison_sign="=" value=1
-do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(min(max(TerrainFloor,-245),PlayerFloor+180*TimeDelta()))
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(min(max(TerrainFloor,-205),PlayerFloor+180*TimeDelta()))
 do SetNumberVariable variable="Breath" modification_sign="=" value=expr(min(100,Breath+30*TimeDelta()))
 
 @event aiGeneratedEventId="coast-swim-dive"
