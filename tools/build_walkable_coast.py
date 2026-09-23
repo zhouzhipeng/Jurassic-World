@@ -73,7 +73,8 @@ def coast_edge(x, y):
 
 def floor_metres(x, y):
     edge = coast_edge(x, y)
-    t = min(1.0, max(0.0, edge / 12.0))
+    # Keep the full sand band gentle; blend mountain relief in farther inland.
+    t = min(1.0, max(0.0, (edge - 12.0) / 12.0))
     land = height(x * 100, -y * 100) / 100 * t
     beach = -1.4 + 1.4 * min(1.0, max(0.0, edge / 6.0)) + 0.16 * min(0.0, edge)
     return land + beach

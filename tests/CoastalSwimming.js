@@ -5,10 +5,12 @@ try {
   await harness.stepFrames(3);
   harness.setSceneVariable('CameraYaw', 0);
   harness.setSceneVariable('Invulnerable', 9999);
+  harness.setObjectPosition(player().id, 5650, 2500, 0);
+  await harness.stepFrames(3);
+  harness.assert(n('SwimMode') === 0 && n('CoastEdge') > 600 && Math.abs(n('TerrainFloor')) < 2,
+    `Dry sand is walkable: mode=${n('SwimMode')}, edge=${n('CoastEdge')}, floor=${n('TerrainFloor')}`);
   harness.setObjectPosition(player().id, 6200, 2500, 0);
   await harness.stepFrames(3);
-  harness.assert(n('SwimMode') === 0 && n('CoastEdge') > 0 && n('TerrainFloor') < 100,
-    `Dry sand is walkable: mode=${n('SwimMode')}, edge=${n('CoastEdge')}, floor=${n('TerrainFloor')}`);
   harness.setKeyPressed('d', true);
   await harness.stepFrames(205);
   harness.releaseAllInputs();
