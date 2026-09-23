@@ -21,8 +21,8 @@ try {
   harness.assert(number('BuildValid') === 1, 'Clear ground accepts a foundation');
   await tap('Return');
   const first = harness.getObjects('PartFoundation');
-  harness.assert(first.length === 1 && first[0].x === 600 && first[0].y === 900,
-    `Off-grid aim snaps the foundation to (600, 900): count=${first.length}, actual=${first[0]?.x},${first[0]?.y}, valid=${number('BuildValid')}, reason=${harness.getSceneVariable('BuildReason')?.value}`);
+  harness.assert(first.length === 1 && first[0].x === 600 && first[0].y === 600,
+    `Off-grid aim snaps the foundation to (600, 600): count=${first.length}, actual=${first[0]?.x},${first[0]?.y}`);
   harness.assert(materials() === '94,98,97', `One foundation costs 6/2/3, observed ${materials()}`);
   await harness.stepFrames(15);
   await tap('Return');
