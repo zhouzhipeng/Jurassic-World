@@ -76,6 +76,11 @@ type = "number"
 value = 0
 
 [[variables]]
+name = "FishingRodVisible"
+type = "number"
+value = 0
+
+[[variables]]
 name = "ActorConfigured"
 type = "number"
 value = 1

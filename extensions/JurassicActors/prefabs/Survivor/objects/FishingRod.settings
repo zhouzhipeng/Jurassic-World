@@ -1,0 +1,32 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 3
+assetStoreId = ""
+name = "FishingRod"
+type = "Scene3D::Model3DObject"
+variables = [ ]
+effects = [ ]
+folder = [ "Real-time 3D" ]
+
+[[behaviors]]
+name = "HandAttachment"
+type = "Model3DBoneAttachment::Model3DBoneAttachmentBehavior"
+object3D = "Object3D"
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 50
+height = 225
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "fishing-rod.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 24
+sharedAnimationModelResources = [ ]
+animations = [ ]

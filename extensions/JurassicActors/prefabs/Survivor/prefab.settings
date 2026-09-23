@@ -54,3 +54,9 @@ id = "44902796-b265-4620-8ea4-7e891b2ec443"
 object = "CombatSpear"
 layer = "base"
 at = [0, 0]
+
+[[layout.instances]]
+id = "ab0e28a2-14eb-4ca0-a1b2-6afc1f626dc6"
+object = "FishingRod"
+layer = "base"
+at = [0, 0]

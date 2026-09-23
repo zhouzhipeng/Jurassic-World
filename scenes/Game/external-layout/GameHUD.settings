@@ -976,3 +976,48 @@ at = [1313, 507]
 z_order = 100
 size = [245, 28]
 keep_ratio = false
+
+[[layout.instances]]
+id = "2f6a180d-c345-4f91-b96b-c31e1f80a190"
+object = "FishingPanel"
+layer = "hud"
+at = [580, 115]
+z_order = 200
+size = [440, 136]
+keep_ratio = false
+
+[[layout.instances]]
+id = "b3fa11ab-b8f3-48d4-bcec-7caf2c41bd99"
+object = "FishingMeter"
+layer = "hud"
+at = [664, 211]
+z_order = 202
+size = [328, 11]
+keep_ratio = false
+
+[[layout.instances]]
+id = "4674d3f4-5f83-425e-9315-6d1f0783b6e8"
+object = "FishingTitle"
+layer = "hud"
+at = [665, 134]
+z_order = 203
+size = [230, 28]
+keep_ratio = false
+
+[[layout.instances]]
+id = "3ac68c95-6198-4d62-b6a5-ce8fdb5b69ae"
+object = "FishingStatus"
+layer = "hud"
+at = [665, 167]
+z_order = 203
+size = [310, 33]
+keep_ratio = false
+
+[[layout.instances]]
+id = "879f5278-42a9-4e94-97a3-1d0505396793"
+object = "FishingTimer"
+layer = "hud"
+at = [956, 166]
+z_order = 203
+size = [60, 33]
+keep_ratio = false

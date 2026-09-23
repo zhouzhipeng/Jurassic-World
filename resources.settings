@@ -10,6 +10,29 @@ userAdded = true
 
 [[resources]]
 kind = "model3D"
+name = "fishing-rod.glb"
+file = "assets/models/fishing-rod.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "fishing-panel.svg"
+file = "assets/ui/fishing-panel.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "fishing-meter.svg"
+file = "assets/ui/fishing-meter.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "model3D"
 name = "nearshore-islet.glb"
 file = "assets/environment/nearshore-islet.glb"
 metadata = ""

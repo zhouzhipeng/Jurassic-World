@@ -91,6 +91,7 @@ if NumberVariable variable="Sailing" comparison_sign="=" value=0
 if NumberVariable variable="FishingState" comparison_sign="!=" value=0
 do SetNumberVariable variable="FishingState" modification_sign="=" value=0
 do SetNumberVariable variable="FishingClock" modification_sign="=" value=0
+do SetNumberVariable variable="FishingResult" modification_sign="=" value=0
 
 @event aiGeneratedEventId="fishing-moving-cancels"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -99,6 +100,7 @@ if NumberVariable variable="FishingState" comparison_sign=">" value=0
 if NumberVariable variable="FishingState" comparison_sign="<" value=3
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(MoveX)+abs(MoveY)) comparison_sign=">" second_expression=0.15
 do SetNumberVariable variable="FishingState" modification_sign="=" value=3
+do SetNumberVariable variable="FishingResult" modification_sign="=" value=-3
 do SetNumberVariable variable="FishingClock" modification_sign="=" value=1.5
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="划船惊走了鱼；停船后再抛线。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
@@ -111,6 +113,7 @@ if NumberVariable variable="FishingRequest" comparison_sign="=" value=1
 do SetNumberVariable variable="Meat" modification_sign="+" value=1
 do SetNumberVariable variable="FishingState" modification_sign="=" value=3
 do SetNumberVariable variable="FishingClock" modification_sign="=" value=2
+do SetNumberVariable variable="FishingResult" modification_sign="=" value=1
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="钓到一条鱼！鱼肉 +1，已作为生肉放入背包，可在篝火烹饪。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
@@ -121,6 +124,7 @@ if NumberVariable variable="FishingState" comparison_sign="=" value=1
 if NumberVariable variable="FishingRequest" comparison_sign="=" value=1
 do SetNumberVariable variable="FishingState" modification_sign="=" value=3
 do SetNumberVariable variable="FishingClock" modification_sign="=" value=1.5
+do SetNumberVariable variable="FishingResult" modification_sign="=" value=-1
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="收线太早，鱼还没有咬钩。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
@@ -132,6 +136,7 @@ if NumberVariable variable="FishingRequest" comparison_sign="=" value=1
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(MoveX)+abs(MoveY)) comparison_sign="<=" second_expression=0.15
 do SetNumberVariable variable="FishingState" modification_sign="=" value=1
 do SetNumberVariable variable="FishingClock" modification_sign="=" value=3
+do SetNumberVariable variable="FishingResult" modification_sign="=" value=0
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="鱼线已抛出。保持船只静止，看到咬钩提示后按 G /「收线」！"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
@@ -168,6 +173,7 @@ if NumberVariable variable="FishingState" comparison_sign="=" value=2
 if NumberVariable variable="FishingClock" comparison_sign="<=" value=0
 do SetNumberVariable variable="FishingState" modification_sign="=" value=3
 do SetNumberVariable variable="FishingClock" modification_sign="=" value=1.5
+do SetNumberVariable variable="FishingResult" modification_sign="=" value=-2
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="鱼挣脱了鱼钩；稍等片刻再试。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
@@ -182,6 +188,7 @@ if NumberVariable variable="FishingState" comparison_sign="=" value=3
 if NumberVariable variable="FishingClock" comparison_sign="<=" value=0
 do SetNumberVariable variable="FishingState" modification_sign="=" value=0
 do SetNumberVariable variable="FishingClock" modification_sign="=" value=0
+do SetNumberVariable variable="FishingResult" modification_sign="=" value=0
 
 @event aiGeneratedEventId="boat-remember-position"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -246,6 +253,41 @@ or NumberVariable variable="MoveY" comparison_sign="!=" value=0
 do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=13
 do AnimatableCapability::AnimatableBehavior::SetName object="Rowboat" behavior="Animation" modification_sign="=" animation_name="OarsRow"
 do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Rowboat" behavior="Animation"
+
+@event aiGeneratedEventId="fishing-cast-animation"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=1
+if NumberVariable variable="FishingClock" comparison_sign=">" value=2.3
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=14
+do SetNumberObjectVariable object="Player3D" variable="FishingRodVisible" modification_sign="=" value=1
+
+@event aiGeneratedEventId="fishing-wait-animation"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=1
+if NumberVariable variable="FishingClock" comparison_sign="<=" value=2.3
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=15
+do SetNumberObjectVariable object="Player3D" variable="FishingRodVisible" modification_sign="=" value=1
+
+@event aiGeneratedEventId="fishing-bite-animation"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=2
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=16
+do SetNumberObjectVariable object="Player3D" variable="FishingRodVisible" modification_sign="=" value=1
+
+@event aiGeneratedEventId="fishing-reel-animation"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=3
+if NumberVariable variable="FishingResult" comparison_sign="=" value=1
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=17
+do SetNumberObjectVariable object="Player3D" variable="FishingRodVisible" modification_sign="=" value=1
 
 @event aiGeneratedEventId="islet-shore-boundary"
 if NumberVariable variable="Mode" comparison_sign="=" value=0

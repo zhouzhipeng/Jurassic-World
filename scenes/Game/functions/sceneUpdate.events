@@ -2451,6 +2451,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=0
+do SetNumberObjectVariable object="Player3D" variable="FishingRodVisible" modification_sign="=" value=0
 do SetNumberObjectVariable object="Player3D" variable="Travel" modification_sign="=" value=expr(DistanceBetweenPositions(PreviousX, PreviousY, Player3D.X(), Player3D.Y()))
 do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modification_sign="=" value=1
 
@@ -2583,3 +2584,5 @@ link "DistanceVisibility"
 link "HudPresentation"
 
 link "CoastalVoyage"
+
+link "FishingPresentation"

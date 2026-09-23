@@ -1,0 +1,28 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 369
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
+name = "FishingPanel"
+type = "Sprite"
+updateIfNotVisible = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "UI", "Fishing" ]
+
+[[animations]]
+name = "Default"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "fishing-panel.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]

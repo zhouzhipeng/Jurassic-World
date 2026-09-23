@@ -54,6 +54,14 @@ do Hide object="CombatSpear"
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(CombatSpearVisible)) comparison_sign="=" second_expression=1
 do Show object="CombatSpear"
 
+@event aiGeneratedEventId="survivor-hide-fishing-rod"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(FishingRodVisible)) comparison_sign="=" second_expression=0
+do Hide object="FishingRod"
+
+@event aiGeneratedEventId="survivor-show-fishing-rod"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(FishingRodVisible)) comparison_sign="=" second_expression=1
+do Show object="FishingRod"
+
 @event
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign=">=" second_expression=0
 do ModVarObjet object="Object" variable="HandZ" modification_sign="=" value=expr(Body.BoneZ("GripR"))
@@ -92,3 +100,19 @@ do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Ani
 @event aiGeneratedEventId="survivor-boat-row"
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=13
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="BoatRow"
+
+@event aiGeneratedEventId="survivor-fishing-cast"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=14
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="BoatFishCast"
+
+@event aiGeneratedEventId="survivor-fishing-wait"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=15
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="BoatFishWait"
+
+@event aiGeneratedEventId="survivor-fishing-bite"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=16
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="BoatFishBite"
+
+@event aiGeneratedEventId="survivor-fishing-reel"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=17
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="BoatFishReel"

@@ -1,0 +1,97 @@
+@comment "Dedicated fishing HUD: visible at sea, with cast and bite timing." background=[25,103,117] text=[255,255,255]
+
+@event aiGeneratedEventId="fishing-hud-hide"
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do Hide object="FishingPanel"
+do Hide object="FishingMeter"
+do Hide object="FishingTitle"
+do Hide object="FishingStatus"
+do Hide object="FishingTimer"
+
+@event aiGeneratedEventId="fishing-hud-show-and-layout"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+do Show object="FishingPanel"
+do Show object="FishingTitle"
+do Show object="FishingStatus"
+do Show object="FishingTimer"
+do SetX object="FishingPanel" modification_sign="=" value=expr((SceneWindowWidth()-440*HudScale)/2)
+do SetY object="FishingPanel" modification_sign="=" value=expr(HudMargin+83*HudScale)
+do ResizableCapability::ResizableBehavior::SetSize object="FishingPanel" behavior="Resizable" width=expr(440*HudScale) height=expr(136*HudScale)
+do SetX object="FishingTitle" modification_sign="=" value=expr(FishingPanel.X()+85*HudScale)
+do SetY object="FishingTitle" modification_sign="=" value=expr(FishingPanel.Y()+17*HudScale)
+do TextObject::Text::SetFontSize object="FishingTitle" modification_sign="=" value=expr(22*HudScale)
+do SetX object="FishingStatus" modification_sign="=" value=expr(FishingPanel.X()+85*HudScale)
+do SetY object="FishingStatus" modification_sign="=" value=expr(FishingPanel.Y()+52*HudScale)
+do TextObject::Text::SetFontSize object="FishingStatus" modification_sign="=" value=expr(24*HudScale)
+do SetX object="FishingTimer" modification_sign="=" value=expr(FishingPanel.X()+370*HudScale)
+do SetY object="FishingTimer" modification_sign="=" value=expr(FishingPanel.Y()+52*HudScale)
+do TextObject::Text::SetFontSize object="FishingTimer" modification_sign="=" value=expr(22*HudScale)
+do SetX object="FishingMeter" modification_sign="=" value=expr(FishingPanel.X()+84*HudScale)
+do SetY object="FishingMeter" modification_sign="=" value=expr(FishingPanel.Y()+98*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingTitle" behavior="Text" modification_sign="=" text="海上垂钓"
+
+@event aiGeneratedEventId="fishing-hud-ready"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingStatus" behavior="Text" modification_sign="=" text="停船后按 G 抛竿"
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingTimer" behavior="Text" modification_sign="=" text="待命"
+do TextObject::ChangeColor object="FishingStatus" color="235;248;245"
+
+@event aiGeneratedEventId="fishing-hud-wait"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=1
+do Show object="FishingMeter"
+do ResizableCapability::ResizableBehavior::SetSize object="FishingMeter" behavior="Resizable" width=expr(max(8,328*(3-FishingClock)/3)*HudScale) height=expr(11*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingStatus" behavior="Text" modification_sign="=" text="已抛竿 · 等待咬钩"
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingTimer" behavior="Text" modification_sign="=" text=expr(ToString(ceil(FishingClock))+" 秒")
+do TextObject::ChangeColor object="FishingStatus" color="126;222;210"
+
+@event aiGeneratedEventId="fishing-hud-bite"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=2
+do Show object="FishingMeter"
+do ResizableCapability::ResizableBehavior::SetSize object="FishingMeter" behavior="Resizable" width=expr(max(8,328*FishingClock/2.5)*HudScale) height=expr(11*HudScale)
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingStatus" behavior="Text" modification_sign="=" text="鱼咬钩！按 G 收线"
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingTimer" behavior="Text" modification_sign="=" text=expr(ToString(ceil(FishingClock))+" 秒")
+do TextObject::ChangeColor object="FishingStatus" color="255;210;111"
+
+@event aiGeneratedEventId="fishing-hud-catch"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=3
+if NumberVariable variable="FishingResult" comparison_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingStatus" behavior="Text" modification_sign="=" text="收获鱼肉 +1"
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingTimer" behavior="Text" modification_sign="=" text="成功"
+do TextObject::ChangeColor object="FishingStatus" color="216;244;132"
+
+@event aiGeneratedEventId="fishing-hud-early"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=3
+if NumberVariable variable="FishingResult" comparison_sign="=" value=-1
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingStatus" behavior="Text" modification_sign="=" text="收线太早，稍后再试"
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingTimer" behavior="Text" modification_sign="=" text="落空"
+do TextObject::ChangeColor object="FishingStatus" color="247;172;138"
+
+@event aiGeneratedEventId="fishing-hud-missed"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=3
+if NumberVariable variable="FishingResult" comparison_sign="=" value=-2
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingStatus" behavior="Text" modification_sign="=" text="鱼儿挣脱了，稍后再试"
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingTimer" behavior="Text" modification_sign="=" text="落空"
+do TextObject::ChangeColor object="FishingStatus" color="247;172;138"
+
+@event aiGeneratedEventId="fishing-hud-scared"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=3
+if NumberVariable variable="FishingResult" comparison_sign="=" value=-3
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingStatus" behavior="Text" modification_sign="=" text="划船惊走了鱼"
+do TextContainerCapability::TextContainerBehavior::SetValue object="FishingTimer" behavior="Text" modification_sign="=" text="落空"
+do TextObject::ChangeColor object="FishingStatus" color="247;172;138"

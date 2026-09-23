@@ -135,3 +135,31 @@ name = "BoatRow"
 source = "BoatRow"
 sourceModelResourceName = ""
 useRootMotion = false
+
+[[content.animations]]
+loop = false
+name = "BoatFishCast"
+source = "BoatFishCast"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = true
+name = "BoatFishWait"
+source = "BoatFishWait"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = true
+name = "BoatFishBite"
+source = "BoatFishBite"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = false
+name = "BoatFishReel"
+source = "BoatFishReel"
+sourceModelResourceName = ""
+useRootMotion = false

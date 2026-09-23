@@ -34,6 +34,8 @@
 
 - `add_player_jump_animation.py`：先加载 `sources/models/survivor-animated-source.blend`，再传入一个临时输出目录；该目录同时产生 `.blend`、GLB 和清单。验收后分别安装到 `sources/models/`、`assets/models/`，不要直接对生产资源目录执行。
 - `add_rowboat_seating.py`：分别加载 `sources/models/survivor-jump-source.blend` 和 `sources/environment/coastal-rowboat-source.blend`，通过 `-- character|boat <绝对临时输出目录>` 生成坐姿、划桨与船桨动画的 GLB、可编辑 `.blend` 和清单。仅覆盖指定临时输出目录，检查动画与模型后再安装到现有运行资源路径；可对原始输入重复执行。
+- `add_fishing_animations.py`：加载 `sources/models/survivor-rowing-source.blend`，通过 `-- <绝对临时输出目录>` 生成含抛竿、等待、咬钩、收线动作的角色 GLB、可编辑 `.blend` 和动画清单。仅覆盖指定临时目录；检查后分别安装到 `assets/models/` 与 `sources/models/`。重复运行可重建相同动作。
+- `build_fishing_rod.py`：使用 Blender 5.1 独立后台进程，通过 `-- <绝对临时输出目录>` 生成鱼竿 GLB 与可编辑 `.blend`。仅覆盖指定临时目录；检查后分别安装到 `assets/models/` 与 `sources/models/`。重复运行可重建相同模型。
 - `partition_island.py`：显式传入输入 GLB 和临时输出 GLB，保持原模型供比较。
 - `generate_foliage_lods.py`：传入项目绝对路径，读取原植被 GLB，写入 `assets/models/` 的 LOD GLB。
 

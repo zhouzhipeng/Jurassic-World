@@ -1,0 +1,45 @@
+kind = "object"
+settingsFormatVersion = 6
+order = 372
+assetStoreId = ""
+bold = false
+italic = false
+name = "FishingStatus"
+smoothed = true
+type = "TextObject::Text"
+underlined = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+string = "停船后按 G 抛竿"
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 26
+folder = [ "UI", "Fishing" ]
+
+[color]
+b = 245
+g = 248
+r = 235
+
+[content]
+bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
+outlineColor = "0;0;0"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
+text = "停船后按 G 抛竿"
+font = "interface.ttf"
+textAlignment = "left"
+verticalTextAlignment = "top"
+characterSize = 26
+lineHeight = 0
+color = "235;248;245"

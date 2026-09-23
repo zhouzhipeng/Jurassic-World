@@ -129,7 +129,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Sailing" comparison_sign="=" value=1
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=7
 do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=312
-do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="钓鱼"
+do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="抛竿"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=26
 
 @event aiGeneratedEventId="touch-fishing-reel-label"
@@ -139,6 +139,22 @@ if NumberVariable variable="Sailing" comparison_sign="=" value=1
 if NumberVariable variable="FishingState" comparison_sign="=" value=2
 if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=7
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="收线"
+
+@event aiGeneratedEventId="touch-fishing-wait-label"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=7
+do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="等待"
+
+@event aiGeneratedEventId="touch-fishing-cooldown-label"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=3
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=7
+do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="稍等"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
