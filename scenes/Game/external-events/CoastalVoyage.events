@@ -230,6 +230,8 @@ do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Rowboat" beha
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="MoveX" comparison_sign="=" value=0
+if NumberVariable variable="MoveY" comparison_sign="=" value=0
 do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=12
 do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modification_sign="=" value=1
 do AnimatableCapability::AnimatableBehavior::SetName object="Rowboat" behavior="Animation" modification_sign="=" animation_name="OarsRest"
