@@ -30,7 +30,8 @@ try {
     'Idle frames and duplicate placement neither create another part nor charge materials');
   harness.setObjectPosition(player().id, 320, 740, 0);
   await harness.stepFrames(5);
-  harness.assert(number('BuildValid') === 1, 'Adjacent foundation socket is valid');
+  harness.assert(number('BuildValid') === 1,
+    `Adjacent foundation socket is valid: target=${number('BuildX')},${number('BuildY')}, reason=${harness.getSceneVariable('BuildReason')?.value}`);
   await tap('Return');
   harness.assert(harness.getObjects('PartFoundation').length === 2 && materials() === '88,96,94',
     'Adjacent foundation is created and charged exactly once');
