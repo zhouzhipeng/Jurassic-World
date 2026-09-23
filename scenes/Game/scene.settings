@@ -377,6 +377,31 @@ type = "number"
 value = 0
 
 [[variables]]
+name = "CoastEdge"
+type = "number"
+value = 1200
+
+[[variables]]
+name = "SwimMode"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Breath"
+type = "number"
+value = 100
+
+[[variables]]
+name = "DiveDepth"
+type = "number"
+value = 0
+
+[[variables]]
+name = "SwimInputConsumed"
+type = "number"
+value = 0
+
+[[variables]]
 name = "FloorCandidate"
 persistentUuid = "d41e614a-536a-42d4-b359-6b1a3223210b"
 type = "number"

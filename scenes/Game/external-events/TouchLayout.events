@@ -980,3 +980,17 @@ do SetNumberObjectVariable object="TouchButton" variable="Active" modification_s
 do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=90
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="跳跃"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=28
+
+@event aiGeneratedEventId="touch-dive-label"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=12
+do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="潜水"
+
+@event aiGeneratedEventId="touch-surface-label"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=2
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=12
+do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="上浮"

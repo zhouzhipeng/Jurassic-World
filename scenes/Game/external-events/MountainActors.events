@@ -38,3 +38,14 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 do SetNumberVariable variable="TerrainFloor" modification_sign="=" value=expr(1100*pow(max(0,1-pow(((Player3D.X())-(800))/2000,2)-pow(((Player3D.Y())-(-2100))/1700,2)),2)+650*pow(max(0,1-pow(((Player3D.X())-(-2250))/1100,2)-pow(((Player3D.Y())-(600))/1700,2)),2)+950*pow(max(0,1-pow(((Player3D.X())-(2350))/1200,2)-pow(((Player3D.Y())-(300))/1800,2)),2)+1000*pow(max(0,1-pow(((Player3D.X())-(-2050))/1400,2)-pow(((Player3D.Y())-(-2400))/1300,2)),2)+2350*pow(max(0,1-pow(((Player3D.X())-(-4200))/2000,2)-pow(((Player3D.Y())-(-4050))/2100,2)),2)+2800*pow(max(0,1-pow(((Player3D.X())-(2200))/2600,2)-pow(((Player3D.Y())-(-4450))/1600,2)),2)+1850*pow(max(0,1-pow(((Player3D.X())-(4450))/1800,2)-pow(((Player3D.Y())-(1400))/2700,2)),2)+1250*pow(max(0,1-pow(((Player3D.X())-(-2900))/2500,2)-pow(((Player3D.Y())-(3950))/1500,2)),2))
 
+@event aiGeneratedEventId="coast-distance-from-island-edge"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetNumberVariable variable="CoastEdge" modification_sign="=" value=expr(min(min(6400-abs(Player3D.X()),6200-Player3D.Y()),6700+Player3D.Y()))
+
+@event aiGeneratedEventId="coast-ground-matches-mesh"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="CoastEdge" comparison_sign="<" value=1200
+do SetNumberVariable variable="TerrainFloor" modification_sign="=" value=expr(TerrainFloor*pow(max(0,min(1,CoastEdge/1200)),2)*(3-2*max(0,min(1,CoastEdge/1200)))-140+140*max(0,min(1,CoastEdge/600))+0.16*min(0,CoastEdge))
+

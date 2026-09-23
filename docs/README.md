@@ -7,6 +7,7 @@
 - [禾音：完整故事与后续线索](HEYIN_STORY.md)
 - [禾音：当前可玩开篇与操作](HEYIN_GAMEPLAY.md)
 - [海岸环境](COASTAL_ENVIRONMENT.md)
+- [沙滩、游泳与潜水](COASTAL_SWIMMING.md)
 - [性能说明](PERFORMANCE.md)
 - [玩法测试](GAMEPLAY_TESTS.md)
 - [音频设计](AUDIO-DESIGN.md)

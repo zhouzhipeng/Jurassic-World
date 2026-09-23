@@ -116,3 +116,11 @@ do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Ani
 @event aiGeneratedEventId="survivor-fishing-reel"
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=17
 do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="BoatFishReel"
+
+@event aiGeneratedEventId="survivor-surface-swim-animation"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=18
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Swim"
+
+@event aiGeneratedEventId="survivor-dive-animation"
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Object.Variable(AnimationState)) comparison_sign="=" second_expression=19
+do AnimatableCapability::AnimatableBehavior::SetName object="Body" behavior="Animation" modification_sign="=" animation_name="Dive"

@@ -9,6 +9,13 @@
 
 ## Blender 资源制作
 
+`build_walkable_coast.py`：读取保留的山地岛源，重建 12 米宽沙滩与近海海底，
+通过 `-- <绝对临时输出目录>` 生成 `island.glb`、可编辑 blend 和清单。
+`add_swim_animations.py`：在 `survivor-fishing-source.blend` 后台进程中运行，
+通过 `-- <绝对临时输出目录>` 生成含 Swim、Dive 动作的角色 GLB、可编辑 blend
+和清单。两个脚本不直接覆盖运行资源，检查后才安装到 `assets/` 与 `sources/`。
+操作说明见 [沙滩与游泳](../docs/COASTAL_SWIMMING.md)。
+
 使用 Blender 5.1 的独立后台进程运行，脚本路径使用绝对路径：
 
 ```powershell

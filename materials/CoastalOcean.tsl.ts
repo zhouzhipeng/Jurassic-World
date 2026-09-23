@@ -62,13 +62,15 @@ export default defineMaterial({
       .mul(parameters.cloud.mul(-0.65).add(1));
     const fog = smoothstep(parameters.fogNear, parameters.fogFar, positionView.z.abs().mul(100));
     const finalColor = mix(surface.add(vec3(parameters.flash.mul(0.18))), color('#e5e7f6'), brightVeins);
-    material.fragmentNode = vec4(mix(finalColor, parameters.horizon, fog), 1);
-    material.outputNode = vec4(mix(finalColor, parameters.horizon, fog), 1);
+    const clarity = offshore.mul(0.24).add(0.66);
+    material.fragmentNode = vec4(mix(finalColor, parameters.horizon, fog), clarity);
+    material.outputNode = vec4(mix(finalColor, parameters.horizon, fog), clarity);
     // Blender GLB is Y-up locally; object rotation converts the vertical wave to world Z.
     const swell = sin(positionLocal.x.mul(0.48).add(t.mul(2.1))).mul(0.04)
       .add(sin(positionLocal.z.mul(0.71).sub(t.mul(2.8))).mul(0.025));
     material.positionNode = positionLocal.add(vec3(0, swell.mul(strength), 0));
-    material.depthWrite = true;
+    material.transparent = true;
+    material.depthWrite = false;
     material.side = 'double';
   },
 });

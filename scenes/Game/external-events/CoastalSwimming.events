@@ -1,0 +1,78 @@
+@comment "Seamless shore, swim and dive state. Sea level is -80; the seabed follows the Blender coast profile." background=[66,136,160] text=[255,255,255]
+
+@event aiGeneratedEventId="coast-reset-input"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+do SetNumberVariable variable="SwimInputConsumed" modification_sign="=" value=0
+
+@event aiGeneratedEventId="coast-enter-swim"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=0
+if NumberVariable variable="CoastEdge" comparison_sign="<" value=0
+if NumberVariable variable="TerrainFloor" comparison_sign="<" value=-210
+do SetNumberVariable variable="SwimMode" modification_sign="=" value=1
+do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=0
+do SetNumberVariable variable="JumpStartTime" modification_sign="=" value=0
+do SetNumberVariable variable="JumpLandTime" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="进入海水：WASD / 摇杆游泳，按 C 或水中跳跃按钮潜水，空格上浮。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event aiGeneratedEventId="coast-leave-swim"
+if NumberVariable variable="SwimMode" comparison_sign=">" value=0
+if NumberVariable variable="TerrainFloor" comparison_sign=">" value=-190
+or NumberVariable variable="Sailing" comparison_sign="=" value=1
+or NumberVariable variable="Riding" comparison_sign="=" value=1
+or NumberVariable variable="IsletVisit" comparison_sign="=" value=1
+do SetNumberVariable variable="SwimMode" modification_sign="=" value=0
+do SetNumberVariable variable="DiveDepth" modification_sign="=" value=0
+
+@event aiGeneratedEventId="coast-dive-key"
+if NumberVariable variable="SwimMode" comparison_sign="=" value=1
+if KeyFromTextJustPressed key_to_check="c"
+do SetNumberVariable variable="SwimMode" modification_sign="=" value=2
+
+@event aiGeneratedEventId="coast-dive-touch"
+if NumberVariable variable="SwimMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchCommand" comparison_sign="=" value=90
+if NumberVariable variable="SwimInputConsumed" comparison_sign="=" value=0
+do SetNumberVariable variable="SwimMode" modification_sign="=" value=2
+do SetNumberVariable variable="SwimInputConsumed" modification_sign="=" value=1
+
+@event aiGeneratedEventId="coast-surface-key"
+if NumberVariable variable="SwimMode" comparison_sign="=" value=2
+if KeyFromTextJustPressed key_to_check="Space"
+do SetNumberVariable variable="SwimMode" modification_sign="=" value=1
+
+@event aiGeneratedEventId="coast-surface-touch"
+if NumberVariable variable="SwimMode" comparison_sign="=" value=2
+if NumberVariable variable="TouchCommand" comparison_sign="=" value=90
+if NumberVariable variable="SwimInputConsumed" comparison_sign="=" value=0
+do SetNumberVariable variable="SwimMode" modification_sign="=" value=1
+do SetNumberVariable variable="SwimInputConsumed" modification_sign="=" value=1
+
+@event aiGeneratedEventId="coast-swim-surface"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=1
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(min(max(TerrainFloor,-245),PlayerFloor+180*TimeDelta()))
+do SetNumberVariable variable="Breath" modification_sign="=" value=expr(min(100,Breath+30*TimeDelta()))
+
+@event aiGeneratedEventId="coast-swim-dive"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=2
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(max(TerrainFloor+20,PlayerFloor-140*TimeDelta()))
+do SetNumberVariable variable="Breath" modification_sign="=" value=expr(max(0,Breath-8*TimeDelta()))
+
+@event aiGeneratedEventId="coast-dive-depth"
+if NumberVariable variable="SwimMode" comparison_sign=">" value=0
+do SetNumberVariable variable="DiveDepth" modification_sign="=" value=expr(max(0,-80-(PlayerFloor+175)))
+do SetNumberVariable variable="Wetness" modification_sign="=" value=100
+
+@event aiGeneratedEventId="coast-out-of-breath"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=2
+if NumberVariable variable="Breath" comparison_sign="<=" value=0
+do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0,Health-8*TimeDelta()))
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1

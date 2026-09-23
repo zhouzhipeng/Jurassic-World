@@ -163,3 +163,17 @@ name = "BoatFishReel"
 source = "BoatFishReel"
 sourceModelResourceName = ""
 useRootMotion = false
+
+[[content.animations]]
+loop = true
+name = "Swim"
+source = "Swim"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = true
+name = "Dive"
+source = "Dive"
+sourceModelResourceName = ""
+useRootMotion = false

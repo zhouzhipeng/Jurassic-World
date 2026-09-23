@@ -432,3 +432,11 @@ name = "BoatFishing"
 type = "gameplay"
 description = "Fishing works only from a stationary boat, rewards a timed reel, and cancels on movement or disembark."
 file = "tests/BoatFishing.js"
+
+[[tests]]
+scope = "project"
+order = 54
+name = "CoastalSwimming"
+type = "gameplay"
+description = "Walk across dry and wet sand into the sea, swim, dive with breath, and return to shore."
+file = "tests/CoastalSwimming.js"

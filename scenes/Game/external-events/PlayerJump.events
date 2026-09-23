@@ -11,6 +11,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=0
 if NumberVariable variable="JumpVelocity" comparison_sign="=" value=0
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-FloorTarget)) comparison_sign="<=" second_expression=1
 if KeyFromTextJustPressed key_to_check="Space"
@@ -23,6 +24,7 @@ do SetNumberVariable variable="JumpLandTime" modification_sign="=" value=0
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=0
 do SetNumberVariable variable="JumpPreviousZ" modification_sign="=" value=expr(PlayerFloor)
 do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(max(FloorTarget,PlayerFloor+JumpVelocity*TimeDelta()-750*TimeDelta()*TimeDelta()))
 do SetNumberVariable variable="JumpVelocity" modification_sign="-" value=expr(1500*TimeDelta())
@@ -30,6 +32,7 @@ do SetNumberVariable variable="JumpVelocity" modification_sign="-" value=expr(15
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=0
 if NumberVariable variable="JumpVelocity" comparison_sign="<" value=-80
 if NumberVariable variable="JumpPreviousZ" comparison_sign=">" value=expr(FloorTarget+0.5)
 if NumberVariable variable="PlayerFloor" comparison_sign="<=" value=expr(FloorTarget)
@@ -39,6 +42,7 @@ do SetNumberVariable variable="JumpStartTime" modification_sign="=" value=0
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=0
 if NumberVariable variable="JumpVelocity" comparison_sign="<=" value=0
 if NumberVariable variable="PlayerFloor" comparison_sign="<=" value=expr(FloorTarget)
 do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=0

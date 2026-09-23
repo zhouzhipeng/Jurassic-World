@@ -537,3 +537,15 @@ do TextObject::WrappingWidth object="TouchToastText" modification_sign="=" value
 if NumberVariable variable="Mode" comparison_sign="=" value=9
 or NumberVariable variable="Mode" comparison_sign="=" value=10
 do HideLayer layer="Touch"
+
+@event aiGeneratedEventId="swim-touch-breath-hud"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign=">" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="HudStamina" behavior="Text" modification_sign="=" text=expr("氧气       "+ToString(round(Breath)))
+
+@event aiGeneratedEventId="swim-keyboard-hint"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign=">" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text=expr("WASD 游泳 · C 潜水 · 空格上浮 · 氧气 "+ToString(round(Breath)))
