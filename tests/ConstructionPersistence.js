@@ -11,7 +11,9 @@ function records() {
   // Loading expands the fixed-capacity pool. Empty slots are not buildings;
   // retain original indices so support-parent and socket identity still matter.
   return JSON.stringify(decode(harness.getSceneVariable('BuildingRecords'))
-    .map((record, slot) => ({ slot, ...record })).filter(record => record.Kind !== 0));
+    .map((record, slot) => ({ slot, Kind: record.Kind, X: record.X, Y: record.Y,
+      Z: record.Z, Angle: record.Angle, Level: record.Level, Parent: record.Parent,
+      Open: record.Open })).filter(record => record.Kind !== 0));
 }
 function buildings() {
   return JSON.stringify(parts.flatMap(name => harness.getObjects(name).map(object => ({
