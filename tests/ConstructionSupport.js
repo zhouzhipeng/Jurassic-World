@@ -30,6 +30,8 @@ try {
   harness.assert(harness.getObjects('PartCeiling').length === 0 && materials() === '100,100,100',
     'Unsupported ceiling neither spawns nor consumes materials');
   await place('Num1', 0, 750);
+  harness.assert(harness.getObjects('PartFoundation').length === 1,
+    `Foundation placement completes through the construction signal: count=${harness.getObjects('PartFoundation').length}, mode=${number('BuildMode')}, valid=${number('BuildValid')}`);
   await tap('r');
   await place('Num3', 150, 750);
   await place('Num5', 0, 750);
