@@ -5,6 +5,7 @@ const reason = () => String(harness.getSceneVariable('BuildReason')?.value);
 async function tap(key) {
   harness.setKeyPressed(key, true); await harness.stepFrames(1);
   harness.setKeyPressed(key, false); await harness.stepFrames(1);
+  if (/^(b|Num[1-8]|r|PageUp|PageDown)$/.test(key)) await harness.stepFrames(3);
 }
 async function dinosaur(x, y, angle) {
   const id = obj('Stegosaur').id;
