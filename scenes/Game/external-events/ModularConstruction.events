@@ -633,7 +633,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX) + BuildWorldHX) comparison_sign=">" second_expression=2550
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(BuildX) + BuildWorldHX) comparison_sign=">" second_expression=5950
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
 do SetStringVariable variable="BuildReason" modification_sign="=" value="越过陆地范围，向岛内移动"
 
@@ -642,7 +642,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildY + BuildWorldHY) comparison_sign=">" second_expression=2250
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(BuildY + BuildWorldHY) comparison_sign=">" second_expression=5600
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
 do SetStringVariable variable="BuildReason" modification_sign="=" value="越过陆地范围，向岛内移动"
 
@@ -651,7 +651,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(-BuildY + BuildWorldHY) comparison_sign=">" second_expression=2700
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(-BuildY + BuildWorldHY) comparison_sign=">" second_expression=6100
 do SetNumberVariable variable="BuildValid" modification_sign="=" value=0
 do SetStringVariable variable="BuildReason" modification_sign="=" value="越过陆地范围，向岛内移动"
 

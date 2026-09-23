@@ -228,10 +228,21 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-do SetX object="TouchHint" modification_sign="=" value=expr(TouchMargin)
-do SetY object="TouchHint" modification_sign="=" value=expr(TouchHeight-TouchMargin-410*TouchScale)
+do SetX object="TouchHint" modification_sign="=" value=expr(TouchMargin+230*TouchScale)
+do SetY object="TouchHint" modification_sign="=" value=expr(TouchHeight-TouchMargin-158*TouchScale)
 do TextObject::SetWrapping object="TouchHint" wrapping=true
-do TextObject::WrappingWidth object="TouchHint" modification_sign="=" value=expr(TouchWidth-2*TouchMargin-240*TouchScale)
+do TextObject::WrappingWidth object="TouchHint" modification_sign="=" value=expr(TouchWidth-2*TouchMargin-470*TouchScale)
+do TextObject::Text::SetFontSize object="TouchHint" modification_sign="=" value=expr(17*TouchScale)
+
+@event aiGeneratedEventId="touch-build-hint-portrait"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchWidth) comparison_sign="<" second_expression=expr(TouchHeight)
+do SetX object="TouchHint" modification_sign="=" value=expr(TouchMargin)
+do SetY object="TouchHint" modification_sign="=" value=expr(TouchHeight-TouchMargin-390*TouchScale)
+do TextObject::WrappingWidth object="TouchHint" modification_sign="=" value=expr(TouchWidth-2*TouchMargin)
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
