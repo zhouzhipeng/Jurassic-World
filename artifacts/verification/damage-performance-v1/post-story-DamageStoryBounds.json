@@ -1,0 +1,73 @@
+{
+  "sourceRevision": "f2dd6a6f1f95fd215833095a14863e5cd107678a",
+  "engineRevision": "a1f76cc5aae42807cf43cf617eed3fd52ca17f51",
+  "operation_id": "gameplay-tests-ee049f6d-a3ab-414b-9ac2-c7fadc131088",
+  "status": "completed",
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "passed": 1,
+    "failed": 0,
+    "error": 0,
+    "stopped": 0,
+    "timeout": 0,
+    "all_passed": true
+  },
+  "results": [
+    {
+      "file": "tests/DamageStoryBounds.js",
+      "scope": "project",
+      "name": "DamageStoryBounds",
+      "status": "passed",
+      "framesExecuted": 371,
+      "durationMs": 21340,
+      "loadingMs": 6465,
+      "timeoutMs": 120000,
+      "hiddenStallMs": 0,
+      "gameTimeMs": 6183,
+      "assertions": [
+        {
+          "message": "The legacy story stays hidden in the touch HUD",
+          "passed": true
+        },
+        {
+          "message": "Hidden touch story does not append per frame: length=0",
+          "passed": true
+        },
+        {
+          "message": "Desktop story preserves the objective and companion status",
+          "passed": true
+        },
+        {
+          "message": "Desktop story contains one current status line after sustained play",
+          "passed": true
+        },
+        {
+          "message": "Returning to touch mode freezes hidden story content rather than growing it",
+          "passed": true
+        },
+        {
+          "message": "The current touch companion HUD remains populated",
+          "passed": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "consoleLogs": [],
+      "eventLog": [
+        {
+          "frame": 1,
+          "event": "sceneChanged",
+          "sceneName": "Game",
+          "cause": "harness"
+        }
+      ],
+      "profiles": [],
+      "performance": {
+        "avgStepMs": 22.88,
+        "worstStepMs": 2460
+      },
+      "screenshots": []
+    }
+  ]
+}

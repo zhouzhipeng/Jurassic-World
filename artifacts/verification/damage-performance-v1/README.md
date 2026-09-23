@@ -2,15 +2,39 @@
 
 来源：`issues/issue-20260922-083852-446.md`。**问题仍未达到验收要求：不能声明全程稳定 60 FPS。** 已修复受击路径中可复现的重复工作，保留失败的性能门槛和后续长帧证据。
 
+持续退化的根因已修复：隐藏的同伴任务文字不再无限追加。相同完整流程中，恢复阶段平均从 95.40 降至 14.70 ms，随后原报告视角从 278.19 降至 14.24 ms；这些是宿主机执行成本，不是呈现 FPS。严格逐帧预算仍失败，未放宽门槛。
+
 ## 受测版本
 
-- 游戏源码：`a28ac33784c140657521ca4fdf838630254110d5`，`Cover damage feedback transitions and reported mountain frame budget`。后续文档/证据提交不改变受测游戏源码。
+- 最终游戏源码：`f2dd6a6f1f95fd215833095a14863e5cd107678a`，`Stop hidden companion story text growing during touch combat`。后续文档/证据提交不改变受测游戏源码。
+- 此前修复阶段：`a28ac33784c140657521ca4fdf838630254110d5`。下文的 `final-*`、`calibrated-*` 和原始正常播放截图对应这个阶段，不能作为最终源码的验证。
 - 引擎文字修复：`113d5cb046547ee1e98ea903a917201554b6a6ee`，`Avoid redundant Pixi text rasterization for unchanged styles`。
 - 最终引擎：`a1f76cc5aae42807cf43cf617eed3fd52ca17f51`，`Keep paused preview redraws outside profiled game frames`，包含上述文字修复。
 - `intermediate.json` 的每个条目注明各自源码与引擎阶段；不能当作最终版本验收。原始引擎基线为 `689f44ee9af08c9e88aa11da062bd0597368fd85`。
 
+## 最终受击流程
+
+`post-story-DamagePerformance.json`：完整运行 1751 帧，16 项功能/有效测量断言通过，仅逐帧预算断言失败。使用同一引擎 `a1f76cc5aa`，修复前对照为 `calibrated-DamagePerformance.json`。
+
+| 场景 | 修复前平均 ms | 修复后平均 ms | 修复后最大 ms |
+| --- | ---: | ---: | ---: |
+| 触屏静止 | 14.10 | 14.77 | 21.8 |
+| 触屏受击蒙版 | 14.05 | 15.33 | 22.8 |
+| 桌面静止 | 15.37 | 14.94 | 64.5 |
+| 桌面受击蒙版 | 11.42 | 12.50 | 18.2 |
+| 连续真实撕咬 | 23.36 | 15.11 | 26.0 |
+| 攻击后恢复 | 95.40 | 14.70 | 22.7 |
+| 后续原报告山地受击反馈 | 278.19 | 14.24 | 19.7 |
+
+所有平均值现在低于 16.67 ms，但最大值并非如此。尤其桌面静止仍有一次 64.5 ms 长帧，所以不声明稳定 60 FPS。表中变化不是跨硬件或所有游戏状态的保证。
+
+最终源码的 `DamageStoryBounds`、`DamageFeedback`、`TouchResponsive` 分别 6、13、24 项断言全部通过，对应 `post-story-*.json`。此前镜头测试的结果仅针对其注明版本；后续修复没有再修改镜头代码。
+
+`post-story-FrameBudget60.json` 仍失败：营地移动平均 18.91 / 最大 74.3 ms，营地转镜头 18.14 / 74.3 ms，围栏移动 11.96 / 17.4 ms，山地转镜头 12.60 / 20.8 ms。营地基础渲染与事件成本仍是未满足全局 60 帧要求的一部分，与已修复的隐藏文字无限增长分别记录。
+
 ## 已落实的修复
 
+0. **持续退化根因：** `scenes/Game/external-events/HeyinPresentation.events` 的基础文本重置只在桌面模式运行，但危险、体力、掉队等追加事件也在触屏模式逐帧运行。新 HUD 虽然隐藏旧 `HeyinStory`，引擎仍排版不断增长的文字。统一这些追加和排布事件的 TouchMode 条件后，隐藏文本不再增长。`story-before.json` 在未修复源码 `f852a17` 上仅 120 帧就记录了 2802 字符并失败；`post-story-DamageStoryBounds.json` 在最终源码上 6 项断言通过，首次触屏段始终为 0 字符，桌面内容仍包含目标和当前状态，切回触屏后内容保持不变。
 1. `scenes/Game/external-events/HUDDamage.events`：触屏受击时不再每帧把蒙版从 Touch 移到 HUD 再移回 Touch。当前输入模式只选一个目标图层，同时保留视口覆盖与模式切换。
 2. `scenes/Game/external-events/TouchLayout.events`、`TouchPresentation.events`：移除随后被新 HUD 覆盖的旧生命值文本、重复字号与排布。受击通知保留内容，游戏中的排布由 `HudPresentation.events` 负责，菜单保留自己的排布。
 3. `scenes/Game/external-events/CameraVisibility.events`：头部探针已位于现有保守障碍包围盒内时，所有方向都有零距离命中，直接采用原算法的 10 单位最小净空；已得到最小净空时停止后续身体探针。镜头回归验证了平滑跟随、植物淡出与原有路线。
@@ -45,6 +69,6 @@
 
 ## 正常播放和剩余问题
 
-最终引擎在 3014×1800 原始画布、原报告位置/视角正常播放，设置无敌并持续 HitFlash，以隔离反馈显示；这不是自然攻击次数或伤害测试。两次稀疏 FPSCounter.MeasuredFPS 读数约 21.70、9.87；截图显示 13 FPS，见 `live-samples.json` 和 `live-attack.png`。调试器序列化和窗口焦点会影响测量，这些不是逐帧分布，但足以否定已稳定 60 FPS 的结论。截图已查看：人物、山地、HUD、红色受击蒙版正常显示；通知已经自然到期。预览截图超时一次，暂停并聚焦后重拍成功。
+**隐藏文本修复前**，`a28ac33` / 最终引擎在 3014×1800 原始画布、原报告位置/视角正常播放，设置无敌并持续 HitFlash，以隔离反馈显示；这不是自然攻击次数或伤害测试。两次稀疏 FPSCounter.MeasuredFPS 读数约 21.70、9.87；截图显示 13 FPS，见 `live-samples.json` 和 `live-attack.png`。调试器序列化和窗口焦点会影响测量，这些不是逐帧分布。截图已查看：人物、山地、HUD、红色受击蒙版正常显示；通知已经自然到期。预览截图超时一次，暂停并聚焦后重拍成功。
 
-仍需定位长流程中随运行时间增加的事件/渲染耗时，并降低营地等场景的基础成本。当前没有证据把剩余卡顿归因于某个具体缓存、垃圾回收或 GPU 问题，因此不作该归因。此问题保持未完成，不把功能通过、基础运行通过或独立短测改善当作 60 帧达标。
+临时引擎调用计时将根因收敛到 `Text.setText@HeyinStory`：恢复阶段 180 次调用累计约 6875 ms（约 38.2 ms/帧），镜头 JavaScript 同期约 1.9 ms/帧。见 `event-diagnostic-summary.json`。该诊断批次因附加计时开销达到超时，只有已结束的剖析窗口可用，不作为验收。临时插桩已全部撤销，引擎重新构建，随后才执行 `post-story-*` 最终回归。仍不得把功能通过或短测改善当作每帧 60 FPS 达标。

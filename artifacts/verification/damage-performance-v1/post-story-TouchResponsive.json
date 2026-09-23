@@ -1,0 +1,145 @@
+{
+  "sourceRevision": "f2dd6a6f1f95fd215833095a14863e5cd107678a",
+  "engineRevision": "a1f76cc5aae42807cf43cf617eed3fd52ca17f51",
+  "operation_id": "gameplay-tests-305dc884-7c60-47f7-8878-b88c1a4a0898",
+  "status": "completed",
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "passed": 1,
+    "failed": 0,
+    "error": 0,
+    "stopped": 0,
+    "timeout": 0,
+    "all_passed": true
+  },
+  "results": [
+    {
+      "file": "tests/TouchResponsive.js",
+      "scope": "project",
+      "name": "TouchResponsive",
+      "status": "passed",
+      "framesExecuted": 76,
+      "durationMs": 13486,
+      "loadingMs": 6494,
+      "timeoutMs": 300000,
+      "hiddenStallMs": 0,
+      "gameTimeMs": 1267,
+      "assertions": [
+        {
+          "message": "All play controls fit 1600 x 900",
+          "passed": true
+        },
+        {
+          "message": "Joystick and touch targets remain usable at 1600 x 900",
+          "passed": true
+        },
+        {
+          "message": "All eight building cards and the close button fit 1600 x 900",
+          "passed": true
+        },
+        {
+          "message": "Cards do not overlap at 1600 x 900",
+          "passed": true
+        },
+        {
+          "message": "Building controls fit without overlap at 1600 x 900",
+          "passed": true
+        },
+        {
+          "message": "Twenty square inventory targets fit 1600 x 900",
+          "passed": true
+        },
+        {
+          "message": "Inventory slots, actions and close button do not overlap at 1600 x 900",
+          "passed": true
+        },
+        {
+          "message": "Inventory labels and details stay on screen at 1600 x 900",
+          "passed": true
+        },
+        {
+          "message": "All play controls fit 1155.5555555555557 x 650",
+          "passed": true
+        },
+        {
+          "message": "Joystick and touch targets remain usable at 1155.5555555555557 x 650",
+          "passed": true
+        },
+        {
+          "message": "All eight building cards and the close button fit 1155.5555555555557 x 650",
+          "passed": true
+        },
+        {
+          "message": "Cards do not overlap at 1155.5555555555557 x 650",
+          "passed": true
+        },
+        {
+          "message": "Building controls fit without overlap at 1155.5555555555557 x 650",
+          "passed": true
+        },
+        {
+          "message": "Twenty square inventory targets fit 1155.5555555555557 x 650",
+          "passed": true
+        },
+        {
+          "message": "Inventory slots, actions and close button do not overlap at 1155.5555555555557 x 650",
+          "passed": true
+        },
+        {
+          "message": "Inventory labels and details stay on screen at 1155.5555555555557 x 650",
+          "passed": true
+        },
+        {
+          "message": "All play controls fit 2133.3333333333335 x 1200",
+          "passed": true
+        },
+        {
+          "message": "Joystick and touch targets remain usable at 2133.3333333333335 x 1200",
+          "passed": true
+        },
+        {
+          "message": "All eight building cards and the close button fit 2133.3333333333335 x 1200",
+          "passed": true
+        },
+        {
+          "message": "Cards do not overlap at 2133.3333333333335 x 1200",
+          "passed": true
+        },
+        {
+          "message": "Building controls fit without overlap at 2133.3333333333335 x 1200",
+          "passed": true
+        },
+        {
+          "message": "Twenty square inventory targets fit 2133.3333333333335 x 1200",
+          "passed": true
+        },
+        {
+          "message": "Inventory slots, actions and close button do not overlap at 2133.3333333333335 x 1200",
+          "passed": true
+        },
+        {
+          "message": "Inventory labels and details stay on screen at 2133.3333333333335 x 1200",
+          "passed": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "consoleLogs": [],
+      "eventLog": [
+        {
+          "frame": 1,
+          "event": "sceneChanged",
+          "sceneName": "Game",
+          "cause": "harness"
+        }
+      ],
+      "profiles": [],
+      "performance": {
+        "avgStepMs": 59.61,
+        "worstStepMs": 2279
+      },
+      "screenshots": []
+    }
+  ]
+}

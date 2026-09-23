@@ -1,0 +1,474 @@
+{
+  "sourceRevision": "a28ac33784c140657521ca4fdf838630254110d5",
+  "engineBaseRevision": "a1f76cc5aae42807cf43cf617eed3fd52ca17f51",
+  "instrumentation": "Temporary engine wrappers around generated scene/context functions and Text/Shape/TSL methods; removed and engine rebuilt before source f2dd6a6 tests. Diagnostic timings include instrumentation overhead and are not acceptance evidence.",
+  "operation_id": "gameplay-tests-1a1ce599-01ee-43fa-82df-6d1fba123b54",
+  "status": "completed",
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "passed": 0,
+    "failed": 0,
+    "error": 0,
+    "stopped": 0,
+    "timeout": 1,
+    "all_passed": false
+  },
+  "profiles": [
+    {
+      "startFrame": 218,
+      "endFrame": 338,
+      "avgStepTimeMs": 17.09,
+      "eventDiagnostics": [
+        {
+          "name": "eventsList233",
+          "calls": 120,
+          "total": 1031.699999332428,
+          "self": 280.09999918937683,
+          "max": 4.1000001430511475
+        },
+        {
+          "name": "Text.setText@WildHint",
+          "calls": 654,
+          "total": 142.00000095367432,
+          "self": 139.50000143051147,
+          "max": 0.7000000476837158
+        },
+        {
+          "name": "userFunc0x543a078",
+          "calls": 120,
+          "total": 82.50000166893005,
+          "self": 82.50000166893005,
+          "max": 1.1999998092651367
+        },
+        {
+          "name": "Text.setText@TouchQuest",
+          "calls": 360,
+          "total": 70.80000233650208,
+          "self": 69.4000015258789,
+          "max": 0.6000001430511475
+        },
+        {
+          "name": "sceneUpdate",
+          "calls": 120,
+          "total": 1086.199999332428,
+          "self": 54.5,
+          "max": 0.7000002861022949
+        },
+        {
+          "name": "eventsList65",
+          "calls": 480,
+          "total": 91.60000038146973,
+          "self": 41.00000214576721,
+          "max": 0.39999985694885254
+        },
+        {
+          "name": "Text.setText@HudContextDetail",
+          "calls": 240,
+          "total": 39.799999952316284,
+          "self": 39.00000023841858,
+          "max": 0.5999999046325684
+        },
+        {
+          "name": "Text.setText@Compass",
+          "calls": 240,
+          "total": 32.90000081062317,
+          "self": 32.8000009059906,
+          "max": 0.39999985694885254
+        },
+        {
+          "name": "eventsList21",
+          "calls": 17760,
+          "total": 28.300000190734863,
+          "self": 28.300000190734863,
+          "max": 0.20000004768371582
+        },
+        {
+          "name": "eventsList67",
+          "calls": 360,
+          "total": 38.200000047683716,
+          "self": 26.59999942779541,
+          "max": 0.40000009536743164
+        },
+        {
+          "name": "Text.setText@HudContextTitle",
+          "calls": 240,
+          "total": 24.90000033378601,
+          "self": 24.40000009536743,
+          "max": 0.39999985694885254
+        },
+        {
+          "name": "eventsList22",
+          "calls": 120,
+          "total": 43.299999475479126,
+          "self": 14.999999284744263,
+          "max": 0.39999985694885254
+        }
+      ]
+    },
+    {
+      "startFrame": 551,
+      "endFrame": 671,
+      "avgStepTimeMs": 20.09,
+      "eventDiagnostics": [
+        {
+          "name": "eventsList233",
+          "calls": 120,
+          "total": 979.2000007629395,
+          "self": 282.7999994754791,
+          "max": 3.6000006198883057
+        },
+        {
+          "name": "Text.setText@WildHint",
+          "calls": 720,
+          "total": 183.20000100135803,
+          "self": 180.3000009059906,
+          "max": 1
+        },
+        {
+          "name": "userFunc0x543a078",
+          "calls": 120,
+          "total": 122.6999990940094,
+          "self": 122.6999990940094,
+          "max": 4.299999952316284
+        },
+        {
+          "name": "sceneUpdate",
+          "calls": 120,
+          "total": 1046.2000002861023,
+          "self": 66.99999952316284,
+          "max": 0.9000000953674316
+        },
+        {
+          "name": "Text.setWrappingWidth@HeyinStory",
+          "calls": 240,
+          "total": 55.900001525878906,
+          "self": 55.400001764297485,
+          "max": 0.5999999046325684
+        },
+        {
+          "name": "Text.setText@Compass",
+          "calls": 240,
+          "total": 42.40000057220459,
+          "self": 41.39999985694885,
+          "max": 0.5
+        },
+        {
+          "name": "eventsList65",
+          "calls": 480,
+          "total": 103.50000071525574,
+          "self": 40.60000038146973,
+          "max": 0.20000004768371582
+        },
+        {
+          "name": "eventsList67",
+          "calls": 360,
+          "total": 58.79999852180481,
+          "self": 30.599998235702515,
+          "max": 0.20000004768371582
+        },
+        {
+          "name": "userFunc0x4981e40",
+          "calls": 120,
+          "total": 16.70000171661377,
+          "self": 16.70000171661377,
+          "max": 0.3000001907348633
+        },
+        {
+          "name": "eventsList62",
+          "calls": 120,
+          "total": 46.700000286102295,
+          "self": 9.800000667572021,
+          "max": 0.20000004768371582
+        },
+        {
+          "name": "eventsList63",
+          "calls": 120,
+          "total": 30.40000033378601,
+          "self": 9.799999952316284,
+          "max": 0.20000028610229492
+        },
+        {
+          "name": "eventsList183",
+          "calls": 4440,
+          "total": 7.200000762939453,
+          "self": 7.200000762939453,
+          "max": 0.10000014305114746
+        }
+      ]
+    },
+    {
+      "startFrame": 671,
+      "endFrame": 791,
+      "avgStepTimeMs": 13.06,
+      "eventDiagnostics": [
+        {
+          "name": "eventsList233",
+          "calls": 120,
+          "total": 675.4000022411346,
+          "self": 195.79999899864197,
+          "max": 2.8000001907348633
+        },
+        {
+          "name": "Text.setText@WildHint",
+          "calls": 720,
+          "total": 140.49999928474426,
+          "self": 139.19999885559082,
+          "max": 0.40000009536743164
+        },
+        {
+          "name": "userFunc0x543a078",
+          "calls": 120,
+          "total": 54.900001525878906,
+          "self": 54.900001525878906,
+          "max": 0.7999999523162842
+        },
+        {
+          "name": "sceneUpdate",
+          "calls": 120,
+          "total": 725.3999984264374,
+          "self": 49.999996185302734,
+          "max": 0.6999998092651367
+        },
+        {
+          "name": "Text.setWrappingWidth@HeyinStory",
+          "calls": 240,
+          "total": 41.79999852180481,
+          "self": 41.29999876022339,
+          "max": 0.40000009536743164
+        },
+        {
+          "name": "eventsList65",
+          "calls": 480,
+          "total": 83.00000023841858,
+          "self": 35.50000214576721,
+          "max": 0.2999999523162842
+        },
+        {
+          "name": "Text.setText@Compass",
+          "calls": 240,
+          "total": 30.499999523162842,
+          "self": 30.09999918937683,
+          "max": 0.3000001907348633
+        },
+        {
+          "name": "eventsList67",
+          "calls": 360,
+          "total": 46.29999804496765,
+          "self": 24.49999690055847,
+          "max": 0.20000004768371582
+        },
+        {
+          "name": "userFunc0x4981e40",
+          "calls": 120,
+          "total": 8.499999284744263,
+          "self": 8.499999284744263,
+          "max": 0.20000004768371582
+        },
+        {
+          "name": "eventsList62",
+          "calls": 120,
+          "total": 35.100001096725464,
+          "self": 7.300000190734863,
+          "max": 0.20000004768371582
+        },
+        {
+          "name": "eventsList63",
+          "calls": 120,
+          "total": 23.799999713897705,
+          "self": 6.399999141693115,
+          "max": 0.20000004768371582
+        },
+        {
+          "name": "eventsList213",
+          "calls": 3840,
+          "total": 4.500000238418579,
+          "self": 4.500000238418579,
+          "max": 0.10000014305114746
+        }
+      ]
+    },
+    {
+      "startFrame": 1061,
+      "endFrame": 1361,
+      "avgStepTimeMs": 25.43,
+      "eventDiagnostics": [
+        {
+          "name": "Text.setText@HeyinStory",
+          "calls": 300,
+          "total": 2283.2000002861023,
+          "self": 2281.7000000476837,
+          "max": 49.30000019073486
+        },
+        {
+          "name": "eventsList233",
+          "calls": 300,
+          "total": 4735.5000030994415,
+          "self": 705.3000056743622,
+          "max": 13.90000057220459
+        },
+        {
+          "name": "userFunc0x543a078",
+          "calls": 300,
+          "total": 272.39999985694885,
+          "self": 272.39999985694885,
+          "max": 21.59999990463257
+        },
+        {
+          "name": "Text.setText@WildHint",
+          "calls": 900,
+          "total": 216.10000085830688,
+          "self": 213.60000205039978,
+          "max": 5.5
+        },
+        {
+          "name": "Text.setText@TouchQuest",
+          "calls": 900,
+          "total": 186.7000036239624,
+          "self": 184.80000376701355,
+          "max": 5.299999952316284
+        },
+        {
+          "name": "Text.setText@HudContextDetail",
+          "calls": 900,
+          "total": 148.9999988079071,
+          "self": 145.99999904632568,
+          "max": 5.299999952316284
+        },
+        {
+          "name": "sceneUpdate",
+          "calls": 300,
+          "total": 4875.599998950958,
+          "self": 140.09999585151672,
+          "max": 0.8000001907348633
+        },
+        {
+          "name": "Text.setText@Compass",
+          "calls": 600,
+          "total": 80.99999856948853,
+          "self": 79.0999984741211,
+          "max": 0.5
+        },
+        {
+          "name": "eventsList21",
+          "calls": 44400,
+          "total": 66.00000071525574,
+          "self": 66.00000071525574,
+          "max": 0.3000001907348633
+        },
+        {
+          "name": "Text.setText@HudContextTitle",
+          "calls": 600,
+          "total": 67.70000171661377,
+          "self": 65.20000100135803,
+          "max": 5.200000047683716
+        },
+        {
+          "name": "eventsList65",
+          "calls": 600,
+          "total": 129.8999969959259,
+          "self": 53.39999604225159,
+          "max": 1.2000000476837158
+        },
+        {
+          "name": "eventsList22",
+          "calls": 300,
+          "total": 107.90000081062317,
+          "self": 41.90000009536743,
+          "max": 0.5
+        }
+      ]
+    },
+    {
+      "startFrame": 1361,
+      "endFrame": 1541,
+      "avgStepTimeMs": 86.5,
+      "eventDiagnostics": [
+        {
+          "name": "Text.setText@HeyinStory",
+          "calls": 180,
+          "total": 6875.700000286102,
+          "self": 6875.200000047684,
+          "max": 142
+        },
+        {
+          "name": "Text.setText@HudContextTitle",
+          "calls": 360,
+          "total": 721.3000001907349,
+          "self": 719.8000011444092,
+          "max": 16.5
+        },
+        {
+          "name": "Text.setText@HudContextDetail",
+          "calls": 540,
+          "total": 717,
+          "self": 715.5000002384186,
+          "max": 10.299999952316284
+        },
+        {
+          "name": "eventsList233",
+          "calls": 180,
+          "total": 10662.999998092651,
+          "self": 598.1000010967255,
+          "max": 19.600000381469727
+        },
+        {
+          "name": "Text.setText@TouchQuest",
+          "calls": 540,
+          "total": 539.7000033855438,
+          "self": 538.0000033378601,
+          "max": 10.699999809265137
+        },
+        {
+          "name": "userFunc0x543a078",
+          "calls": 180,
+          "total": 342.59999799728394,
+          "self": 342.59999799728394,
+          "max": 21.90000009536743
+        },
+        {
+          "name": "Text.setText@WildHint",
+          "calls": 540,
+          "total": 161.0999984741211,
+          "self": 158.89999866485596,
+          "max": 5.6000001430511475
+        },
+        {
+          "name": "sceneUpdate",
+          "calls": 180,
+          "total": 10769.699999332428,
+          "self": 106.70000123977661,
+          "max": 1.5999999046325684
+        },
+        {
+          "name": "Text.setText@Compass",
+          "calls": 360,
+          "total": 66.59999942779541,
+          "self": 65.20000004768372,
+          "max": 5.3999998569488525
+        },
+        {
+          "name": "eventsList21",
+          "calls": 26640,
+          "total": 46.79999923706055,
+          "self": 46.79999923706055,
+          "max": 0.2999999523162842
+        },
+        {
+          "name": "eventsList65",
+          "calls": 360,
+          "total": 95.00000238418579,
+          "self": 36.30000042915344,
+          "max": 0.2999999523162842
+        },
+        {
+          "name": "userFunc0x4981e40",
+          "calls": 180,
+          "total": 31.700002431869507,
+          "self": 31.700002431869507,
+          "max": 5.400000095367432
+        }
+      ]
+    }
+  ]
+}

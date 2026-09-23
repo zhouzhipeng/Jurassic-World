@@ -1,0 +1,101 @@
+{
+  "sourceRevision": "f2dd6a6f1f95fd215833095a14863e5cd107678a",
+  "engineRevision": "a1f76cc5aae42807cf43cf617eed3fd52ca17f51",
+  "operation_id": "gameplay-tests-9204fc35-d7a1-4ed2-aa21-e1d482afc77f",
+  "status": "completed",
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "passed": 1,
+    "failed": 0,
+    "error": 0,
+    "stopped": 0,
+    "timeout": 0,
+    "all_passed": true
+  },
+  "results": [
+    {
+      "file": "tests/DamageFeedback.js",
+      "scope": "project",
+      "name": "DamageFeedback",
+      "status": "passed",
+      "framesExecuted": 341,
+      "durationMs": 18645,
+      "loadingMs": 3956,
+      "timeoutMs": 300000,
+      "hiddenStallMs": 0,
+      "gameTimeMs": 5683,
+      "assertions": [
+        {
+          "message": "Real raptor bite applies exactly 12 damage",
+          "passed": true
+        },
+        {
+          "message": "Real bite displays the touch damage overlay",
+          "passed": true
+        },
+        {
+          "message": "Attack notification remains visible with the actual message",
+          "passed": true
+        },
+        {
+          "message": "Health HUD shows the damaged health",
+          "passed": true
+        },
+        {
+          "message": "Actual survivor plays Hurt",
+          "passed": true
+        },
+        {
+          "message": "The same bite does not apply damage every frame",
+          "passed": true
+        },
+        {
+          "message": "Active overlay follows input mode 0",
+          "passed": true
+        },
+        {
+          "message": "Active overlay follows input mode 1",
+          "passed": true
+        },
+        {
+          "message": "Active overlay resizes with the viewport",
+          "passed": true
+        },
+        {
+          "message": "Attack notification remains within the resized viewport",
+          "passed": true
+        },
+        {
+          "message": "Pause hides the damage overlay",
+          "passed": true
+        },
+        {
+          "message": "Overlay and notification both expire after recovery",
+          "passed": true
+        },
+        {
+          "message": "Recovery exits Hurt animation",
+          "passed": true
+        }
+      ],
+      "errors": [],
+      "warnings": [],
+      "consoleLogs": [],
+      "eventLog": [
+        {
+          "frame": 1,
+          "event": "sceneChanged",
+          "sceneName": "Game",
+          "cause": "harness"
+        }
+      ],
+      "profiles": [],
+      "performance": {
+        "avgStepMs": 25.67,
+        "worstStepMs": 3063
+      },
+      "screenshots": []
+    }
+  ]
+}
