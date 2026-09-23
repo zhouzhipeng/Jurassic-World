@@ -31,8 +31,8 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Sailing" comparison_sign="=" value=1
 if NumberVariable variable="BoatToggleRequest" comparison_sign="=" value=1
 if NumberVariable variable="BoatCooldown" comparison_sign="<=" value=0
-if PosX object="Rowboat" comparison_sign=">=" value=6850
-if PosX object="Rowboat" comparison_sign="<=" value=6920
+if PosX object="Rowboat" comparison_sign=">=" value=8650
+if PosX object="Rowboat" comparison_sign="<=" value=8720
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Rowboat.Y()+1000)) comparison_sign="<=" second_expression=280
 do SetNumberVariable variable="Sailing" modification_sign="=" value=0
 do SetNumberVariable variable="IsletVisit" modification_sign="=" value=1
@@ -104,7 +104,7 @@ if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.X()) 
 or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.X()) comparison_sign=">" second_expression=11000
 or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.Y()) comparison_sign="<" second_expression=-4500
 or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.Y()) comparison_sign=">" second_expression=3000
-or BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Rowboat.X(),Rowboat.Y(),7700,-1000)) comparison_sign="<" second_expression=780
+or BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Rowboat.X(),Rowboat.Y(),9500,-1000)) comparison_sign="<" second_expression=780
 do SetX object="Rowboat" modification_sign="=" value=expr(BoatPreviousX)
 do SetY object="Rowboat" modification_sign="=" value=expr(BoatPreviousY)
 
@@ -121,7 +121,7 @@ do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=0
 @event aiGeneratedEventId="islet-shore-boundary"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="IsletVisit" comparison_sign="=" value=1
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),7700,-1000)) comparison_sign=">" second_expression=580
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),9500,-1000)) comparison_sign=">" second_expression=580
 do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
 do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 
@@ -129,7 +129,7 @@ do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="IsletVisit" comparison_sign="=" value=1
 if NumberVariable variable="IsletExplored" comparison_sign="=" value=0
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),7700,-1000)) comparison_sign="<" second_expression=250
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),9500,-1000)) comparison_sign="<" second_expression=250
 do SetNumberVariable variable="IsletExplored" modification_sign="=" value=1
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="发现近海小岛的棕榈林！西侧停着小船，可随时返航。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
@@ -138,12 +138,12 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Sailing" comparison_sign="=" value=0
 if NumberVariable variable="IsletVisit" comparison_sign="=" value=0
-if PosX object="Player3D" comparison_sign=">" value=7000
-if PosX object="Player3D" comparison_sign="<" value=8300
+if PosX object="Player3D" comparison_sign=">" value=8800
+if PosX object="Player3D" comparison_sign="<" value=10100
 if PosY object="Player3D" comparison_sign=">" value=-1600
 if PosY object="Player3D" comparison_sign="<" value=-400
 do SetNumberVariable variable="IsletVisit" modification_sign="=" value=1
-do SetX object="Rowboat" modification_sign="=" value=6900
+do SetX object="Rowboat" modification_sign="=" value=8700
 do SetY object="Rowboat" modification_sign="=" value=-1000
 
 @event aiGeneratedEventId="boat-restore-at-sea"

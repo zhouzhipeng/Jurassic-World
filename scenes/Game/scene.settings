@@ -2435,7 +2435,7 @@ at = [0, 0, -80]
 id = "64ed3921-c29c-4a6f-b95b-49c727b8939a"
 object = "NearshoreIslet"
 layer = "world3d"
-at = [7700, -1000, 0]
+at = [9500, -1000, 0]
 
 [[layout.instances]]
 id = "e893f24b-fd35-4b74-acb2-b14740804a44"
