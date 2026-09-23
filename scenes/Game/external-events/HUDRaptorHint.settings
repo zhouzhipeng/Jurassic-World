@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDRaptorHint"
+description = "Show raptor interaction hint"
+eventsLogic = "Display the raptor context prompt in exploration mode."

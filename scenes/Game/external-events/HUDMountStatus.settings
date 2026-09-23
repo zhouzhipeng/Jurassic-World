@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDMountStatus"
+description = "Show mount status"
+eventsLogic = "Update riding and mount indicators."

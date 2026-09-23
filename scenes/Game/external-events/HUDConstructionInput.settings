@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDConstructionInput"
+description = "Construction input"
+eventsLogic = "Construction input"

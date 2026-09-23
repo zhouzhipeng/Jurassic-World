@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HeyinSurvival"
+description = "Apply Heyin survival behavior"
+eventsLogic = "Update initialized companion survival state."

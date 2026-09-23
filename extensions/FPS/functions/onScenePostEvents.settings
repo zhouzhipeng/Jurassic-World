@@ -1,9 +1,10 @@
 kind = "function"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 1
 fullName = ""
 functionType = "Action"
 name = "onScenePostEvents"
+description = "Maintain the one-second frame timestamp window after scene events."
 sentence = ""
 parameters = [ ]
 extension = "FPS"

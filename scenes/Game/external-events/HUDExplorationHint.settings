@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDExplorationHint"
+description = "Show exploration hints"
+eventsLogic = "Display context hints during exploration."

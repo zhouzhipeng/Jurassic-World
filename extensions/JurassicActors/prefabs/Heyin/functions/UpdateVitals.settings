@@ -1,5 +1,5 @@
 kind = "function"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 3
 description = "Update one companion: attention, following, collision, fatigue and animation."
 fullName = "UpdateVitals"

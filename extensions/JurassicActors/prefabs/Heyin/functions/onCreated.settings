@@ -1,5 +1,5 @@
 kind = "function"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 0
 description = "Own Heyin child presentation and initialization."
 fullName = "onCreated"

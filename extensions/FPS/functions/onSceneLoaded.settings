@@ -1,9 +1,10 @@
 kind = "function"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 0
 fullName = ""
 functionType = "Action"
 name = "onSceneLoaded"
+description = "Initialize frame timestamp history when a scene loads."
 sentence = ""
 parameters = [ ]
 extension = "FPS"

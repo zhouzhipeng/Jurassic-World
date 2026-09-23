@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDActionBar"
+description = "Interactive hotbar: click or number keys, dispatch once"
+eventsLogic = "Interactive hotbar: click or number keys, dispatch once"

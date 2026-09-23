@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HudPresentation"
+description = "Present touch and desktop HUD"
+eventsLogic = "Refresh visibility and layout of HUD presentation."

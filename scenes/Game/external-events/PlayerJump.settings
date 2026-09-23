@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "PlayerJump"
+description = "Grounded jumps: one press, gravity, landing on the current support"
+eventsLogic = "Grounded jumps: one press, gravity, landing on the current support."

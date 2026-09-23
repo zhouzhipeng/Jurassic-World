@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDHarvestFeedback"
+description = "Show gathering feedback"
+eventsLogic = "Update harvest messages and resource prompts."

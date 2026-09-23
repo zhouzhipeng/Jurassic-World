@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDLoadStatus"
+description = "Restore HUD load state"
+eventsLogic = "Invoke restore fragments and present load completion status."

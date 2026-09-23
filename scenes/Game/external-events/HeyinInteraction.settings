@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HeyinInteraction"
+description = "Handle player interaction with Heyin"
+eventsLogic = "Process contextual input and advance companion interaction state."

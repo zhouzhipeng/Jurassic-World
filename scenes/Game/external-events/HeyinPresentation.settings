@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HeyinPresentation"
+description = "Present Heyin story and status"
+eventsLogic = "Display stage-specific companion text and visual feedback."

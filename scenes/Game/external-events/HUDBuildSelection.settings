@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDBuildSelection"
+description = "Select construction pieces"
+eventsLogic = "Handle build option selection in the HUD."

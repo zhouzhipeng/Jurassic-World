@@ -1,5 +1,5 @@
 kind = "function"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 1
 description = "Own Survivor child presentation and initialization."
 fullName = "doStepPostEvents"

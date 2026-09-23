@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "TimeRestore"
+description = "Load before HUDLoadStatus consumes Action=10"
+eventsLogic = "Load before HUDLoadStatus consumes Action=10. Saves from before the calendar begin on Day 1 at 08:00."

@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "FireParticles"
+description = "Native 3D embers: bounded lifetime/count, depth-tested in World3D, no saved cosmetic state"
+eventsLogic = "Native 3D embers: bounded lifetime/count, depth-tested in World3D, no saved cosmetic state."

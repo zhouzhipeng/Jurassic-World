@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDDeath"
+description = "Present the death state"
+eventsLogic = "Show death UI when the player is marked dead."

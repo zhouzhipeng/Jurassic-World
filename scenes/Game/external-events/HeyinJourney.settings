@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HeyinJourney"
+description = "Advance Heyin journey state"
+eventsLogic = "Update journey progress while the player is in exploration mode."

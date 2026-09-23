@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HeyinRestore"
+description = "Restore Heyin state from save data"
+eventsLogic = "Read saved companion progress during the load action."

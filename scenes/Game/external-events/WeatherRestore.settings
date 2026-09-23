@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "WeatherRestore"
+description = "Load before HUDLoadStatus consumes Action=10"
+eventsLogic = "Load before HUDLoadStatus consumes Action=10. Older saves fall back to a fresh clear spell."

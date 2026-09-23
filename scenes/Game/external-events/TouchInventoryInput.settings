@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "TouchInventoryInput"
+description = "Handle touch inventory input"
+eventsLogic = "Process inventory selection and use on touch devices."

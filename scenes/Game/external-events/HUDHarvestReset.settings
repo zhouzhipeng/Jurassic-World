@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDHarvestReset"
+description = "Reset harvest feedback"
+eventsLogic = "Clear harvest-related HUD state after use."

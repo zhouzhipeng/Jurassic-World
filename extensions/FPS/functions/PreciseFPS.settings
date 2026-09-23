@@ -1,5 +1,5 @@
 kind = "function"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 3
 description = "Frames per second (FPS) during the last second. [Deprecated]"
 fullName = "Frames Per Second (FPS) [Deprecated]"

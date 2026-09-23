@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "TouchContext"
+description = "Resolve touch context controls"
+eventsLogic = "Update contextual touch buttons and interaction prompts."

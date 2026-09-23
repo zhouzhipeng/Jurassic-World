@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "SurvivalRestore"
+description = "Load defaults support older saves; world objects restore after building reconstruction"
+eventsLogic = "Load defaults support older saves; world objects restore after building reconstruction"

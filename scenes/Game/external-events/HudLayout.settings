@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HudLayout"
+description = "Lay out touch HUD elements"
+eventsLogic = "Position touch controls when touch mode is active."

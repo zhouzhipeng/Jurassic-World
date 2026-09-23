@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDStegosaurHint"
+description = "Show stegosaur interaction hint"
+eventsLogic = "Display the stegosaur context prompt in exploration mode."

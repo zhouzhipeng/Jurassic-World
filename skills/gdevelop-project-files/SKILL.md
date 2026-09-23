@@ -1,6 +1,6 @@
 ---
 name: gdevelop-project-files
-description: Create, inspect, modify, refactor, and verify GDevelop games through the version 6 multi-file project sources (`project.gdevelop`, `constants.toml`, `.settings`, `.events`, `tests.settings`, and flat `tests/*.js` scripts). Use for any GDevelop project, scene, object, behavior, prefab, extension, third-party extension installation, reusable-component refactor, variable, resource, GLB animation/bone-name inspection, TSL material (`.tsl.ts`) authoring and GLB binding, Constants/placeholder, signal-system, SpringBoneDynamics hair/chest secondary bone animation, layout, event-sheet, JavaScript-event, or gameplay-test work. Read the generated authoring catalogs and public JavaScript/TSL declarations when relevant; regenerate catalogs after large structural changes, then validate direct edits before reload and runtime verification.
+description: Create, inspect, modify, refactor, and verify GDevelop games through the version 7 multi-file project sources (`project.gdevelop`, `constants.toml`, `.settings`, `.events`, `tests.settings`, and flat `tests/*.js` scripts). Use for any GDevelop project, scene, object, behavior, prefab, extension, third-party extension installation, reusable-component refactor, variable, resource, GLB animation/bone-name inspection, TSL material (`.tsl.ts`) authoring and GLB binding, Constants/placeholder, signal-system, SpringBoneDynamics hair/chest secondary bone animation, layout, event-sheet, JavaScript-event, or gameplay-test work. Read the generated authoring catalogs and public JavaScript/TSL declarations when relevant; regenerate catalogs after large structural changes, then validate direct edits before reload and runtime verification.
 ---
 
 # GDevelop Project Files
@@ -191,7 +191,7 @@ generated compatibility/runtime output, not multi-file source.
   `layoutContexts` entry and `layoutTables` definitions.
 - `.events`: IfDo DSL only. Do not embed TOML or raw event JSON.
 - `tests.settings`: the single root manifest for project and extension gameplay
-  tests. Keep `kind = "tests"` and `settingsFormatVersion = 6`. Each `[[tests]]`
+  tests. Keep `kind = "tests"` and `settingsFormatVersion = 7`. Each `[[tests]]`
   record has `scope`, container-local contiguous `order`, `name`, `type`,
   `description`, and a scheme-free canonical `file`; extension-owned records
   also have `extension`. Use `tests = [ ]` for no tests. Never write the retired
@@ -260,9 +260,9 @@ Give each real scene, extension, prefab, or behavior function one same-stem
 settings never contain an events URI. Scenes use the reserved lifecycle roles
 `sceneLoad`, `sceneSignal`, `sceneUpdate`, and `sceneUnload`; infer their presence
 from settings/events pairs, never from a `sceneLifecycleFunctions` settings key.
-External Events are plain event fragments, not functions. Each is just
-`scenes/<Scene>/external-events/<Fragment>.events`. Read `eventFileKinds` in
-`settings-catalog.json` for this source contract. Never create fragment settings,
+External Events are plain event fragments, not functions. Each has a same-stem
+`scenes/<Scene>/external-events/<Fragment>.settings` and `.events` pair. Read
+`eventFileKinds` in `settings-catalog.json` for this source contract. Never create
 function folders, parameter declarations, or a registration manifest.
 Store editable prefab/behavior grouping in the function settings `folder` array.
 Lifecycle function names, order, roles, types, and parameters are fixed and must
@@ -283,6 +283,7 @@ scenes/<Scene>/functions/sceneUpdate.settings
 scenes/<Scene>/functions/sceneUpdate.events
 scenes/<Scene>/functions/<OptionalLifecycle>.settings # only when non-empty
 scenes/<Scene>/functions/<OptionalLifecycle>.events
+scenes/<Scene>/external-events/<Fragment>.settings
 scenes/<Scene>/external-events/<Fragment>.events
 scenes/<Scene>/external-layout/<External>.settings
 extensions/<Extension>/extension.settings
@@ -300,6 +301,7 @@ extensions/<Extension>/behaviors/<Behavior>/functions/<Function>.events
 .gdevelop/instructions-catalog.json
 .gdevelop/deprecated-instructions-catalog.json # legacy read/edit only; never for new events
 .gdevelop/settings-catalog.json
+.gdevelop/project-module-map.json
 .gdevelop/runtime-api.d.ts
 .gdevelop/project-api.d.ts
 .gdevelop/harness-api.d.ts
@@ -311,14 +313,16 @@ Do not create optional grouping folders. Canonical component directories are
 fixed; object/function grouping belongs in each settings file's `folder`
 array. Settings files never reference other settings files.
 
-In format version 6, each direct `.events` child of `external-events/` declares
-a fragment. Its decoded filename supplies its project-unique NFC name; the
-physical scene supplies its authoring context. Names must also be unique ignoring
+In format version 7, each same-stem `.settings` and `.events` pair under
+`external-events/` declares a fragment. Its decoded filename supplies its
+project-unique NFC name; the physical scene supplies its authoring context. Names must also be unique ignoring
 case. There is no fragment `order`: display is sorted by name, while execution
 follows Link positions. `link "Name"` expands the same body in every
 caller lifecycle and inherits parent conditions, picked objects and local
-variables. Empty, comment-only and unreferenced fragments are valid. Only real
-functions require matching `.settings` files. Declare an external layout
+variables. Empty, comment-only and unreferenced fragments are valid. Fragments
+require matching `.settings` files with `kind = "externalEvents"`, `name`,
+`description`, and `eventsLogic`; these are documentation, not functions.
+Declare an external layout
 independently with `scenes/<Scene>/external-layout/<External>.settings`; it owns
 its identity, project-wide contiguous `order`, and embedded `[layout]` subtree.
 Do not write `externalEventFiles`, `externalLayoutFiles`, layout URIs,
@@ -346,7 +350,7 @@ Load only the references required by the task:
 - Read
   [references/gameplay-test-harness.md](references/gameplay-test-harness.md)
   in full before creating or materially modifying `tests.settings` or any
-  `tests/*.js` script. Use the exact flat version 6 file identity, read the
+  `tests/*.js` script. Use the exact flat version 7 file identity, read the
   generated `.gdevelop/harness-api.d.ts` contract, and complete its
   validation, reload, run, and result-polling workflow.
 - Read [references/tsl-materials.md](references/tsl-materials.md) in full

@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDTyrannosaurHint"
+description = "Show tyrannosaur interaction hint"
+eventsLogic = "Display the tyrannosaur context prompt in exploration mode."

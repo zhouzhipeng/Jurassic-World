@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "TouchInput"
+description = "Process touch input"
+eventsLogic = "Read touch presses and dispatch actions, including linked inventory input."

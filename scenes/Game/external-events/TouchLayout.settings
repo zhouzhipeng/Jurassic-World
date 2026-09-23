@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "TouchLayout"
+description = "Position touch controls"
+eventsLogic = "Maintain touch UI geometry and linked presentation updates."

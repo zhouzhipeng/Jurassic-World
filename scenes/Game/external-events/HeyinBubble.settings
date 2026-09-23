@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HeyinBubble"
+description = "Show Heyin dialogue bubbles"
+eventsLogic = "Update speech bubble visibility and text around the Heyin companion."

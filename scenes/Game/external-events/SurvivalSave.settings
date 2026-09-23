@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "SurvivalSave"
+description = "Additional survival save data; native storage and per-fire/per-seam identity"
+eventsLogic = "Additional survival save data; native storage and per-fire/per-seam identity"

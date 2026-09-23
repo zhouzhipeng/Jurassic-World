@@ -1,5 +1,5 @@
 kind = "prefab"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 2
 defaultName = "Triceratops"
 description = "Reusable Triceratops model, instance state and animation controller."

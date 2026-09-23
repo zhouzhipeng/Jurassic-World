@@ -1,5 +1,5 @@
 kind = "prefab"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 4
 defaultName = "Raptor"
 description = "Reusable Raptor model, instance state and animation controller."

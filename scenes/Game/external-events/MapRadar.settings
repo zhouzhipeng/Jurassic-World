@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "MapRadar"
+description = "North-up terrain radar, player facing, camp and selected Q navigation target"
+eventsLogic = "North-up terrain radar, player facing, camp and selected Q navigation target."

@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "CompanionSteering"
+description = "Tamed triceratops follows the player; stay command holds position"
+eventsLogic = "Tamed triceratops follows the player; stay command holds position"

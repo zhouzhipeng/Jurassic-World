@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "CameraVisibility"
+description = "Resolve visibility after all movement, riding, floor and construction updates"
+eventsLogic = "Resolve visibility after all movement, riding, floor and construction updates. Keep the requested orbit separate from collision response."

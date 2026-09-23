@@ -1,5 +1,5 @@
 kind = "scene"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 0
 disableInputWhenNotFocused = false
 mangledName = "Game"

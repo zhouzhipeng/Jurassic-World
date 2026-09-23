@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "SurvivalRestoreWorld"
+description = "Apply persisted fire queues, ore cooldowns, companion state and player position"
+eventsLogic = "Apply persisted fire queues, ore cooldowns, companion state and player position"

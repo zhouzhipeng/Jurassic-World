@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "TouchActions"
+description = "Dispatch touch actions"
+eventsLogic = "Translate touch controls into gameplay actions."

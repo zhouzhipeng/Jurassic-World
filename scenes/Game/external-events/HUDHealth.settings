@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDHealth"
+description = "Display player health"
+eventsLogic = "Refresh the health HUD from current player state."

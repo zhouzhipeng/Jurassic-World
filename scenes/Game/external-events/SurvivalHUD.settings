@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "SurvivalHUD"
+description = "Survival inventory, fire/forge prompts, companion commands and manual navigation"
+eventsLogic = "Survival inventory, fire/forge prompts, companion commands and manual navigation"

@@ -1,5 +1,5 @@
 kind = "behavior"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 0
 description = "Makes a text object display the current FPS."
 fullName = "FPS Displayer"

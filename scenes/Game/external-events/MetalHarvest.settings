@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "MetalHarvest"
+description = "Copper-bearing stone: slower extraction and a longer replenishment period"
+eventsLogic = "Copper-bearing stone: slower extraction and a longer replenishment period"

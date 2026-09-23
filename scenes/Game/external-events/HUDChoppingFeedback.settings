@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDChoppingFeedback"
+description = "Show wood harvesting feedback"
+eventsLogic = "Display the target sapling and chopping feedback."

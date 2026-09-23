@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDMountInput"
+description = "Handle mount input"
+eventsLogic = "Process mount controls outside build mode."

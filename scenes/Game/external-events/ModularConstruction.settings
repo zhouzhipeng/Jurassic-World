@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "ModularConstruction"
+description = "Test the building footprint against the dinosaur's oriented body bounds on all four separating axes"
+eventsLogic = "Test the building footprint against the dinosaur's oriented body bounds on all four separating axes. HalfLength is the longitudinal extent, not an extra radius in every direction."

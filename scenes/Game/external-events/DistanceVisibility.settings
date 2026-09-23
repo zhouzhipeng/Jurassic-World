@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "DistanceVisibility"
+description = "Distance culling only affects rendering; health, resources and save identities survive"
+eventsLogic = "Distance culling only affects rendering; health, resources and save identities survive."

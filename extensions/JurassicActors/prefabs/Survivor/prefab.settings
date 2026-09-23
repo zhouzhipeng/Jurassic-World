@@ -1,5 +1,5 @@
 kind = "prefab"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 0
 defaultName = "Player3D"
 description = "Reusable Survivor model, instance state and animation controller."

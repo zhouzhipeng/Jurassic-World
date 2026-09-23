@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "CoastalEnvironment"
+description = "Camera-centred panoramic sky and weather-linked animated coastal water"
+eventsLogic = "Camera-centred panoramic sky and weather-linked animated coastal water."

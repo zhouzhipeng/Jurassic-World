@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HeyinContext"
+description = "Select Heyin context actions"
+eventsLogic = "Read Heyin stage and player state to choose available interactions."

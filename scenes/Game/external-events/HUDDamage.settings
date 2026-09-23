@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDDamage"
+description = "Show player damage feedback"
+eventsLogic = "Update damage indicators during exploration."

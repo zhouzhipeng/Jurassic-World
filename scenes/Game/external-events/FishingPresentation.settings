@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "FishingPresentation"
+description = "Dedicated fishing HUD: visible at sea, with cast and bite timing"
+eventsLogic = "Dedicated fishing HUD: visible at sea, with cast and bite timing."

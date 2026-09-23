@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "MountainFoliage"
+description = "Manage mountain foliage"
+eventsLogic = "Enable and update foliage in the matching render mode."

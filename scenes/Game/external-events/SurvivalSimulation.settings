@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "SurvivalSimulation"
+description = "Cooking queues, wetness, cold exposure and finite food/water"
+eventsLogic = "Cooking queues, wetness, cold exposure and finite food/water"

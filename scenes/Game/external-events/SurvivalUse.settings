@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "SurvivalUse"
+description = "Native survival actions: contextual supplies, production and taming"
+eventsLogic = "Native survival actions: contextual supplies, production and taming"

@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HeyinCompanionUI"
+description = "Control Heyin companion HUD"
+eventsLogic = "Refresh companion status and commands in the compact HUD."

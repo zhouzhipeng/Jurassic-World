@@ -1,5 +1,5 @@
 kind = "function"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 2
 folder = [ "Lifecycle" ]
 name = "sceneUpdate"

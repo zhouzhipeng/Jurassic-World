@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "CoastalSwimming"
+description = "Seamless shore, swim and dive state"
+eventsLogic = "Seamless shore, swim and dive state. Sea level is -80; the seabed follows the Blender coast profile."

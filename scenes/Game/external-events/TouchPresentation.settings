@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "TouchPresentation"
+description = "Present touch controls"
+eventsLogic = "Refresh visible touch controls and feedback."

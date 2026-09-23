@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "MountainActors"
+description = "Manage mountain actors"
+eventsLogic = "Enable and update mountain actors in the matching render mode."

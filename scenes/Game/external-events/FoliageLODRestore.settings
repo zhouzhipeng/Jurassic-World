@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "FoliageLODRestore"
+description = "Restore logical resource visibility before gameplay picking and exact camera probes; the final LOD pass selects only the render representation"
+eventsLogic = "Restore logical resource visibility before gameplay picking and exact camera probes; the final LOD pass selects only the render representation."

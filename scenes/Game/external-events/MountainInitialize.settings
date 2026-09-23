@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "MountainInitialize"
+description = "Mountain profile generated from tools/mountain_profile"
+eventsLogic = "Mountain profile generated from tools/mountain_profile.py; native elevation follows the visual mesh."

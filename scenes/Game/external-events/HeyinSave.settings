@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HeyinSave"
+description = "Persist Heyin state"
+eventsLogic = "Write companion progress when a save is requested."

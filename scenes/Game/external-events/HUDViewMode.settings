@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDViewMode"
+description = "Show current view mode"
+eventsLogic = "Update the HUD indicator for render mode."

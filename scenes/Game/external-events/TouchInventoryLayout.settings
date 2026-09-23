@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "TouchInventoryLayout"
+description = "Touch inventory: select a grid cell, then explicitly use the selected item"
+eventsLogic = "Touch inventory: select a grid cell, then explicitly use the selected item."

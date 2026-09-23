@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDAudioControls"
+description = "Handle HUD audio controls"
+eventsLogic = "Respond to the mute key and refresh audio state."

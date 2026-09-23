@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDInventoryAndSave"
+description = "Manage inventory and save HUD"
+eventsLogic = "Handle inventory input and coordinate save/load UI links."

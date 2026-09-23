@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "FPSDisplay"
+description = "Refresh the on-screen frame-rate readout"
+eventsLogic = "Sample the current FPS on a quarter-second timer and update the display."

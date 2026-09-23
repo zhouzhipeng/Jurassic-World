@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "TouchMovement"
+description = "Move the player with touch controls"
+eventsLogic = "Apply touch movement controls while touch mode is active."

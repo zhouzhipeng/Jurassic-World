@@ -1,5 +1,5 @@
 kind = "prefab"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 5
 defaultName = "Tyrannosaur"
 description = "Reusable Tyrannosaur model, instance state and animation controller."

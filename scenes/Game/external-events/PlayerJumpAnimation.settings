@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "PlayerJumpAnimation"
+description = "Jump presentation follows actual physics; landing overrides walking briefly"
+eventsLogic = "Jump presentation follows actual physics; landing overrides walking briefly."

@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDPanels"
+description = "Control HUD panels"
+eventsLogic = "Open, close, and refresh gameplay panels."

@@ -1,5 +1,5 @@
 kind = "prefab"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 order = 1
 defaultName = "Dinosaur3D"
 description = "Reusable Parasaur model, instance state and animation controller."

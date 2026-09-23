@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "FoliageLOD"
+description = "Static ground foliage only: camera-distance LOD with hysteresis; original resources own harvest, regrowth and exact raycasts"
+eventsLogic = "Static ground foliage only: camera-distance LOD with hysteresis; original resources own harvest, regrowth and exact raycasts. Never remove distant resources."

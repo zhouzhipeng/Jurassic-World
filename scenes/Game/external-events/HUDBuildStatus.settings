@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HUDBuildStatus"
+description = "Show construction status"
+eventsLogic = "Update build mode status text and indicators."

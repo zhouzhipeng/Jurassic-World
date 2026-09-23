@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "SurvivalContext"
+description = "Context, companion gathering bonus, and shared interaction requests"
+eventsLogic = "Context, companion gathering bonus, and shared interaction requests"

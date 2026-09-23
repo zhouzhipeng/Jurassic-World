@@ -1,5 +1,5 @@
 kind = "tests"
-settingsFormatVersion = 6
+settingsFormatVersion = 7
 
 [[tests]]
 scope = "project"
