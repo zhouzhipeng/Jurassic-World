@@ -31,7 +31,7 @@ try {
   const foundation = harness.getObjects('PartFoundation');
   const wall = harness.getObjects('PartWall');
   harness.assert(foundation.length === 1 && wall.length === 1,
-    `The extension recreated both saved building types: foundation=${foundation.length}, wall=${wall.length}, controllerCount=${objectNumber(harness.getObjects('ConstructionController')[0], 'RestoreCount')}, payloadLength=${objectNumber(harness.getObjects('ConstructionController')[0], 'LastPayloadLength')}, parsedCount=${objectNumber(harness.getObjects('ConstructionController')[0], 'LastParsedCount')}, BuildCount=${number('BuildCount')}`);
+    `The extension recreated both saved building types: foundation=${foundation.length}, wall=${wall.length}, controllerCount=${objectNumber(harness.getObjects('ConstructionController')[0], 'RestoreCount')}`);
   harness.assert(number('BuildCount') === 2 && number('BuildRestore') === 0,
     'The completion signal returned the building count');
   harness.assert(foundation[0].z === 20 && wall[0].z === 320,
@@ -51,7 +51,7 @@ try {
   await tap('Escape');
   await harness.stepFrames(9);
   harness.assert(harness.getObjects('PartFoundation').length === 1 && harness.getObjects('PartWall').length === 1,
-    `The extension saved and reloaded the building records through signals: loads=${objectNumber(harness.getObjects('ConstructionController')[0], 'LoadRequests')}, storage=${harness.getObjectVariable(harness.getObjects('ConstructionController')[0].id, 'LastLoadStorage')?.value}, savedLength=${String(harness.getObjectVariable(harness.getObjects('ConstructionController')[0].id, 'SaveJSON')?.value).length}, loadedJSON=${String(harness.getSceneVariable('BuildJSON')?.value).slice(0,70)}`);
+    'The extension saved and reloaded the building records through signals');
 } finally {
   harness.releaseAllInputs();
 }

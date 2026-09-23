@@ -20,29 +20,9 @@ type = "number"
 value = 0
 
 [[variables]]
-name = "LastPayloadLength"
-type = "number"
-value = 0
-
-[[variables]]
-name = "LastParsedCount"
-type = "number"
-value = 0
-
-[[variables]]
 name = "SaveJSON"
 type = "string"
 value = "[]"
-
-[[variables]]
-name = "LoadRequests"
-type = "number"
-value = 0
-
-[[variables]]
-name = "LastLoadStorage"
-type = "string"
-value = ""
 
 [layout]
 version = 1

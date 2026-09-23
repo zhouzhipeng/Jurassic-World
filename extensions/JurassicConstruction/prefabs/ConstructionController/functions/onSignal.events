@@ -47,11 +47,7 @@ for (let slot = 0; slot < Math.min(128, records.length); slot++) {
   variables.get("WorldHY").setNumber(Math.abs(Math.sin(radians)) * hx + Math.abs(Math.cos(radians)) * hy);
   count++;
 }
-for (const controller of objects) {
-  controller.getVariables().get("RestoreCount").setNumber(count);
-  controller.getVariables().get("LastPayloadLength").setNumber(payload.length);
-  controller.getVariables().get("LastParsedCount").setNumber(records.length);
-}
+for (const controller of objects) controller.getVariables().get("RestoreCount").setNumber(count);
 > @end js
 
 @event
@@ -91,13 +87,6 @@ do EcrireFichierTxt storage_name=expr(Payload) group="BuildingsV2" text=expr(Obj
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Load"
 do SetStringVariable variable="ConstructionLoadedJSON" modification_sign="=" value="[]"
-> @js objects=Object strict=true
-for (const controller of objects) {
-  const variables = controller.getVariables();
-  variables.get("LoadRequests").add(1);
-  variables.get("LastLoadStorage").setString(String(eventsFunctionContext.getArgument("Payload")));
-}
-> @end js
 
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Load"
