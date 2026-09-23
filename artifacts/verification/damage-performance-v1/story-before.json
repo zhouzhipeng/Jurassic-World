@@ -1,0 +1,59 @@
+{
+  "sourceRevision": "f852a178e7e3198f0307876e6ae1829e26bb3536",
+  "engineRevision": "a1f76cc5aae42807cf43cf617eed3fd52ca17f51",
+  "operation_id": "gameplay-tests-a3bff24b-ed92-4c00-9052-81727f0daab8",
+  "status": "completed",
+  "summary": {
+    "total": 1,
+    "completed": 1,
+    "passed": 0,
+    "failed": 1,
+    "error": 0,
+    "stopped": 0,
+    "timeout": 0,
+    "all_passed": false
+  },
+  "results": [
+    {
+      "file": "tests/DamageStoryBounds.js",
+      "scope": "project",
+      "name": "DamageStoryBounds",
+      "status": "failed",
+      "framesExecuted": 125,
+      "durationMs": 12377,
+      "loadingMs": 4416,
+      "timeoutMs": 120000,
+      "hiddenStallMs": 0,
+      "gameTimeMs": 2083,
+      "assertions": [
+        {
+          "message": "The legacy story stays hidden in the touch HUD",
+          "passed": true
+        },
+        {
+          "message": "Hidden touch story does not append per frame: length=2802",
+          "passed": false
+        }
+      ],
+      "errors": [
+        "Assertion failed: Hidden touch story does not append per frame: length=2802"
+      ],
+      "warnings": [],
+      "consoleLogs": [],
+      "eventLog": [
+        {
+          "frame": 1,
+          "event": "sceneChanged",
+          "sceneName": "Game",
+          "cause": "harness"
+        }
+      ],
+      "profiles": [],
+      "performance": {
+        "avgStepMs": 42.95,
+        "worstStepMs": 2960
+      },
+      "screenshots": []
+    }
+  ]
+}

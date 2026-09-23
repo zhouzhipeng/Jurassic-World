@@ -4,6 +4,8 @@ do SetStringVariable variable="HeyinObjective" modification_sign="=" value="林�
 do SetNumberVariable variable="HeyinTargetX" modification_sign="=" value=expr(Heyin.X())
 do SetNumberVariable variable="HeyinTargetY" modification_sign="=" value=expr(Heyin.Y())
 
+@comment "Legacy story text is desktop-only. Its append events must use the same TouchMode guard as its per-frame reset; otherwise hidden touch text grows without bound." background=[74,176,228] text=[0,0,0]
+
 @event
 if NumberVariable variable="HeyinStage" comparison_sign="=" value=1
 do SetStringVariable variable="HeyinObjective" modification_sign="=" value="救助禾音 · 4 纤维 + 3 浆果 · 靠近按 G"
@@ -45,6 +47,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" 
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneWindowWidth()) comparison_sign=">" second_expression=expr(SceneWindowHeight()*1.3)
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do SetX object="HeyinStory" modification_sign="=" value=expr(SceneWindowWidth()*0.44)
 do SetY object="HeyinStory" modification_sign="=" value=70
 do TextObject::WrappingWidth object="HeyinStory" modification_sign="=" value=expr(SceneWindowWidth()*0.28)
@@ -52,17 +55,9 @@ do TextObject::WrappingWidth object="HeyinStory" modification_sign="=" value=exp
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-if NumberVariable variable="TouchMode" comparison_sign="=" value=1
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneWindowWidth()) comparison_sign="<=" second_expression=expr(SceneWindowHeight()*1.3)
-do SetX object="HeyinStory" modification_sign="=" value=expr(TouchHint.X())
-do SetY object="HeyinStory" modification_sign="=" value=expr(TouchHint.Y()+TouchHint.Height()+12)
-do TextObject::WrappingWidth object="HeyinStory" modification_sign="=" value=expr(SceneWindowWidth()-2*TouchMargin)
-
-@event
-if NumberVariable variable="Mode" comparison_sign="=" value=0
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"体力 "+ToString(round(Heyin.Variable(Energy)))+" · 靠近按 G / 交谈切换等候")
 
 @event
@@ -70,6 +65,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Heyin.Variable(Stay)) comparison_sign="=" second_expression=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"禾音在原地等候。靠近交谈后继续同行。")
 
 @event
@@ -77,6 +73,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Heyin.Variable(Resting)) comparison_sign="=" second_expression=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"禾音：让我休息一会儿，我会自己跟上。")
 
 @event
@@ -84,6 +81,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinDanger" comparison_sign="=" value=1
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"附近有捕食者：先确保安全。")
 
 @event
@@ -92,6 +90,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberObjectVariable object="Heyin" variable="Blocked" comparison_sign="=" value=1
 if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"前方被建筑挡住：请绕到开阔处带路。")
 
 @event
@@ -100,6 +99,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 if NumberVariable variable="HeyinDistance" comparison_sign=">=" value=1800
 if NumberVariable variable="HeyinStage" comparison_sign=">=" value=2
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinStory" behavior="Text" modification_sign="+" text=expr(NewLine()+"禾音掉队了：请按距离提示返回接她。")
 
 @event
@@ -112,6 +112,7 @@ do Hide object="HeyinStory"
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(SceneWindowWidth()) comparison_sign="<=" second_expression=900
+if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 do SetX object="HeyinStory" modification_sign="=" value=24
 do SetY object="HeyinStory" modification_sign="=" value=expr(max(140,TouchHint.Y()+TouchHint.Height()+8))
 do TextObject::WrappingWidth object="HeyinStory" modification_sign="=" value=expr(max(180,min(360,SceneWindowWidth()-298-TouchMode*(110*TouchScale+14))))
