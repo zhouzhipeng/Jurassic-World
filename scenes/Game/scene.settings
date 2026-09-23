@@ -2237,6 +2237,21 @@ type = "number"
 value = 0
 
 [[variables]]
+name = "FishingState"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FishingClock"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FishingRequest"
+type = "number"
+value = 0
+
+[[variables]]
 name = "IsletExplored"
 type = "number"
 value = 0

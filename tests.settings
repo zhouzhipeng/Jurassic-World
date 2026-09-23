@@ -424,3 +424,11 @@ name = "DamageStoryBounds"
 type = "gameplay"
 description = "Hidden companion story text stays bounded over time and across touch/desktop transitions."
 file = "tests/DamageStoryBounds.js"
+
+[[tests]]
+scope = "project"
+order = 53
+name = "BoatFishing"
+type = "gameplay"
+description = "Fishing works only from a stationary boat, rewards a timed reel, and cancels on movement or disembark."
+file = "tests/BoatFishing.js"

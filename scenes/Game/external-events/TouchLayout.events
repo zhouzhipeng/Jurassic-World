@@ -123,6 +123,23 @@ do SetNumberObjectVariable object="TouchButton" variable="Command" modification_
 do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="攻击"
 do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=28
 
+@event aiGeneratedEventId="touch-fishing-button"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=7
+do SetNumberObjectVariable object="TouchButton" variable="Command" modification_sign="=" value=312
+do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="钓鱼"
+do SetNumberObjectVariable object="TouchButton" variable="FontSize" modification_sign="=" value=26
+
+@event aiGeneratedEventId="touch-fishing-reel-label"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=2
+if NumberObjectVariable object="TouchButton" variable="Slot" comparison_sign="=" value=7
+do SetStringObjectVariable object="TouchButton" variable="Label" modification_sign="=" value="收线"
+
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0

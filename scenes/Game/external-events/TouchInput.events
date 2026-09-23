@@ -864,6 +864,12 @@ if NumberVariable variable="TouchCommand" comparison_sign="=" value=311
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 do SetNumberVariable variable="BoatToggleRequest" modification_sign="=" value=1
 
+@event aiGeneratedEventId="touch-fishing-request"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="TouchCommand" comparison_sign="=" value=312
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+do SetNumberVariable variable="FishingRequest" modification_sign="=" value=1
+
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="!=" value=0

@@ -225,3 +225,16 @@ if NumberVariable variable="Sailing" comparison_sign="=" value=1
 do SetNumberVariable variable="TouchContext" modification_sign="=" value=11
 do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="靠岸"
 do SetStringVariable variable="TouchContextHint" modification_sign="=" value="驶到海岸或小岛西侧，再点此下船"
+
+@event aiGeneratedEventId="boat-touch-fishing-hint"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value="停船后点「钓鱼」，鱼咬钩时点「收线」；靠岸点「靠岸」下船"
+
+@event aiGeneratedEventId="boat-touch-bite-hint"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=2
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value="鱼咬钩了！立即点「收线」"
