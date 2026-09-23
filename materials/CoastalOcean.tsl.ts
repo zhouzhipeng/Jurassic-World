@@ -40,7 +40,10 @@ export default defineMaterial({
     const offshore = smoothstep(3200, 7000, radius);
     const clearWater = mix(color('#99d8cd'), color('#bcdbef'), offshore);
     const depthShade = sin(a).add(sin(b)).mul(0.25).add(0.5);
-    const water = mix(color('#6bb2dc'), clearWater, depthShade.mul(0.3).add(0.7));
+    const fineRipple = sin(x.mul(0.085).add(y.mul(0.059)).add(warp).add(t.mul(4.8)))
+      .mul(sin(x.mul(-0.11).add(y.mul(0.074)).sub(t.mul(4.1)))).mul(0.5).add(0.5);
+    const water = mix(color('#6bb2dc'), clearWater,
+      depthShade.mul(0.35).add(fineRipple.mul(0.15)).add(0.5));
     const light = parameters.daylight.mul(0.83).add(0.1).mul(parameters.cloud.mul(-0.4).add(1));
     const sky = mix(parameters.horizon, color('#bcdbef').mul(light), reflected.z.max(0).pow(0.45));
     const glint = dot(reflected, parameters.sun.normalize()).max(0).pow(420).mul(parameters.daylight).mul(parameters.cloud.oneMinus());
@@ -53,8 +56,10 @@ export default defineMaterial({
       .mul(0.333)
       .add(sin(x.mul(0.051).sub(y.mul(0.034)).add(t.mul(3.7)))
         .mul(sin(x.mul(0.027).add(y.mul(0.044)).sub(t.mul(3.2)))).mul(0.13));
-    const brightVeins = smoothstep(0.006, 0.045, causticField.abs()).oneMinus().pow(2)
-      .mul(0.92).mul(detail).mul(parameters.daylight).mul(parameters.cloud.mul(-0.65).add(1));
+    const veinCore = smoothstep(0.006, 0.045, causticField.abs()).oneMinus().pow(2).mul(0.8);
+    const veinGlow = smoothstep(0.04, 0.18, causticField.abs()).oneMinus().mul(0.15);
+    const brightVeins = veinCore.add(veinGlow).mul(detail).mul(parameters.daylight)
+      .mul(parameters.cloud.mul(-0.65).add(1));
     const fog = smoothstep(parameters.fogNear, parameters.fogFar, positionView.z.abs().mul(100));
     const finalColor = mix(surface.add(vec3(parameters.flash.mul(0.18))), color('#e5e7f6'), brightVeins);
     material.fragmentNode = vec4(mix(finalColor, parameters.horizon, fog), 1);
