@@ -631,7 +631,7 @@ link "HUDInventoryAndSave"
 if NumberVariable variable="Action" comparison_sign="=" value=10
 if GroupExists storage_name=expr(SaveStorage) group="Version"
 do EmitSceneSignal signal_name="Construction.Load" payload=expr(SaveStorage)
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+do EmitSceneSignal signal_name="Construction.Input" payload="Disable"
 
 @event
 if NumberVariable variable="Action" comparison_sign="=" value=10

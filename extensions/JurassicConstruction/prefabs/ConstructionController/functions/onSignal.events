@@ -200,3 +200,32 @@ for (const controller of objects) controller.getVariables().get("DoorJSON")
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.ToggleDoor"
 do EmitSceneSignal signal_name="Construction.DoorToggled" payload=expr(Object.VariableString(DoorJSON))
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Input"
+> @js objects=Object strict=true
+const command = String(eventsFunctionContext.getArgument("Payload"));
+for (const controller of objects) {
+  const vars = controller.getVariables();
+  const mode = vars.get("InputMode");
+  const kind = vars.get("InputKind");
+  const angle = vars.get("InputAngle");
+  const level = vars.get("InputLevel");
+  if (command === "Toggle") mode.setNumber(1 - mode.getAsNumber());
+  else if (command === "Enable") mode.setNumber(1);
+  else if (command === "Disable") mode.setNumber(0);
+  else if (command === "Rotate") angle.setNumber((angle.getAsNumber() + 90) % 360);
+  else if (command === "LevelUp") level.setNumber(Math.min(2, level.getAsNumber() + 1));
+  else if (command === "LevelDown") level.setNumber(Math.max(0, level.getAsNumber() - 1));
+  else if (command.startsWith("Select:")) {
+    const selected = Number(command.slice(7));
+    if ([3, 10, 11, 12, 13, 14, 15, 16].includes(selected)) kind.setNumber(selected);
+  }
+  vars.get("InputStateJSON").setString(JSON.stringify({ Mode: mode.getAsNumber(),
+    Kind: kind.getAsNumber(), Angle: angle.getAsNumber(), Level: level.getAsNumber() }));
+}
+> @end js
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Input"
+do EmitSceneSignal signal_name="Construction.InputState" payload=expr(Object.VariableString(InputStateJSON))

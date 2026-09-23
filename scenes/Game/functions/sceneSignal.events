@@ -36,6 +36,14 @@ do SetNumberVariable variable="BuildingRecords[ConstructionDoorToggled.Slot].Ope
 do PlaySound audio_file_or_audio_resource_name="build.wav" repeat_the_sound=false volume=55 pitch_speed=1
 
 @event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.InputState"
+do JSONToVariableStructure2 json_string=expr(Payload) variable_where_to_store_the_json_object="ConstructionInputState"
+do SetNumberVariable variable="BuildMode" modification_sign="=" value=expr(ConstructionInputState.Mode)
+do SetNumberVariable variable="BuildKind" modification_sign="=" value=expr(ConstructionInputState.Kind)
+do SetNumberVariable variable="BuildAngle" modification_sign="=" value=expr(ConstructionInputState.Angle)
+do SetNumberVariable variable="BuildLevel" modification_sign="=" value=expr(ConstructionInputState.Level)
+
+@event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Placed"
 if NumberVariable variable="ConstructionPlaced.Kind" comparison_sign="=" value=14
 do SetNumberVariable variable="BuildingRecords[ConstructionPlaced.Slot].Level" modification_sign="+" value=1

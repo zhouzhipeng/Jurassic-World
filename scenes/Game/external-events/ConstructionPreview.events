@@ -9,7 +9,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="r"
-do SetNumberVariable variable="BuildAngle" modification_sign="=" value=expr(mod(BuildAngle+90,360))
+do EmitSceneSignal signal_name="Construction.Input" payload="Rotate"
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -17,7 +17,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="PageUp"
-do SetNumberVariable variable="BuildLevel" modification_sign="=" value=expr(min(2,BuildLevel+1))
+do EmitSceneSignal signal_name="Construction.Input" payload="LevelUp"
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -25,7 +25,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="PageDown"
-do SetNumberVariable variable="BuildLevel" modification_sign="=" value=expr(max(0,BuildLevel-1))
+do EmitSceneSignal signal_name="Construction.Input" payload="LevelDown"
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0

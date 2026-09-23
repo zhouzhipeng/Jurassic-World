@@ -190,7 +190,7 @@ if NumberVariable variable="TouchCommand" comparison_sign="=" value=1
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="TouchPanel" modification_sign="=" value=1
 do SetNumberVariable variable="Mode" modification_sign="=" value=2
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+do EmitSceneSignal signal_name="Construction.Input" payload="Disable"
 do SetNumberVariable variable="TouchMoveId" modification_sign="=" value=-999
 do SetNumberVariable variable="TouchLookId" modification_sign="=" value=-999
 do SetNumberObjectVariable object="TouchButton" variable="TouchId" modification_sign="=" value=-999
@@ -205,7 +205,7 @@ if NumberVariable variable="TouchCommand" comparison_sign="=" value=2
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="TouchPanel" modification_sign="=" value=2
 do SetNumberVariable variable="Mode" modification_sign="=" value=1
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+do EmitSceneSignal signal_name="Construction.Input" payload="Disable"
 do SetNumberVariable variable="TouchMoveId" modification_sign="=" value=-999
 do SetNumberVariable variable="TouchLookId" modification_sign="=" value=-999
 do SetNumberObjectVariable object="TouchButton" variable="TouchId" modification_sign="=" value=-999
@@ -220,7 +220,7 @@ if NumberVariable variable="TouchCommand" comparison_sign="=" value=3
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="TouchPanel" modification_sign="=" value=3
 do SetNumberVariable variable="Mode" modification_sign="=" value=8
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+do EmitSceneSignal signal_name="Construction.Input" payload="Disable"
 do SetNumberVariable variable="TouchMoveId" modification_sign="=" value=-999
 do SetNumberVariable variable="TouchLookId" modification_sign="=" value=-999
 do SetNumberObjectVariable object="TouchButton" variable="TouchId" modification_sign="=" value=-999
@@ -235,7 +235,7 @@ if NumberVariable variable="TouchCommand" comparison_sign="=" value=4
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="TouchPanel" modification_sign="=" value=4
 do SetNumberVariable variable="Mode" modification_sign="=" value=6
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+do EmitSceneSignal signal_name="Construction.Input" payload="Disable"
 do SetNumberVariable variable="TouchMoveId" modification_sign="=" value=-999
 do SetNumberVariable variable="TouchLookId" modification_sign="=" value=-999
 do SetNumberObjectVariable object="TouchButton" variable="TouchId" modification_sign="=" value=-999
@@ -250,7 +250,7 @@ if NumberVariable variable="TouchCommand" comparison_sign="=" value=103
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="TouchPanel" modification_sign="=" value=5
 do SetNumberVariable variable="Mode" modification_sign="=" value=8
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+do EmitSceneSignal signal_name="Construction.Input" payload="Disable"
 do SetNumberVariable variable="TouchMoveId" modification_sign="=" value=-999
 do SetNumberVariable variable="TouchLookId" modification_sign="=" value=-999
 do SetNumberObjectVariable object="TouchButton" variable="TouchId" modification_sign="=" value=-999
@@ -265,7 +265,7 @@ if NumberVariable variable="TouchCommand" comparison_sign="=" value=190
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="TouchPanel" modification_sign="=" value=6
 do SetNumberVariable variable="Mode" modification_sign="=" value=8
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+do EmitSceneSignal signal_name="Construction.Input" payload="Disable"
 do SetNumberVariable variable="TouchMoveId" modification_sign="=" value=-999
 do SetNumberVariable variable="TouchLookId" modification_sign="=" value=-999
 do SetNumberObjectVariable object="TouchButton" variable="TouchId" modification_sign="=" value=-999
@@ -280,7 +280,7 @@ if NumberVariable variable="TouchCommand" comparison_sign="=" value=191
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="TouchPanel" modification_sign="=" value=7
 do SetNumberVariable variable="Mode" modification_sign="=" value=8
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+do EmitSceneSignal signal_name="Construction.Input" payload="Disable"
 do SetNumberVariable variable="TouchMoveId" modification_sign="=" value=-999
 do SetNumberVariable variable="TouchLookId" modification_sign="=" value=-999
 do SetNumberObjectVariable object="TouchButton" variable="TouchId" modification_sign="=" value=-999
@@ -295,7 +295,7 @@ if NumberVariable variable="TouchCommand" comparison_sign="=" value=192
 if NumberVariable variable="Dead" comparison_sign="=" value=0
 do SetNumberVariable variable="TouchPanel" modification_sign="=" value=8
 do SetNumberVariable variable="Mode" modification_sign="=" value=8
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+do EmitSceneSignal signal_name="Construction.Input" payload="Disable"
 do SetNumberVariable variable="TouchMoveId" modification_sign="=" value=-999
 do SetNumberVariable variable="TouchLookId" modification_sign="=" value=-999
 do SetNumberObjectVariable object="TouchButton" variable="TouchId" modification_sign="=" value=-999
@@ -629,8 +629,8 @@ do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveX" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveY" modification_sign="=" value=0
 do SetNumberVariable variable="TouchAttack" modification_sign="=" value=0
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=10
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:10"
+do EmitSceneSignal signal_name="Construction.Input" payload="Enable"
 do SetNumberVariable variable="TouchDeleteArmed" modification_sign="=" value=0
 
 @event
@@ -646,8 +646,8 @@ do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveX" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveY" modification_sign="=" value=0
 do SetNumberVariable variable="TouchAttack" modification_sign="=" value=0
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=11
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:11"
+do EmitSceneSignal signal_name="Construction.Input" payload="Enable"
 do SetNumberVariable variable="TouchDeleteArmed" modification_sign="=" value=0
 
 @event
@@ -663,8 +663,8 @@ do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveX" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveY" modification_sign="=" value=0
 do SetNumberVariable variable="TouchAttack" modification_sign="=" value=0
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=12
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:12"
+do EmitSceneSignal signal_name="Construction.Input" payload="Enable"
 do SetNumberVariable variable="TouchDeleteArmed" modification_sign="=" value=0
 
 @event
@@ -680,8 +680,8 @@ do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveX" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveY" modification_sign="=" value=0
 do SetNumberVariable variable="TouchAttack" modification_sign="=" value=0
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=13
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:13"
+do EmitSceneSignal signal_name="Construction.Input" payload="Enable"
 do SetNumberVariable variable="TouchDeleteArmed" modification_sign="=" value=0
 
 @event
@@ -697,8 +697,8 @@ do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveX" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveY" modification_sign="=" value=0
 do SetNumberVariable variable="TouchAttack" modification_sign="=" value=0
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=14
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:14"
+do EmitSceneSignal signal_name="Construction.Input" payload="Enable"
 do SetNumberVariable variable="TouchDeleteArmed" modification_sign="=" value=0
 
 @event
@@ -714,8 +714,8 @@ do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveX" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveY" modification_sign="=" value=0
 do SetNumberVariable variable="TouchAttack" modification_sign="=" value=0
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=15
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:15"
+do EmitSceneSignal signal_name="Construction.Input" payload="Enable"
 do SetNumberVariable variable="TouchDeleteArmed" modification_sign="=" value=0
 
 @event
@@ -731,8 +731,8 @@ do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveX" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveY" modification_sign="=" value=0
 do SetNumberVariable variable="TouchAttack" modification_sign="=" value=0
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=16
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:16"
+do EmitSceneSignal signal_name="Construction.Input" payload="Enable"
 do SetNumberVariable variable="TouchDeleteArmed" modification_sign="=" value=0
 
 @event
@@ -748,8 +748,8 @@ do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveX" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveY" modification_sign="=" value=0
 do SetNumberVariable variable="TouchAttack" modification_sign="=" value=0
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=3
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:3"
+do EmitSceneSignal signal_name="Construction.Input" payload="Enable"
 do SetNumberVariable variable="TouchDeleteArmed" modification_sign="=" value=0
 
 @event
@@ -765,32 +765,32 @@ do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveX" modification_sign="=" value=0
 do SetNumberVariable variable="TouchMoveY" modification_sign="=" value=0
 do SetNumberVariable variable="TouchAttack" modification_sign="=" value=0
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=1
+do EmitSceneSignal signal_name="Construction.Input" payload="Enable"
 do SetNumberVariable variable="TouchDeleteArmed" modification_sign="=" value=1
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchCommand" comparison_sign="=" value=10
-do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
+do EmitSceneSignal signal_name="Construction.Input" payload="Disable"
 do SetNumberVariable variable="TouchDeleteArmed" modification_sign="=" value=0
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchCommand" comparison_sign="=" value=11
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-do SetNumberVariable variable="BuildLevel" modification_sign="=" value=expr(min(2,BuildLevel+1))
+do EmitSceneSignal signal_name="Construction.Input" payload="LevelUp"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchCommand" comparison_sign="=" value=12
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-do SetNumberVariable variable="BuildLevel" modification_sign="=" value=expr(max(0,BuildLevel-1))
+do EmitSceneSignal signal_name="Construction.Input" payload="LevelDown"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="TouchCommand" comparison_sign="=" value=20
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
-do SetNumberVariable variable="BuildAngle" modification_sign="=" value=expr(mod(BuildAngle+90,360))
+do EmitSceneSignal signal_name="Construction.Input" payload="Rotate"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1

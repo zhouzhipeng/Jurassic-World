@@ -41,7 +41,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num1"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=10
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:10"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -53,7 +53,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice1" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=10
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:10"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -62,7 +62,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num2"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=11
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:11"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -74,7 +74,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice2" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=11
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:11"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -83,7 +83,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num3"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=12
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:12"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -95,7 +95,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice3" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=12
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:12"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -104,7 +104,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num4"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=13
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:13"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -116,7 +116,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice4" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=13
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:13"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -125,7 +125,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num5"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=14
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:14"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -137,7 +137,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice5" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=14
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:14"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -146,7 +146,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num6"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=15
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:15"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -158,7 +158,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice6" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=15
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:15"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -167,7 +167,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num7"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=16
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:16"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -179,7 +179,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice7" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=16
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:16"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -188,7 +188,7 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Num8"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=3
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:3"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
 
 @event
@@ -200,5 +200,5 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="BuildChoice8" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="BuildKind" modification_sign="=" value=3
+do EmitSceneSignal signal_name="Construction.Input" payload="Select:3"
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=0
