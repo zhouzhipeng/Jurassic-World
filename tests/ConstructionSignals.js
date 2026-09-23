@@ -23,6 +23,18 @@ try {
     'Each restored prefab applied its saved 3D elevation');
   harness.assert(objectNumber(wall[0], 'Parent') === 0 && objectNumber(wall[0], 'Slot') === 1,
     'Restored parent and slot state preserve building relationships');
+  harness.setSceneVariable('SaveStorage', 'JurassicWorldGameplayTests_ConstructionSignals');
+  harness.setSceneVariable('SaveRequested', 1);
+  await harness.stepFrames(4);
+  harness.setSceneVariable('BuildJSON', '[]');
+  harness.setSceneVariable('BuildRestore', 1);
+  await harness.stepFrames(5);
+  harness.assert(harness.getObjects('PartFoundation').length === 0 && harness.getObjects('PartWall').length === 0,
+    'An empty restore clears the active buildings');
+  harness.setSceneVariable('Action', 10);
+  await harness.stepFrames(9);
+  harness.assert(harness.getObjects('PartFoundation').length === 1 && harness.getObjects('PartWall').length === 1,
+    'The extension saved and reloaded the building records through signals');
 } finally {
   harness.releaseAllInputs();
 }

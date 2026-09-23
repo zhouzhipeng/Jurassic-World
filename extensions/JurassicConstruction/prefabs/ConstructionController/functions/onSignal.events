@@ -57,6 +57,7 @@ for (const controller of objects) {
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Restore"
 do EmitSceneSignal signal_name="Construction.Restored" payload=expr(ToString(Object.Variable(RestoreCount)))
+do EmitSceneSignal signal_name="Construction.RecordsRestored" payload=expr(Payload)
 
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Save"
@@ -86,3 +87,21 @@ for (const controller of objects) controller.getVariables().get("SaveJSON").setS
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Save"
 do EcrireFichierTxt storage_name=expr(Payload) group="BuildingsV2" text=expr(Object.VariableString(SaveJSON))
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Load"
+do SetStringVariable variable="ConstructionLoadedJSON" modification_sign="=" value="[]"
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Load"
+if GroupExists storage_name=expr(Payload) group="BuildingsV1"
+do ReadStringFromStorage storage_name=expr(Payload) group="BuildingsV1" variable="ConstructionLoadedJSON"
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Load"
+if GroupExists storage_name=expr(Payload) group="BuildingsV2"
+do ReadStringFromStorage storage_name=expr(Payload) group="BuildingsV2" variable="ConstructionLoadedJSON"
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Load"
+do EmitSceneSignal signal_name="Construction.Restore" payload=expr(ConstructionLoadedJSON)

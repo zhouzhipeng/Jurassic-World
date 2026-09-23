@@ -1,4 +1,8 @@
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Restored"
-do JSONToVariableStructure2 json_string=expr(BuildJSON) variable_where_to_store_the_json_object="BuildingRecords"
 do SetNumberVariable variable="BuildCount" modification_sign="=" value=expr(ToNumber(Payload))
+
+@event
+if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.RecordsRestored"
+do SetStringVariable variable="BuildJSON" modification_sign="=" value=expr(Payload)
+do JSONToVariableStructure2 json_string=expr(Payload) variable_where_to_store_the_json_object="BuildingRecords"

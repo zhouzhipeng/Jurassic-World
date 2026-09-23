@@ -630,19 +630,8 @@ link "HUDInventoryAndSave"
 @event
 if NumberVariable variable="Action" comparison_sign="=" value=10
 if GroupExists storage_name=expr(SaveStorage) group="Version"
-do SetStringVariable variable="BuildJSON" modification_sign="=" value="[]"
-do SetNumberVariable variable="BuildRestore" modification_sign="=" value=1
+do EmitSceneSignal signal_name="Construction.Load" payload=expr(SaveStorage)
 do SetNumberVariable variable="BuildMode" modification_sign="=" value=0
-
-@event
-if NumberVariable variable="Action" comparison_sign="=" value=10
-if GroupExists storage_name=expr(SaveStorage) group="BuildingsV1"
-do ReadStringFromStorage storage_name=expr(SaveStorage) group="BuildingsV1" variable="BuildJSON"
-
-@event
-if NumberVariable variable="Action" comparison_sign="=" value=10
-if GroupExists storage_name=expr(SaveStorage) group="BuildingsV2"
-do ReadStringFromStorage storage_name=expr(SaveStorage) group="BuildingsV2" variable="BuildJSON"
 
 @event
 if NumberVariable variable="Action" comparison_sign="=" value=10
