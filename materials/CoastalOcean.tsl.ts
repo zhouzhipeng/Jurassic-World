@@ -38,7 +38,9 @@ export default defineMaterial({
     const fresnel = facing.oneMinus().pow(5).mul(0.96).add(0.04);
     const radius = x.mul(x).add(y.sub(300).mul(y.sub(300))).pow(0.5);
     const offshore = smoothstep(3200, 7000, radius);
-    const water = mix(color('#99d8cd'), color('#6bb2dc'), offshore);
+    const clearWater = mix(color('#99d8cd'), color('#bcdbef'), offshore);
+    const depthShade = sin(a).add(sin(b)).mul(0.25).add(0.5);
+    const water = mix(color('#6bb2dc'), clearWater, depthShade.mul(0.3).add(0.7));
     const light = parameters.daylight.mul(0.83).add(0.1).mul(parameters.cloud.mul(-0.4).add(1));
     const sky = mix(parameters.horizon, color('#bcdbef').mul(light), reflected.z.max(0).pow(0.45));
     const glint = dot(reflected, parameters.sun.normalize()).max(0).pow(420).mul(parameters.daylight).mul(parameters.cloud.oneMinus());
@@ -48,8 +50,10 @@ export default defineMaterial({
     const causticField = sin(x.mul(0.018).add(y.mul(0.006)).add(warp.mul(0.8)).add(t.mul(1.7)))
       .add(sin(x.mul(-0.007).add(y.mul(0.022)).sub(warp.mul(0.6)).sub(t.mul(1.4))))
       .add(sin(x.mul(0.011).sub(y.mul(0.016)).add(warp.mul(0.35)).add(t.mul(1.9))))
-      .mul(0.333);
-    const brightVeins = smoothstep(0.025, 0.115, causticField.abs()).oneMinus().pow(2)
+      .mul(0.333)
+      .add(sin(x.mul(0.051).sub(y.mul(0.034)).add(t.mul(3.7)))
+        .mul(sin(x.mul(0.027).add(y.mul(0.044)).sub(t.mul(3.2)))).mul(0.13));
+    const brightVeins = smoothstep(0.006, 0.045, causticField.abs()).oneMinus().pow(2)
       .mul(0.92).mul(detail).mul(parameters.daylight).mul(parameters.cloud.mul(-0.65).add(1));
     const fog = smoothstep(parameters.fogNear, parameters.fogFar, positionView.z.abs().mul(100));
     const finalColor = mix(surface.add(vec3(parameters.flash.mul(0.18))), color('#e5e7f6'), brightVeins);
