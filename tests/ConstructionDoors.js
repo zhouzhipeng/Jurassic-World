@@ -40,7 +40,7 @@ try {
   await tap('b');
   await aim(0, 570);
   await walk('w', 40);
-  harness.assert(player().y >= 490 && player().y < 530, `Closed door blocks forward movement: y=${player().y}`);
+  harness.assert(player().y >= 490 && player().y < 530, `Closed door blocks forward movement: y=${player().y}, mode=${number('Mode')}, build=${number('BuildMode')}, yaw=${number('CameraYaw')}, floor=${number('PlayerFloor')}, door=${harness.getObjects('PartDoor')[0]?.x},${harness.getObjects('PartDoor')[0]?.y}`);
   await tap('e');
   harness.assert(doorOpen() === 1, 'E opens the nearby door');
   // An open leaf has moved, but its original socket must remain occupied.
