@@ -955,3 +955,47 @@ instance = "e35d85a7-b105-4a56-878c-cca47cbd1cd0"
 name = "Slot"
 type = "number"
 value = 111
+[[layout.instances]]
+id = "d4312720-65c0-4c0d-a02b-142305765c9f"
+object = "FishingPanel"
+layer = "touch"
+at = [580, 115]
+z_order = 200
+size = [440, 136]
+keep_ratio = false
+
+[[layout.instances]]
+id = "d86d1b75-225b-495b-8ab8-9ecbe2cf899d"
+object = "FishingMeter"
+layer = "touch"
+at = [664, 211]
+z_order = 202
+size = [328, 11]
+keep_ratio = false
+
+[[layout.instances]]
+id = "fa0b2bc8-a696-433c-898b-7782adbfcd86"
+object = "FishingTitle"
+layer = "touch"
+at = [665, 134]
+z_order = 203
+size = [230, 28]
+keep_ratio = false
+
+[[layout.instances]]
+id = "108c8e20-64fb-4bc1-ae89-19118d631c72"
+object = "FishingStatus"
+layer = "touch"
+at = [665, 167]
+z_order = 203
+size = [310, 33]
+keep_ratio = false
+
+[[layout.instances]]
+id = "cfc6c817-2879-494d-adbf-52f3846b249d"
+object = "FishingTimer"
+layer = "touch"
+at = [956, 166]
+z_order = 203
+size = [60, 33]
+keep_ratio = false
