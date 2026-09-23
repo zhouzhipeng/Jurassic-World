@@ -14,7 +14,8 @@ async function aim(x, y) {
 async function place(key, x, y) {
   await aim(x, y);
   await tap(key);
-  harness.assert(number('BuildValid') === 1, `Supported ${key} placement is valid: ${harness.getSceneVariable('BuildReason')?.value}`);
+  const foundation = harness.getObjects('PartFoundation')[0];
+  harness.assert(number('BuildValid') === 1, `Supported ${key} placement is valid: ${harness.getSceneVariable('BuildReason')?.value}; target=${number('BuildX')},${number('BuildY')}, level=${number('BuildLevel')}, parent=${number('BuildParent')}; foundation=${foundation?.x},${foundation?.y}, kind=${foundation ? value(foundation, 'Kind') : -1}, slot=${foundation ? value(foundation, 'Slot') : -1}, level=${foundation ? value(foundation, 'Level') : -1}`);
   await tap('Return');
   await harness.stepFrames(3);
 }
