@@ -13,7 +13,7 @@ scenes/Game/external-events/CoastalEnvironment.events. Wave time follows
 WeatherMotion so opening a gameplay menu freezes it with the existing weather.
 
 The sea is placed at -80 game units, above the old static water at -95; maximum
-vertex displacement is below 7 units, so the old surface cannot z-fight. No
+vertex displacement is below 11 units even with full cloud strength, so the old surface cannot z-fight. No
 existing island model, collision, save data or walkable surface was replaced.
 Renderer world positions use metres with inverted Y, while event uniforms use
 game units. Keep the conversion in CoastalOcean when editing its wave formulas.
