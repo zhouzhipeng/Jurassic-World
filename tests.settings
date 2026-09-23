@@ -440,3 +440,11 @@ name = "CoastalSwimming"
 type = "gameplay"
 description = "Walk across dry and wet sand into the sea, swim, dive with breath, and return to shore."
 file = "tests/CoastalSwimming.js"
+
+[[tests]]
+scope = "project"
+order = 55
+name = "ConstructionSignals"
+type = "gameplay"
+description = "Construction restore uses scene signals and preserves building state and elevation."
+file = "tests/ConstructionSignals.js"

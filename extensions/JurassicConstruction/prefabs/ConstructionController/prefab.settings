@@ -19,6 +19,16 @@ name = "RestoreCount"
 type = "number"
 value = 0
 
+[[variables]]
+name = "LastPayloadLength"
+type = "number"
+value = 0
+
+[[variables]]
+name = "LastParsedCount"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 bounds = { min = [0, 0, 0], max = [1, 1, 1] }

@@ -5,14 +5,16 @@ const names = new Map([[1, "BuiltShelter"], [2, "BuiltPalisade"], [3, "BuiltCamp
   [10, "PartFoundation"], [11, "PartPillar"], [12, "PartWall"],
   [13, "PartDoorframe"], [14, "PartCeiling"], [15, "PartDoor"], [16, "PartStairs"]]);
 let records = [];
+const payload = String(eventsFunctionContext.getArgument("Payload"));
+const worldScene = objects[0] ? objects[0].getRuntimeScene() : runtimeScene;
 try {
-  const parsed = JSON.parse(String(eventsFunctionContext.getArgument("Payload")));
+  const parsed = JSON.parse(payload);
   if (Array.isArray(parsed)) records = parsed;
 } catch (error) {
   records = [];
 }
 for (const name of names.values()) {
-  for (const instance of runtimeScene.getObjects(name).slice()) instance.deleteFromScene();
+  for (const instance of worldScene.getObjects(name).slice()) instance.deleteFromScene();
 }
 let count = 0;
 for (let slot = 0; slot < Math.min(128, records.length); slot++) {
@@ -20,7 +22,7 @@ for (let slot = 0; slot < Math.min(128, records.length); slot++) {
   if (!record || typeof record !== "object") continue;
   const name = names.get(Number(record.Kind));
   if (!name) continue;
-  const instance = runtimeScene.createObject(name);
+  const instance = worldScene.createObject(name);
   if (!instance) continue;
   const x = Number(record.X) || 0;
   const y = Number(record.Y) || 0;
@@ -45,7 +47,11 @@ for (let slot = 0; slot < Math.min(128, records.length); slot++) {
   variables.get("WorldHY").setNumber(Math.abs(Math.sin(radians)) * hx + Math.abs(Math.cos(radians)) * hy);
   count++;
 }
-for (const controller of objects) controller.getVariables().get("RestoreCount").setNumber(count);
+for (const controller of objects) {
+  controller.getVariables().get("RestoreCount").setNumber(count);
+  controller.getVariables().get("LastPayloadLength").setNumber(payload.length);
+  controller.getVariables().get("LastParsedCount").setNumber(records.length);
+}
 > @end js
 
 @event
