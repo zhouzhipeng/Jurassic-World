@@ -1,7 +1,22 @@
 const number = name => Number(harness.getSceneVariable(name)?.value);
 const objectNumber = (object, name) => Number(harness.getObjectVariable(object.id, name)?.value);
+async function tap(key) {
+  harness.setKeyPressed(key, true);
+  await harness.stepFrames(1);
+  harness.setKeyPressed(key, false);
+  await harness.stepFrames(1);
+}
+async function click(name) {
+  const object = harness.getObjects(name)[0];
+  harness.setMousePosition(object.x + object.width / 2, object.y + object.height / 2, object.layer);
+  harness.setMouseButtonPressed(true, 'left');
+  await harness.stepFrames(1);
+  harness.setMouseButtonPressed(false, 'left');
+  await harness.stepFrames(2);
+}
 try {
   await harness.goToScene('Game');
+  harness.setSceneVariable('TouchMode', 0);
   await harness.stepFrames(5);
   harness.watch('ConstructionController');
   harness.assert(harness.getObjects('ConstructionController').length === 1,
@@ -31,7 +46,9 @@ try {
   await harness.stepFrames(5);
   harness.assert(harness.getObjects('PartFoundation').length === 0 && harness.getObjects('PartWall').length === 0,
     'An empty restore clears the active buildings');
-  harness.setSceneVariable('Action', 10);
+  await tap('Escape');
+  await click('Load');
+  await tap('Escape');
   await harness.stepFrames(9);
   harness.assert(harness.getObjects('PartFoundation').length === 1 && harness.getObjects('PartWall').length === 1,
     `The extension saved and reloaded the building records through signals: loads=${objectNumber(harness.getObjects('ConstructionController')[0], 'LoadRequests')}, storage=${harness.getObjectVariable(harness.getObjects('ConstructionController')[0].id, 'LastLoadStorage')?.value}, savedLength=${String(harness.getObjectVariable(harness.getObjects('ConstructionController')[0].id, 'SaveJSON')?.value).length}, loadedJSON=${String(harness.getSceneVariable('BuildJSON')?.value).slice(0,70)}`);
