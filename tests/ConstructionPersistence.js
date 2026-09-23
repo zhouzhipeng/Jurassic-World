@@ -24,6 +24,7 @@ async function tap(key) {
   await harness.stepFrames(1);
   harness.setKeyPressed(key, false);
   await harness.stepFrames(1);
+  if (key === 'Return' || key === 'e') await harness.stepFrames(3);
 }
 async function click(name) {
   const object = harness.getObjects(name)[0];
@@ -56,7 +57,8 @@ try {
   await place('Num2', 150, 900);
   await place('Num5', 0, 750);
   await tap('b');
-  harness.setObjectPosition(harness.getObjects('Player3D')[0].id, 0, 570, 0);
+  const door = harness.getObjects('PartDoor')[0];
+  harness.setObjectPosition(harness.getObjects('Player3D')[0].id, door.x, door.y + 100, 0);
   await harness.stepFrames(2);
   await tap('e');
   harness.assert(Number(harness.getObjectVariable('PartDoor', 'Open')?.value) === 1, 'Save fixture contains an open door');
@@ -66,6 +68,7 @@ try {
   await tap('Escape');
   harness.assert(number('Mode') === 2, 'Escape opens the pause menu');
   await click('Save');
+  await harness.stepFrames(3);
   harness.assert(number('SaveFlag') === 1, 'Save button confirms a completed save');
   // Recreate the scene, then load only the dedicated slot written in this run.
   await harness.goToScene('Game'); harness.setSceneVariable('TouchMode', 0);
@@ -75,7 +78,7 @@ try {
   await tap('Escape');
   await click('Load');
   await tap('Escape');
-  await harness.stepFrames(3);
+  await harness.stepFrames(5);
   for (const name of parts) harness.watch(name);
   harness.assert(records() === savedRecords, 'Loading restores all building records, sockets, levels and support parents');
   harness.assert(buildings() === savedBuildings, 'Restored meshes preserve positions, heights, support state and the swung-open door');
