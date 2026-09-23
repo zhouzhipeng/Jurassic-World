@@ -18,4 +18,20 @@ tags = [ "construction", "3d", "survival" ]
 authorIds = [ ]
 dependencies = [ ]
 globalVariables = [ ]
-sceneVariables = [ ]
+[[sceneVariables]]
+name = "BuildMessageTime"
+persistentUuid = "719a1ad8-e331-4447-b8d0-6be124cd2dac"
+type = "number"
+value = 0
+
+[[sceneVariables]]
+name = "BuildSuccess"
+persistentUuid = "b11269e3-586b-4ce7-ac96-2342a47ca15a"
+type = "number"
+value = 0
+
+[[sceneVariables]]
+name = "BuildMode"
+persistentUuid = "7c48c37b-fed4-45a2-915b-ee2fe7049c7b"
+type = "number"
+value = 0

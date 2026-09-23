@@ -1,0 +1,15 @@
+kind = "function"
+settingsFormatVersion = 7
+order = 0
+folder = [ "Construction", "Frame" ]
+name = "ResetFeedback"
+extension = "JurassicConstruction"
+functionType = "Action"
+fullName = "Reset build feedback"
+description = "Advance the build message timer and clear the previous placement result."
+sentence = "Reset construction feedback"
+group = "Construction"
+private = false
+async = false
+parameters = [ ]
+objectGroups = { }
