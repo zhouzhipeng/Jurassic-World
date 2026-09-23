@@ -27,12 +27,10 @@ export default defineMaterial({
       .add(cos(x.mul(-0.0041).add(y.mul(0.0017))).mul(2));
     const a = x.mul(0.012).add(y.mul(0.007)).add(warp).add(t.mul(2.1));
     const b = x.mul(-0.009).add(y.mul(0.019)).add(warp.mul(1.7)).sub(t.mul(2.8));
-    const c = x.mul(0.062).add(y.mul(0.041)).add(sin(y.mul(0.025)).mul(3)).add(warp).add(t.mul(4.2));
-    const d = x.mul(-0.11).add(y.mul(0.083)).add(warp.mul(2.3)).sub(t.mul(5.1));
     const detail = smoothstep(1200, 9000, positionView.z.abs().mul(100)).oneMinus();
     const strength = parameters.cloud.mul(0.6).add(1);
-    const nx = cos(a).mul(-0.028).add(cos(b).mul(0.018)).add(cos(c).mul(-0.025).mul(detail)).add(cos(d).mul(0.014).mul(detail));
-    const ny = cos(a).mul(-0.019).add(cos(b).mul(-0.033)).add(cos(c).mul(-0.017).mul(detail)).add(cos(d).mul(-0.01).mul(detail));
+    const nx = cos(a).mul(-0.028).add(cos(b).mul(0.018));
+    const ny = cos(a).mul(-0.019).add(cos(b).mul(-0.033));
     const n = vec3(nx.mul(strength), ny.mul(strength), 1).normalize();
     const view = parameters.camera.sub(world).normalize();
     const facing = dot(n, view).max(0);
@@ -40,17 +38,21 @@ export default defineMaterial({
     const fresnel = facing.oneMinus().pow(5).mul(0.96).add(0.04);
     const radius = x.mul(x).add(y.sub(300).mul(y.sub(300))).pow(0.5);
     const offshore = smoothstep(3200, 7000, radius);
-    const water = mix(color('#247eaf'), color('#0b619c'), offshore);
+    const water = mix(color('#99d8cd'), color('#6bb2dc'), offshore);
     const light = parameters.daylight.mul(0.83).add(0.1).mul(parameters.cloud.mul(-0.4).add(1));
-    const sky = mix(parameters.horizon, color('#267bb7').mul(light), reflected.z.max(0).pow(0.45));
+    const sky = mix(parameters.horizon, color('#bcdbef').mul(light), reflected.z.max(0).pow(0.45));
     const glint = dot(reflected, parameters.sun.normalize()).max(0).pow(420).mul(parameters.daylight).mul(parameters.cloud.oneMinus());
     const glow = dot(reflected, parameters.sun.normalize()).max(0).pow(24).mul(0.15).mul(parameters.daylight);
     const sunColor = mix(color('#fff3cb'), color('#ffac64'), parameters.twilight);
     const surface = mix(water.mul(light), sky, fresnel.mul(0.85)).add(sunColor.mul(glint.mul(1.4).add(glow)));
-    const crest = sin(c).mul(sin(d)).mul(0.5).add(0.5).pow(10).mul(0.075).mul(light);
-    const movingSheen = sin(a).mul(0.5).add(sin(b).mul(0.25)).add(0.5).saturate().mul(0.07).mul(light);
+    const causticField = sin(x.mul(0.018).add(y.mul(0.006)).add(warp.mul(0.8)).add(t.mul(1.7)))
+      .add(sin(x.mul(-0.007).add(y.mul(0.022)).sub(warp.mul(0.6)).sub(t.mul(1.4))))
+      .add(sin(x.mul(0.011).sub(y.mul(0.016)).add(warp.mul(0.35)).add(t.mul(1.9))))
+      .mul(0.333);
+    const brightVeins = smoothstep(0.025, 0.115, causticField.abs()).oneMinus().pow(2)
+      .mul(0.92).mul(detail).mul(parameters.daylight).mul(parameters.cloud.mul(-0.65).add(1));
     const fog = smoothstep(parameters.fogNear, parameters.fogFar, positionView.z.abs().mul(100));
-    const finalColor = surface.add(vec3(crest.add(movingSheen))).add(vec3(parameters.flash.mul(0.18)));
+    const finalColor = mix(surface.add(vec3(parameters.flash.mul(0.18))), color('#e5e7f6'), brightVeins);
     material.fragmentNode = vec4(mix(finalColor, parameters.horizon, fog), 1);
     material.outputNode = vec4(mix(finalColor, parameters.horizon, fog), 1);
     // Blender GLB is Y-up locally; object rotation converts the vertical wave to world Z.
