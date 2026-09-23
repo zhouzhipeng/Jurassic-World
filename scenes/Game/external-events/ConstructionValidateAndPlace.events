@@ -215,7 +215,7 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Return"
 or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
-if NumberVariable variable="BuildSuccess" comparison_sign="=" value=0
+if NumberVariable variable="BuildValid" comparison_sign="=" value=0
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=2.5
 do SetStringVariable variable="BuildMessage" modification_sign="=" value=expr(BuildReason)
 
@@ -227,17 +227,4 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=1
 if KeyFromTextReleased key_to_check="Return"
 or NumberVariable variable="TouchPlace" comparison_sign="=" value=1
 if NumberVariable variable="BuildValid" comparison_sign="=" value=1
-do SetNumberVariable variable="ConstructionRequest.Kind" modification_sign="=" value=expr(BuildKind)
-do SetNumberVariable variable="ConstructionRequest.Slot" modification_sign="=" value=expr(BuildSlot)
-do SetNumberVariable variable="ConstructionRequest.X" modification_sign="=" value=expr(BuildX)
-do SetNumberVariable variable="ConstructionRequest.Y" modification_sign="=" value=expr(BuildY)
-do SetNumberVariable variable="ConstructionRequest.Z" modification_sign="=" value=expr(BuildZ)
-do SetNumberVariable variable="ConstructionRequest.Angle" modification_sign="=" value=expr(BuildAngle)
-do SetNumberVariable variable="ConstructionRequest.Level" modification_sign="=" value=expr(BuildLevel)
-do SetNumberVariable variable="ConstructionRequest.Parent" modification_sign="=" value=expr(BuildParent)
-do SetNumberVariable variable="ConstructionRequest.WorldHX" modification_sign="=" value=expr(BuildWorldHX)
-do SetNumberVariable variable="ConstructionRequest.WorldHY" modification_sign="=" value=expr(BuildWorldHY)
-do SetNumberVariable variable="ConstructionRequest.WoodCost" modification_sign="=" value=expr(BuildWood)
-do SetNumberVariable variable="ConstructionRequest.StoneCost" modification_sign="=" value=expr(BuildStone)
-do SetNumberVariable variable="ConstructionRequest.FiberCost" modification_sign="=" value=expr(BuildFiber)
-do EmitSceneSignal signal_name="Construction.Place" payload=expr(ToJSON(ConstructionRequest))
+do EmitSceneSignal signal_name="Construction.Place" payload=""

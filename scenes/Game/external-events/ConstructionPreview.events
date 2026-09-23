@@ -3,7 +3,6 @@
 @event
 if NumberVariable variable="Mode" comparison_sign=">=" value=0
 do SetNumberVariable variable="BuildMessageTime" modification_sign="=" value=expr(max(0,BuildMessageTime-TimeDelta()))
-do SetNumberVariable variable="BuildSuccess" modification_sign="=" value=0
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0

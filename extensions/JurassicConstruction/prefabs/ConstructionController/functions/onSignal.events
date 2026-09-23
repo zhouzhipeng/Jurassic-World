@@ -110,42 +110,56 @@ do EmitSceneSignal signal_name="Construction.Restore" payload=expr(ConstructionL
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Place"
 > @js objects=Object strict=true
-const world = objects[0] ? objects[0].getRuntimeScene() : runtimeScene;
+if (!objects[0]) return;
+const controller = objects[0];
+const state = controller.getVariables();
+let preview;
+try { preview = JSON.parse(state.get("PreviewJSON").getAsString()); }
+catch (error) { preview = null; }
+if (!preview || Number(preview.Valid) !== 1 ||
+    Number(preview.Kind) !== state.get("InputKind").getAsNumber()) return;
+const world = controller.getRuntimeScene();
 const types = new Map([[3, "BuiltCampfire"], [10, "PartFoundation"],
   [11, "PartPillar"], [12, "PartWall"], [13, "PartDoorframe"],
   [14, "PartCeiling"], [15, "PartDoor"], [16, "PartStairs"]]);
-let request;
-try { request = JSON.parse(String(eventsFunctionContext.getArgument("Payload"))); }
-catch (error) { request = null; }
-if (!request || !types.has(Number(request.Kind))) return;
-const slot = Number(request.Slot);
+const kind = Number(preview.Kind);
+const slot = Number(preview.Slot);
 if (!Number.isInteger(slot) || slot < 0 || slot >= 128) return;
 for (const name of ["BuiltShelter", "BuiltPalisade", ...types.values()]) {
   if (world.getObjects(name).some(item => item.getVariables().get("Slot").getAsNumber() === slot)) return;
 }
-const name = types.get(Number(request.Kind));
+const name = types.get(kind);
 if (!name) return;
 const item = world.createObject(name);
 if (!item) return;
+const x = Number(preview.X) || 0;
+const y = Number(preview.Y) || 0;
+const angle = state.get("InputAngle").getAsNumber();
+const level = state.get("InputLevel").getAsNumber();
 item.setLayer("World3D");
-item.setPosition(Number(request.X) || 0, Number(request.Y) || 0);
-item.setAngle(Number(request.Angle) || 0);
+item.setPosition(x, y);
+item.setAngle(angle);
 const vars = item.getVariables();
 vars.get("Slot").setNumber(slot);
-vars.get("BaseX").setNumber(Number(request.X) || 0);
-vars.get("BaseY").setNumber(Number(request.Y) || 0);
-vars.get("WorldHX").setNumber(Number(request.WorldHX) || 0);
-vars.get("WorldHY").setNumber(Number(request.WorldHY) || 0);
-vars.get("BaseZ").setNumber(Number(request.Z) || 0);
-vars.get("Level").setNumber((Number(request.Level) || 0) + (Number(request.Kind) === 14 ? 1 : 0));
-vars.get("Parent").setNumber(Number.isFinite(Number(request.Parent)) ? Number(request.Parent) : -1);
-vars.get("BaseAngle").setNumber(Number(request.Angle) || 0);
+vars.get("BaseX").setNumber(x);
+vars.get("BaseY").setNumber(y);
+vars.get("WorldHX").setNumber(Number(preview.WorldHX) || 0);
+vars.get("WorldHY").setNumber(Number(preview.WorldHY) || 0);
+vars.get("BaseZ").setNumber(Number(preview.Z) || 0);
+vars.get("Level").setNumber(level + (kind === 14 ? 1 : 0));
+vars.get("Parent").setNumber(Number(preview.Parent));
+vars.get("BaseAngle").setNumber(angle);
 vars.get("Open").setNumber(0);
+state.get("PlaceJSON").setString(JSON.stringify({ Kind: kind, Slot: slot,
+  X: x, Y: y, Z: Number(preview.Z), Angle: angle, Level: level,
+  Parent: Number(preview.Parent), WorldHX: Number(preview.WorldHX),
+  WorldHY: Number(preview.WorldHY), WoodCost: Number(preview.Wood),
+  StoneCost: Number(preview.Stone), FiberCost: Number(preview.Fiber) }));
 > @end js
 
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Place"
-do EmitSceneSignal signal_name="Construction.Placed" payload=expr(Payload)
+do EmitSceneSignal signal_name="Construction.Placed" payload=expr(Object.VariableString(PlaceJSON))
 
 @event
 if BuiltinCommonInstructions::CompareStrings first_string_expression=expr(SignalName) comparison_sign="=" second_string_expression="Construction.Remove"
