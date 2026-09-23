@@ -1,6 +1,7 @@
 const number = name => Number(harness.getSceneVariable(name)?.value);
 const value = (object, name) => Number(harness.getObjectVariable(object.id, name)?.value);
 const materials = () => ['Wood', 'Stone', 'Fiber'].map(number).join(',');
+const decodePreviewKind = () => Number(harness.getSceneVariable('ConstructionPreviewState')?.children?.find(child => child.name === 'Kind')?.value);
 async function tap(key) {
   harness.setKeyPressed(key, true);
   await harness.stepFrames(1);
@@ -17,7 +18,7 @@ async function place(key, x, y) {
   await aim(x, y);
   await tap(key);
   const foundation = harness.getObjects('PartFoundation')[0];
-  harness.assert(number('BuildValid') === 1, `Supported ${key} placement is valid: ${harness.getSceneVariable('BuildReason')?.value}; target=${number('BuildX')},${number('BuildY')}, level=${number('BuildLevel')}, parent=${number('BuildParent')}; foundation=${foundation?.x},${foundation?.y}, kind=${foundation ? value(foundation, 'Kind') : -1}, slot=${foundation ? value(foundation, 'Slot') : -1}, level=${foundation ? value(foundation, 'Level') : -1}`);
+  harness.assert(number('BuildValid') === 1, `Supported ${key} placement is valid: ${harness.getSceneVariable('BuildReason')?.value}; target=${number('BuildX')},${number('BuildY')}, angle=${number('BuildAngle')}, inputAngle=${value(harness.getObjects('ConstructionController')[0], 'InputAngle')}, previewKind=${decodePreviewKind()}, level=${number('BuildLevel')}, parent=${number('BuildParent')}; foundation=${foundation?.x},${foundation?.y}, kind=${foundation ? value(foundation, 'Kind') : -1}, slot=${foundation ? value(foundation, 'Slot') : -1}, level=${foundation ? value(foundation, 'Level') : -1}`);
   await tap('Return');
   await harness.stepFrames(3);
 }
