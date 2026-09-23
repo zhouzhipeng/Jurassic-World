@@ -1,19 +1,19 @@
-link external "FoliageLODRestore"
+link "FoliageLODRestore"
 
 @event
 link "HUDBootstrap"
 
-link external "MountainInitialize"
+link "MountainInitialize"
 
 @event
 link "TouchContext"
 
-link external "HeyinContext"
+link "HeyinContext"
 
 @event
 link "TouchLayout"
 
-link external "HudLayout"
+link "HudLayout"
 
 @event
 link "TouchInput"
@@ -2421,7 +2421,7 @@ do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 link "HUDExplorationHint"
 
 @event
-link external "MountainActors"
+link "MountainActors"
 
 link "ModularConstruction"
 
@@ -2500,7 +2500,7 @@ if NumberObjectVariable object="Player3D" variable="Travel" comparison_sign=">" 
 if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(MoveX) + abs(MoveY)) comparison_sign=">" second_expression=0
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(AngleBetweenPositions(PreviousX, PreviousY, Player3D.X(), Player3D.Y()) - 90)
 
-link external "PlayerJumpAnimation"
+link "PlayerJumpAnimation"
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=7
@@ -2538,30 +2538,30 @@ link "TouchPresentation"
 @event
 link "CameraVisibility"
 
-link external "FoliageLOD"
+link "FoliageLOD"
 
-link external "MountainFoliage"
+link "MountainFoliage"
 
 @event
-link external "FPSDisplay"
+link "FPSDisplay"
 
-link external "CoastalEnvironment"
+link "CoastalEnvironment"
 
-link external "HeyinInteraction"
+link "HeyinInteraction"
 
-link external "HeyinJourney"
+link "HeyinJourney"
 
-link external "HeyinSurvival"
+link "HeyinSurvival"
 
-link external "HeyinPresentation"
-link external "HeyinBubble"
+link "HeyinPresentation"
+link "HeyinBubble"
 
-link external "FireParticles"
+link "FireParticles"
 
-link external "HeyinCompanionUI"
+link "HeyinCompanionUI"
 
-link external "MapRadar"
+link "MapRadar"
 
-link external "DistanceVisibility"
+link "DistanceVisibility"
 
-link external "HudPresentation"
+link "HudPresentation"

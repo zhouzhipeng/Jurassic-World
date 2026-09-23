@@ -159,7 +159,7 @@ do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
 @event
 link "SurvivalSave"
 
-link external "HeyinSave"
+link "HeyinSave"
 
 @event
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=1

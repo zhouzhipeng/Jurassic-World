@@ -7,7 +7,7 @@ link "TimeRestore"
 @event
 link "SurvivalRestore"
 
-link external "HeyinRestore"
+link "HeyinRestore"
 
 @event
 if NumberVariable variable="Action" comparison_sign="=" value=10

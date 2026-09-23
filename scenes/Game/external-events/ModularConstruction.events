@@ -1440,7 +1440,7 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 >> if NumberVariable variable="FloorTarget" comparison_sign="<" value=expr(JumpPlatform.Object3D::Z()+JumpPlatform.Object3D::Depth())
 >> do SetNumberVariable variable="FloorTarget" modification_sign="=" value=expr(JumpPlatform.Object3D::Z()+JumpPlatform.Object3D::Depth())
 
-link external "PlayerJump"
+link "PlayerJump"
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
