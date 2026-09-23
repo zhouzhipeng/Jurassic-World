@@ -81,7 +81,9 @@ try {
   await tap('Escape');
   await harness.stepFrames(5);
   for (const name of parts) harness.watch(name);
-  harness.assert(records() === savedRecords, 'Loading restores all building records, sockets, levels and support parents');
+  const loadedRecords = records();
+  harness.assert(loadedRecords === savedRecords,
+    `Loading restores all building records, sockets, levels and support parents: before=${savedRecords}, after=${loadedRecords}`);
   harness.assert(buildings() === savedBuildings, 'Restored meshes preserve positions, heights, support state and the swung-open door');
   harness.assert(['Wood', 'Stone', 'Fiber'].map(number).join(',') === savedMaterials, 'Loading restores exact inventory without charging construction again');
 } finally {
