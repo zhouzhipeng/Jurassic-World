@@ -31,9 +31,10 @@ do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=1
-do SetX object="Player3D" modification_sign="=" value=-650
-do SetY object="Player3D" modification_sign="=" value=350
+do SetX object="Player3D" modification_sign="=" value=-1250
+do SetY object="Player3D" modification_sign="=" value=600
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=180
+do SetNumberVariable variable="CameraYaw" modification_sign="=" value=90
 do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
 
 @event
