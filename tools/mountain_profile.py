@@ -31,7 +31,8 @@ def coast_edge(x, y):
 def floor_height(x, y):
     """The coast mesh's ground height at a game-space XY point."""
     edge = coast_edge(x, y)
-    inland = min(1, max(0, (edge-1200)/1200))
+    t = min(1, max(0, (edge-1200)/1200))
+    inland = t*t*(3-2*t)
     beach = -140+140*min(1, max(0, edge/600))+.16*min(0, edge)
     return height(x, y)*inland+beach
 
@@ -44,6 +45,7 @@ def coast_edge_expression(x, y):
 
 def floor_expression(x, y):
     edge = coast_edge_expression(x, y)
-    return (f'({expression(x, y)})*max(0,min(1,(({edge})-1200)/1200))'
+    t = f'max(0,min(1,(({edge})-1200)/1200))'
+    return (f'({expression(x, y)})*pow({t},2)*(3-2*{t})'
             f'-140+140*max(0,min(1,({edge})/600))'
             f'+0.16*min(0,({edge}))')
