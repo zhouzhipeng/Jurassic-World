@@ -43,8 +43,10 @@ if (player) {
   const previous = number("CameraResolvedDistance");
   const targetX = player.getX(), targetY = player.getY();
   const submerged = number("SwimMode") === 2;
+  const insideMine = number("MineInside") === 1;
   const targetZ = submerged ? Math.min(-130, number("PlayerFloor") + 65)
     : number("Riding") === 2 ? number("FlightAltitude") + 150
+    : insideMine ? number("PlayerFloor") + 70
     : 120 + number("PlayerFloor") + number("Riding") * 220;
   const reset = previous <= 0 || Math.hypot(targetX - state("PlayerX"), targetY - state("PlayerY")) > 600;
   const blend = 1 - Math.exp(-14 * dt);
@@ -57,7 +59,7 @@ if (player) {
   const yaw = yawDegrees * Math.PI / 180;
   // Keep the dive lens below the sea surface so the seabed is not hidden by
   // the water plane. A shorter, nearly level orbit frames the underwater view.
-  const requestedPitch = submerged ? -8 : number("CameraPitch");
+  const requestedPitch = insideMine ? 0 : submerged ? -8 : number("CameraPitch");
   const requestedDistance = number("SwimMode") > 0
     ? Math.min(submerged ? 650 : 850, number("CameraDistance"))
     : number("CameraDistance");
@@ -409,7 +411,7 @@ if (player) {
   const requestedClearance = Math.min(clearance(requestedPitch), clearance(requestedPitch, 0.25));
   // Begin looking over an approaching barrier before it reaches the player.
   // Waiting until the boom is almost collapsed leaves no time for smooth tilt.
-  if (requestedClearance < 700) {
+  if (!insideMine && requestedClearance < 700) {
     let best = requestedClearance;
     desiredPitch = requestedPitch;
     // The previous resolved angle usually still clears the same approaching
@@ -425,9 +427,9 @@ if (player) {
       if (best >= 700) break;
     }
     pitchHold = 0.6;
-  } else if (pitchHold > 0 || requestedClearance < 800) desiredPitch = Math.max(oldPitch, requestedPitch);
+  } else if (!insideMine && (pitchHold > 0 || requestedClearance < 800)) desiredPitch = Math.max(oldPitch, requestedPitch);
   const pitchStep = Math.max(-22 * dt, Math.min(40 * dt, (desiredPitch - oldPitch) * (1 - Math.exp(-6 * dt))));
-  const pitch = reset ? requestedPitch : oldPitch + pitchStep;
+  const pitch = insideMine || reset ? requestedPitch : oldPitch + pitchStep;
   const rawClearance = clearance(pitch);
   // Near-target occlusion must never put the lens inside the character. Keep
   // usable framing while the orbit rises over the barrier; distant collisions
