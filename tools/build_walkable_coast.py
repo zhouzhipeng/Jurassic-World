@@ -158,6 +158,7 @@ report = {
     "coastTriangles": len(faces),
     "totalTriangles": sum(len(p.vertices) - 2 for p in island.data.polygons),
     "glbBytes": (OUT / "island.glb").stat().st_size,
+    "modelSizeGameUnits": [round(v * 100, 5) for v in island.dimensions],
     "beachWidthMetres": 12,
     "shoreGridMetres": 0.5,
     "seafloorExtentMetres": [-81, 81, -79, 84],

@@ -11,6 +11,8 @@
 5 秒后自动消失。压痕模型源为 `sources/environment/sand-footprints-source.blend`，
 运行资源为 `assets/models/sand-footprints.glb`，可用
 `tools/build_sand_footprint.py` 通过 Blender 重新生成。
+`Island3D` 的尺寸按运行 GLB 的包围盒设置为 180 × 194 × 32.7677 米；
+保持宽高比时三个尺寸必须共同对应模型，否则可见地面与玩家高度会整体错位。
 
 键盘：WASD 游泳，C 潜水，空格上浮。触屏摇杆游泳，水中原「跳跃」按钮
 切换为「潜水」或「上浮」。潜水时氧气下降，浮出水面后恢复；耗尽后生命值

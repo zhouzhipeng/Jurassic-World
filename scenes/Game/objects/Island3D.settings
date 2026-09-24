@@ -13,8 +13,8 @@ folder = [ "Real-time 3D" ]
 [content]
 centerLocation = "ModelOrigin"
 crossfadeDuration = 0.1
-depth = 3_054.203414916992
-height = 18_000
+depth = 3_276.7663955688477
+height = 19_400
 isCastingShadow = true
 isReceivingShadow = true
 keepAspectRatio = true
