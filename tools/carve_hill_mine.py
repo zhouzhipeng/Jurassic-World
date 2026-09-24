@@ -27,14 +27,26 @@ before_bounds = tuple(round(x, 4) for x in island.dimensions)
 ground_names = {"grass", "grassLight", "Valley moss", "Fern slopes", "Mountain heath"}
 bm = bmesh.new()
 bm.from_mesh(island.data)
-bm.faces.ensure_lookup_table()
 materials = list(island.data.materials)
+for axis, coordinate in ((0, -17.8), (0, -14.5), (1, -7.8), (1, -4.2)):
+    normal = [0.0, 0.0, 0.0]
+    normal[axis] = 1.0
+    nearby = [face for face in bm.faces if
+              any(abs(vertex.co[axis] - coordinate) < 2.0 for vertex in face.verts)]
+    geometry = set(nearby)
+    for face in nearby:
+        geometry.update(face.edges)
+        geometry.update(face.verts)
+    bmesh.ops.bisect_plane(bm, geom=list(geometry), dist=0.00001,
+                           plane_co=tuple(coordinate if i == axis else 0 for i in range(3)),
+                           plane_no=tuple(normal), clear_inner=False, clear_outer=False)
+bm.faces.ensure_lookup_table()
 cut = [face for face in bm.faces
        if -17.8 < face.calc_center_median().x < -14.5
        and -7.8 < face.calc_center_median().y < -4.2
-       and face.normal.z > .35
+       and abs(face.normal.z) > .35
        and materials[face.material_index].name in ground_names]
-assert 30 < len(cut) < 140, len(cut)
+assert 30 < len(cut) < 300, len(cut)
 bmesh.ops.delete(bm, geom=cut, context="FACES")
 bm.to_mesh(island.data)
 bm.free()
