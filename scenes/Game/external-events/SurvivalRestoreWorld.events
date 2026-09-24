@@ -1,5 +1,17 @@
 @comment "Apply persisted fire queues, ore cooldowns, companion state and player position" background=[90,150,120] text=[255,255,255]
 
+@event aiGeneratedEventId="pterosaur-restore-location"
+if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
+if GroupExists storage_name=expr(SaveStorage) group="Pterosaur.X"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Pterosaur.X" variable="LoadFuel"
+do SetX object="Pterosaur3D" modification_sign="=" value=expr(LoadFuel)
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Pterosaur.Y" variable="LoadFuel"
+do SetY object="Pterosaur3D" modification_sign="=" value=expr(LoadFuel)
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Pterosaur.Z" variable="LoadFuel"
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Pterosaur3D" behavior="Object3D" modification_sign="=" value=expr(LoadFuel)
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Pterosaur.Angle" variable="LoadFuel"
+do SetAngle object="Pterosaur3D" modification_sign="=" angle_in_degrees=expr(LoadFuel)
+
 @event
 if NumberVariable variable="SurvivalLoadPending" comparison_sign="=" value=1
 if GroupExists storage_name=expr(SaveStorage) group="Survival.Dino.X"

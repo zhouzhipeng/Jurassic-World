@@ -178,6 +178,11 @@ do EcrireFichierExp storage_name=expr(SaveStorage) group="Axe" expression=expr(A
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Spear" expression=expr(Spear)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Flint" expression=expr(Flint)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Rope" expression=expr(Rope)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.Saddle" expression=expr(PterosaurSaddle)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.X" expression=expr(Pterosaur3D.X())
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.Y" expression=expr(Pterosaur3D.Y())
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.Z" expression=expr(Pterosaur3D.Object3D::Z())
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.Angle" expression=expr(Pterosaur3D.Angle())
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Built" expression=expr(Built)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="StationIndex" expression=expr(StationIndex)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Version" expression=1

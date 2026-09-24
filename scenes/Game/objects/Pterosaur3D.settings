@@ -1,0 +1,48 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 376
+assetStoreId = ""
+name = "Pterosaur3D"
+type = "Scene3D::Model3DObject"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "Actors" ]
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 273
+height = 359
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "pterosaur.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 710
+sharedAnimationModelResources = [ ]
+
+[[content.animations]]
+loop = true
+name = "Idle"
+source = "Idle"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = true
+name = "Flap"
+source = "Flap"
+sourceModelResourceName = ""
+useRootMotion = false
+
+[[content.animations]]
+loop = true
+name = "Glide"
+source = "Glide"
+sourceModelResourceName = ""
+useRootMotion = false

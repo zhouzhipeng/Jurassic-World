@@ -1,0 +1,28 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 377
+assetStoreId = ""
+name = "PterosaurSaddle3D"
+type = "Scene3D::Model3DObject"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "Actors" ]
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 212
+height = 120
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "pterosaur-saddle.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 104
+sharedAnimationModelResources = [ ]
+animations = [ ]

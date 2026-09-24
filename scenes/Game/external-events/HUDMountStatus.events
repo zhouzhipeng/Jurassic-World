@@ -11,3 +11,19 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" 
 @event
 if NumberVariable variable="Riding" comparison_sign="=" value=1
 do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" behavior="Text" modification_sign="=" text="X  下坐骑"
+
+@event aiGeneratedEventId="pterosaur-saddle-prompt"
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="PterosaurSaddle" comparison_sign="=" value=0
+if Distance object="Player3D" object_2="Pterosaur3D" distance=650
+do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" behavior="Text" modification_sign="=" text="X  制作翼龙鞍具 (4皮 8纤维 3绳) 并骑乘"
+
+@event aiGeneratedEventId="pterosaur-mount-prompt"
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="PterosaurSaddle" comparison_sign="=" value=1
+if Distance object="Player3D" object_2="Pterosaur3D" distance=650
+do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" behavior="Text" modification_sign="=" text="X  骑乘翼龙"
+
+@event aiGeneratedEventId="pterosaur-flight-prompt"
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+do TextContainerCapability::TextContainerBehavior::SetValue object="MountLabel" behavior="Text" modification_sign="=" text="空格 上升  Ctrl 下降  X 着陆后下鞍"

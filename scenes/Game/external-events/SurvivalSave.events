@@ -34,6 +34,13 @@ do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.Dino.X" expre
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.Dino.Y" expression=expr(Dinosaur3D.Y())
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.Dino.Angle" expression=expr(Dinosaur3D.Angle())
 
+@event aiGeneratedEventId="pterosaur-save-safe-landing"
+if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.PlayerX" expression=expr(Pterosaur3D.X()+260)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.PlayerY" expression=expr(Pterosaur3D.Y())
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.PlayerZ" expression=expr(TerrainFloor)
+
 @event
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
 > @event

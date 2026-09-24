@@ -954,6 +954,16 @@ type = "number"
 value = 0
 
 [[variables]]
+name = "PterosaurSaddle"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FlightAltitude"
+type = "number"
+value = 0
+
+[[variables]]
 name = "CameraResolvedDistance"
 persistentUuid = "b9376a7a-45ef-4f82-a4b2-6c35bd4d34db"
 type = "number"
@@ -3893,3 +3903,21 @@ object = "ConstructionController"
 layer = "base"
 at = [0, 0]
 z_order = 0
+
+[[layout.instances]]
+id = "56897c8d-a6e1-48cb-bbe9-847d841e4f0a"
+object = "Pterosaur3D"
+layer = "world3d"
+at = [4950, 2720, 0]
+
+[[layout.instances]]
+id = "adcd3b2e-2178-4e67-8c73-cf7702beb31f"
+object = "PterosaurSaddle3D"
+layer = "world3d"
+at = [4950, 2720, 0]
+
+[[layout.instances]]
+id = "b34cffba-098c-4139-9057-259b55ff3691"
+object = "PterosaurRider3D"
+layer = "world3d"
+at = [4950, 2720, 200]

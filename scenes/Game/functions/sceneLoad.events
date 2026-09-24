@@ -16,6 +16,10 @@ do BuiltinExternalLayouts::CreateObjectsFromExternalLayout name_of_the_external_
 link "MountainInitialize"
 
 @event
+do Hide object="PterosaurSaddle3D"
+do Hide object="PterosaurRider3D"
+
+@event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=0
 do SetX object="Player3D" modification_sign="=" value=5200

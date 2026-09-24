@@ -29,6 +29,7 @@
 | `build_modular_assets.py` | 程序参数 | 木制模块构件 |
 | `build_expanded_island.py` | 程序参数 | 扩展海岛 |
 | `build_mount_assets.py` | 程序参数 | 副栉龙和坐姿骑手 |
+| `build_pterosaur_assets.py` | `-- <绝对临时输出目录>`；Blender 5.1 | 仅覆盖指定目录中的 `pterosaur.glb`、`pterosaur-saddle.glb` 与两个可编辑 `.blend`；验收后分别复制到 `assets/models/`、`sources/models/`，支持重复生成 |
 | `build_player_animation.py` | 程序参数 | 原始八段角色动画；不会包含后续 Jump |
 | `build_wildlife.py` | 程序参数 | 四种野生恐龙 |
 | `build_spear.py` | 程序参数 | 长矛 |

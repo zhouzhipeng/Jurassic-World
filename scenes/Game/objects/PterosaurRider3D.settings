@@ -1,0 +1,28 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 378
+assetStoreId = ""
+name = "PterosaurRider3D"
+type = "Scene3D::Model3DObject"
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "Actors" ]
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 238
+height = 111
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "StandardWithoutMetalness"
+modelResourceName = "seated-rider.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 277
+sharedAnimationModelResources = [ ]
+animations = [ ]

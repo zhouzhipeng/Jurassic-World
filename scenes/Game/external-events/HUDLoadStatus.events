@@ -26,6 +26,7 @@ do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Axe" variable="Ax
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Spear" variable="Spear"
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Flint" variable="Flint"
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Rope" variable="Rope"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Pterosaur.Saddle" variable="PterosaurSaddle"
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Built" variable="Built"
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group="StationIndex" variable="StationIndex"
 do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text="Local save loaded successfully."

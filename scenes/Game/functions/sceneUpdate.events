@@ -217,6 +217,45 @@ do SetNumberVariable variable="MountRequest" modification_sign="=" value=1
 @event
 link "HUDMountInput"
 
+@event aiGeneratedEventId="pterosaur-saddle-craft-and-mount"
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=0
+if Distance object="Player3D" object_2="Pterosaur3D" distance=650
+if NumberVariable variable="PterosaurSaddle" comparison_sign="=" value=0
+if NumberVariable variable="Hide" comparison_sign=">=" value=4
+if NumberVariable variable="Fiber" comparison_sign=">=" value=8
+if NumberVariable variable="Rope" comparison_sign=">=" value=3
+do SetNumberVariable variable="Hide" modification_sign="-" value=4
+do SetNumberVariable variable="Fiber" modification_sign="-" value=8
+do SetNumberVariable variable="Rope" modification_sign="-" value=3
+do SetNumberVariable variable="PterosaurSaddle" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已制作并装上翼龙鞍具。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event aiGeneratedEventId="pterosaur-mount-needs-saddle"
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if Distance object="Player3D" object_2="Pterosaur3D" distance=650
+if NumberVariable variable="PterosaurSaddle" comparison_sign="=" value=0
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="翼龙鞍具需要 4 兽皮、8 纤维、3 绳索。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event aiGeneratedEventId="pterosaur-mount"
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="PterosaurSaddle" comparison_sign="=" value=1
+if Distance object="Player3D" object_2="Pterosaur3D" distance=650
+do SetNumberVariable variable="Riding" modification_sign="=" value=2
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
+do SetNumberVariable variable="FlightAltitude" modification_sign="=" value=expr(Pterosaur3D.Object3D::Z())
+do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=0
+do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已骑乘翼龙！WASD 飞行，空格上升，Ctrl 下降，落地后 X 下坐骑。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
 @event
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
 if NumberVariable variable="Riding" comparison_sign="=" value=0
@@ -369,6 +408,27 @@ do SetNumberVariable variable="PreviousY" modification_sign="=" value=expr(DropY
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已安全下坐骑。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event aiGeneratedEventId="pterosaur-dismount-grounded"
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+if NumberVariable variable="FlightAltitude" comparison_sign="<=" value=expr(TerrainFloor+35)
+do SetNumberVariable variable="Riding" modification_sign="=" value=0
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
+do SetX object="Player3D" modification_sign="=" value=expr(Pterosaur3D.X()+260)
+do SetY object="Player3D" modification_sign="=" value=expr(Pterosaur3D.Y())
+do SetNumberVariable variable="PreviousX" modification_sign="=" value=expr(Player3D.X())
+do SetNumberVariable variable="PreviousY" modification_sign="=" value=expr(Player3D.Y())
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(TerrainFloor)
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="翼龙已着陆，安全下坐骑。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event aiGeneratedEventId="pterosaur-dismount-in-air"
+if NumberVariable variable="MountRequest" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="请先下降着陆，再按 X 下翼龙。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
 @event
 if NumberVariable variable="MountRequest" comparison_sign="=" value=1
 do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
@@ -476,10 +536,60 @@ do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(Dinosa
 do Hide object="Player3D"
 do SetNumberObjectVariable object="Dinosaur3D" variable="MountedRiderVisible" modification_sign="=" value=1
 
+@event aiGeneratedEventId="pterosaur-flight-planar-movement"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+if NumberVariable variable="MoveX" comparison_sign="!=" value=0
+or NumberVariable variable="MoveY" comparison_sign="!=" value=0
+do RotateTowardAngle object="Pterosaur3D" angle_to_rotate_towards_in_degrees=expr(AngleBetweenPositions(0,0,MoveX,MoveY)-CameraYaw-90) angular_speed_in_degrees_per_second=180
+do SetX object="Pterosaur3D" modification_sign="=" value=expr(clamp(Pterosaur3D.X()+(MoveX*cos(ToRad(CameraYaw))+MoveY*sin(ToRad(CameraYaw)))*MoveSpeed*1.7*TimeDelta(),-5500,5500))
+do SetY object="Pterosaur3D" modification_sign="=" value=expr(clamp(Pterosaur3D.Y()+(MoveY*cos(ToRad(CameraYaw))-MoveX*sin(ToRad(CameraYaw)))*MoveSpeed*1.7*TimeDelta(),-5650,5150))
+
+@event aiGeneratedEventId="pterosaur-flight-ascend"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+if KeyFromTextPressed key_to_check="Space"
+do SetNumberVariable variable="FlightAltitude" modification_sign="+" value=expr(420*TimeDelta())
+
+@event aiGeneratedEventId="pterosaur-flight-descend"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+if KeyFromTextPressed key_to_check="LControl"
+or KeyFromTextPressed key_to_check="RControl"
+do SetNumberVariable variable="FlightAltitude" modification_sign="-" value=expr(420*TimeDelta())
+
+@event aiGeneratedEventId="pterosaur-player-follows"
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+do SetX object="Player3D" modification_sign="=" value=expr(Pterosaur3D.X())
+do SetY object="Player3D" modification_sign="=" value=expr(Pterosaur3D.Y())
+do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=expr(Pterosaur3D.Angle())
+do Hide object="Player3D"
+
 @event
 if NumberVariable variable="Riding" comparison_sign="=" value=0
 do Show object="Player3D"
 do SetNumberObjectVariable object="Dinosaur3D" variable="MountedRiderVisible" modification_sign="=" value=0
+
+@event aiGeneratedEventId="pterosaur-saddle-visible"
+if NumberVariable variable="PterosaurSaddle" comparison_sign="=" value=1
+do Show object="PterosaurSaddle3D"
+
+@event aiGeneratedEventId="pterosaur-saddle-hidden"
+if NumberVariable variable="PterosaurSaddle" comparison_sign="=" value=0
+do Hide object="PterosaurSaddle3D"
+
+@event aiGeneratedEventId="pterosaur-rider-visible"
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+do Show object="PterosaurRider3D"
+do AnimatableCapability::AnimatableBehavior::SetName object="Pterosaur3D" behavior="Animation" modification_sign="=" animation_name="Flap"
+do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Pterosaur3D" behavior="Animation"
+
+@event aiGeneratedEventId="pterosaur-rider-hidden"
+if NumberVariable variable="Riding" comparison_sign="!=" value=2
+do Hide object="PterosaurRider3D"
+do AnimatableCapability::AnimatableBehavior::SetName object="Pterosaur3D" behavior="Animation" modification_sign="=" animation_name="Idle"
+do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Pterosaur3D" behavior="Animation"
 
 @event
 if NumberVariable variable="Riding" comparison_sign="=" value=1
@@ -2597,6 +2707,24 @@ link "CoastalBoatMovement"
 link "FishingAnimation"
 
 link "CoastalIslet"
+
+@event aiGeneratedEventId="pterosaur-flight-height-and-camera"
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+do SetNumberVariable variable="FlightAltitude" modification_sign="=" value=expr(clamp(FlightAltitude,TerrainFloor,TerrainFloor+1800))
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Pterosaur3D" behavior="Object3D" modification_sign="=" value=expr(FlightAltitude)
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(FlightAltitude)
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=expr(FlightAltitude)
+
+@event aiGeneratedEventId="pterosaur-gear-follows"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetX object="PterosaurSaddle3D" modification_sign="=" value=expr(Pterosaur3D.X())
+do SetY object="PterosaurSaddle3D" modification_sign="=" value=expr(Pterosaur3D.Y())
+do SetAngle object="PterosaurSaddle3D" modification_sign="=" angle_in_degrees=expr(Pterosaur3D.Angle())
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PterosaurSaddle3D" behavior="Object3D" modification_sign="=" value=expr(Pterosaur3D.Object3D::Z())
+do SetX object="PterosaurRider3D" modification_sign="=" value=expr(Pterosaur3D.X())
+do SetY object="PterosaurRider3D" modification_sign="=" value=expr(Pterosaur3D.Y())
+do SetAngle object="PterosaurRider3D" modification_sign="=" angle_in_degrees=expr(Pterosaur3D.Angle())
+do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PterosaurRider3D" behavior="Object3D" modification_sign="=" value=expr(Pterosaur3D.Object3D::Z()+205)
 
 @event
 link "CameraVisibility"

@@ -3,6 +3,20 @@ settingsFormatVersion = 7
 
 [[resources]]
 kind = "model3D"
+name = "pterosaur.glb"
+file = "assets/models/pterosaur.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "pterosaur-saddle.glb"
+file = "assets/models/pterosaur-saddle.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
 name = "coastal-rowboat.glb"
 file = "assets/environment/coastal-rowboat.glb"
 metadata = ""

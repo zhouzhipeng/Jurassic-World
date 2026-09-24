@@ -456,3 +456,11 @@ name = "BoatShoreBoundary"
 type = "gameplay"
 description = "Rowing toward the mainland stops the boat before it crosses onto the beach."
 file = "tests/BoatShoreBoundary.js"
+
+[[tests]]
+scope = "project"
+order = 57
+name = "PterosaurFlight"
+type = "gameplay"
+description = "Craft the pterosaur saddle through mount input, fly, block airborne dismount, land and dismount."
+file = "tests/PterosaurFlight.js"
