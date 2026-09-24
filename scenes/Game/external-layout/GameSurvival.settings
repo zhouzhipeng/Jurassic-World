@@ -166,67 +166,67 @@ z_order = 0
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000001"
 object = "HillMineGallery"
 layer = "world3d"
-at = [-1750, 600, 409]
+at = [-1450, 600, 144]
 
 [[layout.instances]]
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000002"
 object = "HillMineVein"
 layer = "world3d"
-at = [-1900, 515, 520]
+at = [-1900, 515, 189]
 
 [[layout.instances]]
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000003"
 object = "HillMineVein"
 layer = "world3d"
-at = [-2050, 685, 603]
+at = [-2050, 685, 204]
 
 [[layout.instances]]
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000004"
 object = "HillMineVein"
 layer = "world3d"
-at = [-2180, 505, 640]
+at = [-2180, 505, 217]
 
 [[layout.instances]]
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000005"
 object = "HillMineVein"
 layer = "world3d"
-at = [-2320, 685, 638]
+at = [-2320, 685, 231]
 
 [[layout.instances]]
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000006"
 object = "HillMineCrystal"
 layer = "world3d"
-at = [-1960, 690, 551]
+at = [-1960, 690, 195]
 
 [[layout.instances]]
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000007"
 object = "HillMineCrystal"
 layer = "world3d"
-at = [-2130, 520, 625]
+at = [-2130, 520, 212]
 
 [[layout.instances]]
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000008"
 object = "HillMineCrystal"
 layer = "world3d"
-at = [-2280, 600, 649]
+at = [-2280, 600, 227]
 
 [[layout.instances]]
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000009"
 object = "HillMineSpider"
 layer = "world3d"
-at = [-2010, 550, 585]
+at = [-2010, 550, 200]
 
 [[layout.instances]]
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe00000a"
 object = "HillMineSpider"
 layer = "world3d"
-at = [-2210, 680, 644]
+at = [-2210, 680, 220]
 
 [[layout.instances]]
 id = "a8b7c1d2-34e5-4fa6-8b72-01cafe00000b"
 object = "HillMineSerpent"
 layer = "world3d"
-at = [-2320, 545, 639]
+at = [-2320, 545, 231]
 
 [[layout.variables]]
 instance = "d0002104-a8e2-4347-ab47-cc684baa8440"

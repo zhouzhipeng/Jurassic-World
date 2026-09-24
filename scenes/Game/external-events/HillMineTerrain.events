@@ -1,0 +1,86 @@
+@comment "The open cut leads below the hill's intact roof" background=[76,90,108] text=[255,255,255]
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="MineInside" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign="<=" value=-1490
+if PosX object="Player3D" comparison_sign=">=" value=-1600
+if PosY object="Player3D" comparison_sign=">=" value=455
+if PosY object="Player3D" comparison_sign="<=" value=745
+do SetNumberVariable variable="MinePreviousCameraDistance" modification_sign="=" value=expr(CameraDistance)
+do SetNumberVariable variable="MinePreviousCameraPitch" modification_sign="=" value=expr(CameraPitch)
+do SetNumberVariable variable="MineInside" modification_sign="=" value=1
+do SetNumberVariable variable="CameraDistance" modification_sign="=" value=230
+do SetNumberVariable variable="CameraPitch" modification_sign="=" value=12
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="MineInside" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign="<" value=-1600
+if PosX object="Player3D" comparison_sign=">" value=-2340
+if PosY object="Player3D" comparison_sign=">=" value=450
+if PosY object="Player3D" comparison_sign="<=" value=750
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(PlayerFloor) comparison_sign="<" second_expression=expr(TerrainFloor-60)
+do SetNumberVariable variable="MinePreviousCameraDistance" modification_sign="=" value=1250
+do SetNumberVariable variable="MinePreviousCameraPitch" modification_sign="=" value=25
+do SetNumberVariable variable="MineInside" modification_sign="=" value=1
+do SetNumberVariable variable="CameraDistance" modification_sign="=" value=230
+do SetNumberVariable variable="CameraPitch" modification_sign="=" value=12
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=1
+if PosX object="Player3D" comparison_sign=">" value=-1430
+do SetNumberVariable variable="MineInside" modification_sign="=" value=0
+do SetNumberVariable variable="CameraDistance" modification_sign="=" value=expr(MinePreviousCameraDistance)
+do SetNumberVariable variable="CameraPitch" modification_sign="=" value=expr(MinePreviousCameraPitch)
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=1
+if PosX object="Player3D" comparison_sign="<" value=-2350
+do SetNumberVariable variable="MineInside" modification_sign="=" value=0
+do SetNumberVariable variable="CameraDistance" modification_sign="=" value=expr(MinePreviousCameraDistance)
+do SetNumberVariable variable="CameraPitch" modification_sign="=" value=expr(MinePreviousCameraPitch)
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=1
+if PosY object="Player3D" comparison_sign="<" value=420
+do SetNumberVariable variable="MineInside" modification_sign="=" value=0
+do SetNumberVariable variable="CameraDistance" modification_sign="=" value=expr(MinePreviousCameraDistance)
+do SetNumberVariable variable="CameraPitch" modification_sign="=" value=expr(MinePreviousCameraPitch)
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=1
+if PosY object="Player3D" comparison_sign=">" value=780
+do SetNumberVariable variable="MineInside" modification_sign="=" value=0
+do SetNumberVariable variable="CameraDistance" modification_sign="=" value=expr(MinePreviousCameraDistance)
+do SetNumberVariable variable="CameraPitch" modification_sign="=" value=expr(MinePreviousCameraPitch)
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=1
+if PosX object="Player3D" comparison_sign="<" value=-2315
+do SetX object="Player3D" modification_sign="=" value=-2315
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=1
+if PosX object="Player3D" comparison_sign="<" value=-1560
+if PosY object="Player3D" comparison_sign="<" value=455
+do SetY object="Player3D" modification_sign="=" value=455
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=1
+if PosX object="Player3D" comparison_sign="<" value=-1560
+if PosY object="Player3D" comparison_sign=">" value=745
+do SetY object="Player3D" modification_sign="=" value=745
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=1
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetNumberVariable variable="TerrainFloor" modification_sign="=" value=expr(144+0.1*(-Player3D.X()-1450))
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=1
+if NumberVariable variable="CameraDistance" comparison_sign=">" value=260
+do SetNumberVariable variable="CameraDistance" modification_sign="=" value=260

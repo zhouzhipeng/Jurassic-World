@@ -83,43 +83,45 @@ def export(stem):
     print(f"EXPORTED {stem}: {len(bpy.context.scene.objects)} objects, {os.path.getsize(glb)} bytes")
 
 
-# 6.2 metre uphill gallery following the existing west hill surface. The
-# foundation stays slightly above the game's sampled terrain floor.
+# The gallery starts at the cut in the east slope and continues beneath the
+# untouched hill roof. Its floor rises gently while the terrain rises above it.
 reset()
 rock = mat("Basalt exterior", (.18, .20, .22))
 inside = mat("Dark slate interior", (.095, .115, .13))
 floor = mat("Excavated floor", (.16, .15, .14))
 timber = mat("Old timber", (.28, .16, .075))
 amber = mat("Amber guide lamps", (.95, .42, .06), emission=(.95, .30, .025))
-sections = 13
+sections = 18
 arc = 9
 
 
 def slope(i):
-    t = i / sections
-    return (floor_height(-1750 - 620 * t, 600) - floor_height(-1750, 600)) / 100
+    return .88 * i / sections
 
 
 for side in ("inner", "outer"):
     vertices, faces = [], []
     for i in range(sections + 1):
         t = i / sections
-        x = -6.2 * t
+        x = -8.8 * t
         z = slope(i)
         width = 1.75 + .35 * max(0, (t - .65) / .35)
         if side == "outer":
-            width += .38
-        profile = [(-width, -.08), (-width, 1.3)]
+            width += .24
+        wall_height = min(1.1, max(.1, (floor_height(-1450 - 880 * t, 600) / 100) - (floor_height(-1450, 600) / 100 + z)))
+        profile = [(-width, -.08), (-width, wall_height)]
         for j in range(1, arc):
             theta = math.pi * j / arc
-            profile.append((-width * math.cos(theta), 1.3 + (2.25 if side == "outer" else 1.9) * math.sin(theta)))
-        profile.extend([(width, 1.3), (width, -.08)])
+            profile.append((-width * math.cos(theta), wall_height + (1.1 if side == "outer" else .95) * math.sin(theta)))
+        profile.extend([(width, wall_height), (width, -.08)])
         for y, h in profile:
             jitter = .05 * math.sin(i * 7.2 + y * 3) if side == "outer" else 0
             vertices.append((x, y + jitter, z + h + jitter))
     stride = arc + 3
     for i in range(sections):
         for j in range(stride - 1):
+            if i < 6 and j not in (0, stride - 2):
+                continue  # open trench; the hill itself roofs the deeper gallery
             a = i * stride + j
             face = (a, a + 1, a + stride + 1, a + stride)
             faces.append(face if side == "outer" else tuple(reversed(face)))
@@ -131,22 +133,22 @@ for side in ("inner", "outer"):
     mesh.materials.append(rock if side == "outer" else inside)
 
 for i in range(sections):
-    x = -6.2 * (i + .5) / sections
+    x = -8.8 * (i + .5) / sections
     z = (slope(i) + slope(i + 1)) / 2
-    cube(f"Stone floor {i:02}", (x, 0, z - .02), (6.2 / sections + .04, 3.35, .2), floor)
+    cube(f"Stone floor {i:02}", (x, 0, z - .02), (8.8 / sections + .04, 3.35, .2), floor)
 
-for i in (0, 4, 8, 12):
-    x = -6.2 * i / sections
+for i in (6, 10, 14, 18):
+    x = -8.8 * i / sections
     z = slope(i)
     for side in (-1, 1):
-        beam(f"Timber upright {i} {side}", (x, side * 1.53, z), (x, side * 1.53, z + 2.55), .09, timber)
-    beam(f"Timber crossbar {i}", (x, -1.57, z + 2.5), (x, 1.57, z + 2.5), .09, timber)
-for i in (1, 5, 9, 12):
-    x = -6.2 * i / sections
+        beam(f"Timber upright {i} {side}", (x, side * 1.53, z), (x, side * 1.53, z + 1.95), .09, timber)
+    beam(f"Timber crossbar {i}", (x, -1.57, z + 1.9), (x, 1.57, z + 1.9), .09, timber)
+for i in (7, 11, 15, 18):
+    x = -8.8 * i / sections
     for side in (-1, 1):
-        ball(f"Waylight {i} {side}", (x, side * 1.42, slope(i) + 1.65), .12, amber, 8, 6)
+        ball(f"Waylight {i} {side}", (x, side * 1.42, slope(i) + 1.5), .12, amber, 8, 6)
 
-cube("Back wall", (-6.26, 0, slope(13) + 1.15), (.27, 3.8, 2.7), inside, .12)
+cube("Back wall", (-8.86, 0, slope(18) + 1), (.27, 3.8, 2.1), inside, .12)
 export("hill-mine-gallery")
 
 # Mineral veins show three differently coloured metal seams on one rock.

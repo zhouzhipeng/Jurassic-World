@@ -2360,6 +2360,21 @@ name = "MineHurtCooldown"
 type = "number"
 value = 0
 
+[[variables]]
+name = "MineInside"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MinePreviousCameraDistance"
+type = "number"
+value = 1250
+
+[[variables]]
+name = "MinePreviousCameraPitch"
+type = "number"
+value = 25
+
 [layout]
 version = 1
 background = "#72BBDD"

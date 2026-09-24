@@ -27,8 +27,8 @@
 从 `sources/models/survivor-fishing-source.blend` 重新生成。水面游泳时镜头也会
 靠近角色，使划臂动作更容易看清。
 
-可编辑地形源：`sources/environment/island-coast-source.blend`，由
-`tools/build_walkable_coast.py` 从保留的山地源生成。可编辑角色源：
+海岸阶段的保留地形源：`sources/environment/island-coast-source.blend`，由
+`tools/build_walkable_coast.py` 从保留的山地源生成。当前地形源在其上开凿了西山矿洞，见 `sources/environment/island-mine-source.blend` 与 [西山矿洞](HILL_MINE.md)。可编辑角色源：
 `sources/models/survivor-swim-source.blend`，由 `tools/add_swim_animations.py`
 从钓鱼版本角色源生成。运行资源分别为 `assets/models/island.glb` 与
 `assets/models/survivor-animated.glb`。两个脚本只写指定的临时输出目录；

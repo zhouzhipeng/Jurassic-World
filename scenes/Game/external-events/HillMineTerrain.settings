@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HillMineTerrain"
+description = "Switch from west hill surface to the excavated tunnel floor"
+eventsLogic = "Enter through the open cut, use the tunnel floor while inside, constrain passage walls, then restore normal terrain and camera on exit."

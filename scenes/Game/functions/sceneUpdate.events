@@ -2583,6 +2583,8 @@ link "MountainActors"
 
 link "CoastalSwimming"
 
+link "HillMineTerrain"
+
 link "ModularConstruction"
 
 @event
