@@ -16,6 +16,11 @@ async function tapTouch(command) {
   finally { harness.touchEnd(71); }
   await harness.stepFrames(3);
 }
+function touchButton(command) {
+  return harness.getObjects('TouchButton').find(o =>
+    Number(harness.getObjectVariable(o.id, 'Active')?.value) === 1 &&
+    Number(harness.getObjectVariable(o.id, 'Command')?.value) === command);
+}
 try {
   await harness.goToScene('Game');
   await harness.stepFrames(4);
@@ -39,10 +44,20 @@ try {
     'The fitted saddle and seated rider are visible');
   const start = obj('Pterosaur3D');
   harness.setKeyPressed('Space', true);
-  try { await harness.stepFrames(45); }
+  try {
+    await harness.stepFrames(1);
+    harness.assert(n('FlightAltitude') - start.z < 20,
+      'The first held keyboard frame accelerates without a height jump');
+    await harness.stepFrames(44);
+  }
   finally { harness.releaseAllInputs(); }
   harness.assert(obj('Pterosaur3D').z > start.z + 200 && n('FlightAltitude') > start.z + 200,
     'Holding Space climbs more than two metres');
+  await harness.stepFrames(30);
+  const releasedHeight = n('FlightAltitude');
+  await harness.stepFrames(15);
+  harness.assert(Math.abs(n('FlightAltitude') - releasedHeight) < 3 && Math.abs(n('FlightVerticalSpeed')) < 1,
+    'Releasing Space eases the pterosaur to a stop');
   harness.setKeyPressed('w', true);
   try { await harness.stepFrames(24); }
   finally { harness.releaseAllInputs(); }
@@ -69,9 +84,28 @@ try {
   await tapTouch(306);
   harness.assert(n('Riding') === 2, 'The contextual touch button mounts the pterosaur');
   const touchGround = n('FlightAltitude');
-  await tapTouch(90);
-  harness.assert(n('FlightAltitude') > touchGround + 150, 'The touch ascent button lifts the pterosaur');
-  await tapTouch(91);
+  const ascend = touchButton(90);
+  harness.assert(!!ascend, 'The touch ascent control is available while mounted');
+  harness.touchStart(72, ascend.centerX, ascend.centerY, 'Touch');
+  try {
+    await harness.stepFrames(1);
+    harness.assert(n('FlightAltitude') - touchGround < 20,
+      'Touch ascent starts smoothly without an instant height jump');
+    await harness.stepFrames(44);
+    harness.assert(n('FlightAltitude') > touchGround + 180,
+      'Holding the touch ascent button continuously lifts the pterosaur');
+  } finally { harness.touchEnd(72); }
+  await harness.stepFrames(30);
+  const touchReleasedHeight = n('FlightAltitude');
+  await harness.stepFrames(15);
+  harness.assert(Math.abs(n('FlightAltitude') - touchReleasedHeight) < 3,
+    'Releasing touch ascent stops further climbing');
+  const descend = touchButton(91);
+  harness.assert(!!descend, 'The touch descent control is available while mounted');
+  harness.touchStart(73, descend.centerX, descend.centerY, 'Touch');
+  try { await harness.stepFrames(100); }
+  finally { harness.touchEnd(73); }
+  await harness.stepFrames(3);
   harness.assert(n('FlightAltitude') <= n('TerrainFloor') + 35, 'The touch descent button lands the pterosaur');
   await tapTouch(307);
   harness.assert(n('Riding') === 0, 'The contextual touch button dismounts after landing');

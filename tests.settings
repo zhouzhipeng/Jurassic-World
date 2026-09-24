@@ -462,5 +462,5 @@ scope = "project"
 order = 57
 name = "PterosaurFlight"
 type = "gameplay"
-description = "Craft the pterosaur saddle through mount input, fly, block airborne dismount, land and dismount."
+description = "Craft the pterosaur saddle, verify smooth held keyboard and touch flight, land and dismount."
 file = "tests/PterosaurFlight.js"

@@ -251,6 +251,7 @@ if Distance object="Player3D" object_2="Pterosaur3D" distance=650
 do SetNumberVariable variable="Riding" modification_sign="=" value=2
 do SetNumberVariable variable="MountRequest" modification_sign="=" value=0
 do SetNumberVariable variable="FlightAltitude" modification_sign="=" value=expr(Pterosaur3D.Object3D::Z())
+do SetNumberVariable variable="FlightVerticalSpeed" modification_sign="=" value=0
 do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=0
 do SetNumberVariable variable="SelectedHotbar" modification_sign="=" value=0
 do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已骑乘翼龙！WASD 飞行，空格上升，Ctrl 下降，落地后 X 下坐骑。"
@@ -546,30 +547,59 @@ do RotateTowardAngle object="Pterosaur3D" angle_to_rotate_towards_in_degrees=exp
 do SetX object="Pterosaur3D" modification_sign="=" value=expr(clamp(Pterosaur3D.X()+(MoveX*cos(ToRad(CameraYaw))+MoveY*sin(ToRad(CameraYaw)))*MoveSpeed*1.7*TimeDelta(),-5500,5500))
 do SetY object="Pterosaur3D" modification_sign="=" value=expr(clamp(Pterosaur3D.Y()+(MoveY*cos(ToRad(CameraYaw))-MoveX*sin(ToRad(CameraYaw)))*MoveSpeed*1.7*TimeDelta(),-5650,5150))
 
+@event aiGeneratedEventId="pterosaur-flight-input-reset"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+do SetNumberVariable variable="FlightVerticalInput" modification_sign="=" value=0
+
 @event aiGeneratedEventId="pterosaur-flight-ascend"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=2
 if KeyFromTextPressed key_to_check="Space"
-do SetNumberVariable variable="FlightAltitude" modification_sign="+" value=expr(420*TimeDelta())
+do SetNumberVariable variable="FlightVerticalInput" modification_sign="=" value=1
 
 @event aiGeneratedEventId="pterosaur-flight-descend"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=2
 if KeyFromTextPressed key_to_check="LControl"
 or KeyFromTextPressed key_to_check="RControl"
-do SetNumberVariable variable="FlightAltitude" modification_sign="-" value=expr(420*TimeDelta())
+do SetNumberVariable variable="FlightVerticalInput" modification_sign="=" value=-1
 
-@event aiGeneratedEventId="pterosaur-touch-ascend"
+@event aiGeneratedEventId="pterosaur-touch-hold-ascend"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=2
-if NumberVariable variable="TouchCommand" comparison_sign="=" value=90
-do SetNumberVariable variable="FlightAltitude" modification_sign="+" value=220
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Command" comparison_sign="=" value=90
+if NumberObjectVariable object="TouchButton" variable="TouchId" comparison_sign="!=" value=-999
+if TouchX touch_identifier=expr(TouchButton.Variable(TouchId)) comparison_sign=">=" value=expr(TouchButton.X()) layer="Touch" camera_number_default_0=0
+if TouchX touch_identifier=expr(TouchButton.Variable(TouchId)) comparison_sign="<=" value=expr(TouchButton.X()+TouchButton.Width()) layer="Touch" camera_number_default_0=0
+if TouchY touch_identifier=expr(TouchButton.Variable(TouchId)) comparison_sign=">=" value=expr(TouchButton.Y()) layer="Touch" camera_number_default_0=0
+if TouchY touch_identifier=expr(TouchButton.Variable(TouchId)) comparison_sign="<=" value=expr(TouchButton.Y()+TouchButton.Height()) layer="Touch" camera_number_default_0=0
+do SetNumberVariable variable="FlightVerticalInput" modification_sign="=" value=1
 
-@event aiGeneratedEventId="pterosaur-touch-descend"
+@event aiGeneratedEventId="pterosaur-touch-hold-descend"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=2
-if NumberVariable variable="TouchCommand" comparison_sign="=" value=91
-do SetNumberVariable variable="FlightAltitude" modification_sign="-" value=220
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Active" comparison_sign="=" value=1
+if NumberObjectVariable object="TouchButton" variable="Command" comparison_sign="=" value=91
+if NumberObjectVariable object="TouchButton" variable="TouchId" comparison_sign="!=" value=-999
+if TouchX touch_identifier=expr(TouchButton.Variable(TouchId)) comparison_sign=">=" value=expr(TouchButton.X()) layer="Touch" camera_number_default_0=0
+if TouchX touch_identifier=expr(TouchButton.Variable(TouchId)) comparison_sign="<=" value=expr(TouchButton.X()+TouchButton.Width()) layer="Touch" camera_number_default_0=0
+if TouchY touch_identifier=expr(TouchButton.Variable(TouchId)) comparison_sign=">=" value=expr(TouchButton.Y()) layer="Touch" camera_number_default_0=0
+if TouchY touch_identifier=expr(TouchButton.Variable(TouchId)) comparison_sign="<=" value=expr(TouchButton.Y()+TouchButton.Height()) layer="Touch" camera_number_default_0=0
+do SetNumberVariable variable="FlightVerticalInput" modification_sign="=" value=-1
+
+@event aiGeneratedEventId="pterosaur-flight-smooth-vertical-speed"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+do SetNumberVariable variable="FlightVerticalSpeed" modification_sign="=" value=expr(FlightVerticalSpeed+clamp(FlightVerticalInput*400-FlightVerticalSpeed,-1200*TimeDelta(),1200*TimeDelta()))
+do SetNumberVariable variable="FlightAltitude" modification_sign="+" value=expr(FlightVerticalSpeed*TimeDelta())
+
+@event aiGeneratedEventId="pterosaur-flight-speed-reset"
+if NumberVariable variable="Riding" comparison_sign="!=" value=2
+do SetNumberVariable variable="FlightVerticalSpeed" modification_sign="=" value=0
 
 @event aiGeneratedEventId="pterosaur-player-follows"
 if NumberVariable variable="Riding" comparison_sign="=" value=2
@@ -2726,6 +2756,18 @@ do SetNumberVariable variable="FlightAltitude" modification_sign="=" value=expr(
 do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Pterosaur3D" behavior="Object3D" modification_sign="=" value=expr(FlightAltitude)
 do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(FlightAltitude)
 do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=expr(FlightAltitude)
+
+@event aiGeneratedEventId="pterosaur-flight-stop-at-ground"
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+if NumberVariable variable="FlightAltitude" comparison_sign="<=" value=expr(TerrainFloor+1)
+if NumberVariable variable="FlightVerticalSpeed" comparison_sign="<" value=0
+do SetNumberVariable variable="FlightVerticalSpeed" modification_sign="=" value=0
+
+@event aiGeneratedEventId="pterosaur-flight-stop-at-ceiling"
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+if NumberVariable variable="FlightAltitude" comparison_sign=">=" value=expr(TerrainFloor+1799)
+if NumberVariable variable="FlightVerticalSpeed" comparison_sign=">" value=0
+do SetNumberVariable variable="FlightVerticalSpeed" modification_sign="=" value=0
 
 @event aiGeneratedEventId="pterosaur-gear-follows"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1

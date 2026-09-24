@@ -964,6 +964,16 @@ type = "number"
 value = 0
 
 [[variables]]
+name = "FlightVerticalInput"
+type = "number"
+value = 0
+
+[[variables]]
+name = "FlightVerticalSpeed"
+type = "number"
+value = 0
+
+[[variables]]
 name = "CameraResolvedDistance"
 persistentUuid = "b9376a7a-45ef-4f82-a4b2-6c35bd4d34db"
 type = "number"
