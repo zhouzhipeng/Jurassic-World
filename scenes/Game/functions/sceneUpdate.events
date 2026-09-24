@@ -730,6 +730,10 @@ do SetNumberVariable variable="CameraPitch" modification_sign="=" value=25
 do SetNumberVariable variable="CameraDistance" modification_sign="=" value=1250
 
 @event
+link "QuestProgress"
+
+link "QuestTargeting"
+
 link "HUDQuests"
 
 @comment "Equipped axe: three timed hits, shared gathering rewards, visible hand tool" background=[145,105,65] text=[255,255,255]
@@ -2540,6 +2544,10 @@ link "SurvivalHUD"
 link "TouchPresentation"
 
 @event
+link "CameraActorBounds"
+
+link "CameraOcclusion"
+
 link "CameraVisibility"
 
 link "FoliageLOD"

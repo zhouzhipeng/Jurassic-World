@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "QuestProgress"
+description = "Advance and claim the current survival goal."
+eventsLogic = "Advance and claim the current survival goal."

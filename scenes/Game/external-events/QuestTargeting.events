@@ -1,0 +1,173 @@
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=0
+if NumberObjectVariable object="BerryBush" variable="Cooldown" comparison_sign="<=" value=0
+if PickNearest object="BerryBush" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(BerryBush.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(BerryBush.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="浆果灌木"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=2
+if PickNearest object="CampForge" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(CampForge.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(CampForge.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="营地工作台"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=4
+if PickNearest object="CampForge" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(CampForge.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(CampForge.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="营地工作台"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=8
+if PickNearest object="CampForge" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(CampForge.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(CampForge.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="营地工作台"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=9
+if PickNearest object="CampForge" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(CampForge.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(CampForge.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="营地工作台"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=3
+if PickNearest object="Dinosaur3D" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(Dinosaur3D.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(Dinosaur3D.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="副栉龙"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+if NumberVariable variable="GatherWood" comparison_sign="<" value=4
+if NumberObjectVariable object="WoodSapling" variable="Cooldown" comparison_sign="<=" value=0
+if PickNearest object="WoodSapling" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(WoodSapling.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(WoodSapling.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="小树"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+if NumberVariable variable="GatherWood" comparison_sign=">=" value=4
+if NumberVariable variable="GatherStone" comparison_sign="<" value=3
+if NumberObjectVariable object="StoneDeposit" variable="Cooldown" comparison_sign="<=" value=0
+if PickNearest object="StoneDeposit" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(StoneDeposit.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(StoneDeposit.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="石头"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+if NumberVariable variable="GatherWood" comparison_sign=">=" value=4
+if NumberVariable variable="GatherStone" comparison_sign=">=" value=3
+if NumberObjectVariable object="FiberFern" variable="Cooldown" comparison_sign="<=" value=0
+if PickNearest object="FiberFern" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(FiberFern.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(FiberFern.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="蕨类"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+if NumberVariable variable="WaterVisits" comparison_sign="=" value=0
+if PickNearest object="SpringWater" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(SpringWater.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(SpringWater.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="清泉"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+if NumberVariable variable="WaterVisits" comparison_sign=">" value=0
+if PickNearest object="SurvivalFires" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(SurvivalFires.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(SurvivalFires.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="篝火"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=6
+if PickNearest object="Triceratops" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(Triceratops.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(Triceratops.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="三角龙"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=7
+if NumberObjectVariable object="MetalDeposit" variable="Cooldown" comparison_sign="<=" value=0
+if PickNearest object="MetalDeposit" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(MetalDeposit.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(MetalDeposit.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="金属矿脉"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=10
+if NumberObjectVariable object="Predators" variable="HP" comparison_sign=">" value=0
+if PickNearest object="Predators" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(Predators.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(Predators.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="捕食者"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=11
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(GatherMetal-BaseMetal) comparison_sign="<" second_expression=6
+if NumberObjectVariable object="MetalDeposit" variable="Cooldown" comparison_sign="<=" value=0
+if PickNearest object="MetalDeposit" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(MetalDeposit.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(MetalDeposit.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="金属矿脉"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=11
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(GatherMetal-BaseMetal) comparison_sign=">=" second_expression=6
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(MealsCooked-BaseMeals) comparison_sign="<" second_expression=2
+if PickNearest object="SurvivalFires" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(SurvivalFires.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(SurvivalFires.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="篝火"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=11
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(GatherMetal-BaseMetal) comparison_sign=">=" second_expression=6
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(MealsCooked-BaseMeals) comparison_sign=">=" second_expression=2
+if NumberObjectVariable object="Predators" variable="HP" comparison_sign=">" value=0
+if PickNearest object="Predators" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=1
+do SetNumberVariable variable="QuestTargetX" modification_sign="=" value=expr(Predators.X())
+do SetNumberVariable variable="QuestTargetY" modification_sign="=" value=expr(Predators.Y())
+do SetStringVariable variable="QuestTargetName" modification_sign="=" value="捕食者"
+
+@event
+if NumberVariable variable="QuestTargetValid" comparison_sign="=" value=1
+do SetNumberVariable variable="QuestRight" modification_sign="=" value=expr((QuestTargetX-Player3D.X())*cos(ToRad(CameraYaw))-(QuestTargetY-Player3D.Y())*sin(ToRad(CameraYaw)))
+do SetNumberVariable variable="QuestForward" modification_sign="=" value=expr(-(QuestTargetX-Player3D.X())*sin(ToRad(CameraYaw))-(QuestTargetY-Player3D.Y())*cos(ToRad(CameraYaw)))
+do SetStringVariable variable="QuestDirection" modification_sign="=" value="前方"
+
+@event
+if NumberVariable variable="QuestForward" comparison_sign="<" value=0
+do SetStringVariable variable="QuestDirection" modification_sign="=" value="后方"
+
+@event
+if NumberVariable variable="QuestRight" comparison_sign=">" value=expr(abs(QuestForward))
+do SetStringVariable variable="QuestDirection" modification_sign="=" value="右侧"
+
+@event
+if NumberVariable variable="QuestRight" comparison_sign="<" value=expr(-abs(QuestForward))
+do SetStringVariable variable="QuestDirection" modification_sign="=" value="左侧"

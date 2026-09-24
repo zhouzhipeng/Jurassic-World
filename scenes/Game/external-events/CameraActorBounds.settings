@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "CameraActorBounds"
+description = "Resolve visibility bounds for dinosaur actors."
+eventsLogic = "Resolve visibility bounds for dinosaur actors."

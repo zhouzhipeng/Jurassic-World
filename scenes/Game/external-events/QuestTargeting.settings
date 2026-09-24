@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "QuestTargeting"
+description = "Choose the active quest target and compute its direction."
+eventsLogic = "Choose the active quest target and compute its direction."

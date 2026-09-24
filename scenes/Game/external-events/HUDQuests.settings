@@ -1,5 +1,5 @@
 kind = "externalEvents"
 settingsFormatVersion = 7
 name = "HUDQuests"
-description = "Twelve survival goals; action counters and explicit, saved reward claims"
-eventsLogic = "Twelve survival goals; action counters and explicit, saved reward claims"
+description = "Render quest guidance, progress, toast, and claim state."
+eventsLogic = "Render quest guidance, progress, toast, and claim state."

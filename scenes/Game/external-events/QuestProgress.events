@@ -1,0 +1,281 @@
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=6
+if BuiltinCommonInstructions::Once
+do ShowLayer layer="Quests"
+do HideLayer layer="HUD"
+do HideLayer layer="Inventory"
+do HideLayer layer="Pause"
+do HideLayer layer="Settings"
+do HideLayer layer="Title"
+do HideLayer layer="Photo"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=5
+do HideLayer layer="Quests"
+
+@comment "Twelve survival goals; action counters and explicit, saved reward claims" background=[90,150,120] text=[255,255,255]
+
+@event
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=0
+do SetNumberVariable variable="QuestTargetValid" modification_sign="=" value=0
+do SetNumberVariable variable="QuestTargetKind" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=0
+do SetStringVariable variable="QuestName" modification_sign="=" value="第一份食物"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("亲手采集浆果 "+ToString(min(GatherBerries,3))+" /3")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="靠近红果灌木点「采集」。点「补给」或背包中的食物恢复饥饿值。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="浆果 +3"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 1 /12 · 建立海岛据点"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=0
+if NumberVariable variable="GatherBerries" comparison_sign=">=" value=3
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+do SetStringVariable variable="QuestName" modification_sign="=" value="就地取材"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("木材 "+ToString(min(GatherWood,4))+"/4 · 石头 "+ToString(min(GatherStone,3))+"/3 · 纤维 "+ToString(min(GatherFiber,5))+"/5")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="靠近小树点「采集」，会自动使用斧头。石头和蕨类也可点一下采集。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="木材 +6 / 石头 +2 / 纤维 +4"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 2 /12 · 建立海岛据点"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=1
+if NumberVariable variable="GatherWood" comparison_sign=">=" value=4
+if NumberVariable variable="GatherStone" comparison_sign=">=" value=3
+if NumberVariable variable="GatherFiber" comparison_sign=">=" value=5
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=2
+do SetStringVariable variable="QuestName" modification_sign="=" value="亲手制作"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("制作长矛 "+ToString(min(CraftedSpears,1))+" /1")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="打开「背包」，点「制作长矛」。需要 6 木材、2 石头、4 纤维。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="体力 +30"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 3 /12 · 建立海岛据点"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=2
+if NumberVariable variable="CraftedSpears" comparison_sign=">=" value=1
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=3
+do SetStringVariable variable="QuestName" modification_sign="=" value="第一位伙伴"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("副栉龙信任 "+ToString(min(Trust,100))+" /100")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="走近副栉龙，点「喂食」。信任达到 100 后按钮变为「骑乘」。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="兽皮 +2"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 4 /12 · 建立海岛据点"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=3
+if NumberVariable variable="Trust" comparison_sign=">=" value=100
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=4
+do SetStringVariable variable="QuestName" modification_sign="=" value="安全的营地"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("地基 "+ToString(min(BuildFloorCount,1))+"/1 · 墙/门 "+ToString(min(BuildWallCount,3))+"/3 · 顶板 "+ToString(min(BuildRoofCount,1))+"/1")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="点「建造」选择部件，用摇杆调整位置，再点「放置」。旋转和楼层都有按钮。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="绳索 +2"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 5 /12 · 建立海岛据点"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=4
+if NumberVariable variable="Built" comparison_sign="=" value=1
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+do SetStringVariable variable="QuestName" modification_sign="=" value="出发前的补给"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("清泉饮水 "+ToString(min(WaterVisits,1))+"/1 · 烤肉 "+ToString(min(MealsCooked,2))+"/2")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="菜单中导航至清泉或营地。清泉可饮水装水，篝火可自动添柴烤肉，工坊可制作水袋。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="兽皮 +2 / 木材 +4"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 6 /12 · 建立海岛据点"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=5
+if NumberVariable variable="WaterVisits" comparison_sign=">=" value=1
+if NumberVariable variable="MealsCooked" comparison_sign=">=" value=2
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=6
+do SetStringVariable variable="QuestName" modification_sign="=" value="荒野采集伙伴"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("三角龙信任 "+ToString(min(Triceratops.Variable(Bond),100))+" /100")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="导航至三角龙，走近点「喂食」：3 浆果一次，间隔 4 秒。驯服后点「伙伴」选择跟随，附近植物采集翻倍。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="木材 +8"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 7 /12 · 向危险区域远征"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=6
+if NumberVariable variable="CompanionTamed" comparison_sign="=" value=1
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=7
+do SetStringVariable variable="QuestName" modification_sign="=" value="危险矿区"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("开采金属矿石 "+ToString(min(GatherMetal,6))+" /6")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="导航至北部矿区，带好长矛、烤肉和水袋。点一下开采矿石，移动可取消；警惕捕食者。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="木材 +6"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 8 /12 · 向危险区域远征"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=7
+if NumberVariable variable="GatherMetal" comparison_sign=">=" value=6
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=8
+do SetStringVariable variable="QuestName" modification_sign="=" value="点燃工业火种"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("修复熔炉 "+ToString(ForgeBuilt)+"/1 · 熔炼金属锭 "+ToString(min(SmeltedMetal,3))+"/3")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="工坊先消耗 12 石头、8 木材修复熔炉。之后每 2 矿石、2 木材可在 10 秒内熔成 1 锭。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="兽皮 +2 / 木材 +4"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 9 /12 · 向危险区域远征"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=8
+if NumberVariable variable="ForgeBuilt" comparison_sign="=" value=1
+if NumberVariable variable="SmeltedMetal" comparison_sign=">=" value=3
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=9
+do SetStringVariable variable="QuestName" modification_sign="=" value="金属时代"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("制作金属工具 "+ToString(MetalTools)+" /1")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="在工坊点「升级金属工具」：3 金属锭、4 木材、2 兽皮。提升采集产量和长矛伤害。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="烤肉 +2"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 10 /12 · 向危险区域远征"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=9
+if NumberVariable variable="MetalTools" comparison_sign="=" value=1
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=10
+do SetStringVariable variable="QuestName" modification_sign="=" value="反击捕食者"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("击败捕食者 "+ToString(min(Kills-BaseKills,1))+" /1")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="准备烤肉、饮水和长矛。用摇杆移动闪避，按住「攻击」连续战斗，击败捕食者获取肉和兽皮。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="兽皮 +4；解锁远征委托"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 11 /12 · 向危险区域远征"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=10
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Kills-BaseKills) comparison_sign=">=" second_expression=1
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=11
+do SetStringVariable variable="QuestName" modification_sign="=" value="远征补给委托"
+do SetStringVariable variable="QuestProgress" modification_sign="=" value=expr("矿石 "+ToString(min(GatherMetal-BaseMetal,6))+"/6 · 烤肉 "+ToString(min(MealsCooked-BaseMeals,2))+"/2 · 狩猎 "+ToString(min(Kills-BaseKills,1))+"/1")
+do SetStringVariable variable="QuestInstruction" modification_sign="=" value="每轮采矿、烹饪并完成一次狩猎，再点当前目标领取奖励。先准备补给，再深入矿区。"
+do SetStringVariable variable="QuestReward" modification_sign="=" value="金属锭 +2 / 绳索 +2"
+do TextContainerCapability::TextContainerBehavior::SetValue object="JournalStory" behavior="Text" modification_sign="=" text="目标 12 /12 · 向危险区域远征"
+
+@event
+if NumberVariable variable="QuestStage" comparison_sign="=" value=11
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(GatherMetal-BaseMetal) comparison_sign=">=" second_expression=6
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(MealsCooked-BaseMeals) comparison_sign=">=" second_expression=2
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Kills-BaseKills) comparison_sign=">=" second_expression=1
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="QuestReady" comparison_sign="=" value=1
+if NumberVariable variable="QuestAnnounced" comparison_sign="!=" value=expr(QuestStage)
+do SetNumberVariable variable="QuestAnnounced" modification_sign="=" value=expr(QuestStage)
+do SetNumberVariable variable="QuestToastTime" modification_sign="=" value=5
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestToast" behavior="Text" modification_sign="=" text=expr("目标达成："+QuestName+NewLine()+"按 J 领取奖励，继续下一步。")
+do PlaySound audio_file_or_audio_resource_name="quest-complete.wav" repeat_the_sound=false volume=55 pitch_speed=1
+
+@event
+if NumberVariable variable="QuestClaim" comparison_sign="=" value=1
+if NumberVariable variable="QuestReady" comparison_sign="=" value=1
+do SetNumberVariable variable="QuestClaimStage" modification_sign="=" value=expr(QuestStage)
+do SetNumberVariable variable="QuestReady" modification_sign="=" value=0
+do SetNumberVariable variable="QuestClaim" modification_sign="=" value=0
+do SetNumberVariable variable="QuestAnnounced" modification_sign="=" value=-1
+do SetNumberVariable variable="QuestToastTime" modification_sign="=" value=5
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="SaveRequested" modification_sign="=" value=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="QuestToast" behavior="Text" modification_sign="=" text=expr("奖励已领取："+QuestReward+NewLine()+"进度已自动保存。")
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=0
+> do SetNumberVariable variable="Berries" modification_sign="+" value=3
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=1
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=1
+> do SetNumberVariable variable="Wood" modification_sign="+" value=6
+> do SetNumberVariable variable="Stone" modification_sign="+" value=2
+> do SetNumberVariable variable="Fiber" modification_sign="+" value=4
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=2
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=2
+> do SetNumberVariable variable="Stamina" modification_sign="=" value=expr(min(100,Stamina+30))
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=3
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=3
+> do SetNumberVariable variable="Hide" modification_sign="+" value=2
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=4
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=4
+> do SetNumberVariable variable="Rope" modification_sign="+" value=2
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=5
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=5
+> do SetNumberVariable variable="Hide" modification_sign="+" value=2
+> do SetNumberVariable variable="Wood" modification_sign="+" value=4
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=6
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=6
+> do SetNumberVariable variable="Wood" modification_sign="+" value=8
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=7
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=7
+> do SetNumberVariable variable="Wood" modification_sign="+" value=6
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=8
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=8
+> do SetNumberVariable variable="Hide" modification_sign="+" value=2
+> do SetNumberVariable variable="Wood" modification_sign="+" value=4
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=9
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=9
+> do SetNumberVariable variable="CookedMeat" modification_sign="+" value=2
+> do SetNumberVariable variable="BaseKills" modification_sign="=" value=expr(Kills)
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=10
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=10
+> do SetNumberVariable variable="Hide" modification_sign="+" value=4
+> do SetNumberVariable variable="BaseKills" modification_sign="=" value=expr(Kills)
+> do SetNumberVariable variable="BaseMetal" modification_sign="=" value=expr(GatherMetal)
+> do SetNumberVariable variable="BaseMeals" modification_sign="=" value=expr(MealsCooked)
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=11
+
+> @event
+> if NumberVariable variable="QuestClaimStage" comparison_sign="=" value=11
+> do SetNumberVariable variable="MetalIngot" modification_sign="+" value=2
+> do SetNumberVariable variable="Rope" modification_sign="+" value=2
+> do SetNumberVariable variable="ExpeditionRounds" modification_sign="+" value=1
+> do SetNumberVariable variable="BaseKills" modification_sign="=" value=expr(Kills)
+> do SetNumberVariable variable="BaseMetal" modification_sign="=" value=expr(GatherMetal)
+> do SetNumberVariable variable="BaseMeals" modification_sign="=" value=expr(MealsCooked)
+> do SetNumberVariable variable="QuestStage" modification_sign="=" value=11
+
+@event
+if NumberVariable variable="QuestClaim" comparison_sign="=" value=1
+do SetNumberVariable variable="QuestClaim" modification_sign="=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="ClaimQuestLabel" behavior="Text" modification_sign="=" text="先完成当前目标"
