@@ -11,7 +11,7 @@ bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
 
 mat = bpy.data.materials.new('Pressed damp sand')
-mat.diffuse_color = (0.43, 0.36, 0.26, 1)
+mat.diffuse_color = (0.24, 0.19, 0.13, 1)
 mat.use_nodes = True
 shader = mat.node_tree.nodes.get('Principled BSDF')
 shader.inputs['Base Color'].default_value = mat.diffuse_color
