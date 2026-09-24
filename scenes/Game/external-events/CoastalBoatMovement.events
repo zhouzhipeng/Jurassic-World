@@ -21,6 +21,15 @@ if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetwe
 do SetX object="Rowboat" modification_sign="=" value=expr(BoatPreviousX)
 do SetY object="Rowboat" modification_sign="=" value=expr(BoatPreviousY)
 
+@event aiGeneratedEventId="boat-mainland-shore-boundary"
+local boatCoastEdge = 0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+do SetNumberVariable variable="boatCoastEdge" modification_sign="=" value=expr(min(min(6400-abs(Rowboat.X())+280*sin(ToRad(Rowboat.Y()*0.08))+160*sin(ToRad(Rowboat.Y()*0.21)),6200-Rowboat.Y()+250*sin(ToRad(Rowboat.X()*0.09))+120*sin(ToRad(Rowboat.X()*0.23))),6700+Rowboat.Y()+250*sin(ToRad(Rowboat.X()*0.08))+140*sin(ToRad(Rowboat.X()*0.20))))
+> if NumberVariable variable="boatCoastEdge" comparison_sign=">" value=-180
+> do SetX object="Rowboat" modification_sign="=" value=expr(BoatPreviousX)
+> do SetY object="Rowboat" modification_sign="=" value=expr(BoatPreviousY)
+
 @event aiGeneratedEventId="boat-player-follows"
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Sailing" comparison_sign="=" value=1

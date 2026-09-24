@@ -448,3 +448,11 @@ name = "ConstructionSignals"
 type = "gameplay"
 description = "Construction restore uses scene signals and preserves building state and elevation."
 file = "tests/ConstructionSignals.js"
+
+[[tests]]
+scope = "project"
+order = 56
+name = "BoatShoreBoundary"
+type = "gameplay"
+description = "Rowing toward the mainland stops the boat before it crosses onto the beach."
+file = "tests/BoatShoreBoundary.js"
