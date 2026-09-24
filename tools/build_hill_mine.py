@@ -10,6 +10,9 @@ import sys
 import bpy
 from mathutils import Vector
 
+sys.path.insert(0, os.path.dirname(__file__))
+from mountain_profile import floor_height
+
 OUT = os.path.abspath(sys.argv[sys.argv.index("--") + 1])
 os.makedirs(OUT, exist_ok=True)
 
@@ -94,7 +97,7 @@ arc = 9
 
 def slope(i):
     t = i / sections
-    return 2.35 * (t * (2 - t))
+    return (floor_height(-1750 - 620 * t, 600) - floor_height(-1750, 600)) / 100
 
 
 for side in ("inner", "outer"):
@@ -130,7 +133,7 @@ for side in ("inner", "outer"):
 for i in range(sections):
     x = -6.2 * (i + .5) / sections
     z = (slope(i) + slope(i + 1)) / 2
-    cube(f"Stone floor {i:02}", (x, 0, z - .12), (6.2 / sections + .03, 3.35, .24), floor)
+    cube(f"Stone floor {i:02}", (x, 0, z - .02), (6.2 / sections + .04, 3.35, .2), floor)
 
 for i in (0, 4, 8, 12):
     x = -6.2 * i / sections
