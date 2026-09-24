@@ -33,16 +33,11 @@ try {
   }
   await harness.stepFrames(90);
   const wall = harness.spawn('PartWall', 2000, 1950, 100, 'World3D');
-  // The construction prefab owns its height and reapplies BaseZ every frame.
-  harness.setObjectVariable(wall.id, 'BaseZ', 100);
   harness.watch('PartWall');
   harness.watch('Player3D');
   await harness.stepFrames(1);
-  const wallRuntime = harness.getRuntimeObject(wall.id);
-  const wallRenderer = wallRuntime?.get3DRendererObject();
-  const probe = gdjs.evtTools.scene3d.raycastObjects(2000, 1500, 220, 0, 1, 0.3, [wallRuntime], 0, 1250, true);
   harness.assert(n('CameraResolvedDistance') < 500 && n('CameraDistance') === 1250,
-    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}, z=${wallRuntime?.getZ()}, children=${wallRenderer?.children.length}, group=${wallRenderer?.position.x},${wallRenderer?.position.y},${wallRenderer?.position.z}, child=${wallRenderer?.children[0]?.position.x},${wallRenderer?.children[0]?.position.y},${wallRenderer?.children[0]?.position.z}, probe=${probe.length}`);
+    `A newly placed wall retracts the camera in one frame without changing requested zoom: distance=${n('CameraResolvedDistance')}`);
   clearSight([harness.getRuntimeObject(wall.id)], 'Wall');
   const compressed = n('CameraResolvedDistance');
   harness.getRuntimeObject(wall.id).hide(true);
