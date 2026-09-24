@@ -224,7 +224,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Sailing" comparison_sign="=" value=1
 do SetNumberVariable variable="TouchContext" modification_sign="=" value=11
 do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="靠岸"
-do SetStringVariable variable="TouchContextHint" modification_sign="=" value="驶到海岸或小岛西侧，再点此下船"
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value="靠近主岛海岸或小岛任意一侧，再点此下船"
 
 @event aiGeneratedEventId="boat-touch-fishing-hint"
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1

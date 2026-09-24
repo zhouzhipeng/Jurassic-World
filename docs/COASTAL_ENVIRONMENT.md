@@ -1,6 +1,6 @@
 # Coastal environment
 
-Added camera-centred photographic sky and an independent 680 m wide sea.
+Added camera-centred photographic sky and an independent sea mesh that follows the camera for continuous sailing.
 The sky uses Poly Haven's CC0 Kloppenheim 05 Pure Sky panorama; provenance is
 in assets/environment/LICENSE.md. It is embedded into coastal-sky.glb.
 

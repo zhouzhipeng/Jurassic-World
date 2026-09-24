@@ -17,11 +17,7 @@ do SetY object="Rowboat" modification_sign="+" value=expr(sin(ToRad(Rowboat.Angl
 
 @event aiGeneratedEventId="boat-deep-water-limits"
 if NumberVariable variable="Sailing" comparison_sign="=" value=1
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.X()) comparison_sign="<" second_expression=6460
-or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.X()) comparison_sign=">" second_expression=11000
-or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.Y()) comparison_sign="<" second_expression=-4500
-or BuiltinCommonInstructions::CompareNumbers first_expression=expr(Rowboat.Y()) comparison_sign=">" second_expression=3000
-or BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Rowboat.X(),Rowboat.Y(),9500,-1000)) comparison_sign="<" second_expression=780
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Rowboat.X(),Rowboat.Y(),9500,-1000)) comparison_sign="<" second_expression=780
 do SetX object="Rowboat" modification_sign="=" value=expr(BoatPreviousX)
 do SetY object="Rowboat" modification_sign="=" value=expr(BoatPreviousY)
 
@@ -58,6 +54,6 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="Sailing" comparison_sign="=" value=1
 if NumberVariable variable="MoveX" comparison_sign="!=" value=0
 or NumberVariable variable="MoveY" comparison_sign="!=" value=0
-do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=13
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=12
 do AnimatableCapability::AnimatableBehavior::SetName object="Rowboat" behavior="Animation" modification_sign="=" animation_name="OarsRow"
 do AnimatableCapability::AnimatableBehavior::PlayAnimation object="Rowboat" behavior="Animation"

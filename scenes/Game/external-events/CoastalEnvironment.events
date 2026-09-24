@@ -5,6 +5,10 @@ if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 do SetXY object="CoastalSky" first_modification_sign="=" x_position=expr(CameraCenterX("World3D", 0)) second_modification_sign="=" y_position=expr(CameraCenterY("World3D", 0))
 do Scene3D::Base3DBehavior::SetZ parameter_3d_object="CoastalSky" behavior="Object3D" modification_sign="=" value=expr(Scene3D::CameraZ("World3D", 0))
 
+@event aiGeneratedEventId="coastal-ocean-follow"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetXY object="CoastalOcean" first_modification_sign="=" x_position=expr(CameraCenterX("World3D", 0)) second_modification_sign="=" y_position=expr(CameraCenterY("World3D", 0))
+
 @event aiGeneratedEventId="coastalsky-weather"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if TSLMaterial::IsBindingReady parameter_3d_model="CoastalSky" tsl_material_behavior="EnvironmentMaterial" binding_name="Environment"

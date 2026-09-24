@@ -69,8 +69,8 @@ export default defineMaterial({
     material.fragmentNode = vec4(visibleSurface, opacity);
     material.outputNode = vec4(visibleSurface, opacity);
     // Blender GLB is Y-up locally; object rotation converts the vertical wave to world Z.
-    const swell = sin(positionLocal.x.mul(0.48).add(t.mul(2.1))).mul(0.04)
-      .add(sin(positionLocal.z.mul(0.71).sub(t.mul(2.8))).mul(0.025));
+    const swell = sin(x.mul(0.0048).add(t.mul(2.1))).mul(0.04)
+      .add(sin(y.mul(0.0071).sub(t.mul(2.8))).mul(0.025));
     material.positionNode = positionLocal.add(vec3(0, swell.mul(strength), 0));
     material.transparent = true;
     material.depthWrite = false;

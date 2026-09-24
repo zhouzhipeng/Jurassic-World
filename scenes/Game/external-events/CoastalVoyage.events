@@ -31,17 +31,15 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Sailing" comparison_sign="=" value=1
 if NumberVariable variable="BoatToggleRequest" comparison_sign="=" value=1
 if NumberVariable variable="BoatCooldown" comparison_sign="<=" value=0
-if PosX object="Rowboat" comparison_sign=">=" value=8650
-if PosX object="Rowboat" comparison_sign="<=" value=8720
-if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Rowboat.Y()+1000)) comparison_sign="<=" second_expression=280
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Rowboat.X(),Rowboat.Y(),9500,-1000)) comparison_sign="<=" second_expression=1300
 do SetNumberVariable variable="Sailing" modification_sign="=" value=0
 do SetNumberVariable variable="IsletVisit" modification_sign="=" value=1
 do SetNumberVariable variable="BoatCooldown" modification_sign="=" value=0.45
-do SetX object="Player3D" modification_sign="=" value=expr(Rowboat.X()+300)
-do SetY object="Player3D" modification_sign="=" value=expr(Rowboat.Y())
+do SetX object="Player3D" modification_sign="=" value=expr(9500+(Rowboat.X()-9500)*500/max(1,DistanceBetweenPositions(Rowboat.X(),Rowboat.Y(),9500,-1000)))
+do SetY object="Player3D" modification_sign="=" value=expr(-1000+(Rowboat.Y()+1000)*500/max(1,DistanceBetweenPositions(Rowboat.X(),Rowboat.Y(),9500,-1000)))
 do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=25
 do Scene3D::Base3DBehavior::SetZ parameter_3d_object="Player3D" behavior="Object3D" modification_sign="=" value=25
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已登上近海小岛。探索棕榈林，回到西岸乘船返航。"
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="已登上近海小岛。探索棕榈林，回到小船即可返航。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 @event aiGeneratedEventId="boat-cannot-land-offshore"
@@ -49,7 +47,7 @@ if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="Sailing" comparison_sign="=" value=1
 if NumberVariable variable="BoatToggleRequest" comparison_sign="=" value=1
 if NumberVariable variable="BoatCooldown" comparison_sign="<=" value=0
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="这里水深，驶到主岛岸边或小岛西侧浅滩再下船。"
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="距离海岸较远，靠近主岛或近海小岛再下船。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 do SetNumberVariable variable="BoatCooldown" modification_sign="=" value=0.45
 
@@ -78,5 +76,5 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 if NumberVariable variable="BoatPromptSeen" comparison_sign="=" value=0
 if Distance object="Player3D" object_2="Rowboat" distance=850
 do SetNumberVariable variable="BoatPromptSeen" modification_sign="=" value=1
-do SetStringVariable variable="NoticeMessage" modification_sign="=" value="岸边的小船：靠近后按 F 上船，驶往东面的近海小岛。"
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="岸边的小船：靠近后按 F 上船，可在海面自由航行。"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
