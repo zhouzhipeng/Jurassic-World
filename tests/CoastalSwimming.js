@@ -9,6 +9,20 @@ try {
   await harness.stepFrames(3);
   harness.assert(n('SwimMode') === 0 && n('CoastEdge') > 600 && Math.abs(n('TerrainFloor')) < 2,
     `Dry sand is walkable: mode=${n('SwimMode')}, edge=${n('CoastEdge')}, floor=${n('TerrainFloor')}`);
+  const dryFootsteps = harness.getPlayedSounds().filter(sound => sound.sound.includes('footstep')).length;
+  harness.setKeyPressed('d', true);
+  let largestGroundGap = 0;
+  let airborneGroundFrames = 0;
+  for (let frame = 0; frame < 75; frame++) {
+    await harness.stepFrames(1);
+    largestGroundGap = Math.max(largestGroundGap, Math.abs(n('PlayerFloor') - n('FloorTarget')));
+    if (n('JumpVelocity') !== 0) airborneGroundFrames++;
+  }
+  harness.releaseAllInputs();
+  harness.assert(player().x > 6000 && n('PlayerFloor') < -20 && largestGroundGap < 0.01 && airborneGroundFrames === 0,
+    `Walking downhill stays grounded on the beach: x=${player().x}, floor=${n('PlayerFloor')}, gap=${largestGroundGap}, airborneFrames=${airborneGroundFrames}`);
+  harness.assert(harness.getPlayedSounds().filter(sound => sound.sound.includes('footstep')).length > dryFootsteps,
+    'Walking across dry sand plays footsteps');
   harness.setObjectPosition(player().id, 6300, 2500, 0);
   await harness.stepFrames(3);
   harness.assert(n('SwimMode') === 0 && n('TerrainFloor') > -130,
@@ -29,6 +43,12 @@ try {
     'Surface swimming replenishes air and does not apply jump gravity');
   harness.assert(atSea.children?.Body?.[0]?.animation === 'Swim',
     `Surface swimming plays the rebuilt Swim clip: ${atSea.children?.Body?.[0]?.animation}`);
+  const footstepsAtSea = harness.getPlayedSounds().filter(sound => sound.sound.includes('footstep')).length;
+  harness.setKeyPressed('d', true);
+  await harness.stepFrames(30);
+  harness.releaseAllInputs();
+  harness.assert(harness.getPlayedSounds().filter(sound => sound.sound.includes('footstep')).length === footstepsAtSea,
+    'Swimming movement does not play footsteps');
   // Arrange deeper water within the reachable nearshore zone.
   harness.setObjectPosition(atSea.id, 7850, 2500, -245);
   await harness.stepFrames(3);

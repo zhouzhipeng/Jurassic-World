@@ -66,7 +66,9 @@ try {
   harness.releaseAllInputs();
   await harness.stepFrames(65);
   await press('k', 1);
-  harness.assert(n('CombatCD') > 0 && player().z === 0, 'K retains keyboard combat separately from jumping');
+  harness.assert(n('CombatCD') > 0 && n('JumpVelocity') === 0 &&
+    Math.abs(player().z - n('FloorTarget')) < 0.01,
+    `K attacks without jumping on the current terrain: cooldown=${n('CombatCD')}, z=${player().z}, floor=${n('FloorTarget')}`);
 } finally {
   harness.releaseAllInputs();
 }
