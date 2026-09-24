@@ -900,6 +900,22 @@ if NumberVariable variable="Riding" comparison_sign="=" value=0
 do PlaySound audio_file_or_audio_resource_name="footstep.wav" repeat_the_sound=false volume=28 pitch_speed=1
 do SetNumberVariable variable="StepClock" modification_sign="=" value=expr(0.4 - Player3D.Variable(Sprinting) * 0.13)
 
+> @event aiGeneratedEventId="sand-footprints-on-grounded-step"
+> if NumberVariable variable="SwimMode" comparison_sign="=" value=0
+> if NumberVariable variable="CoastEdge" comparison_sign=">" value=0
+> if NumberVariable variable="CoastEdge" comparison_sign="<" value=1200
+> if NumberVariable variable="JumpVelocity" comparison_sign="=" value=0
+> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-FloorTarget)) comparison_sign="<=" second_expression=2
+> do Create object_to_create="SandFootprints" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y()) layer="World3D"
+> do SetAngle object="SandFootprints" modification_sign="=" angle_in_degrees=expr(Player3D.Angle())
+> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="SandFootprints" behavior="Object3D" modification_sign="=" value=expr(TerrainFloor+2)
+> do ResetObjectTimer object="SandFootprints" timer_name="Life"
+
+@event aiGeneratedEventId="sand-footprints-expire"
+for each SandFootprints
+> if CompareObjectTimer object="SandFootprints" timer_name="Life" comparison_sign=">" time_in_seconds=5
+> do Delete object="SandFootprints"
+
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1

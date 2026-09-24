@@ -10,7 +10,8 @@
 ## Blender 资源制作
 
 `build_walkable_coast.py`：读取保留的山地岛源，重建 12 米宽沙滩与近海海底，
-通过 `-- <绝对临时输出目录>` 生成 `island.glb`、可编辑 blend 和清单。
+岸边使用 0.5 米网格采样。通过 `-- <绝对临时输出目录>` 生成 `island.glb`、可编辑 blend 和清单。
+`build_sand_footprint.py`：通过同样的临时输出参数生成沙滩脚印的可编辑 Blender 源与运行 GLB。
 `add_swim_animations.py`：在 `survivor-fishing-source.blend` 后台进程中运行，
 通过 `-- <绝对临时输出目录>` 生成俯身交替划臂的 Swim 和双臂前伸的 Dive 动作、角色 GLB、可编辑 blend
 和清单。两个脚本不直接覆盖运行资源，检查后才安装到 `assets/` 与 `sources/`。

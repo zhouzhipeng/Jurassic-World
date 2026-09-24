@@ -96,8 +96,13 @@ def coast_edge(x, y):
 def floor_metres(x, y):
     return floor_height(x * 100, -y * 100) / 100
 
-xs = range(-81, 82)
-ys = range(-79, 85)
+def coast_axis(low, high):
+    """Keep the mountain interior light, but resolve the walkable shore at 0.5 m."""
+    return [n / 2 for n in range(low * 2, high * 2 + 1)
+            if abs(n) >= 90 or n % 2 == 0]
+
+xs = coast_axis(-81, 81)
+ys = coast_axis(-79, 84)
 verts = [(x, y, floor_metres(x, y)) for y in ys for x in xs]
 width = len(xs)
 faces = []
@@ -114,8 +119,10 @@ for mat in mats:
     mesh.materials.append(mat)
 for poly in mesh.polygons:
     cell = poly.index // 2
-    x = xs[cell % (width - 1)] + 0.5
-    y = ys[cell // (width - 1)] + 0.5
+    i = cell % (width - 1)
+    j = cell // (width - 1)
+    x = (xs[i] + xs[i + 1]) / 2
+    y = (ys[j] + ys[j + 1]) / 2
     edge = coast_edge(x, y)
     if edge < -2:
         index = 4
@@ -152,6 +159,7 @@ report = {
     "totalTriangles": sum(len(p.vertices) - 2 for p in island.data.polygons),
     "glbBytes": (OUT / "island.glb").stat().st_size,
     "beachWidthMetres": 12,
+    "shoreGridMetres": 0.5,
     "seafloorExtentMetres": [-81, 81, -79, 84],
     "sampleFloorsMetres": {str(e): floor_metres(64 - e, 0) for e in (12, 6, 4, 2, 0, -5, -10, -16)},
     "sceneryComponentsReseated": shifted,

@@ -1,0 +1,27 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 375
+name = "SandFootprints"
+type = "Scene3D::Model3DObject"
+folder = [ "Real-time 3D" ]
+variables = [ ]
+behaviors = [ ]
+effects = [ ]
+
+[content]
+modelResourceName = "sand-footprints.glb"
+width = 55
+height = 70
+depth = 1
+keepAspectRatio = false
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+originLocation = "ModelOrigin"
+centerLocation = "ModelOrigin"
+materialType = "KeepOriginal"
+isCastingShadow = false
+isReceivingShadow = false
+crossfadeDuration = 0.1
+animations = [ ]
+sharedAnimationModelResources = [ ]

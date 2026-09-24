@@ -823,6 +823,13 @@ name = "island.glb"
 userAdded = true
 
 [[resources]]
+file = "assets/models/sand-footprints.glb"
+kind = "model3D"
+metadata = ""
+name = "sand-footprints.glb"
+userAdded = true
+
+[[resources]]
 file = "assets/models/parasaur.glb"
 kind = "model3D"
 metadata = ""
