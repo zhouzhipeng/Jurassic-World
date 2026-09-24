@@ -1,5 +1,0 @@
-kind = "externalEvents"
-settingsFormatVersion = 7
-name = "CameraOcclusion"
-description = "Resolve camera obstructions and apply a clear orbit."
-eventsLogic = "Resolve camera obstructions and apply a clear orbit."

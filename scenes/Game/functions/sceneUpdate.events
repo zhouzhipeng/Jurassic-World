@@ -2544,10 +2544,6 @@ link "SurvivalHUD"
 link "TouchPresentation"
 
 @event
-link "CameraActorBounds"
-
-link "CameraOcclusion"
-
 link "CameraVisibility"
 
 link "FoliageLOD"

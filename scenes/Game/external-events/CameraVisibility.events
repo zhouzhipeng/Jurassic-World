@@ -1,3 +1,506 @@
+@comment "Resolve visibility after all movement, riding, floor and construction updates. Keep the requested orbit separate from collision response." background=[74,176,228] text=[0,0,0]
+
+@event aiGeneratedEventId="camera-bounds-dinosaur3d"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Dinosaur3D
+>> do SetNumberObjectVariable object="Dinosaur3D" variable="CameraBoundsZ" modification_sign="=" value=expr(Dinosaur3D.Object3D::Z())
+>> do SetNumberObjectVariable object="Dinosaur3D" variable="CameraBoundsDepth" modification_sign="=" value=expr(Dinosaur3D.Object3D::Depth())
+
+@event aiGeneratedEventId="camera-bounds-triceratops"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Triceratops
+>> do SetNumberObjectVariable object="Triceratops" variable="CameraBoundsZ" modification_sign="=" value=expr(Triceratops.Object3D::Z())
+>> do SetNumberObjectVariable object="Triceratops" variable="CameraBoundsDepth" modification_sign="=" value=expr(Triceratops.Object3D::Depth())
+
+@event aiGeneratedEventId="camera-bounds-stegosaur"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Stegosaur
+>> do SetNumberObjectVariable object="Stegosaur" variable="CameraBoundsZ" modification_sign="=" value=expr(Stegosaur.Object3D::Z())
+>> do SetNumberObjectVariable object="Stegosaur" variable="CameraBoundsDepth" modification_sign="=" value=expr(Stegosaur.Object3D::Depth())
+
+@event aiGeneratedEventId="camera-bounds-raptor"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Raptor
+>> do SetNumberObjectVariable object="Raptor" variable="CameraBoundsZ" modification_sign="=" value=expr(Raptor.Object3D::Z())
+>> do SetNumberObjectVariable object="Raptor" variable="CameraBoundsDepth" modification_sign="=" value=expr(Raptor.Object3D::Depth())
+
+@event aiGeneratedEventId="camera-bounds-tyrannosaur"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> for each Tyrannosaur
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="CameraBoundsZ" modification_sign="=" value=expr(Tyrannosaur.Object3D::Z())
+>> do SetNumberObjectVariable object="Tyrannosaur" variable="CameraBoundsDepth" modification_sign="=" value=expr(Tyrannosaur.Object3D::Depth())
+
+@event aiGeneratedEventId="camera-resolve-obstructions"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> @js strict=true expanded=false
+const player = runtimeScene.getObjects("Player3D")[0];
+if (player) {
+  const variables = runtimeScene.getVariables();
+  const number = (name = "") => variables.get(name).getAsNumber();
+  const follow = variables.get("CameraFollow");
+  const state = (name = "") => follow.getChild(name).getAsNumber();
+  const dt = Math.min(0.05, runtimeScene.getElapsedTime() / 1000);
+  const previous = number("CameraResolvedDistance");
+  const targetX = player.getX(), targetY = player.getY();
+  const submerged = number("SwimMode") === 2;
+  const targetZ = submerged ? Math.min(-130, number("PlayerFloor") + 65)
+    : 120 + number("PlayerFloor") + number("Riding") * 220;
+  const reset = previous <= 0 || Math.hypot(targetX - state("PlayerX"), targetY - state("PlayerY")) > 600;
+  const blend = 1 - Math.exp(-14 * dt);
+  const x = reset ? targetX : state("X") + (targetX - state("X")) * blend;
+  const y = reset ? targetY : state("Y") + (targetY - state("Y")) * blend;
+  // Height follows the current floor/mount immediately, so the pivot cannot sink below it.
+  const z = targetZ;
+  const yawDelta = ((number("CameraYaw") - state("Yaw") + 540) % 360 + 360) % 360 - 180;
+  const yawDegrees = reset ? number("CameraYaw") : state("Yaw") + yawDelta * (1 - Math.exp(-18 * dt));
+  const yaw = yawDegrees * Math.PI / 180;
+  // Keep the dive lens below the sea surface so the seabed is not hidden by
+  // the water plane. A shorter, nearly level orbit frames the underwater view.
+  const requestedPitch = submerged ? -8 : number("CameraPitch");
+  const requestedDistance = number("SwimMode") > 0
+    ? Math.min(submerged ? 650 : 850, number("CameraDistance"))
+    : number("CameraDistance");
+  // Island3D includes its trees, rocks and camp. Other entries cover dynamic geometry.
+  const names = ["BerryBush", "FiberFern", "WoodSapling", "StoneDeposit",
+    "MetalDeposit", "SpringWater", "CampHearth", "CampForge", "BuiltShelter",
+    "BuiltPalisade", "BuiltCampfire", "PartFoundation", "PartPillar", "PartWall",
+    "PartDoorframe", "PartCeiling", "PartDoor", "PartStairs", "Triceratops",
+    "Stegosaur", "Raptor", "Tyrannosaur"];
+  if (number("Riding") === 0) names.push("Dinosaur3D");
+  const candidates = names.flatMap(name => runtimeScene.getObjects(name));
+  const faded = follow.getChild("Faded");
+  let blockers = candidates.filter(object => object.isVisible() && object.getLayer() === "World3D");
+  blockers = blockers.filter(object => Math.hypot(object.getX() - targetX, object.getY() - targetY)
+    <= requestedDistance + Math.hypot(object.getWidth(), object.getHeight()) + 300);
+  const rightX = Math.cos(yaw), rightY = -Math.sin(yaw);
+  // Conservative XY slab test before entering the mesh raycaster. This does
+  // not approximate hits: it only rejects geometry a ray cannot reach.
+  const intersectsXY = (ox=0, oy=0, dx=0, dy=0, far=0, minX=0, maxX=0, minY=0, maxY=0) => {
+    let enter=0, leave=far;
+    for (const [origin,direction,lower,upper] of [[ox,dx,minX,maxX],[oy,dy,minY,maxY]]) {
+      if (Math.abs(direction)<0.000001) {
+        if (origin<lower || origin>upper) return false;
+      } else {
+        const a=(lower-origin)/direction, b=(upper-origin)/direction;
+        enter=Math.max(enter,Math.min(a,b)); leave=Math.min(leave,Math.max(a,b));
+        if (enter>leave) return false;
+      }
+    }
+    return true;
+  };
+  const castPlants = (ox=0,oy=0,oz=0,dx=0,dy=0,dz=0,far=0,plants=viewFoliage) => {
+    const nearby=plants.filter(object => {
+      const radius=Math.hypot(object.getWidth(),object.getHeight())+30;
+      return intersectsXY(ox,oy,dx,dy,far,object.getX()-radius,object.getX()+radius,object.getY()-radius,object.getY()+radius);
+    });
+    return nearby.length ? gdjs.evtTools.scene3d.raycastObjects(ox,oy,oz,dx,dy,dz,nearby,0,far,true) : [];
+  };
+  // Probe the body corridor, distinguishing nearby waist-high scenery from
+  // obstructions that cover the head or occupy the camera's travel path.
+  const offsets = [[0, 0], [-65, 0], [65, 0], [0, -80], [0, 80],
+    [-65, -80], [65, -80], [-65, 80], [65, 80],
+    [-8, 0], [8, 0], [-8, -80], [8, -80], [-8, 80], [8, 80]];
+  const foliage = ["BerryBush", "FiberFern", "WoodSapling"];
+  let viewFoliage = blockers.filter(object => foliage.includes(object.getName()));
+  // Foliage fades to half opacity, never collision zoom (including prediction).
+  // Cover the whole view corridor so approaching/leaving a bush cannot pump the zoom.
+  // Keep the combined island and solid walls opaque.
+  const obscuring = new Set();
+  const oldPitch = reset ? requestedPitch : number("CameraResolvedPitch");
+  for (const offset of offsets) {
+    if (viewFoliage.length === 0) break;
+    const r = oldPitch * Math.PI / 180;
+    const hits = castPlants(x + rightX * offset[0],
+      y + rightY * offset[0], z + offset[1],
+      Math.sin(yaw) * Math.cos(r), Math.cos(yaw) * Math.cos(r), Math.sin(r), requestedDistance + 30, viewFoliage);
+    for (const hit of hits) {
+      if (foliage.includes(hit.object.getName())) obscuring.add(String(hit.object.getUniqueId()));
+    }
+    // Membership in the union of all probes is enough. Never raycast a plant
+    // again after any probe has already proved that it must fade.
+    viewFoliage = viewFoliage.filter(object => !obscuring.has(String(object.getUniqueId())));
+  }
+  // Restore across all foliage, including plants now outside the search radius.
+  // Harvest visibility belongs to harvesting: the camera never calls hide().
+  for (const object of candidates.filter(object => foliage.includes(object.getName()))) {
+    const key = String(object.getUniqueId());
+    const objectVars = object.getVariables();
+    const base = objectVars.get("CameraBaseOpacity").getAsNumber();
+    const available = object.isVisible() && objectVars.get("Cooldown").getAsNumber() <= 0;
+    if (available && obscuring.has(key)) faded.getChild(key).setNumber(0.45);
+    else if (faded.hasChild(key)) {
+      faded.getChild(key).sub(dt);
+      if (!available || faded.getChild(key).getAsNumber() <= 0) faded.removeChild(key);
+    }
+    const goalOpacity = faded.hasChild(key) ? base * 0.5 : base;
+    const currentOpacity = objectVars.get("CameraOpacity").getAsNumber();
+    const step = base * dt / 0.2;
+    objectVars.get("CameraOpacity").setNumber(!available ? base :
+      currentOpacity + Math.max(-step, Math.min(step, goalOpacity - currentOpacity)));
+  }
+  blockers = blockers.filter(object => object.isVisible() && !foliage.includes(object.getName()));
+  // Island3D is static project scenery. Keep scalar hit distances for identical
+  // rays while its transform and the camera pivot are unchanged. Moving actors
+  // and player-built geometry always use current transforms.
+  // Camera-only conservative bounds for disconnected scenery pieces. Keep
+  // player physics and rendered geometry unchanged; skip distant components.
+  const islandVisible=runtimeScene.getObjects("Island3D").some(object=>object.isVisible());
+  const scenery= islandVisible ? variables.get("CameraSceneryBounds").getAllChildrenArray()
+    .map(row=>row.getAllChildrenArray().map(value=>value.getAsNumber()))
+    .filter(box=>x+requestedDistance+450>=box[0] && x-requestedDistance-450<=box[3] &&
+      y+requestedDistance+450>=box[1] && y-requestedDistance-450<=box[4]) : [];
+  follow.getChild("NearSceneryBoxCount").setNumber(scenery.length);
+  const actorNames = ["Dinosaur3D", "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur"];
+  const liveBlockers = blockers.filter(object => object.getName() !== "Island3D" &&
+    !actorNames.includes(object.getName()));
+  // Camera-only oriented boxes use each prefab's centered XY, bottom-Z bounds.
+  // Rebuild once per frame, so moving, turning, resized and elevated actors stay
+  // current. A small margin covers animation. Avoid hundreds of expensive
+  // skinned-triangle queries during the pitch search; physical collisions and
+  // rendering continue to use the original actors.
+  const actorBounds = blockers.filter(object => actorNames.includes(object.getName())).map(object => {
+    const angle = object.getAngle() * Math.PI / 180;
+    const vars = object.getVariables();
+    return { x: object.getX(), y: object.getY(), z: vars.get("CameraBoundsZ").getAsNumber(),
+      c: Math.cos(angle), s: Math.sin(angle),
+      halfX: object.getWidth() / 2 + 15, halfY: object.getHeight() / 2 + 15,
+      depth: vars.get("CameraBoundsDepth").getAsNumber() + 15 };
+  });
+  const terrainKey = [x,y,z,yaw,requestedDistance,islandVisible].join(":");
+  const terrainCache = follow.getChild("TerrainRayCache");
+  // Exact intersection with the authored 1 m triangular height grid. Traverse
+  // only crossed cells, split at the triangle diagonal, solve each linear
+  // interval, and cache immutable grid vertices across frames.
+  const groundVertices = follow.getChild("GroundVertices");
+  const hills = [[800,-2100,2000,1700,1100],[-2250,600,1100,1700,650],
+    [2350,300,1200,1800,950],[-2050,-2400,1400,1300,1000],
+    [-4200,-4050,2000,2100,2350],[2200,-4450,2600,1600,2800],
+    [4450,1400,1800,2700,1850],[-2900,3950,2500,1500,1250]];
+  const vertexHeight = (ix=0,iy=0) => {
+    const key=ix+":"+iy;
+    if (!groundVertices.hasChild(key)) {
+      const px=ix*100,py=iy*100;
+      let height=0;
+      for (const [hx,hy,rx,ry,a] of hills) {
+        const u=(px-hx)/rx,v=(py-hy)/ry,w=Math.max(0,1-u*u-v*v);
+        height+=a*w*w;
+      }
+      const edge=Math.min(
+        6400-Math.abs(px)+280*Math.sin(py*0.08*Math.PI/180)+160*Math.sin(py*0.21*Math.PI/180),
+        6200-py+250*Math.sin(px*0.09*Math.PI/180)+120*Math.sin(px*0.23*Math.PI/180),
+        6700+py+250*Math.sin(px*0.08*Math.PI/180)+140*Math.sin(px*0.20*Math.PI/180));
+      if (edge<2400) height=height*Math.max(0,Math.min(1,(edge-1200)/1200))
+        -140+140*Math.max(0,Math.min(1,edge/600))+0.16*Math.min(0,edge);
+      groundVertices.getChild(key).setNumber(height);
+    }
+    return groundVertices.getChild(key).getAsNumber();
+  };
+  const groundHeight = (px=0,py=0) => {
+    const ix=Math.floor(px/100),iy=Math.floor(py/100),u=px/100-ix,v=py/100-iy;
+    if (u+v<=1) return vertexHeight(ix,iy)*(1-u-v)+vertexHeight(ix+1,iy)*u+vertexHeight(ix,iy+1)*v;
+    return vertexHeight(ix+1,iy+1)*(u+v-1)+vertexHeight(ix,iy+1)*(1-u)+vertexHeight(ix+1,iy)*(1-v);
+  };
+  const castGround = (ox=0,oy=0,oz=0,dx=0,dy=0,dz=0,far=0) => {
+    if (!islandVisible) return -1;
+    let t=0;
+    for (let cell=0;cell<128 && t<far;cell++) {
+      // Bound all hill contributions over a short ray rectangle. If its
+      // highest possible ground lies below the whole ray, skip those cells.
+      const span=Math.min(far,t+400),ax=ox+dx*t,ay=oy+dy*t,bx=ox+dx*span,by=oy+dy*span;
+      const minX=Math.min(ax,bx)-100,maxX=Math.max(ax,bx)+100,minY=Math.min(ay,by)-100,maxY=Math.max(ay,by)+100;
+      let upper=0;
+      for (const [hx,hy,rx,ry,a] of hills) {
+        const u=Math.max(minX-hx,0,hx-maxX)/rx,v=Math.max(minY-hy,0,hy-maxY)/ry;
+        const w=Math.max(0,1-u*u-v*v);upper+=a*w*w;
+      }
+      if (Math.min(oz+dz*t,oz+dz*span)>upper+.01) {t=span;continue;}
+      const gx=Math.floor((ox+dx*(t+.000001))/100),gy=Math.floor((oy+dy*(t+.000001))/100);
+      const tx=Math.abs(dx)<.0000001 ? far : ((gx+(dx>0?1:0))*100-ox)/dx;
+      const ty=Math.abs(dy)<.0000001 ? far : ((gy+(dy>0?1:0))*100-oy)/dy;
+      let end=Math.min(far,tx,ty);
+      if (Math.abs(dx+dy)>.0000001) {
+        const diagonal=((gx+gy+1)*100-ox-oy)/(dx+dy);
+        if (diagonal>t+.000001 && diagonal<end) end=diagonal;
+      }
+      if (end<=t+.0000001) {t+=.000001;continue;}
+      if (gx>=-64 && gx<64 && gy>=-67 && gy<62) {
+        const a=oz+dz*t-groundHeight(ox+dx*t,oy+dy*t);
+        const b=oz+dz*end-groundHeight(ox+dx*end,oy+dy*end);
+        if (a>=0 && b<=0 && a>b) return t+(end-t)*a/(a-b);
+      }
+      t=end;
+    }
+    return -1;
+  };
+  const stationaryTerrain = follow.getChild("TerrainRayKey").getAsString() === terrainKey;
+  if (!stationaryTerrain) {
+    terrainCache.clearChildren();
+    follow.getChild("TerrainRayKey").setString(terrainKey);
+  }
+  // Moving rays only need a frame-local cache. Avoid constructing and deleting
+  // a tree of scene Variables for every ray on every moving frame. All blockers
+  // are immutable for the duration of this solver, so identical full queries
+  // (including dynamic props and actors) can also be shared within this frame.
+  const solidFrameCache = new Map();
+  const castSolids = (ox = 0, oy = 0, oz = 0, dx = 0, dy = 0, dz = 0, far = 0) => {
+    const key = [ox, oy, oz, dx, dy, dz, far].join(":");
+    if (solidFrameCache.has(key)) return solidFrameCache.get(key);
+    // Reject unreachable props before invoking the scene-graph mesh raycaster.
+    // The full diagonal covers centered and corner origins at any yaw.
+    const reachable = liveBlockers.filter(object => {
+      const radius = Math.hypot(object.getWidth(), object.getHeight()) + 30;
+      return intersectsXY(ox, oy, dx, dy, far, object.getX() - radius,
+        object.getX() + radius, object.getY() - radius, object.getY() + radius);
+    });
+    const distances = reachable.length ? gdjs.evtTools.scene3d.raycastObjects(
+      ox, oy, oz, dx, dy, dz, reachable, 0, far, true).map(hit => hit.distance) : [];
+    for (const box of actorBounds) {
+      const rx = ox - box.x, ry = oy - box.y;
+      const origins = [rx * box.c + ry * box.s, -rx * box.s + ry * box.c, oz - box.z];
+      const directions = [dx * box.c + dy * box.s, -dx * box.s + dy * box.c, dz];
+      const lower = [-box.halfX, -box.halfY, -15];
+      const upper = [box.halfX, box.halfY, box.depth];
+      let enter = 0, leave = far;
+      for (let axis = 0; axis < 3; axis++) {
+        if (Math.abs(directions[axis]) < 0.000001) {
+          if (origins[axis] < lower[axis] || origins[axis] > upper[axis]) { leave = -1; break; }
+        } else {
+          const a = (lower[axis] - origins[axis]) / directions[axis];
+          const b = (upper[axis] - origins[axis]) / directions[axis];
+          enter = Math.max(enter, Math.min(a, b));
+          leave = Math.min(leave, Math.max(a, b));
+          if (enter > leave) break;
+        }
+      }
+      if (enter <= leave) distances.push(enter);
+    }
+    const hasCachedTerrain = stationaryTerrain && terrainCache.hasChild(key);
+    const terrainDistances = hasCachedTerrain
+      ? terrainCache.getChild(key).getAllChildrenArray().map(hit => hit.getAsNumber()) : [];
+    if (!hasCachedTerrain) {
+      const ground=castGround(ox,oy,oz,dx,dy,dz,far);
+      if (ground>=0) {
+        terrainDistances.push(ground);
+        for (const [name,value] of Object.entries({X:ox,Y:oy,Z:oz,DX:dx,DY:dy,DZ:dz,Distance:ground})) {
+          follow.getChild("GroundRay").getChild(name).setNumber(value);
+        }
+      }
+      // Slab intersection avoids per-ray scene graph updates and triangle scans.
+      // Component boxes may retract slightly early near corners, never late.
+      for (const box of scenery) {
+        let enter=0,leave=far;
+        if (Math.abs(dx)<.0000001) {if(ox<box[0] || ox>box[3]) continue;}
+        else {const a=(box[0]-ox)/dx,b=(box[3]-ox)/dx;enter=Math.max(enter,Math.min(a,b));leave=Math.min(leave,Math.max(a,b));if(enter>leave)continue;}
+        if (Math.abs(dy)<.0000001) {if(oy<box[1] || oy>box[4]) continue;}
+        else {const a=(box[1]-oy)/dy,b=(box[4]-oy)/dy;enter=Math.max(enter,Math.min(a,b));leave=Math.min(leave,Math.max(a,b));if(enter>leave)continue;}
+        if (Math.abs(dz)<.0000001) {if(oz<box[2] || oz>box[5]) continue;}
+        else {const a=(box[2]-oz)/dz,b=(box[5]-oz)/dz;enter=Math.max(enter,Math.min(a,b));leave=Math.min(leave,Math.max(a,b));if(enter>leave)continue;}
+        terrainDistances.push(enter);
+      }
+      if (stationaryTerrain) {
+        if (terrainCache.getChildrenCount() >= 256) terrainCache.clearChildren();
+        const cached = terrainCache.getChild(key);
+        for (const hit of terrainDistances) cached.pushValue(hit);
+      }
+    }
+    for (const hit of terrainDistances) distances.push(hit);
+    solidFrameCache.set(key, distances);
+    return distances;
+  };
+  const velocityX = reset ? 0 : Math.max(-650, Math.min(650, (targetX - state("PlayerX")) / Math.max(dt, 0.001)));
+  const velocityY = reset ? 0 : Math.max(-650, Math.min(650, (targetY - state("PlayerY")) / Math.max(dt, 0.001)));
+  const moving = Math.hypot(velocityX, velocityY) > 5;
+  // Prediction must not move the virtual target through a wall the player cannot
+  // enter. Otherwise walking into it retracts an unobstructed camera behind them.
+  const speed = Math.hypot(velocityX, velocityY);
+  let predictionTime = moving ? 0.25 : 0;
+  if (moving) {
+    const hits = castSolids(x, y, z + 80,
+      velocityX / speed, velocityY / speed, 0, speed * predictionTime + 80);
+    for (const distance of hits) predictionTime = Math.min(predictionTime, Math.max(0, (distance - 80) / speed));
+  }
+  const clearanceCache = new Map();
+  const headRoomCache = new Map();
+  // When the head probe starts inside a conservative solid box, every pitch
+  // has a zero-distance hit. This proves the minimum clearance without mesh
+  // raycasts or repeating the terrain search for every candidate angle.
+  const enclosedHeadCache = new Map();
+  const headIsEnclosed = (lookAhead = 0) => {
+    if (enclosedHeadCache.has(lookAhead)) return enclosedHeadCache.get(lookAhead);
+    const hx = x + lookAhead * velocityX, hy = y + lookAhead * velocityY, hz = z + 80;
+    const enclosed = scenery.some(box => hx >= box[0] && hx <= box[3] &&
+      hy >= box[1] && hy <= box[4] && hz >= box[2] && hz <= box[5]) ||
+      actorBounds.some(box => {
+        const rx = hx - box.x, ry = hy - box.y;
+        const bx = rx * box.c + ry * box.s, by = -rx * box.s + ry * box.c;
+        return Math.abs(bx) <= box.halfX && Math.abs(by) <= box.halfY &&
+          hz - box.z >= -15 && hz - box.z <= box.depth;
+      });
+    enclosedHeadCache.set(lookAhead, enclosed);
+    return enclosed;
+  };
+  // Near-wall probes are only needed to classify a close body hit. Defer them
+  // until then, and short-circuit the same center-or-both-sides predicate.
+  const hasHeadRoom = (lookAhead = 0) => {
+    if (headRoomCache.has(lookAhead)) return headRoomCache.get(lookAhead);
+    for (const height of [40, 80]) {
+      const blocked = (side = 0) => castSolids(
+        x + rightX * side + lookAhead * velocityX,
+        y + rightY * side + lookAhead * velocityY, z + height,
+        Math.sin(yaw), Math.cos(yaw), 0, 330).length > 0;
+      if (!(blocked(0) || (blocked(-8) && blocked(8)))) {
+        headRoomCache.set(lookAhead, true);
+        return true;
+      }
+    }
+    headRoomCache.set(lookAhead, false);
+    return false;
+  };
+  const clearance = (pitch = 25, lookAhead = 0, rejectAt = -1) => {
+    lookAhead = Math.min(lookAhead, predictionTime);
+    const key = pitch.toFixed(3) + ":" + lookAhead;
+    if (clearanceCache.has(key)) return clearanceCache.get(key);
+    if (headIsEnclosed(lookAhead)) {
+      clearanceCache.set(key, 10);
+      return 10;
+    }
+    const radians = pitch * Math.PI / 180;
+    const dx = Math.sin(yaw) * Math.cos(radians);
+    const dy = Math.cos(yaw) * Math.cos(radians);
+    const dz = Math.sin(radians);
+    let headClearance = requestedDistance;
+    // Classify the central head first. Every remaining probe can only lower
+    // this upper bound. Candidate angles already unable to beat the best view
+    // need no further rays, especially under a roof. Never cache a partial
+    // result: the actual camera and prediction still require exact clearance.
+    for (const hit of castSolids(x + lookAhead * velocityX,
+      y + lookAhead * velocityY, z + 80, dx, dy, dz, requestedDistance + 30)) {
+      headClearance = Math.min(headClearance, Math.max(10, hit - 30));
+    }
+    let distance = headClearance;
+    if (distance <= 10) {
+      clearanceCache.set(key, distance);
+      return distance;
+    }
+    if (distance <= rejectAt) return distance;
+    for (const offset of offsets) {
+      if (offset[0] === 0 && offset[1] === 80) continue;
+      const hits = castSolids(
+        x + rightX * offset[0] + lookAhead * velocityX,
+        y + rightY * offset[0] + lookAhead * velocityY, z + offset[1],
+        dx, dy, dz, requestedDistance + 30);
+      for (const hit of hits) {
+        // A side probe can originate across an adjacent wall; retracting the
+        // actual camera cannot resolve that offset-only overlap.
+        if (Math.abs(offset[0]) > 8 && hit < 330) continue;
+        // Preserve near-target partial-occlusion classification, now that
+        // the complete head clearance is known before any body probe.
+        if (hit < 330 && headClearance >= 330 && hasHeadRoom(lookAhead)) continue;
+        distance = Math.min(distance, Math.max(10, hit - 30));
+      }
+      if (distance <= rejectAt) return distance;
+    }
+    clearanceCache.set(key, distance);
+    return distance;
+  };
+  let desiredPitch = requestedPitch;
+  let pitchHold = Math.max(0, state("PitchHold") - dt);
+  const requestedClearance = Math.min(clearance(requestedPitch), clearance(requestedPitch, 0.25));
+  // Begin looking over an approaching barrier before it reaches the player.
+  // Waiting until the boom is almost collapsed leaves no time for smooth tilt.
+  if (requestedClearance < 700) {
+    let best = requestedClearance;
+    desiredPitch = requestedPitch;
+    // The previous resolved angle usually still clears the same approaching
+    // slope. Validate it first instead of repeating every lower failed angle.
+    if (oldPitch>requestedPitch+1) {
+      const available=clearance(oldPitch,0,best+20);
+      if (available>best+20) {desiredPitch=oldPitch;best=available;}
+    }
+    for (let step = requestedPitch; best<700 && step < 85; step += 5) {
+      const candidate = Math.min(80, step);
+      const available = clearance(candidate, 0, best + 20);
+      if (available > best + 20) { desiredPitch = candidate; best = available; }
+      if (best >= 700) break;
+    }
+    pitchHold = 0.6;
+  } else if (pitchHold > 0 || requestedClearance < 800) desiredPitch = Math.max(oldPitch, requestedPitch);
+  const pitchStep = Math.max(-22 * dt, Math.min(40 * dt, (desiredPitch - oldPitch) * (1 - Math.exp(-6 * dt))));
+  const pitch = reset ? requestedPitch : oldPitch + pitchStep;
+  const rawClearance = clearance(pitch);
+  // Near-target occlusion must never put the lens inside the character. Keep
+  // usable framing while the orbit rises over the barrier; distant collisions
+  // still retract immediately so the camera cannot cross them.
+  const minimumFraming = Math.min(requestedDistance, 300);
+  const safeDistance = Math.max(minimumFraming, rawClearance);
+  const anticipated = Math.max(minimumFraming, Math.min(rawClearance, clearance(pitch, 0.25)));
+  let zoomHold = Math.max(0, state("ZoomHold") - dt);
+  if (anticipated < previous - 10) zoomHold = 0.25;
+  const goal = anticipated > previous && zoomHold > 0 ? previous : anticipated;
+  // Bound inward travel even when a corner becomes visible after movement has
+  // stopped. Reach the target exactly, avoiding a long tail near a wall.
+  const smoothedDistance = goal < previous ? Math.max(goal, previous - 3600 * dt)
+    : previous + (goal - previous) * (1 - Math.exp(-3 * dt));
+  // Use the scene-wide solid count: entering the broad-phase search radius is
+  // ordinary movement, not newly constructed geometry requiring a hard cut.
+  const solidCount = candidates.filter(object => object.isVisible() &&
+    object.getLayer() === "World3D" && !foliage.includes(object.getName())).length;
+  const newBarrier = solidCount > state("BlockerCount");
+  const distance = reset || newBarrier ? safeDistance : rawClearance < 700
+    ? smoothedDistance : Math.min(safeDistance, smoothedDistance);
+  variables.get("CameraSafeDistance").setNumber(safeDistance);
+  variables.get("CameraResolvedDistance").setNumber(distance);
+  variables.get("CameraResolvedPitch").setNumber(pitch);
+  // Test the final camera, not the requested boom: camera avoidance can already
+  // have cleared a wall. These five body probes also catch partial tree cover.
+  const pitchRadians = pitch * Math.PI / 180;
+  const cameraX = x + Math.sin(yaw) * Math.cos(pitchRadians) * distance;
+  const cameraY = y + Math.cos(yaw) * Math.cos(pitchRadians) * distance;
+  const cameraZ = z + Math.sin(pitchRadians) * distance;
+  const outlinePlants = candidates.filter(object => object.isVisible() &&
+    object.getLayer() === "World3D" && foliage.includes(object.getName()) &&
+    Math.hypot(object.getX() - targetX, object.getY() - targetY) < requestedDistance + 400);
+  let occluded = false;
+  if (player.isVisible() && number("Riding") === 0 && number("SwimMode") === 0) {
+    for (const [side, height] of [[0, 45], [0, 115], [0, 185], [-30, 115], [30, 115]]) {
+      const ox = targetX + rightX * side, oy = targetY + rightY * side;
+      const oz = number("PlayerFloor") + height;
+      const dx = cameraX - ox, dy = cameraY - oy, dz = cameraZ - oz;
+      const length = Math.hypot(dx, dy, dz);
+      if (length <= 8) continue;
+      if (castSolids(ox, oy, oz, dx / length, dy / length, dz / length, length - 5).length ||
+        (outlinePlants.length && castPlants(ox, oy, oz,
+          dx / length, dy / length, dz / length, length - 5, outlinePlants).length)) {
+        occluded = true;
+        break;
+      }
+    }
+  }
+  const playerVariables = player.getVariables();
+  const hold = occluded ? 0.15 : Math.max(0, playerVariables.get("OcclusionHold").getAsNumber() - dt);
+  playerVariables.get("OcclusionHold").setNumber(hold);
+  const amount = playerVariables.get("OcclusionAmount").getAsNumber();
+  playerVariables.get("OcclusionAmount").setNumber(!player.isVisible() || number("Riding") !== 0 || number("SwimMode") !== 0 ? 0 :
+    hold > 0 ? Math.min(1, amount + dt / 0.1) : Math.max(0, amount - dt / 0.2));
+  follow.getChild("X").setNumber(x);
+  follow.getChild("Y").setNumber(y);
+  follow.getChild("Z").setNumber(z);
+  follow.getChild("Yaw").setNumber(yawDegrees);
+  follow.getChild("PlayerX").setNumber(targetX);
+  follow.getChild("PlayerY").setNumber(targetY);
+  follow.getChild("PitchHold").setNumber(pitchHold);
+  follow.getChild("ZoomHold").setNumber(zoomHold);
+  follow.getChild("BlockerCount").setNumber(solidCount);
+}
+> @end js
+
+@event aiGeneratedEventId="camera-apply-clear-orbit"
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do SetCameraCenterX modification_sign="=" value=expr(CameraFollow.X + sin(ToRad(CameraFollow.Yaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do SetCameraCenterY modification_sign="=" value=expr(CameraFollow.Y + cos(ToRad(CameraFollow.Yaw)) * cos(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::SetCameraZ modification_sign="=" value=expr(CameraFollow.Z + sin(ToRad(CameraResolvedPitch)) * CameraResolvedDistance) layer="World3D" camera_number_default_0=0
+do Scene3D::TurnCameraTowardPosition x_position=expr(CameraFollow.X) y_position=expr(CameraFollow.Y) z_position=expr(CameraFollow.Z) layer="World3D" camera_number_default_0=0 stand_on_y_instead_of_z=false
+
 @event aiGeneratedEventId="camera-fade-berrybush"
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 > for each BerryBush
