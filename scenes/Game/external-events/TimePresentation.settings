@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "TimePresentation"
+description = "Render calendar and time status in the scene and HUD."
+eventsLogic = "Render calendar and time status in the scene and HUD."

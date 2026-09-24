@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "SurvivalSmelting"
+description = "Advance forge work and award smelted metal."
+eventsLogic = "Advance forge work and award smelted metal."

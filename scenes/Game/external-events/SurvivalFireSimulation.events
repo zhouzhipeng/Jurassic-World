@@ -1,0 +1,59 @@
+@event
+for each "SurvivalFires"
+> @event
+> if NumberVariable variable="Mode" comparison_sign="=" value=0
+> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> if NumberVariable variable="Dead" comparison_sign="=" value=0
+> if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=0
+> if NumberObjectVariable object="SurvivalFires" variable="Cooking" comparison_sign="=" value=1
+> do SetNumberObjectVariable object="SurvivalFires" variable="CookTime" modification_sign="=" value=expr(max(0,SurvivalFires.Variable(CookTime)-min(TimeDelta(),SurvivalFires.Variable(Fuel))))
+
+> @event
+> if NumberVariable variable="Mode" comparison_sign="=" value=0
+> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> if NumberVariable variable="Dead" comparison_sign="=" value=0
+> if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=0
+> do SetNumberObjectVariable object="SurvivalFires" variable="Fuel" modification_sign="=" value=expr(max(0,SurvivalFires.Variable(Fuel)-TimeDelta()))
+
+> @event
+> if NumberVariable variable="Mode" comparison_sign="=" value=0
+> if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+> if NumberVariable variable="Dead" comparison_sign="=" value=0
+> if NumberObjectVariable object="SurvivalFires" variable="Cooking" comparison_sign="=" value=1
+> if NumberObjectVariable object="SurvivalFires" variable="CookTime" comparison_sign="<=" value=0
+> do SetNumberObjectVariable object="SurvivalFires" variable="Cooking" modification_sign="=" value=0
+> do SetNumberVariable variable="CookedMeat" modification_sign="+" value=1
+> do SetNumberVariable variable="MealsCooked" modification_sign="+" value=1
+> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+> do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=55 pitch_speed=1
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="烤肉完成，已放入背包。按 5 食用。"
+
+> @event
+> if NumberObjectVariable object="SurvivalFires" variable="VisualReady" comparison_sign="=" value=0
+> do Create object_to_create="FireGlow" x_position=expr(SurvivalFires.X()) y_position=expr(SurvivalFires.Y()) layer="World3D"
+> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="FireGlow" behavior="Object3D" modification_sign="=" value=expr(SurvivalFires.Object3D::Z())
+> do SetNumberObjectVariable object="FireGlow" variable="Slot" modification_sign="=" value=expr(SurvivalFires.Variable(Slot))
+> do SetNumberObjectVariable object="SurvivalFires" variable="VisualReady" modification_sign="=" value=1
+
+@event
+for each "FireGlow"
+> @event
+> if NumberVariable variable="Mode" comparison_sign=">=" value=0
+> do SetNumberObjectVariable object="FireGlow" variable="OwnerFound" modification_sign="=" value=0
+> do Hide object="FireGlow"
+
+> @event
+> if NumberObjectVariable object="SurvivalFires" variable="Slot" comparison_sign="=" value=expr(FireGlow.Variable(Slot))
+> do SetNumberObjectVariable object="FireGlow" variable="OwnerFound" modification_sign="=" value=1
+> do SetX object="FireGlow" modification_sign="=" value=expr(SurvivalFires.X())
+> do SetY object="FireGlow" modification_sign="=" value=expr(SurvivalFires.Y())
+> do Scene3D::Base3DBehavior::SetZ parameter_3d_object="FireGlow" behavior="Object3D" modification_sign="=" value=expr(SurvivalFires.Object3D::Z())
+
+> @event
+> if NumberObjectVariable object="SurvivalFires" variable="Slot" comparison_sign="=" value=expr(FireGlow.Variable(Slot))
+> if NumberObjectVariable object="SurvivalFires" variable="Fuel" comparison_sign=">" value=0
+> do Show object="FireGlow"
+
+> @event
+> if NumberObjectVariable object="FireGlow" variable="OwnerFound" comparison_sign="=" value=0
+> do Delete object="FireGlow"

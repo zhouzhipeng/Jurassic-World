@@ -1,5 +1,5 @@
 kind = "externalEvents"
 settingsFormatVersion = 7
 name = "SurvivalSimulation"
-description = "Cooking queues, wetness, cold exposure and finite food/water"
-eventsLogic = "Cooking queues, wetness, cold exposure and finite food/water"
+description = "Advance survivor hunger, water, wetness, body temperature, health, and stamina."
+eventsLogic = "Advance survivor hunger, water, wetness, body temperature, health, and stamina."

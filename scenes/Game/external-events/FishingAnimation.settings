@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "FishingAnimation"
+description = "Update seated player animation for fishing states."
+eventsLogic = "Update seated player animation for fishing states."

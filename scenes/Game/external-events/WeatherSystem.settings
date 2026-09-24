@@ -1,5 +1,5 @@
 kind = "externalEvents"
 settingsFormatVersion = 7
 name = "WeatherSystem"
-description = "Native island weather: 0 clear, 1 cloudy, 2 rain, 3 thunderstorm, 4 fog"
-eventsLogic = "Native island weather: 0 clear, 1 cloudy, 2 rain, 3 thunderstorm, 4 fog. Weather time freezes with gameplay."
+description = "Advance weather state, choose the next spell, and smooth lightning and precipitation."
+eventsLogic = "Advance weather state, choose the next spell, and smooth lightning and precipitation."

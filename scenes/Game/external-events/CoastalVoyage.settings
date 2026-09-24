@@ -1,5 +1,5 @@
 kind = "externalEvents"
 settingsFormatVersion = 7
 name = "CoastalVoyage"
-description = "A rowboat links the eastern beach to a small explorable islet"
-eventsLogic = "A rowboat links the eastern beach to a small explorable islet. F or the context button boards and disembarks."
+description = "Handle boarding, landing, and boat interaction prompts."
+eventsLogic = "Handle boarding, landing, and boat interaction prompts."

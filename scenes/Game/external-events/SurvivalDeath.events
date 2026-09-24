@@ -1,0 +1,9 @@
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Health" comparison_sign="<=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+do SetNumberVariable variable="Dead" modification_sign="=" value=1
+do SetNumberVariable variable="Riding" modification_sign="=" value=0
+do PlaySound audio_file_or_audio_resource_name="death.wav" repeat_the_sound=false volume=55 pitch_speed=1

@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "WeatherPresentation"
+description = "Apply weather and daylight to the scene, draw rain, and mix weather audio."
+eventsLogic = "Apply weather and daylight to the scene, draw rain, and mix weather audio."

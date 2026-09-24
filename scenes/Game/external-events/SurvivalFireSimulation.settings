@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "SurvivalFireSimulation"
+description = "Advance campfire fuel and cooking and synchronize fire glow instances."
+eventsLogic = "Advance campfire fuel and cooking and synchronize fire glow instances."

@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "SurvivalDeath"
+description = "Resolve survivor death after simulation."
+eventsLogic = "Resolve survivor death after simulation."

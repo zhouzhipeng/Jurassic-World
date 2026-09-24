@@ -1,0 +1,19 @@
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="ForgeBusy" comparison_sign="=" value=1
+do SetNumberVariable variable="ForgeTime" modification_sign="=" value=expr(max(0,ForgeTime-TimeDelta()))
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="ForgeBusy" comparison_sign="=" value=1
+if NumberVariable variable="ForgeTime" comparison_sign="<=" value=0
+do SetNumberVariable variable="ForgeBusy" modification_sign="=" value=0
+do SetNumberVariable variable="MetalIngot" modification_sign="+" value=1
+do SetNumberVariable variable="SmeltedMetal" modification_sign="+" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=55 pitch_speed=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="熔炼完成，金属锭 +1。凑齐 3 个后在熔炉旁按 U 升级工具。"

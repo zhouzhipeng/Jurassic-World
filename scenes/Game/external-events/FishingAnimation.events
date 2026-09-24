@@ -1,0 +1,34 @@
+@event aiGeneratedEventId="fishing-cast-animation"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=1
+if NumberVariable variable="FishingClock" comparison_sign=">" value=2.3
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=14
+do SetNumberObjectVariable object="Player3D" variable="FishingRodVisible" modification_sign="=" value=1
+
+@event aiGeneratedEventId="fishing-wait-animation"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=1
+if NumberVariable variable="FishingClock" comparison_sign="<=" value=2.3
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=15
+do SetNumberObjectVariable object="Player3D" variable="FishingRodVisible" modification_sign="=" value=1
+
+@event aiGeneratedEventId="fishing-bite-animation"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=2
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=16
+do SetNumberObjectVariable object="Player3D" variable="FishingRodVisible" modification_sign="=" value=1
+
+@event aiGeneratedEventId="fishing-reel-animation"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Sailing" comparison_sign="=" value=1
+if NumberVariable variable="FishingState" comparison_sign="=" value=3
+if NumberVariable variable="FishingResult" comparison_sign="=" value=1
+do SetNumberObjectVariable object="Player3D" variable="AnimationState" modification_sign="=" value=17
+do SetNumberObjectVariable object="Player3D" variable="FishingRodVisible" modification_sign="=" value=1

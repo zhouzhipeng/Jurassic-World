@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "CoastalIslet"
+description = "Enforce islet boundaries, discovery, and boat restore position."
+eventsLogic = "Enforce islet boundaries, discovery, and boat restore position."

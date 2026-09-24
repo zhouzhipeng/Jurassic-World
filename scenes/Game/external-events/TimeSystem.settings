@@ -1,5 +1,5 @@
 kind = "externalEvents"
 settingsFormatVersion = 7
 name = "TimeSystem"
-description = "Island calendar: one day = DayLengthSeconds real seconds"
-eventsLogic = "Island calendar: one day = DayLengthSeconds real seconds. Run before WeatherSystem so weather and daylight share one environment writer."
+description = "Advance the island calendar and derive solar state."
+eventsLogic = "Advance the island calendar and derive solar state."

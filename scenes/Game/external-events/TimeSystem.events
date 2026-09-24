@@ -37,18 +37,3 @@ do SetStringVariable variable="TimePhase" modification_sign="=" value="夜晚"
 > if NumberVariable variable="WorldMinutes" comparison_sign=">=" value=1020
 > if NumberVariable variable="WorldMinutes" comparison_sign="<" value=1140
 > do SetStringVariable variable="TimePhase" modification_sign="=" value="黄昏"
-
-@event aiGeneratedEventId="time-world-status"
-if NumberVariable variable="WorldDay" comparison_sign=">=" value=1
-do TextContainerCapability::TextContainerBehavior::SetValue object="WorldStatusText" behavior="Text" modification_sign="=" text=expr("第 " + ToString(WorldDay) + " 天   ·   " + TimeDisplay + NewLine() + TimePhase + " · 海岸营地")
-
-@event aiGeneratedEventId="time-hud"
-if NumberVariable variable="RenderMode" comparison_sign="=" value=1
-do Show object="TimePanel"
-do Show object="TimeStatus"
-do TextContainerCapability::TextContainerBehavior::SetValue object="TimeStatus" behavior="Text" modification_sign="=" text=expr("第 " + ToString(WorldDay) + " 天 · " + TimeDisplay + NewLine() + TimePhase + " · F7 +6小时")
-
-@event aiGeneratedEventId="time-reference-mode"
-if NumberVariable variable="RenderMode" comparison_sign="=" value=0
-do Hide object="TimePanel"
-do Hide object="TimeStatus"

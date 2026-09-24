@@ -2411,6 +2411,12 @@ link "ModularConstruction"
 @event
 link "SurvivalSimulation"
 
+link "SurvivalFireSimulation"
+
+link "SurvivalSmelting"
+
+link "SurvivalDeath"
+
 @comment "Player skeletal animation controller" background=[95,155,180] text=[255,255,255]
 
 @event
@@ -2517,8 +2523,12 @@ do SetNumberObjectVariable object="Player3D" variable="AnimationPlaying" modific
 @event
 link "TimeSystem"
 
+link "TimePresentation"
+
 @event
 link "WeatherSystem"
+
+link "WeatherPresentation"
 
 @event
 link "SurvivalRestoreWorld"
@@ -2561,5 +2571,13 @@ link "DistanceVisibility"
 link "HudPresentation"
 
 link "CoastalVoyage"
+
+link "FishingLogic"
+
+link "CoastalBoatMovement"
+
+link "FishingAnimation"
+
+link "CoastalIslet"
 
 link "FishingPresentation"

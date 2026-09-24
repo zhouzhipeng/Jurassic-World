@@ -1,0 +1,40 @@
+@event aiGeneratedEventId="islet-shore-boundary"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),9500,-1000)) comparison_sign=">" second_expression=580
+do SetX object="Player3D" modification_sign="=" value=expr(PreviousX)
+do SetY object="Player3D" modification_sign="=" value=expr(PreviousY)
+
+@event aiGeneratedEventId="islet-discovery"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=1
+if NumberVariable variable="IsletExplored" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),9500,-1000)) comparison_sign="<" second_expression=250
+do SetNumberVariable variable="IsletExplored" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="发现近海小岛的棕榈林！西侧停着小船，可随时返航。"
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+
+@event aiGeneratedEventId="islet-restore-boat"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">" value=8800
+if PosX object="Player3D" comparison_sign="<" value=10100
+if PosY object="Player3D" comparison_sign=">" value=-1600
+if PosY object="Player3D" comparison_sign="<" value=-400
+do SetNumberVariable variable="IsletVisit" modification_sign="=" value=1
+do SetX object="Rowboat" modification_sign="=" value=8700
+do SetY object="Rowboat" modification_sign="=" value=-1000
+
+@event aiGeneratedEventId="boat-restore-at-sea"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+if NumberVariable variable="IsletVisit" comparison_sign="=" value=0
+if PosX object="Player3D" comparison_sign=">" value=5814
+if PosX object="Player3D" comparison_sign="<" value=11000
+if PosY object="Player3D" comparison_sign=">" value=-4500
+if PosY object="Player3D" comparison_sign="<" value=3000
+do SetX object="Rowboat" modification_sign="=" value=expr(Player3D.X())
+do SetY object="Rowboat" modification_sign="=" value=expr(Player3D.Y())
+do SetNumberVariable variable="Sailing" modification_sign="=" value=1
