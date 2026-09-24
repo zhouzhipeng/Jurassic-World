@@ -20,6 +20,18 @@ do SetNumberVariable variable="JumpVelocity" modification_sign="=" value=680
 do SetNumberVariable variable="JumpStartTime" modification_sign="=" value=0.2
 do SetNumberVariable variable="JumpLandTime" modification_sign="=" value=0
 
+@comment "Keep grounded feet on a gently descending surface; larger drops still use gravity." background=[90,150,180] text=[255,255,255]
+
+@event aiGeneratedEventId="follow-gentle-ground-descent"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=0
+if NumberVariable variable="JumpVelocity" comparison_sign="=" value=0
+if NumberVariable variable="PlayerFloor" comparison_sign=">" value=expr(FloorTarget)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(PlayerFloor-FloorTarget) comparison_sign="<=" second_expression=8
+do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=expr(FloorTarget)
+
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1

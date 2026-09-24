@@ -897,6 +897,7 @@ if NumberVariable variable="PreviousX" comparison_sign="!=" value=expr(Player3D.
 or NumberVariable variable="PreviousY" comparison_sign="!=" value=expr(Player3D.Y())
 if NumberVariable variable="StepClock" comparison_sign="<=" value=0
 if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="SwimMode" comparison_sign="=" value=0
 do PlaySound audio_file_or_audio_resource_name="footstep.wav" repeat_the_sound=false volume=28 pitch_speed=1
 do SetNumberVariable variable="StepClock" modification_sign="=" value=expr(0.4 - Player3D.Variable(Sprinting) * 0.13)
 
