@@ -1719,7 +1719,7 @@ for each "Raptor"
 >> if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
 >> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=0
 >> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
->> do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0, Health - 12 + Riding * 6.0))
+>> do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0, Health - 12 + min(Riding,2-Riding) * 6.0))
 >> do SetNumberVariable variable="Invulnerable" modification_sign="=" value=1
 >> do SetNumberVariable variable="HitFlash" modification_sign="=" value=0.35
 >> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
@@ -2157,7 +2157,7 @@ for each "Tyrannosaur"
 >> if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
 >> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=0
 >> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
->> do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0, Health - 24 + Riding * 12.0))
+>> do SetNumberVariable variable="Health" modification_sign="=" value=expr(max(0, Health - 24 + min(Riding,2-Riding) * 12.0))
 >> do SetNumberVariable variable="Invulnerable" modification_sign="=" value=1
 >> do SetNumberVariable variable="HitFlash" modification_sign="=" value=0.35
 >> do SetNumberVariable variable="Dirty" modification_sign="=" value=1
