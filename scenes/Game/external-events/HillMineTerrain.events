@@ -13,7 +13,7 @@ do SetNumberVariable variable="MinePreviousCameraDistance" modification_sign="="
 do SetNumberVariable variable="MinePreviousCameraPitch" modification_sign="=" value=expr(CameraPitch)
 do SetNumberVariable variable="MineInside" modification_sign="=" value=1
 do SetNumberVariable variable="CameraDistance" modification_sign="=" value=230
-do SetNumberVariable variable="CameraPitch" modification_sign="=" value=12
+do SetNumberVariable variable="CameraPitch" modification_sign="=" value=0
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -28,7 +28,7 @@ do SetNumberVariable variable="MinePreviousCameraDistance" modification_sign="="
 do SetNumberVariable variable="MinePreviousCameraPitch" modification_sign="=" value=25
 do SetNumberVariable variable="MineInside" modification_sign="=" value=1
 do SetNumberVariable variable="CameraDistance" modification_sign="=" value=230
-do SetNumberVariable variable="CameraPitch" modification_sign="=" value=12
+do SetNumberVariable variable="CameraPitch" modification_sign="=" value=0
 
 @event
 if NumberVariable variable="MineInside" comparison_sign="=" value=1
