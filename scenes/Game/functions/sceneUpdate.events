@@ -559,6 +559,18 @@ if KeyFromTextPressed key_to_check="LControl"
 or KeyFromTextPressed key_to_check="RControl"
 do SetNumberVariable variable="FlightAltitude" modification_sign="-" value=expr(420*TimeDelta())
 
+@event aiGeneratedEventId="pterosaur-touch-ascend"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+if NumberVariable variable="TouchCommand" comparison_sign="=" value=90
+do SetNumberVariable variable="FlightAltitude" modification_sign="+" value=220
+
+@event aiGeneratedEventId="pterosaur-touch-descend"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+if NumberVariable variable="TouchCommand" comparison_sign="=" value=91
+do SetNumberVariable variable="FlightAltitude" modification_sign="-" value=220
+
 @event aiGeneratedEventId="pterosaur-player-follows"
 if NumberVariable variable="Riding" comparison_sign="=" value=2
 do SetX object="Player3D" modification_sign="=" value=expr(Pterosaur3D.X())

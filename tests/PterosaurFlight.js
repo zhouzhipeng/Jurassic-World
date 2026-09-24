@@ -6,6 +6,16 @@ async function tap(key) {
   finally { harness.releaseAllInputs(); }
   await harness.stepFrames(1);
 }
+async function tapTouch(command) {
+  const button = harness.getObjects('TouchButton').find(o =>
+    Number(harness.getObjectVariable(o.id, 'Active')?.value) === 1 &&
+    Number(harness.getObjectVariable(o.id, 'Command')?.value) === command);
+  if (!button) { harness.fail(`Touch command ${command} is unavailable`); return; }
+  harness.touchStart(71, button.centerX, button.centerY, 'Touch');
+  try { await harness.stepFrames(1); }
+  finally { harness.touchEnd(71); }
+  await harness.stepFrames(3);
+}
 try {
   await harness.goToScene('Game');
   await harness.stepFrames(4);
@@ -51,6 +61,20 @@ try {
   await tap('x');
   harness.assert(n('Riding') === 0 && !obj('Player3D').hidden && obj('PterosaurRider3D').hidden,
     'X dismounts after landing and restores the visible player');
+
+  // The game's mobile context button mounts the same fitted saddle.
+  harness.setSceneVariable('TouchMode', 1);
+  harness.setObjectPosition(obj('Player3D').id, obj('Pterosaur3D').x - 230, obj('Pterosaur3D').y, 0);
+  await harness.stepFrames(4);
+  await tapTouch(306);
+  harness.assert(n('Riding') === 2, 'The contextual touch button mounts the pterosaur');
+  const touchGround = n('FlightAltitude');
+  await tapTouch(90);
+  harness.assert(n('FlightAltitude') > touchGround + 150, 'The touch ascent button lifts the pterosaur');
+  await tapTouch(91);
+  harness.assert(n('FlightAltitude') <= n('TerrainFloor') + 35, 'The touch descent button lands the pterosaur');
+  await tapTouch(307);
+  harness.assert(n('Riding') === 0, 'The contextual touch button dismounts after landing');
 } finally {
   harness.releaseAllInputs();
 }

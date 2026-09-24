@@ -156,6 +156,17 @@ if NumberVariable variable="BuildMode" comparison_sign="=" value=0
 >> do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="伙伴"
 >> do SetStringVariable variable="TouchContextHint" modification_sign="=" value="让三角龙跟随采集，或留在营地"
 
+@event aiGeneratedEventId="pterosaur-touch-mount-context"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if Distance object="Player3D" object_2="Pterosaur3D" distance=440
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Pterosaur3D.Object3D::Z()-PlayerFloor)) comparison_sign="<" second_expression=180
+do SetNumberVariable variable="TouchContext" modification_sign="=" value=6
+do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="骑翼龙"
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value="点一下制作并装上鞍具：4 皮、8 纤维、3 绳索"
+
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
 if NumberVariable variable="Mode" comparison_sign="=" value=0
@@ -177,6 +188,14 @@ if NumberVariable variable="Riding" comparison_sign="=" value=1
 do SetNumberVariable variable="TouchContext" modification_sign="=" value=7
 do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="下坐骑"
 do SetStringVariable variable="TouchContextHint" modification_sign="=" value="拖动摇杆骑行；点「下坐骑」返回地面"
+
+@event aiGeneratedEventId="pterosaur-touch-flight-context"
+if NumberVariable variable="TouchMode" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=2
+do SetNumberVariable variable="TouchContext" modification_sign="=" value=7
+do SetStringVariable variable="TouchContextLabel" modification_sign="=" value="下翼龙"
+do SetStringVariable variable="TouchContextHint" modification_sign="=" value="摇杆控制方向；上升、下降按钮调高度；落地后下鞍"
 
 @event
 if NumberVariable variable="TouchMode" comparison_sign="=" value=1
