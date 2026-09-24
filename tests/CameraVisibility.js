@@ -33,6 +33,8 @@ try {
   }
   await harness.stepFrames(90);
   const wall = harness.spawn('PartWall', 2000, 1950, 100, 'World3D');
+  // The construction prefab owns its height and reapplies BaseZ every frame.
+  harness.setObjectVariable(wall.id, 'BaseZ', 100);
   harness.watch('PartWall');
   harness.watch('Player3D');
   await harness.stepFrames(1);
