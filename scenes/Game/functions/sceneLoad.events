@@ -18,7 +18,7 @@ link "MountainInitialize"
 @event
 if NumberVariable variable="RenderMode" comparison_sign="=" value=1
 if NumberVariable variable="StationIndex" comparison_sign="=" value=0
-do SetX object="Player3D" modification_sign="=" value=5000
+do SetX object="Player3D" modification_sign="=" value=5300
 do SetY object="Player3D" modification_sign="=" value=2500
 do SetAngle object="Player3D" modification_sign="=" angle_in_degrees=-90
 do SetNumberVariable variable="CameraYaw" modification_sign="=" value=-90
