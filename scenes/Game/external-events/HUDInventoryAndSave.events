@@ -181,7 +181,7 @@ do EcrireFichierExp storage_name=expr(SaveStorage) group="Rope" expression=expr(
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.Saddle" expression=expr(PterosaurSaddle)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.X" expression=expr(Pterosaur3D.X())
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.Y" expression=expr(Pterosaur3D.Y())
-do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.Z" expression=expr(Pterosaur3D.Object3D::Z())
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.Z" expression=expr(Pterosaur3D.Object3D::Z()-max(0,Riding-1)*(Pterosaur3D.Object3D::Z()-TerrainFloor))
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Pterosaur.Angle" expression=expr(Pterosaur3D.Angle())
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Built" expression=expr(Built)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="StationIndex" expression=expr(StationIndex)

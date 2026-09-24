@@ -44,6 +44,7 @@ if (player) {
   const targetX = player.getX(), targetY = player.getY();
   const submerged = number("SwimMode") === 2;
   const targetZ = submerged ? Math.min(-130, number("PlayerFloor") + 65)
+    : number("Riding") === 2 ? number("FlightAltitude") + 150
     : 120 + number("PlayerFloor") + number("Riding") * 220;
   const reset = previous <= 0 || Math.hypot(targetX - state("PlayerX"), targetY - state("PlayerY")) > 600;
   const blend = 1 - Math.exp(-14 * dt);
