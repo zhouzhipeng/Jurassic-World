@@ -2560,9 +2560,6 @@ link "SurvivalHUD"
 @event
 link "TouchPresentation"
 
-@event
-link "CameraVisibility"
-
 link "FoliageLOD"
 
 link "MountainFoliage"
@@ -2600,5 +2597,8 @@ link "CoastalBoatMovement"
 link "FishingAnimation"
 
 link "CoastalIslet"
+
+@event
+link "CameraVisibility"
 
 link "FishingPresentation"
