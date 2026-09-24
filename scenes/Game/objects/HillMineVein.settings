@@ -1,0 +1,47 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 380
+assetStoreId = ""
+name = "HillMineVein"
+type = "Scene3D::Model3DObject"
+effects = [ ]
+behaviors = [ ]
+folder = [ "Mine" ]
+
+[[variables]]
+name = "Kind"
+type = "number"
+value = 1
+
+[[variables]]
+name = "SiteId"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Progress"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Cooldown"
+type = "number"
+value = 0
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 125
+height = 105
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "KeepOriginal"
+modelResourceName = "hill-mine-vein.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 150
+sharedAnimationModelResources = [ ]
+animations = [ ]

@@ -10,7 +10,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="ChopLabel" b
 do TextContainerCapability::TextContainerBehavior::SetValue object="DrinkLabel" behavior="Text" modification_sign="=" text="F 饮水 / 装水"
 do TextContainerCapability::TextContainerBehavior::SetValue object="StationLabel" behavior="Text" modification_sign="=" text="Q 切换导航目标"
 do TextContainerCapability::TextContainerBehavior::SetValue object="Controls" behavior="Text" modification_sign="=" text="WASD 移动 · E 采集 · 空格 跳跃 · K 攻击 · X 骑乘 · B 建造 · Q 导航 · J 任务 · Tab 背包 · ESC 菜单"
-do TextContainerCapability::TextContainerBehavior::SetValue object="Weight" behavior="Text" modification_sign="=" text=expr("烤肉 "+ToString(CookedMeat)+" · 矿石 "+ToString(MetalOre)+" · 金属锭 "+ToString(MetalIngot)+" · 储水 "+ToString(CanteenCharges)+"/3")
+do TextContainerCapability::TextContainerBehavior::SetValue object="Weight" behavior="Text" modification_sign="=" text=expr("烤肉 "+ToString(CookedMeat)+" · 矿石 "+ToString(MetalOre)+" · 金属锭 "+ToString(MetalIngot)+" · 稀矿 "+ToString(TitaniumOre+CobaltOre+GoldOre)+" · 水晶 "+ToString(Amethyst+AzureCrystal))
 
 @event
 if NumberVariable variable="BodyTemp" comparison_sign="<" value=35.8
@@ -26,7 +26,7 @@ do SetStringVariable variable="TameAction" modification_sign="=" value="留守"
 
 @event
 if NumberVariable variable="Mode" comparison_sign=">=" value=0
-do TextContainerCapability::TextContainerBehavior::SetValue object="SurvivalStatus" behavior="Text" modification_sign="=" text=expr("体温 "+ToString(round(BodyTemp*10)/10)+"°C · "+ThermalState+NewLine()+"湿度 "+ToString(round(Wetness))+"% · 储水 "+ToString(CanteenCharges)+"/3"+NewLine()+"浆果 "+ToString(Berries)+" · 生肉 "+ToString(Meat)+" · 烤肉 "+ToString(CookedMeat)+NewLine()+"矿石 "+ToString(MetalOre)+" · 金属锭 "+ToString(MetalIngot)+NewLine()+"工具等级 "+ToString(1+MetalTools)+" · 伙伴加成 "+ToString(CompanionBonus*100)+"%")
+do TextContainerCapability::TextContainerBehavior::SetValue object="SurvivalStatus" behavior="Text" modification_sign="=" text=expr("体温 "+ToString(round(BodyTemp*10)/10)+"°C · "+ThermalState+NewLine()+"湿度 "+ToString(round(Wetness))+"% · 储水 "+ToString(CanteenCharges)+"/3"+NewLine()+"浆果 "+ToString(Berries)+" · 生肉 "+ToString(Meat)+" · 烤肉 "+ToString(CookedMeat)+NewLine()+"矿石 "+ToString(MetalOre)+" · 金属锭 "+ToString(MetalIngot)+NewLine()+"钛 "+ToString(TitaniumOre)+" · 钴 "+ToString(CobaltOre)+" · 金 "+ToString(GoldOre)+NewLine()+"紫水晶 "+ToString(Amethyst)+" · 蓝晶石 "+ToString(AzureCrystal)+NewLine()+"工具等级 "+ToString(1+MetalTools)+" · 伙伴加成 "+ToString(CompanionBonus*100)+"%")
 
 @event
 if NumberVariable variable="Mode" comparison_sign="=" value=0

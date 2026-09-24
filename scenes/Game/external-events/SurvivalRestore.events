@@ -12,6 +12,11 @@ do SetNumberVariable variable="WaterVisits" modification_sign="=" value=0
 do SetNumberVariable variable="BerriesEaten" modification_sign="=" value=0
 do SetNumberVariable variable="MeatEaten" modification_sign="=" value=0
 do SetNumberVariable variable="MetalOre" modification_sign="=" value=0
+do SetNumberVariable variable="TitaniumOre" modification_sign="=" value=0
+do SetNumberVariable variable="CobaltOre" modification_sign="=" value=0
+do SetNumberVariable variable="GoldOre" modification_sign="=" value=0
+do SetNumberVariable variable="Amethyst" modification_sign="=" value=0
+do SetNumberVariable variable="AzureCrystal" modification_sign="=" value=0
 do SetNumberVariable variable="MetalIngot" modification_sign="=" value=0
 do SetNumberVariable variable="GatherMetal" modification_sign="=" value=0
 do SetNumberVariable variable="SmeltedMetal" modification_sign="=" value=0
@@ -68,3 +73,12 @@ do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Survival.Health" 
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Survival.PlayerX" variable="SavedPlayerX"
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Survival.PlayerY" variable="SavedPlayerY"
 do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Survival.PlayerZ" variable="SavedPlayerZ"
+
+@event
+if NumberVariable variable="Action" comparison_sign="=" value=10
+if GroupExists storage_name=expr(SaveStorage) group="Mine.Version"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Mine.TitaniumOre" variable="TitaniumOre"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Mine.CobaltOre" variable="CobaltOre"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Mine.GoldOre" variable="GoldOre"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Mine.Amethyst" variable="Amethyst"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="Mine.AzureCrystal" variable="AzureCrystal"

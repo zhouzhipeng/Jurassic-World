@@ -12,6 +12,12 @@ do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.WaterVisits" 
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.BerriesEaten" expression=expr(BerriesEaten)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.MeatEaten" expression=expr(MeatEaten)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.MetalOre" expression=expr(MetalOre)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Mine.TitaniumOre" expression=expr(TitaniumOre)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Mine.CobaltOre" expression=expr(CobaltOre)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Mine.GoldOre" expression=expr(GoldOre)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Mine.Amethyst" expression=expr(Amethyst)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Mine.AzureCrystal" expression=expr(AzureCrystal)
+do EcrireFichierExp storage_name=expr(SaveStorage) group="Mine.Version" expression=1
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.MetalIngot" expression=expr(MetalIngot)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.GatherMetal" expression=expr(GatherMetal)
 do EcrireFichierExp storage_name=expr(SaveStorage) group="Survival.SmeltedMetal" expression=expr(SmeltedMetal)
@@ -58,6 +64,18 @@ if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
 >> @event
 >> if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
 >> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Survival.Ore."+ToString(MetalDeposit.Variable(SiteId))+".Cooldown") expression=expr(MetalDeposit.Variable(Cooldown))
+
+@event
+if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
+> for each HillMineVein
+>> if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Mine.Vein."+ToString(HillMineVein.Variable(SiteId))+".Cooldown") expression=expr(HillMineVein.Variable(Cooldown))
+
+@event
+if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
+> for each HillMineCrystal
+>> if NumberVariable variable="SaveRequested" comparison_sign="=" value=1
+>> do EcrireFichierExp storage_name=expr(SaveStorage) group=expr("Mine.Crystal."+ToString(HillMineCrystal.Variable(SiteId))+".Cooldown") expression=expr(HillMineCrystal.Variable(Cooldown))
 
 @event
 if NumberVariable variable="SaveRequested" comparison_sign="=" value=1

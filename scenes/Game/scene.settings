@@ -2330,6 +2330,36 @@ name = "IsletExplored"
 type = "number"
 value = 0
 
+[[variables]]
+name = "TitaniumOre"
+type = "number"
+value = 0
+
+[[variables]]
+name = "CobaltOre"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GoldOre"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Amethyst"
+type = "number"
+value = 0
+
+[[variables]]
+name = "AzureCrystal"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MineHurtCooldown"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 background = "#72BBDD"

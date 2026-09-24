@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "HillMine"
+description = "West hill gallery mining, rare minerals, and cave wildlife"
+eventsLogic = "Mine vein and crystal interaction, hostile snake and spiders, and cave HUD guidance."

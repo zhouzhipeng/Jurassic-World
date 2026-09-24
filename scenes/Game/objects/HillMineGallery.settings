@@ -1,0 +1,28 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 379
+assetStoreId = ""
+name = "HillMineGallery"
+type = "Scene3D::Model3DObject"
+effects = [ ]
+behaviors = [ ]
+variables = [ ]
+folder = [ "Mine" ]
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 550
+height = 590
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "KeepOriginal"
+modelResourceName = "hill-mine-gallery.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 620
+sharedAnimationModelResources = [ ]
+animations = [ ]

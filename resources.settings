@@ -3,6 +3,41 @@ settingsFormatVersion = 7
 
 [[resources]]
 kind = "model3D"
+name = "hill-mine-gallery.glb"
+file = "assets/models/hill-mine-gallery.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "hill-mine-vein.glb"
+file = "assets/models/hill-mine-vein.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "hill-mine-crystal.glb"
+file = "assets/models/hill-mine-crystal.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "hill-mine-spider.glb"
+file = "assets/models/hill-mine-spider.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
+name = "hill-mine-serpent.glb"
+file = "assets/models/hill-mine-serpent.glb"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "model3D"
 name = "pterosaur.glb"
 file = "assets/models/pterosaur.glb"
 metadata = ""

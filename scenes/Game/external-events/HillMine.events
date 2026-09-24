@@ -1,0 +1,225 @@
+@comment "West hill mine: work the rare seams while watching for cave wildlife" background=[76,90,108] text=[255,255,255]
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if Distance object="Player3D" object_2="HillMineGallery" distance=310
+do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text="西山矿洞 · 沿坡进入 · E 开采稀有金属与水晶 · K 防御洞穴生物"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="MineHurtCooldown" comparison_sign=">" value=0
+do SetNumberVariable variable="MineHurtCooldown" modification_sign="=" value=expr(max(0,MineHurtCooldown-TimeDelta()))
+
+@event
+if NumberObjectVariable object="HillMineVein" variable="Cooldown" comparison_sign=">" value=0
+do SetNumberObjectVariable object="HillMineVein" variable="Cooldown" modification_sign="=" value=expr(max(0,HillMineVein.Variable(Cooldown)-TimeDelta()))
+do Hide object="HillMineVein"
+
+@event
+if NumberObjectVariable object="HillMineVein" variable="Cooldown" comparison_sign="<=" value=0
+do Show object="HillMineVein"
+
+@event
+if NumberObjectVariable object="HillMineCrystal" variable="Cooldown" comparison_sign=">" value=0
+do SetNumberObjectVariable object="HillMineCrystal" variable="Cooldown" modification_sign="=" value=expr(max(0,HillMineCrystal.Variable(Cooldown)-TimeDelta()))
+do Hide object="HillMineCrystal"
+
+@event
+if NumberObjectVariable object="HillMineCrystal" variable="Cooldown" comparison_sign="<=" value=0
+do Show object="HillMineCrystal"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Stamina" comparison_sign=">=" value=4
+if KeyFromTextPressed key_to_check="e"
+or NumberVariable variable="TouchAutoHarvest" comparison_sign="=" value=1
+if PickNearest object="HillMineVein" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if Distance object="Player3D" object_2="HillMineVein" distance=175
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-HillMineVein.Object3D::Z())) comparison_sign="<" second_expression=120
+if NumberObjectVariable object="HillMineVein" variable="Cooldown" comparison_sign="<=" value=0
+do SetNumberObjectVariable object="HillMineVein" variable="Progress" modification_sign="+" value=expr(TimeDelta())
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if PickNearest object="HillMineVein" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if Distance object="Player3D" object_2="HillMineVein" distance=175
+if NumberObjectVariable object="HillMineVein" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("稀有金属矿脉 · 按住 E 开采 "+ToString(min(100,round(HillMineVein.Variable(Progress)/1.6*100)))+"% · 小心蛇与巨蛛")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if PickNearest object="HillMineVein" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if Distance object="Player3D" object_2="HillMineVein" distance=175
+if NumberObjectVariable object="HillMineVein" variable="Cooldown" comparison_sign="<=" value=0
+if NumberObjectVariable object="HillMineVein" variable="Progress" comparison_sign=">=" value=1.6
+if NumberVariable variable="Stamina" comparison_sign=">=" value=4
+do SetNumberObjectVariable object="HillMineVein" variable="Cooldown" modification_sign="=" value=240
+do SetNumberObjectVariable object="HillMineVein" variable="Progress" modification_sign="=" value=0
+do SetNumberVariable variable="Stamina" modification_sign="-" value=4
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
+do Hide object="HillMineVein"
+do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=55 pitch_speed=1
+> @event
+> if NumberObjectVariable object="HillMineVein" variable="Kind" comparison_sign="=" value=1
+> do SetNumberVariable variable="TitaniumOre" modification_sign="+" value=2
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="获得钛矿石 +2。矿脉稍后恢复。"
+> @event
+> if NumberObjectVariable object="HillMineVein" variable="Kind" comparison_sign="=" value=2
+> do SetNumberVariable variable="CobaltOre" modification_sign="+" value=2
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="获得钴矿石 +2。矿脉稍后恢复。"
+> @event
+> if NumberObjectVariable object="HillMineVein" variable="Kind" comparison_sign="=" value=3
+> do SetNumberVariable variable="GoldOre" modification_sign="+" value=1
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="获得金矿石 +1。矿脉稍后恢复。"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Stamina" comparison_sign=">=" value=3
+if KeyFromTextPressed key_to_check="e"
+or NumberVariable variable="TouchAutoHarvest" comparison_sign="=" value=1
+if PickNearest object="HillMineCrystal" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if Distance object="Player3D" object_2="HillMineCrystal" distance=170
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-HillMineCrystal.Object3D::Z())) comparison_sign="<" second_expression=120
+if NumberObjectVariable object="HillMineCrystal" variable="Cooldown" comparison_sign="<=" value=0
+do SetNumberObjectVariable object="HillMineCrystal" variable="Progress" modification_sign="+" value=expr(TimeDelta())
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if PickNearest object="HillMineCrystal" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if Distance object="Player3D" object_2="HillMineCrystal" distance=170
+if NumberObjectVariable object="HillMineCrystal" variable="Cooldown" comparison_sign="<=" value=0
+do TextContainerCapability::TextContainerBehavior::SetValue object="WildHint" behavior="Text" modification_sign="=" text=expr("洞穴水晶 · 按住 E 采集 "+ToString(min(100,round(HillMineCrystal.Variable(Progress)/1.2*100)))+"% · 小心蛇与巨蛛")
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if PickNearest object="HillMineCrystal" x_position=expr(Player3D.X()) y_position=expr(Player3D.Y())
+if Distance object="Player3D" object_2="HillMineCrystal" distance=170
+if NumberObjectVariable object="HillMineCrystal" variable="Cooldown" comparison_sign="<=" value=0
+if NumberObjectVariable object="HillMineCrystal" variable="Progress" comparison_sign=">=" value=1.2
+if NumberVariable variable="Stamina" comparison_sign=">=" value=3
+do SetNumberObjectVariable object="HillMineCrystal" variable="Cooldown" modification_sign="=" value=180
+do SetNumberObjectVariable object="HillMineCrystal" variable="Progress" modification_sign="=" value=0
+do SetNumberVariable variable="Stamina" modification_sign="-" value=3
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=0
+do Hide object="HillMineCrystal"
+do PlaySound audio_file_or_audio_resource_name="harvest.wav" repeat_the_sound=false volume=55 pitch_speed=1.2
+> @event
+> if NumberObjectVariable object="HillMineCrystal" variable="Kind" comparison_sign="=" value=1
+> do SetNumberVariable variable="Amethyst" modification_sign="+" value=2
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="获得紫水晶 +2。"
+> @event
+> if NumberObjectVariable object="HillMineCrystal" variable="Kind" comparison_sign="=" value=2
+> do SetNumberVariable variable="AzureCrystal" modification_sign="+" value=2
+> do SetStringVariable variable="NoticeMessage" modification_sign="=" value="获得蓝晶石 +2。"
+
+@event
+if KeyFromTextReleased key_to_check="e"
+do SetNumberObjectVariable object="HillMineVein" variable="Progress" modification_sign="=" value=0
+do SetNumberObjectVariable object="HillMineCrystal" variable="Progress" modification_sign="=" value=0
+
+@comment "Large spiders and a cave serpent guard the deep seams" background=[113,64,64] text=[255,255,255]
+
+@event
+if NumberObjectVariable object="HillMineSpider" variable="Respawn" comparison_sign=">" value=0
+do SetNumberObjectVariable object="HillMineSpider" variable="Respawn" modification_sign="=" value=expr(max(0,HillMineSpider.Variable(Respawn)-TimeDelta()))
+
+@event
+if NumberObjectVariable object="HillMineSpider" variable="HP" comparison_sign="<=" value=0
+if NumberObjectVariable object="HillMineSpider" variable="Respawn" comparison_sign="=" value=-1
+do SetNumberObjectVariable object="HillMineSpider" variable="Respawn" modification_sign="=" value=180
+do Hide object="HillMineSpider"
+
+@event
+if NumberObjectVariable object="HillMineSpider" variable="HP" comparison_sign="<=" value=0
+if NumberObjectVariable object="HillMineSpider" variable="Respawn" comparison_sign="<=" value=0
+do SetNumberObjectVariable object="HillMineSpider" variable="Respawn" modification_sign="=" value=-1
+do SetNumberObjectVariable object="HillMineSpider" variable="HP" modification_sign="=" value=45
+do Show object="HillMineSpider"
+
+@event
+if NumberObjectVariable object="HillMineSerpent" variable="Respawn" comparison_sign=">" value=0
+do SetNumberObjectVariable object="HillMineSerpent" variable="Respawn" modification_sign="=" value=expr(max(0,HillMineSerpent.Variable(Respawn)-TimeDelta()))
+
+@event
+if NumberObjectVariable object="HillMineSerpent" variable="HP" comparison_sign="<=" value=0
+if NumberObjectVariable object="HillMineSerpent" variable="Respawn" comparison_sign="=" value=-1
+do SetNumberObjectVariable object="HillMineSerpent" variable="Respawn" modification_sign="=" value=180
+do Hide object="HillMineSerpent"
+
+@event
+if NumberObjectVariable object="HillMineSerpent" variable="HP" comparison_sign="<=" value=0
+if NumberObjectVariable object="HillMineSerpent" variable="Respawn" comparison_sign="<=" value=0
+do SetNumberObjectVariable object="HillMineSerpent" variable="Respawn" modification_sign="=" value=-1
+do SetNumberObjectVariable object="HillMineSerpent" variable="HP" modification_sign="=" value=60
+do Show object="HillMineSerpent"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="MineHurtCooldown" comparison_sign="<=" value=0
+if NumberObjectVariable object="HillMineSpider" variable="HP" comparison_sign=">" value=0
+if Distance object="Player3D" object_2="HillMineSpider" distance=115
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-HillMineSpider.Object3D::Z())) comparison_sign="<" second_expression=110
+do SetNumberVariable variable="Health" modification_sign="-" value=8
+do SetNumberVariable variable="MineHurtCooldown" modification_sign="=" value=2
+do SetNumberVariable variable="HitFlash" modification_sign="=" value=0.25
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="巨蛛撕咬！离开洞穴生物的攻击范围。"
+do PlaySound audio_file_or_audio_resource_name="hurt.wav" repeat_the_sound=false volume=60 pitch_speed=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="MineHurtCooldown" comparison_sign="<=" value=0
+if NumberObjectVariable object="HillMineSerpent" variable="HP" comparison_sign=">" value=0
+if Distance object="Player3D" object_2="HillMineSerpent" distance=130
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-HillMineSerpent.Object3D::Z())) comparison_sign="<" second_expression=110
+do SetNumberVariable variable="Health" modification_sign="-" value=12
+do SetNumberVariable variable="MineHurtCooldown" modification_sign="=" value=2.5
+do SetNumberVariable variable="HitFlash" modification_sign="=" value=0.25
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="洞穴蛇咬伤！暂时撤离或用 K 攻击。"
+do PlaySound audio_file_or_audio_resource_name="hurt.wav" repeat_the_sound=false volume=60 pitch_speed=0.9
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="CombatHit" comparison_sign="=" value=1
+if NumberObjectVariable object="HillMineSpider" variable="HP" comparison_sign=">" value=0
+if Distance object="Player3D" object_2="HillMineSpider" distance=210
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-HillMineSpider.Object3D::Z())) comparison_sign="<" second_expression=130
+do SetNumberObjectVariable object="HillMineSpider" variable="HP" modification_sign="-" value=expr(12+min(1,Spear)*23+MetalTools*10)
+do SetNumberVariable variable="CombatHit" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="击中了洞穴巨蛛。"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="CombatHit" comparison_sign="=" value=1
+if NumberObjectVariable object="HillMineSerpent" variable="HP" comparison_sign=">" value=0
+if Distance object="Player3D" object_2="HillMineSerpent" distance=210
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(PlayerFloor-HillMineSerpent.Object3D::Z())) comparison_sign="<" second_expression=130
+do SetNumberObjectVariable object="HillMineSerpent" variable="HP" modification_sign="-" value=expr(12+min(1,Spear)*23+MetalTools*10)
+do SetNumberVariable variable="CombatHit" modification_sign="=" value=0
+do SetStringVariable variable="NoticeMessage" modification_sign="=" value="击中了洞穴蛇。"

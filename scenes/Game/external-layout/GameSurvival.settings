@@ -162,6 +162,72 @@ layer = "world3d"
 at = [4350.0, 1800.0, 1758.5325]
 z_order = 0
 
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000001"
+object = "HillMineGallery"
+layer = "world3d"
+at = [-1750, 600, 409]
+
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000002"
+object = "HillMineVein"
+layer = "world3d"
+at = [-1900, 515, 520]
+
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000003"
+object = "HillMineVein"
+layer = "world3d"
+at = [-2050, 685, 603]
+
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000004"
+object = "HillMineVein"
+layer = "world3d"
+at = [-2180, 505, 640]
+
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000005"
+object = "HillMineVein"
+layer = "world3d"
+at = [-2320, 685, 638]
+
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000006"
+object = "HillMineCrystal"
+layer = "world3d"
+at = [-1960, 690, 551]
+
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000007"
+object = "HillMineCrystal"
+layer = "world3d"
+at = [-2130, 520, 625]
+
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000008"
+object = "HillMineCrystal"
+layer = "world3d"
+at = [-2280, 600, 649]
+
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe000009"
+object = "HillMineSpider"
+layer = "world3d"
+at = [-2010, 550, 585]
+
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe00000a"
+object = "HillMineSpider"
+layer = "world3d"
+at = [-2210, 680, 644]
+
+[[layout.instances]]
+id = "a8b7c1d2-34e5-4fa6-8b72-01cafe00000b"
+object = "HillMineSerpent"
+layer = "world3d"
+at = [-2320, 545, 639]
+
 [[layout.variables]]
 instance = "d0002104-a8e2-4347-ab47-cc684baa8440"
 name = "SiteId"
@@ -233,3 +299,87 @@ instance = "b1383fa9-73fe-4ca3-9e3d-80643d7b33d6"
 name = "SiteId"
 type = "number"
 value = 11
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000002"
+name = "Kind"
+type = "number"
+value = 1
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000002"
+name = "SiteId"
+type = "number"
+value = 0
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000003"
+name = "Kind"
+type = "number"
+value = 2
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000003"
+name = "SiteId"
+type = "number"
+value = 1
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000004"
+name = "Kind"
+type = "number"
+value = 3
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000004"
+name = "SiteId"
+type = "number"
+value = 2
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000005"
+name = "Kind"
+type = "number"
+value = 1
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000005"
+name = "SiteId"
+type = "number"
+value = 3
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000006"
+name = "Kind"
+type = "number"
+value = 1
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000006"
+name = "SiteId"
+type = "number"
+value = 0
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000007"
+name = "Kind"
+type = "number"
+value = 2
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000007"
+name = "SiteId"
+type = "number"
+value = 1
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000008"
+name = "Kind"
+type = "number"
+value = 1
+
+[[layout.variables]]
+instance = "a8b7c1d2-34e5-4fa6-8b72-01cafe000008"
+name = "SiteId"
+type = "number"
+value = 2

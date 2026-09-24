@@ -1,5 +1,7 @@
 # 项目工具
 
+`build_hill_mine.py`：使用 Blender 5.1 后台运行，`--` 后传入绝对临时输出目录。程序化制作西山矿洞通道、稀矿、水晶、巨蛛与洞穴蛇，共五组可编辑 `.blend` 和运行 `.glb`；仅覆盖指定目录内同名文件。检查后将源文件安装到 `sources/models/`，GLB 安装到 `assets/models/`。位置与玩法见 [西山矿洞](../docs/HILL_MINE.md)。
+
 `build_mountain_island.py`：Blender 5.1 后台执行，`--` 后传入绝对输出目录。
 读取 `sources/models/island-expanded-source.blend` 和 `mountain_profile.py`，
 仅向指定目录生成山地 GLB、新 `.blend`、雷达底图和核验清单。保留原始模型源，

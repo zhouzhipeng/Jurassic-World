@@ -1,0 +1,47 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 381
+assetStoreId = ""
+name = "HillMineCrystal"
+type = "Scene3D::Model3DObject"
+effects = [ ]
+behaviors = [ ]
+folder = [ "Mine" ]
+
+[[variables]]
+name = "Kind"
+type = "number"
+value = 1
+
+[[variables]]
+name = "SiteId"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Progress"
+type = "number"
+value = 0
+
+[[variables]]
+name = "Cooldown"
+type = "number"
+value = 0
+
+[content]
+centerLocation = "ModelOrigin"
+crossfadeDuration = 0.1
+depth = 120
+height = 115
+isCastingShadow = true
+isReceivingShadow = true
+keepAspectRatio = true
+materialType = "KeepOriginal"
+modelResourceName = "hill-mine-crystal.glb"
+originLocation = "ModelOrigin"
+rotationX = 90
+rotationY = 0
+rotationZ = 0
+width = 135
+sharedAnimationModelResources = [ ]
+animations = [ ]
