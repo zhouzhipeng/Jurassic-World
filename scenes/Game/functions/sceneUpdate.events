@@ -1658,7 +1658,8 @@ for each "Raptor"
 >> if NumberVariable variable="Dead" comparison_sign="=" value=0
 >> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
 >> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=2
->> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<=" value=expr(255 + Riding * (1-Raptor.Variable(TargetHeyin)) * 420)
+>> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<=" value=expr(255 + min(Riding,2-Riding) * (1-Raptor.Variable(TargetHeyin)) * 420)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.Object3D::Z()-Raptor.Object3D::Z())) comparison_sign="<" second_expression=expr(375)
 >> if NumberObjectVariable object="Raptor" variable="Cooldown" comparison_sign="<=" value=0
 >> do SetNumberObjectVariable object="Raptor" variable="State" modification_sign="=" value=3
 >> do SetNumberObjectVariable object="Raptor" variable="Windup" modification_sign="=" value=0.85
@@ -1713,7 +1714,8 @@ for each "Raptor"
 >> if NumberObjectVariable object="Raptor" variable="HP" comparison_sign=">" value=0
 >> if NumberObjectVariable object="Raptor" variable="State" comparison_sign="=" value=3
 >> if NumberObjectVariable object="Raptor" variable="DamageDone" comparison_sign="=" value=1
->> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<=" value=expr(275 + Riding * (1-Raptor.Variable(TargetHeyin)) * 420)
+>> if NumberObjectVariable object="Raptor" variable="Distance" comparison_sign="<=" value=expr(275 + min(Riding,2-Riding) * (1-Raptor.Variable(TargetHeyin)) * 420)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.Object3D::Z()-Raptor.Object3D::Z())) comparison_sign="<" second_expression=expr(375)
 >> if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
 >> if NumberObjectVariable object="Raptor" variable="TargetHeyin" comparison_sign="=" value=0
 >> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
@@ -2094,7 +2096,8 @@ for each "Tyrannosaur"
 >> if NumberVariable variable="Dead" comparison_sign="=" value=0
 >> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
 >> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=2
->> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<=" value=expr(390 + Riding * (1-Tyrannosaur.Variable(TargetHeyin)) * 420)
+>> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<=" value=expr(390 + min(Riding,2-Riding) * (1-Tyrannosaur.Variable(TargetHeyin)) * 420)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.Object3D::Z()-Tyrannosaur.Object3D::Z())) comparison_sign="<" second_expression=expr(675)
 >> if NumberObjectVariable object="Tyrannosaur" variable="Cooldown" comparison_sign="<=" value=0
 >> do SetNumberObjectVariable object="Tyrannosaur" variable="State" modification_sign="=" value=3
 >> do SetNumberObjectVariable object="Tyrannosaur" variable="Windup" modification_sign="=" value=0.85
@@ -2149,7 +2152,8 @@ for each "Tyrannosaur"
 >> if NumberObjectVariable object="Tyrannosaur" variable="HP" comparison_sign=">" value=0
 >> if NumberObjectVariable object="Tyrannosaur" variable="State" comparison_sign="=" value=3
 >> if NumberObjectVariable object="Tyrannosaur" variable="DamageDone" comparison_sign="=" value=1
->> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<=" value=expr(410 + Riding * (1-Tyrannosaur.Variable(TargetHeyin)) * 420)
+>> if NumberObjectVariable object="Tyrannosaur" variable="Distance" comparison_sign="<=" value=expr(410 + min(Riding,2-Riding) * (1-Tyrannosaur.Variable(TargetHeyin)) * 420)
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(abs(Player3D.Object3D::Z()-Tyrannosaur.Object3D::Z())) comparison_sign="<" second_expression=expr(675)
 >> if NumberVariable variable="Invulnerable" comparison_sign="<=" value=0
 >> if NumberObjectVariable object="Tyrannosaur" variable="TargetHeyin" comparison_sign="=" value=0
 >> if NumberVariable variable="SafeCamp" comparison_sign="=" value=0
