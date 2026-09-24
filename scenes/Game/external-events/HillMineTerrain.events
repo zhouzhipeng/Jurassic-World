@@ -84,3 +84,15 @@ do SetNumberVariable variable="TerrainFloor" modification_sign="=" value=expr(14
 if NumberVariable variable="MineInside" comparison_sign="=" value=1
 if NumberVariable variable="CameraDistance" comparison_sign=">" value=260
 do SetNumberVariable variable="CameraDistance" modification_sign="=" value=260
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=1
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do Hide object="Player3D"
+
+@event
+if NumberVariable variable="MineInside" comparison_sign="=" value=0
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+do Show object="Player3D"
