@@ -985,7 +985,7 @@ do SetNumberObjectVariable object="Player3D" variable="HeldAxeVisible" modificat
 
 @event
 if NumberVariable variable="MusicStarted" comparison_sign="=" value=0
-if NumberVariable variable="Mode" comparison_sign="!=" value=8
+if NumberVariable variable="Mode" comparison_sign="!=" value=11
 if MouseButtonFromTextPressed button_to_check="Left"
 or MouseButtonFromTextPressed button_to_check="Right"
 or KeyFromTextPressed key_to_check="w"
@@ -2799,7 +2799,7 @@ link "FishingPresentation"
 @comment "First-visit story sequence. A user gesture starts narration so browser audio can play." background=[52,91,102] text=[255,255,255]
 
 @event aiGeneratedEventId="intro-start"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="Mode" comparison_sign="=" value=11
 if NumberVariable variable="IntroStep" comparison_sign="=" value=0
 if KeyFromTextReleased key_to_check="Space"
 or KeyFromTextReleased key_to_check="Return"
@@ -2811,7 +2811,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="IntroHint" b
 do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-1.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
 
 @event aiGeneratedEventId="intro-second-line"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="Mode" comparison_sign="=" value=11
 if NumberVariable variable="IntroStep" comparison_sign="=" value=1
 if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=5.1
 do SetNumberVariable variable="IntroStep" modification_sign="=" value=2
@@ -2820,7 +2820,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitl
 do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-2.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
 
 @event aiGeneratedEventId="intro-third-line"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="Mode" comparison_sign="=" value=11
 if NumberVariable variable="IntroStep" comparison_sign="=" value=2
 if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=5.8
 do SetNumberVariable variable="IntroStep" modification_sign="=" value=3
@@ -2829,7 +2829,7 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitl
 do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-3.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
 
 @event aiGeneratedEventId="intro-fourth-line"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="Mode" comparison_sign="=" value=11
 if NumberVariable variable="IntroStep" comparison_sign="=" value=3
 if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=6.1
 do SetNumberVariable variable="IntroStep" modification_sign="=" value=4
@@ -2838,18 +2838,18 @@ do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitl
 do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-4.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
 
 @event aiGeneratedEventId="intro-auto-finish"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="Mode" comparison_sign="=" value=11
 if NumberVariable variable="IntroStep" comparison_sign="=" value=4
 if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=6.4
 do SetNumberVariable variable="IntroStep" modification_sign="=" value=5
 
 @event aiGeneratedEventId="intro-skip"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="Mode" comparison_sign="=" value=11
 if KeyFromTextReleased key_to_check="Escape"
 do SetNumberVariable variable="IntroStep" modification_sign="=" value=5
 
 @event aiGeneratedEventId="intro-close"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="Mode" comparison_sign="=" value=11
 if NumberVariable variable="IntroStep" comparison_sign="=" value=5
 do StopSoundChannel channel_identifier=42
 do EcrireFichierExp storage_name=expr(SaveStorage) group="IntroSeen" expression=1

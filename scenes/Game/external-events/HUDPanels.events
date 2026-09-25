@@ -65,7 +65,7 @@ do HideLayer layer="Title"
 do ShowLayer layer="Photo"
 
 @event aiGeneratedEventId="intro-panel"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="Mode" comparison_sign="=" value=11
 if BuiltinCommonInstructions::Once
 do HideLayer layer="HUD"
 do HideLayer layer="Inventory"
