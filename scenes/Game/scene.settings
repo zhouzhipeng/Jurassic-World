@@ -2248,6 +2248,11 @@ name = "GazeLabel"
 type = "string"
 value = ""
 
+[[variables]]
+name = "GazeDescriptions"
+type = "structure"
+children = [{ name = "BerryBush", type = "string", value = "{{gazeDescriptions.BerryBush}}" }, { name = "FiberFern", type = "string", value = "{{gazeDescriptions.FiberFern}}" }, { name = "WoodSapling", type = "string", value = "{{gazeDescriptions.WoodSapling}}" }, { name = "StoneDeposit", type = "string", value = "{{gazeDescriptions.StoneDeposit}}" }, { name = "MetalDeposit", type = "string", value = "{{gazeDescriptions.MetalDeposit}}" }, { name = "SpringWater", type = "string", value = "{{gazeDescriptions.SpringWater}}" }, { name = "CampForge", type = "string", value = "{{gazeDescriptions.CampForge}}" }, { name = "CampHearth", type = "string", value = "{{gazeDescriptions.CampHearth}}" }, { name = "Rowboat", type = "string", value = "{{gazeDescriptions.Rowboat}}" }, { name = "Dinosaur3D", type = "string", value = "{{gazeDescriptions.Dinosaur3D}}" }, { name = "Triceratops", type = "string", value = "{{gazeDescriptions.Triceratops}}" }, { name = "Stegosaur", type = "string", value = "{{gazeDescriptions.Stegosaur}}" }, { name = "Raptor", type = "string", value = "{{gazeDescriptions.Raptor}}" }, { name = "Tyrannosaur", type = "string", value = "{{gazeDescriptions.Tyrannosaur}}" }, { name = "Pterosaur3D", type = "string", value = "{{gazeDescriptions.Pterosaur3D}}" }]
+
 [objectGroups]
 GazeTargets = [ "BerryBush", "FiberFern", "WoodSapling", "StoneDeposit", "MetalDeposit", "SpringWater", "CampForge", "CampHearth", "Rowboat", "Dinosaur3D", "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur", "Pterosaur3D" ]
 ModularParts = [
