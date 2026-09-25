@@ -1,64 +1,5 @@
 link "FoliageLODRestore"
 
-@comment "First-visit story sequence. A user gesture starts narration so browser audio can play." background=[52,91,102] text=[255,255,255]
-
-@event aiGeneratedEventId="intro-start"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
-if NumberVariable variable="IntroStep" comparison_sign="=" value=0
-if KeyFromTextReleased key_to_check="Space"
-or KeyFromTextReleased key_to_check="Return"
-or HasAnyTouchOrMouseStarted
-do SetNumberVariable variable="IntroStep" modification_sign="=" value=1
-do ResetTimer timer_name="IntroNarration"
-do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitle" behavior="Text" modification_sign="=" text="暴风雨撕裂了船队。醒来时，我已被海浪抛上这座陌生的岛。"
-do TextContainerCapability::TextContainerBehavior::SetValue object="IntroHint" behavior="Text" modification_sign="=" text="ESC 跳过序幕"
-do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-1.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
-
-@event aiGeneratedEventId="intro-second-line"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
-if NumberVariable variable="IntroStep" comparison_sign="=" value=1
-if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=5.1
-do SetNumberVariable variable="IntroStep" modification_sign="=" value=2
-do ResetTimer timer_name="IntroNarration"
-do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitle" behavior="Text" modification_sign="=" text="丛林深处传来从未听过的吼声。这里的主人，是本应消失千万年的恐龙。"
-do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-2.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
-
-@event aiGeneratedEventId="intro-third-line"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
-if NumberVariable variable="IntroStep" comparison_sign="=" value=2
-if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=5.8
-do SetNumberVariable variable="IntroStep" modification_sign="=" value=3
-do ResetTimer timer_name="IntroNarration"
-do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitle" behavior="Text" modification_sign="=" text="废弃营地里，留着失踪者的求救记录。有人还活着，也许就在山脊的另一边。"
-do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-3.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
-
-@event aiGeneratedEventId="intro-fourth-line"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
-if NumberVariable variable="IntroStep" comparison_sign="=" value=3
-if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=6.1
-do SetNumberVariable variable="IntroStep" modification_sign="=" value=4
-do ResetTimer timer_name="IntroNarration"
-do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitle" behavior="Text" modification_sign="=" text="先找到水和庇护所，熬过黑夜。然后循着线索，找到他们，揭开这座岛的秘密。"
-do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-4.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
-
-@event aiGeneratedEventId="intro-auto-finish"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
-if NumberVariable variable="IntroStep" comparison_sign="=" value=4
-if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=6.4
-do SetNumberVariable variable="IntroStep" modification_sign="=" value=5
-
-@event aiGeneratedEventId="intro-skip"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
-if KeyFromTextReleased key_to_check="Escape"
-do SetNumberVariable variable="IntroStep" modification_sign="=" value=5
-
-@event aiGeneratedEventId="intro-close"
-if NumberVariable variable="Mode" comparison_sign="=" value=8
-if NumberVariable variable="IntroStep" comparison_sign="=" value=5
-do StopSoundChannel channel_identifier=42
-do EcrireFichierExp storage_name=expr(SaveStorage) group="IntroSeen" expression=1
-do SetNumberVariable variable="Mode" modification_sign="=" value=0
-
 @event
 link "TouchContext"
 
@@ -2854,3 +2795,62 @@ link "CameraVisibility"
 link "GazeDescription"
 
 link "FishingPresentation"
+
+@comment "First-visit story sequence. A user gesture starts narration so browser audio can play." background=[52,91,102] text=[255,255,255]
+
+@event aiGeneratedEventId="intro-start"
+if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="IntroStep" comparison_sign="=" value=0
+if KeyFromTextReleased key_to_check="Space"
+or KeyFromTextReleased key_to_check="Return"
+or HasAnyTouchOrMouseStarted
+do SetNumberVariable variable="IntroStep" modification_sign="=" value=1
+do ResetTimer timer_name="IntroNarration"
+do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitle" behavior="Text" modification_sign="=" text="暴风雨撕裂了船队。醒来时，我已被海浪抛上这座陌生的岛。"
+do TextContainerCapability::TextContainerBehavior::SetValue object="IntroHint" behavior="Text" modification_sign="=" text="ESC 跳过序幕"
+do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-1.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
+
+@event aiGeneratedEventId="intro-second-line"
+if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="IntroStep" comparison_sign="=" value=1
+if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=5.1
+do SetNumberVariable variable="IntroStep" modification_sign="=" value=2
+do ResetTimer timer_name="IntroNarration"
+do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitle" behavior="Text" modification_sign="=" text="丛林深处传来从未听过的吼声。这里的主人，是本应消失千万年的恐龙。"
+do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-2.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
+
+@event aiGeneratedEventId="intro-third-line"
+if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="IntroStep" comparison_sign="=" value=2
+if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=5.8
+do SetNumberVariable variable="IntroStep" modification_sign="=" value=3
+do ResetTimer timer_name="IntroNarration"
+do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitle" behavior="Text" modification_sign="=" text="废弃营地里，留着失踪者的求救记录。有人还活着，也许就在山脊的另一边。"
+do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-3.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
+
+@event aiGeneratedEventId="intro-fourth-line"
+if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="IntroStep" comparison_sign="=" value=3
+if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=6.1
+do SetNumberVariable variable="IntroStep" modification_sign="=" value=4
+do ResetTimer timer_name="IntroNarration"
+do TextContainerCapability::TextContainerBehavior::SetValue object="IntroSubtitle" behavior="Text" modification_sign="=" text="先找到水和庇护所，熬过黑夜。然后循着线索，找到他们，揭开这座岛的秘密。"
+do PlaySoundOnChannel audio_file_or_audio_resource_name="intro-4.wav" channel_identifier=42 repeat_the_sound=false volume=85 pitch_speed=1
+
+@event aiGeneratedEventId="intro-auto-finish"
+if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="IntroStep" comparison_sign="=" value=4
+if CompareTimer timer_name="IntroNarration" comparison_sign=">=" time_in_seconds=6.4
+do SetNumberVariable variable="IntroStep" modification_sign="=" value=5
+
+@event aiGeneratedEventId="intro-skip"
+if NumberVariable variable="Mode" comparison_sign="=" value=8
+if KeyFromTextReleased key_to_check="Escape"
+do SetNumberVariable variable="IntroStep" modification_sign="=" value=5
+
+@event aiGeneratedEventId="intro-close"
+if NumberVariable variable="Mode" comparison_sign="=" value=8
+if NumberVariable variable="IntroStep" comparison_sign="=" value=5
+do StopSoundChannel channel_identifier=42
+do EcrireFichierExp storage_name=expr(SaveStorage) group="IntroSeen" expression=1
+do SetNumberVariable variable="Mode" modification_sign="=" value=0
