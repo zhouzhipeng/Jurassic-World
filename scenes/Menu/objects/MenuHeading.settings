@@ -1,0 +1,45 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 2
+assetStoreId = ""
+bold = true
+italic = false
+name = "MenuHeading"
+smoothed = true
+type = "TextObject::Text"
+underlined = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+string = "侏罗纪世界"
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 74
+folder = [ "Menu" ]
+
+[color]
+b = 215
+g = 238
+r = 245
+
+[content]
+bold = true
+isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
+text = "侏罗纪世界"
+font = "interface.ttf"
+textAlignment = "left"
+verticalTextAlignment = "top"
+characterSize = 74
+lineHeight = 0
+color = "245;238;215"

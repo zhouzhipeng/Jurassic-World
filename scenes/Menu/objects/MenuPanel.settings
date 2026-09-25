@@ -1,0 +1,28 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 1
+adaptCollisionMaskAutomatically = true
+assetStoreId = ""
+name = "MenuPanel"
+type = "Sprite"
+updateIfNotVisible = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+folder = [ "Menu" ]
+
+[[animations]]
+name = "Default"
+useMultipleDirections = false
+
+[[animations.directions]]
+looping = false
+timeBetweenFrames = 1
+
+[[animations.directions.sprites]]
+hasCustomCollisionMask = false
+image = "main-menu-panel.svg"
+points = [ ]
+originPoint = { name = "Origin", x = 0, y = 0 }
+centerPoint = { automatic = true, name = "Center", x = 0, y = 0 }
+customCollisionMask = [ ]

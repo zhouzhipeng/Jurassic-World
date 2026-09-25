@@ -1,0 +1,88 @@
+kind = "scene"
+settingsFormatVersion = 7
+order = 0
+disableInputWhenNotFocused = false
+mangledName = "Menu"
+name = "Menu"
+standardSortMethod = true
+stopSoundsOnStartup = true
+title = "侏罗纪世界 · 主菜单"
+behaviorsSharedData = [ ]
+
+[[variables]]
+name = "SaveStorage"
+type = "string"
+value = "JurassicWorldDemo"
+
+[layout]
+version = 1
+background = "#081923"
+
+[[layout.layers]]
+id = "base"
+name = ""
+rendering = "2d"
+cameras = [{ size = "default", viewport = "default" }]
+
+[[layout.instances]]
+id = "6badceca-b320-4c8b-8deb-098dd668c5f9"
+object = "MenuBackground"
+layer = "base"
+at = [0, 0]
+z_order = 0
+
+[[layout.instances]]
+id = "74f96780-9bc1-41e1-85a0-8dd6fb06e06c"
+object = "MenuPanel"
+layer = "base"
+at = [85, 55]
+z_order = 1
+
+[[layout.instances]]
+id = "2bbd8bf6-d703-4fce-8773-fa8ef0046c13"
+object = "MenuHeading"
+layer = "base"
+at = [145, 181]
+z_order = 3
+
+[[layout.instances]]
+id = "83ea3c22-2bfe-4c11-b216-0ce1b8c8dce3"
+object = "MenuTagline"
+layer = "base"
+at = [148, 282]
+z_order = 3
+
+[[layout.instances]]
+id = "33fe16b8-c3a6-4781-bafb-34b7142c45e4"
+object = "MenuContinue"
+layer = "base"
+at = [148, 417]
+z_order = 2
+
+[[layout.instances]]
+id = "e4b029c5-cd37-4bec-a06f-4dc8f613fc54"
+object = "MenuContinueLabel"
+layer = "base"
+at = [185, 443]
+z_order = 3
+
+[[layout.instances]]
+id = "6bfa5f3c-a027-4f94-b399-989b45a900a9"
+object = "MenuNew"
+layer = "base"
+at = [148, 535]
+z_order = 2
+
+[[layout.instances]]
+id = "3064ae77-40bf-4e35-8c21-dd68a78605a9"
+object = "MenuNewLabel"
+layer = "base"
+at = [185, 561]
+z_order = 3
+
+[[layout.instances]]
+id = "82f2e7a4-3d52-4ce8-8112-320178d748fb"
+object = "MenuStatus"
+layer = "base"
+at = [148, 742]
+z_order = 3

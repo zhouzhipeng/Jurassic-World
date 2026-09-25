@@ -1,0 +1,45 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 8
+assetStoreId = ""
+bold = false
+italic = false
+name = "MenuStatus"
+smoothed = true
+type = "TextObject::Text"
+underlined = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+string = "当前设备尚无存档，开启新的旅程。"
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 21
+folder = [ "Menu" ]
+
+[color]
+b = 196
+g = 218
+r = 210
+
+[content]
+bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
+text = "当前设备尚无存档，开启新的旅程。"
+font = "interface.ttf"
+textAlignment = "left"
+verticalTextAlignment = "top"
+characterSize = 21
+lineHeight = 0
+color = "210;218;196"

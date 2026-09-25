@@ -48,6 +48,21 @@ else
 do SetNumberVariable variable="Mode" modification_sign="=" value=11
 do SetNumberVariable variable="IntroStep" modification_sign="=" value=0
 
+@event aiGeneratedEventId="menu-start-consume"
+if GroupExists storage_name=expr(SaveStorage) group="MenuStartMode"
+do ReadNumberFromStorage storage_name=expr(SaveStorage) group="MenuStartMode" variable="MenuStartMode"
+do DeleteGroupFichier storage_name=expr(SaveStorage) group="MenuStartMode"
+
+@event aiGeneratedEventId="menu-continue-initial-state"
+if NumberVariable variable="MenuStartMode" comparison_sign="=" value=1
+do SetNumberVariable variable="Mode" modification_sign="=" value=0
+do SetNumberVariable variable="IntroStep" modification_sign="=" value=5
+
+@event aiGeneratedEventId="menu-new-initial-state"
+if NumberVariable variable="MenuStartMode" comparison_sign="=" value=2
+do SetNumberVariable variable="Mode" modification_sign="=" value=11
+do SetNumberVariable variable="IntroStep" modification_sign="=" value=0
+
 @event
 if GroupExists storage_name=expr(SaveStorage) group="Version"
 do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text="Local save available. Choose Load Game."

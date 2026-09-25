@@ -779,6 +779,11 @@ do SetNumberVariable variable="Action" modification_sign="=" value=10
 @event
 link "HUDInventoryAndSave"
 
+@event aiGeneratedEventId="menu-continue-load"
+if NumberVariable variable="MenuStartMode" comparison_sign="=" value=1
+do SetNumberVariable variable="Action" modification_sign="=" value=10
+do SetNumberVariable variable="MenuStartMode" modification_sign="=" value=0
+
 @event
 if NumberVariable variable="Action" comparison_sign="=" value=10
 if GroupExists storage_name=expr(SaveStorage) group="Version"

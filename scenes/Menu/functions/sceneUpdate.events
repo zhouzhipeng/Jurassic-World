@@ -1,0 +1,23 @@
+@event aiGeneratedEventId="menu-continue-click"
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+if IsCursorOnObject object="MenuContinue" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do EcrireFichierExp storage_name=expr(SaveStorage) group="MenuStartMode" expression=1
+do Scene name_of_the_new_scene="Game" stop_any_other_paused_scenes=true
+
+@event aiGeneratedEventId="menu-continue-key"
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+if KeyFromTextReleased key_to_check="Return"
+do EcrireFichierExp storage_name=expr(SaveStorage) group="MenuStartMode" expression=1
+do Scene name_of_the_new_scene="Game" stop_any_other_paused_scenes=true
+
+@event aiGeneratedEventId="menu-new-click"
+if IsCursorOnObject object="MenuNew" accurate_test_yes_by_default=false
+if MouseButtonFromTextReleased button_to_check="Left"
+do EcrireFichierExp storage_name=expr(SaveStorage) group="MenuStartMode" expression=2
+do Scene name_of_the_new_scene="Game" stop_any_other_paused_scenes=true
+
+@event aiGeneratedEventId="menu-new-key"
+if KeyFromTextReleased key_to_check="n"
+do EcrireFichierExp storage_name=expr(SaveStorage) group="MenuStartMode" expression=2
+do Scene name_of_the_new_scene="Game" stop_any_other_paused_scenes=true

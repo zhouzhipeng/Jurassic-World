@@ -147,7 +147,7 @@ if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if IsCursorOnObject object="Title" accurate_test_yes_by_default=false
 if NumberVariable variable="TouchMode" comparison_sign="=" value=0
 if MouseButtonFromTextReleased button_to_check="Left"
-do SetNumberVariable variable="Mode" modification_sign="=" value=4
+do Scene name_of_the_new_scene="Menu" stop_any_other_paused_scenes=true
 
 @event
 if NumberVariable variable="InputMode" comparison_sign="=" value=4

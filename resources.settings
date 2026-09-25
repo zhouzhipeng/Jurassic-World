@@ -3,6 +3,22 @@ settingsFormatVersion = 7
 
 [[resources]]
 kind = "image"
+name = "main-menu-panel.svg"
+file = "assets/ui/main-menu-panel.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
+name = "main-menu-button.svg"
+file = "assets/ui/main-menu-button.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "image"
 name = "intro-island.svg"
 file = "assets/ui/intro-island.svg"
 metadata = ""

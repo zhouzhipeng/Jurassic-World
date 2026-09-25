@@ -1,6 +1,6 @@
 kind = "scene"
 settingsFormatVersion = 7
-order = 0
+order = 1
 disableInputWhenNotFocused = false
 mangledName = "Game"
 name = "Game"
@@ -2458,6 +2458,11 @@ value = 25
 
 [[variables]]
 name = "IntroStep"
+type = "number"
+value = 0
+
+[[variables]]
+name = "MenuStartMode"
 type = "number"
 value = 0
 

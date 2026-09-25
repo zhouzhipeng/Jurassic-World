@@ -1,0 +1,45 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 3
+assetStoreId = ""
+bold = false
+italic = false
+name = "MenuTagline"
+smoothed = true
+type = "TextObject::Text"
+underlined = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+string = "失落之岛  ·  生存与探索"
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 27
+folder = [ "Menu" ]
+
+[color]
+b = 201
+g = 222
+r = 202
+
+[content]
+bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
+text = "失落之岛  ·  生存与探索"
+font = "interface.ttf"
+textAlignment = "left"
+verticalTextAlignment = "top"
+characterSize = 27
+lineHeight = 0
+color = "202;222;201"

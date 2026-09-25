@@ -1,0 +1,10 @@
+@event aiGeneratedEventId="menu-save-available"
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do TextContainerCapability::TextContainerBehavior::SetValue object="MenuStatus" behavior="Text" modification_sign="=" text="已找到本地存档，可以继续上次旅程。"
+
+@event aiGeneratedEventId="menu-no-save"
+@instruction inverted=true
+if GroupExists storage_name=expr(SaveStorage) group="Version"
+do OpacityCapability::OpacityBehavior::SetValue object="MenuContinue" behavior="Opacity" modification_sign="=" opacity_0_255=100
+do TextObject::ChangeColor object="MenuContinueLabel" color="164;179;166"
+do TextContainerCapability::TextContainerBehavior::SetValue object="MenuStatus" behavior="Text" modification_sign="=" text="当前设备尚无存档，请开启新的旅程。"
