@@ -242,3 +242,79 @@ do SetNumberVariable variable="TouchMoveId" modification_sign="=" value=expr(-99
 do SetNumberVariable variable="TouchLookId" modification_sign="=" value=expr(-999)
 do SetNumberVariable variable="TouchAutoHarvest" modification_sign="=" value=expr(0)
 do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：你来了。我们先照顾好彼此，再去找家人的踪迹，好吗？"
+
+@comment "The two bubble answers accept a click or the matching number key." background=[90,150,120] text=[255,255,255]
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="HeyinNear" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(HeyinBubble.Variable(Shown)) comparison_sign="=" second_expression=1
+if KeyFromTextReleased key_to_check="Num1"
+do SetNumberVariable variable="HeyinChoice" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="HeyinNear" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(HeyinBubble.Variable(Shown)) comparison_sign="=" second_expression=1
+if KeyFromTextReleased key_to_check="Num2"
+do SetNumberVariable variable="HeyinChoice" modification_sign="=" value=2
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="HeyinNear" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(HeyinBubble.Variable(Shown)) comparison_sign="=" second_expression=1
+if HasAnyTouchOrMouseStarted
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchX(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign=">=" second_expression=expr(HeyinOption1.X()-10)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchX(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign="<=" second_expression=expr(HeyinBubble.Variable(X)+HeyinBubble.Variable(W)/2-5)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchY(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign=">=" second_expression=expr(HeyinOption1.Y()-8)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchY(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign="<=" second_expression=expr(HeyinOption1.Y()+30)
+do SetNumberVariable variable="HeyinChoice" modification_sign="=" value=1
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="HeyinNear" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(HeyinBubble.Variable(Shown)) comparison_sign="=" second_expression=1
+if HasAnyTouchOrMouseStarted
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchX(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign=">=" second_expression=expr(HeyinBubble.Variable(X)+HeyinBubble.Variable(W)/2+5)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchX(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign="<=" second_expression=expr(HeyinBubble.Variable(X)+HeyinBubble.Variable(W))
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchY(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign=">=" second_expression=expr(HeyinOption2.Y()-8)
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(TouchY(StartedTouchOrMouseId(0),"Performance",0)) comparison_sign="<=" second_expression=expr(HeyinOption2.Y()+30)
+do SetNumberVariable variable="HeyinChoice" modification_sign="=" value=2
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="HeyinStage" comparison_sign="<=" value=1
+if NumberVariable variable="HeyinChoice" comparison_sign="=" value=1
+do SetNumberVariable variable="HeyinAidRequest" modification_sign="=" value=1
+do SetNumberVariable variable="HeyinChoice" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="HeyinStage" comparison_sign="<=" value=1
+if NumberVariable variable="HeyinChoice" comparison_sign="=" value=2
+do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：好，我会在这里等你。请小心那些捕食者。"
+do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=12
+do SetNumberVariable variable="HeyinChoice" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="HeyinStage" comparison_sign="=" value=3
+if NumberObjectVariable object="Heyin" variable="Promise" comparison_sign="=" value=0
+if NumberVariable variable="HeyinChoice" comparison_sign="=" value=1
+do SetNumberObjectVariable object="Heyin" variable="Stay" modification_sign="=" value=0
+do SetNumberObjectVariable object="Heyin" variable="Promise" modification_sign="=" value=1
+do SetNumberObjectVariable object="Heyin" variable="Trust" modification_sign="=" value=expr(min(100,Heyin.Variable(Trust)+15))
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：好！我们一起去东边清泉，看看母亲留下的结绳。"
+do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=12
+do SetNumberVariable variable="HeyinChoice" modification_sign="=" value=0
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="HeyinStage" comparison_sign="=" value=3
+if NumberObjectVariable object="Heyin" variable="Promise" comparison_sign="=" value=0
+if NumberVariable variable="HeyinChoice" comparison_sign="=" value=2
+do SetNumberObjectVariable object="Heyin" variable="Stay" modification_sign="=" value=1
+do SetNumberVariable variable="Dirty" modification_sign="=" value=1
+do SetStringVariable variable="HeyinMessage" modification_sign="=" value="禾音：好，我先在营地等你。准备好了，再叫我同行。"
+do SetNumberVariable variable="HeyinMessageTime" modification_sign="=" value=12
+do SetNumberVariable variable="HeyinChoice" modification_sign="=" value=0

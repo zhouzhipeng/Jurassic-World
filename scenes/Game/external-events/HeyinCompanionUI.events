@@ -165,3 +165,41 @@ do SetX object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowWid
 do SetY object="HeyinTalkButton" modification_sign="=" value=expr(SceneWindowHeight()-18)
 do TextObject::Text::SetFontSize object="HeyinTalkButton" modification_sign="=" value=11
 
+@comment "Answer buttons follow the visible companion speech bubble and share its screen coordinates." background=[90,150,120] text=[255,255,255]
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="HeyinNear" comparison_sign="=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(HeyinBubble.Variable(Shown)) comparison_sign="=" second_expression=1
+if NumberVariable variable="HeyinStage" comparison_sign="<=" value=1
+or NumberVariable variable="HeyinStage" comparison_sign="=" value=3
+if NumberObjectVariable object="Heyin" variable="Promise" comparison_sign="=" value=0
+do PrimitiveDrawing::FillOpacity shape_painter_object="HeyinBubble" modification_sign="=" opacity_0_255=245
+do PrimitiveDrawing::FillColor shape_painter_object="HeyinBubble" fill_color="255;250;231"
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinBubble" left_x_position=expr(HeyinBubble.Variable(X)) top_y_position=expr(min(SceneWindowHeight()-78,HeyinBubble.Variable(Y)+HeyinBubble.Variable(H)+20)) right_x_position=expr(HeyinBubble.Variable(X)+HeyinBubble.Variable(W)/2-5) bottom_y_position=expr(min(SceneWindowHeight()-78,HeyinBubble.Variable(Y)+HeyinBubble.Variable(H)+20)+38) radius_in_pixels=8
+do PrimitiveDrawing::RoundedRectangle shape_painter_object="HeyinBubble" left_x_position=expr(HeyinBubble.Variable(X)+HeyinBubble.Variable(W)/2+5) top_y_position=expr(min(SceneWindowHeight()-78,HeyinBubble.Variable(Y)+HeyinBubble.Variable(H)+20)) right_x_position=expr(HeyinBubble.Variable(X)+HeyinBubble.Variable(W)) bottom_y_position=expr(min(SceneWindowHeight()-78,HeyinBubble.Variable(Y)+HeyinBubble.Variable(H)+20)+38) radius_in_pixels=8
+do SetX object="HeyinOption1" modification_sign="=" value=expr(HeyinBubble.Variable(X)+10)
+do SetY object="HeyinOption1" modification_sign="=" value=expr(min(SceneWindowHeight()-78,HeyinBubble.Variable(Y)+HeyinBubble.Variable(H)+20)+8)
+do TextObject::Text::SetFontSize object="HeyinOption1" modification_sign="=" value=expr(15)
+do Show object="HeyinOption1"
+do SetX object="HeyinOption2" modification_sign="=" value=expr(HeyinBubble.Variable(X)+HeyinBubble.Variable(W)/2+15)
+do SetY object="HeyinOption2" modification_sign="=" value=expr(min(SceneWindowHeight()-78,HeyinBubble.Variable(Y)+HeyinBubble.Variable(H)+20)+8)
+do TextObject::Text::SetFontSize object="HeyinOption2" modification_sign="=" value=expr(15)
+do Show object="HeyinOption2"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="HeyinStage" comparison_sign="<=" value=1
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(HeyinBubble.Variable(Shown)) comparison_sign="=" second_expression=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption1" behavior="Text" modification_sign="=" text="1  我来帮你"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption2" behavior="Text" modification_sign="=" text="2  稍后再来"
+
+@event
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="HeyinStage" comparison_sign="=" value=3
+if NumberObjectVariable object="Heyin" variable="Promise" comparison_sign="=" value=0
+if BuiltinCommonInstructions::CompareNumbers first_expression=expr(HeyinBubble.Variable(Shown)) comparison_sign="=" second_expression=1
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption1" behavior="Text" modification_sign="=" text="1  好，我们出发"
+do TextContainerCapability::TextContainerBehavior::SetValue object="HeyinOption2" behavior="Text" modification_sign="=" text="2  先在这里等我"
+
