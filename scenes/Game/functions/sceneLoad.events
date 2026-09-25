@@ -42,7 +42,7 @@ do ResetTimer timer_name="survival"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
 @event aiGeneratedEventId="intro-first-visit"
-if GroupExists storage_name=expr(SaveStorage) group="IntroSeen"
+if GroupExists storage_name=expr(SaveStorage) group="IntroSeenV2"
 do SetNumberVariable variable="IntroStep" modification_sign="=" value=5
 else
 do SetNumberVariable variable="Mode" modification_sign="=" value=11

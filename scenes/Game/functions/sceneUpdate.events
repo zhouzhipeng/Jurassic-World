@@ -2852,5 +2852,5 @@ do SetNumberVariable variable="IntroStep" modification_sign="=" value=5
 if NumberVariable variable="Mode" comparison_sign="=" value=11
 if NumberVariable variable="IntroStep" comparison_sign="=" value=5
 do StopSoundChannel channel_identifier=42
-do EcrireFichierExp storage_name=expr(SaveStorage) group="IntroSeen" expression=1
+do EcrireFichierExp storage_name=expr(SaveStorage) group="IntroSeenV2" expression=1
 do SetNumberVariable variable="Mode" modification_sign="=" value=0
