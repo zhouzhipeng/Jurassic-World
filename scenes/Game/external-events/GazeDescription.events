@@ -79,18 +79,6 @@ if NumberVariable variable="Sailing" comparison_sign="=" value=0
 > if StringVariable variable="GazeName" comparison_sign="=" value="Pterosaur3D"
 > do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("翼龙"+NewLine()+"装上鞍具后可以飞越海岸与山脊。")
 
-> if StringVariable variable="GazeName" comparison_sign="=" value="HillMineVein"
-> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("矿脉"+NewLine()+"山洞里的矿石，可采集稀有材料。")
-
-> if StringVariable variable="GazeName" comparison_sign="=" value="HillMineCrystal"
-> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("矿晶"+NewLine()+"洞内闪亮的结晶。")
-
-> if StringVariable variable="GazeName" comparison_sign="=" value="HillMineSpider"
-> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("洞穴蜘蛛"+NewLine()+"潜伏在矿洞中的危险生物。")
-
-> if StringVariable variable="GazeName" comparison_sign="=" value="HillMineSerpent"
-> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("洞穴蛇"+NewLine()+"小心它的突然袭击。")
-
 > if NumberVariable variable="GazeBest" comparison_sign="<" value=1.1
 > if StringVariable variable="GazeName" comparison_sign="!=" value=""
 > do TextContainerCapability::TextContainerBehavior::SetValue object="GazeDescription" behavior="Text" modification_sign="=" text=expr(GazeLabel)

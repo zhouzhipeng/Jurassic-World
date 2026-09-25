@@ -41,5 +41,5 @@ font = "interface.ttf"
 textAlignment = "center"
 verticalTextAlignment = "top"
 characterSize = 20
-lineHeight = 4
+lineHeight = 0
 color = "255;249;238"

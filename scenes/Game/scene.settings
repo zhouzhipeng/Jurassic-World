@@ -2249,7 +2249,7 @@ type = "string"
 value = ""
 
 [objectGroups]
-GazeTargets = [ "BerryBush", "FiberFern", "WoodSapling", "StoneDeposit", "MetalDeposit", "SpringWater", "CampForge", "CampHearth", "Rowboat", "Dinosaur3D", "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur", "Pterosaur3D", "HillMineVein", "HillMineCrystal", "HillMineSpider", "HillMineSerpent" ]
+GazeTargets = [ "BerryBush", "FiberFern", "WoodSapling", "StoneDeposit", "MetalDeposit", "SpringWater", "CampForge", "CampHearth", "Rowboat", "Dinosaur3D", "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur", "Pterosaur3D" ]
 ModularParts = [
 "PartFoundation",
 "PartPillar",
