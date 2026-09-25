@@ -1,0 +1,99 @@
+@comment "Look at a nearby 3D object to read its description above the object." background=[74,176,228] text=[0,0,0]
+
+@event aiGeneratedEventId="gaze-description-clear"
+if NumberVariable variable="Mode" comparison_sign=">=" value=0
+do Hide object="GazeDescription"
+do SetNumberVariable variable="GazeBest" modification_sign="=" value=100
+do SetStringVariable variable="GazeName" modification_sign="=" value=""
+
+@event aiGeneratedEventId="gaze-description-select"
+if NumberVariable variable="Mode" comparison_sign="=" value=0
+if NumberVariable variable="RenderMode" comparison_sign="=" value=1
+if NumberVariable variable="Dead" comparison_sign="=" value=0
+if NumberVariable variable="BuildMode" comparison_sign="=" value=0
+if NumberVariable variable="Riding" comparison_sign="=" value=0
+if NumberVariable variable="Sailing" comparison_sign="=" value=0
+> for each "GazeTargets"
+>> if Visible object="GazeTargets"
+>> if BuiltinCommonInstructions::CompareNumbers first_expression=expr(DistanceBetweenPositions(Player3D.X(),Player3D.Y(),GazeTargets.X(),GazeTargets.Y())) comparison_sign="<" second_expression=1400
+>> do SetNumberVariable variable="GazeDX" modification_sign="=" value=expr(GazeTargets.X()-CameraX("World3D",0))
+>> do SetNumberVariable variable="GazeDY" modification_sign="=" value=expr(GazeTargets.Y()-CameraY("World3D",0))
+>> do SetNumberVariable variable="GazeDZ" modification_sign="=" value=expr(GazeTargets.Object3D::Z()+GazeTargets.Object3D::Depth()*0.5-Scene3D::CameraZ("World3D",0))
+>> do SetNumberVariable variable="GazeForward" modification_sign="=" value=expr(GazeDX*Scene3D::CameraForwardX("World3D",0)+GazeDY*Scene3D::CameraForwardY("World3D",0)+GazeDZ*Scene3D::CameraForwardZ("World3D",0))
+>>> if NumberVariable variable="GazeForward" comparison_sign=">" value=30
+>>> do SetNumberVariable variable="GazeRight" modification_sign="=" value=expr(GazeDX*Scene3D::CameraRightX("World3D",0)+GazeDY*Scene3D::CameraRightY("World3D",0)+GazeDZ*Scene3D::CameraRightZ("World3D",0))
+>>> do SetNumberVariable variable="GazeUp" modification_sign="=" value=expr(GazeDX*Scene3D::CameraUpX("World3D",0)+GazeDY*Scene3D::CameraUpY("World3D",0)+GazeDZ*Scene3D::CameraUpZ("World3D",0))
+>>> do SetNumberVariable variable="GazeFocal" modification_sign="=" value=expr(SceneWindowHeight()/2/tan(ToRad(Scene3D::CameraFov("World3D",0)/2)))
+>>> do SetNumberVariable variable="GazeScreenX" modification_sign="=" value=expr(SceneWindowWidth()/2+GazeRight*GazeFocal/GazeForward)
+>>> do SetNumberVariable variable="GazeScreenY" modification_sign="=" value=expr(SceneWindowHeight()/2-GazeUp*GazeFocal/GazeForward)
+>>> do SetNumberVariable variable="GazeScore" modification_sign="=" value=expr(abs(GazeScreenX-SceneWindowWidth()/2)/150+abs(GazeScreenY-SceneWindowHeight()*0.38)/120)
+>>>> if NumberVariable variable="GazeScore" comparison_sign="<" value=1.1
+>>>> if NumberVariable variable="GazeScore" comparison_sign="<" value=expr(GazeBest)
+>>>> do SetNumberVariable variable="GazeBest" modification_sign="=" value=expr(GazeScore)
+>>>> do SetStringVariable variable="GazeName" modification_sign="=" value=expr(GazeTargets.ObjectName())
+>>>> do SetNumberVariable variable="GazeAnchorX" modification_sign="=" value=expr(GazeScreenX)
+>>>> do SetNumberVariable variable="GazeAnchorY" modification_sign="=" value=expr(GazeScreenY-max(42,GazeTargets.Object3D::Depth()*GazeFocal/GazeForward*0.35))
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="BerryBush"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("浆果灌木"+NewLine()+"成熟的果实可以采集充饥。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="FiberFern"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("纤维蕨"+NewLine()+"叶茎可编成绳索和工具。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="WoodSapling"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("小树"+NewLine()+"砍伐后获得建造用木材。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="StoneDeposit"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("石块"+NewLine()+"采掘石材，用于工具与建筑。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="MetalDeposit"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("金属矿脉"+NewLine()+"开采矿石，再到熔炉冶炼。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="SpringWater"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("清泉"+NewLine()+"干净的淡水，可饮用或装入水袋。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="CampForge"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("营地工作台"+NewLine()+"制作工具、修复熔炉和加工物资。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="CampHearth"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("营地篝火"+NewLine()+"添柴取暖，也能烹饪食物。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="Rowboat"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("划艇"+NewLine()+"乘船探索近海，停船后可钓鱼。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="Dinosaur3D"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("副栉龙"+NewLine()+"温顺的食草恐龙，建立信任后可骑乘。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="Triceratops"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("三角龙"+NewLine()+"结伴后会跟随你采集资源。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="Stegosaur"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("剑龙"+NewLine()+"背上的骨板让它十分醒目。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="Raptor"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("迅猛龙"+NewLine()+"危险的捕食者，注意保持距离。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="Tyrannosaur"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("霸王龙"+NewLine()+"岛上最危险的掠食者之一。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="Pterosaur3D"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("翼龙"+NewLine()+"装上鞍具后可以飞越海岸与山脊。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="HillMineVein"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("矿脉"+NewLine()+"山洞里的矿石，可采集稀有材料。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="HillMineCrystal"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("矿晶"+NewLine()+"洞内闪亮的结晶。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="HillMineSpider"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("洞穴蜘蛛"+NewLine()+"潜伏在矿洞中的危险生物。")
+
+> if StringVariable variable="GazeName" comparison_sign="=" value="HillMineSerpent"
+> do SetStringVariable variable="GazeLabel" modification_sign="=" value=expr("洞穴蛇"+NewLine()+"小心它的突然袭击。")
+
+> if NumberVariable variable="GazeBest" comparison_sign="<" value=1.1
+> if StringVariable variable="GazeName" comparison_sign="!=" value=""
+> do TextContainerCapability::TextContainerBehavior::SetValue object="GazeDescription" behavior="Text" modification_sign="=" text=expr(GazeLabel)
+> do SetX object="GazeDescription" modification_sign="=" value=expr(clamp(GazeAnchorX-GazeDescription.Width()/2,16,SceneWindowWidth()-GazeDescription.Width()-16))
+> do SetY object="GazeDescription" modification_sign="=" value=expr(clamp(GazeAnchorY-GazeDescription.Height()-20,68,SceneWindowHeight()-GazeDescription.Height()-16))
+> do Show object="GazeDescription"

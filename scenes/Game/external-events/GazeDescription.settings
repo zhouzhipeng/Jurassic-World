@@ -1,0 +1,5 @@
+kind = "externalEvents"
+settingsFormatVersion = 7
+name = "GazeDescription"
+description = "Show a short description above the world object the player is looking at."
+eventsLogic = "Project nearby inspectable 3D objects into the camera, select the one nearest the gaze area, and place its caption above it."

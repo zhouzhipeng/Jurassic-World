@@ -1,0 +1,45 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 384
+assetStoreId = ""
+bold = true
+italic = false
+name = "GazeDescription"
+smoothed = true
+type = "TextObject::Text"
+underlined = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+string = ""
+font = "interface.ttf"
+textAlignment = "center"
+characterSize = 20
+folder = [ "UI", "Touch" ]
+
+[color]
+b = 238
+g = 249
+r = 255
+
+[content]
+bold = true
+isOutlineEnabled = true
+isShadowEnabled = true
+italic = false
+outlineColor = "19;45;40"
+outlineThickness = 5
+shadowAngle = 90
+shadowBlurRadius = 3
+shadowColor = "0;0;0"
+shadowDistance = 2
+shadowOpacity = 180
+smoothed = true
+underlined = false
+text = ""
+font = "interface.ttf"
+textAlignment = "center"
+verticalTextAlignment = "top"
+characterSize = 20
+lineHeight = 4
+color = "255;249;238"

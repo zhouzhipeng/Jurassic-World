@@ -2791,4 +2791,6 @@ do Scene3D::Base3DBehavior::SetZ parameter_3d_object="PterosaurRider3D" behavior
 @event
 link "CameraVisibility"
 
+link "GazeDescription"
+
 link "FishingPresentation"

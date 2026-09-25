@@ -2173,7 +2173,83 @@ name = "CameraSceneryBounds"
 type = "string"
 value = "{{camera.sceneryBounds}}"
 
+[[variables]]
+name = "GazeBest"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeDX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeDY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeDZ"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeForward"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeRight"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeUp"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeFocal"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeScreenX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeScreenY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeScore"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeAnchorX"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeAnchorY"
+type = "number"
+value = 0
+
+[[variables]]
+name = "GazeName"
+type = "string"
+value = ""
+
+[[variables]]
+name = "GazeLabel"
+type = "string"
+value = ""
+
 [objectGroups]
+GazeTargets = [ "BerryBush", "FiberFern", "WoodSapling", "StoneDeposit", "MetalDeposit", "SpringWater", "CampForge", "CampHearth", "Rowboat", "Dinosaur3D", "Triceratops", "Stegosaur", "Raptor", "Tyrannosaur", "Pterosaur3D", "HillMineVein", "HillMineCrystal", "HillMineSpider", "HillMineSerpent" ]
 ModularParts = [
 "PartFoundation",
 "PartPillar",
@@ -3976,3 +4052,10 @@ id = "b34cffba-098c-4139-9057-259b55ff3691"
 object = "PterosaurRider3D"
 layer = "world3d"
 at = [4950, 2720, 200]
+
+[[layout.instances]]
+id = "3bd2bb0c-f4b3-45aa-95c4-7cc4475c43fb"
+object = "GazeDescription"
+layer = "performance"
+at = [0, 0]
+z_order = 120
