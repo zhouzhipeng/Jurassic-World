@@ -2456,6 +2456,11 @@ name = "MinePreviousCameraPitch"
 type = "number"
 value = 25
 
+[[variables]]
+name = "IntroStep"
+type = "number"
+value = 0
+
 [layout]
 version = 1
 background = "#72BBDD"
@@ -2560,6 +2565,13 @@ cameras = [{ size = "default", viewport = "default" }]
 id = "performance"
 name = "Performance"
 rendering = "2d"
+cameras = [{ size = "default", viewport = "default" }]
+
+[[layout.layers]]
+id = "intro"
+name = "Intro"
+rendering = "2d"
+visible = false
 cameras = [{ size = "default", viewport = "default" }]
 
 [[layout.effects]]
@@ -4064,3 +4076,31 @@ object = "GazeDescription"
 layer = "performance"
 at = [0, 0]
 z_order = 120
+
+[[layout.instances]]
+id = "66132633-362e-4b0c-b8a4-0f8e9e041bbd"
+object = "IntroBackdrop"
+layer = "intro"
+at = [0, 0]
+z_order = 0
+
+[[layout.instances]]
+id = "b10b34db-8e53-49aa-89f7-6ed80521eac2"
+object = "IntroHeading"
+layer = "intro"
+at = [104, 134]
+z_order = 10
+
+[[layout.instances]]
+id = "cd018f39-3a79-4bad-a05a-6363a9867fa9"
+object = "IntroSubtitle"
+layer = "intro"
+at = [104, 757]
+z_order = 10
+
+[[layout.instances]]
+id = "56e12b11-fd73-41dd-ad80-9b52fd9d65c9"
+object = "IntroHint"
+layer = "intro"
+at = [104, 831]
+z_order = 10

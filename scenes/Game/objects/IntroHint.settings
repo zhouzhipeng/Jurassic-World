@@ -1,0 +1,45 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 388
+assetStoreId = ""
+bold = false
+italic = false
+name = "IntroHint"
+smoothed = true
+type = "TextObject::Text"
+underlined = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+string = "点击或按空格，开始序幕"
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 21
+folder = [ "UI", "Intro" ]
+
+[color]
+b = 185
+g = 202
+r = 218
+
+[content]
+bold = false
+isOutlineEnabled = false
+isShadowEnabled = false
+italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 2
+shadowColor = "0;0;0"
+shadowDistance = 4
+shadowOpacity = 127
+smoothed = true
+underlined = false
+text = "点击或按空格，开始序幕"
+font = "interface.ttf"
+textAlignment = "left"
+verticalTextAlignment = "top"
+characterSize = 21
+lineHeight = 0
+color = "218;202;185"

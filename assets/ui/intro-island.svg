@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#07131e"/><stop offset=".57" stop-color="#24454b"/><stop offset="1" stop-color="#8a7154"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#d9b879" stop-opacity=".55"/><stop offset="1" stop-color="#d9b879" stop-opacity="0"/></radialGradient>
+    <linearGradient id="sea" x2="0" y2="1"><stop stop-color="#203e45"/><stop offset="1" stop-color="#071923"/></linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <ellipse cx="1180" cy="350" rx="370" ry="300" fill="url(#glow)"/>
+  <path d="M0 520 105 490 180 501 255 432 312 451 390 363 481 417 556 332 635 412 715 395 800 448 900 420 1010 473 1100 434 1195 480 1310 462 1455 505 1600 480V900H0Z" fill="#1b3438"/>
+  <path d="M0 568 153 518 277 561 394 506 517 542 620 478 755 547 853 515 953 550 1050 500 1155 549 1254 502 1373 541 1490 504 1600 550V900H0Z" fill="#0b252c"/>
+  <path d="M0 612Q370 575 790 612T1600 600V900H0Z" fill="url(#sea)"/>
+  <path d="M0 630q240-24 480 0t480-4 640 10M0 710q260-29 570 2t500-5 530 7" fill="none" stroke="#8ca9a2" stroke-opacity=".2" stroke-width="3"/>
+  <path d="M952 563q18-56 53-67l41-15 53-5 39-22 40 6-23 17-35 13-23 25 6 42 40 39-12 10-49-32-27-34-47 2-13 36-24 19-29-4 28-31 3-39-35-2-43 28-49 6-3-11 49-18 35-35z" fill="#071b20"/>
+  <path d="M1129 472 1160 446 1162 429 1146 424 1163 421 1180 433 1175 452Z" fill="#071b20"/>
+  <path d="M1013 575q-23 41-25 80l-18 29 12 8 30-35 24-47m88-5q20 26 26 70l23 22 12-8-19-31-7-56" fill="#071b20"/>
+  <path d="M142 523 164 413 168 354m0 59q-54-45-90-40m90 12q41-61 96-70m-94 140q-48-39-94-36m101-9q42-46 91-42M1441 521l-7-136-3-72m3 68q-43-39-93-37m94 8q44-42 92-44" fill="none" stroke="#071b20" stroke-width="12" stroke-linecap="round"/>
+  <rect y="720" width="1600" height="180" fill="#06141c" fill-opacity=".77"/>
+  <rect y="0" width="1600" height="115" fill="#06141c" fill-opacity=".4"/>
+  <g stroke="#c7d4c9" stroke-opacity=".13" stroke-width="2"><path d="m220 65-45 140m250-90-45 140m390-205-45 140m300-60-45 140m300-180-45 140m-925 180-45 140m770-160-45 140m320-110-45 140"/></g>
+</svg>

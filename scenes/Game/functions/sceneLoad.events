@@ -41,6 +41,13 @@ do SetNumberVariable variable="PlayerFloor" modification_sign="=" value=0
 do ResetTimer timer_name="survival"
 do SetNumberVariable variable="Dirty" modification_sign="=" value=1
 
+@event aiGeneratedEventId="intro-first-visit"
+if GroupExists storage_name=expr(SaveStorage) group="IntroSeen"
+do SetNumberVariable variable="IntroStep" modification_sign="=" value=5
+else
+do SetNumberVariable variable="Mode" modification_sign="=" value=8
+do SetNumberVariable variable="IntroStep" modification_sign="=" value=0
+
 @event
 if GroupExists storage_name=expr(SaveStorage) group="Version"
 do TextContainerCapability::TextContainerBehavior::SetValue object="SaveStatus" behavior="Text" modification_sign="=" text="Local save available. Choose Load Game."

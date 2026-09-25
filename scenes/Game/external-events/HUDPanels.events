@@ -2,6 +2,7 @@
 if NumberVariable variable="Mode" comparison_sign="=" value=0
 if BuiltinCommonInstructions::Once
 do ShowLayer layer="HUD"
+do HideLayer layer="Intro"
 do HideLayer layer="Inventory"
 do HideLayer layer="Pause"
 do HideLayer layer="Settings"
@@ -62,6 +63,18 @@ do HideLayer layer="Pause"
 do HideLayer layer="Settings"
 do HideLayer layer="Title"
 do ShowLayer layer="Photo"
+
+@event aiGeneratedEventId="intro-panel"
+if NumberVariable variable="Mode" comparison_sign="=" value=8
+if BuiltinCommonInstructions::Once
+do HideLayer layer="HUD"
+do HideLayer layer="Inventory"
+do HideLayer layer="Pause"
+do HideLayer layer="Settings"
+do HideLayer layer="Title"
+do HideLayer layer="Photo"
+do HideLayer layer="Quests"
+do ShowLayer layer="Intro"
 
 @event
 if NumberVariable variable="StationIndex" comparison_sign="=" value=0

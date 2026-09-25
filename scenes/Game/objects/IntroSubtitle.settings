@@ -1,0 +1,45 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 387
+assetStoreId = ""
+bold = false
+italic = false
+name = "IntroSubtitle"
+smoothed = true
+type = "TextObject::Text"
+underlined = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+string = "暴风雨过后，我醒在一座陌生的岛上。"
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 31
+folder = [ "UI", "Intro" ]
+
+[color]
+b = 238
+g = 245
+r = 248
+
+[content]
+bold = false
+isOutlineEnabled = false
+isShadowEnabled = true
+italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 4
+shadowColor = "0;0;0"
+shadowDistance = 3
+shadowOpacity = 190
+smoothed = true
+underlined = false
+text = "暴风雨过后，我醒在一座陌生的岛上。"
+font = "interface.ttf"
+textAlignment = "left"
+verticalTextAlignment = "top"
+characterSize = 31
+lineHeight = 0
+color = "248;245;238"

@@ -2,6 +2,42 @@ kind = "resources"
 settingsFormatVersion = 7
 
 [[resources]]
+kind = "image"
+name = "intro-island.svg"
+file = "assets/ui/intro-island.svg"
+metadata = ""
+smoothed = true
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "intro-1.wav"
+file = "assets/audio/intro/intro-1.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "intro-2.wav"
+file = "assets/audio/intro/intro-2.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "intro-3.wav"
+file = "assets/audio/intro/intro-3.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
+kind = "audio"
+name = "intro-4.wav"
+file = "assets/audio/intro/intro-4.wav"
+metadata = ""
+userAdded = true
+
+[[resources]]
 kind = "model3D"
 name = "hill-mine-gallery.glb"
 file = "assets/models/hill-mine-gallery.glb"

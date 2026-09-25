@@ -1,0 +1,45 @@
+kind = "object"
+settingsFormatVersion = 7
+order = 386
+assetStoreId = ""
+bold = true
+italic = false
+name = "IntroHeading"
+smoothed = true
+type = "TextObject::Text"
+underlined = false
+variables = [ ]
+effects = [ ]
+behaviors = [ ]
+string = "序章 · 失落之岛"
+font = "interface.ttf"
+textAlignment = "left"
+characterSize = 46
+folder = [ "UI", "Intro" ]
+
+[color]
+b = 218
+g = 240
+r = 242
+
+[content]
+bold = true
+isOutlineEnabled = false
+isShadowEnabled = true
+italic = false
+outlineColor = "255;255;255"
+outlineThickness = 2
+shadowAngle = 90
+shadowBlurRadius = 4
+shadowColor = "0;0;0"
+shadowDistance = 3
+shadowOpacity = 180
+smoothed = true
+underlined = false
+text = "序章 · 失落之岛"
+font = "interface.ttf"
+textAlignment = "left"
+verticalTextAlignment = "top"
+characterSize = 46
+lineHeight = 0
+color = "242;240;218"
